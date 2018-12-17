@@ -1,0 +1,3 @@
+Name: soliloquy/specs/
+Specification-Title: Soliloquy Specifications
+Specification-Version: 0.0.1
