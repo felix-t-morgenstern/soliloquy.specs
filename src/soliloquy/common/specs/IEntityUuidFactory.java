@@ -26,5 +26,5 @@ public interface IEntityUuidFactory {
 	/**
 	 * Creates a new, random (and thus globally unique) EntityUuid
 	 */
-	IEntityUuid createRandomUuid();
+	IEntityUuid createRandomEntityUuid();
 }
