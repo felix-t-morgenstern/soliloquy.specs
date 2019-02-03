@@ -1,6 +1,6 @@
 package soliloquy.gamestate.specs;
 
-import soliloquy.common.specs.IPersistentVariableTypeCaches;
+import soliloquy.common.specs.IPersistentVariableCache;
 import soliloquy.common.specs.ISoliloquyClass;
 
 /**
@@ -24,7 +24,7 @@ public interface IGameState extends ISoliloquyClass {
 	/**
 	 * @return The caches of persistent variables for the Game (i.e. variables keeping track of in-Game events, e.g. quests, party choices, etc.)
 	 */
-	IPersistentVariableTypeCaches gameStatePVars();
+	IPersistentVariableCache gameStatePVars();
 	
 	/**
 	 * @return A repository which can retrieve GameZones

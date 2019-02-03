@@ -13,14 +13,16 @@ package soliloquy.common.specs;
  */
 public interface IGenericParamsSet extends IReads, IWrites, ICloneable<IGenericParamsSet> {
 	/**
+	 * Adds a parameter with a non-null value. (If you want to add a parameter with a null value, use addParam(String name, T value, T archetype) instead.) 
 	 * @param name - The name of the new parameter to add
 	 * @param value - The (non-null) value of the new parameter to add
-	 * @throws IllegalArgumentException If a param of the same name and value already exists, or if value is null
+	 * @throws IllegalArgumentException If a param of the same name and value already exists, or if value is null 
      * @param <T> The type of the new parameter to be added
 	 */
 	<T> void addParam(String name, T value) throws IllegalArgumentException;
 	
 	/**
+	 * Adds a parameter with a nullable value.
 	 * @param name - The name of the new parameter to add
 	 * @param value - The value of the new parameter to add (which can be null)
 	 * @param archetype - The archetype of the value to add
@@ -49,12 +51,11 @@ public interface IGenericParamsSet extends IReads, IWrites, ICloneable<IGenericP
 	
 	/**
 	 * @param paramTypeName - The name of the type of paramsSet to retrieve
-	 * @param exemplar - An example of the type of object whose params set to return
 	 * @return A named Map of parameters of the specified type (returns null if no such set exists within this GenericParamsSet)
 	 * @throws IllegalArgumentException If paramTypeName is blank or null, or if exemplar is null
      * @param <T> The type of the paramsSet to be returned
 	 */
-	<T> IMap<String,T> getParamsSet(String paramTypeName, T exemplar) throws IllegalArgumentException;
+	<T> IMap<String,T> getParamsSet(String paramTypeName) throws IllegalArgumentException;
 	
 	/**
 	 * @param paramTypeName - The name of the type of the parameter to be checked
@@ -72,9 +73,7 @@ public interface IGenericParamsSet extends IReads, IWrites, ICloneable<IGenericP
 	/**
 	 * @param paramTypeName - The name of the type of the parameter to be checked
 	 * @param paramName - The name of the parameter to be removed
-	 * @param exemplar - An example of the type of parameter to remove
 	 * @return True, if and only if the parameter was removed
-     * @param <T> The type of the parameter to remove
 	 */
-	<T> boolean removeParam(String paramTypeName, String paramName, T exemplar);
+	boolean removeParam(String paramTypeName, String paramName);
 }

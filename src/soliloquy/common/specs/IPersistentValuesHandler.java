@@ -3,7 +3,7 @@ package soliloquy.common.specs;
 /**
  * <b>PersistentValuesHandler</b>
  * <p>
- * This class takes string representations of persistent values, and transforms them into the proper values; and vice-versa.
+ * This class takes string representations of persistent values (e.g. JSON), and transforms them into persistent values of the proper type in Java; and vice-versa.
  * <p>
  * This class contains PersistentValueTypeHandlers, which translate specific string representations of values to the actual value and vice-versa. If you want to process a type which is not yet available in the PersistentValuesHandler, you will have to create a PersistentValueTypeHandler for that type, and register it with this class.
  * 
@@ -14,11 +14,10 @@ package soliloquy.common.specs;
 public interface IPersistentValuesHandler {
 	/**
 	 * (NB: You can technically have multiple String identifiers of a specific type; this may not be the best design.)
-	 * @param persistentValueType - The String representation of the type of the PersistentValueTypeHandler to be added
 	 * @param persistentValueTypeHandler - The PersistenValueTypeHandler to be added
 	 * @throws IllegalArgumentException If persistentValueType of persistentValueTypeHandler is null
 	 */
-	void addPersistentValueTypeHandler(String persistentValueType, IPersistentValueTypeHandler<?> persistentValueTypeHandler) throws IllegalArgumentException;
+	void addPersistentValueTypeHandler(IPersistentValueTypeHandler<?> persistentValueTypeHandler) throws IllegalArgumentException;
 	
 	/**
 	 * @param persistentValueType - The String representation of the type of the PersistentValueTypeHandler to remove

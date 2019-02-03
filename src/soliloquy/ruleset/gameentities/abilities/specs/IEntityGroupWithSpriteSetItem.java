@@ -1,22 +1,34 @@
-package soliloquy.common.specs;
+package soliloquy.ruleset.gameentities.abilities.specs;
+
+import soliloquy.common.specs.ISoliloquyClass;
 
 /**
- * <b>EntityGroupItem</b>
+ * <b>EntityGroupWithSpriteSetItem</b>
  * <p>
- * It is an item in an EntityGroup, which is either an Entity, or a subgrouping--i.e. another EntityGroup.
+ * (This interface is analogous to {@link soliloquy.common.specs.IEntityGroupItem}, with the difference being that if the GroupItem is a Group, it returns an {@link soliloquy.ruleset.gameentities.abilities.specs.IEntityGroupWithSpriteSet} instead of an {@link soliloquy.common.specs.IEntityGroup}.)
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  * @param <Entity> The type of Entity being grouped
  */
-public interface IEntityGroupItem<Entity> extends IHasOneGenericParam<Entity>, ISoliloquyClass {
+public interface IEntityGroupWithSpriteSetItem<Entity> extends ISoliloquyClass {
 	// NB: There MUST be an invariant that ONLY
 	//     one or the other of these should return
 	//     an object.
 	// NB: There should also be an invariant that
 	//     'order' values within a Group should be
 	//     unique.
+	
+	/**
+	 * @return The order of this entity or subgrouping within the EntityGroup
+	 */
+	int getOrder();
+	
+	/**
+	 * @param order - The order to set for this entity or subgrouping within the EntityGroup
+	 */
+	void setOrder(int order);
 	
 	/**
 	 * @return True, if and only if this EntityGroupItem is a subgrouping, and not an Entity
@@ -29,13 +41,13 @@ public interface IEntityGroupItem<Entity> extends IHasOneGenericParam<Entity>, I
 	 * @throws IllegalArgumentException If the group provided is illegal, e.g. if it is a duplicate, if it is null, if it is empty, etc.
 	 * @throws UnsupportedOperationException If either the EntityGroup or Entity for this EntityGroupItem has been initialized
 	 */
-	void initializeGroup(IEntityGroup<Entity> group) throws IllegalArgumentException, UnsupportedOperationException;
+	void initializeGroup(IEntityGroupWithSpriteSet<Entity> group) throws IllegalArgumentException, UnsupportedOperationException;
 
 	/**
 	 * @return The actual value of this EntityGroupItem, i.e., an EntityGroup subgrouping
 	 * @throws UnsupportedOperationException If this EntityGroupItem is not a subgrouping, i.e. an EntityGroup
 	 */
-	IEntityGroup<Entity> group() throws UnsupportedOperationException;
+	IEntityGroupWithSpriteSet<Entity> group() throws UnsupportedOperationException;
 	
 	/**
 	 * Initializes the actual value of this EntityGroupItem; in this case, an Entity
