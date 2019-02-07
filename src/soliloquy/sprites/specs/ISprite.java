@@ -1,10 +1,9 @@
 package soliloquy.sprites.specs;
 
 import soliloquy.common.specs.ICoordinate;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ui.windowelements.specs.IScreenElement;
 
-public interface ISprite extends IScreenElement, ISoliloquyClass {
+public interface ISprite extends IScreenElement {
 	
 	// NB: There should be an invariant whereby only 'frame'
 	//     or 'animation' returns a non-null value, and only

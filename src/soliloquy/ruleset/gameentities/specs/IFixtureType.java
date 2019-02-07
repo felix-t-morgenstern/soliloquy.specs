@@ -1,7 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.ICoordinate;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>FixtureType</b>
@@ -12,7 +11,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface IFixtureType extends ITileObject, IGameEntity, ISoliloquyClass {
+public interface IFixtureType extends ITileObject, IGameEntity {
 	/**
 	 * @return True, if and only if this FixtureType is a container (e.g. chests, bookshelves, corpses, secret cracks in the floor)
 	 * @throws IllegalStateException If this FixtureType has been deleted

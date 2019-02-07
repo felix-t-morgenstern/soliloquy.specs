@@ -1,7 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.IHasPluralName;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.gamestate.specs.ICharacter;
 
 /**
@@ -15,7 +14,7 @@ import soliloquy.gamestate.specs.ICharacter;
  * @version 0.0.1
  *
  */
-public interface IVitalAttribute extends IActOnCharacterOnTurnAndRound, IHasPluralName, IGameEntity, ISoliloquyClass {
+public interface IVitalAttribute extends IActOnCharacterOnTurnAndRound, IHasPluralName, IGameEntity {
 	/**
 	 * This is used for altering the value of a Character's CharacterVitalAttribute as part of an ability, e.g. doing damage to a Character, draining their mana, etc.
 	 * <p>

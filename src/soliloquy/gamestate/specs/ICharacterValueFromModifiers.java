@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>CharacterValueFromModifiers</b>
@@ -22,7 +21,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ICharacterValueFromModifiers extends IMap<String,Integer>, ISoliloquyClass {
+public interface ICharacterValueFromModifiers extends IMap<String,Integer> {
 	/**
 	 * If values are being calculated algorithmically, this class will have to be set properly before each use. If values are being stored as static values, the Character must be initialized once and only once.
 	 * @param character - The Character whose value to calculate

@@ -1,7 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>CharacterClassifications</b>
@@ -14,5 +13,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ICharacterClassifications extends IMap<String,ICharacterClassification>, ISoliloquyClass {
+public interface ICharacterClassifications extends IMap<String,ICharacterClassification> {
 }

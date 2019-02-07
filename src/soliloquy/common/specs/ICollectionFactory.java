@@ -8,7 +8,7 @@ package soliloquy.common.specs;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ICollectionFactory {
+public interface ICollectionFactory extends ISoliloquyClass {
 	/**
 	 * @param archetype - A (non-null) example of the item to be held in the new Collection
 	 * @return A new Collection of the specified type

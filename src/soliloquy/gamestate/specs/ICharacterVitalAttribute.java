@@ -1,11 +1,10 @@
 package soliloquy.gamestate.specs;
 
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.specs.IElement;
 import soliloquy.ruleset.gameentities.specs.IVitalAttribute;
 
 // NB: The ValueFromModifiers refers to MAX value
-public interface ICharacterVitalAttribute extends ICharacterValueFromModifiers, ISoliloquyClass {
+public interface ICharacterVitalAttribute extends ICharacterValueFromModifiers {
 	/**
 	 * @return The type of this CharacterVitalAttribute
 	 * @throws IllegalStateException if no VitalAttribute is defined

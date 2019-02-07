@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IWrites {
+public interface IWrites extends ISoliloquyClass {
 	/**
 	 * Saves the class
 	 * @return A series of strings describing the results to be written

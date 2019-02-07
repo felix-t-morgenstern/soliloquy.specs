@@ -1,7 +1,5 @@
 package soliloquy.ruleset.gameentities.specs;
 
-import soliloquy.common.specs.ISoliloquyClass;
-
 /**
  * <b>GroundType</b>
  * <p>
@@ -11,6 +9,6 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface IGroundType extends ITileObject, IGameEntity, ISoliloquyClass
+public interface IGroundType extends ITileObject, IGameEntity
 {
 }

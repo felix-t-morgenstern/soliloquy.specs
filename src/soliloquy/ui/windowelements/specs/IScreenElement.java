@@ -1,7 +1,6 @@
 package soliloquy.ui.windowelements.specs;
 
 import soliloquy.common.specs.ICoordinate;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.graphics.specs.IRenderable;
 
 /**
@@ -15,7 +14,7 @@ import soliloquy.graphics.specs.IRenderable;
  * @version 0.0.1
  *
  */
-public interface IScreenElement extends IRenderable, ISoliloquyClass {
+public interface IScreenElement extends IRenderable {
 	/**
 	 * This method specifies the Id of the ScreenElement, so it can be altered or removed in any way necessary
 	 * @return The Id of this ScreenElement

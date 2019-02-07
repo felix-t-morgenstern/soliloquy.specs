@@ -1,7 +1,6 @@
 package soliloquy.sprites.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>GraphicalTransformations</b>
@@ -16,6 +15,6 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface IGraphicalTransformations extends IMap<String,Integer>, ISoliloquyClass {
+public interface IGraphicalTransformations extends IMap<String,Integer> {
 	// TODO: Document this class more thoroughly.
 }

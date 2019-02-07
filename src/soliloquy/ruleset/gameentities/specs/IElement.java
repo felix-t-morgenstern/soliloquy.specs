@@ -1,6 +1,5 @@
 package soliloquy.ruleset.gameentities.specs;
 
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.gamestate.specs.ICharacter;
 import soliloquy.sprites.specs.ISpriteSet;
 
@@ -13,7 +12,7 @@ import soliloquy.sprites.specs.ISpriteSet;
  * @version 0.0.1
  *
  */
-public interface IElement extends IGameEntity, ISoliloquyClass {
+public interface IElement extends IGameEntity {
 	/**
 	 * @param character - The Character whose resistance to this Element is checked
 	 * @return The resistance to this Element for character

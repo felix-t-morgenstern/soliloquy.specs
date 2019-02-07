@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IHasName {
+public interface IHasName extends ISoliloquyClass {
 	/**
 	 * @return The name of the entity
 	 */

@@ -1,7 +1,5 @@
 package soliloquy.ruleset.gameentities.abilities.specs;
 
-import soliloquy.common.specs.ISoliloquyClass;
-
 /**
  * <b>ReactiveAbilityType</b>
  * <p>
@@ -19,7 +17,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface IReactiveAbilityType extends IAbilityType, ISoliloquyClass {
+public interface IReactiveAbilityType extends IAbilityType {
 	/**
 	 * @return The (optional) priority for when this ReactiveAbilityType performs its reaction, if there are multiple ReactiveAbilityTypes reacting to the same incoming ability
 	 */

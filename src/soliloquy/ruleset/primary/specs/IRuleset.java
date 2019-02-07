@@ -1,10 +1,12 @@
 package soliloquy.ruleset.primary.specs;
 
+import soliloquy.common.specs.IEntityGroup;
+import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.ISettingsRepo;
 import soliloquy.common.specs.ISoliloquyClass;
-import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbilityTypes;
-import soliloquy.ruleset.gameentities.abilities.specs.IPassiveAbilityTypes;
-import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbilityTypes;
+import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbilityType;
+import soliloquy.ruleset.gameentities.abilities.specs.IPassiveAbilityType;
+import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbilityType;
 import soliloquy.ruleset.gameentities.specs.IAptitudes;
 import soliloquy.ruleset.gameentities.specs.IAttributes;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassifications;
@@ -14,7 +16,6 @@ import soliloquy.ruleset.gameentities.specs.IEquipmentTypes;
 import soliloquy.ruleset.gameentities.specs.IFixtureTypes;
 import soliloquy.ruleset.gameentities.specs.IGroundTypes;
 import soliloquy.ruleset.gameentities.specs.IItemTypes;
-import soliloquy.ruleset.gameentities.specs.IPartyAttributes;
 import soliloquy.ruleset.gameentities.specs.IStatusEffectTypes;
 import soliloquy.ruleset.gameentities.specs.IVitalAttributes;
 import soliloquy.ruleset.gameentities.specs.IWallSegmentTypes;
@@ -22,11 +23,11 @@ import soliloquy.sprites.specs.ISpriteFactory;
 import soliloquy.sprites.specs.ISpriteSetFactory;
 
 public interface IRuleset extends ISoliloquyClass {
-	IActiveAbilityTypes activeAbilitiyTypes();
+	IEntityGroup<IActiveAbilityType> activeAbilitiyTypes();
 	
-	IReactiveAbilityTypes reactiveAbilitiyTypes();
+	IEntityGroup<IReactiveAbilityType> reactiveAbilitiyTypes();
 	
-	IPassiveAbilityTypes passiveAbilitiyTypes();
+	IEntityGroup<IPassiveAbilityType> passiveAbilitiyTypes();
 	
 	IAptitudes aptitudes();
 	
@@ -46,7 +47,7 @@ public interface IRuleset extends ISoliloquyClass {
 	
 	IItemTypes itemTypes();
 	
-	IPartyAttributes partyAttributes();
+	IGenericParamsSet partyAttributes();
 	
 	IStatusEffectTypes statusEffectTypes();
 	

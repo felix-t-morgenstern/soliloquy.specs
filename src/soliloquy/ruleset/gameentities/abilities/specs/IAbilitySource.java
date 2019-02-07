@@ -1,5 +1,6 @@
 package soliloquy.ruleset.gameentities.abilities.specs;
 
+import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.gamestate.specs.ICharacter;
 import soliloquy.gamestate.specs.IItem;
 import soliloquy.gamestate.specs.ITile;
@@ -15,7 +16,7 @@ import soliloquy.gamestate.specs.ITile;
  * @version 0.0.1
  *
  */
-public interface IAbilitySource {
+public interface IAbilitySource extends ISoliloquyClass {
 	/**
 	 * @return The Ability corresponding to this AbilitySource
 	 * @throws IllegalStateException If no Ability has been initialized, or if the Ability does not have this AbilitySource

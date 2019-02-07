@@ -1,6 +1,5 @@
 package soliloquy.gamestate.specs;
 
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.ruleset.gameentities.specs.IWallSegmentType;
 
@@ -13,7 +12,7 @@ import soliloquy.ruleset.gameentities.specs.IWallSegmentType;
  * @version 0.0.1
  *
  */
-public interface ITileWallSegment extends IGameEntity, ISoliloquyClass {
+public interface ITileWallSegment extends IGameEntity {
 	/**
 	 * @return The WallSegmentType of this TileWallSegment
 	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted

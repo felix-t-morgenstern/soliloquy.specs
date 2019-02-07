@@ -1,7 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>GroundTypes</b>
@@ -12,5 +11,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface IGroundTypes extends IMap<String,IGroundType>, ISoliloquyClass {
+public interface IGroundTypes extends IMap<String,IGroundType> {
 }

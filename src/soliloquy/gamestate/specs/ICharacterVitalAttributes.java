@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>CharacterVitalAttributes</b>
@@ -12,5 +11,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ICharacterVitalAttributes extends IMap<String,ICharacterVitalAttribute>, ISoliloquyClass {
+public interface ICharacterVitalAttributes extends IMap<String,ICharacterVitalAttribute> {
 }

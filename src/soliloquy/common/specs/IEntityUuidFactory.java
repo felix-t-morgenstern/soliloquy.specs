@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IEntityUuidFactory {
+public interface IEntityUuidFactory extends ISoliloquyClass {
 	/**
 	 * Creates an EntityUuid from two longs
 	 * @param mostSignificantBits - The first set of bits used to create this EntityUuid

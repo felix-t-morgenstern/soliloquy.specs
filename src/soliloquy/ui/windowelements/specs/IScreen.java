@@ -1,10 +1,9 @@
 package soliloquy.ui.windowelements.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.graphics.specs.IRenderable;
 
-public interface IScreen extends IRenderable, ISoliloquyClass {
+public interface IScreen extends IRenderable {
 	// NB: The index is the z-index of the elements.
 	//     The elements are intended to generally be boxes
 	//     and sprites.

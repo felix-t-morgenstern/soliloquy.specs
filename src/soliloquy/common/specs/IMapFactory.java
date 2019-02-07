@@ -8,7 +8,7 @@ package soliloquy.common.specs;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface IMapFactory {
+public interface IMapFactory extends ISoliloquyClass {
 	/**
 	 * @param archetype1 A dummy value of the first type
 	 * @param archetype2 A dummy value of the second type

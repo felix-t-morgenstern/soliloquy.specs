@@ -13,7 +13,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IPersistentVariable {
+public interface IPersistentVariable extends ISoliloquyClass {
 	/**
 	 * @return The Name of the PersistentVariable
 	 */

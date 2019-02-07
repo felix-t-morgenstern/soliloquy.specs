@@ -1,8 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.IEntityGroup;
-import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>Attributes</b>
@@ -14,5 +12,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @author felix.t.morgenstern
  *
  */
-public interface IAttributes extends IMap<String,IAttribute>, IEntityGroup<IAttribute>, ISoliloquyClass {
+public interface IAttributes extends IEntityGroup<IAttribute> {
 }

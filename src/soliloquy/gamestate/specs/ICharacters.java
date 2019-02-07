@@ -2,7 +2,6 @@ package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IEntityUuid;
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>Characters</b>
@@ -13,5 +12,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ICharacters extends IMap<IEntityUuid,ICharacter>, ISoliloquyClass {
+public interface ICharacters extends IMap<IEntityUuid,ICharacter> {
 }

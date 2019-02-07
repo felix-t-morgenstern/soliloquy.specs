@@ -14,7 +14,7 @@ package soliloquy.common.specs;
  * <p>
  * <i>It is possible to implement this interface by setting this type parameter to any Cloneable object, but that is heavily discouraged.</i>
  */
-public interface ICloneable<T extends ICloneable<T>> {
+public interface ICloneable<T extends ICloneable<T>> extends ISoliloquyClass {
 	/**
 	 * @return A deep (i.e. genuine) clone of this object.
 	 */

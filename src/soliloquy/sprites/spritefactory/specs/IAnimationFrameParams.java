@@ -1,9 +1,9 @@
 package soliloquy.sprites.spritefactory.specs;
 
 import soliloquy.common.specs.ICoordinate;
-import soliloquy.common.specs.ISoliloquyClass;
 
-public interface IAnimationFrameParams extends IStaticSpriteParams, ISoliloquyClass {
+// TODO: Document this interface
+public interface IAnimationFrameParams extends IStaticSpriteParams {
 	// NB: This field returns the offset of this animation
 	//     frame from the location of the animation itself.
 	//     E.g., an explosion will start small; so if the 

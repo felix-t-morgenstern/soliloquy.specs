@@ -1,6 +1,7 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IAction;
+import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>KeyBinding</b>
@@ -14,7 +15,7 @@ import soliloquy.common.specs.IAction;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface IKeyBinding {
+public interface IKeyBinding extends ISoliloquyClass {
 	/**
 	 * @return The Action that is fired when this key is pressed
 	 */

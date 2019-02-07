@@ -3,7 +3,6 @@ package soliloquy.ruleset.gameentities.specs;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasId;
 import soliloquy.common.specs.IHasPluralName;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.gamestate.specs.ICharacter;
 import soliloquy.gamestate.specs.ITile;
 
@@ -16,7 +15,7 @@ import soliloquy.gamestate.specs.ITile;
  * @version 0.0.1
  *
  */
-public interface ICharacterType extends IGameEntity, IHasPluralName, IHasId, ISoliloquyClass {
+public interface ICharacterType extends IGameEntity, IHasPluralName, IHasId {
 	/**
 	 * Generates a Character of this CharacterType
 	 * @param tile - The Tile in which to place the new Character 

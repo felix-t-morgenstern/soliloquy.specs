@@ -11,7 +11,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IPersistentValuesHandler {
+public interface IPersistentValuesHandler extends ISoliloquyClass {
 	/**
 	 * (NB: You can technically have multiple String identifiers of a specific type; this may not be the best design.)
 	 * @param persistentValueTypeHandler - The PersistenValueTypeHandler to be added

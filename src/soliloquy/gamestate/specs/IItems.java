@@ -2,7 +2,6 @@ package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IEntityUuid;
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>Items</b>
@@ -13,6 +12,6 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface IItems extends IMap<IEntityUuid,IItem>, ISoliloquyClass {
+public interface IItems extends IMap<IEntityUuid,IItem> {
 	IItem getByUuid(IEntityUuid uuid);
 }

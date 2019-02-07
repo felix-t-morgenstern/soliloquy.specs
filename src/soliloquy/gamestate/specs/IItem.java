@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IHasUuid;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.ruleset.gameentities.specs.IItemType;
 
@@ -18,7 +17,7 @@ import soliloquy.ruleset.gameentities.specs.IItemType;
  * @version 0.0.1
  *
  */
-public interface IItem extends IGameEntity, IHasUuid, ISoliloquyClass {
+public interface IItem extends IGameEntity, IHasUuid {
 	/**
 	 * @return The ItemType of this Item
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been placed, or after it has been removed from an EquipmentSlot.

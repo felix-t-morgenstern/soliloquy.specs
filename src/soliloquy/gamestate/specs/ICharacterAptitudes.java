@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>CharacterAptitudes</b>
@@ -12,5 +11,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ICharacterAptitudes extends IMap<String,ICharacterValueFromModifiers>, ISoliloquyClass {
+public interface ICharacterAptitudes extends IMap<String,ICharacterValueFromModifiers> {
 }

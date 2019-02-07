@@ -1,7 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.ICollection;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>Aptitudes</b>
@@ -13,5 +12,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @author felix.t.morgenstern
  *
  */
-public interface IAptitudes extends ICollection<String>, ISoliloquyClass {
+public interface IAptitudes extends ICollection<String> {
 }

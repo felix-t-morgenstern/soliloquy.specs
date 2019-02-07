@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IPersistentValueToRead {
+public interface IPersistentValueToRead extends ISoliloquyClass {
 	/**
 	 * @return The name of the type of the persistent value to process
 	 */

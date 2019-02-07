@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface ICoordinateFactory {
+public interface ICoordinateFactory extends ISoliloquyClass {
 	/**
 	 * Creates a new Coordinate
 	 * @param x - The x value of the new Coordinate

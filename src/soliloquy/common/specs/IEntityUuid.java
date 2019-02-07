@@ -13,7 +13,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IEntityUuid {
+public interface IEntityUuid extends ISoliloquyClass {
 	/**
 	 * @return The most significant bits of this UUID
 	 */

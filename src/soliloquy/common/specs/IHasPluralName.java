@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IHasPluralName {
+public interface IHasPluralName extends ISoliloquyClass {
 	/**
 	 * @return the pluralized name of the entity
 	 */

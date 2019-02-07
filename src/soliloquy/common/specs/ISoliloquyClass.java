@@ -1,8 +1,5 @@
 package soliloquy.common.specs;
 
-import soliloquy.game.primary.specs.IGame;
-import soliloquy.logger.specs.ILogger;
-
 /**
  * <b>SoliloquyClass</b>
  * <p>
@@ -18,15 +15,8 @@ import soliloquy.logger.specs.ILogger;
  */
 public interface ISoliloquyClass {
 	/**
-	 * This method is provided to ensure that nearly every class in the framework can access nearly every other class. Intended common uses are to access Settings and PersistentVariables.
-	 * <p>
-	 * <i>If you are not sure what you are doing when using this class, be careful, and feel free to ask!</i> 
-	 * @return The top-level component for the entire Game
+	 * <b>If this class has any type parameters, those parameters should be included, in the proper order, within angle brackets, just as they do in the class definition.</b> 
+	 * @return The name of the interface of this class.
 	 */
-	IGame game();
-	
-	/**
-	 * @return The Logger, which can record messages to a file, to the screen, etc.
-	 */
-	ILogger logger();
+	String getInterfaceName();
 }

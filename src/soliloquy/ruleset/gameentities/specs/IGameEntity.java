@@ -3,7 +3,6 @@ package soliloquy.ruleset.gameentities.specs;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasName;
 import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.common.specs.IWrites;
 import soliloquy.gamestate.specs.IGameZone;
 
@@ -18,7 +17,7 @@ import soliloquy.gamestate.specs.IGameZone;
  * @version 0.0.1
  *
  */
-public interface IGameEntity extends IHasName, IReads, IWrites, ISoliloquyClass {
+public interface IGameEntity extends IHasName, IReads, IWrites {
 	/**
 	 * This is useful when an entity needs to be completely removed from a GameZone (so it can be cleared away by the garbage collector)
 	 * @return This entity's GameZone.

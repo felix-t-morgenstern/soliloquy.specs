@@ -3,7 +3,6 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.common.specs.IWrites;
 
 /**
@@ -15,7 +14,7 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface IParty extends IReads, IWrites, ISoliloquyClass {
+public interface IParty extends IReads, IWrites {
 	/**
 	 * @return A Collection of all player-controlled Characters
 	 */

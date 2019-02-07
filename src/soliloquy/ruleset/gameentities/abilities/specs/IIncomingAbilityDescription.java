@@ -1,6 +1,7 @@
 package soliloquy.ruleset.gameentities.abilities.specs;
 
 import soliloquy.common.specs.IGenericParamsSet;
+import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>IncomingAbilityDescription</b>
@@ -13,7 +14,7 @@ import soliloquy.common.specs.IGenericParamsSet;
  * @version 0.0.1
  *
  */
-public interface IIncomingAbilityDescription {
+public interface IIncomingAbilityDescription extends ISoliloquyClass {
 	/**
 	 * If reactiveAbilityTypeId() returns a non-null value, this method <b>must</b> return null.
 	 * @return the Id of the ActiveAbilityType

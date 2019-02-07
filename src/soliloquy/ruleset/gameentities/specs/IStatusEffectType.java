@@ -1,6 +1,5 @@
 package soliloquy.ruleset.gameentities.specs;
 
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.gamestate.specs.ICharacter;
 import soliloquy.sprites.specs.ISprite;
 
@@ -15,7 +14,7 @@ import soliloquy.sprites.specs.ISprite;
  * @version 0.0.1
  *
  */
-public interface IStatusEffectType extends IActOnCharacterOnTurnAndRound, IGameEntity, ISoliloquyClass {
+public interface IStatusEffectType extends IActOnCharacterOnTurnAndRound, IGameEntity {
 	ISprite statusWindowIcon(int characterId);
 	ISprite healthBarIcon(int characterId);
 	int iconDisplayPriority();

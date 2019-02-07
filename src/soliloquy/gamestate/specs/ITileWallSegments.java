@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>ITileWallSegments</b>
@@ -16,5 +15,5 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ITileWallSegments extends IMap<Integer,IMap<Integer,ITileWallSegment>>, ISoliloquyClass {
+public interface ITileWallSegments extends IMap<Integer,IMap<Integer,ITileWallSegment>> {
 }

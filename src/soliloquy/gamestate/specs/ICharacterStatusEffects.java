@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.specs.IElement;
 
 /**
@@ -19,7 +18,7 @@ import soliloquy.ruleset.gameentities.specs.IElement;
  * @version 0.0.1
  *
  */
-public interface ICharacterStatusEffects extends IMap<String,Integer>, ISoliloquyClass {
+public interface ICharacterStatusEffects extends IMap<String,Integer> {
 	/**
 	 * This is used for altering the value of a CharacterVitalAttribute as part of an Ability, e.g. doing damage to a Character, draining their mana, etc.
 	 * <p>

@@ -10,7 +10,7 @@ package soliloquy.common.specs;
  *
  * @param <Entity> The type of Entity being grouped
  */
-public interface IEntityGroupItem<Entity> extends IHasOneGenericParam<Entity>, ISoliloquyClass {
+public interface IEntityGroupItem<Entity> extends IHasOneGenericParam<Entity> {
 	// NB: There MUST be an invariant that ONLY
 	//     one or the other of these should return
 	//     an object.

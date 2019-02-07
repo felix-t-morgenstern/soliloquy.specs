@@ -9,6 +9,6 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IPersistentVariableFactory {
+public interface IPersistentVariableFactory extends ISoliloquyClass {
 	<T> IPersistentVariable make(String name, T value);
 }

@@ -3,7 +3,6 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.ICoordinate;
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbility;
 import soliloquy.ruleset.gameentities.specs.IFixtureType;
@@ -25,7 +24,7 @@ import soliloquy.ruleset.gameentities.specs.IGameEntity;
  * @author felix.t.morgenstern
  *
  */
-public interface ITileFixture extends IGameEntity, ISoliloquyClass {
+public interface ITileFixture extends IGameEntity {
 	/**
 	 * @return The FixtureType of this TileFixture
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no FixtureType

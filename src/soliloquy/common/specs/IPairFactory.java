@@ -8,7 +8,7 @@ package soliloquy.common.specs;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface IPairFactory {
+public interface IPairFactory extends ISoliloquyClass {
 	/**
 	 * Creates a Pair with the specified values.
 	 * <i>This method assumes that both values are non-null. If one of the values must be null, use Make(T1, T2, T1, T2) to specify archetypes.</i>

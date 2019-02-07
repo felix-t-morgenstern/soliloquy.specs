@@ -1,5 +1,7 @@
 package soliloquy.gamestate.specs;
 
+import soliloquy.common.specs.ISoliloquyClass;
+
 /**
  * <b>GameZones</b>
  * <p>
@@ -9,7 +11,7 @@ package soliloquy.gamestate.specs;
  * @version 0.0.1
  *
  */
-public interface IGameZonesRepo {
+public interface IGameZonesRepo extends ISoliloquyClass {
 	/**
 	 * Intended use is reading a GameZone from disk or main memory
 	 * @param gameZoneId - The Id of the GameZone to retrieve

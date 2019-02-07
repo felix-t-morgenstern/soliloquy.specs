@@ -3,8 +3,9 @@ package soliloquy.sprites.spritefactory.specs;
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.IPair;
+import soliloquy.common.specs.ISoliloquyClass;
 
-public interface IAnimationParams {
+public interface IAnimationParams extends ISoliloquyClass {
 	/**
 	 * @return The collection of AnimationFrameParams which define the individual frames of the Animation
 	 */

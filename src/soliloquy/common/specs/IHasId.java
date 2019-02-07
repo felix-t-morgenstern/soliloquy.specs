@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IHasId {
+public interface IHasId extends ISoliloquyClass {
 	/**
 	 * @return The Id of this entity
 	 * @throws IllegalStateException if and only if the Id is blank or null

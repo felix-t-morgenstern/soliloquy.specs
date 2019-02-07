@@ -9,7 +9,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IGenericParamsSetFactory {
+public interface IGenericParamsSetFactory extends ISoliloquyClass {
 	/**
 	 * @return A new GenericParamsSet
 	 */

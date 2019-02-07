@@ -1,5 +1,7 @@
 package soliloquy.logger.specs;
 
+import soliloquy.common.specs.ISoliloquyClass;
+
 /**
  * <b>Logger</b>
  * <p>
@@ -9,7 +11,7 @@ package soliloquy.logger.specs;
  * @version 0.0.1
  *
  */
-public interface ILogger {
+public interface ILogger extends ISoliloquyClass {
 	/**
 	 * @param e - The Exception to log (e.g. to file)
 	 * @param origin - The origin (i.e. the responsible class, method, and line)

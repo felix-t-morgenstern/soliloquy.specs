@@ -11,7 +11,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IHasUuid {
+public interface IHasUuid extends ISoliloquyClass {
 	/**
 	 * @return This entity's UUID
 	 * @throws UnsupportedOperationException If this entity has been deleted, or if the UUID has not been initialized
