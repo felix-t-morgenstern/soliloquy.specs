@@ -3,7 +3,9 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.IAction;
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.ICoordinate;
+import soliloquy.common.specs.IEntityUuid;
 import soliloquy.common.specs.IHasId;
+import soliloquy.common.specs.IMap;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
 
 /**
@@ -45,12 +47,12 @@ public interface IGameZone extends IGameEntity, IHasId {
 	/**
 	 * @return A Set of the Characters in this GameZone
 	 */
-	ICharacters characters();
+	IMap<IEntityUuid,ICharacter> characters();
 	
 	/**
 	 * @return A Set of the Items in this GameZone
 	 */
-	IItems items();
+	IMap<IEntityUuid,IItem> items();
 
 	/**
 	 * @return A Collection of Actions which are fired when the Party enters this GameZone.

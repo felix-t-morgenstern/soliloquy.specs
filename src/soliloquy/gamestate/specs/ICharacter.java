@@ -8,7 +8,6 @@ import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbility;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
-import soliloquy.ruleset.gameentities.specs.ICharacterPronouns;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.sprites.specs.ISpriteSet;
@@ -64,16 +63,10 @@ public interface ICharacter extends IGameEntity, IHasUuid, ISoliloquyClass {
 	void setTile(ITile tile) throws IllegalArgumentException, IllegalStateException;
 	
 	/**
-	 * @return The proper pronouns for this Character. Every Character can choose their own pronouns.
+	 * @return The proper pronouns for this Character. The key for the Map is the grammatical case in question (e.g. nominative, oblique, genitive, etc.). Every Character can choose their own pronouns.
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
 	 */
-	ICharacterPronouns getPronouns() throws IllegalStateException;
-	
-	/**
-	 * @param pronouns - The pronouns to set for this Character. Characters do not have to keep the same pronouns they already have.
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
-	 */
-	void setPronouns(ICharacterPronouns pronouns) throws IllegalStateException;
+	IMap<String,String> pronouns() throws IllegalStateException;
 	
 	/**
 	 * Traits can be relevant to combat or stats, e.g. experience points, Character level, skill points
@@ -142,7 +135,7 @@ public interface ICharacter extends IGameEntity, IHasUuid, ISoliloquyClass {
 	 * @return This Character's equipment
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
 	 */
-	ICharacterEquipment equipment() throws IllegalStateException;
+	IMap<String,ICharacterEquipmentSlot> equipment() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's inventory
@@ -154,13 +147,13 @@ public interface ICharacter extends IGameEntity, IHasUuid, ISoliloquyClass {
 	 * @return This Character's VitalAttributes, e.g. health, mana
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
 	 */
-	ICharacterVitalAttributes vitalAttributes() throws IllegalStateException;
+	IMap<String,ICharacterVitalAttribute> vitalAttributes() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's Attributes, e.g. Intelligence, Swordplay, Etiquette
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
 	 */
-	ICharacterAttributes attributes() throws IllegalStateException;
+	IMap<String,ICharacterValueFromModifiers> attributes() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's current StatusEffects, e.g. poisoned, distracted, panicking
@@ -184,7 +177,7 @@ public interface ICharacter extends IGameEntity, IHasUuid, ISoliloquyClass {
 	 * @return This Character's Aptitudes, e.g. Initiative, Resistance to Fire, Chance to Hit
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
 	 */
-	ICharacterAptitudes aptitudes() throws IllegalStateException;
+	IMap<String,ICharacterValueFromModifiers> aptitudes() throws IllegalStateException;
 	
 	/**
 	 * @return True, if and only if this Character is a PlayerCharacter

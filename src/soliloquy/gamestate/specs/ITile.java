@@ -103,22 +103,37 @@ public interface ITile extends IGameEntity {
 	IMap<Integer,ITileFixture> fixtures() throws IllegalStateException;
 
 	/**
+	 * This is a numbered Map of numbered Maps of TileWallSegments.
+	 * <p>
+	 * The first (outer) index refers to the height.
+	 * <p>
+	 * The second (inner) index is the z-index, i.e. the determinant of which wall segments go "atop" one another. (For instance, you may have a cliff face; and that cliff face may have rock outcrops on it, which are also TileWallSegments.)
 	 * @return A collection of the east-to-west TileWallSegments on the north side of this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	ICollection<ITileWallSegments> nTileWallSegments() throws IllegalStateException;
+	IMap<Integer,IMap<Integer,ITileWallSegment>> nTileWallSegments() throws IllegalStateException;
 
 	/**
-	 * @return A collection of the north-to-south TileWallSegments on the west side of this Tile
+	 * This is a numbered Map of numbered Maps of TileWallSegments.
+	 * <p>
+	 * The first (outer) index refers to the height.
+	 * <p>
+	 * The second (inner) index is the z-index, i.e. the determinant of which wall segments go "atop" one another. (For instance, you may have a cliff face; and that cliff face may have rock outcrops on it, which are also TileWallSegments.)
+	 * @return A collection of the east-to-west TileWallSegments on the north side of this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	ICollection<ITileWallSegments> wTileWallSegments() throws IllegalStateException;
+	IMap<Integer,IMap<Integer,ITileWallSegment>> nwTileWallSegments() throws IllegalStateException;
 
 	/**
-	 * @return A collection of the corner TileWallSegments in the northwestern corner of this Tile
+	 * This is a numbered Map of numbered Maps of TileWallSegments.
+	 * <p>
+	 * The first (outer) index refers to the height.
+	 * <p>
+	 * The second (inner) index is the z-index, i.e. the determinant of which wall segments go "atop" one another. (For instance, you may have a cliff face; and that cliff face may have rock outcrops on it, which are also TileWallSegments.)
+	 * @return A collection of the east-to-west TileWallSegments on the north side of this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	ICollection<ITileWallSegments> nwTileWallSegments() throws IllegalStateException;
+	IMap<Integer,IMap<Integer,ITileWallSegment>> wTileWallSegments() throws IllegalStateException;
 	
 	/**
 	 * @return A numbered Map of Sprites on this Tile, where the numerical index of the Map corresponds to the Z order of Sprites on this Tile

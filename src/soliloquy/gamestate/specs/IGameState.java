@@ -1,5 +1,6 @@
 package soliloquy.gamestate.specs;
 
+import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.IPersistentVariableCache;
 import soliloquy.common.specs.ISoliloquyClass;
 
@@ -50,5 +51,5 @@ public interface IGameState extends ISoliloquyClass {
 	 * @return The current KeyBindingContexts (i.e. the Actions which take place when various keys are pressed)
 	 * @throws IllegalStateException If KeyBindingContexts is undefined.
 	 */
-	IKeyBindingContexts keyBindingContexts() throws IllegalStateException;
+	IMap<Integer,IKeyBindingContext> keyBindingContexts() throws IllegalStateException;
 }

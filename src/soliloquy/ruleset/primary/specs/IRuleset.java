@@ -1,24 +1,25 @@
 package soliloquy.ruleset.primary.specs;
 
+import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IEntityGroup;
 import soliloquy.common.specs.IGenericParamsSet;
+import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.ISettingsRepo;
 import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbilityType;
 import soliloquy.ruleset.gameentities.abilities.specs.IPassiveAbilityType;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbilityType;
-import soliloquy.ruleset.gameentities.specs.IAptitudes;
-import soliloquy.ruleset.gameentities.specs.IAttributes;
-import soliloquy.ruleset.gameentities.specs.ICharacterClassifications;
-import soliloquy.ruleset.gameentities.specs.ICharacterTypes;
-import soliloquy.ruleset.gameentities.specs.IElements;
-import soliloquy.ruleset.gameentities.specs.IEquipmentTypes;
-import soliloquy.ruleset.gameentities.specs.IFixtureTypes;
-import soliloquy.ruleset.gameentities.specs.IGroundTypes;
-import soliloquy.ruleset.gameentities.specs.IItemTypes;
-import soliloquy.ruleset.gameentities.specs.IStatusEffectTypes;
-import soliloquy.ruleset.gameentities.specs.IVitalAttributes;
-import soliloquy.ruleset.gameentities.specs.IWallSegmentTypes;
+import soliloquy.ruleset.gameentities.specs.IAttribute;
+import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
+import soliloquy.ruleset.gameentities.specs.ICharacterType;
+import soliloquy.ruleset.gameentities.specs.IElement;
+import soliloquy.ruleset.gameentities.specs.IEquipmentType;
+import soliloquy.ruleset.gameentities.specs.IFixtureType;
+import soliloquy.ruleset.gameentities.specs.IGroundType;
+import soliloquy.ruleset.gameentities.specs.IItemType;
+import soliloquy.ruleset.gameentities.specs.IStatusEffectType;
+import soliloquy.ruleset.gameentities.specs.IVitalAttribute;
+import soliloquy.ruleset.gameentities.specs.IWallSegmentType;
 import soliloquy.sprites.specs.ISpriteFactory;
 import soliloquy.sprites.specs.ISpriteSetFactory;
 
@@ -29,31 +30,39 @@ public interface IRuleset extends ISoliloquyClass {
 	
 	IEntityGroup<IPassiveAbilityType> passiveAbilitiyTypes();
 	
-	IAptitudes aptitudes();
+	/**
+	 * (CharacterAptitudes are either calculated algorithmically in a single instance, or are stored statically. See {@link soliloquy.gamestate.specs.ICharacterAptitudes} for more information.
+	 * @return A Collection of Aptitude Ids.
+	 */
+	ICollection<String> aptitudes();
 	
-	IAttributes attributes();
+	/**
+	 * (CharacterAttributes are either calculated algorithmically in a single instance, or are stored statically. See {@link soliloquy.gamestate.specs.ICharacterAttributes} for more information.
+	 * @return A Collection of Attribute Ids.
+	 */
+	IEntityGroup<IAttribute> attributes();
 	
-	ICharacterClassifications characterClassifications();
+	IMap<String,ICharacterClassification> characterClassifications();
 	
-	ICharacterTypes characterTypes();
+	IMap<String,ICharacterType> characterTypes();
 	
-	IElements elements();
+	IMap<String,IElement> elements();
 	
-	IEquipmentTypes equipmentTypes();
+	IMap<String,IEquipmentType> equipmentTypes();
 	
-	IFixtureTypes fixtureTypes();
+	IMap<String,IFixtureType> fixtureTypes();
 	
-	IGroundTypes groundTypes();
+	IMap<String,IGroundType> groundTypes();
 	
-	IItemTypes itemTypes();
+	IMap<String,IItemType> itemTypes();
 	
 	IGenericParamsSet partyAttributes();
 	
-	IStatusEffectTypes statusEffectTypes();
+	IMap<String,IStatusEffectType> statusEffectTypes();
 	
-	IVitalAttributes vitalAttributes();
+	IMap<String,IVitalAttribute> vitalAttributes();
 	
-	IWallSegmentTypes wallSegmentTypes();
+	IMap<String,IWallSegmentType> wallSegmentTypes();
 	
 	ISettingsRepo rulesetSettings();
 	

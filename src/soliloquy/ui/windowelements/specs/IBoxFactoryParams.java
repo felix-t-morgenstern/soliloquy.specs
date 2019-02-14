@@ -14,5 +14,5 @@ public interface IBoxFactoryParams extends IGenericParamsSet {
 	//     since they can always pass values from their
 	//     BoxReturnVals into a subsequent function.)
 	// TODO: Consider removing this member; and if so, BE SURE TO THOROUGHLY DOCUMENT THE FUNCTION OF IBoxReturnVals ELSEWHERE
-	IMap<String,IAction<IBoxReturnVals>> eventHandlers();
+	IMap<String,IAction<IGenericParamsSet>> eventHandlers();
 }
