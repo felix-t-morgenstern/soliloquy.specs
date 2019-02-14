@@ -11,7 +11,7 @@ package soliloquy.common.specs;
  * @param <Input> The type of Input received by this Function. (If this is Void, then there is no input.)
  * @param <Output> The type of Output produced by this Function. (If this is Void, consider using an IAction instead.)
  */
-public interface IFunction<Input,Output> extends IHasId, IHasTwoGenericParams<Input,Output> {
+public interface IFunction<Input,Output> extends IHasId, IHasTwoGenericParams<Input,Output>, IGlobalAccess {
 	/**
 	 * Runs this Function
 	 * @param input - The input to this Action

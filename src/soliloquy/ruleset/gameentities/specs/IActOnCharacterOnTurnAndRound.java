@@ -1,7 +1,7 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.IAction;
-import soliloquy.common.specs.ISoliloquyClass;
+import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.gamestate.specs.ICharacter;
 
 /**
@@ -13,7 +13,7 @@ import soliloquy.gamestate.specs.ICharacter;
  * @version 0.0.1
  *
  */
-public interface IActOnCharacterOnTurnAndRound extends ISoliloquyClass {
+public interface IActOnCharacterOnTurnAndRound extends IGlobalAccess {
 	/**
 	 * This action is added to a list of actions to perform on all Characters at the start of the round. If it returns null, then no action is performed.
 	 * @return The action to perform on each Character at the start of the round, corresponding to the entity in question

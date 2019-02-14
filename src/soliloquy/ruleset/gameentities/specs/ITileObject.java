@@ -1,7 +1,7 @@
 package soliloquy.ruleset.gameentities.specs;
 
+import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.gamestate.specs.ICharacter;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbility;
@@ -16,7 +16,7 @@ import soliloquy.sprites.specs.ISprite;
  * @version 0.0.1
  *
  */
-public interface ITileObject extends ISoliloquyClass {
+public interface ITileObject extends IGlobalAccess {
 	ISprite sprite();
 	
 	/**

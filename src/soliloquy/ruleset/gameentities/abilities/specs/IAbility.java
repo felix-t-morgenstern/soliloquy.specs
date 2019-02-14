@@ -1,6 +1,7 @@
 package soliloquy.ruleset.gameentities.abilities.specs;
 
 import soliloquy.common.specs.IGenericParamsSet;
+import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
 
 /**
@@ -12,7 +13,7 @@ import soliloquy.ruleset.gameentities.specs.IGameEntity;
  * @version 0.0.1
  *
  */
-public interface IAbility extends IGameEntity {
+public interface IAbility extends IGameEntity, IGlobalAccess {
 	/**
 	 * If this Ability belongs to a Character or an Item, its AbilitySource <b>must</b> point back to that Character or Item
 	 * @return The entity to which this Ability belongs

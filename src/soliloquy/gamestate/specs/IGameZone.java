@@ -4,9 +4,10 @@ import soliloquy.common.specs.IAction;
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.ICoordinate;
 import soliloquy.common.specs.IEntityUuid;
+import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.common.specs.IHasId;
+import soliloquy.common.specs.IHasName;
 import soliloquy.common.specs.IMap;
-import soliloquy.ruleset.gameentities.specs.IGameEntity;
 
 /**
  * <b>GameZone</b>
@@ -19,7 +20,7 @@ import soliloquy.ruleset.gameentities.specs.IGameEntity;
  * @version 0.0.1
  *
  */
-public interface IGameZone extends IGameEntity, IHasId {
+public interface IGameZone extends IHasName, IHasId, IGlobalAccess {
 	/**
 	 * @return The type of the GameZone (e.g. expansive, local)
 	 */

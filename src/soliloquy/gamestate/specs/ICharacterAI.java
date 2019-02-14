@@ -2,6 +2,7 @@ package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
+import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.IReads;
 import soliloquy.common.specs.IWrites;
@@ -21,7 +22,7 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface ICharacterAI extends IReads, IWrites {
+public interface ICharacterAI extends IReads, IWrites, IGlobalAccess {
 	/**
 	 * Causes this Character to act when they are active
 	 */

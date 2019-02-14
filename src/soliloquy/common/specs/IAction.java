@@ -11,7 +11,7 @@ package soliloquy.common.specs;
  * @param <Input> The type of Input received by this Action. (If this is Void, then there is no input.)
  */
 
-public interface IAction<Input> extends IHasId, IHasOneGenericParam<Input> {
+public interface IAction<Input> extends IHasId, IHasOneGenericParam<Input>, IGlobalAccess {
 	/**
 	 * Runs this Action
 	 * @param input - The input to this Action

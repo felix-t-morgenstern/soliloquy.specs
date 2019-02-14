@@ -2,7 +2,7 @@ package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.ICoordinate;
-import soliloquy.common.specs.ISoliloquyClass;
+import soliloquy.common.specs.IGlobalAccess;
 
 /**
  * <b>Camera</b>
@@ -15,7 +15,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ICamera extends ISoliloquyClass {
+public interface ICamera extends IGlobalAccess {
 	/**
 	 * @return The Tile on which the Camera is centered
 	 */
