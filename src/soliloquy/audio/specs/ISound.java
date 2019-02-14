@@ -27,14 +27,34 @@ public interface ISound {
 	String soundTypeId();
 	
 	/**
-	 * Plays this sound
+	 * Begins playing this sound
 	 */
 	void play();
+	
+	/**
+	 * @return A runnable task to call the play method (which may be queued up with other tasks, to be performed simultaneously)
+	 */
+	Runnable playTask();
+	
+	/**
+	 * Plays this sound, all at once; cannot be stopped, interrupted, or altered, once started. (Intended for brief sound effects.)
+	 */
+	void playAsClip();
+	
+	/**
+	 * @return A runnable task to call the playAsClipTask method (which may be queued up with other tasks, to be performed simultaneously)
+	 */
+	Runnable playAsClipTask();
 	
 	/**
 	 * Pauses this sound
 	 */
 	void pause();
+
+	/**
+	 * @return A runnable task to call the pauseTask method (which may be queued up with other tasks, to be performed simultaneously)
+	 */
+	Runnable pauseTask();
 	
 	/**
 	 * @return True, if and only if this Sound is playing.
@@ -50,6 +70,11 @@ public interface ISound {
 	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
 	void stop() throws UnsupportedOperationException;
+
+	/**
+	 * @return A runnable task to call the stopTask method (which may be queued up with other tasks, to be performed simultaneously)
+	 */
+	Runnable stopTask();
 	
 	/**
 	 * Sets the Sound's volume to zero, but records the previous volume internally, so the volume can be reset when it is unmuted.
@@ -57,12 +82,22 @@ public interface ISound {
 	 * If a muted Sound's volume is set manually using setVolume, then the Sound is no longer considered muted. 
 	 */
 	void mute();
+
+	/**
+	 * @return A runnable task to call the mute method (which may be queued up with other tasks, to be performed simultaneously)
+	 */
+	Runnable muteTask();
 	
 	/**
 	 * Unmutes this Sound
 	 * @throws UnsupportedOperationException If and only if this Sound is not muted
 	 */
 	void unmute() throws UnsupportedOperationException;
+
+	/**
+	 * @return A runnable task to call the unmute method (which may be queued up with other tasks, to be performed simultaneously)
+	 */
+	Runnable unmuteTask();
 	
 	/**
 	 * @return True, if and only if this Sound is muted
@@ -77,15 +112,24 @@ public interface ISound {
 	/**
 	 * @return The volume, expressed as a percentage (0-100)
 	 */
-	int getVolume();
+	double getVolume();
 	
 	/**
-	 * @param volume - The volume to which to set the Sound, expressed as a percentage (0-100)
+	 * @param volume - The volume to which to set the Sound, expressed as a percentage (0.0 - 1.0)
 	 * <p>
 	 * If this Sound is muted, then setting volume with this call will set this Sound to no longer be muted, even if the volume is being set to zero. 
-	 * @exception IllegalArgumentException If the value provided is not an integer between 0 and 100
+	 * @exception IllegalArgumentException If the value provided is not a double between 0.0 and 1.0.
 	 */
-	void setVolume(int volume) throws IllegalArgumentException;
+	void setVolume(double volume) throws IllegalArgumentException;
+
+	/**
+	 * @param volume - The volume to which to set the Sound, expressed as a percentage (0.0 - 1.0)
+	 * <p>
+	 * If this Sound is muted, then setting volume with this call will set this Sound to no longer be muted, even if the volume is being set to zero. 
+	 * @return A runnable task to call the setVolume method (which may be queued up with other tasks, to be performed simultaneously)
+	 * @exception IllegalArgumentException If the value provided is not a double between 0.0 and 1.0.
+	 */
+	Runnable setVolumeTask(double volume) throws IllegalArgumentException;
 	
 	/**
 	 * @return The total millisecond duration of this Sound 
@@ -99,9 +143,16 @@ public interface ISound {
 	
 	/**
 	 * @param ms - The milliseconds to set this Sound to
-	 * @exception IllegalArgumentException If the milliseconds provided is below 0 or greater than the duration of the Sound 
+	 * @exception IllegalArgumentException If the milliseconds provided is below 0 or greater than the duration of the Sound
 	 */
 	void setMillisecondPosition(int ms) throws IllegalArgumentException;
+
+	/**
+	 * @param ms - The milliseconds to set this Sound to
+	 * @return A runnable task to call the setMillisecondPosition method (which may be queued up with other tasks, to be performed simultaneously)
+	 * @exception IllegalArgumentException If the milliseconds provided is below 0 or greater than the duration of the Sound
+	 */
+	Runnable setMillisecondPositionTask(int ms) throws IllegalArgumentException;
 	
 	/**
 	 * @return True, if and only if the Sound is set to loop (e.g. music, atmospheric effects)
@@ -112,4 +163,10 @@ public interface ISound {
 	 * @param - isLooping Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
 	 */
 	void setIsLooping(boolean isLooping);
+
+	/**
+	 * @param - isLooping Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
+	 * @return A runnable task to call the mute method (which may be queued up with other tasks, to be performed simultaneously)
+	 */
+	Runnable setIsLoopingTask(boolean isLooping);
 }
