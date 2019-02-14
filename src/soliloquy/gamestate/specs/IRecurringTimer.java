@@ -16,9 +16,8 @@ package soliloquy.gamestate.specs;
 public interface IRecurringTimer extends ITimer {
 	/**
 	 * @return The number of turns between each time this RecurringTimer fires
-	 * @throws IllegalStateException If roundModulo is zero or less
 	 */
-	int getRoundModulo() throws IllegalStateException;
+	int getRoundModulo();
 	
 	/**
 	 * @param roundModulo - The number of turns between each time this RecurringTimer will fire
@@ -28,9 +27,8 @@ public interface IRecurringTimer extends ITimer {
 	
 	/**
 	 * @return The turns offset from when (roundNumber mod roundModulo()) is 0 on which this RecurringTimer fires
-	 * @throws IllegalStateException If roundOffset is greater than roundModulo or is less than zero
 	 */
-	int getRoundOffset() throws IllegalStateException;
+	int getRoundOffset();
 	
 	/**
 	 * @param roundOffset - The turns offset from when (roundNumber mod roundModulo()) is 0 on which this RecurringTimer will fire

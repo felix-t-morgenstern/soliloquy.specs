@@ -13,10 +13,11 @@ public interface IOneTimeTimer extends ITimer {
 	 * This Timer will go off when the round is elapsed, via Round.advanceRounds()
 	 * @return The round on which this Timer will fire
 	 */
-	int getRoundWhenGoesOff();
+	long getRoundWhenGoesOff();
 	
 	/**
 	 * @param roundWhenGoesOff - The round on which this Timer will fire
+	 * @throws IllegalArgumentException if roundWhenGoesOff has already elapsed
 	 */
-	void setRoundWhenGoesOff(int roundWhenGoesOff);
+	void setRoundWhenGoesOff(long roundWhenGoesOff) throws IllegalArgumentException;
 }
