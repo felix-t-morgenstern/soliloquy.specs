@@ -1,6 +1,7 @@
 package soliloquy.common.specs;
 
 import soliloquy.game.primary.specs.IGame;
+import soliloquy.logger.specs.ILogger;
 
 /**
  * <b>GlobalAccess</b>
@@ -16,5 +17,13 @@ import soliloquy.game.primary.specs.IGame;
  *
  */
 public interface IGlobalAccess extends ISoliloquyClass {
+	/**
+	 * @return The Game
+	 */
 	IGame game();
+	
+	/**
+	 * @return A Logger
+	 */
+	ILogger logger();
 }

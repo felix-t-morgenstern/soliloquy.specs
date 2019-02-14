@@ -4,6 +4,8 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.sprites.specs.IAnimation;
 
+//TODO: Ensure that implementations pass ILogger into any and all generated Runnables
+
 public interface IAnimationTicker extends ISoliloquyClass {
 	/**
 	 * Ticks forward all un-paused Animations by the number of millisecondsPerTick.

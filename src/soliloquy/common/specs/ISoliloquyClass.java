@@ -1,5 +1,7 @@
 package soliloquy.common.specs;
 
+import soliloquy.logger.specs.ILogger;
+
 /**
  * <b>SoliloquyClass</b>
  * <p>
