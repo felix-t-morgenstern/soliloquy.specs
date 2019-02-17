@@ -1,7 +1,5 @@
 package soliloquy.audio.specs;
 
-import soliloquy.common.specs.ISettingsRepo;
-
 /**
  * <b>Audio</b>
  * <p>
@@ -25,9 +23,4 @@ public interface IAudio {
 	 * @return The library of all Sounds in the Game, which can also create those Sounds
 	 */
 	ISoundFactory soundsLibrary();
-	
-	/**
-	 * @return The repository of Audio Settings
-	 */
-	ISettingsRepo audioSettings();
 }

@@ -1,11 +1,13 @@
 package soliloquy.audio.specs;
 
-import soliloquy.common.specs.IMap;
+import soliloquy.common.specs.ICollection;
+import soliloquy.common.specs.IEntityUuid;
+import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>SoundsPlaying</b>
  * <p>
- * A Numbered Set of all Sounds playing. (Sounds are identified by their Numerical Ids.)
+ * A set of all Sounds playing. (Sounds are identified by their EntityUuids.)
  * <p>
  * <i>Note that this includes Sounds which are currently paused, but not Sounds which have been stopped.</i>
  * 
@@ -13,5 +15,23 @@ import soliloquy.common.specs.IMap;
  * @version 0.0.1
  *
  */
-public interface ISoundsPlaying extends IMap<Integer,ISound> {
+public interface ISoundsPlaying extends ISoliloquyClass {
+	/**
+	 * @return A collection of all sounds currently being played.
+	 */
+	ICollection<ISound> allSoundsPlaying();
+	
+	/**
+	 * @param soundId - The id to check for
+	 * @return
+	 * @throws IllegalArgumentException if and only if soundId is null
+	 */
+	boolean isPlayingSound(IEntityUuid soundId) throws IllegalArgumentException;
+	
+	/**
+	 * @param soundId - The id of the Sound to retrieve
+	 * @return The Sound corresponding to soundId, if a Sound of that id is currently playing; else, null
+	 * @throws IllegalArgumentException if and only if soundId is null
+	 */
+	ISound getSound(IEntityUuid soundId) throws IllegalArgumentException;
 }
