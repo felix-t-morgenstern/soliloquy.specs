@@ -13,15 +13,7 @@ package soliloquy.common.specs;
  */
 public interface IHasUuid extends ISoliloquyClass {
 	/**
-	 * @return This entity's UUID
-	 * @throws UnsupportedOperationException If this entity has been deleted, or if the UUID has not been initialized
+	 * @return This entity's ID
 	 */
-	IEntityUuid uuid() throws UnsupportedOperationException;
-	
-	/**
-	 * @param uuid - The UUID to initialize for this entity
-	 * @throws IllegalArgumentException
-	 * @throws UnsupportedOperationException
-	 */
-	void initializeUuid(IEntityUuid uuid) throws IllegalArgumentException, UnsupportedOperationException;
+	IEntityUuid id();
 }

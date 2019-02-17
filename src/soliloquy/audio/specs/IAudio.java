@@ -24,7 +24,7 @@ public interface IAudio {
 	/**
 	 * @return The library of all Sounds in the Game, which can also create those Sounds
 	 */
-	ISoundsLibrary soundsLibrary();
+	ISoundFactory soundsLibrary();
 	
 	/**
 	 * @return The repository of Audio Settings

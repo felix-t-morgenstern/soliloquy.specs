@@ -1,5 +1,7 @@
 package soliloquy.audio.specs;
 
+import soliloquy.common.specs.IHasUuid;
+
 // TODO: Ensure that implementations pass ILogger into any and all generated Runnables
 
 /**
@@ -17,12 +19,7 @@ package soliloquy.audio.specs;
  * @version 0.0.1
  *
  */
-public interface ISound {
-	/**
-	 * @return The Id of this Sound
-	 */
-	int id();
-	
+public interface ISound extends IHasUuid {	
 	/**
 	 * @return The Id of the SoundType of this Sound
 	 */
