@@ -165,13 +165,13 @@ public interface ICharacter extends IGameEntity, IHasUuid, ISoliloquyClass {
 	 * @return A named Map of this Character's ActiveAbilities; e.g., Melee Attack, Fireball, Talk to Character; the Id is the AbilityTypeId
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
 	 */
-	IMap<String,ICharacterAbility<IActiveAbility>> activeAbilities() throws IllegalStateException;
+	IMap<String,ICharacterAbility> activeAbilities() throws IllegalStateException;
 	
 	/**
 	 * @return A named Map of this Character's ReactiveAbilities; e.g., Counter-attack, Absorb Mana; the Id is the AbilityTypeId
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this Character has been deleted, or if it has no Id
 	 */
-	IMap<String,ICharacterAbility<IReactiveAbility>> reactiveAbilities() throws IllegalStateException;
+	IMap<String,ICharacterAbility> reactiveAbilities() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's Aptitudes, e.g. Initiative, Resistance to Fire, Chance to Hit

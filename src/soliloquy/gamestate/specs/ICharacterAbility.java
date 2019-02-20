@@ -1,7 +1,7 @@
 package soliloquy.gamestate.specs;
 
-import soliloquy.common.specs.IHasOneGenericParam;
-import soliloquy.ruleset.gameentities.abilities.specs.IAbility;
+import soliloquy.common.specs.ISoliloquyClass;
+import soliloquy.ruleset.gameentities.abilities.specs.IAbilityType;
 
 /**
  * <b>CharacterAbility</b>
@@ -17,7 +17,7 @@ import soliloquy.ruleset.gameentities.abilities.specs.IAbility;
  *
  * @param <A> The type of Ability, e.g. ActiveAbility, ReactiveAbility
  */
-public interface ICharacterAbility<A extends IAbility> extends IAbility, IHasOneGenericParam<A> {
+public interface ICharacterAbility extends ISoliloquyClass {
 	/**
 	 * @return True, if and only if this Ability is hidden (and is thus unusable) for this Character
 	 */
@@ -37,4 +37,9 @@ public interface ICharacterAbility<A extends IAbility> extends IAbility, IHasOne
 	 * @param isDisabled - Whether this Ability will be disabled (and is thus unusable) for this Character
 	 */
 	void setIsDisabled(boolean isDisabled);
+	
+	/**
+	 * @return The type of the Ability
+	 */
+	IAbilityType abilityType();
 }
