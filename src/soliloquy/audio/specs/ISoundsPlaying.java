@@ -36,6 +36,12 @@ public interface ISoundsPlaying extends ISoliloquyClass {
 	ISound getSound(IEntityUuid soundId) throws IllegalArgumentException;
 	
 	/**
+	 * @param sound - The Sound to register as currently playing
+	 * @throws IllegalArgumentException If and only if sound is null, or has a null id
+	 */
+	void registerSound(ISound sound) throws IllegalArgumentException;
+	
+	/**
 	 * <i>This method is only intended to be called by Sound.stop(), and when used inappropriately, may end up in memory leaks</i>
 	 * <p>
 	 * (This method does nothing if soundId corresponds to a nonexistent Sound, in order to avoid throwing exceptions amidst race conditions.)
