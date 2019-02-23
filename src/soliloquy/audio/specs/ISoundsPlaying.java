@@ -31,7 +31,16 @@ public interface ISoundsPlaying extends ISoliloquyClass {
 	/**
 	 * @param soundId - The id of the Sound to retrieve
 	 * @return The Sound corresponding to soundId, if a Sound of that id is currently playing; else, null
-	 * @throws IllegalArgumentException if and only if soundId is null
+	 * @throws IllegalArgumentException If and only if soundId is null
 	 */
 	ISound getSound(IEntityUuid soundId) throws IllegalArgumentException;
+	
+	/**
+	 * <i>This method is only intended to be called by Sound.stop(), and when used inappropriately, may end up in memory leaks</i>
+	 * <p>
+	 * (This method does nothing if soundId corresponds to a nonexistent Sound, in order to avoid throwing exceptions amidst race conditions.)
+	 * @param soundId - The id of the Sound to remove
+	 * @throws IllegalArgumentException If and only if soundId is null.
+	 */
+	void removeSound(IEntityUuid soundId) throws IllegalArgumentException;
 }

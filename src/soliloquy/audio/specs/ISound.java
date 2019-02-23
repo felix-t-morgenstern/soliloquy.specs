@@ -27,8 +27,9 @@ public interface ISound extends IHasUuid {
 	
 	/**
 	 * Begins playing this sound
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	void play();
+	void play() throws UnsupportedOperationException;
 	
 	/**
 	 * @return A runnable task to call the play method (which may be queued up with other tasks, to be performed simultaneously)
@@ -36,24 +37,22 @@ public interface ISound extends IHasUuid {
 	Runnable playTask();
 	
 	/**
-	 * Plays this sound, all at once; cannot be stopped, interrupted, or altered, once started. (Intended for brief sound effects.)
-	 */
-	void playAsClip();
-	
-	/**
-	 * @return A runnable task to call the playAsClipTask method (which may be queued up with other tasks, to be performed simultaneously)
-	 */
-	Runnable playAsClipTask();
-	
-	/**
 	 * Pauses this sound
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	void pause();
+	void pause() throws UnsupportedOperationException;
 
 	/**
 	 * @return A runnable task to call the pauseTask method (which may be queued up with other tasks, to be performed simultaneously)
 	 */
 	Runnable pauseTask();
+	
+	/**
+	 * @return True, if and only if this Sound is paused.
+	 * <p>
+	 * (If this Sound is muted or its volume is 0, but it has not been paused or stopped, it is not considered to be paused.)
+	 */
+	boolean isPaused();
 	
 	/**
 	 * @return True, if and only if this Sound is playing.
@@ -78,9 +77,10 @@ public interface ISound extends IHasUuid {
 	/**
 	 * Sets the Sound's volume to zero, but records the previous volume internally, so the volume can be reset when it is unmuted.
 	 * <p>
-	 * If a muted Sound's volume is set manually using setVolume, then the Sound is no longer considered muted. 
+	 * If a muted Sound's volume is set manually using setVolume, then the Sound is no longer considered muted.
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	void mute();
+	void mute() throws UnsupportedOperationException;
 
 	/**
 	 * @return A runnable task to call the mute method (which may be queued up with other tasks, to be performed simultaneously)
@@ -89,7 +89,7 @@ public interface ISound extends IHasUuid {
 	
 	/**
 	 * Unmutes this Sound
-	 * @throws UnsupportedOperationException If and only if this Sound is not muted
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
 	void unmute() throws UnsupportedOperationException;
 
@@ -99,9 +99,10 @@ public interface ISound extends IHasUuid {
 	Runnable unmuteTask();
 	
 	/**
-	 * @return True, if and only if this Sound is muted
+	 * @return True, if and only if this Sound is muted.
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	boolean isMuted();
+	boolean isMuted() throws UnsupportedOperationException;
 	
 	/**
 	 * @return True, if and only if this Sound has been stopped.
@@ -110,16 +111,18 @@ public interface ISound extends IHasUuid {
 	
 	/**
 	 * @return The volume, expressed as a percentage (0-100)
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	double getVolume();
+	double getVolume() throws UnsupportedOperationException;
 	
 	/**
 	 * @param volume - The volume to which to set the Sound, expressed as a percentage (0.0 - 1.0)
 	 * <p>
 	 * If this Sound is muted, then setting volume with this call will set this Sound to no longer be muted, even if the volume is being set to zero. 
 	 * @exception IllegalArgumentException If the value provided is not a double between 0.0 and 1.0.
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	void setVolume(double volume) throws IllegalArgumentException;
+	void setVolume(double volume) throws IllegalArgumentException, UnsupportedOperationException;
 
 	/**
 	 * @param volume - The volume to which to set the Sound, expressed as a percentage (0.0 - 1.0)
@@ -131,20 +134,25 @@ public interface ISound extends IHasUuid {
 	Runnable setVolumeTask(double volume) throws IllegalArgumentException;
 	
 	/**
+	 * (NB: If the media has not yet been readied, this method repeatedly takes a miniscule break and checks again, until the media is ready, and can report its duration.)
 	 * @return The total millisecond duration of this Sound 
+	 * @throws InterruptedException If and only if this call is not able to defer its execution until the media is prepared. (This exception is unlikely to ever be thrown.)
 	 */
-	int getMillisecondLength();
+	int getMillisecondLength() throws InterruptedException;
 	
 	/**
-	 * @return The current number of milliseconds elapsed in this Sound
+	 * @return The current number of milliseconds elapsed in this Sound.
+	 * @throws InterruptedException If and only if this call is not able to defer its execution until the media is prepared. (This exception is unlikely to ever be thrown.)
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	int getMillisecondPosition();
+	int getMillisecondPosition() throws InterruptedException, UnsupportedOperationException;
 	
 	/**
 	 * @param ms - The milliseconds to set this Sound to
 	 * @exception IllegalArgumentException If the milliseconds provided is below 0 or greater than the duration of the Sound
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	void setMillisecondPosition(int ms) throws IllegalArgumentException;
+	void setMillisecondPosition(int ms) throws IllegalArgumentException, UnsupportedOperationException;
 
 	/**
 	 * @param ms - The milliseconds to set this Sound to
@@ -155,13 +163,15 @@ public interface ISound extends IHasUuid {
 	
 	/**
 	 * @return True, if and only if the Sound is set to loop (e.g. music, atmospheric effects)
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	boolean isLooping();
+	boolean getIsLooping() throws UnsupportedOperationException;
 	
 	/**
 	 * @param - isLooping Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
+	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	void setIsLooping(boolean isLooping);
+	void setIsLooping(boolean isLooping) throws UnsupportedOperationException;
 
 	/**
 	 * @param - isLooping Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
