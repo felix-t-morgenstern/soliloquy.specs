@@ -25,5 +25,5 @@ public interface ISoundFactory extends ISoliloquyClass {
 	 * @param soundTypesToFilenamesMap - The mappings of sound types to filenames to add to this SoundFactory
 	 * @throws IllegalArgumentException If and only if soundTypesToFilenamesMap is null, or any of the sound types or filenames are null or empty
 	 */
-	void registerSounds(IMap<String,String> soundTypesToFilenamesMap) throws IllegalArgumentException;
+	void registerSoundTypes(IMap<String,String> soundTypesToFilenamesMap) throws IllegalArgumentException;
 }

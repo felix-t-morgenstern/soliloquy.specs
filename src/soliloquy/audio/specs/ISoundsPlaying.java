@@ -9,7 +9,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * <p>
  * A set of all Sounds playing. (Sounds are identified by their EntityUuids.)
  * <p>
- * <i>Note that this includes Sounds which are currently paused, but not Sounds which have been stopped.</i>
+ * <i>Note that this includes Sounds which are currently paused or muted, but not Sounds which have been stopped.</i>
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
