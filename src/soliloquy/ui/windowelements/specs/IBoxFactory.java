@@ -2,6 +2,7 @@ package soliloquy.ui.windowelements.specs;
 
 import soliloquy.common.specs.ISoliloquyClass;
 
+//TODO: Document this interface
 public interface IBoxFactory extends ISoliloquyClass {
 	IBox makeBox(IBoxFactoryParams params);
 	

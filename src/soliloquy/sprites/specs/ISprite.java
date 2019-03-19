@@ -3,6 +3,7 @@ package soliloquy.sprites.specs;
 import soliloquy.common.specs.ICoordinate;
 import soliloquy.ui.windowelements.specs.IScreenElement;
 
+// TODO: Document this interface
 public interface ISprite extends IScreenElement {
 	
 	// NB: There should be an invariant whereby only 'frame'

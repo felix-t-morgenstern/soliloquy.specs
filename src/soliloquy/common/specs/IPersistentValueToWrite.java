@@ -3,7 +3,8 @@ package soliloquy.common.specs;
 /**
  * <b>PersistentValueToWrite</b>
  * <p>
- * This is a stub class used by PersistentValuesHandler to pass off to a PersistentValueTypeHandler to be written and translated into a String
+ * This is a stub class used by PersistentValuesHandler to pass off to a PersistentValueTypeHandler
+ * to be written and translated into a String
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

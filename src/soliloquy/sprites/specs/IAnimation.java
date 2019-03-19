@@ -8,7 +8,8 @@ import soliloquy.common.specs.ISoliloquyClass;
 public interface IAnimation extends ISoliloquyClass {
 
 	/**
-	 * @return True, if and only if the Animation loops after it has completed. (This is useful, for instance, with TileObjects, such as Grounds or Fixtures.)
+	 * @return True, if and only if the Animation loops after it has completed. (This is useful,
+	 * for instance, with TileObjects, such as Grounds or Fixtures.)
 	 */
 	boolean repeats();
 	
@@ -26,13 +27,15 @@ public interface IAnimation extends ISoliloquyClass {
 	int millisecondsBeforePlay();
 	
 	/**
-	 * When the Animation is advanced by a number of milliseconds (by AnimationTicker), it will change its Frame, and start playing a Sound, if necessary
+	 * When the Animation is advanced by a number of milliseconds (by AnimationTicker), it will
+	 * change its Frame, and start playing a Sound, if necessary
 	 * @param milliseconds The number of milliseconds by which to advance this animation
 	 */
 	void advanceAnimation(int milliseconds);
 	
 	/**
-	 * When an Animation is paused, it will stay in its current frame, and its associated Sounds will also be paused until the next tick from the AnimationTicker.
+	 * When an Animation is paused, it will stay in its current frame, and its associated Sounds
+	 * will also be paused until the next tick from the AnimationTicker.
 	 * @return True, if and only if this Animation is paused
 	 */
 	boolean isPaused();
@@ -43,7 +46,8 @@ public interface IAnimation extends ISoliloquyClass {
 	void setIsPaused(boolean isPaused);
 	
 	/**
-	 * This should either delete the Animation from wherever it was stored, or mark the Animation for deletion by the AnimationTicker
+	 * This should either delete the Animation from wherever it was stored, or mark the Animation
+	 * for deletion by the AnimationTicker
 	 */
 	void stop();
 	
@@ -53,7 +57,8 @@ public interface IAnimation extends ISoliloquyClass {
 	void mute();
 	
 	/**
-	 * This sets all of the Sounds in this Animation to have the volume they had before they were muted.
+	 * This sets all of the Sounds in this Animation to have the volume they had before they were
+	 * muted.
 	 */
 	void unmute();
 	
@@ -63,12 +68,14 @@ public interface IAnimation extends ISoliloquyClass {
 	int getMilliseconds();
 	
 	/**
-	 * @param milliseconds The milliseconds of progress through the Animation to set for this current Animation
+	 * @param milliseconds The milliseconds of progress through the Animation to set for this
+	 * current Animation
 	 */
 	void setMilliseconds(int milliseconds);
 	
 	/**
-	 * When a Sound in this collection is stopped (via Sound.stop()), it will be removed from this Collection.
+	 * When a Sound in this collection is stopped (via Sound.stop()), it will be removed from this
+	 * Collection.
 	 * <p>
 	 * When an Animation is Paused, all of the Sounds in this Collection will also be Paused.
 	 * <p>

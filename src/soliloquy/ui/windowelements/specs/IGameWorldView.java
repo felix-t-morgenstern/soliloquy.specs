@@ -7,6 +7,7 @@ import soliloquy.gamestate.specs.ICamera;
 import soliloquy.gamestate.specs.ITile;
 import soliloquy.sprites.specs.ISprite;
 
+//TODO: Document this interface
 public interface IGameWorldView extends ISoliloquyClass {
 	ICamera getCamera();
 	void setCamera(ICamera camera);

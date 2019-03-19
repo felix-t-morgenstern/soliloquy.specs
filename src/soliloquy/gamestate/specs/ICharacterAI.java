@@ -12,9 +12,12 @@ import soliloquy.common.specs.IWrites;
  * <p>
  * CharacterAI determines what a Character does when it is their turn to act.
  * <p>
- * CharacterAI contains parameters describing how the Character will behave, e.g. their level of fear, their aggression, their current target(s)
+ * CharacterAI contains parameters describing how the Character will behave, e.g. their level of
+ * fear, their aggression, their current target(s)
  * <p>
- * CharacterAI describes a series of CharacterAIEvents which occur when certain events occur, e.g. when the Character is killed, when the Character is close to death, when the demonic ritual is complete
+ * CharacterAI describes a series of CharacterAIEvents which occur when certain events occur, e.g.
+ * when the Character is killed, when the Character is close to death, when the demonic ritual is
+ * complete
  * <p>
  * CharacterAIs may be written to and read from save files.
  * 
@@ -29,13 +32,16 @@ public interface ICharacterAI extends IReads, IWrites, IGlobalAccess {
 	void act();
 	
 	/**
-	 * @return Parameters describing how the Character will behave, e.g. their level of fear, their aggression, their current target(s)
+	 * @return Parameters describing how the Character will behave, e.g. their level of fear, their
+	 * aggression, their current target(s)
 	 */
 	IGenericParamsSet aiParams();
 	
 	/**
 	 * The name indices of this Map are names of the events which trigger these CharacterAIEvents
-	 * @return A Collection of CharacterAIEvents which occur when certain events occur, e.g. when the Character is killed, when the Character is close to death, when the demonic ritual is complete
+	 * @return A Collection of CharacterAIEvents which occur when certain events occur, e.g. when
+	 * the Character is killed, when the Character is close to death, when the demonic ritual is
+	 * complete
 	 */
 	IMap<String,ICollection<ICharacterAIEvent>> events();
 }

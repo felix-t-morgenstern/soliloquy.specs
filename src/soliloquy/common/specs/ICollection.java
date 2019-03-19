@@ -57,7 +57,8 @@ public interface ICollection<V> extends Iterable<V>, ICloneable <ICollection<V>>
 	
 	/**
 	 * @param items - The collection whose contents to compare to this Collection
-	 * @return True, if and only if every item which is present in this Collection is present in items
+	 * @return True, if and only if every item which is present in this Collection is present in
+	 * items
 	 */
 	boolean equals(ICollection<V> items);
 	
@@ -73,9 +74,11 @@ public interface ICollection<V> extends Iterable<V>, ICloneable <ICollection<V>>
 	boolean isEmpty();
 	
 	/**
-	 * If this is a Collection of a class that can be sorted, then the resulting array will be sorted by the items' Ids.
+	 * If this is a Collection of a class that can be sorted, then the resulting array will be
+	 * sorted by the items' Ids.
 	 * <p>
-	 * <i>This method must return Object[] instead of V[], since Java cannot create generic Arrays.</i>
+	 * <i>This method must return Object[] instead of V[], since Java cannot create generic
+	 * Arrays.</i>
 	 * @return An array of all values
 	 */
 	Object[] toArray();

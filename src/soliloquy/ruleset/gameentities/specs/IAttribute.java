@@ -8,7 +8,8 @@ import soliloquy.sprites.specs.ISpriteSet;
  * <p>
  * An Attribute, which can be held by a Character (i.e. in {@link ICharacterAttributes})
  * <p>
- * This class determines whether a Character can adjust an Attribute by a specified amount, e.g. while leveling up\
+ * This class determines whether a Character can adjust an Attribute by a specified amount, e.g.
+ * while leveling up
  * <p>
  * It has a description, and a SpriteSet for graphical depictions
  * 
@@ -17,10 +18,14 @@ import soliloquy.sprites.specs.ISpriteSet;
  */
 public interface IAttribute extends IGameEntity {
 	/**
-	 * Intended use is for when Characters are adjusting stats (e.g. leveling up) to enforce both minimum stats (e.g. not allowing Strength to fall below 1) and Attribute requirements (e.g. preventing Swordplay from being increased beyond the value of Dexterity) 
+	 * Intended use is for when Characters are adjusting stats (e.g. leveling up) to enforce both
+	 * minimum stats (e.g. not allowing Strength to fall below 1) and Attribute requirements (e.g.
+	 * preventing Swordplay from being increased beyond the value of Dexterity) 
 	 * <p>
-	 * This intended use is only intended for the <i>trained</i> Attribute values. It is not intended to have any bearing on modifiers from Items, CharacterStatusEffects, etc.
-	 * @param character - The Character whom to check to see whether they can adjust this Attribute by the specified amount
+	 * This intended use is only intended for the <i>trained</i> Attribute values. It is not
+	 * intended to have any bearing on modifiers from Items, CharacterStatusEffects, etc.
+	 * @param character - The Character whom to check to see whether they can adjust this Attribute
+	 * by the specified amount
 	 * @param amount - The amount of the adjustment being checked
 	 * @return True, if and only if the Character can adjust this Attribute by this amount
 	 * @throws NullPointerException If character is null

@@ -7,7 +7,8 @@ package soliloquy.ruleset.gameentities.abilities.specs;
  * <p>
  * It will return parameters regarding its effects (e.g. damage done, chance-to-hit).
  * <p>
- * It will return whether it only has effect when equipped. (This only applies to PassiveAbilities belonging to Items.)
+ * It will return whether it only has effect when equipped. (This only applies to PassiveAbilities
+ * belonging to Items.)
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

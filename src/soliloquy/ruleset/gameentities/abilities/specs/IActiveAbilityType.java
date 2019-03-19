@@ -20,7 +20,8 @@ public interface IActiveAbilityType extends IAbilityType {
 	 * Uses this ActiveAbilityType against some target(s)
 	 * @param source - The source of the ActiveAbilityType
 	 * @param targets - The target(s) of the ActiveAbilityType
-	 * @param params - The parameters regarding the effects (e.g. damage healed, chance-to-hit) of the ActiveAbilityType
+	 * @param params - The parameters regarding the effects (e.g. damage healed, chance-to-hit) of
+	 * the ActiveAbilityType
 	 */
 	void use(IAbilitySource source,
 			 ICollection<IPair<ICharacter,ITile>> targets,

@@ -4,6 +4,7 @@ import soliloquy.common.specs.IAction;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IMap;
 
+//TODO: Document this interface
 public interface IBoxFactoryParams extends IGenericParamsSet {
 	// NB: In this case, the Integer keys map onto events
 	//     which trigger the functions.

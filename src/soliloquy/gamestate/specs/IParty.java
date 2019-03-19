@@ -8,7 +8,8 @@ import soliloquy.common.specs.IWrites;
 /**
  * <b>Party</b>
  * <p>
- * The Party stores a Collection of the player-controlled Characters; and attributes of the Party, e.g. gold, military rank, group combat blessings
+ * The Party stores a Collection of the player-controlled Characters; and attributes of the Party,
+ * e.g. gold, military rank, group combat blessings
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

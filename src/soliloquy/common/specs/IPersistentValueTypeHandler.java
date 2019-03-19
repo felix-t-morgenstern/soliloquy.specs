@@ -3,14 +3,17 @@ package soliloquy.common.specs;
 /**
  * <b>PersistentValueTypeHandler</b>
  * <p>
- * This object translates objects of the specified type (e.g. Integers) into a String, and from a String back into an object of the specified type.
+ * This object translates objects of the specified type (e.g. Integers) into a String, and from a
+ * String back into an object of the specified type.
  * <p>
- * It is intended to aid in saving values to a save file, and reading them back from that save file. 
+ * It is intended to aid in saving values to a save file, and reading them back from that save
+ * file.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
- * @param <T> The type of object which is read from a String and turned back into a String by this handler
+ * @param <T> The type of object which is read from a String and turned back into a String by this
+ * handler
  */
 public interface IPersistentValueTypeHandler<T> extends IHasOneGenericParam<T> {
 	/**

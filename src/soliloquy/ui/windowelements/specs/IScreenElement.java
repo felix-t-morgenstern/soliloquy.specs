@@ -16,7 +16,8 @@ import soliloquy.graphics.specs.IRenderable;
  */
 public interface IScreenElement extends IRenderable {
 	/**
-	 * This method specifies the Id of the ScreenElement, so it can be altered or removed in any way necessary
+	 * This method specifies the Id of the ScreenElement, so it can be altered or removed in any
+	 * way necessary
 	 * @return The Id of this ScreenElement
 	 */
 	int windowElementId();

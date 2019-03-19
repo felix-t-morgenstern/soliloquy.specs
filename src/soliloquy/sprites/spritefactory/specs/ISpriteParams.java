@@ -3,6 +3,7 @@ package soliloquy.sprites.spritefactory.specs;
 import soliloquy.common.specs.ICoordinate;
 import soliloquy.common.specs.ISoliloquyClass;
 
+// TODO: Document this interface
 public interface ISpriteParams extends ISoliloquyClass {
 	ICoordinate locationOffset();
 	

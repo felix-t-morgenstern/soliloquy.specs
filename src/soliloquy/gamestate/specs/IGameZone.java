@@ -12,9 +12,11 @@ import soliloquy.common.specs.IMap;
 /**
  * <b>GameZone</b>
  * <p>
- * A GameZone is a set of Tiles in two-dimensional space where gameplay takes place. (Like a castle, or a dungeon, or a forest.)
+ * A GameZone is a set of Tiles in two-dimensional space where gameplay takes place. (Like a
+ * castle, or a dungeon, or a forest.)
  * <p>
- * A GameZone has a type, a size, Tiles, Characters, Items, and Actions which are executed when entering and leaving the GameZone.
+ * A GameZone has a type, a size, Tiles, Characters, Items, and Actions which are executed when
+ * entering and leaving the GameZone.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -32,16 +34,19 @@ public interface IGameZone extends IHasName, IHasId, IGlobalAccess {
 	ICoordinate getDimensions();
 	
 	/**
-	 * If you shrink the dimensions of the GameZone, Tiles with a greater x or y coordinate than the new dimensions will be lost. Conversely, if you enlarge the dimensions, blank Tiles will be created.
+	 * If you shrink the dimensions of the GameZone, Tiles with a greater x or y coordinate than
+	 * the new dimensions will be lost. Conversely, if you enlarge the dimensions, blank Tiles will be created.
 	 * @param dimensions - The new dimensions of the GameZone.
-	 * @throws IllegalArgumentException dimensions is null, or either of the coordinates are 0 or less
+	 * @throws IllegalArgumentException dimensions is null, or either of the coordinates are 0 or
+	 * less
 	 */
 	void setDimensions(ICoordinate dimensions) throws IllegalArgumentException;
 	
 	/**
 	 * @param coordinates - The coordinates of the Tile to return
 	 * @return The Tile at those coordinates
-	 * @throws IllegalArgumentException If coordinates is null, or coordinates is beyond the dimensions of the GameZone
+	 * @throws IllegalArgumentException If coordinates is null, or coordinates is beyond the
+	 * dimensions of the GameZone
 	 */
 	ITile tile(ICoordinate coordinates) throws IllegalArgumentException;
 	

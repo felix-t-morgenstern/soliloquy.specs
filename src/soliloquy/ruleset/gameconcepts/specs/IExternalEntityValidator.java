@@ -7,7 +7,8 @@ import soliloquy.ruleset.gameentities.specs.IItemType;
 /**
  * <b>ExternalEntityValidator</b>
  * <p>
- * This class is intended to check whether entities coming in from save files are valid, e.g. save files from the same Ruleset family but from different Games.
+ * This class is intended to check whether entities coming in from save files are valid, e.g. save
+ * files from the same Ruleset family but from different Games.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

@@ -3,9 +3,12 @@ package soliloquy.common.specs;
 /**
  * <b>SoliloquyClass</b>
  * <p>
- * This specifies the capability of nearly all Soliloquy classes to access the top-level Soliloquy class, i.e. Game.
+ * This specifies the capability of nearly all Soliloquy classes to access the top-level Soliloquy
+ * class, i.e. Game.
  * <p>
- * All classes (or at least nearly all classes) have access to Game to give developers maximum power to do as they see fit. Intended common uses are to access Settings and PersistentVariables.
+ * All classes (or at least nearly all classes) have access to Game to give developers maximum
+ * power to do as they see fit. Intended common uses are to access Settings and
+ * PersistentVariables.
  * <p>
  * It also permits every class in the Game to perform Logging functions. 
  * 
@@ -15,7 +18,8 @@ package soliloquy.common.specs;
  */
 public interface ISoliloquyClass {
 	/**
-	 * <b>If this class has any type parameters, those parameters should be included, in the proper order, within angle brackets, just as they do in the class definition.</b> 
+	 * <b>If this class has any type parameters, those parameters should be included, in the proper
+	 * order, within angle brackets, just as they do in the class definition.</b> 
 	 * @return The name of the interface of this class.
 	 */
 	String getInterfaceName();

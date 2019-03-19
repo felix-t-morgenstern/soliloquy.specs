@@ -19,7 +19,8 @@ public interface IPair<I1,I2> extends IHasTwoGenericParams<I1,I2> {
 	
 	/**
 	 * @param item - The value to which to set the first item
-	 * @throws IllegalArgumentException If the item provided is an illegal value, e.g. null, out-of-range, invalid Id, etc.
+	 * @throws IllegalArgumentException If the item provided is an illegal value, e.g. null,
+	 * out-of-range, invalid Id, etc.
 	 */
 	void setItem1(I1 item) throws IllegalArgumentException;
 	
@@ -30,7 +31,8 @@ public interface IPair<I1,I2> extends IHasTwoGenericParams<I1,I2> {
 	
 	/**
 	 * @param item - The value to which to set the second item
-	 * @throws IllegalArgumentException If the item provided is an illegal value, e.g. null, out-of-range, invalid Id, etc.
+	 * @throws IllegalArgumentException If the item provided is an illegal value, e.g. null,
+	 * out-of-range, invalid Id, etc.
 	 */
 	void setItem2(I2 item) throws IllegalArgumentException;
 }

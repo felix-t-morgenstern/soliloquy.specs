@@ -5,7 +5,8 @@ package soliloquy.common.specs;
  * <p>
  * This is a Setting (e.g. for the Game, for graphics, for audio, etc.)
  * <p>
- * <i>Note: Setting should NOT display its parameter in getParameterizedClassName; PersistentSettingHandler is intended to gather the type of its value from its getArchetype!</i>
+ * <i>Note: Setting should NOT display its parameter in getParameterizedClassName;
+ * PersistentSettingHandler is intended to gather the type of its value from its getArchetype!</i>
  * 
  * @author felix.t.morgenstern
  *
@@ -24,7 +25,8 @@ public interface ISetting<T> extends IHasId, IHasName, IHasOneGenericParam<T> {
 	void setValue(T value) throws IllegalArgumentException;
 	
 	/**
-	 * @return Parameters determining how the control for this setting appears in the UI (e.g. whether it is a slider, a text field, etc.; whether it is hidden; etc.)
+	 * @return Parameters determining how the control for this setting appears in the UI (e.g.
+	 * whether it is a slider, a text field, etc.; whether it is hidden; etc.)
 	 */
 	IGenericParamsSet controlParams();
 }

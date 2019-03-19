@@ -8,7 +8,8 @@ import soliloquy.common.specs.ISoliloquyClass;
  * <p>
  * Describes the nature of an ability, from the perspective of (one of) its target(s)
  * <p>
- * It has fields for the Ids of both an ActiveAbility and a ReactiveAbility. <b>One and only one of these methods should return a non-null value.</b>
+ * It has fields for the Ids of both an ActiveAbility and a ReactiveAbility. <b>One and only one of
+ * these methods should return a non-null value.</b>
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

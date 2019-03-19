@@ -15,9 +15,12 @@ import soliloquy.ruleset.gameentities.specs.IGameEntity;
  */
 public interface IAbility extends IGameEntity, IGlobalAccess {
 	/**
-	 * If this Ability belongs to a Character or an Item, its AbilitySource <b>must</b> point back to that Character or Item
+	 * If this Ability belongs to a Character or an Item, its AbilitySource <b>must</b> point back
+	 * to that Character or Item
 	 * @return The entity to which this Ability belongs
-	 * @throws IllegalStateException If the source has not been initialized; or the source for this Ability is a Character or an Item, but that source does not have this Ability; or if this Ability has been deleted
+	 * @throws IllegalStateException If the source has not been initialized; or the source for this
+	 * Ability is a Character or an Item, but that source does not have this Ability; or if this
+	 * Ability has been deleted
 	 */
 	IAbilitySource source() throws IllegalStateException;
 	
@@ -37,15 +40,18 @@ public interface IAbility extends IGameEntity, IGlobalAccess {
 	String abilityTypeId() throws IllegalStateException;
 	
 	/**
-	 * (It is expected that Items and Characters will use different means of determining ability effectiveness.)
-	 * @return Any parameters specifying the Ability (e.g. its effectiveness). This is particularly useful for items, whose effects don't depend completely on Character stats.
+	 * (It is expected that Items and Characters will use different means of determining ability
+	 * effectiveness.)
+	 * @return Any parameters specifying the Ability (e.g. its effectiveness). This is particularly
+	 * useful for items, whose effects don't depend completely on Character stats.
 	 * @throws IllegalStateException If this Ability has been deleted
 	 */
 	IGenericParamsSet abilityParams() throws IllegalStateException;
 	
 	/**
 	 * Only considered for Items' Abilities
-	 * @return True, if and only if the Ability only applies (i.e. has effect or can be used) when its corresponding Item is equipped
+	 * @return True, if and only if the Ability only applies (i.e. has effect or can be used) when
+	 * its corresponding Item is equipped
 	 * @throws UnsupportedOperationException If this Ability does not belong to an Item
 	 * @throws IllegalStateException If this Ability has been deleted
 	 */
@@ -53,7 +59,8 @@ public interface IAbility extends IGameEntity, IGlobalAccess {
 	
 	/**
 	 * Only considered for Items' Abilities
-	 * @param onlyWhenEquipped - Whether this Item's Ability will take effect only when that Item is equipped
+	 * @param onlyWhenEquipped - Whether this Item's Ability will take effect only when that Item
+	 * is equipped
 	 * @throws UnsupportedOperationException If this Ability does not belong to an Item
 	 * @throws IllegalStateException If this Ability has been deleted
 	 */

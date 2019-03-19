@@ -12,7 +12,8 @@ package soliloquy.common.specs;
  *
  * @param <T> The same class which implements this interface.
  * <p>
- * <i>It is possible to implement this interface by setting this type parameter to any Cloneable object, but that is heavily discouraged.</i>
+ * <i>It is possible to implement this interface by setting this type parameter to any Cloneable
+ * object, but that is heavily discouraged.</i>
  */
 public interface ICloneable<T extends ICloneable<T>> extends ISoliloquyClass {
 	/**

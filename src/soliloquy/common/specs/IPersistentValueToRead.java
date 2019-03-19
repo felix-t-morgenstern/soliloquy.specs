@@ -3,7 +3,8 @@ package soliloquy.common.specs;
 /**
  * <b>PersistentValueToRead</b>
  * <p>
- * This is a stub class used by PersistentValuesHandler to pass off to a PersistentValueTypeHandler to be read and translated into the proper type
+ * This is a stub class used by PersistentValuesHandler to pass off to a PersistentValueTypeHandler
+ * to be read and translated into the proper type
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

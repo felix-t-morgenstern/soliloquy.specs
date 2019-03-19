@@ -11,7 +11,8 @@ import soliloquy.common.specs.IHasId;
  * <p>
  * The behavior of this Timer MUST be consistent for EVERY SINGLE INSTANCE of the TimerType.
  * <p>
- * This is because the TimerType must be saved to file, and then recreated; so it must be able to be recreated, in whole, just from its Id.
+ * This is because the TimerType must be saved to file, and then recreated; so it must be able to
+ * be recreated, in whole, just from its Id.
  *  
  * @author felix.t.morgenstern
  * @version 0.0.1

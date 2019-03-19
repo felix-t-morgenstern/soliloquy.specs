@@ -3,7 +3,8 @@ package soliloquy.common.specs;
 /**
  * <b>MapFactory</b>
  * <p>
- * Generates a Map, with a specific key and value. May receive params, relating to the behavior of the created Map.
+ * Generates a Map, with a specific key and value. May receive params, relating to the behavior of
+ * the created Map.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

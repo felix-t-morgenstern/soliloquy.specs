@@ -27,7 +27,8 @@ import soliloquy.ruleset.gameentities.specs.IGameEntity;
 public interface ITileFixture extends IGameEntity {
 	/**
 	 * @return The FixtureType of this TileFixture
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no FixtureType
+	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
+	 * FixtureType
 	 */
 	IFixtureType getFixtureType() throws IllegalStateException;
 	
@@ -40,31 +41,39 @@ public interface ITileFixture extends IGameEntity {
 	/**
 	 * @return A Collection of the Items in this TileFixture.
 	 * @throws UnsupportedOperationException If this TileFixture's FixtureType is not a container
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no FixtureType
+	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
+	 * FixtureType
 	 */
 	ICollection<IItem> containedItems() throws UnsupportedOperationException, IllegalStateException;
 
 	/**
 	 * @return The offset in pixels of this TileFixture from the defaultOffset (can be null)
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no FixtureType
+	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
+	 * FixtureType
 	 */
 	ICoordinate getPixelOffset() throws IllegalStateException;
 	
 	/**
-	 * @param pixelOffset - The offset in pixels from the defaultOffset to set for this TileFixture (can be null)
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no FixtureType
+	 * @param pixelOffset - The offset in pixels from the defaultOffset to set for this TileFixture
+	 * (can be null)
+	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
+	 * FixtureType
 	 */
 	void setPixelOffset(ICoordinate pixelOffset) throws IllegalStateException;
 	
 	/**
-	 * @return A named Map of this Tile's ActiveAbilities; e.g. Heal Nearby Allies, Generate Golem; the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no FixtureType
+	 * @return A named Map of this Tile's ActiveAbilities; e.g. Heal Nearby Allies, Generate Golem;
+	 * the Ids are the AbilityTypeIds
+	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
+	 * FixtureType
 	 */
 	IMap<String,IActiveAbility> activeAbilities() throws IllegalStateException;
 	
 	/**
-	 * @return A named Map of this Tile's ReactiveAbilities; e.g. Explode, Talk, Trigger Event when Investigated; the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no FixtureType
+	 * @return A named Map of this Tile's ReactiveAbilities; e.g. Explode, Talk, Trigger Event when
+	 * Investigated; the Ids are the AbilityTypeIds
+	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
+	 * FixtureType
 	 */
 	IMap<String,IReactiveAbility> reactiveAbilities() throws IllegalStateException;
 }

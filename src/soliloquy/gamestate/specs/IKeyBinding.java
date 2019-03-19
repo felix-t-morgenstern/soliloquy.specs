@@ -8,7 +8,8 @@ import soliloquy.common.specs.ISoliloquyClass;
  * <p>
  * When a key is pressed or released, an Action may take place.
  * <p>
- * The key associated with this KeyBinding is defined by the Id used to access this KeyBinding in the its KeyBindingContext.
+ * The key associated with this KeyBinding is defined by the Id used to access this KeyBinding in
+ * the its KeyBindingContext.
  * <p>
  * It can block the bindings from lower contexts corresponding to the same key.
  * 
@@ -37,12 +38,14 @@ public interface IKeyBinding extends ISoliloquyClass {
 	void setOnRelease(IAction<Void> onRelease);
 	
 	/**
-	 * @return True, if and only if this KeyBinding blocks KeyBindings in lower KeyBindingContexts which are bound to the same key
+	 * @return True, if and only if this KeyBinding blocks KeyBindings in lower KeyBindingContexts
+	 * which are bound to the same key
 	 */
 	boolean getBlocksLowerBindings();
 	
 	/**
-	 * @param blocksLowerBindings - Whether this KeyBinding blocks KeyBindings in lower KeyBindingContexts which are bound to the same key 
+	 * @param blocksLowerBindings - Whether this KeyBinding blocks KeyBindings in lower
+	 * KeyBindingContexts which are bound to the same key 
 	 */
 	void setBlocksLowerBindings(boolean blocksLowerBindings);
 }

@@ -8,8 +8,10 @@ package soliloquy.common.specs;
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
- * @param <Input> The type of Input received by this Function. (If this is Void, then there is no input.)
- * @param <Output> The type of Output produced by this Function. (If this is Void, consider using an IAction instead.)
+ * @param <Input> The type of Input received by this Function. (If this is Void, then there is no
+ * input.)
+ * @param <Output> The type of Output produced by this Function. (If this is Void, consider using
+ * an IAction instead.)
  */
 public interface IFunction<Input,Output> extends IHasId, IHasTwoGenericParams<Input,Output>, IGlobalAccess {
 	/**

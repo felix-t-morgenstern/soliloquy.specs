@@ -11,7 +11,8 @@ package soliloquy.common.specs;
 public interface IPairFactory extends ISoliloquyClass {
 	/**
 	 * Creates a Pair with the specified values.
-	 * <i>This method assumes that both values are non-null. If one of the values must be null, use Make(T1, T2, T1, T2) to specify archetypes.</i>
+	 * <i>This method assumes that both values are non-null. If one of the values must be null, use
+	 * Make(T1, T2, T1, T2) to specify archetypes.</i>
 	 * @param item1 - The first (non-null) value for the new Pair
 	 * @param item2 - The second (non-null) value for the new Pair
 	 * @return The newly created Pair
@@ -21,7 +22,8 @@ public interface IPairFactory extends ISoliloquyClass {
 	
 	/**
 	 * Creates a Pair with the specified values.
-	 * (This method allows archetypes to be specified, so null values may be provided for the items in the Pair.)
+	 * (This method allows archetypes to be specified, so null values may be provided for the items
+	 * in the Pair.)
 	 * @param item1 - The first value for the new Pair
 	 * @param item2 - The second value for the new Pair
 	 * @param archetype1 - The archetype corresponding to the first value

@@ -4,6 +4,7 @@ import soliloquy.common.specs.IAction;
 import soliloquy.common.specs.ICoordinate;
 import soliloquy.common.specs.ISoliloquyClass;
 
+// TODO: Document this interface
 public interface IStaticSpriteParams extends ISoliloquyClass {
 	int spriteSheetId();
 	ICoordinate upperLeft();

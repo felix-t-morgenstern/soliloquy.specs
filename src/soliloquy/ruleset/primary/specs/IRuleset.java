@@ -23,6 +23,7 @@ import soliloquy.ruleset.gameentities.specs.IWallSegmentType;
 import soliloquy.sprites.specs.ISpriteFactory;
 import soliloquy.sprites.specs.ISpriteSetFactory;
 
+// TODO: Document this interface
 public interface IRuleset extends ISoliloquyClass {
 	IEntityGroup<IActiveAbilityType> activeAbilitiyTypes();
 	
@@ -31,13 +32,17 @@ public interface IRuleset extends ISoliloquyClass {
 	IEntityGroup<IPassiveAbilityType> passiveAbilitiyTypes();
 	
 	/**
-	 * (CharacterAptitudes are either calculated algorithmically in a single instance, or are stored statically. See {@link soliloquy.gamestate.specs.ICharacterAptitudes} for more information.
+	 * (CharacterAptitudes are either calculated algorithmically in a single instance, or are
+	 * stored statically. See {@link soliloquy.gamestate.specs.ICharacterAptitudes} for more
+	 * information.
 	 * @return A Collection of Aptitude Ids.
 	 */
 	ICollection<String> aptitudes();
 	
 	/**
-	 * (CharacterAttributes are either calculated algorithmically in a single instance, or are stored statically. See {@link soliloquy.gamestate.specs.ICharacterAttributes} for more information.
+	 * (CharacterAttributes are either calculated algorithmically in a single instance, or are
+	 * stored statically. See {@link soliloquy.gamestate.specs.ICharacterAttributes} for more
+	 * information.
 	 * @return A Collection of Attribute Ids.
 	 */
 	IEntityGroup<IAttribute> attributes();

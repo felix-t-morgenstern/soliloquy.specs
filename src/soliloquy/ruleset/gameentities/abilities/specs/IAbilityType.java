@@ -17,7 +17,8 @@ public interface IAbilityType extends IGameEntity {
 	 * Returns a string describing the Ability.
 	 * @param params - Used to help describe the effects of the Ability (e.g. the damage it will do)
 	 * @return The full description of the Ability.
-	 * @throws IllegalStateException If this AbilityType has no Id (and also in the extremely unorthodox case that it has been deleted)
+	 * @throws IllegalStateException If this AbilityType has no Id (and also in the extremely
+	 * unorthodox case that it has been deleted)
 	 */
 	String description(IGenericParamsSet params) throws IllegalStateException;
 }

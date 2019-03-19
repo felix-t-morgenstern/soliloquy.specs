@@ -19,7 +19,8 @@ public interface IHasPluralName extends ISoliloquyClass {
 	 * @param pluralName - the pluralized name to set for this entity
 	 * @throws IllegalArgumentException If the pluralName provided is null
 	 * <p>
-	 * <i>If the pluralName provided is a blank string, it is strongly encouraged to throw an IllegalArgumentException, or to report a warning in the Logger.</i>
+	 * <i>If the pluralName provided is a blank string, it is strongly encouraged to throw an
+	 * IllegalArgumentException, or to report a warning in the Logger.</i>
 	 */
 	void setPluralName(String pluralName) throws IllegalArgumentException;
 }

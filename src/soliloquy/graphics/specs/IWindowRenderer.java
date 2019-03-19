@@ -21,7 +21,8 @@ public interface IWindowRenderer extends ISoliloquyClass {
 	
 	/**
 	 * (16.6667 ms, i.e. 17 ms, corresponds to 60 FPS.)
-	 * @param milliseconds - The number of milliseconds in-between every time the game's UI will refresh
+	 * @param milliseconds - The number of milliseconds in-between every time the game's UI will
+	 * refresh
 	 */
 	void setMillisecondsPerTick(int milliseconds);
 	

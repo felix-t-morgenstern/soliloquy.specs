@@ -33,7 +33,8 @@ public interface ITileWallSegment extends IGameEntity {
 	
 	/**
 	 * @param height - The height to set for this TileWallSegment
-	 * @throws IllegalArgumentException If you want to enforce any minimum or maximum height values, enforce that invariant here, and throw this exception
+	 * @throws IllegalArgumentException If you want to enforce any minimum or maximum height
+	 * values, enforce that invariant here, and throw this exception
 	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
 	 */
 	void setHeight(int height) throws IllegalArgumentException, IllegalStateException;

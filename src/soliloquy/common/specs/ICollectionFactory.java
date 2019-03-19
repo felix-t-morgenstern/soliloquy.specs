@@ -3,7 +3,8 @@ package soliloquy.common.specs;
 /**
  * <b>CollectionFactory</b>
  * <p>
- * Generates a Collection, with a specific item type. May receive params, relating to the behavior of the created Collection.
+ * Generates a Collection, with a specific item type. May receive params, relating to the behavior
+ * of the created Collection.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

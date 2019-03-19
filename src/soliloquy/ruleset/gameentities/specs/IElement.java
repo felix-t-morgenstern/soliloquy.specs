@@ -6,7 +6,8 @@ import soliloquy.sprites.specs.ISpriteSet;
 /**
  * <b>Element</b>
  * <p>
- * An Element is type of effect which can occur to a Character, e.g. fire, ice, healing, poison, unblockable
+ * An Element is type of effect which can occur to a Character, e.g. fire, ice, healing, poison,
+ * unblockable
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

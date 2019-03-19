@@ -9,7 +9,8 @@ import soliloquy.common.specs.ISoliloquyClass;
  * <p>
  * A set of all Sounds playing. (Sounds are identified by their EntityUuids.)
  * <p>
- * <i>Note that this includes Sounds which are currently paused or muted, but not Sounds which have been stopped.</i>
+ * <i>Note that this includes Sounds which are currently paused or muted, but not Sounds which have
+ * been stopped.</i>
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -30,7 +31,8 @@ public interface ISoundsPlaying extends ISoliloquyClass {
 	
 	/**
 	 * @param soundId - The id of the Sound to retrieve
-	 * @return The Sound corresponding to soundId, if a Sound of that id is currently playing; else, null
+	 * @return The Sound corresponding to soundId, if a Sound of that id is currently playing;
+	 * else, null
 	 * @throws IllegalArgumentException If and only if soundId is null
 	 */
 	ISound getSound(IEntityUuid soundId) throws IllegalArgumentException;
@@ -42,9 +44,11 @@ public interface ISoundsPlaying extends ISoliloquyClass {
 	void registerSound(ISound sound) throws IllegalArgumentException;
 	
 	/**
-	 * <i>This method is only intended to be called by Sound.stop(), and when used inappropriately, may end up in memory leaks</i>
+	 * <i>This method is only intended to be called by Sound.stop(), and when used inappropriately,
+	 * may end up in memory leaks</i>
 	 * <p>
-	 * (This method does nothing if soundId corresponds to a nonexistent Sound, in order to avoid throwing exceptions amidst race conditions.)
+	 * (This method does nothing if soundId corresponds to a nonexistent Sound, in order to avoid
+	 * throwing exceptions amidst race conditions.)
 	 * @param soundId - The Sound to remove
 	 * @throws IllegalArgumentException If and only if soundId is null.
 	 */
