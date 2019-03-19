@@ -1,5 +1,7 @@
 package soliloquy.logger.specs;
 
+import java.io.IOException;
+
 import soliloquy.common.specs.ISoliloquyClass;
 
 /**
@@ -13,23 +15,29 @@ import soliloquy.common.specs.ISoliloquyClass;
  */
 public interface ILogger extends ISoliloquyClass {
 	/**
-	 * @param e - The Exception to log (e.g. to file)
-	 * @param origin - The origin (i.e. the responsible class, method, and line)
-	 * @param timestamp - The date and time of the exception
+	 * @param logLocation The URI to which to write
+	 * @throws IOException Iff a connection to the persistent log location cannot be accessed for IO
 	 */
-	void logException(Exception e, String origin, String timestamp);
+	void setLogfileLocation(String logLocation) throws IOException;
+	
+	/**
+	 * @param e - The Exception to log (e.g. to file)
+	 * @param timestamp - The date and time of the exception
+	 * @throws IOException Iff a connection to the log cannot be accessed for IO
+	 */
+	void logException(Exception e, String timestamp) throws IOException;
 	
 	/**
 	 * @param warning - The warning to log (e.g. to file)
-	 * @param origin - The origin (i.e. the responsible class/method)
 	 * @param timestamp - The date and time of the warning
+	 * @throws IOException Iff a connection to the log cannot be accessed for IO
 	 */
-	void logWarning(String warning, String origin, String timestamp);
+	void logWarning(String warning, String timestamp) throws IOException;
 	
 	/**
-	 * @param message - The message to log (e.g. to file)
-	 * @param origin - The origin (i.e. the responsible class, method, and line)
+	 * @param info - The info message to log (e.g. to file)
 	 * @param timestamp - The date and time of the message
+	 * @throws IOException Iff a connection to the log cannot be accessed for IO
 	 */
-	void logMessage(String message, String origin, String timestamp);
+	void logInfo(String info, String timestamp) throws IOException;
 }
