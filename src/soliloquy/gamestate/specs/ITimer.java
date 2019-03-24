@@ -22,9 +22,9 @@ public interface ITimer extends IHasId, IReads, IWrites, IGlobalAccess {
 	 * Therefore, Timers are expected to be constructed without any external parameters specifying
 	 * their behavior. Any contingencies in how they behave are to be handled by use of
 	 * IGlobalAccess.</i>
-	 * @return The type of the Timer (which specifies what happens when the Timer is fired)
+	 * @return The Id of the TimerAction (which specifies what happens when the Timer is fired)
 	 */
-	ITimerType timerType();
+	String timerActionId();
 	
 	/**
 	 * @return When multiple Timers fire in a Round, they fire in order of their priority

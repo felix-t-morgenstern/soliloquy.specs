@@ -30,19 +30,6 @@ public interface ITile extends IGameEntity {
 	IGameZone getGameZone() throws IllegalStateException;
 	
 	/**
-	 * @param gameZone - The GameZone in which this Tile will exist
-	 * @param location - The Coordinate at which this Tile will exist
-	 * @throws IllegalArgumentException If either gameZone or location are null, or if gameZone
-	 * does not have this Tile at the provided location
-	 * <p>
-	 * <i>(If you want to enforce minimum or maximum values for height, you should enforce that
-	 * invariant here, and throw this exception.)
-	 * @throws UnsupportedOperationException If this Tile's GameZone has already been initialized
-	 * @throws IllegalStateException If this Tile has been deleted
-	 */
-	void initializeInGameZone(IGameZone gameZone, ICoordinate location, int height) throws IllegalArgumentException, UnsupportedOperationException, IllegalStateException;
-	
-	/**
 	 * @return The Coordinate at which this Tile is located
 	 * @throws IllegalStateException If the location is defined, but the gameZone is not; or if the
 	 * gameZone does not have this Tile listed at the value returned by this method; or if this

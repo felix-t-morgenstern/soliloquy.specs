@@ -4,7 +4,6 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasUuid;
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
@@ -24,7 +23,7 @@ import soliloquy.sprites.specs.ISpriteSet;
  * @version 0.0.1
  *
  */
-public interface ICharacter extends IGameEntity, IHasUuid, ISoliloquyClass {	
+public interface ICharacter extends IGameEntity, IHasUuid {	
 	/**
 	 * @param gameZone - The GameZone to which to move this Character
 	 * @throws IllegalArgumentException If gameZone is null
@@ -145,20 +144,28 @@ public interface ICharacter extends IGameEntity, IHasUuid, ISoliloquyClass {
 	void setSpriteSet(ISpriteSet spriteSet) throws IllegalArgumentException, IllegalStateException;
 	
 	/**
-	 * @return This Character's AI script
+	 * @return This Character's AI script ID (to be looked up in GameState.characterAIs)
 	 * @throws IllegalStateException If this Character does not have an AI script
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	ICharacterAI getAI() throws IllegalStateException, IllegalStateException;
+	String getAITypeId() throws IllegalStateException, IllegalStateException;
 	
 	/**
-	 * @param ai - The AI script to assign to this Character
+	 * @param characterAIId - The ID of the AI script to assign to this Character
 	 * @throws IllegalArgumentException If ai is null
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	void setAI(ICharacterAI ai) throws IllegalArgumentException, IllegalStateException;
+	void setAI(String characterAIId) throws IllegalArgumentException, IllegalStateException;
+	
+	/**
+	 * @return Parameters affecting the behavior of this Character's AI; examples include preference
+	 * for ranged combat, desired distance to allies, or disposition to flee.
+	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
+	 * Character has been deleted, or if it has no Id
+	 */
+	IGenericParamsSet characterAIParams() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's equipment

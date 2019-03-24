@@ -30,6 +30,16 @@ public interface IGameState extends ISoliloquyClass {
 	IPersistentVariableCache gameStatePVars();
 	
 	/**
+	 * @return A factory used to create new Characters
+	 */
+	ICharacterFactory characterFactory();
+	
+	/**
+	 * @return A Map of AIs which can be assigned to various characters
+	 */
+	IMap<String,ICharacterAI> characterAIs();
+	
+	/**
 	 * @return A repository which can retrieve GameZones
 	 */
 	IGameZonesRepo gameZonesRepo();
@@ -49,6 +59,11 @@ public interface IGameState extends ISoliloquyClass {
 	 * advancement of rounds
 	 */
 	IRoundManager roundManager();
+	
+	/**
+	 * @return A Map of TimerActions, identified by IDs (to allow Timers to be recreated from savefiles)
+	 */
+	IMap<String,ITimerAction> timerActions();
 	
 	/**
 	 * @return The current KeyBindingContexts (i.e. the Actions which take place when various keys
