@@ -1,12 +1,12 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
+import soliloquy.common.specs.ISoliloquyClass;
+import soliloquy.ruleset.gameentities.abilities.specs.IAbilitySource;
 import soliloquy.ruleset.gameentities.specs.IElement;
 
 /**
  * <b>CharacterStatusEffects</b>
- * <p>
- * It is a set of the status effects currently affecting a character
  * <p>
  * It can return a set of all status effects whose values are non-zero, identified by status effect
  * type Id.
@@ -19,7 +19,23 @@ import soliloquy.ruleset.gameentities.specs.IElement;
  * @version 0.0.1
  *
  */
-public interface ICharacterStatusEffects extends IMap<String,Integer> {
+public interface ICharacterStatusEffects extends ISoliloquyClass {
+	/**
+	 * @param statusEffectTypeId - The Id of the Type of the Status Effect whose level to retrieve
+	 * @return The current value of the specified StatusEffectType for this Character
+	 * @throws IllegalStateException If this Character is deleted or dead
+	 * @throws IllegalArgumentException If and only if statusEffectTypeId is null, empty, or does
+	 * not correspond to a valid StatusEffectType
+	 */
+	Integer getStatusEffect(String statusEffectTypeId) throws IllegalStateException, IllegalArgumentException;
+	
+	/**
+	 * <i>NB: The Map returned by this method CANNOT be used to alter the Status Effects of this
+	 * Character; it is only a representation of those Status Effects.
+	 * @return A Map, with an entry for every Status Effect whose value for this Character is not zero.
+	 */
+	IMap<String,Integer> getAllStatusEffects();
+	
 	/**
 	 * This is used for altering the value of a CharacterVitalAttribute as part of an Ability, e.g.
 	 * doing damage to a Character, draining their mana, etc.
@@ -47,5 +63,15 @@ public interface ICharacterStatusEffects extends IMap<String,Integer> {
 	 * @throws IllegalArgumentException If statusEffectTypeId is null or does not correspond to the
 	 * Id of a StatusEffectType
 	 */
-	void alterStatusEffect(String statusEffectTypeId, int baseAmount, boolean stopAtZero, boolean bypassResistance, IElement element) throws IllegalStateException, IllegalArgumentException;
+	void alterStatusEffect(String statusEffectTypeId, int baseAmount, boolean stopAtZero,
+			boolean bypassResistance, IElement element, IAbilitySource abilitySource)
+					throws IllegalStateException, IllegalArgumentException;
+	
+	/**
+	 * This sets the level of a status effect for a given Character, ignoring resistances.
+	 * @param statusEffectTypeId - The Id of the Status Effect Type
+	 * @param level - The level to which to set the Status Effect
+	 * @throws IllegalStateException If this Character is deleted or dead
+	 */
+	void setStatusEffectLevel(String statusEffectTypeId, int level) throws IllegalStateException;
 }
