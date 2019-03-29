@@ -157,7 +157,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	void setAI(String characterAIId) throws IllegalArgumentException, IllegalStateException;
+	void setAITypeId(String characterAITypeId) throws IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * @return Parameters affecting the behavior of this Character's AI; examples include preference
