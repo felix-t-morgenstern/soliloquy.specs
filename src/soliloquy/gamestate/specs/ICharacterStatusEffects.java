@@ -1,7 +1,8 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
+import soliloquy.common.specs.IReads;
+import soliloquy.common.specs.IWrites;
 import soliloquy.ruleset.gameentities.abilities.specs.IAbilitySource;
 import soliloquy.ruleset.gameentities.specs.IElement;
 
@@ -19,7 +20,7 @@ import soliloquy.ruleset.gameentities.specs.IElement;
  * @version 0.0.1
  *
  */
-public interface ICharacterStatusEffects extends ISoliloquyClass {
+public interface ICharacterStatusEffects extends IReads, IWrites {
 	/**
 	 * @param statusEffectTypeId - The Id of the Type of the Status Effect whose level to retrieve
 	 * @return The current value of the specified StatusEffectType for this Character
@@ -27,7 +28,7 @@ public interface ICharacterStatusEffects extends ISoliloquyClass {
 	 * @throws IllegalArgumentException If and only if statusEffectTypeId is null, empty, or does
 	 * not correspond to a valid StatusEffectType
 	 */
-	Integer getStatusEffect(String statusEffectTypeId) throws IllegalStateException, IllegalArgumentException;
+	Integer getStatusEffectLevel(String statusEffectTypeId) throws IllegalStateException, IllegalArgumentException;
 	
 	/**
 	 * <i>NB: The Map returned by this method CANNOT be used to alter the Status Effects of this
