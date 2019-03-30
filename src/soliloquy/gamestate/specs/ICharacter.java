@@ -4,6 +4,7 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasUuid;
 import soliloquy.common.specs.IMap;
+import soliloquy.ruleset.gameentities.specs.ICharacterAIEvent;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
@@ -153,7 +154,8 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	
 	/**
 	 * @param characterAIId - The ID of the AI script to assign to this Character
-	 * @throws IllegalArgumentException If ai is null
+	 * @throws IllegalArgumentException If characterAITypeId is null, empty, or does not correspond
+	 * to a valid CharacterAIType
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
@@ -166,6 +168,21 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * Character has been deleted, or if it has no Id
 	 */
 	IGenericParamsSet characterAIParams() throws IllegalStateException;
+	
+	/**
+	 * This is similar to
+	 * {@link soliloquy.ruleset.gameentities.specs.ICharacterAIType#events}, except it
+	 * is for events specific to this Character, instead of all Characters using that
+	 * CharacterAIType. Intended use is for events which override or supplement normal behavior of 
+	 * its AI script; i.e., you may want this Character to use the default AI, except you might 
+	 * want it to explode when it dies.
+	 * <p>
+	 * The name indices of this Map are names of the events which trigger these CharacterAIEvents
+	 * @return A Collection of CharacterAIEvents which occur when certain events occur, e.g. when
+	 * the Character is killed, when the Character is close to death, when the demonic ritual is
+	 * complete
+	 */
+	IMap<String,ICollection<ICharacterAIEvent>> characterAIEvents();
 	
 	/**
 	 * @return This Character's equipment

@@ -10,6 +10,7 @@ import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbilityType;
 import soliloquy.ruleset.gameentities.abilities.specs.IPassiveAbilityType;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbilityType;
 import soliloquy.ruleset.gameentities.specs.IAttribute;
+import soliloquy.ruleset.gameentities.specs.ICharacterAIType;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
 import soliloquy.ruleset.gameentities.specs.IElement;
@@ -50,6 +51,8 @@ public interface IRuleset extends ISoliloquyClass {
 	IMap<String,ICharacterClassification> characterClassifications();
 	
 	IMap<String,ICharacterType> characterTypes();
+	
+	IMap<String,ICharacterAIType> characterAITypes();
 	
 	IMap<String,IElement> elements();
 	

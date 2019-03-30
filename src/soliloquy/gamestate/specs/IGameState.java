@@ -3,6 +3,7 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.IPersistentVariableCache;
 import soliloquy.common.specs.ISoliloquyClass;
+import soliloquy.ruleset.gameentities.specs.ICharacterAIType;
 
 /**
  * <b>GameState</b>
@@ -37,7 +38,7 @@ public interface IGameState extends ISoliloquyClass {
 	/**
 	 * @return A Map of AIs which can be assigned to various characters
 	 */
-	IMap<String,ICharacterAI> characterAIs();
+	IMap<String,ICharacterAIType> characterAIs();
 	
 	/**
 	 * @return A repository which can retrieve GameZones

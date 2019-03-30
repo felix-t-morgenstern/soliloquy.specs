@@ -1,4 +1,4 @@
-package soliloquy.gamestate.specs;
+package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
@@ -25,17 +25,11 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface ICharacterAI extends IReads, IWrites, IGlobalAccess {
+public interface ICharacterAIType extends IReads, IWrites, IGlobalAccess {
 	/**
 	 * Causes this Character to act when they are active
 	 */
 	void act();
-	
-	/**
-	 * @return Parameters describing how the Character will behave, e.g. their level of fear, their
-	 * aggression, their current target(s)
-	 */
-	IGenericParamsSet aiParams();
 	
 	/**
 	 * The name indices of this Map are names of the events which trigger these CharacterAIEvents

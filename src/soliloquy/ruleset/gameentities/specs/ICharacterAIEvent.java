@@ -1,4 +1,4 @@
-package soliloquy.gamestate.specs;
+package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasId;
