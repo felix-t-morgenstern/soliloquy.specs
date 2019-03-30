@@ -66,7 +66,7 @@ public interface ICharacterStatusEffects extends IReads, IWrites {
 	 * Id of a StatusEffectType
 	 */
 	void alterStatusEffect(String statusEffectTypeId, int baseAmount, boolean stopAtZero,
-			boolean bypassResistance, IElement element, IAbilitySource abilitySource)
+			IElement element, IAbilitySource abilitySource)
 					throws IllegalStateException, IllegalArgumentException;
 	
 	/**
