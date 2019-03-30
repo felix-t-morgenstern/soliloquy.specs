@@ -18,7 +18,7 @@ import soliloquy.ruleset.gameentities.specs.IFixtureType;
 import soliloquy.ruleset.gameentities.specs.IGroundType;
 import soliloquy.ruleset.gameentities.specs.IItemType;
 import soliloquy.ruleset.gameentities.specs.IStatusEffectType;
-import soliloquy.ruleset.gameentities.specs.IVitalAttribute;
+import soliloquy.ruleset.gameentities.specs.IVitalAttributeType;
 import soliloquy.ruleset.gameentities.specs.IWallSegmentType;
 import soliloquy.sprites.specs.ISpriteFactory;
 import soliloquy.sprites.specs.ISpriteSetFactory;
@@ -65,7 +65,7 @@ public interface IRuleset extends ISoliloquyClass {
 	
 	IMap<String,IStatusEffectType> statusEffectTypes();
 	
-	IMap<String,IVitalAttribute> vitalAttributes();
+	IMap<String,IVitalAttributeType> vitalAttributes();
 	
 	IMap<String,IWallSegmentType> wallSegmentTypes();
 	
