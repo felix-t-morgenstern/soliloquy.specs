@@ -63,7 +63,7 @@ public interface ICharacterStatusEffects extends IReads, IWrites {
 	 * specified here.) Can be null.
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 * @throws IllegalArgumentException If statusEffectTypeId is null or does not correspond to the
-	 * Id of a StatusEffectType
+	 * Id of a StatusEffectType, or if element is null
 	 */
 	void alterStatusEffect(String statusEffectTypeId, int baseAmount, boolean stopAtZero,
 			IElement element, IAbilitySource abilitySource)
