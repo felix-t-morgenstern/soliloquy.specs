@@ -34,8 +34,9 @@ public interface ICharacterStatusEffects extends IReads, IWrites {
 	 * <i>NB: The Map returned by this method CANNOT be used to alter the Status Effects of this
 	 * Character; it is only a representation of those Status Effects.
 	 * @return A Map, with an entry for every Status Effect whose value for this Character is not zero.
+	 * @throws IllegalStateException If this Character is deleted or dead
 	 */
-	IMap<String,Integer> getAllStatusEffects();
+	IMap<String,Integer> getAllStatusEffects() throws IllegalStateException;
 	
 	/**
 	 * This is used for altering the value of a CharacterVitalAttribute as part of an Ability, e.g.
@@ -73,6 +74,16 @@ public interface ICharacterStatusEffects extends IReads, IWrites {
 	 * @param statusEffectTypeId - The Id of the Status Effect Type
 	 * @param level - The level to which to set the Status Effect
 	 * @throws IllegalStateException If this Character is deleted or dead
+	 * @throws IllegalArgumentException If and only if statusEffectTypeId is null, empty, or does
+	 * not correspond to a valid StatusEffectType
 	 */
-	void setStatusEffectLevel(String statusEffectTypeId, int level) throws IllegalStateException;
+	void setStatusEffectLevel(String statusEffectTypeId, int level)
+			throws IllegalStateException, IllegalArgumentException;
+	
+	/**
+	 * Clears all Status Effects for this Character. (NB: This does not change whether the 
+	 * Character is dead or deleted.)
+	 * @throws IllegalStateException If this Character is deleted or dead
+	 */
+	void clearStatusEffects() throws IllegalStateException;
 }
