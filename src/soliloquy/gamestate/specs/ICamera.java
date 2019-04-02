@@ -4,6 +4,7 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.ICoordinate;
 import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.common.specs.IMap;
+import soliloquy.ruleset.gameconcepts.specs.ITileVisibility;
 
 /**
  * <b>Camera</b>
@@ -112,6 +113,18 @@ public interface ICamera extends IGlobalAccess {
 	 * @return A collection of Coordinates which provide visibility to the player.
 	 */
 	IMap<ICoordinate,Integer> coordinatesProvidingVisibility();
+	
+	/**
+	 * @return This Camera's {@link ITileVisibility} (i.e. the class which calculates whether one 
+	 * Tile is visible from another)
+	 */
+	ITileVisibility getTileVisibility();
+	
+	/**
+	 * @param tileVisibility - The {@link ITileVisibility} (i.e. the class which calculates whether 
+	 * one Tile is visible from another) to set for this Camera
+	 */
+	void setTileVisibility(ITileVisibility tileVisibility);
 	
 	/**
 	 * This function sets visibilityPoints to return the Coordinates of Tiles which are visible to
