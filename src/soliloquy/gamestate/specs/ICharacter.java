@@ -250,23 +250,6 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	boolean isPC() throws IllegalStateException;
 	
 	/**
-	 * This method returns the tiles around the Character which are visible to the 
-	 * {@link soliloquy.gamestate.specs.ICamera} if this Character is part of the Camera's 
-	 * {@link soliloquy.gamestate.specs.ICamera#charactersProvidingVisibility}. This method does 
-	 * <i>not</i> return how many Tiles a Character can "see" when determining their behavior 
-	 * in-game; {@link ICharacter#getAITypeId} and {@link ICharacter#characterAIParams} are 
-	 * intended to handle this sort of functionality instead.
-	 * <p>
-	 * The value returned by this method includes the Tile on which this Character is standing. For
-	 * instance, if this method returns 0, then this Character cannot "see" any Tiles. If this 
-	 * method returns 1, then this Character can only "see" the Tile on which they stand. If this 
-	 * method returns 2, then this Character can only "see" the Tile on which they stand, and all 
-	 * immediately neighboring Tiles.
-	 * @return The visibility radius provided by this Character
-	 */
-	int getVisibilityRadius();
-	
-	/**
 	 * For more detailed explanation regarding the meaning of "VisibilityRadius", see 
 	 * {@link #getVisibilityRadius}. 
 	 * @param visibilityRadius - The VisibilityRadius to set for this Character

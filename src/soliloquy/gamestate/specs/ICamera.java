@@ -89,9 +89,20 @@ public interface ICamera extends IGlobalAccess {
 	/**
 	 * Intended use for this method is to return Characters through whom the player sees the game
 	 * world; generally the Party, and perhaps also some allies in certain instances.
+	 * <p>
+	 * This method does <i>not</i> return how many Tiles a Character can "see" when determining 
+	 * their behavior in-game; {@link ICharacter#getAITypeId} and 
+	 * {@link ICharacter#characterAIParams} are intended to handle this sort of functionality 
+	 * instead.
+	 * <p>
+	 * The value returned by this method includes the Tile on which this Character is standing. For
+	 * instance, if this method returns 0, then this Character cannot "see" any Tiles. If this 
+	 * method returns 1, then this Character can only "see" the Tile on which they stand. If this 
+	 * method returns 2, then this Character can only "see" the Tile on which they stand, and all 
+	 * immediately neighboring Tiles.
 	 * @return A collection of Characters who provide visibility to the player
 	 */
-	ICollection<ICharacter> charactersProvidingVisibility();
+	IMap<ICharacter,Integer> charactersProvidingVisibility();
 	
 	/**
 	 * The intended use of this Map is to have each key specify a Coordinate for which there is 
