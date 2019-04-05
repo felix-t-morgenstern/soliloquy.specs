@@ -31,9 +31,9 @@ public interface IGameZone extends IHasName, IHasId, IReads, IWrites, IGlobalAcc
 	String zoneType();
 	
 	/**
-	 * @return The size of the GameZone
+	 * @return The maximum x and y values of Coordinates in the GameZone
 	 */
-	ICoordinate getDimensions();
+	ICoordinate getMaxCoordinates();
 	
 	/**
 	 * If you shrink the dimensions of the GameZone, Tiles with a greater x or y coordinate than
