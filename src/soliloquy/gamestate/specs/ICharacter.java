@@ -250,14 +250,6 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	boolean isPC() throws IllegalStateException;
 	
 	/**
-	 * For more detailed explanation regarding the meaning of "VisibilityRadius", see 
-	 * {@link #getVisibilityRadius}. 
-	 * @param visibilityRadius - The VisibilityRadius to set for this Character
-	 * @throws IllegalArgumentException - If and only if visibilityRadius is negative
-	 */
-	void setVisibilityRadius(int visibilityRadius) throws IllegalArgumentException;
-	
-	/**
 	 * @return True, if and only if this Character is hidden
 	 * <p>
 	 * Hidden Characters do not interact with the GameWorld; they exist only to appear (or

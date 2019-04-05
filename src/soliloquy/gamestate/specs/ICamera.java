@@ -130,8 +130,9 @@ public interface ICamera extends IGlobalAccess {
 	 * This function sets visibilityPoints to return the Coordinates of Tiles which are visible to
 	 * Characters controlled by the player (as specified by
 	 * {@link soliloquy.ruleset.gameconcepts.specs.ITileVisibility}).
+	 * @throws IllegalStateException If and only if TileVisibility is null
 	 */
-	void calculateVisibileTiles();
+	void calculateVisibileTiles() throws IllegalStateException;
 	
 	/**
 	 * These are the Coordinates of the Tiles currently visible to the player. (These may be
