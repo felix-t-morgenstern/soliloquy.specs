@@ -27,7 +27,18 @@ public interface ITimer extends IHasId, IReads, IWrites, IGlobalAccess {
 	String timerActionId();
 	
 	/**
-	 * @return When multiple Timers fire in a Round, they fire in order of their priority
+	 * (NB: When multiple Timers firing on a Round have the same priority, all of them will be 
+	 * fired successfully, but their order cannot be guaranteed. This value can be set to negative 
+	 * values.)
+	 * @return When multiple Timers fire in a Round, they fire in order of this priority
 	 */
-	int priority();
+	int getPriority();
+	
+	/**
+	 * (NB: When multiple Timers firing on a Round have the same priority, all of them will be 
+	 * fired successfully, but their order cannot be guaranteed. This value can be set to negative 
+	 * values.)
+	 * @param priority - When multiple Timers fire in a Round, they fire in order of this priority
+	 */
+	void setPriority(int priority);
 }
