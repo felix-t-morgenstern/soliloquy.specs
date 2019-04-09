@@ -1,5 +1,7 @@
 package soliloquy.gamestate.specs;
 
+import soliloquy.common.specs.ISoliloquyClass;
+
 /**
  * <b>TimerFactory</b>
  * <p>
@@ -11,19 +13,22 @@ package soliloquy.gamestate.specs;
  * @author felix.t.morgenstern
  *
  */
-public interface ITimerFactory {
+public interface ITimerFactory extends ISoliloquyClass {
 	/**
-	 * @param timerTypeId - Type of the Timer to instantiate
+	 * @param timerId - The Id of the Timer to instantiate
+	 * @param timerActionId - Type of the Timer to instantiate
 	 * @param roundWhenGoesOff - The round on which the OneTimeTimer fires
 	 * @return The OneTimeTimer
 	 * @throws IllegalArgumentException If and only if timerTypeId doesn't correspond to a valid
 	 * TimerType,
 	 * or if roundWhenGoesOff is less than 1, or if roundWhenGoesOff has already elapsed.
 	 */
-	ITimer makeOneTimeTimer(String timerTypeId, long roundWhenGoesOff) throws IllegalArgumentException;
+	IOneTimeTimer makeOneTimeTimer(String timerId, String timerActionId, long roundWhenGoesOff)
+			throws IllegalArgumentException;
 	
 	/**
-	 * @param timerTypeId - Type of the Timer to instantiate
+	 * @param timerId - The Id of the Timer to instantiate
+	 * @param timerActionId - Type of the Timer to instantiate
 	 * @param roundModulo - The number of turns between each time this RecurringTimer will fire
 	 * @param roundOffset - The turns offset from when (roundNumber mod roundModulo()) is 0 on
 	 * which this RecurringTimer will fire
@@ -32,5 +37,7 @@ public interface ITimerFactory {
 	 * TimerType, or if roundsBetweenFiring is less than 1, or if roundsBeforeFiring is less than 1
 	 * or greater than roundsBetweenFiring
 	 */
-	ITimer makeRecurringTimer(String timerTypeId, int roundModulo, int roundOffset) throws IllegalArgumentException;
+	IRecurringTimer makeRecurringTimer(String timerId, String timerActionId, int roundModulo,
+			int roundOffset)
+			throws IllegalArgumentException;
 }
