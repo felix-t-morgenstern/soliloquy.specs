@@ -24,14 +24,7 @@ import soliloquy.sprites.specs.ISpriteSet;
  * @version 0.0.1
  *
  */
-public interface ICharacter extends IGameEntity, IHasUuid {	
-	/**
-	 * @param gameZone - The GameZone to which to move this Character
-	 * @throws IllegalArgumentException If gameZone is null
-	 * @throws IllegalStateException If this Character has been deleted, or if it has no Id
-	 */
-	void setGameZone(IGameZone gameZone) throws IllegalArgumentException, IllegalStateException;
-	
+public interface ICharacter extends IGameEntity, IHasUuid {
 	/**
 	 * @return The CharacterType of this Character
 	 * <p>
