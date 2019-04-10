@@ -210,7 +210,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IMap<String,ICharacterValueFromModifiers> attributes() throws IllegalStateException;
+	IMap<String,ICharacterAttribute> attributes() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's current StatusEffects, e.g. poisoned, distracted, panicking
@@ -240,7 +240,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IMap<String,ICharacterValueFromModifiers> aptitudes() throws IllegalStateException;
+	IMap<String,ICharacterAptitude> aptitudes() throws IllegalStateException;
 	
 	/**
 	 * @return True, if and only if this Character is a PlayerCharacter
