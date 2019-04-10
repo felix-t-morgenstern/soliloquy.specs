@@ -12,7 +12,7 @@ package soliloquy.ruleset.gameentities.specs;
  * @version 0.0.1
  *
  */
-public interface IStatusEffectType extends IActOnCharacterOnTurnAndRound, IIconForCharacter, IGameEntity {
+public interface IStatusEffectType extends IResistancesApplyWhenAltered, IActOnCharacterOnTurnAndRound, IIconForCharacter, IGameEntity {
 	/**
 	 * Intended use is to return true if and only if it makes no sense for this StatusEffectType to
 	 * ever go below zero. For instance, it makes no sense to have a negative amount of poisoning
