@@ -32,15 +32,15 @@ public interface ICharacterStatusEffects extends IReads, IWrites {
 	
 	/**
 	 * <i>NB: The Map returned by this method CANNOT be used to alter the Status Effects of this
-	 * Character; it is only a representation of those Status Effects.
+	 * Character; it is only a representation of those Status Effects.</i>
 	 * @return A Map, with an entry for every Status Effect whose value for this Character is not zero.
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 */
 	IMap<String,Integer> getAllStatusEffects() throws IllegalStateException;
 	
 	/**
-	 * This is used for altering the value of a CharacterVitalAttribute as part of an Ability, e.g.
-	 * doing damage to a Character, draining their mana, etc.
+	 * This is used for altering the value of a CharacterStatusEffect as part of an Ability, e.g.
+	 * poisoning them, confusing them, etc.
 	 * <p>
 	 * <i>Intended usage is to identify the StatusEffectType by statusEffectTypeId, and then to
 	 * call {@code alterCurrentValue}</i>
@@ -61,6 +61,10 @@ public interface ICharacterStatusEffects extends IReads, IWrites {
 	 * alteration. (This might not be relevant--for instance, a Character might always resist an
 	 * attempt at poisoning based on their resistance to the Poison element, regardless of what is
 	 * specified here.) Can be null.
+	 * @param abilitySource - A description of the source of the Ability, e.g. in case a Character 
+	 * has specific resistances to specific Abilities, or Abilities used by a certain monster type.
+	 * Can be null, in the case of effects without any associated Ability (e.g. a hazard found in 
+	 * nature).
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 * @throws IllegalArgumentException If statusEffectTypeId is null or does not correspond to the
 	 * Id of a StatusEffectType, or if element is null
