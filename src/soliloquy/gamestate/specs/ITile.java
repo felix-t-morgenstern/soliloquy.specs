@@ -27,7 +27,7 @@ public interface ITile extends IGameEntity {
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location
 	 * specified by getLocation
 	 */
-	IGameZone getGameZone() throws IllegalStateException;
+	IGameZone gameZone() throws IllegalStateException;
 	
 	/**
 	 * @return The Coordinate at which this Tile is located
