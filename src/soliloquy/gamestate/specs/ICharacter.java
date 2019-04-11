@@ -4,8 +4,8 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasUuid;
 import soliloquy.common.specs.IMap;
-import soliloquy.ruleset.gameentities.specs.ICharacterAIEvent;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
+import soliloquy.ruleset.gameentities.specs.ICharacterEvent;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
 import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.sprites.specs.ISpriteSet;
@@ -175,7 +175,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * the Character is killed, when the Character is close to death, when the demonic ritual is
 	 * complete
 	 */
-	IMap<String,ICollection<ICharacterAIEvent>> characterAIEvents();
+	IMap<String,ICollection<ICharacterEvent>> characterEvents();
 	
 	/**
 	 * @return This Character's equipment

@@ -15,7 +15,7 @@ import soliloquy.common.specs.IWrites;
  * CharacterAI contains parameters describing how the Character will behave, e.g. their level of
  * fear, their aggression, their current target(s)
  * <p>
- * CharacterAI describes a series of CharacterAIEvents which occur when certain events occur, e.g.
+ * CharacterAI describes a series of CharacterEvents which occur when certain events occur, e.g.
  * when the Character is killed, when the Character is close to death, when the demonic ritual is
  * complete
  * <p>
@@ -32,10 +32,10 @@ public interface ICharacterAIType extends IReads, IWrites, IGlobalAccess {
 	void act();
 	
 	/**
-	 * The name indices of this Map are names of the events which trigger these CharacterAIEvents
-	 * @return A Collection of CharacterAIEvents which occur when certain events occur, e.g. when
+	 * The name indices of this Map are names of the events which trigger these CharacterEvents
+	 * @return A Collection of CharacterEvents which occur when certain events occur, e.g. when
 	 * the Character is killed, when the Character is close to death, when the demonic ritual is
 	 * complete
 	 */
-	IMap<String,ICollection<ICharacterAIEvent>> events();
+	IMap<String,ICollection<ICharacterEvent>> events();
 }
