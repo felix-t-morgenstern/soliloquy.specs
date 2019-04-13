@@ -7,7 +7,6 @@ import soliloquy.common.specs.IMap;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
 import soliloquy.ruleset.gameentities.specs.ICharacterEvent;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
-import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.sprites.specs.ISpriteSet;
 
 /**
@@ -53,6 +52,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	ITile getTile() throws IllegalStateException;
 	
 	/**
+	 * (NB: This method calls {@link ICharacter#setTile(ITile, int)} with a z-index of 0)
 	 * @param tile - The Tile to which to move this Character
 	 * @throws IllegalArgumentException If the location is illegal, e.g. if there is no Tile at
 	 * that location, if loc is null, etc.
@@ -63,6 +63,22 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * Character has been deleted, or if it has no Id
 	 */
 	void setTile(ITile tile) throws IllegalArgumentException, IllegalStateException;
+
+	/**
+	 * (NB: If a Tile has multiple Characters at the same z-index, this will not cause an error, 
+	 * but display order will be indeterminate)
+	 * @param tile - The Tile to which to move this Character
+	 * @param zIndex - The z-index to which to assign for this Character (used exclusively for 
+	 * determining UI display order)
+	 * @throws IllegalArgumentException If the location is illegal, e.g. if there is no Tile at
+	 * that location, if loc is null, etc.
+	 * <p>
+	 * <i>If loc specifies a Tile with a different Character already present, you may wish to throw
+	 * an IllegalArgumentException, or report a warning in the Logger.
+	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
+	 * Character has been deleted, or if it has no Id
+	 */
+	void setTile(ITile tile, int zIndex) throws IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * @return The proper pronouns for this Character. The key for the Map is the grammatical case
@@ -146,6 +162,8 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	String getAITypeId() throws IllegalStateException, IllegalStateException;
 	
 	/**
+	 * <i>NB: This should still be set for PCs, since the player may lose control of PCs, e.g. 
+	 * confusion, charming</i>
 	 * @param characterAIId - The ID of the AI script to assign to this Character
 	 * @throws IllegalArgumentException If characterAITypeId is null, empty, or does not correspond
 	 * to a valid CharacterAIType
@@ -236,11 +254,21 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	IMap<String,ICharacterAptitude> aptitudes() throws IllegalStateException;
 	
 	/**
-	 * @return True, if and only if this Character is a PlayerCharacter
+	 * <i>This method should return FALSE when a PC is charmed, confused, or otherwise only 
+	 * temporarily uncontrolled by the player. Logic to determine whether the player controls any 
+	 * particular PC should be handled //TODO: Specify where this should be handled
+	 * @return True, if and only if this Character is controlled by the player
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	boolean isPC() throws IllegalStateException;
+	boolean getPlayerControlled() throws IllegalStateException;
+	
+	/**
+	 * @param playerControlled - True, if and only if this Character is controlled by the player
+	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
+	 * Character has been deleted, or if it has no Id
+	 */
+	void setPlayerControlled(boolean playerControlled) throws IllegalStateException;
 	
 	/**
 	 * @return True, if and only if this Character is hidden
@@ -250,46 +278,33 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	boolean isHidden() throws IllegalStateException;
+	boolean getHidden() throws IllegalStateException;
 	
 	/**
-	 * @param isHidden - Whether the Character will be set to be hidden
+	 * @param hidden - Whether the Character will be set to be hidden
 	 * <p>
 	 * Hidden Characters do not interact with the GameWorld; they exist only to appear (or
 	 * reappear) later.
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	void setHidden(boolean isHidden) throws IllegalStateException;
+	void setHidden(boolean hidden) throws IllegalStateException;
 	
 	/**
 	 * @return True, if and only if this Character is dead
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	boolean isDead() throws IllegalStateException;
+	boolean getDead() throws IllegalStateException;
 	
 	/**
-	 * If a Character is killed by setIsDead, they will not produce their default death
+	 * If a Character is killed by setDead, they will not produce their default death
 	 * Animations/Sounds, they will not drop Items, etc.
-	 * @param isDead - Whether the Character will be set to be dead
+	 * @param dead - Whether the Character will be set to be dead
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	void setIsDead(boolean isDead) throws IllegalStateException;
-	
-	/**
-	 * Killing a Character is different from setting a Character to be dead through setIsDead. If a
-	 * Character is killed via kill, they will display their normal death Animations/Sounds, they
-	 * will drop their Items, etc.
-	 * <p>
-	 * Killing a Character by kill is intended to trigger an event in the Character's AI script,
-	 * e.g. "KILLED" 
-	 * @param killer - The Character who killed this Character. This value can be null.
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	void kill(ICharacter killer) throws IllegalStateException;
+	void setDead(boolean dead) throws IllegalStateException;
 	
 	/**
 	 * Deletes this Character. (Calling this method will remove this Character from its GameZone's
