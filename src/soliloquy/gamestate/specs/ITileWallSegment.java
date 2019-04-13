@@ -1,6 +1,5 @@
 package soliloquy.gamestate.specs;
 
-import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.ruleset.gameentities.specs.IWallSegmentType;
 
 /**

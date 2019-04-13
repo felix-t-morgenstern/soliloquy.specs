@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IHasUuid;
-import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.ruleset.gameentities.specs.IItemType;
 
 /**

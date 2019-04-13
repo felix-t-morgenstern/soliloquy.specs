@@ -6,7 +6,6 @@ import soliloquy.common.specs.IMap;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbility;
 import soliloquy.ruleset.gameentities.specs.IFixtureType;
-import soliloquy.ruleset.gameentities.specs.IGameEntity;
 
 /**
  * <b>TileFixture</b>
