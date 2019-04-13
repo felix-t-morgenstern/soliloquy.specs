@@ -5,7 +5,6 @@ import soliloquy.common.specs.ICoordinate;
 import soliloquy.common.specs.IMap;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbility;
-import soliloquy.ruleset.gameentities.specs.IGameEntity;
 import soliloquy.ruleset.gameentities.specs.IGroundType;
 import soliloquy.sprites.specs.ISprite;
 
@@ -53,15 +52,16 @@ public interface ITile extends IGameEntity {
 	//     The index on the indexed set refers to the order of
 	//     those entities on that Tile.
 	/**
-	 * @return A numbered Map of Characters, where the numerical index of the Map corresponds to
-	 * the Z order of Characters on this Tile
+	 * @return A numbered Map of Characters, where the keys of this Map are Characters present on 
+	 * this Tile, and the numerical values of the Map corresponds to the Z order of Characters on 
+	 * this Tile
 	 * @throws IllegalStateException If any of the Characters returned by this method do not have
 	 * this Tile listed as their location, or if this Tile has been deleted
 	 * <p>
 	 * <i>Also, if you want to forbid multiple Characters on a Tile, that condition should also
 	 * throw this exception.</i>
 	 */
-	IMap<Integer,ICharacter> characters() throws IllegalStateException;
+	IMap<ICharacter,Integer> characters() throws IllegalStateException;
 	
 	/**
 	 * @return A numbered Map of Items, where the numerical index of the Map corresponds to the Z
