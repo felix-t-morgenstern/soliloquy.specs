@@ -3,3 +3,9 @@ bin/
 doc/
 /target/
 .settings/org.eclipse.jdt.core.prefs
+soliloquy.specs.iml
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/encodings.xml
