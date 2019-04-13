@@ -24,7 +24,7 @@ import soliloquy.sprites.specs.ISprite;
  * @version 0.0.1
  *
  */
-public interface IItemType extends IGameEntity, IHasPluralName, IHasId {
+public interface IItemType extends IHasPluralName, IHasId {
 	/**
 	 * Creates an Item of this ItemType on the specified Tile
 	 * @param tile - The Tile on which to create the Item

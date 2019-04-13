@@ -1,10 +1,9 @@
-package soliloquy.ruleset.gameentities.specs;
+package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasName;
 import soliloquy.common.specs.IReads;
 import soliloquy.common.specs.IWrites;
-import soliloquy.gamestate.specs.IGameZone;
 
 /**
  * <b>GameEntity</b>
@@ -26,14 +25,14 @@ public interface IGameEntity extends IHasName, IReads, IWrites {
 	 * @throws IllegalStateException If this entity does not have a GameZone, or If this entity
 	 * does not have a GameZone, or if this entity has been deleted, or if this entity has no Id
 	 */
-	IGameZone getGameZone() throws IllegalStateException;
+	IGameZone gameZone() throws IllegalStateException;
 	
 	/**
 	 * @return Any parameters regarding this entity which do not fit neatly into any of their other
 	 * properties.
 	 * @throws IllegalStateException If this Item has been deleted
 	 */
-	IGenericParamsSet params() throws IllegalStateException;
+	IGenericParamsSet data() throws IllegalStateException;
 	
 	/**
 	 * Deletes this entity. After an entity is deleted, any call to its members should return an

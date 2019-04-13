@@ -1,5 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
+import soliloquy.common.specs.IHasId;
 import soliloquy.common.specs.IHasPluralName;
 
 /**
@@ -15,5 +16,5 @@ import soliloquy.common.specs.IHasPluralName;
  *
  */
 public interface IVitalAttributeType extends IResistancesApplyWhenAltered,
-	IActOnCharacterOnTurnAndRound, IHasPluralName, IIconForCharacter, IGameEntity {
+	IActOnCharacterOnTurnAndRound, IHasPluralName, IIconForCharacter, IHasId {
 }

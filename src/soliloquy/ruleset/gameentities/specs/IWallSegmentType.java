@@ -1,8 +1,9 @@
 package soliloquy.ruleset.gameentities.specs;
 
+import soliloquy.common.specs.IHasId;
 import soliloquy.sprites.specs.ISprite;
 
 // TODO: Document (and perhaps expound upon) this interface
-public interface IWallSegmentType extends IGameEntity {
+public interface IWallSegmentType extends IHasId {
 	ISprite getSprite();
 }

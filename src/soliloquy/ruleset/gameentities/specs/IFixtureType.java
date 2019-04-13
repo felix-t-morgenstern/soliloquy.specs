@@ -1,18 +1,19 @@
 package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.ICoordinate;
+import soliloquy.common.specs.IHasId;
 
 /**
  * <b>FixtureType</b>
  * <p>
  * This is a type of static object on a Tile which is not a Character and which cannot be picked
- * up, e.g. shrubs, chairs, piles of skulls, commodes
+ * up, e.g. shrubberies, chairs, piles of skulls, commodes
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface IFixtureType extends ITileObject, IGameEntity {
+public interface IFixtureType extends ITileObject, IHasId {
 	/**
 	 * @return True, if and only if this FixtureType is a container (e.g. chests, bookshelves,
 	 * corpses, secret cracks in the floor)

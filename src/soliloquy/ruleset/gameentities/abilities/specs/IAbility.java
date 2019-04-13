@@ -2,7 +2,7 @@ package soliloquy.ruleset.gameentities.abilities.specs;
 
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IGlobalAccess;
-import soliloquy.ruleset.gameentities.specs.IGameEntity;
+import soliloquy.gamestate.specs.IGameEntity;
 
 /**
  * <b>Ability</b>

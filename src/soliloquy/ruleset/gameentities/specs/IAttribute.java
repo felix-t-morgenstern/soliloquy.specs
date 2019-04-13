@@ -1,5 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
+import soliloquy.common.specs.IHasId;
 import soliloquy.gamestate.specs.ICharacter;
 import soliloquy.sprites.specs.ISpriteSet;
 
@@ -16,7 +17,7 @@ import soliloquy.sprites.specs.ISpriteSet;
  * @author felix.t.morgenstern
  *
  */
-public interface IAttribute extends IGameEntity {
+public interface IAttribute extends IHasId {
 	/**
 	 * Intended use is for when Characters are adjusting stats (e.g. leveling up) to enforce both
 	 * minimum stats (e.g. not allowing Strength to fall below 1) and Attribute requirements (e.g.

@@ -17,7 +17,7 @@ import soliloquy.gamestate.specs.ITile;
  * @version 0.0.1
  *
  */
-public interface ICharacterType extends IGameEntity, IHasPluralName, IHasId {
+public interface ICharacterType extends IHasPluralName, IHasId {
 	/**
 	 * Generates a Character of this CharacterType
 	 * @param tile - The Tile in which to place the new Character 

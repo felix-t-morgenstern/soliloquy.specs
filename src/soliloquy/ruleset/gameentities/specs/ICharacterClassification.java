@@ -1,5 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
+import soliloquy.common.specs.IHasId;
 import soliloquy.common.specs.IHasPluralName;
 
 /**
@@ -16,5 +17,5 @@ import soliloquy.common.specs.IHasPluralName;
  * @version 0.0.1
  *
  */
-public interface ICharacterClassification extends IGameEntity, IHasPluralName {
+public interface ICharacterClassification extends IHasId, IHasPluralName {
 }
