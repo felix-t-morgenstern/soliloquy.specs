@@ -37,4 +37,16 @@ public interface ITileWallSegment extends IGameEntity {
 	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
 	 */
 	void setHeight(int height) throws IllegalArgumentException, IllegalStateException;
+
+	/**
+	 * @return The z-index of this TileWallSegment
+	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
+	 */
+	int getZIndex() throws IllegalStateException;
+
+	/**
+	 * @param zIndex - The z-index to set for this TileWallSegment
+	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
+	 */
+	void setZIndex(int zIndex) throws IllegalStateException;
 }

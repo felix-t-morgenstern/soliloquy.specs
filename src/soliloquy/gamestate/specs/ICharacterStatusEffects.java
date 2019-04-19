@@ -54,9 +54,6 @@ public interface ICharacterStatusEffects extends IReads, IWrites {
 	 * the negative equivalent to Concentration; so an Ability called "Cure Distraction" should have
 	 * "stopAtZero" set to true, so that Distraction is cured, without causing Concentration (i.e.
 	 * positive values) to appear.
-	 * @param bypassResistance - True, if and only if resistances are to be bypassed. This is
-	 * primarily intended for restorative Abilities, e.g. Cure Poison should not be hampered by the
-	 * target's Poison resistance.  
 	 * @param element - An optional Element specifying the source of this CharacterStatusEffect
 	 * alteration. (This might not be relevant--for instance, a Character might always resist an
 	 * attempt at poisoning based on their resistance to the Poison element, regardless of what is

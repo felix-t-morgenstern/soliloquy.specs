@@ -64,25 +64,13 @@ public interface IItem extends IGameEntity, IHasUuid {
 	IItem takeFromStack(int numberToTake) throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
 	
 	/**
-	 * @return The Id of the Character in whose inventory this Item exists
+	 * @return The Character in whose inventory this Item exists
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
 	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	String getInventoryCharacterId() throws IllegalStateException;
-	
-	/**
-	 * If this Item was in another location previously, it is removed from that location.
-	 * @param charId - The Id of the Character in whose Inventory to place this Item
-	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
-	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
-	 * @throws UnsupportedOperationException If this Item cannot be removed from its current
-	 * location
-	 */
-	void setInventoryCharacterId(String charId) throws IllegalStateException, UnsupportedOperationException;
+	ICharacter getInventoryCharacter() throws IllegalStateException;
 	
 	/**
 	 * @return The CharacterEquipmentSlot in which this Item is stored (If it is not in a
@@ -95,18 +83,6 @@ public interface IItem extends IGameEntity, IHasUuid {
 	ICharacterEquipmentSlot getCharacterEquipmentSlot() throws IllegalStateException;
 	
 	/**
-	 * If this Item was in another location previously, it is removed from that location.
-	 * @param characterEquipmentSlot - The CharacterEquipmentSlot in which to store this Item
-	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
-	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
-	 * @throws UnsupportedOperationException If this Item cannot be removed from its current
-	 * location
-	 */
-	void setCharacterEquipmentSlot(ICharacterEquipmentSlot characterEquipmentSlot) throws IllegalStateException, UnsupportedOperationException;
-	
-	/**
 	 * @return The Tile on which this Item is stored (Note that this means on the ground, and not
 	 * in a container.)
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
@@ -117,18 +93,6 @@ public interface IItem extends IGameEntity, IHasUuid {
 	ITile getTile() throws IllegalStateException;
 	
 	/**
-	 * If this Item was in another location previously, it is removed from that location.
-	 * @param tile - The Tile on which to place this Item
-	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
-	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
-	 * @throws UnsupportedOperationException If this Item cannot be removed from its current
-	 * location.
-	 */
-	void setTile(ITile tile) throws IllegalStateException, UnsupportedOperationException;
-	
-	/**
 	 * @return The TileContainer in which this Item is stored
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
 	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
@@ -136,16 +100,4 @@ public interface IItem extends IGameEntity, IHasUuid {
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
 	ITileFixture getTileFixture() throws IllegalStateException;
-	
-	/**
-	 * If this Item was in another location previously, it is removed from that location.
-	 * @param tileContainer - The TileContainer in which to store this Item
-	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
-	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
-	 * @throws UnsupportedOperationException If this Item cannot be removed from its current
-	 * location.
-	 */
-	void setTileFixture(ITileFixture tileContainer) throws IllegalStateException, UnsupportedOperationException;
 }

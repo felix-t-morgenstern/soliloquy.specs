@@ -53,14 +53,22 @@ public interface IGameZone extends IHasName, IHasId, IReads, IWrites, IGlobalAcc
 	ITile tile(ICoordinate coordinates) throws IllegalArgumentException;
 	
 	/**
+	 * <i>NB: This is a representation of the Characters in this GameZone. Intended use is that any
+	 * Tile will have access to the underlying data structure of this GameZone, and will maintain
+	 * the invariant that all Characters in a GameZone are known by that GameZone, and all
+	 * Characters know their GameZone.</i>
 	 * @return A Set of the Characters in this GameZone
 	 */
-	IMap<IEntityUuid,ICharacter> characters();
+	IMap<IEntityUuid,ICharacter> getCharacters();
 	
 	/**
+	 * <i>NB: This is a representation of the Items in this GameZone. Intended use is that any Tile
+	 * will have access to the underlying data structure of this GameZone, and will maintain the
+	 * invariant that all Items in a GameZone are known by that GameZone, and all Items know their
+	 * GameZone.</i>
 	 * @return A Set of the Items in this GameZone
 	 */
-	IMap<IEntityUuid,IItem> items();
+	IMap<IEntityUuid,IItem> getItems();
 
 	/**
 	 * @return A Collection of Actions which are fired when the Party enters this GameZone.

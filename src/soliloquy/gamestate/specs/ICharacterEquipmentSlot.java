@@ -23,15 +23,6 @@ import soliloquy.common.specs.ISoliloquyClass;
 
 public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	/**
-	 * @param character - The Character to which to initialize this CharacterEquipmentSlot
-	 * @throws IllegalArgumentException If character is null, or if character's CharacterEquipment
-	 * already has a CharacterEquipmentSlot of this equipmentSlotType.
-	 * @throws UnsupportedOperationException If the Character for this CharacterEquipmentSlot has
-	 * already been initialized
-	 */
-	void initializeCharacter(ICharacter character) throws IllegalArgumentException, UnsupportedOperationException;
-	
-	/**
 	 * @return The Character to whom this CharacterEquipmentSlot belongs
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot
@@ -103,7 +94,7 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	 * the Character has been deleted, or if its Character or equipmentSlotType have not been
 	 * initialized
 	 */
-	IItem equipInventoryItemToSlot(IItem item) throws IllegalStateException, UnsupportedOperationException;
+	IItem equipItemToSlot(IItem item) throws IllegalStateException, UnsupportedOperationException;
 	
 	/**
 	 * This method is intended to return false for Items that cannot be removed, e.g. Items

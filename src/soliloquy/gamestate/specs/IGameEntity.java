@@ -38,9 +38,10 @@ public interface IGameEntity extends IHasName, IReads, IWrites {
 	 * Deletes this entity. After an entity is deleted, any call to its members should return an
 	 * IllegalStateException.
 	 * <p>
-	 * (Be sure to delete all necessary entities which this entity possesses. For instance, if you
-	 * delete a Character, delete the Items in their inventory. If you delete a Tile, delete its
-	 * Items and Character(s).)
+	 * Intended use of this method is to delete all GameEntities contained within this GameEntity.
+	 * So, when deleting a Tile, all Items, Fixtures, and Characters on that Tile are deleted. When
+	 * deleting a Fixture, all Items it contains are deleted. When deleting a Character, all Items
+	 * held by that Character (in inventory or equipment) are deleted.
 	 * @throws IllegalStateException If this entity has already been deleted 
 	 */
 	void delete() throws IllegalStateException;

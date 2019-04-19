@@ -46,32 +46,16 @@ public interface ITile extends IGameEntity {
 	 * been deleted
 	 */
 	void setLocation(ICoordinate location) throws IllegalArgumentException, IllegalStateException;
-	
-	// NB: It may be worthwhile to enforce an invariant whereby
-	//     any entity returned by this method is on this Tile.
-	//     The index on the indexed set refers to the order of
-	//     those entities on that Tile.
+
 	/**
-	 * @return A numbered Map of Characters, where the keys of this Map are Characters present on 
-	 * this Tile, and the numerical values of the Map corresponds to the Z order of Characters on 
-	 * this Tile
-	 * @throws IllegalStateException If any of the Characters returned by this method do not have
-	 * this Tile listed as their location, or if this Tile has been deleted
-	 * <p>
-	 * <i>Also, if you want to forbid multiple Characters on a Tile, that condition should also
-	 * throw this exception.</i>
+	 * @return An interface for obtaining and editing the Characters on this Tile
 	 */
-	IMap<ICharacter,Integer> characters() throws IllegalStateException;
-	
+	ITileCharacters tileCharacters();
+
 	/**
-	 * @return A numbered Map of Items, where the numerical index of the Map corresponds to the Z
-	 * order of Items on this Tile
-	 * @throws IllegalStateException If any of the Items returned by this method do not have this
-	 * Tile listed as their location, or if this Tile has been deleted
-	 * <p>
-	 * <i>N.B.: Be sure to check Item.getTile, not Item.getTileFixture</i>
+	 * @return An interface for obtaining and editing the Items on this Tile
 	 */
-	IMap<Integer,IItem> items() throws IllegalStateException;
+	ITileItems tileItems();
 	
 	/**
 	 * @return The height of this Tile in the GameWorld
@@ -102,7 +86,7 @@ public interface ITile extends IGameEntity {
 	 * the Z order of TileFixtures on this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	IMap<Integer,ITileFixture> fixtures() throws IllegalStateException;
+	ITileFixtures tileFixtures() throws IllegalStateException;
 
 	/**
 	 * This is a numbered Map of numbered Maps of TileWallSegments.
@@ -115,7 +99,7 @@ public interface ITile extends IGameEntity {
 	 * @return A collection of the east-to-west TileWallSegments on the north side of this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	IMap<Integer,IMap<Integer,ITileWallSegment>> nTileWallSegments() throws IllegalStateException;
+	ITileWallSegments nTileWallSegments() throws IllegalStateException;
 
 	/**
 	 * This is a numbered Map of numbered Maps of TileWallSegments.
@@ -128,7 +112,7 @@ public interface ITile extends IGameEntity {
 	 * @return A collection of the east-to-west TileWallSegments on the north side of this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	IMap<Integer,IMap<Integer,ITileWallSegment>> nwTileWallSegments() throws IllegalStateException;
+	ITileWallSegments nwTileWallSegments() throws IllegalStateException;
 
 	/**
 	 * This is a numbered Map of numbered Maps of TileWallSegments.
@@ -141,7 +125,7 @@ public interface ITile extends IGameEntity {
 	 * @return A collection of the east-to-west TileWallSegments on the north side of this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	IMap<Integer,IMap<Integer,ITileWallSegment>> wTileWallSegments() throws IllegalStateException;
+	ITileWallSegments wTileWallSegments() throws IllegalStateException;
 	
 	/**
 	 * @return A numbered Map of Sprites on this Tile, where the numerical index of the Map

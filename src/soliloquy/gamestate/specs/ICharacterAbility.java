@@ -16,7 +16,6 @@ import soliloquy.ruleset.gameentities.abilities.specs.IAbilityType;
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
- * @param <A> The type of Ability, e.g. ActiveAbility, ReactiveAbility
  */
 public interface ICharacterAbility extends ISoliloquyClass {
 	/**

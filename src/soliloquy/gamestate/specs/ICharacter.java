@@ -4,6 +4,7 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasUuid;
 import soliloquy.common.specs.IMap;
+import soliloquy.ruleset.gameentities.specs.ICharacterAIType;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
 import soliloquy.ruleset.gameentities.specs.ICharacterEvent;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
@@ -155,22 +156,21 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	
 	/**
 	 * @return This Character's AI script ID (to be looked up in GameState.characterAIs)
-	 * @throws IllegalStateException If this Character does not have an AI script
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	String getAITypeId() throws IllegalStateException, IllegalStateException;
+	ICharacterAIType getAIType() throws IllegalStateException;
 	
 	/**
 	 * <i>NB: This should still be set for PCs, since the player may lose control of PCs, e.g. 
 	 * confusion, charming</i>
-	 * @param characterAIId - The ID of the AI script to assign to this Character
-	 * @throws IllegalArgumentException If characterAITypeId is null, empty, or does not correspond
-	 * to a valid CharacterAIType
+	 * @param characterAIType - The AI script to assign to this Character
+	 * @throws IllegalArgumentException If characterAIType is null
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	void setAITypeId(String characterAITypeId) throws IllegalArgumentException, IllegalStateException;
+	void setAIType(ICharacterAIType characterAIType)
+			throws IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * @return Parameters affecting the behavior of this Character's AI; examples include preference
@@ -196,19 +196,19 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	IMap<String,ICollection<ICharacterEvent>> characterEvents();
 	
 	/**
-	 * @return This Character's equipment
+	 * @return This Character's equipment slots, from which equipment can be accessed or modified
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IMap<String,ICharacterEquipmentSlot> equipment() throws IllegalStateException;
-	
+	ICharacterEquipmentSlots equipmentSlots() throws IllegalStateException;
+
 	/**
-	 * @return This Character's inventory
+	 * @return This Character's inventory, from which inventory can be accessed or modified
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IMap<Integer,IItem> inventory() throws IllegalStateException;
-	
+	ICharacterInventory inventory() throws IllegalStateException;
+
 	/**
 	 * @return This Character's VitalAttributes, e.g. health, mana
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
