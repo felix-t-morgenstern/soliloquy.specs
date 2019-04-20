@@ -59,7 +59,13 @@ public interface IGameZone extends IHasName, IHasId, IReads, IWrites, IGlobalAcc
 	 * Characters know their GameZone.</i>
 	 * @return A Set of the Characters in this GameZone
 	 */
-	IMap<IEntityUuid,ICharacter> getCharacters();
+	IMap<IEntityUuid,ICharacter> getCharactersRepresentation();
+
+	/**
+	 * @param character - The Character whose presence to verify
+	 * @return True, if and only if character is present in this GameZone
+	 */
+	boolean containsCharacter(ICharacter character);
 	
 	/**
 	 * <i>NB: This is a representation of the Items in this GameZone. Intended use is that any Tile
@@ -68,7 +74,13 @@ public interface IGameZone extends IHasName, IHasId, IReads, IWrites, IGlobalAcc
 	 * GameZone.</i>
 	 * @return A Set of the Items in this GameZone
 	 */
-	IMap<IEntityUuid,IItem> getItems();
+	IMap<IEntityUuid,IItem> getItemsRepresentation();
+
+	/**
+	 * @param item - The Item whose presence to verify
+	 * @return True, if and only if item is present in this GameZone
+	 */
+	boolean containsItem(IItem item);
 
 	/**
 	 * @return A Collection of Actions which are fired when the Party enters this GameZone.

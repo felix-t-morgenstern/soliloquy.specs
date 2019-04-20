@@ -46,16 +46,6 @@ public interface ITile extends IGameEntity {
 	 * been deleted
 	 */
 	void setLocation(ICoordinate location) throws IllegalArgumentException, IllegalStateException;
-
-	/**
-	 * @return An interface for obtaining and editing the Characters on this Tile
-	 */
-	ITileCharacters tileCharacters();
-
-	/**
-	 * @return An interface for obtaining and editing the Items on this Tile
-	 */
-	ITileItems tileItems();
 	
 	/**
 	 * @return The height of this Tile in the GameWorld
@@ -80,13 +70,23 @@ public interface ITile extends IGameEntity {
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
 	void setGroundType(IGroundType groundType) throws IllegalStateException;
+
+	/**
+	 * @return An interface for obtaining and editing the Characters on this Tile
+	 */
+	ITileCharacters characters();
+
+	/**
+	 * @return An interface for obtaining and editing the Items on this Tile
+	 */
+	ITileItems items();
 	
 	/**
 	 * @return A numbered Map of TileFixtures, where the numerical index of the Map corresponds to
 	 * the Z order of TileFixtures on this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	ITileFixtures tileFixtures() throws IllegalStateException;
+	ITileFixtures fixtures() throws IllegalStateException;
 
 	/**
 	 * This is a numbered Map of numbered Maps of TileWallSegments.

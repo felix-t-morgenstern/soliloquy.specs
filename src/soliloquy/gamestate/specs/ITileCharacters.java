@@ -3,6 +3,21 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.ISoliloquyClass;
 
+/**
+ * <b>TileCharacters</b>
+ * <p>
+ * This class handles Characters on a Tile. It exists to handle invariants which must be enforced,
+ * since a Tile should know the Characters on it, and those Characters should know which Tile they
+ * are on.
+ * <p>
+ * This class also supports providing a <i>representation</i> of the Characters on this Tile; i.e.,
+ * a Map containing all of those Characters. <u>Editing the Map provided by
+ * getCharactersRepresentation will not change the Characters on this Tile.</u> To do that, use the
+ * add and remove methods, also provided.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ */
 public interface ITileCharacters extends ISoliloquyClass {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Characters present on this Tile.

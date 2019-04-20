@@ -42,47 +42,6 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	ICollection<ICharacterClassification> classifications() throws IllegalStateException;
 	
 	/**
-	 * @return The Tile in which this Character is located.
-	 * <p>
-	 * This method may return null if the Character is hidden or dead.
-	 * @throws IllegalStateException If the Tile does not exist, or if the Tile does not have this
-	 * Character present in its Collection of Characters, or if the Tile is null and the Character
-	 * is neither hidden nor dead, or if this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if this Character has no Id
-	 */
-	ITile getTile() throws IllegalStateException;
-
-	/**
-	 * (NB: This method calls {@link ICharacter#setTile(ITile, int)} with a z-index of 0)
-	 * @param tile - The Tile to which to move this Character
-	 * @throws IllegalArgumentException If the location is illegal, e.g. if there is no Tile at
-	 * that location, if loc is null, etc.
-	 * <p>
-	 * <i>If loc specifies a Tile with a different Character already present, you may wish to throw
-	 * an IllegalArgumentException, or report a warning in the Logger.
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	void setTile(ITile tile) throws IllegalArgumentException, IllegalStateException;
-
-	/**
-	 * (NB: <b>This method must ensure the invariant that all Characters know their Tiles, and all
-	 * Tiles know their Characters.</b> If a Tile has multiple Characters at the same z-index, this
-	 * will not cause an error, but display order will be indeterminate.)
-	 * @param tile - The Tile to which to move this Character
-	 * @param zIndex - The z-index to which to assign for this Character (used exclusively for 
-	 * determining UI display order)
-	 * @throws IllegalArgumentException If the location is illegal, e.g. if there is no Tile at
-	 * that location, if loc is null, etc.
-	 * <p>
-	 * <i>If loc specifies a Tile with a different Character already present, you may wish to throw
-	 * an IllegalArgumentException, or report a warning in the Logger.
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	void setTile(ITile tile, int zIndex) throws IllegalArgumentException, IllegalStateException;
-	
-	/**
 	 * @return The proper pronouns for this Character. The key for the Map is the grammatical case
 	 * in question (e.g. nominative, oblique, genitive, etc.). Every Character can choose their own
 	 * pronouns.
@@ -107,6 +66,13 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * Character has been deleted, or if it has no Id
 	 */
 	IGenericParamsSet traits() throws IllegalStateException;
+
+	/**
+	 * @return The Tile on which this Character sits
+	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
+	 * Character has been deleted, or if it has no Id
+	 */
+	ITile tile() throws IllegalStateException;
 	
 	/**
 	 * @return The stance of the Character; e.g. "combat-ready", "attacking", "near-death"; which
@@ -318,4 +284,17 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * Character has been deleted, or if it has no Id
 	 */
 	void delete() throws IllegalStateException;
+
+	/**
+	 * <b>NB: This method is intended to <u>only</u> be used by
+	 * {@link ITileCharacters#addCharacter} and {@link ITileCharacters#removeCharacter}; it is
+	 * intended to check whether the Tile assigned to this Character has this Character on it,
+	 * prior to assignment.</b>
+	 * @param tile - The Tile to which to assign to this Character
+	 * @throws IllegalArgumentException If and only if tile is null, or tile does not contain this
+	 * Character
+	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
+	 * Character has been deleted, or if it has no Id
+	 */
+	void assignCharacterToTile(ITile tile) throws IllegalArgumentException, IllegalStateException;
 }

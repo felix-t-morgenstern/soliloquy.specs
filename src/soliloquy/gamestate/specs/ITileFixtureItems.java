@@ -3,6 +3,21 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.ISoliloquyClass;
 
+/**
+ * <b>TileFixtureItems</b>
+ * <p>
+ * This class handles Items contained in a TileFixture. It exists to handle invariants which must
+ * be enforced, since a TileFixture should know its contained Items, and Items should know the
+ * TileFixture in which they are contained.
+ * <p>
+ * This class also supports providing a <i>representation</i> of the Items in this TileFixture;
+ * i.e., a Map containing all of those Items. <u>Editing the Map provided by
+ * getContainedItemsRepresentation will not change the Items in this TileFixture.</u> To do that,
+ * use the add and remove methods, also provided.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ */
 public interface ITileFixtureItems extends ISoliloquyClass {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this TileFixture.

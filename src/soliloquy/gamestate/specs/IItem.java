@@ -110,7 +110,19 @@ public interface IItem extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	void assignCharacterToItem(ICharacter character)
+	void assignCharacterInventoryToItem(ICharacter character)
+			throws IllegalStateException, IllegalArgumentException;
+
+	/**
+	 * <b>NB: This method is intended to <u>only</u> be used by
+	 * {@link ICharacterEquipmentSlot#equipItemToSlot} and
+	 * {@link ICharacterEquipmentSlot#unequipEquipmentFromSlot}; it is intended to check
+	 * whether the CharacterEquipmentSlot assigned to this Item has this Item set as equipped.</b>
+	 * @param characterEquipmentSlot - The CharacterEquipmentSlot to which to assign to this Item
+	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 */
+	void assignCharacterEquipmentSlotToItem(ICharacterEquipmentSlot characterEquipmentSlot)
 			throws IllegalStateException, IllegalArgumentException;
 
 	/**
@@ -131,9 +143,11 @@ public interface IItem extends IGameEntity, IHasUuid {
 	 * TileFixture assigned to this Item has this Item in its contained items, prior to
 	 * assignment.</b>
 	 * @param tileFixture - The TileFixture to which to assign to this Item
+	 * @throws IllegalArgumentException If and only if tileFixture is null, or tileFixture does not
+	 * contain this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
 	void assignTileFixtureToItem(ITileFixture tileFixture)
-			throws IllegalStateException, IllegalArgumentException;
+			throws IllegalArgumentException, IllegalStateException;
 }
