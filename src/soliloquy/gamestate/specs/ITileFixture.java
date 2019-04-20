@@ -38,31 +38,6 @@ public interface ITileFixture extends IGameEntity {
 	 * FixtureType
 	 */
 	IFixtureType fixtureType() throws IllegalStateException;
-	
-	/**
-	 * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this TileFixture.
-	 * To add or remove Items, use the other methods specified.</i>
-	 * @return A Collection of the Items in this TileFixture.
-	 * @throws UnsupportedOperationException If this TileFixture's FixtureType is not a container
-	 * @throws IllegalStateException If this TileFixture has been deleted
-	 */
-	ICollection<IItem> getContainedItems()
-			throws UnsupportedOperationException, IllegalStateException;
-
-	/**
-	 * @param item - The Item to add to this TileFixture
-	 * @throws IllegalArgumentException If and only if item is null, or item exists elsewhere
-	 * @throws IllegalStateException If this TileFixture has been deleted
-	 */
-	void addContainedItem(IItem item) throws IllegalArgumentException, IllegalStateException;
-
-	/**
-	 * @param item - The Item to remove from this TileFixture
-	 * @return True, if and only if the Item was present, and therefore removed
-	 * @throws IllegalArgumentException If and only if item is null
-	 * @throws IllegalStateException If this TileFixture has been deleted
-	 */
-	boolean removeContainedItem(IItem item) throws IllegalArgumentException, IllegalStateException;
 
 	/**
 	 * @return The offset in pixels of this TileFixture from the defaultOffset (can be null)
@@ -86,4 +61,11 @@ public interface ITileFixture extends IGameEntity {
 	 * FixtureType
 	 */
 	IMap<String,IReactiveAbility> reactiveAbilities() throws IllegalStateException;
+
+	/**
+	 * @return A class by which items contained in this fixture may be accessed and altered
+	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
+	 * FixtureType
+	 */
+	ITileFixtureItems tileFixtureItems() throws IllegalStateException;
 }

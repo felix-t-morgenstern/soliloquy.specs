@@ -100,4 +100,40 @@ public interface IItem extends IGameEntity, IHasUuid {
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
 	ITileFixture getTileFixture() throws IllegalStateException;
+
+	/**
+	 * <b>NB: This method is intended to <u>only</u> be used by
+	 * {@link ICharacterInventory#addItemToInventory} and
+	 * {@link ICharacterInventory#removeItemFromInventory}; it is intended to check
+	 * whether the Character assigned to this Item has this Item in its CharacterInventory.</b>
+	 * @param character - The Character to which to assign to this Item
+	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 */
+	void assignCharacterToItem(ICharacter character)
+			throws IllegalStateException, IllegalArgumentException;
+
+	/**
+	 * <b>NB: This method is intended to <u>only</u> be used by {@link ITileItems#addItem} and
+	 * {@link ITileItems#removeItem}; it is intended to check whether the Tile assigned to this
+	 * Item has this Item in its TileItems, prior to assignment.</b>
+	 * @param tile - The Tile to which to assign to this Item
+	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 */
+	void assignTileToItem(ITile tile)
+			throws IllegalStateException, IllegalArgumentException;
+
+	/**
+	 * <b>NB: This method is intended to <u>only</u> be used by
+	 * {@link ITileFixtureItems#addContainedItem} and
+	 * {@link ITileFixtureItems#removeContainedItem}; it is intended to check whether the
+	 * TileFixture assigned to this Item has this Item in its contained items, prior to
+	 * assignment.</b>
+	 * @param tileFixture - The TileFixture to which to assign to this Item
+	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 */
+	void assignTileFixtureToItem(ITileFixture tileFixture)
+			throws IllegalStateException, IllegalArgumentException;
 }

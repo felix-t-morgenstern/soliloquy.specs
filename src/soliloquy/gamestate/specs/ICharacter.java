@@ -51,7 +51,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * Character has been deleted, or if this Character has no Id
 	 */
 	ITile getTile() throws IllegalStateException;
-	
+
 	/**
 	 * (NB: This method calls {@link ICharacter#setTile(ITile, int)} with a z-index of 0)
 	 * @param tile - The Tile to which to move this Character
@@ -66,8 +66,9 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	void setTile(ITile tile) throws IllegalArgumentException, IllegalStateException;
 
 	/**
-	 * (NB: If a Tile has multiple Characters at the same z-index, this will not cause an error, 
-	 * but display order will be indeterminate)
+	 * (NB: <b>This method must ensure the invariant that all Characters know their Tiles, and all
+	 * Tiles know their Characters.</b> If a Tile has multiple Characters at the same z-index, this
+	 * will not cause an error, but display order will be indeterminate.)
 	 * @param tile - The Tile to which to move this Character
 	 * @param zIndex - The z-index to which to assign for this Character (used exclusively for 
 	 * determining UI display order)

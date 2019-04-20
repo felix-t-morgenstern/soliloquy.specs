@@ -1,5 +1,6 @@
 package soliloquy.gamestate.specs;
 
+import soliloquy.common.specs.IAction;
 import soliloquy.common.specs.ISoliloquyClass;
 
 /**
@@ -25,7 +26,7 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	/**
 	 * @return The Character to whom this CharacterEquipmentSlot belongs
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 * @throws UnsupportedOperationException If the Item currently in this slot cannot be equipped
 	 * to this slot, or the CharacterId of this slot does not point to a Character that has this
 	 * slot, or the Character has been deleted
@@ -37,14 +38,17 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	 * @param equipmentSlotType - The equipmentSlotType to initialize for this
 	 * CharacterEquipmentSlot
 	 * @throws IllegalArgumentException If equipmentSlotType is blank or null
+	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 * @throws UnsupportedOperationException If equipmentSlotType has already been initialized
 	 */
-	void initializeEquipmentSlotType(String equipmentSlotType) throws IllegalArgumentException, UnsupportedOperationException;
+	void initializeEquipmentSlotType(String equipmentSlotType)
+			throws IllegalArgumentException, UnsupportedOperationException;
 	
 	/**
 	 * @return The name of the type of this equipment slot, e.g. "HELMET", "TORSO", "EARRING"
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 * @throws UnsupportedOperationException If the Item currently in this slot cannot be equipped
 	 * to this slot, or the CharacterId of this slot does not point to a Character that has this
 	 * slot, or the Character has been deleted
@@ -54,7 +58,7 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	/**
 	 * @return True, if and only if this slot is empty
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or if its Character or equipmentSlotType have not been initialized
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 * @throws UnsupportedOperationException If the Item currently in this slot cannot be equipped
 	 * to this slot, or the CharacterId of this slot does not point to a Character that has this
 	 * slot, or the Character has been deleted
@@ -64,7 +68,7 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	/**
 	 * @return The Item in this slot. (If no Item is present, then this returns null.)
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or if its Character or equipmentSlotType have not been initialized
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 * @throws UnsupportedOperationException If the Item currently in this slot cannot be equipped
 	 * to this slot, or the CharacterId of this slot does not point to a Character that has this slot, or the Character has been deleted
 	 */
@@ -76,11 +80,10 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	 * @return True, if and only if this Item can be equipped to this slot
 	 * @throws IllegalArgumentException If item is null
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or the CharacterId of this slot does not point to a Character that has this slot, or
-	 * the Character has been deleted, or if its Character or equipmentSlotType have not been
-	 * initialized
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	boolean canEquipItemToSlot(IItem item) throws IllegalStateException, UnsupportedOperationException;
+	boolean canEquipItemToSlot(IItem item)
+			throws IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * Equips an item to this slot
@@ -90,32 +93,27 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	 * @param item - The Item to equip to this slot
 	 * @throws IllegalArgumentException If item is null, or if item cannot be equipped to this slot
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or the CharacterId of this slot does not point to a Character that has this slot, or
-	 * the Character has been deleted, or if its Character or equipmentSlotType have not been
-	 * initialized
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	IItem equipItemToSlot(IItem item) throws IllegalStateException, UnsupportedOperationException;
+	IItem equipItemToSlot(IItem item) throws IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * This method is intended to return false for Items that cannot be removed, e.g. Items
 	 * magically bound to the Character or grafted onto their body
 	 * @return True, if and only if the Item currently equipped to this slot can be removed
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or the CharacterId of this slot does not point to a Character that has this slot, or
-	 * the Character has been deleted, or if its Character or equipmentSlotType have not been
-	 * initialized
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	boolean getCanRemoveEquipmentFromSlot() throws IllegalStateException, UnsupportedOperationException;
+	boolean getCanRemoveEquipmentFromSlot() throws IllegalStateException;
 	
 	/**
 	 * @param canRemoveEquipmentFromSlot - Whether the Item currently in this slot can be removed
 	 * @throws UnsupportedOperationException If there is no Item in this slot
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or the CharacterId of this slot does not point to a Character that has this slot, or
-	 * the Character has been deleted, or if its Character or equipmentSlotType have not been
-	 * initialized
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	void setCanRemoveEquipmentFromSlot(boolean canRemoveEquipmentFromSlot) throws UnsupportedOperationException, IllegalStateException;
+	void setCanRemoveEquipmentFromSlot(boolean canRemoveEquipmentFromSlot)
+			throws UnsupportedOperationException, IllegalStateException;
 	
 	/**
 	 * Removes the Item in this slot from this slot
@@ -123,9 +121,20 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	 * @throws UnsupportedOperationException If there is no Item in this slot, or the Item
 	 * currently in this slot cannot be removed from this slot
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or the CharacterId of this slot does not point to a Character that has this slot, or
-	 * the Character has been deleted, or if its Character or equipmentSlotType have not been
-	 * initialized
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
 	IItem unequipEquipmentFromSlot() throws UnsupportedOperationException, IllegalStateException;
+
+	/**
+	 * <b>NB: This method is intended to <u>only</u> be used by
+	 * {@link ICharacterEquipmentSlots#addCharacterEquipmentSlot} and
+	 * {@link ICharacterEquipmentSlots#removeCharacterEquipmentSlot}; it is intended to check
+	 * whether the Character assigned to this CharacterEquipmentSlot has this
+	 * CharacterEquipmentSlot in its CharacterEquipmentSlots, prior to assignment.</b>
+	 * @param character - The Character to which to assign to this CharacterEquipmentSlot
+	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
+	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 */
+	void assignCharacterToCharacterEquipmentSlot(ICharacter character)
+			throws IllegalStateException, IllegalArgumentException;
 }
