@@ -83,4 +83,12 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	 * @return A representation of the value provided, to be written as a String
 	 */
 	<T> IPersistentValueToWrite<T> makePersistentValueToWrite(String name, T value);
+
+	/**
+	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)
+	 * @param persistentCollectionHandler - The PersistentValueTypeHandler for generic Collections
+	 *                                    to be used by this PersistentValuesHandler
+	 */
+	void registerPersistentCollectionHandler(
+			IPersistentValueTypeHandler<ICollection> persistentCollectionHandler);
 }
