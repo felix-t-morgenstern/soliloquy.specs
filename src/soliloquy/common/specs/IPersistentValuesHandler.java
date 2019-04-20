@@ -91,4 +91,12 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	 */
 	void registerPersistentCollectionHandler(
 			IPersistentValueTypeHandler<ICollection> persistentCollectionHandler);
+
+	/**
+	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)
+	 * @param persistentMapHandler - The PersistentValueTypeHandler for generic Maps to be used by
+	 *                                this PersistentValuesHandler
+	 */
+	void registerPersistentMapHandler(
+			IPersistentValueTypeHandler<IMap> persistentMapHandler);
 }
