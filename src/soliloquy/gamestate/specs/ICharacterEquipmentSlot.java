@@ -34,18 +34,6 @@ public interface ICharacterEquipmentSlot extends ISoliloquyClass {
 	ICharacter character() throws IllegalStateException, UnsupportedOperationException;
 	
 	/**
-	 * 
-	 * @param equipmentSlotType - The equipmentSlotType to initialize for this
-	 * CharacterEquipmentSlot
-	 * @throws IllegalArgumentException If equipmentSlotType is blank or null
-	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
-	 * @throws UnsupportedOperationException If equipmentSlotType has already been initialized
-	 */
-	void initializeEquipmentSlotType(String equipmentSlotType)
-			throws IllegalArgumentException, UnsupportedOperationException;
-	
-	/**
 	 * @return The name of the type of this equipment slot, e.g. "HELMET", "TORSO", "EARRING"
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
