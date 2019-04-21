@@ -28,7 +28,7 @@ public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId, IReads, I
 	
 	/**
 	 * This is used to retrieve a subgrouping, a SettingsRepo within this SettingsRepo
-	 * @param settingRepoId - The Id of the subgrouping to retrieve
+	 * @param groupId - The Id of the subgrouping to retrieve
 	 * @return The subgrouping, a SettingsRepo
 	 * @throws IllegalArgumentException If and only if settingRepoId is null or empty
 	 */
@@ -43,7 +43,7 @@ public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId, IReads, I
 	 * being assigned to this Setting is illegal
 	 */
 	<V> void setSetting(String settingId, V value) throws IllegalArgumentException;
-	
+
 	@Override
 	/**
 	 * @param setting The Setting to add to this SettingsRepo
@@ -54,7 +54,7 @@ public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId, IReads, I
 	 * children; or if groupId is non-empty, non-null, and does not exist within this group
 	 */
 	void addEntity(ISetting setting, int order, String groupId) throws IllegalArgumentException;
-	
+
 	@Override
 	/**
 	 * <i>This method requires that all values read from the data already exist in this
