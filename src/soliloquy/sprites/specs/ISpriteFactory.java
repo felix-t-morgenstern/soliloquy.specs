@@ -5,5 +5,12 @@ import soliloquy.sprites.spritefactory.specs.ISpriteParams;
 
 // TODO: Document this interface
 public interface ISpriteFactory extends ISoliloquyClass {
-	ISprite make(ISpriteParams params);
+	void registerSpriteType(String spriteTypeId, ISpriteParams params)
+			throws IllegalArgumentException;
+
+	boolean containsSpriteType(String spriteTypeId) throws IllegalArgumentException;
+
+	boolean removeSpriteType(String spriteTypeId) throws IllegalArgumentException;
+
+	ISprite make(String spriteTypeId) throws IllegalArgumentException;
 }

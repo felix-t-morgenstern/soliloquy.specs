@@ -5,6 +5,7 @@ import soliloquy.ui.windowelements.specs.IScreenElement;
 
 // TODO: Document this interface
 public interface ISprite extends IScreenElement {
+	String spriteTypeId();
 	
 	// NB: There should be an invariant whereby only 'frame'
 	//     or 'animation' returns a non-null value, and only

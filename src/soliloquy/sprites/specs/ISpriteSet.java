@@ -5,6 +5,8 @@ import soliloquy.common.specs.ISoliloquyClass;
 
 // TODO: Document this interface
 public interface ISpriteSet extends ISoliloquyClass {
+	String spriteSetTypeId();
+
 	ISprite getSprite(String type);
 	
 	ISprite getSprite(String type, String direction);

@@ -1,11 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
-import soliloquy.common.specs.ICollection;
-import soliloquy.common.specs.ICoordinate;
-import soliloquy.common.specs.IFunction;
-import soliloquy.common.specs.IGenericParamsSet;
-import soliloquy.common.specs.IHasId;
-import soliloquy.common.specs.IHasPluralName;
+import soliloquy.common.specs.*;
 import soliloquy.gamestate.specs.ICharacter;
 import soliloquy.gamestate.specs.ICharacterEquipmentSlot;
 import soliloquy.gamestate.specs.IItem;
@@ -13,7 +8,7 @@ import soliloquy.gamestate.specs.ITile;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
 import soliloquy.ruleset.gameentities.abilities.specs.IPassiveAbility;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbility;
-import soliloquy.sprites.specs.ISprite;
+import soliloquy.sprites.specs.ISpriteSet;
 
 /**
  * <b>ItemType</b>
@@ -139,5 +134,5 @@ public interface IItemType extends IHasPluralName, IHasId {
 	 * whether it is in inventory, how many charges it has, etc.
 	 * @return The Sprite for this Item
 	 */
-	ISprite sprite();
+	ISpriteSet spriteSet();
 }
