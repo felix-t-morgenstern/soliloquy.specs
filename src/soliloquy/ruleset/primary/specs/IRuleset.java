@@ -35,7 +35,7 @@ public interface IRuleset extends ISoliloquyClass {
 	
 	/**
 	 * (CharacterAptitudes are either calculated algorithmically in a single instance, or are
-	 * stored statically. See {@link soliloquy.gamestate.specs.ICharacterAptitudes} for more
+	 * stored statically. See {@link soliloquy.gamestate.specs.ICharacterAptitude} for more
 	 * information.
 	 * @return A Collection of Aptitude Ids.
 	 */
@@ -43,7 +43,7 @@ public interface IRuleset extends ISoliloquyClass {
 	
 	/**
 	 * (CharacterAttributes are either calculated algorithmically in a single instance, or are
-	 * stored statically. See {@link soliloquy.gamestate.specs.ICharacterAttributes} for more
+	 * stored statically. See {@link soliloquy.gamestate.specs.ICharacterAttribute} for more
 	 * information.
 	 * @return A Collection of Attribute Ids.
 	 */

@@ -22,7 +22,7 @@ public interface ICharacterType extends IHasPluralName, IHasId {
 	 * Generates a Character of this CharacterType
 	 * @param tile - The Tile in which to place the new Character 
 	 * @param params - Parameters specifying how this Character is to be created (e.g. whether it
-	 * is hidden, parameters adjusting dynamic attribute creation, etc.), can be null
+	 * is hidden, parameters adjusting dynamic attribute generation, etc.); can be null
 	 * @return The newly-created Character
 	 * @throws IllegalArgumentException If tile is null, or does not have a GameZone
 	 */
