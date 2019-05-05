@@ -2,10 +2,11 @@ package soliloquy.ruleset.primary.specs;
 
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IEntityGroup;
-import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.ISettingsRepo;
 import soliloquy.common.specs.ISoliloquyClass;
+import soliloquy.ruleset.gameentities.specs.ITimerAction;
+import soliloquy.ruleset.gameentities.specs.ITypesRegistry;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbilityType;
 import soliloquy.ruleset.gameentities.abilities.specs.IPassiveAbilityType;
 import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbilityType;
@@ -49,31 +50,31 @@ public interface IRuleset extends ISoliloquyClass {
 	 */
 	IEntityGroup<IAttribute> attributes();
 	
-	IMap<String,ICharacterClassification> characterClassifications();
-	
-	IMap<String,ICharacterType> characterTypes();
-	
-	IMap<String,ICharacterAIType> characterAITypes();
-	
-	IMap<String,ICharacterEventType> characterEventTypes();
-	
-	IMap<String,IElement> elements();
-	
-	IMap<String,IEquipmentType> equipmentTypes();
-	
-	IMap<String,IFixtureType> fixtureTypes();
-	
-	IMap<String,IGroundType> groundTypes();
-	
-	IMap<String,IItemType> itemTypes();
-	
-	IGenericParamsSet partyAttributes();
-	
-	IMap<String,IStatusEffectType> statusEffectTypes();
-	
-	IMap<String,IVitalAttributeType> vitalAttributes();
-	
-	IMap<String,IWallSegmentType> wallSegmentTypes();
+	ITypesRegistry<ICharacterClassification> characterClassifications();
+
+	ITypesRegistry<ICharacterType> characterTypes();
+
+	ITypesRegistry<ICharacterAIType> characterAITypes();
+
+	ITypesRegistry<ICharacterEventType> characterEventTypes();
+
+	ITypesRegistry<IElement> elements();
+
+	ITypesRegistry<IEquipmentType> equipmentTypes();
+
+	ITypesRegistry<IFixtureType> fixtureTypes();
+
+	ITypesRegistry<IGroundType> groundTypes();
+
+	ITypesRegistry<IItemType> itemTypes();
+
+	ITypesRegistry<IStatusEffectType> statusEffectTypes();
+
+	ITypesRegistry<ITimerAction> timerActions();
+
+	ITypesRegistry<IVitalAttributeType> vitalAttributes();
+
+	ITypesRegistry<IWallSegmentType> wallSegmentTypes();
 	
 	ISettingsRepo rulesetSettings();
 	

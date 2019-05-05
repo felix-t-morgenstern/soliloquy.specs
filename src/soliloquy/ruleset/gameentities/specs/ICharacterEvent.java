@@ -21,9 +21,8 @@ import soliloquy.common.specs.IWrites;
  */
 public interface ICharacterEvent extends IReads, IWrites {
 	/**
-	 * This is the type of this Character Event. CharacterEventTypes must be instantiated as a part of the 
-	 * Ruleset, so they can be saved to file and loaded back up again.
-	 * @return
+	 * @return The type of this Character Event. CharacterEventTypes must be instantiated as a part
+	 * of the Ruleset, so they can be saved to file and loaded back up again.
 	 */
 	ICharacterEventType characterEventType();
 	

@@ -3,7 +3,8 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.IPersistentVariableCache;
 import soliloquy.common.specs.ISoliloquyClass;
-import soliloquy.ruleset.gameentities.specs.ICharacterAIType;
+import soliloquy.ruleset.gameentities.specs.*;
+import soliloquy.ruleset.primary.specs.IRuleset;
 
 /**
  * <b>GameState</b>
@@ -62,14 +63,14 @@ public interface IGameState extends ISoliloquyClass {
 	IRoundManager roundManager();
 	
 	/**
-	 * @return A Map of TimerActions, identified by IDs (to allow Timers to be recreated from savefiles)
-	 */
-	IMap<String,ITimerAction> timerActions();
-	
-	/**
 	 * @return The current KeyBindingContexts (i.e. the Actions which take place when various keys
 	 * are pressed)
 	 * @throws IllegalStateException If KeyBindingContexts is undefined.
 	 */
 	IMap<Integer,IKeyBindingContext> keyBindingContexts() throws IllegalStateException;
+
+	/**
+	 * @return The Ruleset
+	 */
+	IRuleset ruleset();
 }
