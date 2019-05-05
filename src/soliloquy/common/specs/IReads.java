@@ -1,14 +1,6 @@
 package soliloquy.common.specs;
 
-/**
- * <b>Reads</b>
- * <p>
- * Specifies a class which can read data to populate itself (e.g. from a savefile)
- * 
- * @author felix.t.morgenstern
- * @version 0.0.1
- *
- */
+// TODO: Delete this interface, once GenericParamsSet, PersistentVariableCache and SettingsRepo no longer implement its methods
 public interface IReads extends ISoliloquyClass {
 	/**
 	 * @param data - The data to be read by this class

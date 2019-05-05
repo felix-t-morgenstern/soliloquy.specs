@@ -2,8 +2,6 @@ package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasName;
-import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.IWrites;
 
 /**
  * <b>GameEntity</b>
@@ -17,7 +15,7 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface IGameEntity extends IHasName, IReads, IWrites {
+public interface IGameEntity extends IHasName {
 	/**
 	 * This is useful when an entity needs to be completely removed from a GameZone (so it can be
 	 * cleared away by the garbage collector)

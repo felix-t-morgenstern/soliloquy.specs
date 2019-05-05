@@ -3,8 +3,7 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.IPair;
-import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.IWrites;
+import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>RoundManager</b>
@@ -19,7 +18,7 @@ import soliloquy.common.specs.IWrites;
  * @author felix.t.morgenstern
  *
  */
-public interface IRoundManager extends IReads, IWrites {
+public interface IRoundManager extends ISoliloquyClass {
 	/**
 	 * @return A numbered Map of Pairs of Characters and Integers, where the number index to the
 	 * Set is the order of Characters in this round (i.e. a queue), and the Integer paired with the

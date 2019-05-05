@@ -1,14 +1,6 @@
 package soliloquy.common.specs;
 
-/**
- * <b>Writes</b>
- * <p>
- * This class can write out its contents as an array of Strings, e.g. for saving to a file.
- * 
- * @author felix.t.morgenstern
- * @version 0.0.1
- *
- */
+// TODO: Delete this interface, once GenericParamsSet, PersistentVariableCache and SettingsRepo no longer implement its methods
 public interface IWrites extends ISoliloquyClass {
 	/**
 	 * Saves the class

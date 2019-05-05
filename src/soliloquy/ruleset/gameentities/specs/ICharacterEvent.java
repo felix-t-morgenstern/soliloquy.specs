@@ -1,7 +1,6 @@
 package soliloquy.ruleset.gameentities.specs;
 
-import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.IWrites;
+import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>CharacterEvent</b>
@@ -19,7 +18,7 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface ICharacterEvent extends IReads, IWrites {
+public interface ICharacterEvent extends ISoliloquyClass {
 	/**
 	 * @return The type of this Character Event. CharacterEventTypes must be instantiated as a part
 	 * of the Ruleset, so they can be saved to file and loaded back up again.

@@ -1,8 +1,7 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.IWrites;
+import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.abilities.specs.IAbilitySource;
 import soliloquy.ruleset.gameentities.specs.IElement;
 
@@ -20,7 +19,7 @@ import soliloquy.ruleset.gameentities.specs.IElement;
  * @version 0.0.1
  *
  */
-public interface ICharacterStatusEffects extends IReads, IWrites {
+public interface ICharacterStatusEffects extends ISoliloquyClass {
 	/**
 	 * @param statusEffectTypeId - The Id of the Type of the Status Effect whose level to retrieve
 	 * @return The current value of the specified StatusEffectType for this Character

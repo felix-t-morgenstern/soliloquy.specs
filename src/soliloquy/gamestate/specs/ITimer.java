@@ -2,8 +2,6 @@ package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.common.specs.IHasId;
-import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.IWrites;
 
 /**
  * <b>Timer</b>
@@ -13,7 +11,7 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface ITimer extends IHasId, IReads, IWrites, IGlobalAccess {
+public interface ITimer extends IHasId, IGlobalAccess {
 	/**
 	 * <i>This method exists, because Timers will need to be saved according to their type; and
 	 * when the savefile is reloaded, those Timers will need to be regenerated merely by knowing

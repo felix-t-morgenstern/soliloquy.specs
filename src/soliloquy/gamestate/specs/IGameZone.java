@@ -8,8 +8,6 @@ import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.common.specs.IHasId;
 import soliloquy.common.specs.IHasName;
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.IWrites;
 
 /**
  * <b>GameZone</b>
@@ -24,7 +22,7 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface IGameZone extends IHasName, IHasId, IReads, IWrites, IGlobalAccess {
+public interface IGameZone extends IHasName, IHasId, IGlobalAccess {
 	/**
 	 * @return The type of the GameZone (e.g. expansive, local)
 	 */

@@ -1,6 +1,9 @@
 package soliloquy.ruleset.gameentities.specs;
 
-import soliloquy.common.specs.*;
+import soliloquy.common.specs.ICollection;
+import soliloquy.common.specs.IGlobalAccess;
+import soliloquy.common.specs.IHasId;
+import soliloquy.common.specs.IMap;
 
 /**
  * <b>CharacterAI</b>
@@ -20,7 +23,7 @@ import soliloquy.common.specs.*;
  * @version 0.0.1
  *
  */
-public interface ICharacterAIType extends IHasId, IReads, IWrites, IGlobalAccess {
+public interface ICharacterAIType extends IHasId, IGlobalAccess {
 	/**
 	 * Causes this Character to act when they are active
 	 */

@@ -2,8 +2,7 @@ package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
-import soliloquy.common.specs.IReads;
-import soliloquy.common.specs.IWrites;
+import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>Party</b>
@@ -15,7 +14,7 @@ import soliloquy.common.specs.IWrites;
  * @version 0.0.1
  *
  */
-public interface IParty extends IReads, IWrites {
+public interface IParty extends ISoliloquyClass {
 	/**
 	 * @return A Collection of all player-controlled Characters
 	 */
