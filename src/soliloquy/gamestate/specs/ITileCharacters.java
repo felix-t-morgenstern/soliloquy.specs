@@ -54,6 +54,21 @@ public interface ITileCharacters extends ISoliloquyClass {
     boolean removeCharacter(ICharacter character) throws IllegalArgumentException;
 
     /**
+     * @param character - The Character whose z-index to return
+     * @return The z-index for the provided character; null, if character is not present
+     * @throws IllegalArgumentException If and only if character is null
+     */
+    Integer getZIndex(ICharacter character) throws IllegalArgumentException;
+
+    /**
+     * @param character - The Character whose z-index to set
+     * @param zIndex - The z-index to set for character
+     * @throws IllegalArgumentException If and only if character is null, or character is not
+     * present
+     */
+    void setZIndex(ICharacter character, int zIndex) throws IllegalArgumentException;
+
+    /**
      * @param character - The Character whose presence to verify
      * @return True, if and only if item is present on this Tile
      * @throws IllegalArgumentException If and only if character is null
