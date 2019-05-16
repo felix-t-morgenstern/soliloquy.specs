@@ -21,10 +21,40 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IPersistentVariableCache extends IMap<String,IPersistentVariable>, IReads, IWrites {	
+public interface IPersistentVariableCache extends ISoliloquyClass {
 	/**
 	 * @param persistentVariable - The PersistentVariable to place in this cache
 	 * @throws IllegalArgumentException If persistentVariable is null or invalid
 	 */
 	void put(IPersistentVariable persistentVariable) throws IllegalArgumentException;
+
+	/**
+	 * @param name - The name of the PersistentVariable to remove
+	 * @return True, if and only if the PersistentVariable was removed
+	 */
+	boolean remove(String name);
+
+	/**
+	 * @return The number of PersistentVariables in this PersistentVariableCache
+	 */
+	int size();
+
+	/**
+	 * NB: Changing the contents of this Collection does not change the actual contents of this
+	 * PersistentVariableCache; it is merely a representation
+	 * @return A Collection of the names of the names of PersistentVariables in this
+	 * PersistentVariableCache
+	 */
+	ICollection<String> persistentVariableNamesRepresentation();
+
+	/**
+	 * Clears all PersistentVariables in this PersistentVariableCache
+	 */
+	void clear();
+
+	/**
+	 * @param name - The name of the PersistentVariable to retrieve
+	 * @return The PersistentVariable with the name provided; null if none exists
+	 */
+	IPersistentVariable get(String name);
 }
