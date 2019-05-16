@@ -37,9 +37,25 @@ public interface IItem extends IGameEntity, IHasUuid {
 	 * an EquipmentSlot.
 	 */
 	Integer getCharges() throws IllegalStateException;
+
+	/**
+	 * @param charges - The charges to set for this Item
+	 * @throws UnsupportedOperationException If and only if this Item's type does not have charges
+	 * @throws IllegalArgumentException - If numberInStack is less than 0
+	 * @throws IllegalStateException If this Item's ItemType does not allow it to be stacked, if
+	 * this Item is present in more than one place (i.e. an Inventory, an EquipmentSlot, a Tile, or
+	 * a TileContainer), or if it has no Id, or if it has been deleted. It is legal for an Item to
+	 * have no locations, e.g. when it has not yet been placed, or after it has been removed from
+	 * an EquipmentSlot.
+	 */
+	void setCharges(int charges)
+			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
 	
 	/**
-	 * @return
+	 * <b>NB: Stackable Items are treated such that one Item is equivalent to one stack. So, a
+	 * stack of 15 health potions would be a single Item, which would return 15 when this method is
+	 * called.</b>
+	 * @return The number of Items of this type currently in this stack.
 	 * @throws IllegalStateException If this Item's ItemType does not allow it to be stacked, if
 	 * this Item is present in more than one place (i.e. an Inventory, an EquipmentSlot, a Tile, or
 	 * a TileContainer), or if it has no Id, or if it has been deleted. It is legal for an Item to
@@ -47,10 +63,24 @@ public interface IItem extends IGameEntity, IHasUuid {
 	 * an EquipmentSlot.
 	 */
 	Integer getNumberInStack() throws IllegalStateException;
+
+	/**
+	 * <b>NB: See {@link #getNumberInStack()} for an explanation of how stacked Items work.</b>
+	 * @param numberInStack - The number in this stack to set for this Item
+	 * @throws UnsupportedOperationException - If this ItemType cannot be stacked
+	 * @throws IllegalArgumentException - If numberInStack is less than 1
+	 * @throws IllegalStateException - If this Item is present in more than one place (i.e. an
+	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
+	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
+	 * placed, or after it has been removed from an EquipmentSlot.
+	 */
+	void setNumberInStack(int numberInStack)
+			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * Splits a stackable Item into two Items; returns the new Item with a number taken from the
 	 * original Item's stack
+	 * <b>NB: See {@link #getNumberInStack()} for an explanation of how stacked Items work.</b>
 	 * @param numberToTake - The number of the item to take from the original Item's stack
 	 * @return The new Item, of the same ItemType, with numberInStack equal to numberToTake
 	 * @throws UnsupportedOperationException - If this ItemType cannot be stacked
