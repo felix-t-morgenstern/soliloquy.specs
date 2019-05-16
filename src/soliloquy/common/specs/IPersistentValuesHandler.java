@@ -83,6 +83,13 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	<T> IPersistentValueToWrite<T> makePersistentValueToWrite(String name, T value);
 
 	/**
+	 * (NB: persistentPairHandler can be null, but this is extremely ill-advised.)
+	 * @param persistentPairHandler - The PersistentValueTypeHandler for generic Pairs to be used
+	 *                                 by this PersistentValuesHandler
+	 */
+	void registerPersistentPairHandler(IPersistentValueTypeHandler<IPair> persistentPairHandler);
+
+	/**
 	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)
 	 * @param persistentCollectionHandler - The PersistentValueTypeHandler for generic Collections
 	 *                                    to be used by this PersistentValuesHandler
