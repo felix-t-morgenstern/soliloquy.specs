@@ -17,15 +17,6 @@ import soliloquy.common.specs.IHasName;
  */
 public interface IGameEntity extends IHasName {
 	/**
-	 * This is useful when an entity needs to be completely removed from a GameZone (so it can be
-	 * cleared away by the garbage collector)
-	 * @return This entity's GameZone.
-	 * @throws IllegalStateException If this entity does not have a GameZone, or If this entity
-	 * does not have a GameZone, or if this entity has been deleted, or if this entity has no Id
-	 */
-	IGameZone gameZone() throws IllegalStateException;
-	
-	/**
 	 * @return Any parameters regarding this entity which do not fit neatly into any of their other
 	 * properties.
 	 * @throws IllegalStateException If this Item has been deleted

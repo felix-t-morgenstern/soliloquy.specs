@@ -64,6 +64,14 @@ public interface IGameZone extends IHasName, IHasId, IGlobalAccess {
 	 * @return True, if and only if character is present in this GameZone
 	 */
 	boolean containsCharacter(ICharacter character);
+
+	/**
+	 * <b>NB: This method is <u>only</u> to be used by {@link ITileCharacters#addCharacter}; an
+	 * invariant should be set for this method where character must be on a Tile belonging to this
+	 * GameZone <u>before</u> this method is called.</b>
+	 * @param character - The Character to assign to this GameZone
+	 */
+	void assignCharacterToGameZone(ICharacter character);
 	
 	/**
 	 * <i>NB: This is a representation of the Items in this GameZone. Intended use is that any Tile
