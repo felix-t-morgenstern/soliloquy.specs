@@ -59,13 +59,10 @@ public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId, IReads, I
 	/**
 	 * <i>This method requires that all values read from the data already exist in this
 	 * SettingsRepo</i>
-	 * <p>
-	 * <i>overridePreviousData is ignored for classes implementing these specifications</i>
 	 * @param data - The data to be read by this class
-	 * @param overridePreviousData - Ignored
 	 * @throws IllegalArgumentException If the data are illegal, e.g. if they are null, if they are
 	 * not properly formatted, etc., or if any of the values in the data do not exist in the
 	 * SettingsRepo
 	 */
-	void read(String data, boolean overridePreviousData) throws IllegalArgumentException;
+	void read(String data) throws IllegalArgumentException;
 }

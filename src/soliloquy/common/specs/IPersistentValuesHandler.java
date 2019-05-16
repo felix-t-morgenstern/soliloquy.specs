@@ -54,10 +54,8 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	 * @param valuesString - The String whose value to read
 	 * @param valueProcessing - The Action to perform on the value parsed by this method, e.g.
 	 * adding it to the SettingsRepo
-	 * @param overridePreviousData - True, if and only if the value provided to this method should
-	 * override existing data of that parameter type and name
 	 */
-	void readValues(String valuesString, IAction<IPair<IPersistentValueToWrite<?>,Boolean>> valueProcessing, boolean overridePreviousData);
+	void readValues(String valuesString, IAction<IPersistentValueToWrite> valueProcessing);
 	
 	/**
 	 * This method takes a Collection of values, and returns a String representation of that
@@ -65,7 +63,7 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	 * @param persistentValuesToProcess - The persistent values to write to a String
 	 * @return A string representing the persistent values
 	 */
-	String writeValues(ICollection<IPersistentValueToWrite<?>> persistentValuesToProcess);
+	String writeValues(ICollection<IPersistentValueToWrite> persistentValuesToProcess);
 	
 	/**
 	 * <b><i>It is assumed that typeName is equal to value.getClass().getCanonicalName()!</i></b>
