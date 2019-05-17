@@ -29,11 +29,7 @@ public interface IPersistentVariable extends ISoliloquyClass {
 	
 	/**
 	 * @param value The value to which to set this PersistentVariable
+	 * @throws IllegalArgumentException If and only if value is null
 	 */
-	<T> void setValue(T value);
-	
-	/**
-	 * @return A representation of this 
-	 */
-	<T> IPersistentValueToWrite<T> toWriteRepresentation();
+	<T> void setValue(T value) throws IllegalArgumentException;
 }

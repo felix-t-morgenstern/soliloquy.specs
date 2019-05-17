@@ -13,7 +13,7 @@ package soliloquy.common.specs;
  * @version 0.0.1
  *
  */
-public interface IGenericParamsSet extends IReads, IWrites, ICloneable<IGenericParamsSet> {
+public interface IGenericParamsSet extends ICloneable<IGenericParamsSet> {
 	/**
 	 * Adds a parameter with a non-null value. (If you want to add a parameter with a null value,
 	 * use addParam(String name, T value, T archetype) instead.) 

@@ -11,7 +11,7 @@ package soliloquy.common.specs;
  *
  */
 @SuppressWarnings("rawtypes")
-public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId, IReads, IWrites {
+public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId {
 	/**
 	 * This is used to retrieve the value of a Setting of a specified type.
 	 * <p>
@@ -55,7 +55,6 @@ public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId, IReads, I
 	 */
 	void addEntity(ISetting setting, int order, String groupId) throws IllegalArgumentException;
 
-	@Override
 	/**
 	 * <i>This method requires that all values read from the data already exist in this
 	 * SettingsRepo</i>
