@@ -18,7 +18,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ITileCharacters extends ISoliloquyClass {
+public interface ITileCharacters extends IDeletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Characters present on this Tile.
      * To add or remove Characters, use the other methods specified.</i>

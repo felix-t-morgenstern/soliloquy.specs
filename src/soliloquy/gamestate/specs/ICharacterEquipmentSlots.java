@@ -20,7 +20,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ICharacterEquipmentSlots extends ISoliloquyClass {
+public interface ICharacterEquipmentSlots extends IDeletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the CharacterEquipmentSlots present
      * on this Character. To add or remove CharacterEquipmentSlots, use the other methods

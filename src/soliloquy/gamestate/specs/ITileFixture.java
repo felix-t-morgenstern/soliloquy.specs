@@ -67,7 +67,7 @@ public interface ITileFixture extends IGameEntity {
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
 	 * FixtureType
 	 */
-	ITileFixtureItems tileFixtureItems() throws IllegalStateException;
+	ITileFixtureItems containedItems() throws IllegalStateException;
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by

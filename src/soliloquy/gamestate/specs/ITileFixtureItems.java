@@ -18,7 +18,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ITileFixtureItems extends ISoliloquyClass {
+public interface ITileFixtureItems extends IDeletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this TileFixture.
      * To add or remove Items, use the other methods specified.</i>

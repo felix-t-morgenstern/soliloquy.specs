@@ -17,7 +17,7 @@ import soliloquy.common.specs.ICollection;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ICharacterInventory {
+public interface ICharacterInventory extends IDeletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this Character's
      * inventory. To add or remove Items, use the other methods specified.</i>

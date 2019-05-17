@@ -3,7 +3,7 @@ package soliloquy.gamestate.specs;
 import soliloquy.common.specs.IMap;
 import soliloquy.common.specs.ISoliloquyClass;
 
-public interface ITileItems extends ISoliloquyClass {
+public interface ITileItems extends IDeletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Items present on this Tile. To
      * add or remove Items, use the other methods specified.</i>

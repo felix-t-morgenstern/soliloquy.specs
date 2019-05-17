@@ -18,7 +18,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ITileFixtures extends ISoliloquyClass {
+public interface ITileFixtures extends IDeletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the TileFixtures present on this
      * Tile. To add or remove TileFixtures, use the other methods specified.</i>
