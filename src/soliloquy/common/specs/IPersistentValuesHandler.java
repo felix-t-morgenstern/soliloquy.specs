@@ -42,6 +42,14 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	 * exist
 	 */
 	<T> IPersistentValueTypeHandler<T> getPersistentValueTypeHandler(String persistentValueType) throws UnsupportedOperationException;
+
+	/**
+	 * @param valueType - The type of the value for which to generate an archetype
+	 * @return An archetype of the provided type
+	 * @throws IllegalArgumentException If and only if valueType is null, empty, or does not
+	 * correspond to a registered {@link IPersistentValueTypeHandler}
+	 */
+	Object generateArchetype(String valueType) throws IllegalArgumentException;
 	
 	/**
 	 * @return A new Collection of the parameter types with registered PersistentValueTypeHandlers
@@ -54,7 +62,7 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	 * @param persistentPairHandler - The PersistentValueTypeHandler for generic Pairs to be used
 	 *                                 by this PersistentValuesHandler
 	 */
-	void registerPersistentPairHandler(IPersistentValueTypeHandler<IPair> persistentPairHandler);
+	void registerPersistentPairHandler(IPersistentPairHandler persistentPairHandler);
 
 	/**
 	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)
@@ -62,13 +70,12 @@ public interface IPersistentValuesHandler extends ISoliloquyClass {
 	 *                                    to be used by this PersistentValuesHandler
 	 */
 	void registerPersistentCollectionHandler(
-			IPersistentValueTypeHandler<ICollection> persistentCollectionHandler);
+			IPersistentCollectionHandler persistentCollectionHandler);
 
 	/**
 	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)
 	 * @param persistentMapHandler - The PersistentValueTypeHandler for generic Maps to be used by
 	 *                                this PersistentValuesHandler
 	 */
-	void registerPersistentMapHandler(
-			IPersistentValueTypeHandler<IMap> persistentMapHandler);
+	void registerPersistentMapHandler(IPersistentMapHandler persistentMapHandler);
 }
