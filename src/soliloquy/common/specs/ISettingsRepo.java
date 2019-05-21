@@ -54,14 +54,4 @@ public interface ISettingsRepo extends IEntityGroup<ISetting>, IHasId {
 	 * children; or if groupId is non-empty, non-null, and does not exist within this group
 	 */
 	void addEntity(ISetting setting, int order, String groupId) throws IllegalArgumentException;
-
-	/**
-	 * <i>This method requires that all values read from the data already exist in this
-	 * SettingsRepo</i>
-	 * @param data - The data to be read by this class
-	 * @throws IllegalArgumentException If the data are illegal, e.g. if they are null, if they are
-	 * not properly formatted, etc., or if any of the values in the data do not exist in the
-	 * SettingsRepo
-	 */
-	void read(String data) throws IllegalArgumentException;
 }
