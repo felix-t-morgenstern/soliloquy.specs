@@ -4,6 +4,7 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGlobalAccess;
 import soliloquy.common.specs.IHasId;
 import soliloquy.common.specs.IMap;
+import soliloquy.gamestate.specs.ICharacterEvent;
 
 /**
  * <b>CharacterAI</b>

@@ -1,6 +1,5 @@
 package soliloquy.gamestate.specs;
 
-import soliloquy.common.specs.ISoliloquyClass;
 import soliloquy.ruleset.gameentities.abilities.specs.IAbilityType;
 
 /**
@@ -17,7 +16,7 @@ import soliloquy.ruleset.gameentities.abilities.specs.IAbilityType;
  * @version 0.0.1
  *
  */
-public interface ICharacterAbility extends ISoliloquyClass {
+public interface ICharacterAbility<TAbilityType extends IAbilityType> extends IDeletable {
 	/**
 	 * @return True, if and only if this Ability is hidden (and is thus unusable) for this
 	 * Character
@@ -45,5 +44,5 @@ public interface ICharacterAbility extends ISoliloquyClass {
 	/**
 	 * @return The type of the Ability
 	 */
-	IAbilityType abilityType();
+	TAbilityType abilityType();
 }

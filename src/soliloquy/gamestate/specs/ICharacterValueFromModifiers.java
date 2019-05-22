@@ -18,7 +18,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ICharacterValueFromModifiers extends ISoliloquyClass {
+public interface ICharacterValueFromModifiers extends IDeletable {
 	/**
 	 * This is intended to identify the Character whose value is being described.
 	 * @return The Id of the Character whose value is being described

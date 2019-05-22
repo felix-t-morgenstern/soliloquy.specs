@@ -4,9 +4,11 @@ import soliloquy.common.specs.ICollection;
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasUuid;
 import soliloquy.common.specs.IMap;
+import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
+import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbilityType;
+import soliloquy.ruleset.gameentities.abilities.specs.IReactiveAbilityType;
 import soliloquy.ruleset.gameentities.specs.ICharacterAIType;
 import soliloquy.ruleset.gameentities.specs.ICharacterClassification;
-import soliloquy.ruleset.gameentities.specs.ICharacterEvent;
 import soliloquy.ruleset.gameentities.specs.ICharacterType;
 import soliloquy.sprites.specs.ISpriteSet;
 
@@ -203,7 +205,8 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IMap<String,ICharacterAbility> activeAbilities() throws IllegalStateException;
+	IMap<String,ICharacterAbility<IActiveAbilityType>> activeAbilities()
+			throws IllegalStateException;
 	
 	/**
 	 * @return A named Map of this Character's ReactiveAbilities; e.g., Counter-attack, Absorb
@@ -211,7 +214,8 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IMap<String,ICharacterAbility> reactiveAbilities() throws IllegalStateException;
+	IMap<String,ICharacterAbility<IReactiveAbilityType>> reactiveAbilities()
+			throws IllegalStateException;
 	
 	/**
 	 * @return This Character's Aptitudes, e.g. Initiative, Resistance to Fire, Chance to Hit

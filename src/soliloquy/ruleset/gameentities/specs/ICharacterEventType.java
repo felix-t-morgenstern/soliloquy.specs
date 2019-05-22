@@ -2,6 +2,7 @@ package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.IGenericParamsSet;
 import soliloquy.common.specs.IHasId;
+import soliloquy.gamestate.specs.ICharacter;
 
 /**
  * <b>CharacterEventType</b>
@@ -17,9 +18,10 @@ import soliloquy.common.specs.IHasId;
 public interface ICharacterEventType extends IHasId {
 	/**
 	 * The function which is executed when a CharacterEvent of this type is fired
+	 * @param character - The Character for whom this CharacterEventType is being fired
 	 * @param params - Parameters specifying how this CharacterEvent will behave, e.g. which
 	 * Character killed this Character, which Tile's trap went off to kill this Character, the Tile
 	 * this Character will turn to face, etc.
 	 */
-	void onFire(IGenericParamsSet params);
+	void onFire(ICharacter character, IGenericParamsSet params);
 }

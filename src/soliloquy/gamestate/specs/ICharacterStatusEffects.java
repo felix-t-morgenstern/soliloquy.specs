@@ -19,7 +19,7 @@ import soliloquy.ruleset.gameentities.specs.IElement;
  * @version 0.0.1
  *
  */
-public interface ICharacterStatusEffects extends ISoliloquyClass {
+public interface ICharacterStatusEffects extends IDeletable {
 	/**
 	 * @param statusEffectTypeId - The Id of the Type of the Status Effect whose level to retrieve
 	 * @return The current value of the specified StatusEffectType for this Character
