@@ -26,7 +26,7 @@ public interface ITileFixtureItems extends IDeletable {
      * @throws UnsupportedOperationException If this TileFixture's FixtureType is not a container
      * @throws IllegalStateException If this TileFixture has been deleted
      */
-    ICollection<IItem> getContainedItemsRepresentation()
+    ICollection<IItem> getRepresentation()
             throws UnsupportedOperationException, IllegalStateException;
 
     /**
@@ -34,7 +34,7 @@ public interface ITileFixtureItems extends IDeletable {
      * @throws IllegalArgumentException If and only if item is null, or item exists elsewhere
      * @throws IllegalStateException If this TileFixture has been deleted
      */
-    void addContainedItem(IItem item) throws IllegalArgumentException, IllegalStateException;
+    void add(IItem item) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * @param item - The Item to remove from this TileFixture
@@ -42,7 +42,7 @@ public interface ITileFixtureItems extends IDeletable {
      * @throws IllegalArgumentException If and only if item is null
      * @throws IllegalStateException If this TileFixture has been deleted
      */
-    boolean removeContainedItem(IItem item) throws IllegalArgumentException, IllegalStateException;
+    boolean remove(IItem item) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * @param item - The Item whose presence to verify
@@ -50,6 +50,6 @@ public interface ITileFixtureItems extends IDeletable {
      * @throws IllegalArgumentException If and only if item is null
      * @throws IllegalStateException If this TileFixture has been deleted
      */
-    boolean containsContainedItem(IItem item)
+    boolean contains(IItem item)
             throws IllegalArgumentException, IllegalStateException;
 }
