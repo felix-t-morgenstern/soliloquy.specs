@@ -2,7 +2,6 @@ package soliloquy.ruleset.gameentities.specs;
 
 import soliloquy.common.specs.*;
 import soliloquy.gamestate.specs.ICharacter;
-import soliloquy.gamestate.specs.ICharacterEquipmentSlot;
 import soliloquy.gamestate.specs.IItem;
 import soliloquy.gamestate.specs.ITile;
 import soliloquy.ruleset.gameentities.abilities.specs.IActiveAbility;
@@ -47,7 +46,8 @@ public interface IItemType extends IHasPluralName, IHasId {
 	
 	/**
 	 * Creates an Item of this ItemType in the specified CharacterEquipmentSlot
-	 * @param characterEquipmentSlot - The CharacterEquipmentSlot in which to place the new Item
+	 * @param character - The Character in whose equipment to place the new Item
+	 * @param equipmentSlotType - The equipment slot type in which to place the new Item
 	 * @param params - Parameters regarding how this new Item will be created (e.g. its number of
 	 * charges, its enchantments, its condition), can be null
 	 * @return The newly-created Item
@@ -55,13 +55,13 @@ public interface IItemType extends IHasPluralName, IHasId {
 	 * this characterEquipmentSlot is invalid or deleted, or characterEquipmentSlot is already
 	 * occupied, or the Item cannot be equipped to characterEquipmentSlot
 	 */
-	IItem generateInEquipment(ICharacterEquipmentSlot characterEquipmentSlot, IGenericParamsSet params) throws IllegalArgumentException;
+	IItem generateInEquipment(ICharacter character, String equipmentSlotType, IGenericParamsSet params) throws IllegalArgumentException;
 	
 	/**
 	 * @return The EquipmentType (e.g. helmets, necklaces, mystical auras, makeup) of this
 	 * ItemType; used to determine in which types of equipment slots this Item can be equipped
 	 */
-	IEquipmentType getEquipmentType();
+	IEquipmentType equipmentType();
 	
 	/**
 	 * @return A function which generates a description of this ItemType, and which takes a

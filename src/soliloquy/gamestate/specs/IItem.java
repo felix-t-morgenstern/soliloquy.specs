@@ -1,6 +1,7 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IHasUuid;
+import soliloquy.common.specs.IPair;
 import soliloquy.ruleset.gameentities.specs.IItemType;
 
 /**
@@ -103,14 +104,14 @@ public interface IItem extends IGameEntity, IHasUuid {
 	ICharacter getInventoryCharacter() throws IllegalStateException;
 	
 	/**
-	 * @return The CharacterEquipmentSlot in which this Item is stored (If it is not in a
-	 * CharacterEquipmentSlot, this returns null.)
+	 * @return A Pair containing the Character and the equipment slot type in which this Item is
+	 * located
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
 	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	ICharacterEquipmentSlot getCharacterEquipmentSlot() throws IllegalStateException;
+	IPair<ICharacter,String> getCharacterEquipmentSlot() throws IllegalStateException;
 	
 	/**
 	 * @return The Tile on which this Item is stored (Note that this means on the ground, and not
@@ -145,14 +146,17 @@ public interface IItem extends IGameEntity, IHasUuid {
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by
-	 * {@link ICharacterEquipmentSlot#equipItemToSlot} and
-	 * {@link ICharacterEquipmentSlot#unequipEquipmentFromSlot}; it is intended to check
+	 * {@link ICharacterEquipmentSlots#equipItemToSlot} and
+	 * {@link ICharacterEquipmentSlots#unequipEquipmentFromSlot}; it is intended to check
 	 * whether the CharacterEquipmentSlot assigned to this Item has this Item set as equipped.</b>
-	 * @param characterEquipmentSlot - The CharacterEquipmentSlot to which to assign to this Item
+	 * @param characterEquipmentSlots - The {@link ICharacterEquipmentSlots} to which to assign to
+	 *                                this Item
+	 * @param equipmentSlotType - The equipment slot type to which to assign this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	void assignCharacterEquipmentSlotToItem(ICharacterEquipmentSlot characterEquipmentSlot)
+	void assignCharacterEquipmentSlotToItem(ICharacterEquipmentSlots characterEquipmentSlots,
+											String equipmentSlotType)
 			throws IllegalStateException, IllegalArgumentException;
 
 	/**
