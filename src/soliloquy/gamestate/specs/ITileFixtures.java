@@ -1,7 +1,6 @@
 package soliloquy.gamestate.specs;
 
 import soliloquy.common.specs.IMap;
-import soliloquy.common.specs.ISoliloquyClass;
 
 /**
  * <b>TileFixtures</b>
@@ -26,14 +25,14 @@ public interface ITileFixtures extends IDeletable {
      * on this Tile, and the numerical values of the Map corresponds to the Z order of TileFixtures
      * on this Tile
      */
-    IMap<ITileFixture,Integer> getTileFixturesRepresentation() throws IllegalStateException;
+    IMap<ITileFixture,Integer> getRepresentation() throws IllegalStateException;
 
     /**
-     * (NB: This method simply calls {@link #addTileFixture(ITileFixture, int)} with a zIndex of 0)
+     * (NB: This method simply calls {@link #add(ITileFixture, int)} with a zIndex of 0)
      * @param tileFixture The TileFixture to add onto this Tile
      * @throws IllegalArgumentException If and only if tileFixture is null
      */
-    void addTileFixture(ITileFixture tileFixture) throws IllegalArgumentException;
+    void add(ITileFixture tileFixture) throws IllegalArgumentException;
 
     /**
      * (NB: If multiple TileFixtures have the same z-index, this will not cause an error; the
@@ -44,18 +43,18 @@ public interface ITileFixtures extends IDeletable {
      *               multiple TileFixtures are on the same Tile, that is not considered an error.)
      * @throws IllegalArgumentException If and only if tileFixture is null
      */
-    void addTileFixture(ITileFixture tileFixture, int zIndex) throws IllegalArgumentException;
+    void add(ITileFixture tileFixture, int zIndex) throws IllegalArgumentException;
 
     /**
      * @param tileFixture - The TileFixture to remove
      * @return True, if and only if the TileFixture was present, and therefore removed
      */
-    boolean removeTileFixture(ITileFixture tileFixture);
+    boolean remove(ITileFixture tileFixture);
 
     /**
      * @param tileFixture - The TileFixture whose presence to verify
      * @return True, if and only if tileFixture is present in this TileFixtures
      * @throws IllegalArgumentException If and only if tileFixture is null
      */
-    boolean containsTileFixture(ITileFixture tileFixture) throws IllegalArgumentException;
+    boolean contains(ITileFixture tileFixture) throws IllegalArgumentException;
 }
