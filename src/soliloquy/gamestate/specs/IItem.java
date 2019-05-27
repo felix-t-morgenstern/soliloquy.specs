@@ -134,8 +134,8 @@ public interface IItem extends IGameEntity, IHasUuid {
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by
-	 * {@link ICharacterInventory#addItemToInventory} and
-	 * {@link ICharacterInventory#removeItemFromInventory}; it is intended to check
+	 * {@link ICharacterInventory#add} and
+	 * {@link ICharacterInventory#remove}; it is intended to check
 	 * whether the Character assigned to this Item has this Item in its CharacterInventory.</b>
 	 * @param character - The Character to which to assign to this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this

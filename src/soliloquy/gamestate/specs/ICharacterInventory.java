@@ -11,7 +11,7 @@ import soliloquy.common.specs.ICollection;
  * <p>
  * This class also supports providing a <i>representation</i> of the CharacterInventory for this
  * Character; i.e., a Map containing all of those Items. <u>Editing the Map provided by
- * getInventoryRepresentation will not change the Inventory for this Character.</u> To do that, use
+ * getRepresentation will not change the Inventory for this Character.</u> To do that, use
  * the add and remove methods, also provided.
  *
  * @author felix.t.morgenstern
@@ -25,7 +25,7 @@ public interface ICharacterInventory extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    ICollection<IItem> getInventoryRepresentation() throws IllegalStateException;
+    ICollection<IItem> getRepresentation() throws IllegalStateException;
 
     /**
      * @param item - The Item to add to this Character's inventory
@@ -33,7 +33,7 @@ public interface ICharacterInventory extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    void addItemToInventory(IItem item) throws IllegalArgumentException, IllegalStateException;
+    void add(IItem item) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * @param item - The Item to remove from this Character's inventory
@@ -43,7 +43,7 @@ public interface ICharacterInventory extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    boolean removeItemFromInventory(IItem item) throws IllegalArgumentException,
+    boolean remove(IItem item) throws IllegalArgumentException,
             IllegalStateException;
 
     /**
@@ -53,5 +53,5 @@ public interface ICharacterInventory extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    boolean containsItem(IItem item) throws IllegalArgumentException, IllegalStateException;
+    boolean contains(IItem item) throws IllegalArgumentException, IllegalStateException;
 }

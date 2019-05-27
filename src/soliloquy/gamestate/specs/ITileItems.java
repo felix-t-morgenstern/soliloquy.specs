@@ -11,14 +11,14 @@ public interface ITileItems extends IDeletable {
      * this Tile, and the numerical values of the Map corresponds to the Z order of Items on this
      * Tile
      */
-    IMap<IItem,Integer> getItemsRepresentation() throws IllegalStateException;
+    IMap<IItem,Integer> getRepresentation() throws IllegalStateException;
 
     /**
      * (NB: This method simply calls {@link #addItem(IItem, int)} with a zIndex of 0)
      * @param item The Item to add onto this Tile
      * @throws IllegalArgumentException If and only if item is null
      */
-    void addItem(IItem item) throws IllegalArgumentException;
+    void add(IItem item) throws IllegalArgumentException;
 
     /**
      * (NB: If multiple Items have the same z-index, this will not cause an error; the z-index only
@@ -29,19 +29,19 @@ public interface ITileItems extends IDeletable {
      *               multiple Items are on the same Tile, that is not considered an error.)
      * @throws IllegalArgumentException If and only if item is null
      */
-    void addItem(IItem item, int zIndex) throws IllegalArgumentException;
+    void add(IItem item, int zIndex) throws IllegalArgumentException;
 
     /**
      * @param item - The Item to remove
      * @return True, if and only if the Item was present, and therefore removed
      * @throws IllegalArgumentException If and only if item is null
      */
-    boolean removeItem(IItem item) throws IllegalArgumentException;
+    boolean remove(IItem item) throws IllegalArgumentException;
 
     /**
      * @param item - The Item whose presence to verify
      * @return True, if and only if item is present on this Tile
      * @throws IllegalArgumentException If and only if item is null
      */
-    boolean containsItem(IItem item) throws IllegalArgumentException;
+    boolean contains(IItem item) throws IllegalArgumentException;
 }
