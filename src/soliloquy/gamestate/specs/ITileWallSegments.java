@@ -13,7 +13,7 @@ import soliloquy.common.specs.ISoliloquyClass;
  * <p>
  * This class also supports providing a <i>representation</i> of the TileWallSegments on this Tile;
  * i.e., a Map containing all of those TileWallSegments. <u>Editing the Map provided by
- * getTileWallSegmentsRepresentation will not change the TileWallSegments on the Tile.</u> To do
+ * getRepresentation will not change the TileWallSegments on the Tile.</u> To do
  * that, use the add and remove methods, also provided.
  *
  * @author felix.t.morgenstern
@@ -27,7 +27,7 @@ public interface ITileWallSegments extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    ICollection<ITileWallSegment> getTileWallSegmentsRepresentation() throws IllegalStateException;
+    ICollection<ITileWallSegment> getRepresentation() throws IllegalStateException;
 
     /**
      * @param tileWallSegment - The TileWallSegment to add to this Tile
@@ -35,7 +35,7 @@ public interface ITileWallSegments extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    void addTileWallSegment(ITileWallSegment tileWallSegment)
+    void add(ITileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
@@ -46,7 +46,7 @@ public interface ITileWallSegments extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    boolean removeTileWallSegment(ITileWallSegment tileWallSegment)
+    boolean remove(ITileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
@@ -55,6 +55,6 @@ public interface ITileWallSegments extends IDeletable {
      * @throws IllegalArgumentException If and only if tileWallSegment is null
      * @throws IllegalStateException If tileWallSegment has been deleted
      */
-    boolean containsTileWallSegment(ITileWallSegment tileWallSegment)
+    boolean contains(ITileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
 }
