@@ -33,7 +33,7 @@ public interface IKeyBinding extends ISoliloquyClass {
 	IAction<Void> getOnRelease();
 
 	/**
-	 * @param onPress - The Action to fire when the bound key is pressed (Can be null)
+	 * @param onRelease - The Action to fire when the bound key is pressed (Can be null)
 	 */
 	void setOnRelease(IAction<Void> onRelease);
 	

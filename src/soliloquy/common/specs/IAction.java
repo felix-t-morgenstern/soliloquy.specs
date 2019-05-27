@@ -3,8 +3,8 @@ package soliloquy.common.specs;
 /**
  * <b>Action</b>
  * <p>
- * An Action is a Function, which receives an Input (or perhaps no input), and performs some
- * action.
+ * An Action is a {@link IFunction}, which receives an Input (or perhaps no input), and performs
+ * some action with it.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

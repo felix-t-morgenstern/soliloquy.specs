@@ -4,6 +4,9 @@ package soliloquy.common.specs;
  * <b>Function</b>
  * <p>
  * An Function receives an Input (or perhaps no input), and produces some Output.
+ * <p>
+ * A Function has an Id, so that it can be instantiated at load time from a global cache. (For
+ * instance, a Map may have a custom validator, which
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
