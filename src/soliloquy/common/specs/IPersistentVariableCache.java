@@ -45,7 +45,16 @@ public interface IPersistentVariableCache extends ISoliloquyClass {
 	 * @return A Collection of the names of the names of PersistentVariables in this
 	 * PersistentVariableCache
 	 */
-	ICollection<String> persistentVariableNamesRepresentation();
+	ICollection<String> getNamesRepresentation();
+
+	/**
+	 * NB: Changing the contents of this Collection does not change which PersistentVariables are
+	 * present in this PersistentVariableCache; however, the variables returned in the Collection
+	 * are the actual variables, and changing their values will result in the real variable values
+	 * being changed.
+	 * @return A Collection of the PersistentVariables in this PersistentVariableCache
+	 */
+	ICollection<IPersistentVariable> getVariablesRepresentation();
 
 	/**
 	 * Clears all PersistentVariables in this PersistentVariableCache
@@ -56,5 +65,5 @@ public interface IPersistentVariableCache extends ISoliloquyClass {
 	 * @param name - The name of the PersistentVariable to retrieve
 	 * @return The PersistentVariable with the name provided; null if none exists
 	 */
-	IPersistentVariable get(String name);
+	IPersistentVariable getVariable(String name);
 }
