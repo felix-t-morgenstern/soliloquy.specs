@@ -10,7 +10,7 @@ package soliloquy.common.specs;
  * 
  * @author felix.t.morgenstern
  *
- * @param <V> The type of this Setting
+ * @param <T> The type of this Setting
  */
 public interface ISetting<T> extends IHasId, IHasName, IHasOneGenericParam<T> {
 	/**
