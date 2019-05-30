@@ -26,25 +26,14 @@ public interface IGenericParamsSet extends ICloneable<IGenericParamsSet> {
 	<T> void addParam(String name, T value) throws IllegalArgumentException;
 	
 	/**
-	 * Adds a parameter with a nullable value.
-	 * @param name - The name of the new parameter to add
-	 * @param value - The value of the new parameter to add (which can be null)
-	 * @param archetype - The archetype of the value to add
-	 * @throws IllegalArgumentException If a param of the same name and value already exists, or if
-	 * archetype is null
-     * @param <T> The type of the new parameter to be added
-	 */
-	<T> void addParam(String name, T value, T archetype) throws IllegalArgumentException;
-	
-	/**
-	 * @param paramArchetype - An object of the type being added
 	 * @param paramsSet - The new params to add to this GenericParamsSet
-	 * @throws IllegalArgumentException If paramArchetype or paramsSet is null
+	 * @throws IllegalArgumentException If paramsSet is null or has null archetypes
 	 * @throws UnsupportedOperationException If a paramsSet of the specified type already exists in
 	 * this GenericParamsSet
      * @param <T> The type of the paramsSet to be added
 	 */
-	<T> void addParamsSet(IMap<String,T> paramsSet, T paramArchetype) throws IllegalArgumentException, UnsupportedOperationException;
+	<T> void addParamsSet(IMap<String,T> paramsSet)
+			throws IllegalArgumentException, UnsupportedOperationException;
 	
 	/**
 	 * <i>(getParam cannot differentiate between nonexistent parameters, and parameters which are
