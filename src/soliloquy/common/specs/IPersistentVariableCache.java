@@ -3,9 +3,9 @@ package soliloquy.common.specs;
 /**
  * <b>PersistentVariableCache</b>
  * <p>
- * A PersistentVariableCache is a cache of {@link soliloquy.common.specs.IPersistentVariable}s
- * (identified by String Ids) which are saved when the player quits the Game--presumably to a save
- * file--and which are restored once that save file is loaded.
+ * A PersistentVariableCache is a cache of persistent variables (identified by String Ids) which
+ * are saved when the player quits the Game--presumably to a save file--and which are restored once
+ * that save file is loaded.
  * <p>
  * An individual PersistentVariableCache is a cache for variables of any type. It is expected that
  * developers will know the types to their own PersistentVariables, and will therefore be able to
@@ -23,10 +23,11 @@ package soliloquy.common.specs;
  */
 public interface IPersistentVariableCache extends ISoliloquyClass {
 	/**
-	 * @param persistentVariable - The PersistentVariable to place in this cache
-	 * @throws IllegalArgumentException If persistentVariable is null or invalid
+	 * @param name - The name of the persistent variable
+	 * @param value - The value of the persistent variable
+	 * @throws IllegalArgumentException If name is null or empty, or if value is null
 	 */
-	void put(IPersistentVariable persistentVariable) throws IllegalArgumentException;
+	<T> void setVariable(String name, T value) throws IllegalArgumentException;
 
 	/**
 	 * @param name - The name of the PersistentVariable to remove
@@ -54,7 +55,7 @@ public interface IPersistentVariableCache extends ISoliloquyClass {
 	 * being changed.
 	 * @return A Collection of the PersistentVariables in this PersistentVariableCache
 	 */
-	ICollection<IPersistentVariable> getVariablesRepresentation();
+	IMap<String,Object> getVariablesRepresentation();
 
 	/**
 	 * Clears all PersistentVariables in this PersistentVariableCache
@@ -63,7 +64,8 @@ public interface IPersistentVariableCache extends ISoliloquyClass {
 
 	/**
 	 * @param name - The name of the PersistentVariable to retrieve
+	 * @param <T> The type of object to be returned
 	 * @return The PersistentVariable with the name provided; null if none exists
 	 */
-	IPersistentVariable getVariable(String name);
+	<T> T getVariable(String name);
 }
