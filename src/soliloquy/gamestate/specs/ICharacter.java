@@ -147,7 +147,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IGenericParamsSet characterAIParams() throws IllegalStateException;
+	IGenericParamsSet aiParams() throws IllegalStateException;
 	
 	/**
 	 * This is similar to
@@ -162,7 +162,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * the Character is killed, when the Character is close to death, when the demonic ritual is
 	 * complete
 	 */
-	IMap<String,ICollection<ICharacterEvent>> characterEvents();
+	IMap<String,ICollection<ICharacterEvent>> events();
 	
 	/**
 	 * @return This Character's equipment slots, from which equipment can be accessed or modified
@@ -279,7 +279,7 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	
 	/**
 	 * Deletes this Character. (Calling this method will remove this Character from its GameZone's
-	 * Characters.)
+	 * Characters. It will also delete all contained entities, e.g. events, inventory, etc.)
 	 * <p>
 	 * This is different from killing this Character or setting them to be dead via setIsDead. In
 	 * those cases, the Character still exists in the GameZone's Characters, and may be revived;
@@ -300,5 +300,5 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	void assignCharacterToTile(ITile tile) throws IllegalArgumentException, IllegalStateException;
+	void assignToTile(ITile tile) throws IllegalArgumentException, IllegalStateException;
 }

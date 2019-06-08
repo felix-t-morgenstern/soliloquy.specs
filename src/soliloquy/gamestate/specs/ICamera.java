@@ -93,7 +93,7 @@ public interface ICamera extends IGlobalAccess {
 	 * <p>
 	 * This method does <i>not</i> return how many Tiles a Character can "see" when determining 
 	 * their behavior in-game; {@link ICharacter#getAIType} and
-	 * {@link ICharacter#characterAIParams} are intended to handle this sort of functionality
+	 * {@link ICharacter#aiParams} are intended to handle this sort of functionality
 	 * instead.
 	 * <p>
 	 * The value returned by this method includes the Tile on which this Character is standing. For
