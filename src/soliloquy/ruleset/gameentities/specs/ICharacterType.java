@@ -20,11 +20,10 @@ import soliloquy.gamestate.specs.ITile;
 public interface ICharacterType extends IHasPluralName, IHasId {
 	/**
 	 * Generates a Character of this CharacterType
-	 * @param tile - The Tile in which to place the new Character 
+	 * @param tile - The Tile in which to place the new Character; can be null
 	 * @param params - Parameters specifying how this Character is to be created (e.g. whether it
 	 * is hidden, parameters adjusting dynamic attribute generation, etc.); can be null
 	 * @return The newly-created Character
-	 * @throws IllegalArgumentException If tile is null, or does not have a GameZone
 	 */
-	ICharacter generate(ITile tile, IGenericParamsSet params) throws IllegalArgumentException;
+	ICharacter generate(ITile tile, IGenericParamsSet params);
 }

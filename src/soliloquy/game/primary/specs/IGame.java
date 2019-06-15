@@ -1,5 +1,8 @@
 package soliloquy.game.primary.specs;
 
+import soliloquy.common.specs.IAction;
+import soliloquy.common.specs.IFunction;
+import soliloquy.common.specs.IMap;
 import soliloquy.gamestate.specs.IGameState;
 import soliloquy.logger.specs.ILogger;
 import soliloquy.ruleset.primary.specs.IRuleset;
@@ -11,4 +14,8 @@ public interface IGame {
 	IRuleset ruleset();
 	
 	ILogger logger();
+
+	IMap<String, IAction> actionsLibrary();
+
+	IMap<String, IFunction> functionsLibrary();
 }

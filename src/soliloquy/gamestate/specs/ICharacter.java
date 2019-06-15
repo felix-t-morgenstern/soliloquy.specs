@@ -53,21 +53,18 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	IMap<String,String> pronouns() throws IllegalStateException;
 	
 	/**
-	 * Traits can be relevant to combat or stats, e.g. experience points, Character level, skill
-	 * points
+	 * Data can be traits relevant to combat or stats, e.g. experience points, Character level,
+	 * skill points
 	 * <p>
-	 * Traits may also be irrelevant to combat or stats, e.g. religion, alignment, race,
-	 * nationality
+	 * Data can be relevant to combat behavior, e.g. desired distance from enemies, preferred
+	 * abilities to use, etc.
 	 * <p>
-	 * <i>This object is instantiated by {@link ICharacterType}. When it is instantiated, it should
-	 * be set up so that the required traits are guaranteed to be present, and cannot be deleted.
-	 * It should also be set up so that changes to certain traits, e.g. experience points or
-	 * Character level, trigger custom behavior.</i>
+	 * Data may also be irrelevant to combat or stats, e.g. religion, alignment, race, nationality
 	 * @return Traits of this Character
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	IGenericParamsSet traits() throws IllegalStateException;
+	IGenericParamsSet data() throws IllegalStateException;
 
 	/**
 	 * @return The Tile on which this Character sits
@@ -140,14 +137,6 @@ public interface ICharacter extends IGameEntity, IHasUuid {
 	 */
 	void setAIType(ICharacterAIType characterAIType)
 			throws IllegalArgumentException, IllegalStateException;
-	
-	/**
-	 * @return Parameters affecting the behavior of this Character's AI; examples include preference
-	 * for ranged combat, desired distance to allies, or disposition to flee.
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	IGenericParamsSet aiParams() throws IllegalStateException;
 	
 	/**
 	 * This is similar to

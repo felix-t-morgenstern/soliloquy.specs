@@ -94,4 +94,11 @@ public interface ICollection<V> extends Iterable<V>, ICloneable <ICollection<V>>
 	 * @throws UnsupportedOperationException If item removal is not supported in this Collection
 	 */
 	boolean removeItem(V item) throws UnsupportedOperationException;
+
+	/**
+	 * @return A collection of validators, which are run against all incoming values. If any of the
+	 * validators reject an input, the resulting string is non-null, and that string is used in a
+	 * thrown IllegalArgumentException.
+	 */
+	ICollection<IFunction<V,String>> validators();
 }

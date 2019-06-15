@@ -126,13 +126,13 @@ public interface IMap<K,V> extends Iterable<IPair<K,V>>, IHasTwoGenericParams<K,
 	boolean removeByKeyAndValue(K key, V value);
 	
 	/**
-	 * Sets a function used to validate all inputs to this Map. (If this is null, then all inputs
-	 * are valid.)
-	 * <i>Intended usage is that if the input passes validation, the validator returns null;
-	 * otherwise, the validator returns the exception message.</i>
-	 * @param validator - The function used to validate inputs to this Map
+	 * A collection of functions used to validate all inputs to this Map. (If this is null, then
+	 * all inputs are valid.)
+	 * <i>Intended usage is that if the input passes validation, the validators return null;
+	 * otherwise, a validator returns an exception message, thrown by an
+	 * IllegalArgumentException.</i>
 	 */
-	void setValidator(IFunction<IPair<K,V>,String> validator);
+	ICollection<IFunction<IPair<K,V>,String>> validators();
 	
 	/**
 	 * @return The number of items in the Map

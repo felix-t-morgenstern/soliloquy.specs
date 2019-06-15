@@ -74,15 +74,15 @@ public interface IRoundManager extends ISoliloquyClass {
 	void advanceRounds(int numberOfRounds) throws IllegalArgumentException;
 	
 	/**
-	 * (If this property is undefined when this method is called, this method should ensure that
-	 * this property is initialized.)
+	 * <i>NB: When {@link #advanceRounds} is called, Timers in this {@link ICollection} are to be
+	 * fired, and then removed.</i>
 	 * @return A Collection of the One-Time Timers currently in effect
 	 */
 	ICollection<IOneTimeTimer> oneTimeTimers();
 	
 	/**
-	 * (If this property is undefined when this method is called, this method should ensure that
-	 * this property is initialized.)
+	 * <i>NB: When {@link #advanceRounds} is called, Timers in this {@link ICollection} are to be
+	 * fired, and then removed.</i>
 	 * @return A Collection of the Recurring Timers currently in effect
 	 */
 	ICollection<IRecurringTimer> recurringTimers();
