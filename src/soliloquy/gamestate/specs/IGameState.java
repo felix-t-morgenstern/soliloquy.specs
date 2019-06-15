@@ -29,12 +29,7 @@ public interface IGameState extends ISoliloquyClass {
 	 * @return The caches of persistent variables for the Game (i.e. variables keeping track of
 	 * in-Game events, e.g. quests, party choices, etc.)
 	 */
-	IPersistentVariableCache gameStatePVars();
-	
-	/**
-	 * @return A factory used to create new Characters
-	 */
-	ICharacterFactory characterFactory();
+	IPersistentVariableCache persistentVariables();
 	
 	/**
 	 * @return A Map of AIs which can be assigned to various characters

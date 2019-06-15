@@ -58,7 +58,7 @@ public interface IEntityGroupWithSpriteSetItem<Entity> extends ISoliloquyClass {
 	
 	/**
 	 * Initializes the actual value of this EntityGroupItem; in this case, an Entity
-	 * @param group - The Entity to which to set this EntityGroupItem's actual value
+	 * @param entity - The Entity to which to set this EntityGroupItem's actual value
 	 * @throws IllegalArgumentException If the entity provided is illegal, e.g. if it is null, if
 	 * it is a duplicate, etc.
 	 * @throws UnsupportedOperationException If either the EntityGroup or Entity for this
