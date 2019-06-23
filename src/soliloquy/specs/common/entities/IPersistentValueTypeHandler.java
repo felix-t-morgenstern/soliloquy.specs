@@ -19,11 +19,11 @@ import soliloquy.specs.common.shared.IHasOneGenericParam;
  */
 public interface IPersistentValueTypeHandler<T> extends IHasOneGenericParam<T> {
 	/**
-	 * @param valueString - A String representation of the value to be read
+	 * @param serializedValue - A String representation of the value to be read
 	 * @return The translation of the String into the value type specified
-	 * @throws IllegalArgumentException If valueString is null
+	 * @throws IllegalArgumentException If serializedValue is null
 	 */
-	T read(String valueString) throws IllegalArgumentException;
+	T read(String serializedValue) throws IllegalArgumentException;
 	
 	/**
 	 * @param value - The value to be translated into a String
