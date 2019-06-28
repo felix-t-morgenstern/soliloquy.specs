@@ -6,4 +6,7 @@ import soliloquy.specs.sprites.entities.ISprite;
 // TODO: Document (and perhaps expound upon) this interface
 public interface IWallSegmentType extends IHasId {
 	ISprite getSprite();
+	boolean blocksWest();
+	boolean blocksNorthwest();
+	boolean blocksNorth();
 }
