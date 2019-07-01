@@ -1,7 +1,7 @@
 package soliloquy.specs.common.factories;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.IPair;
+import soliloquy.specs.common.infrastructure.IPair;
 
 /**
  * <b>PairFactory</b>

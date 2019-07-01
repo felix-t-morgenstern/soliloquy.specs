@@ -1,6 +1,6 @@
 package soliloquy.specs.ui.windowelements;
 
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
 import soliloquy.specs.common.shared.IHasGlobalAccess;
 
 // TODO: Document this interface

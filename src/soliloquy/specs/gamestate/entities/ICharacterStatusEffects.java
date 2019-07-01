@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 import soliloquy.specs.ruleset.entities.abilities.IAbilitySource;
 import soliloquy.specs.ruleset.entities.IElement;
 
@@ -29,12 +29,10 @@ public interface ICharacterStatusEffects extends IDeletable {
 	Integer getStatusEffectLevel(String statusEffectTypeId) throws IllegalStateException, IllegalArgumentException;
 	
 	/**
-	 * <i>NB: The Map returned by this method CANNOT be used to alter the Status Effects of this
-	 * Character; it is only a representation of those Status Effects.</i>
-	 * @return A Map, with an entry for every Status Effect whose value for this Character is not zero.
+	 * @return A read-only Map, with an entry for every Status Effect whose value for this Character is not zero.
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 */
-	IMap<String,Integer> getAllStatusEffects() throws IllegalStateException;
+	IReadOnlyMap<String,Integer> allStatusEffectsRepresentation() throws IllegalStateException;
 	
 	/**
 	 * This is used for altering the value of a CharacterStatusEffect as part of an Ability, e.g.
@@ -49,9 +47,9 @@ public interface ICharacterStatusEffects extends IDeletable {
 	 * @param baseAmount - The base amount by which to alter this CharacterStatusEffect
 	 * @param stopAtZero - True, if and only if any negative alterations should not go below zero,
 	 * or if any positive alterations should not go above zero. For instance, Distraction might be
-	 * the negative equivalent to Concentration; so an Ability called "Cure Distraction" should have
-	 * "stopAtZero" set to true, so that Distraction is cured, without causing Concentration (i.e.
-	 * positive values) to appear.
+	 * the negative equivalent to Concentration; so an Ability called "Cure Distraction" should
+	 * have "stopAtZero" set to true, so that Distraction is cured, without causing Concentration
+	 * (i.e. positive values) to appear.
 	 * @param element - An optional Element specifying the source of this CharacterStatusEffect
 	 * alteration. (This might not be relevant--for instance, a Character might always resist an
 	 * attempt at poisoning based on their resistance to the Poison element, regardless of what is

@@ -1,8 +1,6 @@
-package soliloquy.specs.common.entities;
+package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.ICollection;
-import soliloquy.specs.common.valueobjects.IMap;
 
 /**
  * <b>PersistentVariableCache</b>
@@ -50,7 +48,7 @@ public interface IPersistentVariableCache extends ISoliloquyClass {
 	 * @return A Collection of the names of the names of PersistentVariables in this
 	 * PersistentVariableCache
 	 */
-	ICollection<String> getNamesRepresentation();
+	IReadOnlyCollection<String> namesRepresentation();
 
 	/**
 	 * NB: Changing the contents of this Collection does not change which PersistentVariables are
@@ -59,7 +57,7 @@ public interface IPersistentVariableCache extends ISoliloquyClass {
 	 * being changed.
 	 * @return A Collection of the PersistentVariables in this PersistentVariableCache
 	 */
-	IMap<String,Object> getVariablesRepresentation();
+	IReadOnlyMap<String,Object> variablesRepresentation();
 
 	/**
 	 * Clears all PersistentVariables in this PersistentVariableCache

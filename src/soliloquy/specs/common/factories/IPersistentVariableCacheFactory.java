@@ -1,6 +1,6 @@
 package soliloquy.specs.common.factories;
 
-import soliloquy.specs.common.entities.IPersistentVariableCache;
+import soliloquy.specs.common.infrastructure.IPersistentVariableCache;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 
 /**

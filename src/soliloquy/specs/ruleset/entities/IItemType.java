@@ -9,9 +9,9 @@ import soliloquy.specs.ruleset.entities.abilities.IReactiveAbility;
 import soliloquy.specs.common.entities.IFunction;
 import soliloquy.specs.common.shared.IHasId;
 import soliloquy.specs.common.shared.IHasPluralName;
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
 import soliloquy.specs.common.valueobjects.ICoordinate;
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
 import soliloquy.specs.sprites.entities.ISpriteSet;
 
 /**

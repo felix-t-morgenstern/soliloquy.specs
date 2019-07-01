@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.ICollection;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 
 /**

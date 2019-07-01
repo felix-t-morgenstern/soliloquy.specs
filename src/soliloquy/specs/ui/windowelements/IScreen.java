@@ -1,6 +1,6 @@
 package soliloquy.specs.ui.windowelements;
 
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
 import soliloquy.specs.graphics.IRenderable;
 
 //TODO: Document this interface

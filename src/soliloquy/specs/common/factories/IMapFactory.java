@@ -1,7 +1,7 @@
 package soliloquy.specs.common.factories;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
 
 /**
  * <b>MapFactory</b>

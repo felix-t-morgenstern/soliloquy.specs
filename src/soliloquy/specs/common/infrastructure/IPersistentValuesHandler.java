@@ -1,7 +1,6 @@
-package soliloquy.specs.common.entities;
+package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.ICollection;
 
 /**
  * <b>PersistentValuesHandler</b>

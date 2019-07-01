@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 import soliloquy.specs.ruleset.gameconcepts.IVitalAttributeCalculation;
 
 /**
@@ -33,11 +34,12 @@ public interface ICharacterValueFromModifiers extends IDeletable {
 	int totalValue() throws IllegalStateException;
 	
 	/**
-	 * @return A Map, where each key is the name of a modifier (e.g. "FromBase", "FromItems", 
-	 * etc.), and each value is the value from that modifier contributing to the total value.
+	 * @return A read-only Map, where each key is the name of a modifier (e.g. "FromBase",
+	 * "FromItems", etc.), and each value is the value from that modifier contributing to the total
+	 * value.
 	 * @throws IllegalStateException If the Character has been deleted
 	 */
-	IMap<String,Integer> modifiers() throws IllegalStateException;
+	IReadOnlyMap<String,Integer> modifiersRepresentation() throws IllegalStateException;
 	
 	/**
 	 * Calculates the value of this CharacterValueFromModifiers (using a calculator from the 

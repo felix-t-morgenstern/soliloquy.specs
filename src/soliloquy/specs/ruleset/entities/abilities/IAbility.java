@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
 import soliloquy.specs.common.shared.IHasGlobalAccess;
 import soliloquy.specs.gamestate.entities.IGameEntity;
 

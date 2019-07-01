@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
-import soliloquy.specs.common.valueobjects.IMap;
-import soliloquy.specs.common.valueobjects.IPair;
+import soliloquy.specs.common.infrastructure.IPair;
+import soliloquy.specs.common.infrastructure.IReadOnlyCollection;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 
 /**
@@ -27,7 +27,7 @@ public interface IRoundManager extends ISoliloquyClass {
 	 * Intended use case is if a Character delays their turn, they will be pushed to the bottom of
 	 * the queue, with however many action points they still have.
 	 */
-	IMap<Integer,IPair<ICharacter,Integer>> characterOrder();
+	IReadOnlyMap<Integer,IPair<ICharacter,Integer>> characterOrder();
 	
 	/**
 	 * Ends the active Character's turn; and if this Character is the last Character to act in this
@@ -74,17 +74,17 @@ public interface IRoundManager extends ISoliloquyClass {
 	void advanceRounds(int numberOfRounds) throws IllegalArgumentException;
 	
 	/**
-	 * <i>NB: When {@link #advanceRounds} is called, Timers in this {@link ICollection} are to be
-	 * fired, and then removed.</i>
-	 * @return A Collection of the One-Time Timers currently in effect
+	 * NB: This method is a representation; to add a Timer to this RoundManager, simply create it
+	 * with the correct Factory; and to delete it, simply delete the Timer.
+	 * @return A Collection representing the One-Time Timers currently in effect
 	 */
-	ICollection<IOneTimeTimer> oneTimeTimers();
+	IReadOnlyCollection<IOneTimeTimer> oneTimeTimersRepresentation();
 	
 	/**
-	 * <i>NB: When {@link #advanceRounds} is called, Timers in this {@link ICollection} are to be
-	 * fired, and then removed.</i>
-	 * @return A Collection of the Recurring Timers currently in effect
+	 * NB: This method is a representation; to add a Timer to this RoundManager, simply create it
+	 * with the correct Factory; and to delete it, simply delete the Timer.
+	 * @return A Collection representing the Recurring Timers currently in effect
 	 */
-	ICollection<IRecurringTimer> recurringTimers();
+	IReadOnlyCollection<IRecurringTimer> recurringTimersRepresentation();
 	
 }

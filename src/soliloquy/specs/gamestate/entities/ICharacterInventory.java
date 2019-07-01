@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.IReadOnlyCollection;
 
 /**
  * <b>CharacterInventory</b>
@@ -25,7 +25,7 @@ public interface ICharacterInventory extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    ICollection<IItem> getRepresentation() throws IllegalStateException;
+    IReadOnlyCollection<IItem> representation() throws IllegalStateException;
 
     /**
      * @param item - The Item to add to this Character's inventory

@@ -1,8 +1,7 @@
-package soliloquy.specs.common.valueobjects;
+package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.entities.IFunction;
-import soliloquy.specs.common.shared.ICloneable;
-import soliloquy.specs.common.shared.IHasOneGenericParam;
+import soliloquy.specs.common.factories.ICollectionFactory;
 
 /**
  * <b>Collection</b>
@@ -28,7 +27,7 @@ import soliloquy.specs.common.shared.IHasOneGenericParam;
  *
  * @param <V> The type of entities in this Collection
  */
-public interface ICollection<V> extends Iterable<V>, ICloneable<ICollection<V>>, IHasOneGenericParam<V> {
+public interface ICollection<V> extends IReadOnlyCollection<V> {
 	/**
 	 * @param item - item whose presence in this collection is to be ensured
 	 * @throws UnsupportedOperationException If item addition is not supported in this Collection
@@ -54,45 +53,6 @@ public interface ICollection<V> extends Iterable<V>, ICloneable<ICollection<V>>,
 	void clear() throws UnsupportedOperationException;
 	
 	/**
-	 * @param item - The item to check for
-	 * @return True, if and only if the item is present in this Collection
-	 */
-	boolean contains(V item);
-	
-	/**
-	 * @param items - The collection whose contents to compare to this Collection
-	 * @return True, if and only if every item which is present in this Collection is present in
-	 * items
-	 */
-	boolean equals(ICollection<V> items);
-	
-	/**
-	 * @param index - The index in the Collection at which to retrieve the item
-	 * @return The item at that index
-	 */
-	V get(int index);
-	
-	/**
-	 * @return true if this Collection contains no items.
-	 */
-	boolean isEmpty();
-	
-	/**
-	 * If this is a Collection of a class that can be sorted, then the resulting array will be
-	 * sorted by the items' Ids.
-	 * <p>
-	 * <i>This method must return Object[] instead of V[], since Java cannot create generic
-	 * Arrays.</i>
-	 * @return An array of all values
-	 */
-	Object[] toArray();
-	
-	/**
-	 * @return The number of items in the Collection
-	 */
-	int size();
-	
-	/**
 	 * @param item - item to be removed from this collection, if present
 	 * @return true if an element was removed as a result of this call
 	 * @throws UnsupportedOperationException If item removal is not supported in this Collection
@@ -105,4 +65,11 @@ public interface ICollection<V> extends Iterable<V>, ICloneable<ICollection<V>>,
 	 * thrown IllegalArgumentException.
 	 */
 	ICollection<IFunction<V,String>> validators();
+
+	/**
+	 * NB: This method exists so that any Collections produced by a {@link ICollectionFactory}
+	 * cannot be cast to a (non-read-only) Collection by a particularly clever developer
+	 * @return A read-only representation of this Collection
+	 */
+	IReadOnlyCollection<V> readOnlyRepresentation();
 }

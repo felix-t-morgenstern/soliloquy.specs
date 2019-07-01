@@ -1,4 +1,4 @@
-package soliloquy.specs.common.valueobjects;
+package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.IHasTwoGenericParams;
 

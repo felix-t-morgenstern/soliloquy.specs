@@ -1,4 +1,4 @@
-package soliloquy.specs.common.entities;
+package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.IHasOneGenericParam;
 

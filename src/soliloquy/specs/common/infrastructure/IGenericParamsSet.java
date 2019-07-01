@@ -1,4 +1,4 @@
-package soliloquy.specs.common.valueobjects;
+package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.ICloneable;
 
@@ -34,7 +34,7 @@ public interface IGenericParamsSet extends ICloneable<IGenericParamsSet> {
 	 * this GenericParamsSet
      * @param <T> The type of the paramsSet to be added
 	 */
-	<T> void addParamsSet(IMap<String,T> paramsSet)
+	<T> void addParamsSet(IReadOnlyMap<String,T> paramsSet)
 			throws IllegalArgumentException, UnsupportedOperationException;
 	
 	/**

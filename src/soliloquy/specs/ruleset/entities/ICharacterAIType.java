@@ -1,9 +1,9 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
 import soliloquy.specs.common.shared.IHasGlobalAccess;
 import soliloquy.specs.common.shared.IHasId;
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
 import soliloquy.specs.gamestate.entities.ICharacterEvent;
 
 /**

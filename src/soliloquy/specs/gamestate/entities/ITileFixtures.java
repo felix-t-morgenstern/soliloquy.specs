@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 
 /**
  * <b>TileFixtures</b>
@@ -25,7 +25,7 @@ public interface ITileFixtures extends IDeletable {
      * on this Tile, and the numerical values of the Map corresponds to the Z order of TileFixtures
      * on this Tile
      */
-    IMap<ITileFixture,Integer> getRepresentation() throws IllegalStateException;
+    IReadOnlyMap<ITileFixture,Integer> representation() throws IllegalStateException;
 
     /**
      * (NB: This method simply calls {@link #add(ITileFixture, int)} with a zIndex of 0)

@@ -1,8 +1,7 @@
 package soliloquy.specs.sprites.entities;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.IMap;
-import soliloquy.specs.sprites.entities.ISprite;
+import soliloquy.specs.common.infrastructure.IMap;
 
 // TODO: Document this interface
 public interface ISpriteSet extends ISoliloquyClass {

@@ -1,8 +1,8 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
-import soliloquy.specs.common.valueobjects.IPair;
+import soliloquy.specs.common.infrastructure.ICollection;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IPair;
 import soliloquy.specs.gamestate.entities.ICharacter;
 import soliloquy.specs.gamestate.entities.ITile;
 

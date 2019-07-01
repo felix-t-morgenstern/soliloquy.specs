@@ -1,6 +1,4 @@
-package soliloquy.specs.common.entities;
-
-import soliloquy.specs.common.valueobjects.IPair;
+package soliloquy.specs.common.infrastructure;
 
 /**
  * <b>PersistentPairHandler</b>

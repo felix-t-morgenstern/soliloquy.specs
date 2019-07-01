@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
 import soliloquy.specs.common.valueobjects.ICoordinate;
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
 import soliloquy.specs.ruleset.entities.abilities.IActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.IReactiveAbility;
 import soliloquy.specs.ruleset.entities.IGroundType;

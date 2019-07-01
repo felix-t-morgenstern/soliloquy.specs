@@ -1,7 +1,7 @@
 package soliloquy.specs.graphics;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
 import soliloquy.specs.sprites.entities.IAnimation;
 
 //TODO: Ensure that implementations pass ILogger into any and all generated Runnables

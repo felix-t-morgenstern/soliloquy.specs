@@ -1,6 +1,4 @@
-package soliloquy.specs.common.entities;
-
-import soliloquy.specs.common.valueobjects.IMap;
+package soliloquy.specs.common.infrastructure;
 
 /**
  * <b>PersistentMapHandler</b>

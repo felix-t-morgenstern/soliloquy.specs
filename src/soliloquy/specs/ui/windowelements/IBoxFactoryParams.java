@@ -1,8 +1,8 @@
 package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.entities.IAction;
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 
 //TODO: Document this interface
 public interface IBoxFactoryParams extends IGenericParamsSet {
@@ -15,5 +15,5 @@ public interface IBoxFactoryParams extends IGenericParamsSet {
 	//     since they can always pass values from their
 	//     BoxReturnVals into a subsequent function.)
 	// TODO: Consider removing this member; and if so, BE SURE TO THOROUGHLY DOCUMENT THE FUNCTION OF IBoxReturnVals ELSEWHERE
-	IMap<String, IAction<IGenericParamsSet>> eventHandlers();
+	IReadOnlyMap<String, IAction<IGenericParamsSet>> eventHandlers();
 }

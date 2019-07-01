@@ -1,7 +1,7 @@
 package soliloquy.specs.common.shared;
 
-import soliloquy.specs.common.valueobjects.ICollection;
-import soliloquy.specs.common.valueobjects.IPair;
+import soliloquy.specs.common.infrastructure.ICollection;
+import soliloquy.specs.common.infrastructure.IPair;
 
 /**
  * <b>EntityGroup</b>

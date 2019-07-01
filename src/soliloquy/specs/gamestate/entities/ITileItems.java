@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 
 public interface ITileItems extends IDeletable {
     /**
@@ -10,10 +10,10 @@ public interface ITileItems extends IDeletable {
      * this Tile, and the numerical values of the Map corresponds to the Z order of Items on this
      * Tile
      */
-    IMap<IItem,Integer> getRepresentation() throws IllegalStateException;
+    IReadOnlyMap<IItem,Integer> representation() throws IllegalStateException;
 
     /**
-     * (NB: This method simply calls {@link #addItem(IItem, int)} with a zIndex of 0)
+     * (NB: This method simply calls {@link #add(IItem, int)} with a zIndex of 0)
      * @param item The Item to add onto this Tile
      * @throws IllegalArgumentException If and only if item is null
      */

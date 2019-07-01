@@ -1,7 +1,7 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
 import soliloquy.specs.common.shared.IEntityGroup;
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 import soliloquy.specs.sprites.entities.ISpriteSet;
 

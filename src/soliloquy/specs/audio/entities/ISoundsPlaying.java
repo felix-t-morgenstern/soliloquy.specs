@@ -1,6 +1,6 @@
 package soliloquy.specs.audio.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
 import soliloquy.specs.common.valueobjects.IEntityUuid;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 

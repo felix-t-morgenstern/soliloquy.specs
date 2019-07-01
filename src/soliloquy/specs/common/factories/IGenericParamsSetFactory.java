@@ -1,7 +1,7 @@
 package soliloquy.specs.common.factories;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
 
 /**
  * <b>GenericParamsSetFactory</b>

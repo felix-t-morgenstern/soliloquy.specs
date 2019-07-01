@@ -1,7 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.IHasGlobalAccess;
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
 import soliloquy.specs.gamestate.entities.ICharacter;
 import soliloquy.specs.ruleset.entities.abilities.IActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.IReactiveAbility;

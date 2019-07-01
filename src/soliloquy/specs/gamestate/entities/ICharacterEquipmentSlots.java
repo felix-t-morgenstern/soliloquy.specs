@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 
 /**
  * <b>CharacterEquipmentSlots</b>
@@ -28,8 +28,7 @@ public interface ICharacterEquipmentSlots extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted
      */
-    IMap<String,IItem> getRepresentation()
-            throws IllegalStateException;
+    IReadOnlyMap<String,IItem> representation() throws IllegalStateException;
 
     /**
      * @param equipmentSlotType - The equipment slot type to add for this Character

@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.shared.IHasUuid;
-import soliloquy.specs.common.valueobjects.IPair;
+import soliloquy.specs.common.infrastructure.IPair;
 import soliloquy.specs.ruleset.entities.IItemType;
 
 /**

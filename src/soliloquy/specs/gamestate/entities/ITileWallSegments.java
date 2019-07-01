@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.IReadOnlyCollection;
 
 /**
  * <b>TileFixtures</b>
@@ -26,7 +26,7 @@ public interface ITileWallSegments extends IDeletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    ICollection<ITileWallSegment> getRepresentation() throws IllegalStateException;
+    IReadOnlyCollection<ITileWallSegment> representation() throws IllegalStateException;
 
     /**
      * @param tileWallSegment - The TileWallSegment to add to this Tile

@@ -1,7 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.valueobjects.IEntityUuid;
-import soliloquy.specs.common.valueobjects.IPair;
+import soliloquy.specs.common.infrastructure.IPair;
 import soliloquy.specs.sprites.entities.ISprite;
 
 /**

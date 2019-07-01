@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.IReadOnlyCollection;
 
 /**
  * <b>TileFixtureItems</b>
@@ -25,7 +25,7 @@ public interface ITileFixtureItems extends IDeletable {
      * @throws UnsupportedOperationException If this TileFixture's FixtureType is not a container
      * @throws IllegalStateException If this TileFixture has been deleted
      */
-    ICollection<IItem> getRepresentation()
+    IReadOnlyCollection<IItem> representation()
             throws UnsupportedOperationException, IllegalStateException;
 
     /**

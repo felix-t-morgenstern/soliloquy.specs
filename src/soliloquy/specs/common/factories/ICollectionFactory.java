@@ -1,7 +1,7 @@
 package soliloquy.specs.common.factories;
 
 import soliloquy.specs.common.shared.ISoliloquyClass;
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
 
 /**
  * <b>CollectionFactory</b>
@@ -18,7 +18,7 @@ public interface ICollectionFactory extends ISoliloquyClass {
 	 * @return A new Collection of the specified type
 	 * @throws IllegalArgumentException If and only if archetype is null
 	 */
-	<T> ICollection<T> make(T archetype) throws IllegalArgumentException;
+	<V> ICollection<V> make(V archetype) throws IllegalArgumentException;
 
 	/**
 	 * @param items - An array of items from which to instantiate the Collection
@@ -26,5 +26,5 @@ public interface ICollectionFactory extends ISoliloquyClass {
 	 * @return A new Collection of the specified type
 	 * @throws IllegalArgumentException If and only if archetype is null
 	 */
-	<T> ICollection<T> make(T[] items, T archetype) throws IllegalArgumentException;
+	<V> ICollection<V> make(V[] items, V archetype) throws IllegalArgumentException;
 }

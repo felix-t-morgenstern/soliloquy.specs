@@ -1,13 +1,14 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.IAction;
-import soliloquy.specs.common.valueobjects.ICollection;
+import soliloquy.specs.common.infrastructure.ICollection;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 import soliloquy.specs.common.valueobjects.ICoordinate;
 import soliloquy.specs.common.valueobjects.IEntityUuid;
 import soliloquy.specs.common.shared.IHasGlobalAccess;
 import soliloquy.specs.common.shared.IHasId;
 import soliloquy.specs.common.shared.IHasName;
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
 
 /**
  * <b>GameZone</b>
@@ -57,13 +58,7 @@ public interface IGameZone extends IHasName, IHasId, IHasGlobalAccess {
 	 * Characters know their GameZone.</i>
 	 * @return A Set of the Characters in this GameZone
 	 */
-	IMap<IEntityUuid, ICharacter> getCharactersRepresentation();
-
-	/**
-	 * @param character - The Character whose presence to verify
-	 * @return True, if and only if character is present in this GameZone
-	 */
-	boolean containsCharacter(ICharacter character);
+	IReadOnlyMap<IEntityUuid, ICharacter> charactersRepresentation();
 
 	/**
 	 * <b>NB: This method is <u>only</u> to be used by {@link ITileCharacters#addCharacter}; an
@@ -80,7 +75,7 @@ public interface IGameZone extends IHasName, IHasId, IHasGlobalAccess {
 	 * GameZone.</i>
 	 * @return A Set of the Items in this GameZone
 	 */
-	IMap<IEntityUuid, IItem> getItemsRepresentation();
+	IReadOnlyMap<IEntityUuid, IItem> itemsRepresentation();
 
 	/**
 	 * @param item - The Item whose presence to verify

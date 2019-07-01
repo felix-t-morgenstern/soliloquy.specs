@@ -1,7 +1,7 @@
 package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.valueobjects.ICoordinate;
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 import soliloquy.specs.gamestate.entities.ICamera;
 import soliloquy.specs.gamestate.entities.ITile;

@@ -1,9 +1,9 @@
-package soliloquy.specs.common.entities;
+package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.IHasName;
 import soliloquy.specs.common.shared.IHasId;
 import soliloquy.specs.common.shared.IHasOneGenericParam;
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
 
 /**
  * <b>Setting</b>

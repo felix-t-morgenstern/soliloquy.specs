@@ -1,18 +1,18 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.IAction;
-import soliloquy.specs.common.shared.IHasGlobalAccess;
 import soliloquy.specs.common.shared.IHasId;
 
 /**
  * <b>Timer</b>
+ * <p>
  * Shared functionality of OneTimeTimer and RecurringTimer
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface ITimer extends IHasId, IHasGlobalAccess {
+public interface ITimer extends IHasId, IDeletable {
 	/**
 	 * <i>This method exists, because Timers will need to be saved according to their type; and
 	 * when the savefile is reloaded, those Timers will need to be regenerated merely by knowing

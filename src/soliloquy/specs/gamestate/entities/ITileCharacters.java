@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.IMap;
+import soliloquy.specs.common.infrastructure.IMap;
+import soliloquy.specs.common.infrastructure.IReadOnlyMap;
 
 /**
  * <b>TileCharacters</b>
@@ -25,7 +26,7 @@ public interface ITileCharacters extends IDeletable {
      * this Tile, and the numerical values of the Map corresponds to the Z order of Characters on
      * this Tile
      */
-    IMap<ICharacter,Integer> getCharactersRepresentation();
+    IReadOnlyMap<ICharacter,Integer> charactersRepresentation();
 
     /**
      * (NB: This method simply calls {@link #addCharacter(ICharacter, int)} with a zIndex of 0)

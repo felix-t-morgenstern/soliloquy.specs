@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.valueobjects.IGenericParamsSet;
+import soliloquy.specs.common.infrastructure.IGenericParamsSet;
 import soliloquy.specs.common.shared.IHasId;
 import soliloquy.specs.common.shared.IHasPluralName;
 import soliloquy.specs.gamestate.entities.ICharacter;

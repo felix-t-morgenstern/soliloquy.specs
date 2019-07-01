@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics;
 
-import soliloquy.specs.common.entities.ISettingsRepo;
+import soliloquy.specs.common.infrastructure.ISettingsRepo;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 
 // TODO: Document this interface

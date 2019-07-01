@@ -4,14 +4,14 @@ import soliloquy.specs.common.entities.IAction;
 import soliloquy.specs.common.shared.ISoliloquyClass;
 import soliloquy.specs.gamestate.entities.IOneTimeTimer;
 import soliloquy.specs.gamestate.entities.IRecurringTimer;
+import soliloquy.specs.gamestate.entities.IRoundManager;
 
 /**
  * <b>TimerFactory</b>
  * <p>
  * Generates a Timer, given its type Id.
  * <p>
- * Intended both to initially create a timer initially, as well as to regenerate timers stored in a
- * save file.
+ * When a Timer of any type is created, it is added to the {@link IRoundManager}.
  * 
  * @author felix.t.morgenstern
  *
