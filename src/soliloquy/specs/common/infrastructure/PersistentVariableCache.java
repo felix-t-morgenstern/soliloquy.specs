@@ -48,7 +48,7 @@ public interface PersistentVariableCache extends SoliloquyClass {
 	 * @return A Collection of the names of the names of PersistentVariables in this
 	 * PersistentVariableCache
 	 */
-	ReadOnlyCollection<String> namesRepresentation();
+	ReadableCollection<String> namesRepresentation();
 
 	/**
 	 * NB: Changing the contents of this Collection does not change which PersistentVariables are
@@ -57,7 +57,7 @@ public interface PersistentVariableCache extends SoliloquyClass {
 	 * being changed.
 	 * @return A Collection of the PersistentVariables in this PersistentVariableCache
 	 */
-	ReadOnlyMap<String,Object> variablesRepresentation();
+	ReadableMap<String,Object> variablesRepresentation();
 
 	/**
 	 * Clears all PersistentVariables in this PersistentVariableCache

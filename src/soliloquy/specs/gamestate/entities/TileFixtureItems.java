@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadOnlyCollection;
+import soliloquy.specs.common.infrastructure.ReadableCollection;
 
 /**
  * <b>TileFixtureItems</b>
@@ -25,7 +25,7 @@ public interface TileFixtureItems extends Deletable {
      * @throws UnsupportedOperationException If this TileFixture's FixtureType is not a container
      * @throws IllegalStateException If this TileFixture has been deleted
      */
-    ReadOnlyCollection<Item> representation()
+    ReadableCollection<Item> representation()
             throws UnsupportedOperationException, IllegalStateException;
 
     /**

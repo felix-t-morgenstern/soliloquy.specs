@@ -4,11 +4,10 @@ import soliloquy.specs.common.shared.Cloneable;
 import soliloquy.specs.common.shared.HasTwoGenericParams;
 
 /**
- * <b>ReadOnlyMap</b>
+ * <b>ReadableMap</b>
  * <p>
- * A Map contains a number of items of a consistent type, with keys of a consistent type.  An
- * implementation of this class cannot alter the contents of this Map; {@link Map} supports those
- * operations.
+ * A grouping of some entities. An implementation of this interface cannot be altered, unless it
+ * also implements {@link Map}.
  * <p>
  * A Map will allow retrieval of an item by its key, a list of all keys, the key corresponding to
  * an item, whether that item exists, etc.
@@ -19,7 +18,7 @@ import soliloquy.specs.common.shared.HasTwoGenericParams;
  * @param <K> The type of key used to identify values in the Set
  * @param <V> The type of value populating the Set
  */
-public interface ReadOnlyMap<K,V>
+public interface ReadableMap<K,V>
         extends Iterable<Pair<K,V>>, HasTwoGenericParams<K,V>, Cloneable<Map<K,V>> {
     /**
      * @param key - The key for which to check
@@ -46,7 +45,7 @@ public interface ReadOnlyMap<K,V>
      * Map
      * @throws IllegalArgumentException If items is null
      */
-    boolean equals(Collection<V> items) throws IllegalArgumentException;
+    boolean equals(ReadableCollection<V> items) throws IllegalArgumentException;
 
     /**
      * @param map - The Map to compare to this Map
@@ -54,7 +53,7 @@ public interface ReadOnlyMap<K,V>
      * this Map corresponds to the same value in map
      * @throws IllegalArgumentException If map is null
      */
-    boolean equals(ReadOnlyMap<K,V> map) throws IllegalArgumentException;
+    boolean equals(ReadableMap<K,V> map) throws IllegalArgumentException;
 
     /**
      * Gets the entity, specified by its key.

@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadOnlyCollection;
+import soliloquy.specs.common.infrastructure.ReadableCollection;
 
 /**
  * <b>TileFixtures</b>
@@ -26,7 +26,7 @@ public interface TileWallSegments extends Deletable {
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
-    ReadOnlyCollection<TileWallSegment> representation() throws IllegalStateException;
+    ReadableCollection<TileWallSegment> representation() throws IllegalStateException;
 
     /**
      * @param tileWallSegment - The TileWallSegment to add to this Tile

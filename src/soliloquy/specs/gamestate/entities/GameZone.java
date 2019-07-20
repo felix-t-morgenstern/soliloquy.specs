@@ -2,7 +2,7 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.ReadOnlyMap;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.common.shared.HasGlobalAccess;
@@ -57,7 +57,7 @@ public interface GameZone extends HasName, HasId, HasGlobalAccess {
 	 * Characters know their GameZone.</i>
 	 * @return A Set of the Characters in this GameZone
 	 */
-	ReadOnlyMap<EntityUuid, Character> charactersRepresentation();
+	ReadableMap<EntityUuid, Character> charactersRepresentation();
 
 	/**
 	 * <b>NB: This method is <u>only</u> to be used by {@link TileCharacters#addCharacter}; an
@@ -74,7 +74,7 @@ public interface GameZone extends HasName, HasId, HasGlobalAccess {
 	 * GameZone.</i>
 	 * @return A Set of the Items in this GameZone
 	 */
-	ReadOnlyMap<EntityUuid, Item> itemsRepresentation();
+	ReadableMap<EntityUuid, Item> itemsRepresentation();
 
 	/**
 	 * @param item - The Item whose presence to verify

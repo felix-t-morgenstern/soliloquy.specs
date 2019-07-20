@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadOnlyMap;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 import soliloquy.specs.ruleset.gameconcepts.VitalAttributeCalculation;
 
 /**
@@ -38,7 +38,7 @@ public interface CharacterValueFromModifiers extends Deletable {
 	 * value.
 	 * @throws IllegalStateException If the Character has been deleted
 	 */
-	ReadOnlyMap<String,Integer> modifiersRepresentation() throws IllegalStateException;
+	ReadableMap<String,Integer> modifiersRepresentation() throws IllegalStateException;
 	
 	/**
 	 * Calculates the value of this CharacterValueFromModifiers (using a calculator from the 

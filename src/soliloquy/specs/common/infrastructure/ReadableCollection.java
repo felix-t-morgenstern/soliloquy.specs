@@ -4,17 +4,17 @@ import soliloquy.specs.common.shared.Cloneable;
 import soliloquy.specs.common.shared.HasOneGenericParam;
 
 /**
- * <b>ReadOnlyCollection</b>
+ * <b>ReadableCollection</b>
  * <p>
- * A grouping of some entities. An implementation of this class cannot alter the contents of this
- * Collection; {@link Collection} supports those operations.
+ * A grouping of some entities. An implementation of this interface cannot be altered, unless it
+ * also implements {@link Collection}.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  * @param <V> The type of entities in this Collection
  */
-public interface ReadOnlyCollection<V> extends Iterable<V>, Cloneable<Collection<V>>,
+public interface ReadableCollection<V> extends Iterable<V>, Cloneable<Collection<V>>,
         HasOneGenericParam<V> {
     /**
      * @param item - The item to check for
@@ -27,7 +27,7 @@ public interface ReadOnlyCollection<V> extends Iterable<V>, Cloneable<Collection
      * @return True, if and only if every item which is present in this Collection is present in
      * items
      */
-    boolean equals(ReadOnlyCollection<V> items);
+    boolean equals(ReadableCollection<V> items);
 
     /**
      * @param index - The index in the Collection at which to retrieve the item

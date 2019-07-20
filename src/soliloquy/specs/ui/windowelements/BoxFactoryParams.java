@@ -2,7 +2,7 @@ package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.infrastructure.GenericParamsSet;
-import soliloquy.specs.common.infrastructure.ReadOnlyMap;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 
 //TODO: Document this interface
 public interface BoxFactoryParams extends GenericParamsSet {
@@ -15,5 +15,5 @@ public interface BoxFactoryParams extends GenericParamsSet {
 	//     since they can always pass values from their
 	//     BoxReturnVals into a subsequent function.)
 	// TODO: Consider removing this member; and if so, BE SURE TO THOROUGHLY DOCUMENT THE FUNCTION OF IBoxReturnVals ELSEWHERE
-	ReadOnlyMap<String, Action<GenericParamsSet>> eventHandlers();
+	ReadableMap<String, Action<GenericParamsSet>> eventHandlers();
 }

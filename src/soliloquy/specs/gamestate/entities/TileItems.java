@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadOnlyMap;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 
 public interface TileItems extends Deletable {
     /**
@@ -10,7 +10,7 @@ public interface TileItems extends Deletable {
      * this Tile, and the numerical values of the Map corresponds to the Z order of Items on this
      * Tile
      */
-    ReadOnlyMap<Item,Integer> representation() throws IllegalStateException;
+    ReadableMap<Item,Integer> representation() throws IllegalStateException;
 
     /**
      * (NB: This method simply calls {@link #add(Item, int)} with a zIndex of 0)

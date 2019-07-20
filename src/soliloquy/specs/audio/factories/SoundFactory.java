@@ -1,7 +1,7 @@
 package soliloquy.specs.audio.factories;
 
 import soliloquy.specs.audio.entities.Sound;
-import soliloquy.specs.common.infrastructure.ReadOnlyMap;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
@@ -31,6 +31,6 @@ public interface SoundFactory extends SoliloquyClass {
 	 * @throws IllegalArgumentException If and only if soundTypesToFilenamesMap is null, or any of
 	 * the sound types or filenames are null or empty
 	 */
-	void registerSoundTypes(ReadOnlyMap<String,String> soundTypesToFilenamesMap)
+	void registerSoundTypes(ReadableMap<String,String> soundTypesToFilenamesMap)
 			throws IllegalArgumentException;
 }

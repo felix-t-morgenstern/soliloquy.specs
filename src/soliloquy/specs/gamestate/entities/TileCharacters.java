@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadOnlyMap;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 
 /**
  * <b>TileCharacters</b>
@@ -25,7 +25,7 @@ public interface TileCharacters extends Deletable {
      * this Tile, and the numerical values of the Map corresponds to the Z order of Characters on
      * this Tile
      */
-    ReadOnlyMap<Character,Integer> charactersRepresentation();
+    ReadableMap<Character,Integer> charactersRepresentation();
 
     /**
      * (NB: This method simply calls {@link #addCharacter(Character, int)} with a zIndex of 0)

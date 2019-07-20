@@ -17,7 +17,7 @@ import soliloquy.specs.common.factories.MapFactory;
  * @param <K> The type of key used to identify values in the Set
  * @param <V> The type of value populating the Set
  */
-public interface Map<K,V> extends ReadOnlyMap<K,V> {
+public interface Map<K,V> extends ReadableMap<K,V> {
 	/**
 	 * Clears this Map of all keys and values
 	 */
@@ -34,7 +34,7 @@ public interface Map<K,V> extends ReadOnlyMap<K,V> {
 	 * @param items - Key-value pairs whose presence to ensure in this Map
 	 * @throws IllegalArgumentException If items is null
 	 */
-	void putAll(Collection<Pair<K,V>> items) throws IllegalArgumentException;
+	void putAll(ReadableCollection<Pair<K,V>> items) throws IllegalArgumentException;
 	
 	/**
 	 * @param key - The item, identified by key, to remove from this Map
@@ -64,5 +64,5 @@ public interface Map<K,V> extends ReadOnlyMap<K,V> {
 	 * (non-read-only) Map by a particularly clever developer
 	 * @return A read-only representation of this Map
 	 */
-	ReadOnlyMap<K,V> readOnlyRepresentation();
+	ReadableMap<K,V> readOnlyRepresentation();
 }

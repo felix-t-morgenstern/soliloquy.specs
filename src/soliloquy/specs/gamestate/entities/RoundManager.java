@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Pair;
-import soliloquy.specs.common.infrastructure.ReadOnlyCollection;
-import soliloquy.specs.common.infrastructure.ReadOnlyMap;
+import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -27,7 +27,7 @@ public interface RoundManager extends SoliloquyClass {
 	 * Intended use case is if a Character delays their turn, they will be pushed to the bottom of
 	 * the queue, with however many action points they still have.
 	 */
-	ReadOnlyMap<Integer, Pair<Character,Integer>> characterOrder();
+	ReadableMap<Integer, Pair<Character,Integer>> characterOrder();
 	
 	/**
 	 * Ends the active Character's turn; and if this Character is the last Character to act in this
@@ -78,13 +78,13 @@ public interface RoundManager extends SoliloquyClass {
 	 * with the correct Factory; and to delete it, simply delete the Timer.
 	 * @return A Collection representing the One-Time Timers currently in effect
 	 */
-	ReadOnlyCollection<OneTimeTimer> oneTimeTimersRepresentation();
+	ReadableCollection<OneTimeTimer> oneTimeTimersRepresentation();
 	
 	/**
 	 * NB: This method is a representation; to add a Timer to this RoundManager, simply create it
 	 * with the correct Factory; and to delete it, simply delete the Timer.
 	 * @return A Collection representing the Recurring Timers currently in effect
 	 */
-	ReadOnlyCollection<RecurringTimer> recurringTimersRepresentation();
+	ReadableCollection<RecurringTimer> recurringTimersRepresentation();
 	
 }

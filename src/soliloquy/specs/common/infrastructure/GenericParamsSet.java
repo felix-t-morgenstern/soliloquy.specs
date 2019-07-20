@@ -34,7 +34,7 @@ public interface GenericParamsSet extends Cloneable<GenericParamsSet> {
 	 * this GenericParamsSet
      * @param <T> The type of the paramsSet to be added
 	 */
-	<T> void addParamsSet(ReadOnlyMap<String,T> paramsSet)
+	<T> void addParamsSet(ReadableMap<String,T> paramsSet)
 			throws IllegalArgumentException, UnsupportedOperationException;
 	
 	/**

@@ -27,7 +27,7 @@ import soliloquy.specs.common.factories.CollectionFactory;
  *
  * @param <V> The type of entities in this Collection
  */
-public interface Collection<V> extends ReadOnlyCollection<V> {
+public interface Collection<V> extends ReadableCollection<V> {
 	/**
 	 * @param item - item whose presence in this collection is to be ensured
 	 * @throws UnsupportedOperationException If item addition is not supported in this Collection
@@ -71,5 +71,5 @@ public interface Collection<V> extends ReadOnlyCollection<V> {
 	 * cannot be cast to a (non-read-only) Collection by a particularly clever developer
 	 * @return A read-only representation of this Collection
 	 */
-	ReadOnlyCollection<V> readOnlyRepresentation();
+	ReadableCollection<V> readOnlyRepresentation();
 }
