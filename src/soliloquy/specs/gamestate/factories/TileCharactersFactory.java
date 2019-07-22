@@ -1,7 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.gamestate.entities.TileCharacters;
+import soliloquy.specs.gamestate.entities.*;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**

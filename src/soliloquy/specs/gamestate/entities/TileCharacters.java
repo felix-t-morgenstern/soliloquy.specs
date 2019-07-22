@@ -28,11 +28,11 @@ public interface TileCharacters extends Deletable {
     ReadableMap<Character,Integer> charactersRepresentation();
 
     /**
-     * (NB: This method simply calls {@link #addCharacter(Character, int)} with a zIndex of 0)
+     * (NB: This method simply calls {@link #add(Character, int)} with a zIndex of 0)
      * @param character The Character to add onto this Tile
      * @throws IllegalArgumentException If and only if character is null
      */
-    void addCharacter(Character character) throws IllegalArgumentException;
+    void add(Character character) throws IllegalArgumentException;
 
     /**
      * (NB: If multiple Characters have the same z-index, this will not cause an error; the z-index
@@ -43,14 +43,14 @@ public interface TileCharacters extends Deletable {
      *               multiple Characters are on the same Tile, that is not considered an error.)
      * @throws IllegalArgumentException If and only if character is null
      */
-    void addCharacter(Character character, int zIndex) throws IllegalArgumentException;
+    void add(Character character, int zIndex) throws IllegalArgumentException;
 
     /**
      * @param character - The Character to remove
      * @return True, if and only if the Character was present, and therefore removed
      * @throws IllegalArgumentException If and only if character is null
      */
-    boolean removeCharacter(Character character) throws IllegalArgumentException;
+    boolean remove(Character character) throws IllegalArgumentException;
 
     /**
      * @param character - The Character whose z-index to return
@@ -72,5 +72,5 @@ public interface TileCharacters extends Deletable {
      * @return True, if and only if item is present on this Tile
      * @throws IllegalArgumentException If and only if character is null
      */
-    boolean containsCharacter(Character character) throws IllegalArgumentException;
+    boolean contains(Character character) throws IllegalArgumentException;
 }

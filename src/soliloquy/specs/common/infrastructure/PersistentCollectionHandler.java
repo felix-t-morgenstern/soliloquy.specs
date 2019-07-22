@@ -10,10 +10,10 @@ package soliloquy.specs.common.infrastructure;
  */
 public interface PersistentCollectionHandler extends PersistentValueTypeHandler<Collection> {
     /**
-     * @param valueType - An interface name with fully qualified generic types
+     * @param valueTypes - Comma-delimited interface names with fully qualified generic types
      * @return A Pair, to be used as an archetype in generated {@link Collection}s
      * @throws IllegalArgumentException If and only if valueType is null, empty, or one of its
      * specified types is not a valid type
      */
-    Collection generateArchetype(String valueType) throws IllegalArgumentException;
+    Collection generateArchetype(String valueTypes) throws IllegalArgumentException;
 }
