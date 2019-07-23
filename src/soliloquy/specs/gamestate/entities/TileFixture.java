@@ -69,15 +69,15 @@ public interface TileFixture extends GameEntity {
 	TileFixtureItems containedItems() throws IllegalStateException;
 
 	/**
-	 * <b>NB: This method is intended to <u>only</u> be used by
-	 * {@link TileFixtures#addTileFixture} and {@link TileFixtures#removeTileFixture}; it is
-	 * intended to check whether the Tile assigned to this TileFixture has this TileFixture on it,
-	 * prior to assignment.</b>
+	 * <b>NB: This method is intended to <u>only</u> be used by {@link TileFixtures#add} and
+	 * {@link TileFixtures#remove}; it is intended to check whether the Tile assigned to this
+	 * TileFixture has this TileFixture on it, prior to assignment.</b>
 	 * @param tile - The Tile to which to assign to this TileFixture
 	 * @throws IllegalArgumentException If and only if tile is null, or tile does not contain this
 	 * TileFixture
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
 	 * FixtureType
 	 */
-	void assignTileFixtureToTile(Tile tile) throws IllegalArgumentException, IllegalStateException;
+	void assignTileFixtureToTileAfterAddingToTileFixtures(Tile tile)
+			throws IllegalArgumentException, IllegalStateException;
 }

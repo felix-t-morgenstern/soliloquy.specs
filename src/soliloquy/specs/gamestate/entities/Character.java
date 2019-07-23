@@ -278,15 +278,15 @@ public interface Character extends GameEntity, HasUuid {
 	void delete() throws IllegalStateException;
 
 	/**
-	 * <b>NB: This method is intended to <u>only</u> be used by
-	 * {@link TileCharacters#addCharacter} and {@link TileCharacters#removeCharacter}; it is
-	 * intended to check whether the Tile assigned to this Character has this Character on it,
-	 * prior to assignment.</b>
+	 * <b>NB: This method is intended to <b><u>only</u></b> be used by {@link TileCharacters#add}
+	 * and {@link TileCharacters#remove}; it is intended to check whether the Tile assigned to this
+	 * Character has this Character on it, prior to assignment.</b>
 	 * @param tile - The Tile to which to assign to this Character
 	 * @throws IllegalArgumentException If and only if tile is null, or tile does not contain this
 	 * Character
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	void assignToTile(Tile tile) throws IllegalArgumentException, IllegalStateException;
+	void assignToTileAfterAddingToTileCharacters(Tile tile)
+			throws IllegalArgumentException, IllegalStateException;
 }
