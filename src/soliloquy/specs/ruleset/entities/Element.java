@@ -1,6 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.sprites.entities.SpriteSet;
 
@@ -14,13 +15,7 @@ import soliloquy.specs.sprites.entities.SpriteSet;
  * @version 0.0.1
  *
  */
-public interface Element extends HasId {
-	/**
-	 * @param character - The Character whose resistance to this Element is checked
-	 * @return The resistance to this Element for character
-	 */
-	double getResistance(Character character);
-	
+public interface Element extends HasName, HasId {
 	/**
 	 * @return A SpriteSet to describe this element (e.g. icons, buttons, etc.)
 	 */
