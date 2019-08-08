@@ -23,7 +23,7 @@ import soliloquy.specs.ruleset.entities.FixtureType;
  * @version 0.0.1
  *
  */
-public interface TileFixture extends GameEntity {
+public interface TileFixture extends HasEvents, GameEntity {
 	/**
 	 * @return The Tile on which this Fixture is affixed
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
@@ -44,22 +44,6 @@ public interface TileFixture extends GameEntity {
 	 * FixtureType
 	 */
 	Coordinate pixelOffset() throws IllegalStateException;
-	
-	/**
-	 * @return A named Map of this Tile's ActiveAbilities; e.g. Heal Nearby Allies, Generate Golem;
-	 * the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
-	 * FixtureType
-	 */
-	Map<String, ActiveAbility> activeAbilities() throws IllegalStateException;
-	
-	/**
-	 * @return A named Map of this Tile's ReactiveAbilities; e.g. Explode, Talk, Trigger Event when
-	 * Investigated; the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
-	 * FixtureType
-	 */
-	Map<String, ReactiveAbility> reactiveAbilities() throws IllegalStateException;
 
 	/**
 	 * @return A class by which items contained in this fixture may be accessed and altered

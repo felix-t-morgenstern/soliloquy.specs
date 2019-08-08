@@ -3,8 +3,6 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.infrastructure.Map;
-import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
-import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 import soliloquy.specs.ruleset.entities.GroundType;
 import soliloquy.specs.sprites.entities.Sprite;
 
@@ -20,7 +18,7 @@ import soliloquy.specs.sprites.entities.Sprite;
  * @version 0.0.1
  *
  */
-public interface Tile extends GameEntity {
+public interface Tile extends HasEvents, GameEntity {
 	/**
 	 * @return The GameZone in which this Tile exists
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location
@@ -107,18 +105,4 @@ public interface Tile extends GameEntity {
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
 	Map<Integer, Collection<Sprite>> sprites() throws IllegalStateException;
-	
-	/**
-	 * @return A named Map of this Tile's ActiveAbilities; e.g. Heal Nearby Allies, Generate Golem;
-	 * the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this Tile has been deleted
-	 */
-	Map<String, ActiveAbility> activeAbilities() throws IllegalStateException;
-	
-	/**
-	 * @return A named Map of this Tile's ReactiveAbilities; e.g. Explode, Talk, Trigger Event when
-	 * Investigated; the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this Tile has been deleted
-	 */
-	Map<String, ReactiveAbility> reactiveAbilities() throws IllegalStateException;
 }
