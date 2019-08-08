@@ -25,42 +25,14 @@ import soliloquy.specs.sprites.entities.SpriteSet;
  */
 public interface ItemType extends HasPluralName, HasId {
 	/**
-	 * Creates an Item of this ItemType on the specified Tile
-	 * @param tile - The Tile on which to create the Item
-	 * @param tilePixelOffset - An offset, in pixels, added to the result of
-	 * defaultTilePixelOffset, by which the new Item will be placed to the right and above the
-	 * bottom-left corner of the Tile; can be null
-	 * @param zLoc - The z index of the new Item, to be compared against other Items already on
-	 * this Tile; can be null
+	 * Creates an Item of this ItemType (likely to be placed on some Tile, CharacterInventory,
+	 * etc.)
 	 * @param params - Parameters regarding how this new Item will be created (e.g. its number of
 	 * charges, its enchantments, its condition), can be null
 	 * @return The newly-created Item
 	 * @throws IllegalArgumentException If tile is null
 	 */
-	Item generateOnTile(Tile tile, Coordinate tilePixelOffset, Integer zLoc, GenericParamsSet params) throws IllegalArgumentException;
-	
-	/**
-	 * Creates an Item of this ItemType in the specified Character's inventory
-	 * @param character - The Character in whose inventory to place the new Item
-	 * @param params - Parameters regarding how this new Item will be created (e.g. its number of
-	 * charges, its enchantments, its condition), can be null
-	 * @return The newly-created Item
-	 * @throws IllegalArgumentException If character is null or deleted
-	 */
-	Item generateInInventory(Character character, GenericParamsSet params) throws IllegalArgumentException;
-	
-	/**
-	 * Creates an Item of this ItemType in the specified CharacterEquipmentSlot
-	 * @param character - The Character in whose equipment to place the new Item
-	 * @param equipmentSlotType - The equipment slot type in which to place the new Item
-	 * @param params - Parameters regarding how this new Item will be created (e.g. its number of
-	 * charges, its enchantments, its condition), can be null
-	 * @return The newly-created Item
-	 * @throws IllegalArgumentException If characterEquipmentSlot is null, if the Character owning
-	 * this characterEquipmentSlot is invalid or deleted, or characterEquipmentSlot is already
-	 * occupied, or the Item cannot be equipped to characterEquipmentSlot
-	 */
-	Item generateInEquipment(Character character, String equipmentSlotType, GenericParamsSet params) throws IllegalArgumentException;
+	Item generate(GenericParamsSet params) throws IllegalArgumentException;
 	
 	/**
 	 * @return The EquipmentType (e.g. helmets, necklaces, mystical auras, makeup) of this

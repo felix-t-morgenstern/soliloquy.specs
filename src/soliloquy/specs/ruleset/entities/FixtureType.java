@@ -2,6 +2,8 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.gamestate.entities.TileFixture;
 
 /**
  * <b>FixtureType</b>
@@ -15,16 +17,21 @@ import soliloquy.specs.common.shared.HasId;
  */
 public interface FixtureType extends TileObjectType, HasId {
 	/**
+	 * @param tile - The {@link Tile} on which to place the generated {@link TileFixture}. (This
+	 *             can be left null.)
+	 * @return The newly-generated {@link TileFixture}
+	 */
+	TileFixture generate(Tile tile);
+
+	/**
 	 * @return True, if and only if this FixtureType is a container (e.g. chests, bookshelves,
 	 * corpses, secret cracks in the floor)
-	 * @throws IllegalStateException If this FixtureType has been deleted
 	 */
-	boolean isContainer() throws IllegalStateException;
+	boolean isContainer();
 	
 	/**
 	 * @return The default offset, in pixels, from the bottom-left corner of the Tile, at which
 	 * TileFixtures of this FixtureType are placed.
-	 * @throws IllegalStateException If this FixtureType has been deleted
 	 */
-	Coordinate defaultOffset() throws IllegalStateException;
+	Coordinate defaultOffset();
 }
