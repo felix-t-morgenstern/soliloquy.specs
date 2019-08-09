@@ -4,6 +4,7 @@ import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.gamestate.entities.gameevents.GameEvent;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
@@ -138,19 +139,17 @@ public interface Character extends GameEntity, HasUuid {
 			throws IllegalArgumentException, IllegalStateException;
 	
 	/**
-	 * This is similar to
-	 * {@link CharacterAIType#events}, except it
-	 * is for events specific to this Character, instead of all Characters using that
-	 * CharacterAIType. Intended use is for events which override or supplement normal behavior of 
-	 * its AI script; i.e., you may want this Character to use the default AI, except you might 
-	 * want it to explode when it dies.
+	 * This is similar to {@link CharacterAIType#events}, except it is for events specific to this
+	 * Character, instead of all Characters using that CharacterAIType. Intended use is for events
+	 * which override or supplement normal behavior of its AI script; i.e., you may want this
+	 * Character to use the default AI, except you might want it to explode when it dies.
 	 * <p>
-	 * The name indices of this Map are names of the events which trigger these CharacterAIEvents
+	 * The name indices of this Map are names of the events which trigger these {@link GameEvent}s
 	 * @return A Collection of CharacterAIEvents which occur when certain events occur, e.g. when
 	 * the Character is killed, when the Character is close to death, when the demonic ritual is
 	 * complete
 	 */
-	Map<String, Collection<CharacterEvent>> events();
+	Map<String, Collection<GameEvent>> events();
 	
 	/**
 	 * @return This Character's equipment slots, from which equipment can be accessed or modified

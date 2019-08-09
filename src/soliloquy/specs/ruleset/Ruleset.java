@@ -4,14 +4,14 @@ import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.shared.EntityGroup;
 import soliloquy.specs.common.infrastructure.SettingsRepo;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.gameevents.GameEvent;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
-import soliloquy.specs.ruleset.valueobjects.TypesRegistry;
+import soliloquy.specs.common.infrastructure.Registry;
 import soliloquy.specs.ruleset.entities.AttributeType;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
-import soliloquy.specs.ruleset.entities.CharacterEventType;
 import soliloquy.specs.ruleset.entities.CharacterType;
 import soliloquy.specs.ruleset.entities.Element;
 import soliloquy.specs.ruleset.entities.EquipmentType;
@@ -48,29 +48,29 @@ public interface Ruleset extends SoliloquyClass {
 	 */
 	EntityGroup<AttributeType> attributes();
 	
-	TypesRegistry<CharacterClassification> characterClassifications();
+	Registry<CharacterClassification> characterClassifications();
 
-	TypesRegistry<CharacterType> characterTypes();
+	Registry<CharacterType> characterTypes();
 
-	TypesRegistry<CharacterAIType> characterAITypes();
+	Registry<CharacterAIType> characterAITypes();
 
-	TypesRegistry<CharacterEventType> characterEventTypes();
+	Registry<Element> elements();
 
-	TypesRegistry<Element> elements();
+	Registry<EquipmentType> equipmentTypes();
 
-	TypesRegistry<EquipmentType> equipmentTypes();
+	Registry<FixtureType> fixtureTypes();
 
-	TypesRegistry<FixtureType> fixtureTypes();
+	Registry<GameEvent> gameEvents();
 
-	TypesRegistry<GroundType> groundTypes();
+	Registry<GroundType> groundTypes();
 
-	TypesRegistry<ItemType> itemTypes();
+	Registry<ItemType> itemTypes();
 
-	TypesRegistry<StatusEffectType> statusEffectTypes();
+	Registry<StatusEffectType> statusEffectTypes();
 
-	TypesRegistry<VitalAttributeType> vitalAttributes();
+	Registry<VitalAttributeType> vitalAttributes();
 
-	TypesRegistry<WallSegmentType> wallSegmentTypes();
+	Registry<WallSegmentType> wallSegmentTypes();
 	
 	SettingsRepo rulesetSettings();
 }
