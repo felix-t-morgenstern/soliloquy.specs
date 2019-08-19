@@ -21,9 +21,9 @@ import soliloquy.specs.common.shared.HasUuid;
  */
 public interface Sound extends HasUuid {
 	/**
-	 * @return The Id of the SoundType of this Sound
+	 * @return The {@link SoundType} of this Sound
 	 */
-	String soundTypeId();
+	SoundType soundType();
 	
 	/**
 	 * Begins playing this sound

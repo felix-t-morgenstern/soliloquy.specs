@@ -8,7 +8,9 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 /**
  * <b>SoundFactory</b>
  * <p>
- * Can create a Sound of a given type.
+ * Can create a Sound of a given type. Intended use is to contain an internal reference to a
+ * {@link soliloquy.specs.common.infrastructure.Registry} of
+ * {@link soliloquy.specs.audio.entities.SoundType}s.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -23,14 +25,4 @@ public interface SoundFactory extends SoliloquyClass {
 	 * soundTypeId
 	 */
 	Sound make(String soundTypeId) throws IllegalArgumentException;
-	
-	/**
-	 * <i>(NB: This method overwrites previous mappings held in this class.)
-	 * @param soundTypesToFilenamesMap - The mappings of sound types to filenames to add to this
-	 * SoundFactory
-	 * @throws IllegalArgumentException If and only if soundTypesToFilenamesMap is null, or any of
-	 * the sound types or filenames are null or empty
-	 */
-	void registerSoundTypes(ReadableMap<String,String> soundTypesToFilenamesMap)
-			throws IllegalArgumentException;
 }

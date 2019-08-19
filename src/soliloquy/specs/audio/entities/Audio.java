@@ -1,6 +1,7 @@
 package soliloquy.specs.audio.entities;
 
 import soliloquy.specs.audio.factories.SoundFactory;
+import soliloquy.specs.common.infrastructure.Registry;
 
 /**
  * <b>Audio</b>
@@ -27,4 +28,6 @@ public interface Audio {
 	 * @return The library of all Sounds in the Game, which can also create those Sounds
 	 */
 	SoundFactory soundFactory();
+
+	Registry<SoundType> soundTypes();
 }
