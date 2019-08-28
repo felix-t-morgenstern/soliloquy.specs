@@ -60,13 +60,6 @@ public interface PersistentValuesHandler extends SoliloquyClass {
 	Collection<String> persistentValueTypesHandled();
 
 	/**
-	 * (NB: persistentPairHandler can be null, but this is extremely ill-advised.)
-	 * @param persistentPairHandler - The PersistentValueTypeHandler for generic Pairs to be used
-	 *                                 by this PersistentValuesHandler
-	 */
-	void registerPersistentPairHandler(PersistentPairHandler persistentPairHandler);
-
-	/**
 	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)
 	 * @param persistentCollectionHandler - The PersistentValueTypeHandler for generic Collections
 	 *                                    to be used by this PersistentValuesHandler
@@ -80,4 +73,19 @@ public interface PersistentValuesHandler extends SoliloquyClass {
 	 *                                this PersistentValuesHandler
 	 */
 	void registerPersistentMapHandler(PersistentMapHandler persistentMapHandler);
+
+	/**
+	 * (NB: persistentPairHandler can be null, but this is extremely ill-advised.)
+	 * @param persistentPairHandler - The PersistentValueTypeHandler for generic Pairs to be used
+	 *                                 by this PersistentValuesHandler
+	 */
+	void registerPersistentPairHandler(PersistentPairHandler persistentPairHandler);
+
+
+	/**
+	 * (NB: persistentRegistryHandler can be null, but this is extremely ill-advised.)
+	 * @param persistentRegistryHandler - The PersistentRegistryHandler for generic Registries to
+	 *                                     be used by this PersistentValuesHandler
+	 */
+	void registerPersistentRegistryHandler(PersistentRegistryHandler persistentRegistryHandler);
 }

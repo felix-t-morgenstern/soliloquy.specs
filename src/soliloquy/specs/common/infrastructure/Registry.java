@@ -18,7 +18,7 @@ import soliloquy.specs.common.shared.HasOneGenericParam;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Registry<T extends HasId> extends HasOneGenericParam<T> {
+public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericParam<T> {
     /**
      * @param id - The Id of the type of the entity whose presence to verify
      * @return True, if and only if an item with the provided id is in this registry
@@ -44,4 +44,9 @@ public interface Registry<T extends HasId> extends HasOneGenericParam<T> {
      * registry)
      */
     boolean remove(String id);
+
+    /**
+     * @return The number of items in the Registry
+     */
+    int size();
 }
