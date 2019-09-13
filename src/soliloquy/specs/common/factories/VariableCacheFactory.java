@@ -1,10 +1,10 @@
 package soliloquy.specs.common.factories;
 
-import soliloquy.specs.common.infrastructure.PersistentVariableCache;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
- * <b>PersistentVariableCacheFactory</b>
+ * <b>VariableCacheFactory</b>
  * <p>
  * This class instantiates new PersistentVariableCaches. (Intended use is for a
  * PersistentTypeHandler to read PersistentVariableCaches from memory.)
@@ -12,9 +12,9 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface PersistentVariableCacheFactory extends SoliloquyClass {
+public interface VariableCacheFactory extends SoliloquyClass {
     /**
-     * @return A new PersistentVariableCache
+     * @return A new VariableCache
      */
-    PersistentVariableCache make();
+    VariableCache make();
 }

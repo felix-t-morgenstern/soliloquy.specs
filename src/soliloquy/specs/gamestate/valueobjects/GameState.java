@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.valueobjects;
 
 import soliloquy.specs.common.infrastructure.Map;
-import soliloquy.specs.common.infrastructure.PersistentVariableCache;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.GameZone;
 import soliloquy.specs.gamestate.entities.Party;
@@ -33,7 +33,7 @@ public interface GameState extends SoliloquyClass {
 	 * @return The caches of persistent variables for the Game (i.e. variables keeping track of
 	 * in-Game events, e.g. quests, party choices, etc.)
 	 */
-	PersistentVariableCache persistentVariables();
+	VariableCache variableCache();
 	
 	/**
 	 * @return A Map of AIs which can be assigned to various characters

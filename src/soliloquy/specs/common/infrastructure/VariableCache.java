@@ -3,17 +3,17 @@ package soliloquy.specs.common.infrastructure;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
- * <b>PersistentVariableCache</b>
+ * <b>VariableCache</b>
  * <p>
- * A PersistentVariableCache is a cache of persistent variables (identified by String Ids) which
+ * A VariableCache is a cache of persistent variables (identified by String Ids) which
  * are saved when the player quits the Game--presumably to a save file--and which are restored once
  * that save file is loaded.
  * <p>
- * An individual PersistentVariableCache is a cache for variables of any type. It is expected that
+ * An individual VariableCache is a cache for variables of any type. It is expected that
  * developers will know the types to their own PersistentVariables, and will therefore be able to
  * cast them properly.
  * <p>
- * A PersistentVariableCache can be populated by reading lines from a String.
+ * A VariableCache can be populated by reading lines from a String.
  * <p>
  * (The intended use is that either each line will correspond to a single variable, or that lines
  * will describe variables in a systematic way, e.g. with each line defining an item in a
@@ -23,7 +23,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface PersistentVariableCache extends SoliloquyClass {
+public interface VariableCache extends SoliloquyClass {
 	/**
 	 * @param name - The name of the persistent variable
 	 * @param value - The value of the persistent variable
@@ -38,29 +38,29 @@ public interface PersistentVariableCache extends SoliloquyClass {
 	boolean remove(String name);
 
 	/**
-	 * @return The number of PersistentVariables in this PersistentVariableCache
+	 * @return The number of PersistentVariables in this VariableCache
 	 */
 	int size();
 
 	/**
 	 * NB: Changing the contents of this Collection does not change the actual contents of this
-	 * PersistentVariableCache; it is merely a representation
+	 * VariableCache; it is merely a representation
 	 * @return A Collection of the names of the names of PersistentVariables in this
-	 * PersistentVariableCache
+	 * VariableCache
 	 */
 	ReadableCollection<String> namesRepresentation();
 
 	/**
 	 * NB: Changing the contents of this Collection does not change which PersistentVariables are
-	 * present in this PersistentVariableCache; however, the variables returned in the Collection
+	 * present in this VariableCache; however, the variables returned in the Collection
 	 * are the actual variables, and changing their values will result in the real variable values
 	 * being changed.
-	 * @return A Collection of the PersistentVariables in this PersistentVariableCache
+	 * @return A Collection of the PersistentVariables in this VariableCache
 	 */
 	ReadableMap<String,Object> variablesRepresentation();
 
 	/**
-	 * Clears all PersistentVariables in this PersistentVariableCache
+	 * Clears all PersistentVariables in this VariableCache
 	 */
 	void clear();
 
