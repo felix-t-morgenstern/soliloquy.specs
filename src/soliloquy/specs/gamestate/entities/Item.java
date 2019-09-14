@@ -101,7 +101,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	CharacterInventory getCharacterInventory() throws IllegalStateException;
+	Character getInventoryCharacter() throws IllegalStateException;
 	
 	/**
 	 * @return A Pair containing the Character and the equipment slot type in which this Item is
@@ -111,7 +111,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	Pair<CharacterEquipmentSlots,String> getCharacterEquipmentSlot() throws IllegalStateException;
+	Pair<Character,String> getCharacterEquipmentSlot() throws IllegalStateException;
 	
 	/**
 	 * @return The {@link TileItems} on which this Item is stored (Note that this means on the
@@ -136,26 +136,27 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * <b>NB: This method is intended to <u>only</u> be used by
 	 * {@link CharacterEquipmentSlots#equipItemToSlot}; it is intended to check whether the
 	 * CharacterEquipmentSlot assigned to this Item has this Item set as equipped.</b>
-	 * @param characterEquipmentSlots - The {@link CharacterEquipmentSlots} to which to assign to
-	 *                                this Item
+	 * @param character - The {@link Character} whose {@link CharacterEquipmentSlots} to which to
+	 *                     assign to this Item
 	 * @param equipmentSlotType - The equipment slot type to which to assign this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
 	void assignCharacterEquipmentSlotToItemAfterAddingToCharacterEquipmentSlot(
-			CharacterEquipmentSlots characterEquipmentSlots, String equipmentSlotType)
+			Character character, String equipmentSlotType)
 			throws IllegalStateException, IllegalArgumentException;
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by {@link CharacterInventory#add} and
 	 * {@link CharacterInventory#remove}; it is intended to check whether the Character assigned to
 	 * this Item has this Item in its CharacterInventory.</b>
-	 * @param characterInventory - The {@link CharacterInventory} to which to assign to this Item
+	 * @param character - The {@link Character} whose {@link CharacterInventory} to which to assign
+	 *                     to this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
 	void assignCharacterInventoryToItemAfterAddingToCharacterInventory(
-			CharacterInventory characterInventory)
+			Character character)
 			throws IllegalStateException, IllegalArgumentException;
 
 	/**
