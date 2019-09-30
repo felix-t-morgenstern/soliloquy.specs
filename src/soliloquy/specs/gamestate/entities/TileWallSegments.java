@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.infrastructure.ReadableMap;
 
 /**
  * <b>TileFixtures</b>
@@ -20,21 +21,22 @@ import soliloquy.specs.common.infrastructure.ReadableCollection;
  */
 public interface TileWallSegments extends Deletable {
     /**
-     * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this Character's
-     * inventory. To add or remove Items, use the other methods specified.</i>
-     * @return A representation of this Character's inventory.
-     * @throws IllegalStateException If this Character does not have a GameZone, or if this
-     * Character has been deleted, or if it has no Id
+     * <i>NB: This is only supposed to be a REPRESENTATION of the TileWallSegments on this Tile. To
+     * add or remove a TileWallSegment, use the other methods specified.</i>
+     * @return A representation of the TileWallSegments on this Tile.
+     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
      */
-    ReadableCollection<TileWallSegment> representation() throws IllegalStateException;
+    ReadableMap<TileWallSegmentDirection, ReadableCollection<TileWallSegment>> representation()
+            throws IllegalStateException;
 
     /**
-     * @param tileWallSegment - The TileWallSegment to add to this Tile
-     * @throws IllegalArgumentException If and only if tileWallSegment is null, or exists elsewhere
-     * @throws IllegalStateException If this Character does not have a GameZone, or if this
-     * Character has been deleted, or if it has no Id
+     * @param tileWallSegmentDirection - The direction the TileWallSegment will face
+     * @param tileWallSegment - The {@link TileWallSegment} to add to this Tile
+     * @throws IllegalArgumentException If and only if tileWallSegment is null, or if
+     * tileWallSegmentDirection is null, UNKNOWN, or NOT_FOUND
+     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
      */
-    void add(TileWallSegment tileWallSegment)
+    void add(TileWallSegmentDirection tileWallSegmentDirection, TileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
@@ -42,8 +44,7 @@ public interface TileWallSegments extends Deletable {
      * @return True, if and only if this TileWallSegment was present in this Tile, and was
      * therefore removed
      * @throws IllegalArgumentException If and only if tileWallSegment is null
-     * @throws IllegalStateException If this Character does not have a GameZone, or if this
-     * Character has been deleted, or if it has no Id
+     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
      */
     boolean remove(TileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
@@ -52,8 +53,19 @@ public interface TileWallSegments extends Deletable {
      * @param tileWallSegment - The TileWallSegment whose presence to verify
      * @return True, if and only if tileWallSegment is present in this TileWallSegments
      * @throws IllegalArgumentException If and only if tileWallSegment is null
-     * @throws IllegalStateException If tileWallSegment has been deleted
+     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
      */
     boolean contains(TileWallSegment tileWallSegment)
+            throws IllegalArgumentException, IllegalStateException;
+
+    /**
+     * @param tileWallSegment - The {@link TileWallSegment} whose {@link TileWallSegmentDirection}
+     *                        to retrieve
+     * @return The {@link TileWallSegmentDirection} of the specified {@link TileWallSegment}
+     * (Returns {@link TileWallSegmentDirection#NOT_FOUND} if tileWallSegment is not present.)
+     * @throws IllegalArgumentException If and only if tileWallSegment is null
+     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     */
+    TileWallSegmentDirection getDirection(TileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
 }

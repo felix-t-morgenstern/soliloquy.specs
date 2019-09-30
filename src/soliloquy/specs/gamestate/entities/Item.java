@@ -92,7 +92,8 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	Item takeFromStack(int numberToTake) throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
+	Item takeFromStack(int numberToTake)
+			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
 	
 	/**
 	 * @return The Character in whose inventory this Item exists
@@ -104,8 +105,8 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	Character getInventoryCharacter() throws IllegalStateException;
 	
 	/**
-	 * @return A Pair containing the Character and the equipment slot type in which this Item is
-	 * located
+	 * @return A Pair containing the {@link Character} and the equipment slot type in which this
+	 * Item is located; if this item isn't equipped to any Character, this method returns null.
 	 * @throws IllegalStateException - If this Item is not present in the TileItems,
 	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id, or if it has
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been

@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.ruleset.entities.WallSegmentType;
 
 /**
@@ -49,4 +50,23 @@ public interface TileWallSegment extends GameEntity {
 	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
 	 */
 	void setZIndex(int zIndex) throws IllegalStateException;
+
+    /**
+     * @return A {@link soliloquy.specs.common.infrastructure.Pair} containing both the
+     * {@link TileWallSegmentDirection} and {@Tile} of this TileWallSegment. If this
+     * TileWallSegment is not contained in a Tile, this method returns null.
+     */
+	Pair<TileWallSegmentDirection,Tile> getTile();
+
+    /**
+     * @param tileWallSegmentDirection - The {@link TileWallSegmentDirection} this TileWallSegment
+     *                                 will face
+     * @param tile - The {@link Tile} to assign to this TileWallSegment
+     * @throws IllegalArgumentException If and only if tileWallSegmentDirection is null, or
+     * unknown, or not found; or if tileWallSegments is null
+     * @throws IllegalStateException
+     */
+    void assignTileWallSegmentsToTileAfterAddingToTileWallSegments
+            (TileWallSegmentDirection tileWallSegmentDirection, Tile tile)
+        throws IllegalArgumentException, IllegalStateException;
 }
