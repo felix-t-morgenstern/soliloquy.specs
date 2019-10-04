@@ -50,7 +50,7 @@ public interface TileFixture extends HasEvents, GameEntity {
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
 	 * FixtureType
 	 */
-	TileFixtureItems containedItems() throws IllegalStateException;
+	TileFixtureItems items() throws IllegalStateException;
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by {@link TileFixtures#add} and
