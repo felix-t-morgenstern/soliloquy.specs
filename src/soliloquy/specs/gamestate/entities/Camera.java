@@ -5,7 +5,6 @@ import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.ruleset.gameconcepts.TileVisibility;
-import soliloquy.specs.ui.windowelements.GameWorldView;
 
 /**
  * <b>Camera</b>
@@ -13,8 +12,8 @@ import soliloquy.specs.ui.windowelements.GameWorldView;
  * Camera is used to describe what the player sees, i.e. the center of their view in the GameWorld,
  * and which Tiles are rendered.
  * <p>
- * The Camera is fed into the {@link GameWorldView}, which takes snapshots from the Camera, which are then
- * rendered by WindowRenderer.
+ * The Camera is fed into the {@link soliloquy.specs.ui.windowelements.GameWorldView}, which takes
+ * snapshots from the Camera, which are then rendered by WindowRenderer.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -113,18 +112,6 @@ public interface Camera extends HasGlobalAccess {
 	 * @return A collection of Coordinates which provide visibility to the player.
 	 */
 	Map<Coordinate,Integer> coordinatesProvidingVisibility();
-	
-	/**
-	 * @return This Camera's {@link TileVisibility} (i.e. the class which calculates whether one
-	 * Tile is visible from another)
-	 */
-	TileVisibility getTileVisibility();
-	
-	/**
-	 * @param tileVisibility - The {@link TileVisibility} (i.e. the class which calculates whether
-	 * one Tile is visible from another) to set for this Camera
-	 */
-	void setTileVisibility(TileVisibility tileVisibility);
 	
 	/**
 	 * This function sets visibilityPoints to return the Coordinates of Tiles which are visible to
