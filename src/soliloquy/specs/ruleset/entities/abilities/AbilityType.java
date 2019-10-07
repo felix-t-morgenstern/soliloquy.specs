@@ -1,6 +1,7 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
 import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.GameEntity;
 
 /**
@@ -12,7 +13,7 @@ import soliloquy.specs.gamestate.entities.GameEntity;
  * @version 0.0.1
  *
  */
-public interface AbilityType extends GameEntity {
+public interface AbilityType extends GameEntity, HasName {
 	/**
 	 * Returns a string describing the Ability.
 	 * @param params - Used to help describe the effects of the Ability (e.g. the damage it will do)

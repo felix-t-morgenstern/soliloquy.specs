@@ -2,6 +2,7 @@ package soliloquy.specs.ruleset.entities.abilities;
 
 import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.common.shared.HasGlobalAccess;
+import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.GameEntity;
 
 /**
@@ -13,7 +14,7 @@ import soliloquy.specs.gamestate.entities.GameEntity;
  * @version 0.0.1
  *
  */
-public interface Ability extends GameEntity, HasGlobalAccess {
+public interface Ability extends GameEntity, HasName, HasGlobalAccess {
 	/**
 	 * If this Ability belongs to a Character or an Item, its AbilitySource <b>must</b> point back
 	 * to that Character or Item

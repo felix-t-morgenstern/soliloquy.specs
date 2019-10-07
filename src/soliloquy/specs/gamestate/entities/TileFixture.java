@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
@@ -23,7 +24,7 @@ import soliloquy.specs.ruleset.entities.FixtureType;
  * @version 0.0.1
  *
  */
-public interface TileFixture extends HasEvents, GameEntity {
+public interface TileFixture extends HasEvents, GameEntity, HasName {
 	/**
 	 * @return The Tile on which this Fixture is affixed
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no

@@ -3,6 +3,7 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.ruleset.entities.GroundType;
 import soliloquy.specs.sprites.entities.Sprite;
 
@@ -18,32 +19,20 @@ import soliloquy.specs.sprites.entities.Sprite;
  * @version 0.0.1
  *
  */
-public interface Tile extends HasEvents, GameEntity {
+public interface Tile extends HasEvents, HasData {
 	/**
 	 * @return The GameZone in which this Tile exists
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location
-	 * specified by getLocation
+	 * specified by {@link #location}
 	 */
 	GameZone gameZone() throws IllegalStateException;
 	
 	/**
 	 * @return The Coordinate at which this Tile is located
-	 * @throws IllegalStateException If the location is defined, but the gameZone is not; or if the
-	 * gameZone does not have this Tile listed at the value returned by this method; or if this
-	 * Tile has been deleted
+	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location
+	 * specified by {@link #location}
 	 */
-	Coordinate getLocation() throws IllegalStateException;
-	
-	/**
-	 * (This is intended to be called by the GameZone after it moves this Tile from one Coordinate
-	 * in its Map to another)
-	 * @param location - The location to set for this Tile
-	 * @throws IllegalArgumentException If location is not equal to the Coordinate key of this Tile
-	 * in the Tiles Map of its GameZone
-	 * @throws IllegalStateException If this Tile does not have a GameZone, or if this Tile has
-	 * been deleted
-	 */
-	void setLocation(Coordinate location) throws IllegalArgumentException, IllegalStateException;
+	ReadableCoordinate location() throws IllegalStateException;
 	
 	/**
 	 * @return The height of this Tile in the GameWorld
@@ -97,7 +86,7 @@ public interface Tile extends HasEvents, GameEntity {
 	 * @return A collection of the TileWallSegments on this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	TileWallSegments tileWallSegments() throws IllegalStateException;
+	TileWallSegments wallSegments() throws IllegalStateException;
 	
 	/**
 	 * @return A numbered Map of Sprites on this Tile, where the numerical index of the Map
@@ -105,4 +94,17 @@ public interface Tile extends HasEvents, GameEntity {
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
 	Map<Integer, Collection<Sprite>> sprites() throws IllegalStateException;
+
+	/**
+	 * @return True, if and only if this Tile has been deleted.
+	 */
+	boolean isDeleted();
+
+	/**
+	 * This method deletes this Tile; it is only to be called after the {@link GameZone} containing
+	 * this Tile has been deleted.
+	 * @throws IllegalStateException If and only if this Tile has already been deleted, or if the
+	 * containing GameZone has not yet been deleted
+	 */
+	void deleteAfterDeletingContainingGameZone() throws IllegalStateException;
 }

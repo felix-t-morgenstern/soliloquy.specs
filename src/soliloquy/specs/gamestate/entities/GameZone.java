@@ -6,6 +6,7 @@ import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
+import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 
 /**
  * <b>GameZone</b>
@@ -20,7 +21,7 @@ import soliloquy.specs.common.shared.HasName;
  * @version 0.0.1
  *
  */
-public interface GameZone extends HasName, HasId, HasGlobalAccess {
+public interface GameZone extends HasName, HasId, HasGlobalAccess, Deletable {
 	/**
 	 * @return The type of the GameZone (e.g. expansive, local)
 	 */
@@ -42,12 +43,12 @@ public interface GameZone extends HasName, HasId, HasGlobalAccess {
 	void setDimensions(Coordinate dimensions) throws IllegalArgumentException;
 	
 	/**
-	 * @param coordinates - The coordinates of the Tile to return
+	 * @param coordinate - The coordinate of the Tile to return
 	 * @return The Tile at those coordinates
-	 * @throws IllegalArgumentException If coordinates is null, or coordinates is beyond the
+	 * @throws IllegalArgumentException If coordinate is null, or coordinate is beyond the
 	 * dimensions of the GameZone
 	 */
-	Tile tile(Coordinate coordinates) throws IllegalArgumentException;
+	Tile tile(ReadableCoordinate coordinate) throws IllegalArgumentException;
 
 	/**
 	 * @return A Collection of Actions which are fired when the Party enters this GameZone.

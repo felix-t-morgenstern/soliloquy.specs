@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.ruleset.entities.WallSegmentType;
 
 /**
@@ -12,7 +13,7 @@ import soliloquy.specs.ruleset.entities.WallSegmentType;
  * @version 0.0.1
  *
  */
-public interface TileWallSegment extends GameEntity {
+public interface TileWallSegment extends GameEntity, HasName {
 	/**
 	 * @return The WallSegmentType of this TileWallSegment
 	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
@@ -63,7 +64,7 @@ public interface TileWallSegment extends GameEntity {
      *                                 will face
      * @param tile - The {@link Tile} to assign to this TileWallSegment
      * @throws IllegalArgumentException If and only if tileWallSegmentDirection is null, or
-     * unknown, or not found; or if tileWallSegments is null
+     * unknown, or not found; or if wallSegments is null
      * @throws IllegalStateException
      */
     void assignTileWallSegmentsToTileAfterAddingToTileWallSegments

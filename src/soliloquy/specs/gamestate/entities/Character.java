@@ -2,6 +2,7 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.gamestate.entities.gameevents.GameEvent;
@@ -26,7 +27,7 @@ import soliloquy.specs.sprites.entities.SpriteSet;
  * @version 0.0.1
  *
  */
-public interface Character extends GameEntity, HasUuid {
+public interface Character extends GameEntity, HasName, HasUuid {
 	/**
 	 * @return The CharacterType of this Character
 	 * <p>
