@@ -25,4 +25,15 @@ public interface SoundFactory extends SoliloquyClass {
 	 * soundTypeId
 	 */
 	Sound make(String soundTypeId) throws IllegalArgumentException;
+
+	/**
+	 * @param soundTypeId - The Id of the type of Sound to make
+	 * @param entityUuid - The {@link soliloquy.specs.common.valueobjects.EntityUuid} of the Sound
+	 *                      to make
+	 * @return The Sound made, with the specified
+	 * {@link soliloquy.specs.common.valueobjects.EntityUuid} as its Id
+	 * @throws IllegalArgumentException If and only if there exists no Sound with the specified
+	 * soundTypeId
+	 */
+	Sound make(String soundTypeId, EntityUuid entityUuid) throws IllegalArgumentException;
 }

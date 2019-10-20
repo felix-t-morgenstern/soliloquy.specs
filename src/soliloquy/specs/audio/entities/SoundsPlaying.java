@@ -24,7 +24,7 @@ public interface SoundsPlaying extends SoliloquyClass {
 	
 	/**
 	 * @param soundId - The id to check for
-	 * @return
+	 * @return True, if and only if the sound specified is currently playing
 	 * @throws IllegalArgumentException if and only if soundId is null
 	 */
 	boolean isPlayingSound(EntityUuid soundId) throws IllegalArgumentException;
@@ -49,7 +49,7 @@ public interface SoundsPlaying extends SoliloquyClass {
 	 * <p>
 	 * (This method does nothing if soundId corresponds to a nonexistent Sound, in order to avoid
 	 * throwing exceptions amidst race conditions.)
-	 * @param soundId - The Sound to remove
+	 * @param sound - The Sound to remove
 	 * @throws IllegalArgumentException If and only if soundId is null.
 	 */
 	void removeSound(Sound sound) throws IllegalArgumentException;

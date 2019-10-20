@@ -1,5 +1,6 @@
 package soliloquy.specs.audio.entities;
 
+import soliloquy.specs.audio.exceptions.SoundUninitializedException;
 import soliloquy.specs.common.shared.HasUuid;
 
 // TODO: Ensure that implementations pass Logger into any and all generated Runnables
@@ -151,18 +152,18 @@ public interface Sound extends HasUuid {
 	 * (NB: If the media has not yet been readied, this method repeatedly takes a miniscule break
 	 * and checks again, until the media is ready, and can report its duration.)
 	 * @return The total millisecond duration of this Sound 
-	 * @throws InterruptedException If and only if this call is not able to defer its execution
-	 * until the media is prepared. (This exception is unlikely to ever be thrown.)
+	 * @throws SoundUninitializedException If and only if this call is not able to defer its
+	 * execution until the media is prepared. (This exception is unlikely to ever be thrown.)
 	 */
-	int getMillisecondLength() throws InterruptedException;
+	int getMillisecondLength() throws SoundUninitializedException;
 	
 	/**
 	 * @return The current number of milliseconds elapsed in this Sound.
-	 * @throws InterruptedException If and only if this call is not able to defer its execution
-	 * until the media is prepared. (This exception is unlikely to ever be thrown.)
+	 * @throws SoundUninitializedException If and only if this call is not able to defer its
+	 * execution until the media is prepared. (This exception is unlikely to ever be thrown.)
 	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
-	int getMillisecondPosition() throws InterruptedException, UnsupportedOperationException;
+	int getMillisecondPosition() throws SoundUninitializedException, UnsupportedOperationException;
 	
 	/**
 	 * @param ms - The milliseconds to set this Sound to
