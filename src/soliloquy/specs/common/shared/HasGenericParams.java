@@ -3,17 +3,11 @@ package soliloquy.specs.common.shared;
 /**
  * <b>HasGenericParams</b>
  * <p>
- * Exposes the unparameterized name of the interface in question, so it can be combined with its
- * parameters' names, to generate a parameterized interface name.
+ * Indicates that the class in question has one or more generic parameters
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
 public interface HasGenericParams extends SoliloquyClass {
-	/**
-	 * @return The name of the Soliloquy interface (with namespace), without the angle brackets
-	 * indicating type parameters
-	 */
-	String getUnparameterizedInterfaceName();
 }
