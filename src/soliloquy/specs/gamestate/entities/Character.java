@@ -5,7 +5,7 @@ import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.infrastructure.Map;
-import soliloquy.specs.gamestate.entities.gameevents.GameEvent;
+import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
@@ -145,12 +145,12 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	 * which override or supplement normal behavior of its AI script; i.e., you may want this
 	 * Character to use the default AI, except you might want it to explode when it dies.
 	 * <p>
-	 * The name indices of this Map are names of the events which trigger these {@link GameEvent}s
+	 * The name indices of this Map are names of the events which trigger these {@link GameMovementEvent}s
 	 * @return A Collection of CharacterAIEvents which occur when certain events occur, e.g. when
 	 * the Character is killed, when the Character is close to death, when the demonic ritual is
 	 * complete
 	 */
-	Map<String, Collection<GameEvent>> events();
+	Map<String, Collection<GameMovementEvent>> events();
 	
 	/**
 	 * @return This Character's equipment slots, from which equipment can be accessed or modified

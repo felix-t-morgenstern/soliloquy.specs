@@ -4,7 +4,8 @@ import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.shared.EntityGroup;
 import soliloquy.specs.common.infrastructure.SettingsRepo;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.gameevents.GameEvent;
+import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
+import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
@@ -60,7 +61,9 @@ public interface Ruleset extends SoliloquyClass {
 
 	Registry<FixtureType> fixtureTypes();
 
-	Registry<GameEvent> gameEvents();
+	Registry<GameMovementEvent> gameMovementEvents();
+
+	Registry<GameAbilityEvent> gameAbilityEvents();
 
 	Registry<GroundType> groundTypes();
 

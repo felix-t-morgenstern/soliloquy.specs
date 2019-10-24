@@ -2,13 +2,14 @@ package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasOneGenericParam;
+import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 
 /**
  * <b>Registry</b>
  * <p>
  * This class is a registry of entities; e.g.
  * {@link soliloquy.specs.ruleset.entities.CharacterType},
- * {@link soliloquy.specs.gamestate.entities.gameevents.GameEvent}; which may be passed into
+ * {@link GameMovementEvent}; which may be passed into
  * classes, e.g. factories, which need to reference a central repository of game entity types.
  * Intended use is for there to only be one of these classes per type of entity, to be used by the
  * {@link soliloquy.specs.game.Game} or by the {@link soliloquy.specs.ruleset.Ruleset}.

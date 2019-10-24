@@ -1,7 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.ruleset.entities.GroundType;
@@ -19,7 +18,7 @@ import soliloquy.specs.sprites.entities.Sprite;
  * @version 0.0.1
  *
  */
-public interface Tile extends HasEvents, HasData {
+public interface Tile extends HasGameMovementEvents, HasData {
 	/**
 	 * @return The GameZone in which this Tile exists
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location

@@ -8,7 +8,11 @@ import soliloquy.specs.gamestate.entities.GameEntity;
 /**
  * <b>Ability</b>
  * <p>
- * A common set of behaviors for ActiveAbilities and Reactive Abilities
+ * This class is represents an Ability, possessed by either a
+ * {@link soliloquy.specs.gamestate.entities.Character} or an
+ * {@link soliloquy.specs.gamestate.entities.Item}.
+ * <p>
+ * This class defines a common set of behaviors for ActiveAbilities and Reactive Abilities.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -26,19 +30,10 @@ public interface Ability extends GameEntity, HasName, HasGlobalAccess {
 	AbilitySource source() throws IllegalStateException;
 	
 	/**
-	 * @param source - The entity to which this Ability will belong
-	 * @throws IllegalArgumentException If the AbilitySource is invalid
-	 * @throws IllegalStateException If this Ability has been deleted
-	 * @throws UnsupportedOperationException If this Ability has already had its source initialized
-	 */
-	void initializeSource(AbilitySource source) throws IllegalArgumentException, IllegalStateException, UnsupportedOperationException;
-	
-	/**
-	 * The Id corresponding to the type of this Ability
-	 * @return The Id of the AbilityType corresponding to this Ability
+	 * @return The AbilityType corresponding to this Ability
 	 * @throws IllegalStateException If this Ability has been deleted
 	 */
-	String abilityTypeId() throws IllegalStateException;
+	AbilityType abilityType() throws IllegalStateException;
 	
 	/**
 	 * (It is expected that Items and Characters will use different means of determining ability
