@@ -14,7 +14,7 @@ import soliloquy.specs.common.shared.HasId;
  * @version 0.0.1
  *
  */
-public interface StatusEffectType extends ResistancesApplyWhenAltered, ActOnCharacterOnTurnAndRound, IconForCharacter, HasId {
+public interface StatusEffectType extends ActOnCharacterOnTurnAndRound, IconForCharacter, HasId {
 	/**
 	 * Intended use is to return true if and only if it makes no sense for this StatusEffectType to
 	 * ever go below zero. For instance, it makes no sense to have a negative amount of poisoning

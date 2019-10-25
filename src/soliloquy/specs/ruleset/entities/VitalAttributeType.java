@@ -15,6 +15,6 @@ import soliloquy.specs.common.shared.HasPluralName;
  * @version 0.0.1
  *
  */
-public interface VitalAttributeType extends ResistancesApplyWhenAltered,
-        ActOnCharacterOnTurnAndRound, HasPluralName, IconForCharacter, HasId {
+public interface VitalAttributeType extends  ActOnCharacterOnTurnAndRound, HasPluralName,
+        IconForCharacter, HasId {
 }
