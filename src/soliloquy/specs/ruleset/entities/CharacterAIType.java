@@ -1,7 +1,5 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 

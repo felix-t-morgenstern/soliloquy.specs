@@ -60,7 +60,7 @@ public interface RoundManager extends SoliloquyClass {
 	 * This method doesn't just change the arbitrary number corresponding to the rounds; it
 	 * triggers any timers, status effects, etc. associated with the advancement of rounds.
 	 * <p>
-	 * Since the purpose of this method is to trigger events related to the progression of Rounds
+	 * Since the purpose of this method is to trigger movementEvents related to the progression of Rounds
 	 * in the Game, it is encouraged to not allow the Game to "advance" by negative rounds, and to
 	 * use getRound and setRound instead.
 	 * <p>

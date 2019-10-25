@@ -31,7 +31,7 @@ public interface GameState extends SoliloquyClass {
 	
 	/**
 	 * @return The caches of persistent variables for the Game (i.e. variables keeping track of
-	 * in-Game events, e.g. quests, party choices, etc.)
+	 * in-Game movementEvents, e.g. quests, party choices, etc.)
 	 */
 	VariableCache variableCache();
 	

@@ -18,7 +18,7 @@ import soliloquy.specs.sprites.entities.Sprite;
  * @version 0.0.1
  *
  */
-public interface Tile extends HasGameMovementEvents, HasData {
+public interface Tile extends GameEventTargetEntity, HasData {
 	/**
 	 * @return The GameZone in which this Tile exists
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location

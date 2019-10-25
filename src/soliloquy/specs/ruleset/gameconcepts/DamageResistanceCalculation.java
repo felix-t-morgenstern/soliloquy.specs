@@ -9,7 +9,7 @@ import soliloquy.specs.ruleset.entities.VitalAttributeType;
 /**
  * <b>DamageResistanceCalculation</b>
  * <p>
- * A heuristic for calculating the resistance a Character has to Abilities (or other events) which
+ * A heuristic for calculating the resistance a Character has to Abilities (or other movementEvents) which
  * change that Character's Status Effect or Vital Attribute levels.
  * <p>
  * Intended use case is to search through a Character's various modifiers, and to calculate the 

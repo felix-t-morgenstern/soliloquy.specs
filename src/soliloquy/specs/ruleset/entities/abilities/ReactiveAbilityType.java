@@ -27,7 +27,7 @@ public interface ReactiveAbilityType extends AbilityType {
 	Integer priority();
 	
 	/**
-	 * @return An ability has names for various events during its execution (e.g. when it selects a
+	 * @return An ability has names for various movementEvents during its execution (e.g. when it selects a
 	 * target, before the target is hit, and after the target is hit). This string identifies the
 	 * event to which this ReactiveAbilityType reacts. (For instance, it might take effect before
 	 * the Character is hit, or after, depending on this value.)

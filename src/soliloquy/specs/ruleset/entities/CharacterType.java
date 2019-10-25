@@ -31,9 +31,9 @@ public interface CharacterType extends HasPluralName, HasId {
 	Character generate(Tile tile, GenericParamsSet params);
 
 	/**
-	 * The name keys of this Map are names of the events which trigger these Actions
+	 * The name keys of this Map are names of the movementEvents which trigger these Actions
 	 * @return A Collection of Actions which occur from the Character of this type when certain
-	 * events occur, e.g. when the Character is killed, when the Character is close to death, when
+	 * movementEvents occur, e.g. when the Character is killed, when the Character is close to death, when
 	 * the demonic ritual is complete
 	 */
 	Map<String, Collection<Action<Character>>> events();

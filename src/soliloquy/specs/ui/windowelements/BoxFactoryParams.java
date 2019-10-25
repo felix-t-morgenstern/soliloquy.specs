@@ -6,7 +6,7 @@ import soliloquy.specs.common.infrastructure.ReadableMap;
 
 //TODO: Document this interface
 public interface BoxFactoryParams extends GenericParamsSet {
-	// NB: In this case, the Integer keys map onto events
+	// NB: In this case, the Integer keys map onto movementEvents
 	//     which trigger the functions.
 	//     The IBoxReturnVals are provided as an input, because
 	//     the action performed may depend on the return

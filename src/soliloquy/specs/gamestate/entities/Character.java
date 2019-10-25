@@ -140,13 +140,13 @@ public interface Character extends GameEntity, HasName, HasUuid {
 			throws IllegalArgumentException, IllegalStateException;
 	
 	/**
-	 * This is similar to {@link CharacterAIType#events}, except it is for events specific to this
-	 * Character, instead of all Characters using that CharacterAIType. Intended use is for events
+	 * This is similar to {@link CharacterAIType#events}, except it is for movementEvents specific to this
+	 * Character, instead of all Characters using that CharacterAIType. Intended use is for movementEvents
 	 * which override or supplement normal behavior of its AI script; i.e., you may want this
 	 * Character to use the default AI, except you might want it to explode when it dies.
 	 * <p>
-	 * The name indices of this Map are names of the events which trigger these {@link GameMovementEvent}s
-	 * @return A Collection of CharacterAIEvents which occur when certain events occur, e.g. when
+	 * The name indices of this Map are names of the movementEvents which trigger these {@link GameMovementEvent}s
+	 * @return A Collection of CharacterAIEvents which occur when certain movementEvents occur, e.g. when
 	 * the Character is killed, when the Character is close to death, when the demonic ritual is
 	 * complete
 	 */
@@ -267,7 +267,7 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	
 	/**
 	 * Deletes this Character. (Calling this method will remove this Character from its GameZone's
-	 * Characters. It will also delete all contained entities, e.g. events, inventory, etc.)
+	 * Characters. It will also delete all contained entities, e.g. movementEvents, inventory, etc.)
 	 * <p>
 	 * This is different from killing this Character or setting them to be dead via setIsDead. In
 	 * those cases, the Character still exists in the GameZone's Characters, and may be revived;

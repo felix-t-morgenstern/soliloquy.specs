@@ -21,7 +21,7 @@ import soliloquy.specs.ruleset.entities.FixtureType;
  * @version 0.0.1
  *
  */
-public interface TileFixture extends HasGameMovementEvents, GameEntity, HasName {
+public interface TileFixture extends GameEventTargetEntity, GameEntity, HasName {
 	/**
 	 * @return The Tile on which this Fixture is affixed
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
