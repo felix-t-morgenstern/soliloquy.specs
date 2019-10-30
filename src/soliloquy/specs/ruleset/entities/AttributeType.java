@@ -3,7 +3,6 @@ package soliloquy.specs.ruleset.entities;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.CharacterAttribute;
-import soliloquy.specs.sprites.entities.SpriteSet;
 
 /**
  * <b>Attribute</b>
@@ -18,7 +17,7 @@ import soliloquy.specs.sprites.entities.SpriteSet;
  * @author felix.t.morgenstern
  *
  */
-public interface AttributeType extends HasId {
+public interface AttributeType extends HasId, HasDescription, HasSpriteSet {
 	/**
 	 * Intended use is for when Characters are adjusting stats (e.g. leveling up) to enforce both
 	 * minimum stats (e.g. not allowing Strength to fall below 1) and Attribute requirements (e.g.
@@ -33,26 +32,4 @@ public interface AttributeType extends HasId {
 	 * @throws NullPointerException If character is null
 	 */
 	boolean charCanAdjust(Character character, int amount) throws NullPointerException;
-	
-	/**
-	 * @return The description of this Attribute
-	 */
-	String getDescription();
-	
-	/**
-	 * @param description - The description to set for this Attribute
-	 */
-	void setDescription(String description);
-	
-	/**
-	 * Intended use for this SpriteSet is for any icons or pictures associated with this Attribute.
-	 * @return The SpriteSet for this Attribute (can be null)
-	 */
-	SpriteSet getSpriteSet();
-	
-	/**
-	 * Intended use for this SpriteSet is for any icons or pictures associated with this Attribute.
-	 * @param spriteSet - The SpriteSet to set for this Attribute (can be null)
-	 */
-	void setSpriteSet(SpriteSet spriteSet);
 }

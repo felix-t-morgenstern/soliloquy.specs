@@ -20,13 +20,6 @@ import soliloquy.specs.ruleset.gameconcepts.CharacterStatisticCalculation;
  */
 public interface CharacterValueFromModifiers extends Deletable {
 	/**
-	 * This is intended to identify the Character whose value is being described.
-	 * @return The Id of the Character whose value is being described
-	 * @throws IllegalStateException If the Character has been deleted
-	 */
-	Character character() throws IllegalStateException;
-	
-	/**
 	 * @return The total value, resulting from all modifiers
 	 * @throws IllegalStateException If the Character has been deleted
 	 */

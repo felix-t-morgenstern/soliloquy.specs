@@ -1,5 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.ruleset.entities.AptitudeType;
+
 /**
  * <b>CharacterAptitude</b>
  * <p>
@@ -15,7 +17,7 @@ package soliloquy.specs.gamestate.entities;
  */
 public interface CharacterAptitude extends CharacterValueFromModifiers {
 	/**
-	 * @return The Id of the aptitude being calculated
+	 * @return The type of the aptitude being calculated
 	 */
-	String aptitudeId();
+	AptitudeType aptitudeType();
 }
