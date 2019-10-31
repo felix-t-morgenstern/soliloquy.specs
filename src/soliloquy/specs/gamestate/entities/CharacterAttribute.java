@@ -21,5 +21,5 @@ public interface CharacterAttribute extends CharacterValueFromModifiers {
 	/**
 	 * @return The type of Attribute whose effective value will be calculated for this Character
 	 */
-	AttributeType attribute();
+	AttributeType attributeType();
 }
