@@ -2,8 +2,6 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.valueobjects.Coordinate;
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
@@ -21,26 +19,16 @@ import soliloquy.specs.common.valueobjects.ReadableCoordinate;
  * @version 0.0.1
  *
  */
-public interface GameZone extends HasName, HasId, HasGlobalAccess, Deletable {
+public interface GameZone extends HasName, HasId, HasData, Deletable {
 	/**
-	 * @return The type of the GameZone (e.g. expansive, local)
+	 * @return The type of the GameZone (e.g. expansive, local). Can be null or empty.
 	 */
 	String zoneType();
 	
 	/**
 	 * @return The maximum x and y values of Coordinates in the GameZone
 	 */
-	Coordinate getMaxCoordinates();
-	
-	/**
-	 * If you shrink the dimensions of the GameZone, Tiles with a greater x or y coordinate than
-	 * the new dimensions will be lost. Conversely, if you enlarge the dimensions, blank Tiles will
-	 * be created.
-	 * @param dimensions - The new dimensions of the GameZone.
-	 * @throws IllegalArgumentException dimensions is null, or either of the coordinates are 0 or
-	 * less
-	 */
-	void setDimensions(Coordinate dimensions) throws IllegalArgumentException;
+	ReadableCoordinate getMaxCoordinates();
 	
 	/**
 	 * @param coordinate - The coordinate of the Tile to return

@@ -3,6 +3,8 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
+import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
+import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.GroundType;
 import soliloquy.specs.sprites.entities.Sprite;
 
@@ -18,7 +20,7 @@ import soliloquy.specs.sprites.entities.Sprite;
  * @version 0.0.1
  *
  */
-public interface Tile extends GameEventTargetEntity, HasData {
+public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	/**
 	 * @return The GameZone in which this Tile exists
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location
@@ -86,6 +88,19 @@ public interface Tile extends GameEventTargetEntity, HasData {
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
 	TileWallSegments wallSegments() throws IllegalStateException;
+
+	/**
+	 * @return A Collection of events which fire when a Character moves into this Tile
+	 * @throws IllegalStateException If this Tile has been deleted
+	 */
+	Collection<GameMovementEvent> movementEvents() throws IllegalStateException;
+
+	/**
+	 * @return A Collection of events which fire when an Ability from a Character or an Item is
+	 * used on this Tile
+	 * @throws IllegalStateException If this Tile has been deleted
+	 */
+	Collection<GameAbilityEvent> abilityEvents() throws IllegalStateException;
 	
 	/**
 	 * @return A numbered Map of Sprites on this Tile, where the numerical index of the Map
@@ -93,17 +108,4 @@ public interface Tile extends GameEventTargetEntity, HasData {
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
 	Map<Integer, Collection<Sprite>> sprites() throws IllegalStateException;
-
-	/**
-	 * @return True, if and only if this Tile has been deleted.
-	 */
-	boolean isDeleted();
-
-	/**
-	 * This method deletes this Tile; it is only to be called after the {@link GameZone} containing
-	 * this Tile has been deleted.
-	 * @throws IllegalStateException If and only if this Tile has already been deleted, or if the
-	 * containing GameZone has not yet been deleted
-	 */
-	void deleteAfterDeletingContainingGameZone() throws IllegalStateException;
 }

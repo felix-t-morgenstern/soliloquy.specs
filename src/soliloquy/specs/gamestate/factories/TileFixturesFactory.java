@@ -7,7 +7,9 @@ import soliloquy.specs.gamestate.entities.TileFixtures;
 /**
  * <b>TileFixturesFactory</b>
  * <p>
- *
+ * This class creates TileFixtures, e.g. aggregates of none-to-many
+ * {@link soliloquy.specs.gamestate.entities.TileFixture}s on a given
+ * {@link soliloquy.specs.gamestate.entities.Tile}
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
