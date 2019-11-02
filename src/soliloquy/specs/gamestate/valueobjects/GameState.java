@@ -1,11 +1,14 @@
 package soliloquy.specs.gamestate.valueobjects;
 
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.infrastructure.Registry;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.GameZone;
 import soliloquy.specs.gamestate.entities.Party;
 import soliloquy.specs.gamestate.entities.RoundManager;
+import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
+import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.Ruleset;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 import soliloquy.specs.gamestate.entities.KeyBindingContext;
@@ -54,6 +57,17 @@ public interface GameState extends SoliloquyClass {
 	 * @param gameZone - The new current GameZone. (It is allowed to be null.)
 	 */
 	void setCurrentGameZone(GameZone gameZone);
+
+	/**
+	 * @return A Registry of game events triggered by a Character moving onto a Tile
+	 */
+	Registry<GameMovementEvent> movementEvents();
+
+	/**
+	 * @return A Registry of game events triggered by a Character's or Item's Ability being used on
+	 * a Tile
+	 */
+	Registry<GameAbilityEvent> abilityEvents();
 	
 	/**
 	 * @return The RoundManager, i.e. the class which handles Characters' turns, Timers, and the
