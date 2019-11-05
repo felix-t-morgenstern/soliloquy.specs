@@ -2,9 +2,9 @@ package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.ruleset.entities.CharacterDepletableStatisticType;
 import soliloquy.specs.ruleset.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.Element;
-import soliloquy.specs.ruleset.entities.VitalAttributeType;
 
 /**
  * <b>DamageResistanceCalculation</b>
@@ -26,7 +26,7 @@ public interface DamageResistanceCalculation extends SoliloquyClass {
 	 * Calculates the effective change to a Status Effect for a specific Character, given the 
 	 * following parameters:
 	 * @param character - The Character whose resistance to calculate
-	 * @param vitalAttributeType - The type of the Vital Attribute to be effected
+	 * @param depletableStatisticType - The type of depletable statistic to be effected
 	 * @param baseAmount - The amount by which the Status Effect is to be effected, prior to 
 	 * calculating resistance
 	 * @param stopAtZero - Whether the Ability intends to stop at zero. (This is unlikely to ever 
@@ -42,7 +42,8 @@ public interface DamageResistanceCalculation extends SoliloquyClass {
 	 * @throws IllegalArgumentException If and only if Character is null, StatusEffectType is null,
 	 * or element is null
 	 */
-	int calculateEffectiveChange(Character character, VitalAttributeType vitalAttributeType,
+	int calculateEffectiveChange(Character character,
+								 CharacterDepletableStatisticType depletableStatisticType,
 								 int baseAmount, boolean stopAtZero, Element element,
 								 AbilitySource abilitySource)
 					throws IllegalStateException, IllegalArgumentException;

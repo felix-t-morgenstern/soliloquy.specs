@@ -8,6 +8,7 @@ import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.gamestate.entities.gameevents.GameCharacterEvent;
 
 /**
  * <b>CharacterType</b>
@@ -31,10 +32,11 @@ public interface CharacterType extends HasPluralName, HasId {
 	Character generate(Tile tile, GenericParamsSet params);
 
 	/**
-	 * The name keys of this Map are names of the movementEvents which trigger these Actions
-	 * @return A Collection of Actions which occur from the Character of this type when certain
-	 * movementEvents occur, e.g. when the Character is killed, when the Character is close to death, when
-	 * the demonic ritual is complete
+	 * The name keys of this Map are names of the triggering events which cause the corresponding
+	 * Collections of GameCharacterEvents to fire.
+	 * @return A Collection of events which occur from the Character of this type when certain
+	 * triggering events occur, e.g. when the Character is killed, when the Character takes damage,
+	 * when the Character is attacked, when the demonic ritual is complete, etc.
 	 */
-	Map<String, Collection<Action<Character>>> events();
+	Map<String, Collection<GameCharacterEvent>> events();
 }

@@ -12,7 +12,7 @@ import soliloquy.specs.ruleset.entities.CharacterType;
  * {@link Character} of that type.
  * <p>
  * <i>NB: {@link CharacterType} is responsible for calling {@link #make}, and then setting values
- * such as base attributes, equipment slots, inventory items, etc. This is necessary to allow
+ * such as base characterStatisticTypes, equipment slots, inventory items, etc. This is necessary to allow
  * CharacterTypes to be generated dynamically, without forcing a specific pattern of  value
  * generation.</i>
  *

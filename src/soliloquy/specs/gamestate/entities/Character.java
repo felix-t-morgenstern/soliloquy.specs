@@ -5,7 +5,7 @@ import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.infrastructure.Map;
-import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
+import soliloquy.specs.gamestate.entities.gameevents.GameCharacterEvent;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
@@ -138,19 +138,15 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	 */
 	void setAIType(CharacterAIType characterAIType)
 			throws IllegalArgumentException, IllegalStateException;
-	
+
 	/**
-	 * This is similar to {@link CharacterAIType#events}, except it is for movementEvents specific to this
-	 * Character, instead of all Characters using that CharacterAIType. Intended use is for movementEvents
-	 * which override or supplement normal behavior of its AI script; i.e., you may want this
-	 * Character to use the default AI, except you might want it to explode when it dies.
-	 * <p>
-	 * The name indices of this Map are names of the movementEvents which trigger these {@link GameMovementEvent}s
-	 * @return A Collection of CharacterAIEvents which occur when certain movementEvents occur, e.g. when
-	 * the Character is killed, when the Character is close to death, when the demonic ritual is
-	 * complete
+	 * The index of this map is a type of triggering event, i.e. "onDeath", "onAttacked",
+	 * "onSeeParty", etc. The values are the collections of events fired for this Character when
+	 * the corresponding type of trigger occurs.
+	 * @return A Map, describing events which occur for this Character, given various types of
+	 * triggers
 	 */
-	Map<String, Collection<GameMovementEvent>> events();
+	Map<String, Collection<GameCharacterEvent>> events();
 	
 	/**
 	 * @return This Character's equipment slots, from which equipment can be accessed or modified
@@ -167,18 +163,18 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	CharacterInventory inventory() throws IllegalStateException;
 
 	/**
-	 * @return This Character's VitalAttributes, e.g. health, mana
+	 * @return This Character's depletable statistics, e.g. health, mana
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	Map<String, CharacterVitalAttribute> vitalAttributes() throws IllegalStateException;
+	Map<String, CharacterDepletableStatistic> depletableStatistics() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's Attributes, e.g. Intelligence, Swordplay, Etiquette
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
 	 */
-	Map<String, CharacterAttribute> attributes() throws IllegalStateException;
+	Map<String, CharacterStatistic> statistics() throws IllegalStateException;
 	
 	/**
 	 * @return This Character's current StatusEffects, e.g. poisoned, distracted, panicking
@@ -204,13 +200,6 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	 */
 	Map<String, CharacterAbility<ReactiveAbilityType>> reactiveAbilities()
 			throws IllegalStateException;
-	
-	/**
-	 * @return This Character's Aptitudes, e.g. Initiative, Resistance to Fire, Chance to Hit
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	Map<String, CharacterAptitude> aptitudes() throws IllegalStateException;
 	
 	/**
 	 * <i>This method should return FALSE when a PC is charmed, confused, or otherwise only 

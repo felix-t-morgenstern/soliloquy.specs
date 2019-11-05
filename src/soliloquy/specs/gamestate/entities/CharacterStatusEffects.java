@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.ReadableMap;
+import soliloquy.specs.ruleset.entities.StatusEffectType;
 import soliloquy.specs.ruleset.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.Element;
 
@@ -20,19 +21,22 @@ import soliloquy.specs.ruleset.entities.Element;
  */
 public interface CharacterStatusEffects extends Deletable {
 	/**
-	 * @param statusEffectTypeId - The Id of the Type of the Status Effect whose level to retrieve
+	 * @param statusEffectType - The type of the Status Effect whose level to retrieve
 	 * @return The current value of the specified StatusEffectType for this Character
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 * @throws IllegalArgumentException If and only if statusEffectTypeId is null, empty, or does
 	 * not correspond to a valid StatusEffectType
 	 */
-	Integer getStatusEffectLevel(String statusEffectTypeId) throws IllegalStateException, IllegalArgumentException;
+	Integer getStatusEffectLevel(StatusEffectType statusEffectType)
+			throws IllegalStateException, IllegalArgumentException;
 	
 	/**
-	 * @return A read-only Map, with an entry for every Status Effect whose value for this Character is not zero.
+	 * @return A read-only Map, with an entry for every Status Effect whose value for this
+	 * Character is not zero.
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 */
-	ReadableMap<String,Integer> allStatusEffectsRepresentation() throws IllegalStateException;
+	ReadableMap<StatusEffectType,Integer> allStatusEffectsRepresentation()
+			throws IllegalStateException;
 	
 	/**
 	 * This is used for altering the value of a CharacterStatusEffect as part of an Ability, e.g.
@@ -43,7 +47,7 @@ public interface CharacterStatusEffects extends Deletable {
 	 * <p>
 	 * This is also where to specify behavior when this CharacterStatusEffect of that Character is
 	 * altered
-	 * @param statusEffectTypeId - The Id of the StatusEffectType to alter
+	 * @param type - The StatusEffectType to alter
 	 * @param baseAmount - The base amount by which to alter this CharacterStatusEffect
 	 * @param stopAtZero - True, if and only if any negative alterations should not go below zero,
 	 * or if any positive alterations should not go above zero. For instance, Distraction might be
@@ -62,19 +66,19 @@ public interface CharacterStatusEffects extends Deletable {
 	 * @throws IllegalArgumentException If statusEffectTypeId is null or does not correspond to the
 	 * Id of a StatusEffectType, or if element is null
 	 */
-	void alterStatusEffect(String statusEffectTypeId, int baseAmount, boolean stopAtZero,
+	void alterStatusEffect(StatusEffectType type, int baseAmount, boolean stopAtZero,
 						   Element element, AbilitySource abilitySource)
 					throws IllegalStateException, IllegalArgumentException;
 	
 	/**
 	 * This sets the level of a status effect for a given Character, ignoring resistances.
-	 * @param statusEffectTypeId - The Id of the Status Effect Type
+	 * @param type - The StatusEffectType
 	 * @param level - The level to which to set the Status Effect
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 * @throws IllegalArgumentException If and only if statusEffectTypeId is null, empty, or does
 	 * not correspond to a valid StatusEffectType
 	 */
-	void setStatusEffectLevel(String statusEffectTypeId, int level)
+	void setStatusEffectLevel(StatusEffectType type, int level)
 			throws IllegalStateException, IllegalArgumentException;
 	
 	/**

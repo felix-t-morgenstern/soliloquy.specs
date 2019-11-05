@@ -7,7 +7,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 /**
  * <b>Party</b>
  * <p>
- * The Party stores a Collection of the player-controlled Characters; and attributes of the Party,
+ * The Party stores a Collection of the player-controlled Characters; and characterStatisticTypes of the Party,
  * e.g. gold, military rank, group combat blessings
  * 
  * @author felix.t.morgenstern
@@ -21,7 +21,7 @@ public interface Party extends SoliloquyClass {
 	Collection<Character> playerCharacters();
 	
 	/**
-	 * @return A set of attributes of the Party, e.g. gold, military rank, group combat blessings
+	 * @return A set of characterStatisticTypes of the Party, e.g. gold, military rank, group combat blessings
 	 */
 	GenericParamsSet partyAttributes();
 }
