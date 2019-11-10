@@ -7,7 +7,7 @@ import soliloquy.specs.gamestate.entities.TileFixture;
 import soliloquy.specs.ruleset.entities.FixtureType;
 
 /**
- * <b>ItemFactory</b>
+ * <b>TileFixtureFactory</b>
  * <p>
  * This class creates Items
  *

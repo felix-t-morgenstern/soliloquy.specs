@@ -23,7 +23,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 	/**
 	 * @return The type of the GameZone (e.g. expansive, local). Can be null or empty.
 	 */
-	String zoneType();
+	String type();
 	
 	/**
 	 * @return The maximum x and y values of Coordinates in the GameZone
