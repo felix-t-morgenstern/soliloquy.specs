@@ -27,7 +27,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	ItemType itemType() throws IllegalStateException;
+	ItemType type() throws IllegalStateException;
 	
 	/**
 	 * @return The number of charges left in this Item (If this Item does not have charges, this

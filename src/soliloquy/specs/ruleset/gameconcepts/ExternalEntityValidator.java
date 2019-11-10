@@ -23,7 +23,7 @@ public interface ExternalEntityValidator extends SoliloquyClass {
 
 	/**
 	 * @param itemType - The ItemType whose validity to check
-	 * @return True, if and only if itemType is a valid ItemType in this Game's Ruleset
+	 * @return True, if and only if type is a valid ItemType in this Game's Ruleset
 	 */
 	boolean itemTypeIsValid(ItemType itemType);
 }

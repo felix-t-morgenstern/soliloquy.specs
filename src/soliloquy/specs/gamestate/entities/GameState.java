@@ -6,6 +6,10 @@ import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
+import soliloquy.specs.gamestate.factories.CharacterFactory;
+import soliloquy.specs.gamestate.factories.ItemFactory;
+import soliloquy.specs.gamestate.factories.TileFactory;
+import soliloquy.specs.gamestate.factories.TimerFactory;
 import soliloquy.specs.ruleset.Ruleset;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 
@@ -82,4 +86,24 @@ public interface GameState extends SoliloquyClass {
 	 * @return The Ruleset
 	 */
 	Ruleset ruleset();
+
+	/**
+	 * @return The TileFactory
+	 */
+	TileFactory tileFactory();
+
+	/**
+	 * @return The ItemFactory
+	 */
+	ItemFactory itemFactory();
+
+	/**
+	 * @return The CharacterFactory
+	 */
+	CharacterFactory characterFactory();
+
+	/**
+	 * @return The TimerFactory
+	 */
+	TimerFactory timerFactory();
 }

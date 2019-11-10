@@ -25,16 +25,6 @@ import soliloquy.specs.sprites.entities.SpriteSet;
  */
 public interface ItemType extends HasPluralName, HasId {
 	/**
-	 * Creates an Item of this ItemType (likely to be placed on some Tile, CharacterInventory,
-	 * etc.)
-	 * @param params - Parameters regarding how this new Item will be created (e.g. its number of
-	 * charges, its enchantments, its condition), can be null
-	 * @return The newly-created Item
-	 * @throws IllegalArgumentException If tile is null
-	 */
-	Item generate(GenericParamsSet params) throws IllegalArgumentException;
-	
-	/**
 	 * @return The EquipmentType (e.g. helmets, necklaces, mystical auras, makeup) of this
 	 * ItemType; used to determine in which types of equipment slots this Item can be equipped
 	 */
