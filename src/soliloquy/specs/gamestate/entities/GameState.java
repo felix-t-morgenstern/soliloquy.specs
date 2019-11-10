@@ -103,4 +103,12 @@ public interface GameState extends SoliloquyClass {
 	/**
 	 */
 	TimerFactory timerFactory();
+
+	/**
+	 */
+	KeyBindingFactory keyBindingFactory();
+
+	/**
+	 */
+	KeyBindingContextFactory keyBindingContextFactory();
 }

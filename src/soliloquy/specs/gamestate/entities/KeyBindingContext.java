@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
  * <b>KeyBindingContext</b>
@@ -12,7 +13,12 @@ import soliloquy.specs.common.infrastructure.Map;
  * @version 0.0.1
  *
  */
-public interface KeyBindingContext extends Map<Character, KeyBinding> {
+public interface KeyBindingContext extends SoliloquyClass {
+	/**
+	 * @return A Collection of the KeyBindings in this context
+	 */
+	Collection<KeyBinding> bindings();
+
 	/**
 	 * @return True, if and only if all lower contexts' bindings are blocked
 	 */
