@@ -17,13 +17,6 @@ import soliloquy.specs.gamestate.entities.TileFixture;
  */
 public interface FixtureType extends TileObjectType, HasId {
 	/**
-	 * @param tile - The {@link Tile} on which to place the generated {@link TileFixture}. (This
-	 *             can be left null.)
-	 * @return The newly-generated {@link TileFixture}
-	 */
-	TileFixture generate(Tile tile);
-
-	/**
 	 * @return True, if and only if this FixtureType is a container (e.g. chests, bookshelves,
 	 * corpses, secret cracks in the floor)
 	 */

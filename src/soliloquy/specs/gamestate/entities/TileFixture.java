@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.shared.HasName;
+import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.ruleset.entities.FixtureType;
 
@@ -21,7 +22,7 @@ import soliloquy.specs.ruleset.entities.FixtureType;
  * @version 0.0.1
  *
  */
-public interface TileFixture extends GameEventTargetEntity, GameEntity, HasName {
+public interface TileFixture extends GameEventTargetEntity, GameEntity, HasName, HasUuid {
 	/**
 	 * @return The Tile on which this Fixture is affixed
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
@@ -34,7 +35,7 @@ public interface TileFixture extends GameEventTargetEntity, GameEntity, HasName 
 	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
 	 * FixtureType
 	 */
-	FixtureType fixtureType() throws IllegalStateException;
+	FixtureType type() throws IllegalStateException;
 
 	/**
 	 * @return The offset in pixels of this TileFixture from the defaultOffset (can be null)
