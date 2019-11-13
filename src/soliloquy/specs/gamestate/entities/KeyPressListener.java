@@ -6,7 +6,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import java.awt.event.KeyListener;
 
 /**
- * <b>KeyPressListener</b>
+ * <b>KeyPressListenerFactory</b>
  * <p>
  * This class responds to key press events by going through all current KeyBindingContexts, in
  * order.
@@ -18,7 +18,8 @@ import java.awt.event.KeyListener;
 public interface KeyPressListener extends KeyListener, SoliloquyClass {
     /**
      * @return An ordered collection of KeyBindingContexts; intended use is that KeyBindingContexts
-     * will be triggered by key press events in the order specified by the index of this Map.
+     * will be triggered by key press events in the order specified by the index of this Map, with
+     * lower-numbered indexes firing first.
      */
     Map<Integer,KeyBindingContext> contexts();
 }

@@ -45,6 +45,16 @@ public interface KeyBinding extends SoliloquyClass {
 	 * @param onRelease - The Action to fire when the bound key is pressed (Can be null)
 	 */
 	void setOnRelease(Action<Void> onRelease);
+
+	/**
+	 * @return The Action that is fired when this key is released
+	 */
+	Action<Void> getOnType();
+
+	/**
+	 * @param onType - The Action to fire when the bound key is typed (Can be null)
+	 */
+	void setOnType(Action<Void> onType);
 	
 	/**
 	 * @return True, if and only if this KeyBinding blocks KeyBindings in lower KeyBindingContexts
