@@ -204,7 +204,8 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	/**
 	 * <i>This method should return FALSE when a PC is charmed, confused, or otherwise only 
 	 * temporarily uncontrolled by the player. Logic to determine whether the player controls any 
-	 * particular PC should be handled //TODO: Specify where this should be handled
+	 * particular PC should be handled by the logic fed into the
+	 * {@link soliloquy.specs.gamestate.entities.RoundManager}'s constructor by the Ruleset.
 	 * @return True, if and only if this Character is controlled by the player
 	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
 	 * Character has been deleted, or if it has no Id
@@ -217,42 +218,6 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	 * Character has been deleted, or if it has no Id
 	 */
 	void setPlayerControlled(boolean playerControlled) throws IllegalStateException;
-	
-	/**
-	 * @return True, if and only if this Character is hidden
-	 * <p>
-	 * Hidden Characters do not interact with the GameWorld; they exist only to appear (or
-	 * reappear) later.
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	boolean getHidden() throws IllegalStateException;
-	
-	/**
-	 * @param hidden - Whether the Character will be set to be hidden
-	 * <p>
-	 * Hidden Characters do not interact with the GameWorld; they exist only to appear (or
-	 * reappear) later.
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	void setHidden(boolean hidden) throws IllegalStateException;
-	
-	/**
-	 * @return True, if and only if this Character is dead
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	boolean getDead() throws IllegalStateException;
-	
-	/**
-	 * If a Character is killed by setDead, they will not produce their default death
-	 * Animations/Sounds, they will not drop Items, etc.
-	 * @param dead - Whether the Character will be set to be dead
-	 * @throws IllegalStateException If this Character does not have a GameZone, or if this
-	 * Character has been deleted, or if it has no Id
-	 */
-	void setDead(boolean dead) throws IllegalStateException;
 	
 	/**
 	 * Deletes this Character. (Calling this method will remove this Character from its GameZone's

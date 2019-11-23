@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.HasId;
 
 /**
@@ -14,16 +13,15 @@ import soliloquy.specs.common.shared.HasId;
  */
 public interface Timer extends HasId, Deletable {
 	/**
-	 * <i>This method exists, because Timers will need to be saved according to their type; and
-	 * when the savefile is reloaded, those Timers will need to be regenerated merely by knowing
-	 * their type.
-	 * <p>
-	 * Therefore, Timers are expected to be constructed without any external parameters specifying
-	 * their behavior. Any contingencies in how they behave are to be handled by use of
-	 * IGlobalAccess.</i>
-	 * @return The Id of the TimerAction (which specifies what happens when the Timer is fired)
+	 * @return The Id of the type of {@link soliloquy.specs.common.entities.Action} which runs when
+	 * this Timer is fired
 	 */
-	Action<Void> action();
+	String actionTypeId();
+
+	/**
+	 * Fires the Timer. For {@link OneTimeTimer}s, this also calls {@link OneTimeTimer#delete}.
+	 */
+	void fire();
 	
 	/**
 	 * (NB: When multiple Timers firing on a Round have the same priority, all of them will be 
