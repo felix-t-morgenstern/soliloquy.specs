@@ -56,6 +56,11 @@ public interface GameState extends SoliloquyClass {
 	void setCurrentGameZone(GameZone gameZone);
 
 	/**
+	 * @return The Camera
+	 */
+	Camera camera();
+
+	/**
 	 * @return A Registry of game events triggered by a Character moving onto a Tile
 	 */
 	Registry<GameMovementEvent> movementEvents();

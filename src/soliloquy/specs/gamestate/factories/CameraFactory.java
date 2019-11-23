@@ -1,6 +1,9 @@
-package soliloquy.specs.gamestate.entities;
+package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.Camera;
+import soliloquy.specs.gamestate.entities.GameState;
+import soliloquy.specs.gamestate.entities.GameZone;
 
 /**
  * <b>CameraFactory</b>
