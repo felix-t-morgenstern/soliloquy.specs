@@ -1,12 +1,10 @@
 package soliloquy.specs.sprites.entities;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.shared.HasId;
 
 // TODO: Document this interface
-public interface SpriteSet extends SoliloquyClass {
-	String spriteSetTypeId();
-
+public interface SpriteSet extends HasId {
 	Sprite getSprite(String type);
 	
 	Sprite getSprite(String type, String direction);

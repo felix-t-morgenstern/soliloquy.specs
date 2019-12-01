@@ -146,7 +146,7 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	 * @return A Map, describing events which occur for this Character, given various types of
 	 * triggers
 	 */
-	Map<String, Collection<GameCharacterEvent>> events();
+	CharacterEvents events();
 	
 	/**
 	 * @return This Character's equipment slots, from which equipment can be accessed or modified
