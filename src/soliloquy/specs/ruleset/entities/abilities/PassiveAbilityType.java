@@ -1,11 +1,13 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
+import soliloquy.specs.gamestate.entities.CharacterStaticStatistic;
+
 /**
  * <b>PassiveAbilityType</b>
  * <p>
  * A Passive Ability belongs only to an {@link soliloquy.specs.gamestate.entities.Item}. (For
  * {@link soliloquy.specs.gamestate.entities.Character}s, the equivalent of a passive ability would
- * be represented through a {@link soliloquy.specs.gamestate.entities.CharacterStatistic}, a
+ * be represented through a {@link CharacterStaticStatistic}, a
  * {@link soliloquy.specs.gamestate.entities.CharacterStatusEffects}, or that Character's data.
  * <p>
  * It has an Id -- its Id identifies the effect it has, e.g. changing Attributes, Aptitudes, etc.

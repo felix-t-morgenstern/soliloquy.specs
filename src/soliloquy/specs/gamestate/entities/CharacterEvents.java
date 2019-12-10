@@ -34,24 +34,24 @@ public interface CharacterEvents extends Deletable {
      * @throws IllegalStateException If and only if the {@link Character} corresponding to this
      * class is deleted
      */
-    void clearEvent(String trigger) throws IllegalArgumentException, IllegalStateException;
+    void clearTrigger(String trigger) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * Clears all events for all trigger types for this {@link Character}
      * @throws IllegalStateException If and only if the {@link Character} corresponding to this
      * class is deleted
      */
-    void clearAllEvents() throws IllegalStateException;
+    void clearAllTriggers() throws IllegalStateException;
 
     /**
      * @param event - The Event whose corresponding triggers to retrieve. (A given event may be
      *              triggered by multiple types of triggers.)
-     * @return A Collection of all of the types of triggers which will trigger the specified event.
+     * @return A Collection of all of the triggers which will trigger the specified event.
      * @throws IllegalArgumentException If and only if event is null
      * @throws IllegalStateException If and only if the {@link Character} corresponding to this
      * class is deleted
      */
-    ReadableCollection<String> eventName(GameCharacterEvent event)
+    ReadableCollection<String> getTriggersForEvent(GameCharacterEvent event)
             throws IllegalArgumentException, IllegalStateException;
 
     /**

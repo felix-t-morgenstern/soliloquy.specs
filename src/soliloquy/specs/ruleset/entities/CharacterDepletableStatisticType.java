@@ -2,8 +2,9 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasPluralName;
 
+// TODO: Revise this documentation
 /**
- * <b>VitalAttribute</b>
+ * <b>CharacterDepletableStatisticType</b>
  * <p>
  * It has a name, a pluralized name, and an Id.
  * <p>

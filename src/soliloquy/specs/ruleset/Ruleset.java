@@ -1,10 +1,8 @@
 package soliloquy.specs.ruleset;
 
-import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.shared.EntityGroup;
 import soliloquy.specs.common.infrastructure.SettingsRepo;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.CharacterStatistic;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.*;
@@ -22,7 +20,9 @@ public interface Ruleset extends SoliloquyClass {
 	
 	EntityGroup<PassiveAbilityType> passiveAbilitiyTypes();
 
-	EntityGroup<CharacterStatisticType> characterStatisticTypes();
+	EntityGroup<CharacterDepletableStatisticType> characterDepletableStatisticTypes();
+
+	EntityGroup<CharacterStaticStatisticType> characterStaticStatisticTypes();
 	
 	Registry<CharacterClassification> characterClassifications();
 

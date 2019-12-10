@@ -16,9 +16,10 @@ import soliloquy.specs.ruleset.entities.CharacterDepletableStatisticType;
  * @version 0.0.1
  *
  */
-// NB: This interface does not extend CharacterStatistic, because it should not be able to be
-// stored alongside CharacterStatistic, e.g. Character::statistics
-public interface CharacterDepletableStatistic extends CharacterValueFromModifiers {
+// NB: This interface does not extend CharacterStaticStatistic, because it should not be able to be
+// stored alongside CharacterStaticStatistic, e.g. Character::statistics
+public interface CharacterDepletableStatistic extends
+		CharacterEntityOfType<CharacterDepletableStatisticType>, CharacterValueFromModifiers {
 	/**
 	 * @return The type of this CharacterDepletableStatistic
 	 * @throws IllegalStateException If the Character has been deleted

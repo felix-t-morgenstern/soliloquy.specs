@@ -16,7 +16,8 @@ import soliloquy.specs.ruleset.entities.abilities.AbilityType;
  * @version 0.0.1
  *
  */
-public interface CharacterAbility<TAbilityType extends AbilityType> extends Deletable {
+public interface CharacterAbility<TAbilityType extends AbilityType>
+		extends CharacterEntityOfType<TAbilityType>, Deletable {
 	/**
 	 * @return True, if and only if this Ability is hidden (and is thus unusable) for this
 	 * Character
@@ -40,9 +41,4 @@ public interface CharacterAbility<TAbilityType extends AbilityType> extends Dele
 	 * Character
 	 */
 	void setIsDisabled(boolean isDisabled);
-	
-	/**
-	 * @return The type of the Ability
-	 */
-	TAbilityType abilityType();
 }

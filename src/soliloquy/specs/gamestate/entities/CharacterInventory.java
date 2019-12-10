@@ -17,7 +17,7 @@ import soliloquy.specs.common.infrastructure.ReadableCollection;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterInventory extends Deletable {
+public interface CharacterInventory extends Iterable<Item>, Deletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this Character's
      * inventory. To add or remove Items, use the other methods specified.</i>
