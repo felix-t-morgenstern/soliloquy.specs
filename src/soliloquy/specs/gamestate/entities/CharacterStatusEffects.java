@@ -35,7 +35,7 @@ public interface CharacterStatusEffects extends Deletable {
 	 * Character is not zero.
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 */
-	ReadableMap<StatusEffectType,Integer> allStatusEffectsRepresentation()
+	ReadableMap<StatusEffectType,Integer> representation()
 			throws IllegalStateException;
 	
 	/**

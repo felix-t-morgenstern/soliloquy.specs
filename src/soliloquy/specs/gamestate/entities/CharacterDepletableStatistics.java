@@ -23,18 +23,4 @@ public interface CharacterDepletableStatistics
      * @return A read-only map linking each present stat type to its maximum value
      */
     ReadableMap<CharacterDepletableStatisticType, Integer> maxValues();
-
-    /**
-     * @param statType - The type of stat whose current value to retrieve
-     * @return The current value of the provided stat type
-     * @throws IllegalArgumentException If and only if statType is null
-     */
-    int getCurrentValue(CharacterDepletableStatisticType statType) throws IllegalArgumentException;
-
-    /**
-     * @param statType - The type of stat whose maximum value to retrieve
-     * @return The maximum value of the provided stat type
-     * @throws IllegalArgumentException If and only if statType is null
-     */
-    int getMaxValue(CharacterDepletableStatisticType statType) throws IllegalArgumentException;
 }

@@ -19,10 +19,10 @@ import java.util.function.Function;
 public interface CharacterEntitiesOfTypeFactory extends SoliloquyClass {
     <TEntityType extends HasId, TCharacterEntityOfType extends CharacterEntityOfType<TEntityType>>
     CharacterEntitiesOfType<TEntityType, TCharacterEntityOfType>
-        make(Character character, TEntityType archetype)
+        make(Character character, TCharacterEntityOfType archetype)
             throws IllegalArgumentException;
 
     <TEntityType extends HasId, TCharacterEntityOfType extends CharacterEntityOfType<TEntityType>>
-    void registerFactory(TEntityType archetype, Function<TEntityType,Function<Character,
+    void registerFactory(TCharacterEntityOfType archetype, Function<TEntityType,Function<Character,
             TCharacterEntityOfType>> entityFactory) throws IllegalArgumentException;
 }
