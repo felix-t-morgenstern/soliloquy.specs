@@ -2,24 +2,21 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.ReadableCollection;
 import soliloquy.specs.common.infrastructure.ReadableMap;
+import soliloquy.specs.common.infrastructure.ReadablePair;
 
 /**
- * <b>TileFixtures</b>
+ * <b>TileWallSegments</b>
  * <p>
  * This class handles TileWallSegments present on a Tile. It exists to handle invariants which must
  * be enforced, since a Tile should know its TileWallSegments, and TileWallSegments should know
  * their Tile. To be more specific, every TileWallSegment on a Tile should know that it belongs to
  * that Tile, and vice-versa.
- * <p>
- * This class also supports providing a <i>representation</i> of the TileWallSegments on this Tile;
- * i.e., a Map containing all of those TileWallSegments. <u>Editing the Map provided by
- * getRepresentation will not change the TileWallSegments on the Tile.</u> To do
- * that, use the add and remove methods, also provided.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface TileWallSegments extends Deletable {
+public interface TileWallSegments
+        extends Iterable<ReadablePair<TileWallSegment,TileWallSegmentDirection>>, Deletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the TileWallSegments on this Tile. To
      * add or remove a TileWallSegment, use the other methods specified.</i>
@@ -57,6 +54,19 @@ public interface TileWallSegments extends Deletable {
      */
     boolean contains(TileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
+
+    /**
+     * @return The number of TileWallSegments on this Tile
+     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     */
+    int size() throws IllegalStateException;
+
+    /**
+     * @param direction - The direction for which to retrieve the number of wall segments
+     * @return The number of TileWallSegments on this Tile in the specified direction
+     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     */
+    int size(TileWallSegmentDirection direction) throws IllegalStateException;
 
     /**
      * @param tileWallSegment - The {@link TileWallSegment} whose {@link TileWallSegmentDirection}

@@ -7,9 +7,7 @@ public enum TileWallSegmentDirection {
     NORTHWEST(2),
     WEST(3);
 
-    private int _value;
-
-    private TileWallSegmentDirection(int value) {
-        _value = value;
+    @SuppressWarnings("unused")
+    TileWallSegmentDirection(int value) {
     }
-};
+}

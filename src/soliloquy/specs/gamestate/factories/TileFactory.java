@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
+import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.gamestate.entities.GameZone;
@@ -20,9 +21,11 @@ public interface TileFactory extends SoliloquyClass {
      * specified location.)
      * @param gameZone - The GameZone to which to assign the created Tile
      * @param location - The coordinate to which to assign the created Tile
+     * @param data - The data for the newly-created Tile
      * @return The created Tile
      * @throws IllegalArgumentException If and only if gameZone is null or deleted or location is
      * null
      */
-    Tile make(GameZone gameZone, ReadableCoordinate location) throws IllegalArgumentException;
+    Tile make(GameZone gameZone, ReadableCoordinate location, GenericParamsSet data)
+            throws IllegalArgumentException;
 }

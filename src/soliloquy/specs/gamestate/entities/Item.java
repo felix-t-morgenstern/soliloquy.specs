@@ -19,7 +19,7 @@ import soliloquy.specs.ruleset.entities.ItemType;
  * @version 0.0.1
  *
  */
-public interface Item extends GameEntity, HasPluralName, HasUuid {
+public interface Item extends TileEntity, HasPluralName, HasUuid {
 	/**
 	 * @return The ItemType of this Item
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
@@ -102,7 +102,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	Character getInventoryCharacter() throws IllegalStateException;
+	Character inventoryCharacter() throws IllegalStateException;
 	
 	/**
 	 * @return A Pair containing the {@link Character} and the equipment slot type in which this
@@ -112,17 +112,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	Pair<Character,String> getCharacterEquipmentSlot() throws IllegalStateException;
-	
-	/**
-	 * @return The {@link Tile} on which this Item is stored (Note that this means on the ground,
-	 * and not in a container.)
-	 * @throws IllegalStateException - If this Item is not present on the Tile, CharacterInventory,
-	 * etc. to which it has been assigned, or if it has no Id, or if it has been deleted. It is
-	 * legal for an Item to have no locations, e.g. when it has not yet been placed, or after it
-	 * has been removed from an EquipmentSlot.
-	 */
-	Tile getContainingTile() throws IllegalStateException;
+	Pair<Character,String> equipmentSlot() throws IllegalStateException;
 	
 	/**
 	 * @return The {@link TileFixture} in which this Item is stored
@@ -131,7 +121,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
 	 */
-	TileFixture getContainingTileFixture() throws IllegalStateException;
+	TileFixture tileFixture() throws IllegalStateException;
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by
@@ -143,7 +133,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	void assignCharacterEquipmentSlotToItemAfterAddingToCharacterEquipmentSlot(
+	void assignEquipmentSlotAfterAddedToCharacterEquipmentSlot(
 			Character character, String equipmentSlotType)
 			throws IllegalStateException, IllegalArgumentException;
 
@@ -156,7 +146,7 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	void assignCharacterInventoryToItemAfterAddingToCharacterInventory(
+	void assignInventoryCharacterAfterAddedToCharacterInventory(
 			Character character)
 			throws IllegalStateException, IllegalArgumentException;
 
@@ -170,19 +160,6 @@ public interface Item extends GameEntity, HasPluralName, HasUuid {
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
 	 */
-	void assignTileFixtureToItemAfterAddingItemToTileFixtureItems(TileFixture tileFixture)
+	void assignTileFixtureAfterAddedItemToTileFixtureItems(TileFixture tileFixture)
 			throws IllegalArgumentException, IllegalStateException;
-
-	/**
-	 * <b>NB: This method is intended to <u>only</u> be used by {@link TileItems#add} and
-	 * {@link TileItems#remove}; it is intended to check whether the Tile assigned to this Item has
-	 * this Item in its TileItems, prior to assignment.</b>
-	 * @param tile - The {@link Tile} which to assign to this Item
-	 * @throws IllegalArgumentException If and only if tileFixture is null, or tile does not
-	 * contain this Item
-	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
-	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
-	 */
-	void assignTileToItemAfterAddingItemToTileItems(Tile tile)
-			throws IllegalStateException, IllegalArgumentException;
 }

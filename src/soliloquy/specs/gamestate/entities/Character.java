@@ -27,7 +27,7 @@ import soliloquy.specs.sprites.entities.SpriteSet;
  * @version 0.0.1
  *
  */
-public interface Character extends GameEntity, HasName, HasUuid {
+public interface Character extends TileEntity, HasName, HasUuid {
 	/**
 	 * @return The CharacterType of this Character
 	 * <p>
@@ -62,12 +62,6 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	 * @throws IllegalStateException If this Character has been deleted
 	 */
 	GenericParamsSet data() throws IllegalStateException;
-
-	/**
-	 * @return The Tile on which this Character sits
-	 * @throws IllegalStateException If this Character has been deleted
-	 */
-	Tile tile() throws IllegalStateException;
 	
 	/**
 	 * @return The stance of the Character; e.g. "combat-ready", "attacking", "near-death"; which
@@ -209,16 +203,4 @@ public interface Character extends GameEntity, HasName, HasUuid {
 	 * @throws IllegalStateException If this Character has been deleted
 	 */
 	void delete() throws IllegalStateException;
-
-	/**
-	 * <b>NB: This method is intended to <b><u>only</u></b> be used by {@link TileCharacters#add}
-	 * and {@link TileCharacters#remove}; it is intended to check whether the Tile assigned to this
-	 * Character has this Character on it, prior to assignment.</b>
-	 * @param tile - The Tile to which to assign to this Character
-	 * @throws IllegalArgumentException If and only if tile is null, or tile does not contain this
-	 * Character
-	 * @throws IllegalStateException If this Character has been deleted
-	 */
-	void assignToTileAfterAddingToTileCharacters(Tile tile)
-			throws IllegalArgumentException, IllegalStateException;
 }

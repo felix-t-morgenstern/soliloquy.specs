@@ -1,7 +1,5 @@
 package soliloquy.specs.common.infrastructure;
 
-import soliloquy.specs.common.shared.HasTwoGenericParams;
-
 /**
  * <b>Pair</b>
  * <p>
@@ -10,31 +8,23 @@ import soliloquy.specs.common.shared.HasTwoGenericParams;
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
- * @param <I1> The type of the first entity
- * @param <I2> The type of the second entity
+ * @param <T1> The type of the first entity
+ * @param <T2> The type of the second entity
  */
-public interface Pair<I1,I2> extends HasTwoGenericParams<I1,I2> {
-	/**
-	 * @return The first item
-	 */
-	I1 getItem1();
-	
+public interface Pair<T1, T2> extends ReadablePair<T1, T2> {
 	/**
 	 * @param item - The value to which to set the first item
 	 * @throws IllegalArgumentException If the item provided is an illegal value, e.g. null,
 	 * out-of-range, invalid Id, etc.
 	 */
-	void setItem1(I1 item) throws IllegalArgumentException;
-	
-	/**
-	 * @return The second item
-	 */
-	I2 getItem2();
+	void setItem1(T1 item) throws IllegalArgumentException;
 	
 	/**
 	 * @param item - The value to which to set the second item
 	 * @throws IllegalArgumentException If the item provided is an illegal value, e.g. null,
 	 * out-of-range, invalid Id, etc.
 	 */
-	void setItem2(I2 item) throws IllegalArgumentException;
+	void setItem2(T2 item) throws IllegalArgumentException;
+
+	ReadablePair<T1, T2> representation();
 }

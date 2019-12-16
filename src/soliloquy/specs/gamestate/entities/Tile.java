@@ -1,7 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
@@ -62,19 +61,19 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	/**
 	 * @return An interface for obtaining and editing the Characters on this Tile
 	 */
-	TileCharacters characters();
+	TileEntities<Character> characters();
 
 	/**
 	 * @return An interface for obtaining and editing the Items on this Tile
 	 */
-	TileItems items();
+	TileEntities<Item> items();
 	
 	/**
 	 * @return A numbered Map of TileFixtures, where the numerical index of the Map corresponds to
 	 * the Z order of TileFixtures on this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	TileFixtures fixtures() throws IllegalStateException;
+	TileEntities<TileFixture> fixtures() throws IllegalStateException;
 
 	/**
 	 * This is a numbered Map of numbered Maps of TileWallSegments.
@@ -107,5 +106,5 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	 * corresponds to the Z order of Sprites on this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	Map<Integer, Collection<Sprite>> sprites() throws IllegalStateException;
+	Collection<Sprite> sprites() throws IllegalStateException;
 }
