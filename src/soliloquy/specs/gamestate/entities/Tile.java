@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
@@ -102,9 +103,9 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	Collection<GameAbilityEvent> abilityEvents() throws IllegalStateException;
 	
 	/**
-	 * @return A numbered Map of Sprites on this Tile, where the numerical index of the Map
-	 * corresponds to the Z order of Sprites on this Tile
+	 * @return A numbered Map of Sprites on this Tile, where the numerical value of the Map
+	 * corresponds to the Z order of that Sprite on this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	Collection<Sprite> sprites() throws IllegalStateException;
+	Map<Sprite, Integer> sprites() throws IllegalStateException;
 }
