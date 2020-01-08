@@ -1,8 +1,8 @@
 package soliloquy.specs.audio.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.valueobjects.EntityUuid;
+import soliloquy.specs.common.infrastructure.ReadableCollection;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.EntityUuid;
 
 /**
  * <b>SoundsPlaying</b>
@@ -16,11 +16,16 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface SoundsPlaying extends SoliloquyClass {
+public interface SoundsPlaying extends SoliloquyClass, Iterable<Sound> {
 	/**
-	 * @return A collection of all sounds currently being played.
+	 * @return The number of Sounds currently playing
 	 */
-	Collection<Sound> allSoundsPlaying();
+	int size();
+
+	/**
+	 * @return A read-only collection of all sounds currently being played
+	 */
+	ReadableCollection<Sound> representation();
 	
 	/**
 	 * @param soundId - The id to check for
