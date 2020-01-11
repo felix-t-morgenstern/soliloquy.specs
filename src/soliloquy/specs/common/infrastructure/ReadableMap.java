@@ -40,14 +40,6 @@ public interface ReadableMap<K,V>
     boolean contains(Pair<K,V> item) throws IllegalArgumentException;
 
     /**
-     * @param items - The Collection whose contents to compare to this Map
-     * @return True, if and only if every item which is present in items is a value present in this
-     * Map
-     * @throws IllegalArgumentException If items is null
-     */
-    boolean equals(ReadableCollection<V> items) throws IllegalArgumentException;
-
-    /**
      * @param map - The Map to compare to this Map
      * @return True, if and only if every key in this Map is present in map, and if every key in
      * this Map corresponds to the same value in map

@@ -1,7 +1,6 @@
 package soliloquy.specs.common.infrastructure;
 
 import soliloquy.specs.common.shared.HasId;
-import soliloquy.specs.common.shared.HasOneGenericParam;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 
 /**
@@ -19,7 +18,7 @@ import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericParam<T> {
+public interface Registry<T extends HasId> extends Collection<T> {
     /**
      * @param id - The Id of the type of the entity whose presence to verify
      * @return True, if and only if an item with the provided id is in this registry
@@ -33,21 +32,9 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
     T get(String id);
 
     /**
-     * @param item - The type to register into this registry. If a type with the same Id exists, it
-     *             is replaced by type.
-     * @throws IllegalArgumentException If and only if item is null, or has an empty or null id
-     */
-    void register(T item) throws IllegalArgumentException;
-
-    /**
      * @param id - The Id of the entity to remove
      * @return True, if and only if an entity with that id was removed (and was therefore in the
      * registry)
      */
     boolean remove(String id);
-
-    /**
-     * @return The number of items in the Registry
-     */
-    int size();
 }

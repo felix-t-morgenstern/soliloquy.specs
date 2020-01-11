@@ -57,19 +57,12 @@ public interface Collection<V> extends ReadableCollection<V> {
 	 * @return true if an element was removed as a result of this call
 	 * @throws UnsupportedOperationException If item removal is not supported in this Collection
 	 */
-	boolean removeItem(V item) throws UnsupportedOperationException;
-
-	/**
-	 * @return A collection of validators, which are run against all incoming values. If any of the
-	 * validators reject an input, the resulting string is non-null, and that string is used in a
-	 * thrown IllegalArgumentException.
-	 */
-	Collection<Function<V,String>> validators();
+	boolean remove(V item) throws UnsupportedOperationException;
 
 	/**
 	 * NB: This method exists so that any Collections produced by a {@link CollectionFactory}
 	 * cannot be cast to a (non-read-only) Collection by a particularly clever developer
 	 * @return A read-only representation of this Collection
 	 */
-	ReadableCollection<V> readOnlyRepresentation();
+	ReadableCollection<V> representation();
 }

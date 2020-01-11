@@ -31,7 +31,7 @@ public interface CharacterValueFromModifiers extends Deletable {
 	 * value.
 	 * @throws IllegalStateException If the Character has been deleted
 	 */
-	ReadableMap<String,Integer> modifiersRepresentation() throws IllegalStateException;
+	ReadableMap<String,Integer> representation() throws IllegalStateException;
 	
 	/**
 	 * Calculates the value of this CharacterValueFromModifiers (using a calculator from the 
@@ -39,5 +39,5 @@ public interface CharacterValueFromModifiers extends Deletable {
 	 * CharacterStatisticCalculation})
 	 * @throws IllegalStateException If the Character has been deleted
 	 */
-	void calculateValue() throws IllegalStateException;
+	void calculate() throws IllegalStateException;
 }
