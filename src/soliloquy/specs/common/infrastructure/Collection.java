@@ -38,7 +38,7 @@ public interface Collection<V> extends ReadableCollection<V> {
 	 * @param items - items whose presence in this collection is to be ensured
 	 * @throws UnsupportedOperationException If item addition is not supported in this Collection
 	 */
-	void addAll(Collection<? extends V> items) throws UnsupportedOperationException;
+	void addAll(ReadableCollection<? extends V> items) throws UnsupportedOperationException;
 
 	/**
 	 * @param items - items whose presence in this collection is to be ensured
