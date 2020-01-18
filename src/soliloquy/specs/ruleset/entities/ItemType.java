@@ -1,17 +1,15 @@
 package soliloquy.specs.ruleset.entities;
 
+import soliloquy.specs.common.entities.Function;
+import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.gamestate.entities.Item;
-import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
-import soliloquy.specs.common.entities.Function;
-import soliloquy.specs.common.shared.HasId;
-import soliloquy.specs.common.shared.HasPluralName;
-import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.sprites.entities.SpriteSet;
 
 /**
@@ -48,7 +46,7 @@ public interface ItemType extends HasPluralName, HasId {
 	 * @return Collections of item traits, for various types of traits (strings, ints, booleans,
 	 * etc.) 
 	 */
-	GenericParamsSet traits();
+	VariableCache traits();
 	
 	/**
 	 * A stackable ItemType would be something like "stone", where an Item of this ItemType can

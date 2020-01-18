@@ -1,9 +1,9 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
-import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.common.valueobjects.EntityUuid;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.EntityUuid;
+import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.CharacterType;
 
 /**
@@ -36,6 +36,6 @@ public interface CharacterFactory extends SoliloquyClass {
 	 * @return The newly-created {@link Character}
 	 * @throws IllegalArgumentException If and only if characterType or entityUuid is null
 	 */
-	Character make(CharacterType characterType, EntityUuid entityUuid, GenericParamsSet data)
+	Character make(CharacterType characterType, EntityUuid entityUuid, VariableCache data)
 			throws IllegalArgumentException;
 }

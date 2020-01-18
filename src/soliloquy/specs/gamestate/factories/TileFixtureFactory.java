@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.gamestate.entities.TileFixture;
@@ -21,7 +21,7 @@ public interface TileFixtureFactory extends SoliloquyClass {
      * @return The newly-created TileFixture
      * @throws IllegalArgumentException If and only if type is null
      */
-    TileFixture make(FixtureType type, GenericParamsSet data) throws IllegalArgumentException;
+    TileFixture make(FixtureType type, VariableCache data) throws IllegalArgumentException;
 
     /**
      * @param type - The type of the newly-created TileFixture
@@ -30,6 +30,6 @@ public interface TileFixtureFactory extends SoliloquyClass {
      * @return The newly-created TileFixture
      * @throws IllegalArgumentException If and only if type or id is null
      */
-    TileFixture make(FixtureType type, GenericParamsSet data, EntityUuid id)
+    TileFixture make(FixtureType type, VariableCache data, EntityUuid id)
             throws IllegalArgumentException;
 }

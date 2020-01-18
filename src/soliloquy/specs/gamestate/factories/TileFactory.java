@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.GameZone;
 import soliloquy.specs.gamestate.entities.Tile;
@@ -26,6 +26,6 @@ public interface TileFactory extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if gameZone is null or deleted or location is
      * null
      */
-    Tile make(GameZone gameZone, int x, int y, GenericParamsSet data)
+    Tile make(GameZone gameZone, int x, int y, VariableCache data)
             throws IllegalArgumentException;
 }

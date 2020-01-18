@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.TileWallSegment;
 
@@ -22,5 +22,5 @@ public interface TileWallSegmentFactory extends SoliloquyClass {
      * @param data - The data to assign to the newly-created TileWallSegment
      * @return A newly-created TileWallSegment with the provided data
      */
-    TileWallSegment make(GenericParamsSet data);
+    TileWallSegment make(VariableCache data);
 }

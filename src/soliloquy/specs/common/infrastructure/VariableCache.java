@@ -1,5 +1,6 @@
 package soliloquy.specs.common.infrastructure;
 
+import soliloquy.specs.common.shared.Cloneable;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -23,7 +24,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface VariableCache extends SoliloquyClass {
+public interface VariableCache extends Cloneable<VariableCache>, SoliloquyClass {
 	/**
 	 * @param name - The name of the persistent variable
 	 * @param value - The value of the persistent variable

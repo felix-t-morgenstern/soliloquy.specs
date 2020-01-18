@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.gamestate.entities.Item;
@@ -21,7 +21,7 @@ public interface ItemFactory extends SoliloquyClass {
      * @return The newly-created Item
      * @throws IllegalArgumentException If type is null
      */
-    Item make(ItemType itemType, GenericParamsSet data) throws IllegalArgumentException;
+    Item make(ItemType itemType, VariableCache data) throws IllegalArgumentException;
 
     /**
      * @param itemType - The type of Item to create
@@ -30,5 +30,5 @@ public interface ItemFactory extends SoliloquyClass {
      * @return The newly-created Item
      * @throws IllegalArgumentException If type or id is null
      */
-    Item make(ItemType itemType, GenericParamsSet data, EntityUuid id) throws IllegalArgumentException;
+    Item make(ItemType itemType, VariableCache data, EntityUuid id) throws IllegalArgumentException;
 }

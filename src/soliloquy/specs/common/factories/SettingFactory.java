@@ -1,8 +1,8 @@
 package soliloquy.specs.common.factories;
 
 import soliloquy.specs.common.infrastructure.Setting;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
 
 /**
  * <b>SettingFactory</b>
@@ -21,5 +21,5 @@ public interface SettingFactory extends SoliloquyClass {
 	 * @param controlParams - The control parameters, e.g. specifications for UI
 	 * @return The Setting
 	 */
-	<T> Setting<T> make(String id, String name, T defaultValue, GenericParamsSet controlParams);
+	<T> Setting<T> make(String id, String name, T defaultValue, VariableCache controlParams);
 }

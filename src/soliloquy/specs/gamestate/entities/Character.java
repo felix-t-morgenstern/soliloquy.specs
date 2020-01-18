@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
@@ -61,7 +61,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @return Traits of this Character
 	 * @throws IllegalStateException If this Character has been deleted
 	 */
-	GenericParamsSet data() throws IllegalStateException;
+	VariableCache data() throws IllegalStateException;
 	
 	/**
 	 * @return The stance of the Character; e.g. "combat-ready", "attacking", "near-death"; which

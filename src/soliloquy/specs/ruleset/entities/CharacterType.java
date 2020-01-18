@@ -1,9 +1,8 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
@@ -29,7 +28,7 @@ public interface CharacterType extends HasPluralName, HasId {
 	 *                  etc.); can be null
 	 * @return The newly-created Character
 	 */
-	Character generate(Tile tile, GenericParamsSet params);
+	Character generate(Tile tile, VariableCache params);
 
 	/**
 	 * The name keys of this Map are names of the triggering events which cause the corresponding

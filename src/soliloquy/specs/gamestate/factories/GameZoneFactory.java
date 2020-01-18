@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.gamestate.entities.GameZone;
@@ -26,6 +26,6 @@ public interface GameZoneFactory extends SoliloquyClass {
      * maxCoordinates is null or invalid
      */
     GameZone make(String id, String name, String zoneType, ReadableCoordinate maxCoordinates,
-                  GenericParamsSet data)
+                  VariableCache data)
             throws IllegalArgumentException;
 }

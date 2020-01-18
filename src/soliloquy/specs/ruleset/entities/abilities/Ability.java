@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.GameEntity;
@@ -42,7 +42,7 @@ public interface Ability extends GameEntity, HasName, HasGlobalAccess {
 	 * useful for items, whose effects don't depend completely on Character stats.
 	 * @throws IllegalStateException If this Ability has been deleted
 	 */
-	GenericParamsSet abilityParams() throws IllegalStateException;
+	VariableCache abilityParams() throws IllegalStateException;
 	
 	/**
 	 * Only considered for Items' Abilities

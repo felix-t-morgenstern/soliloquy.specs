@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -23,5 +23,5 @@ public interface Party extends SoliloquyClass {
 	/**
 	 * @return A set of characterStatisticTypes of the Party, e.g. gold, military rank, group combat blessings
 	 */
-	GenericParamsSet partyAttributes();
+	VariableCache partyAttributes();
 }

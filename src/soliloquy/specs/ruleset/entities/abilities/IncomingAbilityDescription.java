@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.infrastructure.GenericParamsSet;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -36,5 +36,5 @@ public interface IncomingAbilityDescription extends SoliloquyClass {
 	/**
 	 * @return Parameters describing the Ability (e.g. its effectiveness)
 	 */
-	GenericParamsSet incomingAbilityParams();
+	VariableCache incomingAbilityParams();
 }

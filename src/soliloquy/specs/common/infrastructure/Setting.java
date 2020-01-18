@@ -32,5 +32,5 @@ public interface Setting<T> extends HasId, HasName, HasOneGenericParam<T> {
 	 * @return Parameters determining how the control for this setting appears in the UI (e.g.
 	 * whether it is a slider, a text field, etc.; whether it is hidden; etc.)
 	 */
-	GenericParamsSet controlParams();
+	VariableCache controlParams();
 }
