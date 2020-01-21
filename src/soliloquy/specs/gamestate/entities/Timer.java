@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.HasId;
 
 /**
@@ -16,7 +17,7 @@ public interface Timer extends HasId, Deletable {
 	 * @return The Id of the type of {@link soliloquy.specs.common.entities.Action} which runs when
 	 * this Timer is fired
 	 */
-	String actionTypeId();
+	Action action();
 
 	/**
 	 * Fires the Timer. For {@link OneTimeTimer}s, this also calls {@link OneTimeTimer#delete}.

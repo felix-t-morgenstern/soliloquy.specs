@@ -26,7 +26,7 @@ public interface TimerFactory extends SoliloquyClass {
 	 * TimerType,
 	 * or if roundWhenGoesOff is less than 1, or if roundWhenGoesOff has already elapsed.
 	 */
-	OneTimeTimer makeOneTimeTimer(String timerId, Action<Void> action, long roundWhenGoesOff)
+	OneTimeTimer makeOneTimeTimer(String timerId, Action action, long roundWhenGoesOff)
 			throws IllegalArgumentException;
 	
 	/**
@@ -40,7 +40,7 @@ public interface TimerFactory extends SoliloquyClass {
 	 * TimerType, or if roundsBetweenFiring is less than 1, or if roundsBeforeFiring is less than 1
 	 * or greater than roundsBetweenFiring
 	 */
-	RecurringTimer makeRecurringTimer(String timerId, Action<Void> action, int roundModulo,
+	RecurringTimer makeRecurringTimer(String timerId, Action action, int roundModulo,
 									  int roundOffset)
 			throws IllegalArgumentException;
 }
