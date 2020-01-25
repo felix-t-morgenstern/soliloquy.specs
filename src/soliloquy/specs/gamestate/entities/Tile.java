@@ -31,7 +31,6 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	/**
 	 * @return The Coordinate at which this Tile is located
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location
-	 * specified by {@link #location}
 	 */
 	ReadableCoordinate location() throws IllegalStateException;
 	
@@ -108,4 +107,16 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
 	Map<Sprite, Integer> sprites() throws IllegalStateException;
+
+	/**
+	 * <b>NB: This method is intended to <b><u>only</u></b> be used by the constructor of
+	 * {@link GameZone}; it is intended to check whether the GameZone assigned to this entity has
+	 * this entity on it, prior to assignment.</b>
+	 * @param gameZone - The Tile to which to assign to this entity (may be null)
+	 * @throws IllegalArgumentException If and only if gameZone is null, or gameZone does not
+	 * contain this entity
+	 * @throws IllegalStateException If this entity has been deleted
+	 */
+	void assignGameZoneAfterAddedToGameZone(GameZone gameZone)
+			throws IllegalArgumentException, IllegalStateException;
 }

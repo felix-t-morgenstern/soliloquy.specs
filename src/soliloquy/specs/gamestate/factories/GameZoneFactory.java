@@ -2,8 +2,8 @@ package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.gamestate.entities.GameZone;
+import soliloquy.specs.gamestate.entities.Tile;
 
 /**
  * <b>GameZoneFactory</b>
@@ -15,17 +15,17 @@ import soliloquy.specs.gamestate.entities.GameZone;
  */
 public interface GameZoneFactory extends SoliloquyClass {
     /**
+     * <i>NB: This method is intended to be called by
+     * {@link soliloquy.specs.gamestate.entities.GameZonesRepo#getGameZone}.</i>
      * @param id - The Id of the newly-created GameZone
-     * @param name - The name of the newly-created GameZone
      * @param zoneType - The type of the newly-created GameZone (e.g. Town, Outdoors, Dungeon,
      *                 Cutscene, etc.); may be null or empty
-     * @param maxCoordinates - The maximum coordinates in the newly-created GameZone
+     * @param tiles - The Tiles in the newly-created GameZone
      * @param data - The data for the newly-created GameZone; may be null
      * @return A newly-created GameZone
      * @throws IllegalArgumentException If and only if id, name or type are null or empty, or
      * maxCoordinates is null or invalid
      */
-    GameZone make(String id, String name, String zoneType, ReadableCoordinate maxCoordinates,
-                  VariableCache data)
+    GameZone make(String id, String zoneType, Tile[][] tiles, VariableCache data)
             throws IllegalArgumentException;
 }

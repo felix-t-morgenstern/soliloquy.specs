@@ -28,15 +28,16 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 	/**
 	 * @return The maximum x and y values of Coordinates in the GameZone
 	 */
-	ReadableCoordinate getMaxCoordinates();
+	ReadableCoordinate maxCoordinates();
 	
 	/**
-	 * @param coordinate - The coordinate of the Tile to return
+	 * @param x - The x coordinate of the Tile to return
+	 * @param y - The y coordinate of the Tile to return
 	 * @return The Tile at those coordinates
-	 * @throws IllegalArgumentException If coordinate is null, or coordinate is beyond the
-	 * dimensions of the GameZone
+	 * @throws IllegalArgumentException If the x or y coordinate is beyond the dimensions of the
+	 * GameZone
 	 */
-	Tile tile(ReadableCoordinate coordinate) throws IllegalArgumentException;
+	Tile tile(int x, int y) throws IllegalArgumentException;
 
 	/**
 	 * @return A Collection of Actions which are fired when the Party enters this GameZone.
