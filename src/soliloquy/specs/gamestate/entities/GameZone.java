@@ -44,7 +44,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 	 * <p>
 	 * (It is expected that this will be called when GameState.setCurrentGameZone is called.)
 	 */
-	Collection<Action<Void>> onEntry();
+	Collection<Action> onEntry();
 	
 	/**
 	 * @return A Collection of Actions which are fired when the Party leaves this GameZone.
@@ -53,5 +53,5 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 	 * <p>
 	 * (Also, this is where Timers which are intended only for this GameZone can be eliminated.)
 	 */
-	Collection<Action<Void>> onExit();
+	Collection<Action> onExit();
 }

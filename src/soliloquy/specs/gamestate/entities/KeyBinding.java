@@ -29,32 +29,38 @@ public interface KeyBinding extends SoliloquyClass {
 	/**
 	 * @return The Action that is fired when this key is pressed
 	 */
-	Action<Void> getOnPress();
+	@SuppressWarnings("rawtypes")
+	Action getOnPress();
 	
 	/**
 	 * @param onPress - The Action to fire when the bound key is pressed (Can be null)
 	 */
-	void setOnPress(Action<Void> onPress);
+	@SuppressWarnings("rawtypes")
+	void setOnPress(Action onPress);
 
 	/**
 	 * @return The Action that is fired when this key is released
 	 */
-	Action<Void> getOnRelease();
+	@SuppressWarnings("rawtypes")
+	Action getOnRelease();
 
 	/**
 	 * @param onRelease - The Action to fire when the bound key is pressed (Can be null)
 	 */
-	void setOnRelease(Action<Void> onRelease);
+	@SuppressWarnings("rawtypes")
+	void setOnRelease(Action onRelease);
 
 	/**
 	 * @return The Action that is fired when this key is released
 	 */
-	Action<Void> getOnType();
+	@SuppressWarnings("rawtypes")
+	Action getOnType();
 
 	/**
 	 * @param onType - The Action to fire when the bound key is typed (Can be null)
 	 */
-	void setOnType(Action<Void> onType);
+	@SuppressWarnings("rawtypes")
+	void setOnType(Action onType);
 	
 	/**
 	 * @return True, if and only if this KeyBinding blocks KeyBindings in lower KeyBindingContexts
