@@ -23,5 +23,5 @@ public interface Party extends SoliloquyClass {
 	/**
 	 * @return A set of characterStatisticTypes of the Party, e.g. gold, military rank, group combat blessings
 	 */
-	VariableCache partyAttributes();
+	VariableCache attributes();
 }

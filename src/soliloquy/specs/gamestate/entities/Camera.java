@@ -1,9 +1,12 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.ruleset.gameconcepts.TileVisibility;
 
 /**
@@ -19,7 +22,7 @@ import soliloquy.specs.ruleset.gameconcepts.TileVisibility;
  * @version 0.0.1
  *
  */
-public interface Camera extends HasGlobalAccess {
+public interface Camera extends SoliloquyClass {
 	/**
 	 * NB: This Coordinate is a representation of the TileLocation; changing its values will not
 	 * change the Camera's TileLocation
@@ -42,7 +45,7 @@ public interface Camera extends HasGlobalAccess {
 	 * (Intended use is for things like shaking the Camera, smooth transitions across the
 	 * GameWorld, etc.)
 	 */
-	Coordinate getPixelOffset();
+	ReadableCoordinate getPixelOffset();
 	
 	/**
 	 * @param xOffset - The pixel offset in the x dimension to set for the Camera which will
@@ -119,12 +122,12 @@ public interface Camera extends HasGlobalAccess {
 	 * {@link TileVisibility}).
 	 * @throws IllegalStateException If and only if TileVisibility is null
 	 */
-	void calculateVisibileTiles() throws IllegalStateException;
+	void calculateVisibleTiles() throws IllegalStateException;
 	
 	/**
 	 * These are the Coordinates of the Tiles currently visible to the player. (These may be
 	 * changed manually, e.g. in cutscenes.)
 	 * @return A collection of the Tiles which are currently visible to the player
 	 */
-	Collection<Coordinate> visibileTiles();
+	Collection<ReadableCoordinate> visibleTiles();
 }

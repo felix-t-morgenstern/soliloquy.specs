@@ -85,19 +85,6 @@ public interface GameState extends SoliloquyClass {
 	Map<Integer, KeyBindingContext> keyBindingContexts() throws IllegalStateException;
 
 	/**
-	 * @return The Ruleset
-	 */
-	Ruleset ruleset();
-
-	/**
-	 */
-	GameZoneFactory gameZoneFactory();
-
-	/**
-	 */
-	TileFactory tileFactory();
-
-	/**
 	 */
 	ItemFactory itemFactory();
 

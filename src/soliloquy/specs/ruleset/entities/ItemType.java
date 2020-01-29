@@ -42,7 +42,8 @@ public interface ItemType extends HasPluralName, HasId {
 	void setDescriptionFunction(Function<Character,String> descriptionFunction);
 	
 	/**
-	 * This is intended for item traits like sell value, weight, whether it is cursed, etc. 
+	 * This is intended for item traits like sell value, weight, damage done, whether it is cursed,
+	 * etc.
 	 * @return Collections of item traits, for various types of traits (strings, ints, booleans,
 	 * etc.) 
 	 */
