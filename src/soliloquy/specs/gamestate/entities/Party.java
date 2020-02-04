@@ -18,7 +18,7 @@ public interface Party extends SoliloquyClass {
 	/**
 	 * @return A Collection of all player-controlled Characters
 	 */
-	Collection<Character> playerCharacters();
+	Collection<Character> characters();
 	
 	/**
 	 * @return A set of characterStatisticTypes of the Party, e.g. gold, military rank, group combat blessings
