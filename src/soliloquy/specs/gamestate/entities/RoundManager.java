@@ -1,6 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.*;
+import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.infrastructure.ReadablePair;
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -16,7 +18,8 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  *
  */
-public interface RoundManager extends SoliloquyClass {
+public interface RoundManager extends Iterable<ReadablePair<Character,VariableCache>>,
+		SoliloquyClass {
 	/**
 	 * @param character - The Character whose presence in the queue to verify
 	 * @return True, if and only if character is present in characterQueue
@@ -74,6 +77,18 @@ public interface RoundManager extends SoliloquyClass {
 			throws IllegalArgumentException;
 
 	/**
+	 * Identical to {@link #setCharacterPositionInQueue(Character, int)}, except it also sets (and
+	 * can override) a Character's round data
+	 * @param character - The Character whose position in the queue to set
+	 * @param position - The position to assign to character
+	 * @param roundData - The round data for character
+	 * @throws IllegalArgumentException If and only if character is null,  if position is less than
+	 * zero, or if roundData is null
+	 */
+	void setCharacterPositionInQueue(Character character, int position, VariableCache roundData)
+			throws IllegalArgumentException;
+
+	/**
 	 * @param character - The Character to remove from characterQueue
 	 * @return True, if and only if character was present in characterQueue (prior to being
 	 * removed)
@@ -93,7 +108,7 @@ public interface RoundManager extends SoliloquyClass {
 	 * only, e.g. the Character's action points, whether they are spending the round in defensive
 	 * mode, etc.
 	 */
-	ReadableCollection<Pair<Character, VariableCache>> characterQueueRepresentation();
+	ReadableCollection<ReadablePair<Character, VariableCache>> characterQueueRepresentation();
 	
 	/**
 	 * If there is an active Character, ends their turn; if there are no remaining Characters in
