@@ -19,13 +19,7 @@ import soliloquy.specs.ruleset.entities.CharacterDepletableStatisticType;
 // NB: This interface does not extend CharacterStaticStatistic, because it should not be able to be
 // stored alongside CharacterStaticStatistic, e.g. Character::statistics
 public interface CharacterDepletableStatistic extends
-		CharacterEntityOfType<CharacterDepletableStatisticType>, CharacterValueFromModifiers {
-	/**
-	 * @return The type of this CharacterDepletableStatistic
-	 * @throws IllegalStateException If the Character has been deleted
-	 */
-	CharacterDepletableStatisticType type() throws IllegalStateException;
-
+		CharacterStatistic<CharacterDepletableStatisticType> {
 	/**
 	 * The <i>current</i> value is different from the <i>total</i> value. For instance, if a
 	 * character has 40/60 Health, 40 would be the current value, while 60 would be the total

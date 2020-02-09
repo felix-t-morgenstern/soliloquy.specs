@@ -2,6 +2,7 @@ package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.CharacterEntityOfType;
 
 /**

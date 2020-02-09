@@ -152,7 +152,8 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @throws IllegalStateException If this Character has been deleted
 	 */
 	CharacterEntitiesOfType<CharacterStaticStatisticType,
-			CharacterStaticStatistic> staticStatistics() throws IllegalStateException;
+			CharacterStatistic<CharacterStaticStatisticType>> staticStatistics()
+			throws IllegalStateException;
 	
 	/**
 	 * @return This Character's current StatusEffects, e.g. poisoned, distracted, panicking
