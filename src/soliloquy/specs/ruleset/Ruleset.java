@@ -1,5 +1,7 @@
 package soliloquy.specs.ruleset;
 
+import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Function;
 import soliloquy.specs.common.shared.EntityGroup;
 import soliloquy.specs.common.infrastructure.SettingsRepo;
 import soliloquy.specs.common.shared.SoliloquyClass;
@@ -14,11 +16,11 @@ import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
 // TODO: Document this interface
 public interface Ruleset extends SoliloquyClass {
-	EntityGroup<ActiveAbilityType> activeAbilitiyTypes();
+	EntityGroup<ActiveAbilityType> activeAbilityTypes();
 	
-	EntityGroup<ReactiveAbilityType> reactiveAbilitiyTypes();
+	EntityGroup<ReactiveAbilityType> reactiveAbilityTypes();
 	
-	EntityGroup<PassiveAbilityType> passiveAbilitiyTypes();
+	EntityGroup<PassiveAbilityType> passiveAbilityTypes();
 
 	EntityGroup<CharacterDepletableStatisticType> characterDepletableStatisticTypes();
 
@@ -49,6 +51,10 @@ public interface Ruleset extends SoliloquyClass {
 	Registry<CharacterDepletableStatisticType> depletableStatisticTypes();
 
 	Registry<WallSegmentType> wallSegmentTypes();
+
+	Registry<Action> actions();
+
+	Registry<Function> functions();
 	
 	SettingsRepo rulesetSettings();
 }

@@ -16,9 +16,5 @@ public interface Game {
 	
 	Logger logger();
 
-	Registry<Action> actions();
-
-	Registry<Function> functions();
-
 	Registry<GameMovementEvent> gameEvents();
 }
