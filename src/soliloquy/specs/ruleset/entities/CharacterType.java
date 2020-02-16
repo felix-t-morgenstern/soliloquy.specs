@@ -31,6 +31,12 @@ public interface CharacterType extends HasPluralName, HasId {
 	Character generate(Tile tile, VariableCache params);
 
 	/**
+	 * @return The default data for this CharacterType, including their default statistics,
+	 * classifications, etc.
+	 */
+	VariableCache defaultData();
+
+	/**
 	 * The name keys of this Map are names of the triggering events which cause the corresponding
 	 * Collections of GameCharacterEvents to fire.
 	 * @return A Collection of events which occur from the Character of this type when certain
