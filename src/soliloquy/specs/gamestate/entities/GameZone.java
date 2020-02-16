@@ -2,6 +2,7 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.ReadableCollection;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.ReadableCoordinate;
@@ -54,4 +55,9 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 	 * (Also, this is where Timers which are intended only for this GameZone can be eliminated.)
 	 */
 	Collection<Action> onExit();
+
+	/**
+	 * @return A read-only collection of the Characters in this GameZone
+	 */
+	ReadableCollection<Character> charactersRepresentation();
 }

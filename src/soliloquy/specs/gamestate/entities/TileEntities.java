@@ -4,6 +4,8 @@ import soliloquy.specs.common.infrastructure.ReadableMap;
 import soliloquy.specs.common.infrastructure.ReadablePair;
 import soliloquy.specs.common.shared.HasOneGenericParam;
 
+import java.util.function.Consumer;
+
 /**
  * <b>TileFixtures</b>
  * <p>
@@ -81,4 +83,21 @@ public interface TileEntities<TEntity extends TileEntity>
      * @throws IllegalStateException If and only if the containing Tile is deleted
      */
     ReadableMap<TEntity,Integer> representation() throws IllegalStateException;
+
+    // NB: The following methods are exposed on the interface, so that GameZone may be tested,
+    //     without also testing the implementation of TileEntities
+
+    /**
+     * @param addToGameZone - A function, which is called whenever an entity of type TEntity is
+     *                      added to this class; that function adds that entity to the GameZone.
+     *                      (This parameter may be null.)
+     */
+    void assignAddToGameZoneActionAfterAddingToGameZone(Consumer<TEntity> addToGameZone);
+
+    /**
+     * @param removeFromGameZone - A function, which is called whenever an entity of type TEntity
+     *                           is removed from this class; that function removes that entity from
+     *                           the GameZone. (This parameter may be null.)
+     */
+    void assignRemoveFromGameZoneActionAfterAddingToGameZone(Consumer<TEntity> removeFromGameZone);
 }
