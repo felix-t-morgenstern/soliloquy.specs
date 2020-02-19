@@ -5,7 +5,6 @@ import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
 
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 /**
  * <b>ActOnCharacterOnTurnAndRound</b>
@@ -23,28 +22,35 @@ import java.util.function.Consumer;
  */
 public interface ActOnCharacterOnTurnAndRound extends HasGlobalAccess {
 	/**
-	 * This method returns a pair, where the first item is the action performed on a Character at
-	 * the start of their turn, and the second item is the firing priority of that action.
+	 * This method returns a pair; where the first item is the action performed on a Character at
+	 * the start of their turn, for the number of turns started at one time (cf
+	 * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}); and the second item
+	 * is the firing priority of that action.
+	 * <p>
 	 * (Higher firing priority implies that the event will fire first. This does not matter whether
 	 * the event corresponds to a depletable statistic, or to a status effect; if you wish for all
 	 * depletable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
-	ReadablePair<Consumer<Character>, Integer> onTurnStart();
+	ReadablePair<BiConsumer<Character, Integer>, Integer> onTurnStart();
 
 	/**
-	 * This method returns a pair, where the first item is the action performed on a Character at
-	 * the end of their turn, and the second item is the firing priority of that action.
+	 * This method returns a pair; where the first item is the action performed on a Character at
+	 * the end of their turn, for the number of turns ended at one time (cf
+	 * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}); and the second item
+	 * is the firing priority of that action.
+	 * <p>
 	 * (Higher firing priority implies that the event will fire first. This does not matter whether
 	 * the event corresponds to a depletable statistic, or to a status effect; if you wish for all
 	 * depletable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
-	ReadablePair<Consumer<Character>, Integer> onTurnEnd();
+	ReadablePair<BiConsumer<Character, Integer>, Integer> onTurnEnd();
 
 	/**
 	 * This method returns a pair; where the first item is the action performed on a Character at
 	 * the end of a round, for the number of rounds elapsed at one time (cf
 	 * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}); and the second item
 	 * is the firing priority of that action.
+	 * <p>
 	 * (Higher firing priority implies that the event will fire first. This does not matter whether
 	 * the event corresponds to a depletable statistic, or to a status effect; if you wish for all
 	 * depletable statistic events to fire first, then assign a higher priority to all of those.)
