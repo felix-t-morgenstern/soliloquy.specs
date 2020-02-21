@@ -2,18 +2,19 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.ReadableCollection;
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
 
 /**
  * <b>CharacterEntitiesOfType</b>
  * <p>
  * A collection of the statistics for a {@link Character} of a certain type (e.g.
- * {@link soliloquy.specs.ruleset.entities.CharacterDepletableStatisticType} or
+ * {@link CharacterVariableStatisticType} or
  * {@link soliloquy.specs.ruleset.entities.CharacterStaticStatisticType}).
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
- * @param <TEntityType> The type of statistic (e.g. static or depletable) being contained here
+ * @param <TEntityType> The type of statistic (e.g. static or variable) being contained here
  */
 public interface CharacterEntitiesOfType<TEntityType extends HasId,
         TEntity extends CharacterEntityOfType<TEntityType>>
@@ -22,7 +23,7 @@ public interface CharacterEntitiesOfType<TEntityType extends HasId,
      * Broadly, an entity placed here will have the same default values as its corresponding fields
      * (i.e. booleans will default to false, ints to 0, etc.).
      * <p>
-     * For {@link CharacterDepletableStatistic}s, the current value will be equivalent to the
+     * For {@link CharacterVariableStatistic}s, the current value will be equivalent to the
      * maximum value.
      * <p>
      * If the entity has already been added, then nothing is changed.

@@ -22,7 +22,7 @@ public interface Ruleset extends SoliloquyClass {
 	
 	EntityGroup<PassiveAbilityType> passiveAbilityTypes();
 
-	EntityGroup<CharacterDepletableStatisticType> characterDepletableStatisticTypes();
+	EntityGroup<CharacterVariableStatisticType> variableStatisticTypesGrouped();
 
 	EntityGroup<CharacterStaticStatisticType> characterStaticStatisticTypes();
 	
@@ -48,7 +48,7 @@ public interface Ruleset extends SoliloquyClass {
 
 	Registry<StatusEffectType> statusEffectTypes();
 
-	Registry<CharacterDepletableStatisticType> depletableStatisticTypes();
+	Registry<CharacterVariableStatisticType> variableStatisticTypes();
 
 	Registry<WallSegmentType> wallSegmentTypes();
 

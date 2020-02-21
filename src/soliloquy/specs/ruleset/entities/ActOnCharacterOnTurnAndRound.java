@@ -28,8 +28,8 @@ public interface ActOnCharacterOnTurnAndRound extends HasGlobalAccess {
 	 * is the firing priority of that action.
 	 * <p>
 	 * (Higher firing priority implies that the event will fire first. This does not matter whether
-	 * the event corresponds to a depletable statistic, or to a status effect; if you wish for all
-	 * depletable statistic events to fire first, then assign a higher priority to all of those.)
+	 * the event corresponds to a variable statistic, or to a status effect; if you wish for all
+	 * variable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
 	ReadablePair<BiConsumer<Character, Integer>, Integer> onTurnStart();
 
@@ -40,8 +40,8 @@ public interface ActOnCharacterOnTurnAndRound extends HasGlobalAccess {
 	 * is the firing priority of that action.
 	 * <p>
 	 * (Higher firing priority implies that the event will fire first. This does not matter whether
-	 * the event corresponds to a depletable statistic, or to a status effect; if you wish for all
-	 * depletable statistic events to fire first, then assign a higher priority to all of those.)
+	 * the event corresponds to a variable statistic, or to a status effect; if you wish for all
+	 * variable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
 	ReadablePair<BiConsumer<Character, Integer>, Integer> onTurnEnd();
 
@@ -52,8 +52,8 @@ public interface ActOnCharacterOnTurnAndRound extends HasGlobalAccess {
 	 * is the firing priority of that action.
 	 * <p>
 	 * (Higher firing priority implies that the event will fire first. This does not matter whether
-	 * the event corresponds to a depletable statistic, or to a status effect; if you wish for all
-	 * depletable statistic events to fire first, then assign a higher priority to all of those.)
+	 * the event corresponds to a variable statistic, or to a status effect; if you wish for all
+	 * variable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
 	ReadablePair<BiConsumer<Character, Integer>, Integer> onRoundEnd();
 }

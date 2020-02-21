@@ -4,7 +4,7 @@ import soliloquy.specs.common.shared.HasPluralName;
 
 // TODO: Revise this documentation
 /**
- * <b>CharacterDepletableStatisticType</b>
+ * <b>CharacterVariableStatisticType</b>
  * <p>
  * It has a name, a pluralized name, and an Id.
  * <p>
@@ -15,6 +15,6 @@ import soliloquy.specs.common.shared.HasPluralName;
  * @version 0.0.1
  *
  */
-public interface CharacterDepletableStatisticType extends CharacterStatisticType,
+public interface CharacterVariableStatisticType extends CharacterStatisticType,
         ActOnCharacterOnTurnAndRound, HasPluralName, IconForCharacter {
 }

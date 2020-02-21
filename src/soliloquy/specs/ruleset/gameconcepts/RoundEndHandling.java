@@ -2,6 +2,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.CharacterVariableStatistic;
 import soliloquy.specs.gamestate.entities.Timer;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.Map;
  * <b>RoundEndHandler</b>
  * <p>
  * This class processes the effects taken on
- * {@link soliloquy.specs.gamestate.entities.CharacterDepletableStatistic}s and
+ * {@link CharacterVariableStatistic}s and
  * {@link soliloquy.specs.gamestate.entities.CharacterStatusEffects} (c.f.
  * {@link soliloquy.specs.ruleset.entities.ActOnCharacterOnTurnAndRound}), and the firing of
  * {@link soliloquy.specs.gamestate.entities.Timer}, after the end of the current round, or the

@@ -1,11 +1,12 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.ruleset.entities.CharacterDepletableStatisticType;
+import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
 
 /**
- * <b>CharacterDepletableStatistic</b>
+ * <b>CharacterVariableStatistic</b>
  * <p>
- * A depletable statistic (e.g. Health), for a specific Character.
+ * A variable statistic (e.g. Health), i.e. a statistic with both a fixed (e.g. max) value and a
+ * current, variable value, for a specific Character.
  * <p>
  * This {@link CharacterValueFromModifiers} is intended to use an // TODO: Make a IAttributeCalculator class; add link here
  * <p>
@@ -18,15 +19,15 @@ import soliloquy.specs.ruleset.entities.CharacterDepletableStatisticType;
  */
 // NB: This interface does not extend CharacterStaticStatistic, because it should not be able to be
 // stored alongside CharacterStaticStatistic, e.g. Character::statistics
-public interface CharacterDepletableStatistic extends
-		CharacterStatistic<CharacterDepletableStatisticType> {
+public interface CharacterVariableStatistic extends
+		CharacterStatistic<CharacterVariableStatisticType> {
 	/**
 	 * The <i>current</i> value is different from the <i>total</i> value. For instance, if a
 	 * character has 40/60 Health, 40 would be the current value, while 60 would be the total
 	 * value.
-	 * @return The current value of this CharacterDepletableStatistic.
+	 * @return The current value of this CharacterVariableStatistic.
 	 * @throws IllegalStateException If the Character has been deleted, or if the Character or 
-	 * CharacterDepletableStatisticType have not been specified
+	 * CharacterVariableStatisticType have not been specified
 	 */
 	int getCurrentValue() throws IllegalStateException;
 	
@@ -37,9 +38,9 @@ public interface CharacterDepletableStatistic extends
 	 * <p>
 	 * <i>This method calls onChange.</i>
 	 * @param currentVal - The value to which to set the current value of this
-	 * CharacterDepletableStatistic
+	 * CharacterVariableStatistic
 	 * @throws IllegalStateException If the Character has been deleted, or if the Character or 
-	 * CharacterDepletableStatisticType have not been specified
+	 * CharacterVariableStatisticType have not been specified
 	 * @throws IllegalArgumentException If your ruleset has restrictions on what the current value
 	 * of a CharacterValueAttribute can be, e.g. if you forbid the current value from exceeding the
 	 * total value or from falling below zero, then forbidden values should result in this

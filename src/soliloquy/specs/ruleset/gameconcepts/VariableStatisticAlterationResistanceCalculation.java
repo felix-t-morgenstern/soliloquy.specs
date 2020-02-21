@@ -2,31 +2,32 @@ package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.ruleset.entities.CharacterDepletableStatisticType;
+import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
 import soliloquy.specs.ruleset.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.Element;
 
 /**
- * <b>DamageResistanceCalculation</b>
+ * <b>VariableStatisticAlterationResistanceCalculation</b>
  * <p>
- * A heuristic for calculating the resistance a Character has to Abilities (or other movementEvents) which
- * change that Character's Status Effect or Vital Attribute levels.
+ * A heuristic for calculating the resistance a Character has to Abilities (or other
+ * movementEvents) which change that Character's status effect level or variable statistic current
+ * value.
  * <p>
  * Intended use case is to search through a Character's various modifiers, and to calculate the 
- * effective change to that Status Effect or Vital Attribute, after those resistances have been
+ * effective change to that status effect or variable statistic, after those resistances have been
  * calculated.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface DamageResistanceCalculation extends SoliloquyClass {
+public interface VariableStatisticAlterationResistanceCalculation extends SoliloquyClass {
 
 	/**
 	 * Calculates the effective change to a Status Effect for a specific Character, given the 
 	 * following parameters:
 	 * @param character - The Character whose resistance to calculate
-	 * @param depletableStatisticType - The type of depletable statistic to be effected
+	 * @param variableStatisticType - The type of variable statistic to be effected
 	 * @param baseAmount - The amount by which the Status Effect is to be effected, prior to 
 	 * calculating resistance
 	 * @param stopAtZero - Whether the Ability intends to stop at zero. (This is unlikely to ever 
@@ -43,7 +44,7 @@ public interface DamageResistanceCalculation extends SoliloquyClass {
 	 * or element is null
 	 */
 	int calculateEffectiveChange(Character character,
-								 CharacterDepletableStatisticType depletableStatisticType,
+								 CharacterVariableStatisticType variableStatisticType,
 								 int baseAmount, boolean stopAtZero, Element element,
 								 AbilitySource abilitySource)
 					throws IllegalStateException, IllegalArgumentException;

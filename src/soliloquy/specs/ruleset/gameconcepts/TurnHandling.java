@@ -1,12 +1,13 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.CharacterVariableStatistic;
 
 /**
  * <b>TurnHandling</b>
  * <p>
  * This class processes the effects taken on
- * {@link soliloquy.specs.gamestate.entities.CharacterDepletableStatistic}s and
+ * {@link CharacterVariableStatistic}s and
  * {@link soliloquy.specs.gamestate.entities.CharacterStatusEffects} (c.f.
  * {@link soliloquy.specs.ruleset.entities.ActOnCharacterOnTurnAndRound}) at the start of a
  * {@link soliloquy.specs.gamestate.entities.Character}'s turn, or at the end of their turn.

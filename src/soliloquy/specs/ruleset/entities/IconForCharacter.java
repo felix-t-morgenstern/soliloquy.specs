@@ -10,7 +10,7 @@ import soliloquy.specs.sprites.entities.Sprite;
  * This interface contains a method to determine the specific icon for a specific entity type for a
  * specific Character, as well as that icon's display priority.
  * <p>
- * Examples: The icon a character has for the CharacterDepletableStatisticType of "Health" might
+ * Examples: The icon a character has for the CharacterVariableStatisticType of "Health" might
  * change as that Character becomes more damaged.
  * 
  * @author felix.t.morgenstern

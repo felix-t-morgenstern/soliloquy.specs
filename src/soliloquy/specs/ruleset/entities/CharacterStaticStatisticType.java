@@ -5,7 +5,7 @@ package soliloquy.specs.ruleset.entities;
  * <p>
  * Statistics of this type don't have a maximum value that is different from its current value;
  * statistics of that other type would be things like health, mana, etc.; see
- * {@link CharacterDepletableStatisticType} for more information
+ * {@link CharacterVariableStatisticType} for more information
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

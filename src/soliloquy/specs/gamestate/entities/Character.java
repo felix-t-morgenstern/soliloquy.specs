@@ -142,10 +142,10 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	CharacterInventory inventory() throws IllegalStateException;
 
 	/**
-	 * @return This Character's depletable statistics, e.g. health, mana
+	 * @return This Character's variable statistics, e.g. health, mana
 	 * @throws IllegalStateException If this Character has been deleted
 	 */
-	CharacterDepletableStatistics depletableStatistics() throws IllegalStateException;
+	CharacterVariableStatistics variableStatistics() throws IllegalStateException;
 
 	/**
 	 * @return This Character's static statistics, e.g. Intelligence, Swordplay, Etiquette
