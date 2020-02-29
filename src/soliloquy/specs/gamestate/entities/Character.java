@@ -167,7 +167,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @throws IllegalStateException If this Character has been deleted
 	 */
 	CharacterEntitiesOfType<ActiveAbilityType,
-			CharacterAbility<ActiveAbilityType>> activeAbilities() throws IllegalStateException;
+			CharacterEntityOfType<ActiveAbilityType>> activeAbilities() throws IllegalStateException;
 
 	/**
 	 * @return A collection of this Character's ReactiveAbilities; e.g., Counter-attack, Absorb
@@ -175,7 +175,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @throws IllegalStateException If this Character has been deleted
 	 */
 	CharacterEntitiesOfType<ReactiveAbilityType,
-			CharacterAbility<ReactiveAbilityType>> reactiveAbilities()
+			CharacterEntityOfType<ReactiveAbilityType>> reactiveAbilities()
 				throws IllegalStateException;
 	
 	/**

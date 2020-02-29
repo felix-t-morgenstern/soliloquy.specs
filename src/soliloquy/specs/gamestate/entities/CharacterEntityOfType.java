@@ -15,7 +15,7 @@ import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
  *
  * @param <TEntityType> The type of this entity
  */
-public interface CharacterEntityOfType<TEntityType extends HasId> extends Deletable {
+public interface CharacterEntityOfType<TEntityType extends HasId> extends GameEntity {
     /**
      * @return The type of this entity
      */

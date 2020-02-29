@@ -8,7 +8,7 @@ import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
  * A variable statistic (e.g. Health), i.e. a statistic with both a fixed (e.g. max) value and a
  * current, variable value, for a specific Character.
  * <p>
- * This {@link CharacterValueFromModifiers} is intended to use an // TODO: Make a IAttributeCalculator class; add link here
+ * This class is intended to use an // TODO: Make a IAttributeCalculator class; add link here
  * <p>
  * <i>NB: The "value from modifiers" is the <u>maximum</u> value; e.g., max health. The 
  * currentValue methods would describe the current value, e.g. current health.</i>
