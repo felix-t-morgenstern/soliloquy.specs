@@ -88,16 +88,24 @@ public interface TileEntities<TEntity extends TileEntity>
     //     without also testing the implementation of TileEntities
 
     /**
-     * @param addToGameZone - A function, which is called whenever an entity of type TEntity is
-     *                      added to this class; that function adds that entity to the GameZone.
-     *                      (This parameter may be null.)
+     * <i>NB: When adding a Character, intended use is to have that Character be placed at the
+     * <b>end</b> of the queue in the RoundManager; their position can be altered manually
+     * afterwards.</i>
+     * @param actionAfterAdding - A function, which is called whenever an entity of type TEntity is
+     *                          added to this class; that function can take certain actions, e.g
+     *                          adding a Character to both the GameZone and the RoundManager.
+     *                          <p>
+     *                          (This parameter may be null.)
      */
-    void assignAddToGameZoneActionAfterAddingToGameZone(Consumer<TEntity> addToGameZone);
+    void assignActionAfterAdding(Consumer<TEntity> actionAfterAdding);
 
     /**
-     * @param removeFromGameZone - A function, which is called whenever an entity of type TEntity
-     *                           is removed from this class; that function removes that entity from
-     *                           the GameZone. (This parameter may be null.)
+     * @param actionAfterRemoving - A function, which is called whenever an entity of type TEntity
+     *                            is removed from this class; that function can take certain
+     *                            actions, e.g removing a Character to both the GameZone and the
+     *                            RoundManager.
+     *                            <p>
+     *                            (This parameter may be null.)
      */
-    void assignRemoveFromGameZoneActionAfterAddingToGameZone(Consumer<TEntity> removeFromGameZone);
+    void assignActionAfterRemoving(Consumer<TEntity> actionAfterRemoving);
 }
