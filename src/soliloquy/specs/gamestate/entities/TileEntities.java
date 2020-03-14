@@ -91,21 +91,38 @@ public interface TileEntities<TEntity extends TileEntity>
      * <i>NB: When adding a Character, intended use is to have that Character be placed at the
      * <b>end</b> of the queue in the RoundManager; their position can be altered manually
      * afterwards.</i>
+     * <p>
+     * <b>This action is to only be assigned once.</b> Generally speaking, initializing objects
+     * (rather than feeding dependencies at construction) is a code smell; however, in this case,
+     * exposing an initialization method is required to allow the GameZone to inject itself into
+     * this class, while keeping GameZone implementations decoupled from implementations of this
+     * class.
      * @param actionAfterAdding - A function, which is called whenever an entity of type TEntity is
      *                          added to this class; that function can take certain actions, e.g
      *                          adding a Character to both the GameZone and the RoundManager.
      *                          <p>
      *                          (This parameter may be null.)
+     * @throws UnsupportedOperationException If and only if actionAfterRemoving has already been
+     * initialized
      */
-    void assignActionAfterAdding(Consumer<TEntity> actionAfterAdding);
+    void initializeActionAfterAdding(Consumer<TEntity> actionAfterAdding)
+            throws UnsupportedOperationException;
 
     /**
+     * <b>This action is to only be assigned once.</b> Generally speaking, initializing objects
+     * (rather than feeding dependencies at construction) is a code smell; however, in this case,
+     * exposing an initialization method is required to allow the GameZone to inject itself into
+     * this class, while keeping GameZone implementations decoupled from implementations of this
+     * class.
      * @param actionAfterRemoving - A function, which is called whenever an entity of type TEntity
      *                            is removed from this class; that function can take certain
      *                            actions, e.g removing a Character to both the GameZone and the
      *                            RoundManager.
      *                            <p>
      *                            (This parameter may be null.)
+     * @throws UnsupportedOperationException If and only if actionAfterRemoving has already been
+     * initialized
      */
-    void assignActionAfterRemoving(Consumer<TEntity> actionAfterRemoving);
+    void initializeActionAfterRemoving(Consumer<TEntity> actionAfterRemoving)
+            throws UnsupportedOperationException;
 }
