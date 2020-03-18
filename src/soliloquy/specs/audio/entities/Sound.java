@@ -188,15 +188,69 @@ public interface Sound extends HasUuid {
 	boolean getIsLooping() throws UnsupportedOperationException;
 	
 	/**
-	 * @param - isLooping Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
+	 * @param isLooping - Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
 	 * @exception UnsupportedOperationException If this Sound has already been stopped
 	 */
 	void setIsLooping(boolean isLooping) throws UnsupportedOperationException;
 
 	/**
-	 * @param - isLooping Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
+	 * @param isLooping - Sets whether the Sound is set to loop (e.g. music, atmospheric effects)
 	 * @return A runnable task to call the mute method (which may be queued up with other tasks, to
 	 * be performed simultaneously)
 	 */
 	Runnable setIsLoopingTask(boolean isLooping);
+
+	/**
+	 * (NB: If this Sound is not set to looping, this function can still be called; the looping
+	 * stop millisecond position will still be set, but will be ignored until looping is turned
+	 * on.)
+	 * @param msPosition - The millisecond position at which the Sound stops and restarts, if it is
+	 *                   looping; if null, then this implies that if this Sound is looping, it will
+	 *                   restart the track at its very end
+	 * @throws IllegalArgumentException If and only if msPosition is less than or equal to 0,
+	 * greater than the length of the Sound, or before the looping restart msPosition
+	 */
+	void setLoopingStopMs(Integer msPosition)
+			throws IllegalArgumentException;
+
+	/**
+	 * (NB: If this Sound is not set to looping, this function can still be called; the looping
+	 * stop millisecond position will still be set, but will be ignored until looping is turned
+	 * on.)
+	 * @param msPosition - The millisecond position at which the Sound stops and restarts, if it is
+	 *                   looping; if null, then this implies that if this Sound is looping, it will
+	 *                   restart the track at its very end
+	 * @return A runnable task to call setLoopingStopMs (which may be queued up with other tasks,
+	 * to be performed simultaneously)
+	 * @throws IllegalArgumentException If and only if msPosition is less than or equal to 0,
+	 * greater than the length of the Sound, or before the looping restart msPosition
+	 */
+	Runnable setLoopingStopMsTask(Integer msPosition)
+			throws IllegalArgumentException;
+
+	/**
+	 * (NB: If this Sound is not set to looping, this function can still be called; the looping
+	 * stop millisecond position will still be set, but will be ignored until looping is turned
+	 * on.)
+	 * @param msPosition - The millisecond position at which the Sound restarts, after it stops, if
+	 *                   it is looping
+	 * @throws IllegalArgumentException If and only if msPosition is less than or equal to 0,
+	 * greater than the length of the Sound, or after the looping stop msPosition
+	 */
+	void setLoopingRestartMs(int msPosition)
+			throws IllegalArgumentException;
+
+	/**
+	 * (NB: If this Sound is not set to looping, this function can still be called; the looping
+	 * stop millisecond position will still be set, but will be ignored until looping is turned
+	 * on.)
+	 * @param msPosition - The millisecond position at which the Sound restarts, after it stops, if
+	 *                   it is looping
+	 * @return A runnable task to call setLoopingRestartMs (which may be queued up with other
+	 * tasks, to be performed simultaneously)
+	 * @throws IllegalArgumentException If and only if msPosition is less than or equal to 0,
+	 * greater than the length of the Sound, or after the looping stop msPosition
+	 */
+	Runnable setLoopingRestartMsTask(int msPosition)
+			throws IllegalArgumentException;
 }
