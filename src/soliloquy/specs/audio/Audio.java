@@ -1,5 +1,7 @@
-package soliloquy.specs.audio.entities;
+package soliloquy.specs.audio;
 
+import soliloquy.specs.audio.entities.SoundType;
+import soliloquy.specs.audio.entities.SoundsPlaying;
 import soliloquy.specs.audio.factories.SoundFactory;
 import soliloquy.specs.common.infrastructure.Registry;
 
