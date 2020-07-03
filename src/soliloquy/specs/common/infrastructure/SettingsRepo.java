@@ -47,7 +47,6 @@ public interface SettingsRepo extends EntityGroup<Setting>, HasId {
 	 */
 	<V> void setSetting(String settingId, V value) throws IllegalArgumentException;
 
-	@Override
 	/**
 	 * @param setting The Setting to add to this SettingsRepo
 	 * @param order The order in this SettingsRepo in which the Setting appears. (Order numbers do
@@ -56,5 +55,6 @@ public interface SettingsRepo extends EntityGroup<Setting>, HasId {
 	 * setting is null; or if setting's Id is already present in this SettingsRepo or any of its
 	 * children; or if groupId is non-empty, non-null, and does not exist within this group
 	 */
+	@Override
 	void addEntity(Setting setting, int order, String groupId) throws IllegalArgumentException;
 }
