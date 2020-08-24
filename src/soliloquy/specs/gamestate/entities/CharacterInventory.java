@@ -29,7 +29,8 @@ public interface CharacterInventory extends Iterable<Item>, Deletable {
 
     /**
      * @param item - The Item to add to this Character's inventory
-     * @throws IllegalArgumentException If and only if item is null, or exists elsewhere
+     * @throws IllegalArgumentException If and only if item is null, or is deleted, or exists
+     * elsewhere
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
      * Character has been deleted, or if it has no Id
      */
