@@ -1,5 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
+
 /**
  * <b>TileEntity</b>
  * <p>
@@ -12,9 +14,9 @@ package soliloquy.specs.gamestate.entities;
 public interface TileEntity extends GameEntity {
     /**
      * @return The Tile on which this entity sits
-     * @throws IllegalStateException If this entity has been deleted
+     * @throws EntityDeletedException If this entity has been deleted
      */
-    Tile tile() throws IllegalStateException;
+    Tile tile() throws EntityDeletedException;
 
     /**
      * <b>NB: This method is intended to <b><u>only</u></b> be used by
@@ -24,8 +26,8 @@ public interface TileEntity extends GameEntity {
      * @param tile - The Tile to which to assign to this entity (may be null)
      * @throws IllegalArgumentException If and only if tile is null, or tile does not contain this
      * entity
-     * @throws IllegalStateException If this entity has been deleted
+     * @throws EntityDeletedException If this entity has been deleted
      */
     void assignTileAfterAddedToTileEntitiesOfType(Tile tile)
-            throws IllegalArgumentException, IllegalStateException;
+            throws IllegalArgumentException, EntityDeletedException;
 }

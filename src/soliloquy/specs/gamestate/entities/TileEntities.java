@@ -3,6 +3,7 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.infrastructure.ReadableMap;
 import soliloquy.specs.common.infrastructure.ReadablePair;
 import soliloquy.specs.common.shared.HasOneGenericParam;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 
 import java.util.function.Consumer;
 
@@ -23,9 +24,9 @@ public interface TileEntities<TEntity extends TileEntity>
      * (NB: This method simply calls {@link #add(TEntity, int)} with a zIndex of 0)
      * @param entity The entity to add onto this Tile
      * @throws IllegalArgumentException If and only if entity is null
-     * @throws IllegalStateException If and only if the containing Tile is deleted
+     * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
-    void add(TEntity entity) throws IllegalArgumentException, IllegalStateException;
+    void add(TEntity entity) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * (NB: If multiple Items have the same z-index, this will not cause an error; the z-index only
@@ -35,42 +36,42 @@ public interface TileEntities<TEntity extends TileEntity>
      * @param zIndex The z-index for this entity. (NB: This only determines display order. If
      *               multiple entities are on the same Tile, that is not considered an error.)
      * @throws IllegalArgumentException If and only if entity is null
-     * @throws IllegalStateException If and only if the containing Tile is deleted
+     * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
-    void add(TEntity entity, int zIndex) throws IllegalArgumentException, IllegalStateException;
+    void add(TEntity entity, int zIndex) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param entity - The entity whose z-index to return
      * @return The z-index for the provided entity; null, if entity is not present
      * @throws IllegalArgumentException If and only if entity is null
-     * @throws IllegalStateException If and only if the containing Tile is deleted
+     * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
-    Integer getZIndex(TEntity entity) throws IllegalArgumentException, IllegalStateException;
+    Integer getZIndex(TEntity entity) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param entity - The entity whose z-index to set
      * @param zIndex - The z-index to set for entity
      * @throws IllegalArgumentException If and only if entity is null, or entity is not present
-     * @throws IllegalStateException If and only if the containing Tile is deleted
+     * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
     void setZIndex(TEntity entity, int zIndex)
-            throws IllegalArgumentException, IllegalStateException;
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param entity - The entity to remove
      * @return True, if and only if the Item was present, and therefore removed
      * @throws IllegalArgumentException If and only if entity is null
-     * @throws IllegalStateException If and only if the containing Tile is deleted
+     * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
-    boolean remove(TEntity entity) throws IllegalArgumentException, IllegalStateException;
+    boolean remove(TEntity entity) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param entity - The entity whose presence to verify
      * @return True, if and only if entity is present on this Tile
      * @throws IllegalArgumentException If and only if entity is null
-     * @throws IllegalStateException If and only if the containing Tile is deleted
+     * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
-    boolean contains(TEntity entity) throws IllegalArgumentException, IllegalStateException;
+    boolean contains(TEntity entity) throws IllegalArgumentException, EntityDeletedException;
 
     int size();
 
@@ -80,9 +81,9 @@ public interface TileEntities<TEntity extends TileEntity>
      * @return A numbered Map of entities, where the keys of this Map are entities present on
      * this Tile, and the numerical values of the Map corresponds to the Z order of entities on
      * this Tile
-     * @throws IllegalStateException If and only if the containing Tile is deleted
+     * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
-    ReadableMap<TEntity,Integer> representation() throws IllegalStateException;
+    ReadableMap<TEntity,Integer> representation() throws EntityDeletedException;
 
     // NB: The following methods are exposed on the interface, so that GameZone may be tested,
     //     without also testing the implementation of TileEntities

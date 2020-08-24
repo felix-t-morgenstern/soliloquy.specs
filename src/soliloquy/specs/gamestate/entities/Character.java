@@ -5,6 +5,7 @@ import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 import soliloquy.specs.ruleset.entities.CharacterStaticStatisticType;
 import soliloquy.specs.ruleset.entities.CharacterType;
@@ -32,23 +33,23 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @return The CharacterType of this Character
 	 * <p>
 	 * This value may be null, e.g. in cases of PlayerCharacters
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterType type() throws IllegalStateException;
+	CharacterType type() throws EntityDeletedException;
 	
 	/**
 	 * @return The Classifications of this Character, e.g. "undead", "elemental", etc.
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	Collection<CharacterClassification> classifications() throws IllegalStateException;
+	Collection<CharacterClassification> classifications() throws EntityDeletedException;
 	
 	/**
 	 * @return The proper pronouns for this Character. The key for the Map is the grammatical case
 	 * in question (e.g. nominative, oblique, genitive, etc.). Every Character can choose their own
 	 * pronouns.
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	Map<String,String> pronouns() throws IllegalStateException;
+	Map<String,String> pronouns() throws EntityDeletedException;
 	
 	/**
 	 * Data can be traits relevant to combat or stats, e.g. experience points, Character level,
@@ -59,66 +60,66 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * <p>
 	 * Data may also be irrelevant to combat or stats, e.g. religion, alignment, race, nationality
 	 * @return Traits of this Character
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	VariableCache data() throws IllegalStateException;
+	VariableCache data() throws EntityDeletedException;
 	
 	/**
 	 * @return The stance of the Character; e.g. "combat-ready", "attacking", "near-death"; which
 	 * is used to determine its current Sprite
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	String getStance() throws IllegalStateException;
+	String getStance() throws EntityDeletedException;
 	
 	/**
 	 * @param stance - The stance to set for this Character
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	void setStance(String stance) throws IllegalStateException;
+	void setStance(String stance) throws EntityDeletedException;
 	
 	/**
 	 * @return The current direction of this Character, e.g. "NW", "S"
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	String getDirection() throws IllegalStateException;
+	String getDirection() throws EntityDeletedException;
 	
 	/**
 	 * @param direction - The direction to set for this Character, e.g. "N", "NW"
 	 * @throws IllegalArgumentException If the provided direction is illegal, e.g. if it is null, a
 	 * blank string, not a valid direction
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	void setDirection(String direction) throws IllegalArgumentException, IllegalStateException;
+	void setDirection(String direction) throws IllegalArgumentException, EntityDeletedException;
 	
 	/**
 	 * @return The SpriteSet for this Character
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	SpriteSet getSpriteSet() throws IllegalStateException;
+	SpriteSet getSpriteSet() throws EntityDeletedException;
 	
 	/**
 	 * @param spriteSet - The SpriteSet to set for this Character
 	 * @throws IllegalArgumentException You <i>may</i> wish to throw this exception if the
 	 * provided SpriteSet is null
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	void setSpriteSet(SpriteSet spriteSet) throws IllegalArgumentException, IllegalStateException;
+	void setSpriteSet(SpriteSet spriteSet) throws IllegalArgumentException, EntityDeletedException;
 	
 	/**
 	 * @return This Character's AI script ID (to be looked up in GameState.characterAIs)
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterAIType getAIType() throws IllegalStateException;
+	CharacterAIType getAIType() throws EntityDeletedException;
 	
 	/**
 	 * <i>NB: This should still be set for PCs, since the player may lose control of PCs, e.g. 
 	 * confusion, charming</i>
 	 * @param characterAIType - The AI script to assign to this Character
 	 * @throws IllegalArgumentException If characterAIType is null
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
 	void setAIType(CharacterAIType characterAIType)
-			throws IllegalArgumentException, IllegalStateException;
+			throws IllegalArgumentException, EntityDeletedException;
 
 	/**
 	 * The index of this map is a type of triggering event, i.e. "onDeath", "onAttacked",
@@ -131,52 +132,53 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	
 	/**
 	 * @return This Character's equipment slots, from which equipment can be accessed or modified
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterEquipmentSlots equipmentSlots() throws IllegalStateException;
+	CharacterEquipmentSlots equipmentSlots() throws EntityDeletedException;
 
 	/**
 	 * @return This Character's inventory, from which inventory can be accessed or modified
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterInventory inventory() throws IllegalStateException;
+	CharacterInventory inventory() throws EntityDeletedException;
 
 	/**
 	 * @return This Character's variable statistics, e.g. health, mana
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterVariableStatistics variableStatistics() throws IllegalStateException;
+	CharacterVariableStatistics variableStatistics() throws EntityDeletedException;
 
 	/**
 	 * @return This Character's static statistics, e.g. Intelligence, Swordplay, Etiquette
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
 	CharacterEntitiesOfType<CharacterStaticStatisticType,
 			CharacterStatistic<CharacterStaticStatisticType>> staticStatistics()
-			throws IllegalStateException;
+			throws EntityDeletedException;
 	
 	/**
 	 * @return This Character's current StatusEffects, e.g. poisoned, distracted, panicking
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterStatusEffects statusEffects() throws IllegalStateException;
+	CharacterStatusEffects statusEffects() throws EntityDeletedException;
 
 	/**
 	 * @return A named Map of this Character's ActiveAbilities; e.g., Melee Attack, Fireball, Talk
 	 * to Character; the Id is the AbilityTypeId
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
 	CharacterEntitiesOfType<ActiveAbilityType,
-			CharacterEntityOfType<ActiveAbilityType>> activeAbilities() throws IllegalStateException;
+			CharacterEntityOfType<ActiveAbilityType>> activeAbilities()
+			throws EntityDeletedException;
 
 	/**
 	 * @return A collection of this Character's ReactiveAbilities; e.g., Counter-attack, Absorb
 	 * Mana; the Id is the AbilityTypeId
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
 	CharacterEntitiesOfType<ReactiveAbilityType,
 			CharacterEntityOfType<ReactiveAbilityType>> reactiveAbilities()
-				throws IllegalStateException;
+				throws EntityDeletedException;
 	
 	/**
 	 * <i>This method should return FALSE when a PC is charmed, confused, or otherwise only 
@@ -184,15 +186,15 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * particular PC should be handled by the logic fed into the
 	 * {@link soliloquy.specs.gamestate.entities.RoundManager}'s constructor by the Ruleset.
 	 * @return True, if and only if this Character is controlled by the player
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	boolean getPlayerControlled() throws IllegalStateException;
+	boolean getPlayerControlled() throws EntityDeletedException;
 	
 	/**
 	 * @param playerControlled - True, if and only if this Character is controlled by the player
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	void setPlayerControlled(boolean playerControlled) throws IllegalStateException;
+	void setPlayerControlled(boolean playerControlled) throws EntityDeletedException;
 	
 	/**
 	 * Deletes this Character. (Calling this method will remove this Character from its GameZone's
@@ -201,7 +203,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * This is different from killing this Character or setting them to be dead via setIsDead. In
 	 * those cases, the Character still exists in the GameZone's Characters, and may be revived;
 	 * when a Character is deleted, they do not exist anymore at all.
-	 * @throws IllegalStateException If this Character has been deleted
+	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	void delete() throws IllegalStateException;
+	void delete() throws EntityDeletedException;
 }

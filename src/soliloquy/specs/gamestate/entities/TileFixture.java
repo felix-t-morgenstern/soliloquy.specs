@@ -3,6 +3,7 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.valueobjects.Coordinate;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.FixtureType;
 
 /**
@@ -25,22 +26,22 @@ import soliloquy.specs.ruleset.entities.FixtureType;
 public interface TileFixture extends GameEventTargetEntity, TileEntity, HasName, HasUuid {
 	/**
 	 * @return The FixtureType of this TileFixture
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
-	 * FixtureType
+	 * @throws IllegalStateException If it has no FixtureType
+	 * @throws EntityDeletedException If this TileFixture has been deleted
 	 */
-	FixtureType type() throws IllegalStateException;
+	FixtureType type() throws IllegalStateException, EntityDeletedException;
 
 	/**
 	 * @return The offset in pixels of this TileFixture from the defaultOffset (can be null)
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
-	 * FixtureType
+	 * @throws IllegalStateException If it has no FixtureType
+	 * @throws EntityDeletedException If this TileFixture has been deleted
 	 */
-	Coordinate pixelOffset() throws IllegalStateException;
+	Coordinate pixelOffset() throws IllegalStateException, EntityDeletedException;
 
 	/**
 	 * @return A class by which items contained in this fixture may be accessed and altered
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
-	 * FixtureType
+	 * @throws IllegalStateException If it has no FixtureType
+	 * @throws EntityDeletedException If this TileFixture has been deleted
 	 */
-	TileFixtureItems items() throws IllegalStateException;
+	TileFixtureItems items() throws IllegalStateException, EntityDeletedException;
 }

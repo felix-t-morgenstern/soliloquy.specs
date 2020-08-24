@@ -3,6 +3,7 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.ItemType;
 
 /**
@@ -23,47 +24,50 @@ public interface Item extends TileEntity, HasPluralName, HasUuid {
 	/**
 	 * @return The ItemType of this Item
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
-	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
+	 * Inventory, an EquipmentSlot, a Tile, or a TileContainer), or if it has no Id.. It is legal
+	 * for an Item to have no locations, e.g. when it has not yet been placed, or after it has been
+	 * removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
-	ItemType type() throws IllegalStateException;
+	ItemType type() throws IllegalStateException, EntityDeletedException;
 	
 	/**
 	 * @return The number of charges left in this Item (If this Item does not have charges, this
 	 * method will return null.)
 	 * @throws IllegalStateException If this Item's ItemType does not allow it to have charges, if
 	 * this Item is present in more than one place (i.e. an Inventory, an EquipmentSlot, a Tile, or
-	 * a TileContainer), or if it has no Id, or if it has been deleted. It is legal for an Item to
-	 * have no locations, e.g. when it has not yet been placed, or after it has been removed from
-	 * an EquipmentSlot.
+	 * a TileContainer), or if it has no Id. It is legal for an Item to have no locations, e.g.
+	 * when it has not yet been placed, or after it has been removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
-	Integer getCharges() throws IllegalStateException;
+	Integer getCharges() throws IllegalStateException, EntityDeletedException;
 
 	/**
 	 * @param charges - The charges to set for this Item
 	 * @throws UnsupportedOperationException If and only if this Item's type does not have charges
 	 * @throws IllegalArgumentException - If numberInStack is less than 0
-	 * @throws IllegalStateException If this Item's ItemType does not have charges, if this Item is
-	 * not present in the TileItems, CharacterInventory, etc. to which it has been assigned, or if
-	 * it has no Id, or if it has been deleted. It is legal for an Item to have no locations, e.g.
+	 * @throws IllegalStateException If this Item's ItemType does not allow it to have charges, if
+	 * this Item is present in more than one place (i.e. an Inventory, an EquipmentSlot, a Tile, or
+	 * a TileContainer), or if it has no Id. It is legal for an Item to have no locations, e.g.
 	 * when it has not yet been placed, or after it has been removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
 	void setCharges(int charges)
-			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
+			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException,
+				   EntityDeletedException;
 	
 	/**
 	 * <b>NB: Stackable Items are treated such that one Item is equivalent to one stack. So, a
 	 * stack of 15 health potions would be a single Item, which would return 15 when this method is
 	 * called.</b>
 	 * @return The number of Items of this type currently in this stack.
-	 * @throws IllegalStateException If this Item's ItemType does not allow it to be stacked, if
-	 * this Item is not present in the TileItems, CharacterInventory, etc. to which it has been
-	 * assigned, or if it has no Id, or if it has been deleted. It is legal for an Item to have no
-	 * locations, e.g. when it has not yet been placed, or after it has been removed from an
-	 * EquipmentSlot.
+	 * @throws IllegalStateException If this Item's ItemType does not allow it to have charges, if
+	 * this Item is present in more than one place (i.e. an Inventory, an EquipmentSlot, a Tile, or
+	 * a TileContainer), or if it has no Id. It is legal for an Item to have no locations, e.g.
+	 * when it has not yet been placed, or after it has been removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
-	Integer getNumberInStack() throws IllegalStateException;
+	Integer getNumberInStack() throws IllegalStateException, EntityDeletedException;
 
 	/**
 	 * <b>NB: See {@link #getNumberInStack()} for an explanation of how stacked Items work.</b>
@@ -71,12 +75,14 @@ public interface Item extends TileEntity, HasPluralName, HasUuid {
 	 * @throws UnsupportedOperationException - If this ItemType cannot be stacked
 	 * @throws IllegalArgumentException - If numberInStack is less than 1
 	 * @throws IllegalStateException - If this Item is not present in the TileItems,
-	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
+	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id. It is legal for
+	 * an Item to have no locations, e.g. when it has not yet been placed, or after it has been
+	 * removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
 	void setNumberInStack(int numberInStack)
-			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
+			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException,
+				   EntityDeletedException;
 	
 	/**
 	 * Splits a stackable Item into two Items; returns the new Item with a number taken from the
@@ -88,12 +94,14 @@ public interface Item extends TileEntity, HasPluralName, HasUuid {
 	 * @throws IllegalArgumentException - If numberToTake is less than one, or if it is greater
 	 * than or equal to getNumberInStack of this (i.e. the original) Item
 	 * @throws IllegalStateException - If this Item is not present in the TileItems,
-	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
+	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id. It is legal for
+	 * an Item to have no locations, e.g. when it has not yet been placed, or after it has been
+	 * removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
 	Item takeFromStack(int numberToTake)
-			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException;
+			throws UnsupportedOperationException, IllegalArgumentException, IllegalStateException,
+				   EntityDeletedException;
 	
 	/**
 	 * @return The Character in whose inventory this Item exists
@@ -101,28 +109,32 @@ public interface Item extends TileEntity, HasPluralName, HasUuid {
 	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id, or if it has
 	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
 	 * placed, or after it has been removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
-	Character inventoryCharacter() throws IllegalStateException;
+	Character inventoryCharacter() throws IllegalStateException, EntityDeletedException;
 	
 	/**
 	 * @return A Pair containing the {@link Character} and the equipment slot type in which this
 	 * Item is located; if this item isn't equipped to any Character, this method returns null.
 	 * @throws IllegalStateException - If this Item is not present in the TileItems,
-	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
+	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id. It is legal for
+	 * an Item to have no locations, e.g. when it has not yet been placed, or after it has been
+	 * removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
-	Pair<Character,String> equipmentSlot() throws IllegalStateException;
+	Pair<Character,String> equipmentSlot() throws IllegalStateException, EntityDeletedException;
 	
 	/**
 	 * @return The {@link TileFixture} in which this Item is stored
-	 * @throws IllegalStateException - If this Item is not present in the TileFixture,
-	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id, or if it has
-	 * been deleted. It is legal for an Item to have no locations, e.g. when it has not yet been
-	 * placed, or after it has been removed from an EquipmentSlot.
+	 * @throws IllegalStateException - If this Item is not present in the TileItems,
+	 * CharacterInventory, etc. to which it has been assigned, or if it has no Id. It is legal for
+	 * an Item to have no locations, e.g. when it has not yet been placed, or after it has been
+	 * removed from an EquipmentSlot.
+	 * @throws EntityDeletedException If this has been deleted
 	 */
-	TileFixture tileFixture() throws IllegalStateException;
+	TileFixture tileFixture() throws IllegalStateException, EntityDeletedException;
 
+	// TODO: Verify whether EntityDeletedException is thrown
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by
 	 * {@link CharacterEquipmentSlots#equipItemToSlot}; it is intended to check whether the
@@ -132,10 +144,11 @@ public interface Item extends TileEntity, HasPluralName, HasUuid {
 	 * @param equipmentSlotType - The equipment slot type to which to assign this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 * @throws EntityDeletedException If this has been deleted
 	 */
 	void assignEquipmentSlotAfterAddedToCharacterEquipmentSlot(
 			Character character, String equipmentSlotType)
-			throws IllegalStateException, IllegalArgumentException;
+			throws IllegalStateException, IllegalArgumentException, EntityDeletedException;
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by {@link CharacterInventory#add} and
@@ -145,10 +158,11 @@ public interface Item extends TileEntity, HasPluralName, HasUuid {
 	 *                    this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 * @throws EntityDeletedException If this has been deleted
 	 */
 	void assignInventoryCharacterAfterAddedToCharacterInventory(
 			Character character)
-			throws IllegalStateException, IllegalArgumentException;
+			throws IllegalStateException, IllegalArgumentException, EntityDeletedException;
 
 	/**
 	 * <b>NB: This method is intended to <u>only</u> be used by {@link TileFixtureItems#add} and
@@ -159,7 +173,8 @@ public interface Item extends TileEntity, HasPluralName, HasUuid {
 	 * contain this Item
 	 * @throws IllegalStateException If the Item currently in this slot cannot be equipped to this
 	 * slot, or if the Character for this CharacterEquipmentSlot has been deleted
+	 * @throws EntityDeletedException If this has been deleted
 	 */
 	void assignTileFixtureAfterAddedItemToTileFixtureItems(TileFixture tileFixture)
-			throws IllegalArgumentException, IllegalStateException;
+			throws IllegalArgumentException, IllegalStateException, EntityDeletedException;
 }

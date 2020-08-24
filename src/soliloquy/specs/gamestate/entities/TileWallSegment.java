@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.shared.HasName;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.WallSegmentType;
 
 /**
@@ -15,13 +16,16 @@ import soliloquy.specs.ruleset.entities.WallSegmentType;
 public interface TileWallSegment extends TileEntity, HasName {
 	/**
 	 * @return The WallSegmentType of this TileWallSegment
-	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
+	 * @throws IllegalStateException If this TileWallSegment has no type
+	 * @throws EntityDeletedException If this TileWallSegment has been deleted
 	 */
-	WallSegmentType getType() throws IllegalStateException;
+	WallSegmentType getType() throws IllegalStateException, EntityDeletedException;
 	
 	/**
 	 * @param wallSegmentType - The WallSegmentType to set for this TileWallSegment
-	 * @throws IllegalStateException If this TileWallSegment has no type, or has been deleted
+	 * @throws IllegalStateException If this TileWallSegment has no type
+	 * @throws EntityDeletedException If this TileWallSegment has been deleted
 	 */
-	void setType(WallSegmentType wallSegmentType) throws IllegalStateException;
+	void setType(WallSegmentType wallSegmentType)
+			throws IllegalStateException, EntityDeletedException;
 }
