@@ -27,13 +27,13 @@
   </build>
   <distributionManagement>
       <repository>
-          <id>soliloquy.specs</id>
+          <id>github</id>
           <name>Soliloquy Specifications</name>
           <uniqueVersion>false</uniqueVersion>
-          <url>file://${project.build.directory}/mvn-repo</url>
+          <url>https://maven.pkg.github.com/felix-t-morgenstern/soliloquy.specs</url>
       </repository>
       <snapshotRepository>
-          <id>soliloquy.specs</id>
+          <id>github</id>
           <name>Soliloquy Specifications</name>
           <uniqueVersion>false</uniqueVersion>
           <url>file://${project.build.directory}/mvn-repo</url>
