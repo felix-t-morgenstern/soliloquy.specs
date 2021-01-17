@@ -2,7 +2,7 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.sprites.entities.Sprite;
+import soliloquy.specs.graphics.assets.Sprite;
 
 /**
  * <b>IconForCharacter</b>

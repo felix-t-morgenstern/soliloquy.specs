@@ -1,12 +1,12 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
-import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.sprites.entities.Sprite;
 
 /**
  * <b>TileObject</b>
@@ -19,7 +19,7 @@ import soliloquy.specs.sprites.entities.Sprite;
  * @version 0.0.1
  *
  */
-public interface TileObjectType extends HasGlobalAccess {
+public interface TileObjectType extends HasDefaultColorShifts, HasGlobalAccess {
 	/**
 	 * @return The {@link Sprite} for this TileObject
 	 */

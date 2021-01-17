@@ -1,7 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.sprites.entities.SpriteSet;
+import soliloquy.specs.graphics.assets.SpriteSet;
 
 /**
  * <b>HasSpriteSet</b>

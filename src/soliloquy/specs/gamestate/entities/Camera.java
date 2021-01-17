@@ -16,7 +16,7 @@ import soliloquy.specs.ruleset.gameconcepts.TileVisibility;
  * and which Tiles are rendered.
  * <p>
  * The Camera is fed into the {@link soliloquy.specs.ui.windowelements.GameWorldView}, which takes
- * snapshots from the Camera, which are then rendered by WindowRenderer.
+ * snapshots from the Camera, which are then rendered by StackRenderer.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

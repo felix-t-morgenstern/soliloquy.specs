@@ -2,8 +2,7 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
-import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.sprites.entities.SpriteSet;
+import soliloquy.specs.graphics.assets.SpriteSet;
 
 /**
  * <b>Element</b>
@@ -16,6 +15,7 @@ import soliloquy.specs.sprites.entities.SpriteSet;
  *
  */
 public interface Element extends HasName, HasId {
+	// TODO: Revise this method to use more than a SpriteSet; perhaps by introducing an interface type only extended by Sprites or Animations
 	/**
 	 * @return A SpriteSet to describe this element (e.g. icons, buttons, etc.)
 	 */

@@ -1,0 +1,17 @@
+package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
+
+/**
+ * <b>AssetDefinition</b>
+ * <p>
+ * This class defines an asset of a specified {@link AssetType}.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
+public interface AssetDefinition<AssetType> {
+    /**
+     * @return The Id of the asset being defined
+     */
+    String assetId();
+}

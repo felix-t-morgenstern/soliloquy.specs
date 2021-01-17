@@ -12,7 +12,7 @@ import soliloquy.specs.ruleset.entities.CharacterType;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
-import soliloquy.specs.sprites.entities.SpriteSet;
+import soliloquy.specs.graphics.assets.SpriteSet;
 
 /**
  * <b>Character</b>

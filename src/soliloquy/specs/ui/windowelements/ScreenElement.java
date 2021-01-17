@@ -1,12 +1,12 @@
 package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.valueobjects.Coordinate;
-import soliloquy.specs.graphics.Renderable;
+import soliloquy.specs.graphics.renderables.RenderableType;
 
 /**
  * <b>ScreenElement</b>
  * <p>
- * An object which exists in the Screen, to be rendered by the WindowRenderer.
+ * An object which exists in the Screen, to be rendered by the StackRenderer.
  * <p>
  * Can be a Sprite, or a Box.
  * 
@@ -14,7 +14,7 @@ import soliloquy.specs.graphics.Renderable;
  * @version 0.0.1
  *
  */
-public interface ScreenElement extends Renderable {
+public interface ScreenElement extends RenderableType {
 	/**
 	 * This method specifies the Id of the ScreenElement, so it can be altered or removed in any
 	 * way necessary

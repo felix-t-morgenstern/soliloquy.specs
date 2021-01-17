@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.entities.abilities;
 import soliloquy.specs.common.shared.EntityGroup;
 import soliloquy.specs.common.infrastructure.Collection;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.sprites.entities.SpriteSet;
+import soliloquy.specs.graphics.assets.SpriteSet;
 
 /**
  * <b>EntityGroupWithSpriteSet</b>

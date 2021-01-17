@@ -10,7 +10,7 @@ import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
-import soliloquy.specs.sprites.entities.SpriteSet;
+import soliloquy.specs.graphics.assets.SpriteSet;
 
 /**
  * <b>ItemType</b>

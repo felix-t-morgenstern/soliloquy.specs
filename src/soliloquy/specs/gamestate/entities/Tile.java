@@ -6,7 +6,7 @@ import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.GroundType;
-import soliloquy.specs.sprites.entities.Sprite;
+import soliloquy.specs.graphics.assets.Sprite;
 
 /**
  * <b>Tile</b>

@@ -1,0 +1,26 @@
+package soliloquy.specs.graphics.assets;
+
+import soliloquy.specs.common.shared.SoliloquyClass;
+
+/**
+ * <b>AnimationFrameSnippet</b>
+ * <p>
+ * This class defines the state of an Animation at a given frame: It points to an {@link Image},
+ * defines the boundaries for which to take a snippet from that Image, and defines the pixel
+ * offsets for that snippet.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
+public interface AnimationFrameSnippet extends AssetSnippet {
+    /**
+     * @return The x offset of the snippet in pixels
+     */
+    int offsetX();
+
+    /**
+     * @return The y offset of the snippet in pixels
+     */
+    int offsetY();
+}
