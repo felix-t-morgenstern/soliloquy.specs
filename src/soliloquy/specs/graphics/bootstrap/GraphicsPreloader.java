@@ -25,9 +25,7 @@ public interface GraphicsPreloader extends SoliloquyClass {
      * {@link soliloquy.specs.graphics.assets.Image} and
      * {@link soliloquy.specs.graphics.assets.AssetType}; and if needed, to calculate the Images'
      * alpha threshold map for mouse event capturing. (Determining which Images require alpha
-     * threshold maps depends which AssetTypes use snippets from which Images. Images only used for
-     * GroundTypes, for instance, will not need alpha threshold maps; but Images used for
-     * Characters will.)
+     * threshold maps depends on the implementation of the Graphics engine.)
      * @param callback The function to call once all Images have finished loading
      * @throws IllegalArgumentException If and only if callback is null
      */
