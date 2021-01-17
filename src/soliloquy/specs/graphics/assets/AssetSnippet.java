@@ -7,6 +7,8 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * <p>
  * This class defines the properties shared across all asset snippets, e.g. Sprites, single
  * Animation frames, or single SpriteSet snippets.
+ * <p>
+ * It is intended for this interface to be implemented anonymously at runtime.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

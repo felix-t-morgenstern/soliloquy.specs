@@ -6,6 +6,8 @@ import soliloquy.specs.graphics.assets.AssetSnippet;
  * <b>SpriteSetSnippetDefinition</b>
  * <p>
  * This class defines a snippet for a {@link SpriteSetDefinition}.
+ * <p>
+ * It is intended for this interface to be implemented anonymously at runtime.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

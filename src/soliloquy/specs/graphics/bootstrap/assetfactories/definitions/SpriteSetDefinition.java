@@ -8,6 +8,8 @@ import java.util.List;
  * <b>SpriteSetDefinition</b>
  * <p>
  * This class defines a {@link SpriteSet}.
+ * <p>
+ * It is intended for this interface to be implemented anonymously at runtime.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

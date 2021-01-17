@@ -10,6 +10,8 @@ import java.util.Map;
  * <p>
  * This class defines an {@link Animation}, to be created by the corresponding
  * {@link soliloquy.specs.graphics.bootstrap.assetfactories.AssetFactory}.
+ * <p>
+ * It is intended for this interface to be implemented anonymously at runtime.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
