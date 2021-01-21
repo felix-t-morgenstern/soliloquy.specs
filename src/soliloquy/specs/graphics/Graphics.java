@@ -5,7 +5,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.graphics.assets.SpriteSet;
-import soliloquy.specs.graphics.bootstrap.GraphicsStartup;
+import soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop;
 import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
 import soliloquy.specs.graphics.rendering.MouseCursorAsset;
 import soliloquy.specs.graphics.rendering.WindowManager;
@@ -15,9 +15,9 @@ public interface Graphics extends SoliloquyClass {
 	// TODO: Just wait until the module is worked out to figure out what even goes in here
 
     /**
-     * @return The functionality needed when setting up the graphics engine
+     * @return The core Graphics loop, to be started immediately on app startup
      */
-    GraphicsStartup startup();
+    GraphicsCoreLoop coreLoop();
 
     /**
      * @return The functionality needed when tearing down the graphics engine

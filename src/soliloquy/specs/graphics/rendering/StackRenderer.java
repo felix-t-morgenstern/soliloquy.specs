@@ -7,7 +7,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * <p>
  * This class renders the contents of the {@link RenderableStack}.
  * <p>
- * (NB: This class is separate from the FrameExecutor, since this class is responsible for what
+ * (NB: This class is separate from the FrameTimer, since this class is responsible for what
  * happens when a frame must be rendered, rather than determining when a frame should be rendered.)
  * 
  * @author felix.t.morgenstern
