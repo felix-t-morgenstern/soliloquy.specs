@@ -16,6 +16,12 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface FrameTimer extends SoliloquyClass {
     /**
+     * @return The milliseconds between intervals in which the FrameTimer determines whether to
+     * render the next frame
+     */
+    int getPollingInterval();
+
+    /**
      * @param ms The milliseconds between intervals in which the FrameTimer determines whether
      *           to render the next frame
      * @throws IllegalArgumentException If ms is less than or equal to zero
