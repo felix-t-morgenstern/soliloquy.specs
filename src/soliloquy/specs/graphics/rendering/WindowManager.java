@@ -59,4 +59,12 @@ public interface WindowManager extends SoliloquyClass {
      * @throws UnsupportedOperationException If the current WindowDisplayMode is not Windowed
      */
     void setLocation(int x, int y) throws IllegalArgumentException, UnsupportedOperationException;
+
+    /**
+     * NB: This method will throw an exception when the {@link WindowDisplayMode} is anything but
+     * Windowed, since in the other modes, the window's location is assumed to be affixed.
+     * @return The location of the window
+     * @throws UnsupportedOperationException If and only if the window is not windowed
+     */
+    ReadableCoordinate windowLocation() throws UnsupportedOperationException;
 }
