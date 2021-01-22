@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.rendering;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 
 /**
  * <b>WindowManager</b>
@@ -42,45 +41,8 @@ public interface WindowManager extends SoliloquyClass {
             throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
-     * NB: This method throws an exception when the window is in windowed fullscreen mode, since
-     * the window in that case should conform to the resolution of the screen.
-     * @return The width of the window
-     * @throws UnsupportedOperationException If and only if the window is windowed fullscreen
+     * This method updates the size, display mode, etc. of the window, if there have been any
+     * changes, whenever the next frame is executed (c.f. {@link FrameTimer}).
      */
-    int windowWidth() throws UnsupportedOperationException;
-
-    /**
-     * NB: This method throws an exception when the window is in windowed fullscreen mode, since
-     * the window in that case should conform to the resolution of the screen.
-     * @return The height of the window
-     * @throws UnsupportedOperationException If and only if the window is windowed fullscreen
-     */
-    int windowHeight() throws UnsupportedOperationException;
-
-    /**
-     * NB: This method will throw an exception when the {@link WindowDisplayMode} is anything but
-     * Windowed, since in the other modes, the window's location is assumed to be affixed.
-     * @param x The x position to which to set the window
-     * @param y The y position to which to set the window
-     * @throws IllegalArgumentException If and only if x or y are negative, or beyond the bounds of
-     * the screen
-     * @throws UnsupportedOperationException If the current WindowDisplayMode is not Windowed
-     */
-    void setLocation(int x, int y) throws IllegalArgumentException, UnsupportedOperationException;
-
-    /**
-     * NB: This method will throw an exception when the {@link WindowDisplayMode} is anything but
-     * Windowed, since in the other modes, the window's location is assumed to be affixed.
-     * @return The x position of the window
-     * @throws UnsupportedOperationException If and only if the window is not windowed
-     */
-    int windowXPos() throws UnsupportedOperationException;
-
-    /**
-     * NB: This method will throw an exception when the {@link WindowDisplayMode} is anything but
-     * Windowed, since in the other modes, the window's location is assumed to be affixed.
-     * @return The y position of the window
-     * @throws UnsupportedOperationException If and only if the window is not windowed
-     */
-    int windowYPos() throws UnsupportedOperationException;
+    void updateWindowSizeAndLocation();
 }

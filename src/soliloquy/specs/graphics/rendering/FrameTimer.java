@@ -22,8 +22,15 @@ public interface FrameTimer extends SoliloquyClass {
     int getPollingInterval();
 
     /**
-     * @param ms The milliseconds between intervals in which the FrameTimer determines whether
-     *           to render the next frame
+     * <i>NB: This does not guarantee that the FrameTimer will be asked every ms milliseconds
+     * whether a new frame should be rendered; instead, it guarantees a <b>delay</b> of ms
+     * milliseconds between either the end of rendering a frame, or determining that a frame
+     * needn't be rendered yet, and the next time the FrameTimer will be asked again whether the
+     * next frame will be rendered. Think about it as a <u>delay</u>.</i>
+     * @param ms The milliseconds between the end of rendering the most recent frame, or when the
+     *           FrameTimer stated that the next frame should not be rendered yet, and the next
+     *           time {@link soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop} should ask the
+     *           FrameTimer again whether to render the next frame.
      * @throws IllegalArgumentException If ms is less than or equal to zero
      */
     void setPollingInterval(int ms) throws IllegalArgumentException;
