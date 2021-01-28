@@ -4,10 +4,4 @@ doc/
 /target/
 .settings/org.eclipse.jdt.core.prefs
 soliloquy.specs.iml
-.idea/soliloquy.specs.iml
-.idea/libraries
-.idea/tasks.xml
-.idea/uiDesigner.xml
-.idea/usage.statistics.xml
-.idea/workspace.xml
-.idea/shelf
+.idea/*

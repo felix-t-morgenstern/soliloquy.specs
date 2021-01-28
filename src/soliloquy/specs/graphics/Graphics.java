@@ -8,7 +8,7 @@ import soliloquy.specs.graphics.assets.SpriteSet;
 import soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop;
 import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
 import soliloquy.specs.graphics.rendering.MouseCursorAsset;
-import soliloquy.specs.graphics.rendering.WindowManager;
+import soliloquy.specs.graphics.rendering.WindowResolutionManager;
 
 // TODO: Document this interface
 public interface Graphics extends SoliloquyClass {
@@ -40,10 +40,10 @@ public interface Graphics extends SoliloquyClass {
     Registry<Animation> animationsRegistry();
 
     /**
-     * @return The {@link WindowManager}, to manage the size of the window (and, if fullscreen, the
-     * screen)
+     * @return The {@link WindowResolutionManager}, to manage the size of the window (and, if
+     * fullscreen, the screen itself)
      */
-    WindowManager windowManager();
+    WindowResolutionManager windowResolutionManager();
 
     /**
      * @return An interface to mutate the current mouse cursor asset

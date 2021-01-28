@@ -3,7 +3,7 @@ package soliloquy.specs.graphics.rendering;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
- * <b>WindowManager</b>
+ * <b>WindowResolutionManager</b>
  * <p>
  * This class manages the current WindowDisplayMode (i.e. Windowed, Windowed Fullscreen, or
  * Fullscreen) of the window, and its current dimensions and location.
@@ -12,7 +12,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface WindowManager extends SoliloquyClass {
+public interface WindowResolutionManager extends SoliloquyClass {
     /**
      * @return The current WindowDisplayMode
      */
@@ -41,8 +41,28 @@ public interface WindowManager extends SoliloquyClass {
             throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
-     * This method updates the size, display mode, etc. of the window, if there have been any
-     * changes, whenever the next frame is executed (c.f. {@link FrameTimer}).
+     * @return The current width of the window
+     * @throws UnsupportedOperationException If and only if current WindowDisplayMode is
+     * WindowedFullscreen (c.f. {@link #setDimensions})
      */
-    void updateWindowSizeAndLocation();
+    int getWidth() throws UnsupportedOperationException;
+
+    /**
+     * @return The current height of the window
+     * @throws UnsupportedOperationException If and only if current WindowDisplayMode is
+     * WindowedFullscreen (c.f. {@link #setDimensions})
+     */
+    int getHeight() throws UnsupportedOperationException;
+
+    /**
+     * This method updates the size, display mode, etc. of the window, if there have been any
+     * changes, whenever the next frame is executed (c.f. {@link FrameTimer}). (If the window has
+     * not yet been created, this method will create it.)
+     * @param windowId The id of the current window
+     * @param titlebar The string to be displayed in the titlebar
+     * @return The window Id, which changes when switching from one display mode to another
+     * @throws IllegalArgumentException If and only if titlebar is null or empty
+     */
+    long updateWindowSizeAndLocation(long windowId, String titlebar)
+            throws IllegalArgumentException;
 }
