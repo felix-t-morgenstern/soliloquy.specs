@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories;
 
+import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AssetDefinition;
 import soliloquy.specs.graphics.assets.AssetType;
 
@@ -17,7 +18,7 @@ import soliloquy.specs.graphics.assets.AssetType;
  *
  */
 public interface AssetFactory<TAssetDefinition extends AssetDefinition<TAssetType>,
-        TAssetType extends AssetType> {
+        TAssetType extends AssetType> extends SoliloquyClass {
     /**
      * NB: This method is intended to populate
      * {@link soliloquy.specs.common.infrastructure.Registry}s of various AssetTypes, e.g.

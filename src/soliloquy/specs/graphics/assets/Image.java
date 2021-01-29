@@ -1,5 +1,7 @@
 package soliloquy.specs.graphics.assets;
 
+import soliloquy.specs.common.shared.SoliloquyClass;
+
 /**
  * <b>Image</b>
  * <p>
@@ -14,11 +16,21 @@ package soliloquy.specs.graphics.assets;
  * @version 0.0.1
  *
  */
-public interface Image {
+public interface Image extends SoliloquyClass {
     /**
      * @return The location of this Image, relative to the base directory of the application
      */
     String relativeLocation();
+
+    /**
+     * @return The width of the image
+     */
+    int width();
+
+    /**
+     * @return The height of the image
+     */
+    int height();
 
     /**
      * (Whether this Image supports mouse event capturing is determined by the specific
