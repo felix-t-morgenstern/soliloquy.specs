@@ -1,5 +1,7 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
 
+import soliloquy.specs.common.shared.SoliloquyClass;
+
 /**
  * <b>AssetDefinition</b>
  * <p>
@@ -9,7 +11,7 @@ package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
  * @version 0.0.1
  *
  */
-public interface AssetDefinition<AssetType> {
+public interface AssetDefinition<AssetType> extends SoliloquyClass {
     /**
      * @return The Id of the asset being defined
      */

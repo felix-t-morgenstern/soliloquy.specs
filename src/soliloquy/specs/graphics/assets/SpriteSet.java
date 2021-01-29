@@ -16,6 +16,7 @@ package soliloquy.specs.graphics.assets;
  */
 public interface SpriteSet extends AssetType {
 	/**
+	 * NB: Null and empty values are treated as identical. Both may be null and/or empty.
 	 * @param type The type to retrieve for this SpriteSet (e.g. "CombatReady", "Attacking", etc.).
 	 *             May be null, e.g. for a statue, which can face a given direction, but which has
 	 *             no real variants otherwise.
@@ -24,8 +25,8 @@ public interface SpriteSet extends AssetType {
 	 *                  can either be on the ground or in inventory, but it never faces a specific
 	 *                  direction
 	 * @return The asset snippet for the provided type and direction
-	 * @throws IllegalArgumentException If and only if type or direction correspond to an invalid
-	 * value.
+	 * @throws IllegalArgumentException If and only if type or direction correspond to a
+	 * combination that does not exist in this SpriteSet.
 	 */
 	AssetSnippet getImageAndBoundariesForTypeAndDirection(String type, String direction)
 			throws IllegalArgumentException;
