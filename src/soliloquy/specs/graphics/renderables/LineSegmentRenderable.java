@@ -11,7 +11,7 @@ import java.awt.*;
  * @version 0.0.1
  *
  */
-public interface LineSegmentRenderable extends RenderableType {
+public interface LineSegmentRenderable extends Renderable {
     /**
      * @return The thickness of this line segment
      */

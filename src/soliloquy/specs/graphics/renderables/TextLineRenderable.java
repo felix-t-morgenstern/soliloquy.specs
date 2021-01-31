@@ -11,7 +11,7 @@ import soliloquy.specs.graphics.assets.Font;
  * @version 0.0.1
  *
  */
-public interface TextLineRenderable extends RenderableType {
+public interface TextLineRenderable extends Renderable {
     /**
      * @return The Font of this line
      */

@@ -11,7 +11,7 @@ import soliloquy.specs.graphics.assets.SpriteSet;
  * @version 0.0.1
  *
  */
-public interface SpriteSetRenderable extends RenderableType {
+public interface SpriteSetRenderable extends Renderable {
     /**
      * @return The SpriteSet to be rendered
      */

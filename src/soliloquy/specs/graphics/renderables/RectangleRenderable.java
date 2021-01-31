@@ -11,7 +11,7 @@ import java.awt.*;
  * @version 0.0.1
  *
  */
-public interface RectangleRenderable extends RenderableType {
+public interface RectangleRenderable extends Renderable {
     /**
      * @return The left x pixel (inclusive) of this rectangle
      */

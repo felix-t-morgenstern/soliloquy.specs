@@ -8,7 +8,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * <p>
  * This class takes a Stack (technically a {@link Collection}) of {@link ColorShiftType}s of
  * various types, and aggregates them into a {@link NetColorShifts} object, which can be used by
- * the shader program to render a {@link soliloquy.specs.graphics.renderables.RenderableType}.
+ * the shader program to render a {@link soliloquy.specs.graphics.renderables.Renderable}.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

@@ -1,7 +1,7 @@
 package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.valueobjects.Coordinate;
-import soliloquy.specs.graphics.renderables.RenderableType;
+import soliloquy.specs.graphics.renderables.Renderable;
 
 /**
  * <b>ScreenElement</b>
@@ -14,7 +14,7 @@ import soliloquy.specs.graphics.renderables.RenderableType;
  * @version 0.0.1
  *
  */
-public interface ScreenElement extends RenderableType {
+public interface ScreenElement extends Renderable {
 	/**
 	 * This method specifies the Id of the ScreenElement, so it can be altered or removed in any
 	 * way necessary

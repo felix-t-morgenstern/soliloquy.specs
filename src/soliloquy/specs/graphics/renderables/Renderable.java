@@ -7,7 +7,7 @@ import soliloquy.specs.graphics.colorshifting.ColorShiftType;
 import java.util.List;
 
 /**
- * <b>RenderableType</b>
+ * <b>Renderable</b>
  * <p>
  * An object which can be rendered in the window
  * <p>
@@ -20,7 +20,7 @@ import java.util.List;
  * @version 0.0.1
  *
  */
-public interface RenderableType extends SoliloquyClass {
+public interface Renderable extends SoliloquyClass {
 	/**
 	 * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
 	 * events
@@ -79,5 +79,5 @@ public interface RenderableType extends SoliloquyClass {
 	 * children of those renderables above their parent.
 	 * @return The renderables which are children of this renderable
 	 */
-	List<RenderableType> innerRenderables();
+	List<Renderable> innerRenderables();
 }
