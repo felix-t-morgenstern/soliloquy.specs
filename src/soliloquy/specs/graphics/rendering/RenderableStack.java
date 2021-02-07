@@ -28,6 +28,7 @@ public interface RenderableStack extends SoliloquyClass {
     void clear();
 
     /**
+     * <i>NB: Higher z values will be rendered first.</i>
      * If renderable is already present in the stack, this method does nothing.
      * @param renderable The Renderable to add to the stack
      * @throws IllegalArgumentException If and only if renderable is null

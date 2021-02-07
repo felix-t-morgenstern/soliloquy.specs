@@ -54,6 +54,7 @@ public interface Renderable extends SoliloquyClass {
 	ReadableCoordinate screenLocation();
 
 	/**
+	 * <i>NB: Higher z values will be rendered first.</i>
 	 * @return The z-index of this Renderable. (If this Renderable is within another Renderable,
 	 * then the z-index is only used to determine rendering order amongst other Renderables within
 	 * the containing Renderable.)

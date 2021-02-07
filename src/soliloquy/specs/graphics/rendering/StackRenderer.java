@@ -16,6 +16,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface StackRenderer extends SoliloquyClass {
 	/**
+	 * <i>NB: Higher z values will be rendered first.</i>
 	 * Renders the contents of the {@link RenderableStack}.
 	 */
 	void render();
