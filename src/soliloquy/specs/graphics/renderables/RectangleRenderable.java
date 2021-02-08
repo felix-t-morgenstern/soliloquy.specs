@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import java.awt.*;
+import java.util.List;
 
 /**
  * <b>RectangleRenderable</b>
@@ -11,7 +12,7 @@ import java.awt.*;
  * @version 0.0.1
  *
  */
-public interface RectangleRenderable extends Renderable {
+public interface RectangleRenderable extends RenderableWithArea {
     /**
      * @return The left x pixel (inclusive) of this rectangle
      */
@@ -51,4 +52,13 @@ public interface RectangleRenderable extends Renderable {
      * @return The color at the bottom left of this rectangle
      */
     Color bottomLeftColor();
+
+    /**
+     * NB: All child renderables will be rendered below all renderables above their parent, and all
+     * children of those renderables above their parent.
+     * @return The renderables which are children of this renderable
+     */
+    List<Renderable> innerRenderables();
+
+    // TODO: Expose members to define backgrounds, whether those backgrounds are stretched, and whether (and how) those backgrounds are repeated
 }

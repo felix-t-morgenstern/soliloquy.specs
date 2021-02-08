@@ -1,10 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.ReadableCoordinate;
-import soliloquy.specs.graphics.colorshifting.ColorShiftType;
-
-import java.util.List;
 
 /**
  * <b>Renderable</b>
@@ -22,36 +18,31 @@ import java.util.List;
  */
 public interface Renderable extends SoliloquyClass {
 	/**
-	 * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
-	 * events
+	 * @return The x location of this Renderable on the window, where -1.0 is the left edge of the
+	 * window, and 1.0 is the right edge of the window
 	 */
-	boolean capturesMouseEvents();
+	float xLoc();
+	/**
+	 * @return The y location of this Renderable on the window, where -1.0 is the bottom edge of
+	 * the window, and 1.0 is the top edge of the window
+	 */
+	float yLoc();
 
 	/**
-	 * Triggers the onClick mouse event
-	 * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
-	 * events
+	 * <i>NB: Can be negative. E.g., with a {@link RasterizedLineSegmentRenderable}, a negative
+	 * width implies that the line will start to the left of its origin.</i>
+	 * @return The width of this Renderable on the window, where 2.0 is the total width of the
+	 * window (c.f. {@link #xLoc})
 	 */
-	void click() throws UnsupportedOperationException;
+	float width();
 
 	/**
-	 * Triggers the onMouseOver mouse event
-	 * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
-	 * events
+	 * <i>NB: Can be negative. E.g., with a {@link RasterizedLineSegmentRenderable}, a negative
+	 * height implies that the line will start to the left of its origin.</i>
+	 * @return The height of this Renderable on the window, where 2.0 is the total height of the
+	 * window (c.f. {@link #yLoc})
 	 */
-	void mouseOver() throws UnsupportedOperationException;
-
-	/**
-	 * Triggers the onMouseLeave mouse event
-	 * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
-	 * events
-	 */
-	void mouseLeave() throws UnsupportedOperationException;
-
-	/**
-	 * @return The pixel location of this Renderable on the screen
-	 */
-	ReadableCoordinate screenLocation();
+	float height();
 
 	/**
 	 * <i>NB: Higher z values will be rendered first.</i>
@@ -60,25 +51,4 @@ public interface Renderable extends SoliloquyClass {
 	 * the containing Renderable.)
 	 */
 	int z();
-
-	/**
-	 * @return The dimensions of this Renderable, in pixels.
-	 */
-	ReadableCoordinate dimensions();
-
-	/**
-	 * Color shifts at the front of the Collection are processed by the
-	 * {@link soliloquy.specs.graphics.colorshifting.ColorShiftStackAggregator} before color shifts
-	 * at the end.
-	 * @return A Collection of color shifts, to be applied to this Renderable, when rendering it in
-	 * the shader
-	 */
-	List<ColorShiftType> colorShifts();
-
-	/**
-	 * NB: All child renderables will be rendered below all renderables above their parent, and all
-	 * children of those renderables above their parent.
-	 * @return The renderables which are children of this renderable
-	 */
-	List<Renderable> innerRenderables();
 }

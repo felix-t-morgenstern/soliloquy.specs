@@ -11,7 +11,7 @@ import soliloquy.specs.graphics.assets.Sprite;
  * @version 0.0.1
  *
  */
-public interface SpriteRenderable extends Renderable {
+public interface SpriteRenderable extends RenderableWithArea {
     /**
      * @return The Sprite to be rendered
      */
