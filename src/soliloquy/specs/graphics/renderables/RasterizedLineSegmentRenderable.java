@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.renderables;
 
-import java.awt.*;
-
 /**
  * <b>RasterizedLineSegmentRenderable</b>
  * <p>

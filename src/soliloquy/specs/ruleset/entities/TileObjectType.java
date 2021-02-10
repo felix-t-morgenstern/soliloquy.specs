@@ -3,7 +3,6 @@ package soliloquy.specs.ruleset.entities;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
@@ -11,9 +10,8 @@ import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 /**
  * <b>TileObject</b>
  * <p>
- * This is an object--either a {@link GroundType GroundType} or a
- * {@link FixtureType FixtureType}--which exists on a
- * {@link Tile Tile}.
+ * This is an object--either a {@link GroundType} or a {@link FixtureType}--which exists as a part
+ * of a {@link soliloquy.specs.gamestate.entities.Tile}.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1

@@ -36,23 +36,36 @@ public interface Camera extends SoliloquyClass {
 	 * @throws IllegalArgumentException If and only if x or y are negative
 	 */
 	void setTileLocation(int x, int y) throws IllegalArgumentException;
-	
+
 	/**
-	 * NB: This Coordinate is a representation of the PixelOffset; changing its values will not
-	 * change the Camera's PixelOffset
-	 * @return The offset of the Camera in pixels from the Tile on which it is centered
+	 * @return The x offset of the Camera, defined in terms of a Tile's width, which is defined
+	 * here to be 1.0f
 	 * <p>
 	 * (Intended use is for things like shaking the Camera, smooth transitions across the
 	 * GameWorld, etc.)
 	 */
-	ReadableCoordinate getPixelOffset();
-	
+	float getXTileWidthOffset();
+
 	/**
-	 * @param xOffset - The pixel offset in the x dimension to set for the Camera which will
-	 *                   determine its distance in pixels from the center of its current Tile
-	 * @throws IllegalArgumentException If and only if x or y are negative
+	 * @return The y offset of the Camera, defined in terms of a Tile's height, which is defined
+	 * here to be 1.0f
+	 * <p>
+	 * (Intended use is for things like shaking the Camera, smooth transitions across the
+	 * GameWorld, etc.)
 	 */
-	void setPixelOffset(int xOffset, int yOffset) throws IllegalArgumentException;
+	float getYTileHeightOffset();
+
+	/**
+	 * @param xTileWidthOffset - The x offset to set for the Camera, defined in terms of a Tile's
+	 *                            width, which is defined here to be 1.0f
+	 */
+	void setXTileWidthOffset(float xTileWidthOffset);
+
+	/**
+	 * @param YTileHeightOffset - The x offset to set for the Camera, defined in terms of a Tile's
+	 *                            height, which is defined here to be 1.0f
+	 */
+	void setYTileHeightOffset(float YTileHeightOffset);
 	
 	/**
 	 * This method does not return how many Tiles away a given Character can see; instead, it 

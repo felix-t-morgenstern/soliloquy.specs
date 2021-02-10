@@ -21,7 +21,7 @@ import soliloquy.specs.graphics.assets.SpriteSet;
  * @version 0.0.1
  *
  */
-public interface ItemType extends HasPluralName, HasId {
+public interface ItemType extends HasDefaultTileOffsets, HasPluralName, HasId {
 	/**
 	 * @return The EquipmentType (e.g. helmets, necklaces, mystical auras, makeup) of this
 	 * ItemType; used to determine in which types of equipment slots this Item can be equipped
@@ -73,12 +73,6 @@ public interface ItemType extends HasPluralName, HasId {
 	 * @throws UnsupportedOperationException If this ItemType does not have charges
 	 */
 	int defaultCharges() throws UnsupportedOperationException;
-	
-	/**
-	 * @return The default offset, in pixels, from the bottom-left corner of the Tile on which this
-	 * Item is placed
-	 */
-	Coordinate defaultTilePixelOffset();
 	
 	/**
 	 * @return This ItemType's ActiveAbilities, e.g. Fireball, Heal Character

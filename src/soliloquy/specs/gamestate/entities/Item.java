@@ -20,7 +20,7 @@ import soliloquy.specs.ruleset.entities.ItemType;
  * @version 0.0.1
  *
  */
-public interface Item extends TileEntity, HasPluralName, HasUuid {
+public interface Item extends TileEntity, HasTileOffsets, HasPluralName, HasUuid {
 	/**
 	 * @return The ItemType of this Item
 	 * @throws IllegalStateException If this Item is present in more than one place (i.e. an
