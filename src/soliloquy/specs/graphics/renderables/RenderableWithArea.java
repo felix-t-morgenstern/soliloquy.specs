@@ -21,7 +21,8 @@ import java.util.List;
  * @version 0.0.1
  *
  */
-public interface RenderableWithArea extends Renderable {
+public interface RenderableWithArea<TRenderable extends Renderable>
+        extends Renderable<TRenderable> {
     /**
      * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
      * events
@@ -50,13 +51,13 @@ public interface RenderableWithArea extends Renderable {
     void mouseLeave() throws UnsupportedOperationException;
 
     /**
-     * Color shifts at the front of the Collection are processed by the
+     * Color shifts at the front of the List are processed by the
      * {@link soliloquy.specs.graphics.colorshifting.ColorShiftStackAggregator} before color shifts
      * at the end.
      * <p>
      * <i>NB: There should not be any color shifts for a {@link RectangleRenderable} which does not
      * have a background Sprite or Animation.</i>
-     * @return A Collection of color shifts, to be applied to this Renderable, when rendering it in
+     * @return A List of color shifts, to be applied to this Renderable, when rendering it in
      * the shader
      */
     List<ColorShiftType> colorShifts();

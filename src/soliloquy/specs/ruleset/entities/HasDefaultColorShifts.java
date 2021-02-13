@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.graphics.colorshifting.ColorShiftType;
 
 /**
@@ -18,5 +18,5 @@ public interface HasDefaultColorShifts {
     /**
      * @return The default color shifts for this type
      */
-    Collection<ColorShiftType> defaultColorShifts();
+    List<ColorShiftType> defaultColorShifts();
 }

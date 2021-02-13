@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.infrastructure.ReadablePair;
+import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
 
@@ -31,7 +31,7 @@ public interface ActOnCharacterOnTurnAndRound extends HasGlobalAccess {
 	 * the event corresponds to a variable statistic, or to a status effect; if you wish for all
 	 * variable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
-	ReadablePair<BiConsumer<Character, Integer>, Integer> onTurnStart();
+	Pair<BiConsumer<Character, Integer>, Integer> onTurnStart();
 
 	/**
 	 * This method returns a pair; where the first item is the action performed on a Character at
@@ -43,7 +43,7 @@ public interface ActOnCharacterOnTurnAndRound extends HasGlobalAccess {
 	 * the event corresponds to a variable statistic, or to a status effect; if you wish for all
 	 * variable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
-	ReadablePair<BiConsumer<Character, Integer>, Integer> onTurnEnd();
+	Pair<BiConsumer<Character, Integer>, Integer> onTurnEnd();
 
 	/**
 	 * This method returns a pair; where the first item is the action performed on a Character at
@@ -55,5 +55,5 @@ public interface ActOnCharacterOnTurnAndRound extends HasGlobalAccess {
 	 * the event corresponds to a variable statistic, or to a status effect; if you wish for all
 	 * variable statistic events to fire first, then assign a higher priority to all of those.)
 	 */
-	ReadablePair<BiConsumer<Character, Integer>, Integer> onRoundEnd();
+	Pair<BiConsumer<Character, Integer>, Integer> onRoundEnd();
 }

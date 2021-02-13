@@ -1,8 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableCollection;
-import soliloquy.specs.common.infrastructure.ReadableMap;
-import soliloquy.specs.common.infrastructure.ReadablePair;
+import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.infrastructure.Pair;
 
 /**
  * <b>TileWallSegments</b>
@@ -16,15 +15,15 @@ import soliloquy.specs.common.infrastructure.ReadablePair;
  * @version 0.0.1
  */
 public interface TileWallSegments
-        extends Iterable<ReadablePair<TileWallSegmentDirection,
-            ReadablePair<TileWallSegment, TileWallSegmentDimensions>>>, Deletable {
+        extends Iterable<Pair<TileWallSegmentDirection,
+            Pair<TileWallSegment, TileWallSegmentDimensions>>>, Deletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the TileWallSegments on this Tile. To
      * add or remove a TileWallSegment, use the other methods specified.</i>
      * @return A representation of the TileWallSegments on this Tile.
      * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
      */
-    ReadableMap<TileWallSegmentDirection, ReadableMap<TileWallSegment,TileWallSegmentDimensions>>
+    Map<TileWallSegmentDirection, Map<TileWallSegment,TileWallSegmentDimensions>>
         representation()
             throws IllegalStateException;
 

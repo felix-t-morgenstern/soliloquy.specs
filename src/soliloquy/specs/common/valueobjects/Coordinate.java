@@ -1,5 +1,8 @@
 package soliloquy.specs.common.valueobjects;
 
+import soliloquy.specs.common.shared.Cloneable;
+import soliloquy.specs.common.shared.SoliloquyClass;
+
 /**
  * <b>Coordinate2d</b>
  * <p>
@@ -17,22 +20,25 @@ package soliloquy.specs.common.valueobjects;
  * @version 0.0.1
  *
  */
-public interface Coordinate extends ReadableCoordinate {
+public interface Coordinate  extends Comparable<Coordinate>, Cloneable<Coordinate>,
+		SoliloquyClass {
+	/**
+	 * @return The x value of this coordinate
+	 */
+	int getX();
+
 	/**
 	 * @param x - The x value to set for this coordinate
 	 */
 	void setX(int x);
+
+	/**
+	 * @return The y value of this coordinate
+	 */
+	int getY();
 	
 	/**
 	 * @param y - The y value to set for this coordinate
 	 */
 	void setY(int y);
-
-	/**
-	 * NB: This method exists so that any Coordinates produced by a
-	 * {@link soliloquy.specs.common.factories.CoordinateFactory} cannot be cast to a
-	 * (non-read-only) Collection by a particularly clever developer
-	 * @return A read-only representation of this Coordinate
-	 */
-	ReadableCoordinate readOnlyRepresentation();
 }

@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.Character;
@@ -23,6 +23,6 @@ public interface ActiveAbilityType extends AbilityType {
 	 * @param params - The parameters regarding the effects (e.g. damage healed, chance-to-hit) of
 	 * the ActiveAbilityType
 	 */
-	void use(AbilitySource source, Collection<Pair<Character, Tile>> targets,
+	void use(AbilitySource source, List<Pair<Character, Tile>> targets,
 			 VariableCache params);
 }

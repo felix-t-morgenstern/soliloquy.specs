@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -15,9 +15,9 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface KeyBindingContext extends SoliloquyClass {
 	/**
-	 * @return A Collection of the KeyBindings in this context
+	 * @return A List of the KeyBindings in this context
 	 */
-	Collection<KeyBinding> bindings();
+	List<KeyBinding> bindings();
 
 	/**
 	 * @return True, if and only if all lower contexts' bindings are blocked

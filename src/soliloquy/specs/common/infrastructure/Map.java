@@ -1,7 +1,7 @@
 package soliloquy.specs.common.infrastructure;
 
-import soliloquy.specs.common.entities.Function;
-import soliloquy.specs.common.factories.MapFactory;
+import soliloquy.specs.common.shared.Cloneable;
+import soliloquy.specs.common.shared.HasTwoGenericParams;
 
 /**
  * <b>Map</b>
@@ -17,52 +17,12 @@ import soliloquy.specs.common.factories.MapFactory;
  * @param <K> The type of key used to identify values in the Set
  * @param <V> The type of value populating the Set
  */
-public interface Map<K,V> extends ReadableMap<K,V> {
+public interface Map<K,V> extends java.util.Map<K,V>, Cloneable<Map<K,V>>,
+		HasTwoGenericParams<K,V> {
 	/**
-	 * Clears this Map of all keys and values
+	 * <i>NB: This method returns the SoliloquyClass {@link List} with an archetype, which can be
+	 * properly stored to file.</i>
+	 * @return A List of the values of this Map
 	 */
-	void clear();
-	
-	/**
-	 * @param key - The key of the new pair whose presence to ensure
-	 * @param value - The value of the new pair whose presence to ensure
-	 * @throws IllegalArgumentException If key is null or a blank string
-	 */
-	void put(K key, V value) throws IllegalArgumentException;
-	
-	/**
-	 * @param items - Key-value pairs whose presence to ensure in this Map
-	 * @throws IllegalArgumentException If items is null
-	 */
-	void putAll(ReadableCollection<Pair<K,V>> items) throws IllegalArgumentException;
-	
-	/**
-	 * @param key - The item, identified by key, to remove from this Map
-	 * @return The value, if and only if the item was removed (and therefore if it was present);
-	 * else, null
-	 */
-	V removeByKey(K key);
-	
-	/**
-	 * @param key - The key of the item to remove from this Map
-	 * @param value - The value of the item to remove from this Map
-	 * @return True, if and only if the item was removed (and therefore if it was present)
-	 */
-	boolean removeByKeyAndValue(K key, V value);
-	
-	/**
-	 * A collection of functions used to validate all inputs to this Map. (If this is null, then
-	 * all inputs are valid.)
-	 * <i>Intended usage is that if the input passes validation, the validators return null;
-	 * otherwise, a validator returns an exception message, thrown by an
-	 * IllegalArgumentException.</i>
-	 */
-	Collection<Function<Pair<K,V>,String>> validators();
-
-	/**
-	 * NB: This method exists so that any Map produced by a {@link MapFactory} cannot be cast to a
-	 * (non-read-only) Map by a particularly clever developer
-	 * @return A read-only representation of this Map
-	 */
-	ReadableMap<K,V> readOnlyRepresentation();
+	List<V> getValuesList();
 }

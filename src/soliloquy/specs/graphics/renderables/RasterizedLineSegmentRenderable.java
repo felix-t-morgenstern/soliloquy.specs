@@ -9,7 +9,8 @@ package soliloquy.specs.graphics.renderables;
  * @version 0.0.1
  *
  */
-public interface RasterizedLineSegmentRenderable extends Renderable {
+public interface RasterizedLineSegmentRenderable
+        extends Renderable<RasterizedLineSegmentRenderable> {
     /**
      * @return The thickness of this line segment, <i>in rasterized pixels</i>
      */

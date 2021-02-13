@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Tile;
@@ -32,5 +32,5 @@ public interface ActiveAbility extends Ability {
 	 * that this Ability either is being used by a PlayerCharacter, or that it does not require a
 	 * target.
 	 */
-	void use(Collection<Pair<Character, Tile>> targets);
+	void use(List<Pair<Character, Tile>> targets);
 }

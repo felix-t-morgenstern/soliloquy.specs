@@ -1,6 +1,6 @@
 package soliloquy.specs.audio.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.EntityUuid;
 
@@ -23,9 +23,9 @@ public interface SoundsPlaying extends SoliloquyClass, Iterable<Sound> {
 	int size();
 
 	/**
-	 * @return A read-only collection of all sounds currently being played
+	 * @return A read-only List of all sounds currently being played
 	 */
-	ReadableCollection<Sound> representation();
+	List<Sound> representation();
 	
 	/**
 	 * @param soundId - The id to check for

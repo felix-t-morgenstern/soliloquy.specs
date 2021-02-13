@@ -1,6 +1,6 @@
 package soliloquy.specs.common.shared;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Pair;
 
 /**
@@ -18,14 +18,18 @@ import soliloquy.specs.common.infrastructure.Pair;
  */
 public interface EntityGroup<Entity> extends SoliloquyClass {
 	/**
+	 * NB: This is a modifiable list, because it is a clone of the contents of this EntityGroup;
+	 * so, modifying this returned List will not modify the contents of this EntityGroup.
 	 * @return All of the entities/subgroupings in this grouping
 	 */
-	Collection<EntityGroupItem<Entity>> getAllGrouped();
+	List<EntityGroupItem<Entity>> getAllGrouped();
 	
 	/**
+	 * NB: This is a modifiable list, because it is a clone of the contents of this EntityGroup;
+	 * so, modifying this returned List will not modify the contents of this EntityGroup.
 	 * @return All of the entities in this grouping
 	 */
-	Collection<Entity> getAllUngrouped();
+	List<Entity> getAllUngrouped();
 	
 	/**
 	 * @param order - The number of the item to retrieve. (The first item has an order of 0.)
@@ -58,11 +62,11 @@ public interface EntityGroup<Entity> extends SoliloquyClass {
 	void newSubgrouping(int order, String groupId, String parentGroupId) throws IllegalArgumentException;
 	
 	/**
-	 * @param order The order number of the item in this group to be deleted
+	 * @param id The id of the item in this group to be deleted
 	 * @return True, if and only if an item exists (and was successfully deleted)
-	 * @throws IllegalArgumentException If and only if itemId is null or blank
+	 * @throws IllegalArgumentException If and only if id is null or blank
 	 */
-	boolean removeItem(String itemId) throws IllegalArgumentException;
+	boolean removeItem(String id) throws IllegalArgumentException;
 
 	/**
 	 * @param itemId The id of the item for which to search

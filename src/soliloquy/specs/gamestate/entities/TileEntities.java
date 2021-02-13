@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableMap;
-import soliloquy.specs.common.infrastructure.ReadablePair;
+import soliloquy.specs.common.infrastructure.Map;
+import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.shared.HasOneGenericParam;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 
@@ -19,7 +19,7 @@ import java.util.function.Consumer;
  * @version 0.0.1
  */
 public interface TileEntities<TEntity extends TileEntity>
-        extends Iterable<ReadablePair<TEntity, Integer>>, HasOneGenericParam<TEntity>, Deletable {
+        extends Iterable<Pair<TEntity, Integer>>, HasOneGenericParam<TEntity>, Deletable {
     /**
      * (NB: This method simply calls {@link #add(TEntity, int)} with a zIndex of 0)
      * @param entity The entity to add onto this Tile
@@ -83,7 +83,7 @@ public interface TileEntities<TEntity extends TileEntity>
      * this Tile
      * @throws EntityDeletedException If and only if the containing Tile is deleted
      */
-    ReadableMap<TEntity,Integer> representation() throws EntityDeletedException;
+    Map<TEntity,Integer> representation() throws EntityDeletedException;
 
     // NB: The following methods are exposed on the interface, so that GameZone may be tested,
     //     without also testing the implementation of TileEntities

@@ -1,12 +1,12 @@
 package soliloquy.specs.graphics.colorshifting;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
  * <b>NetColorShifts</b>
  * <p>
- * This class takes a Stack (technically a {@link Collection}) of {@link ColorShiftType}s of
+ * This class takes a Stack (technically a {@link List}) of {@link ColorShiftType}s of
  * various types, and aggregates them into a {@link NetColorShifts} object, which can be used by
  * the shader program to render a {@link soliloquy.specs.graphics.renderables.Renderable}.
  *
@@ -21,6 +21,6 @@ public interface ColorShiftStackAggregator extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if colorShifts is null, or contains any
      * ColorShiftTypes with invalid values
      */
-    NetColorShifts aggregate(Collection<ColorShiftType> colorShifts)
+    NetColorShifts aggregate(List<ColorShiftType> colorShifts)
             throws IllegalArgumentException;
 }

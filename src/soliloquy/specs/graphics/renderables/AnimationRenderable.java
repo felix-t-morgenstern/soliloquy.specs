@@ -11,7 +11,7 @@ import soliloquy.specs.graphics.assets.Animation;
  * @version 0.0.1
  *
  */
-public interface AnimationRenderable extends RenderableWithArea {
+public interface AnimationRenderable extends RenderableWithArea<AnimationRenderable> {
     /**
      * @return The Animation to render
      */

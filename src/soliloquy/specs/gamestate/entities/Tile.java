@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Map;
-import soliloquy.specs.common.valueobjects.ReadableCoordinate;
+import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.GroundType;
@@ -32,7 +32,7 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	 * @return The Coordinate at which this Tile is located
 	 * @throws IllegalStateException If the GameZone does not contain this Tile at the location
 	 */
-	ReadableCoordinate location() throws IllegalStateException;
+	Coordinate location() throws IllegalStateException;
 	
 	/**
 	 * @return The height of this Tile in the GameWorld
@@ -89,17 +89,17 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	TileWallSegments wallSegments() throws IllegalStateException;
 
 	/**
-	 * @return A Collection of events which fire when a Character moves into this Tile
+	 * @return A List of events which fire when a Character moves into this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	Collection<GameMovementEvent> movementEvents() throws IllegalStateException;
+	List<GameMovementEvent> movementEvents() throws IllegalStateException;
 
 	/**
-	 * @return A Collection of events which fire when an Ability from a Character or an Item is
+	 * @return A List of events which fire when an Ability from a Character or an Item is
 	 * used on this Tile
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
-	Collection<GameAbilityEvent> abilityEvents() throws IllegalStateException;
+	List<GameAbilityEvent> abilityEvents() throws IllegalStateException;
 	
 	/**
 	 * @return A numbered Map of Sprites on this Tile, where the numerical value of the Map

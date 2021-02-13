@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.common.shared.Cloneable;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -16,7 +17,8 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface Renderable extends SoliloquyClass {
+public interface Renderable<TRenderable extends Renderable>
+		extends Cloneable<Renderable<TRenderable>>, SoliloquyClass {
 	/**
 	 * @return The x location of this Renderable on the window, where -1.0 is the left edge of the
 	 * window, and 1.0 is the right edge of the window

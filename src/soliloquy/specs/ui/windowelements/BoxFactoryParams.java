@@ -1,7 +1,7 @@
 package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.infrastructure.ReadableMap;
+import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.VariableCache;
 
 //TODO: Document this interface
@@ -15,5 +15,5 @@ public interface BoxFactoryParams extends VariableCache {
 	//     since they can always pass values from their
 	//     BoxReturnVals into a subsequent function.)
 	// TODO: Consider removing this member; and if so, BE SURE TO THOROUGHLY DOCUMENT THE FUNCTION OF IBoxReturnVals ELSEWHERE
-	ReadableMap<String, Action<VariableCache>> eventHandlers();
+	Map<String, Action<VariableCache>> eventHandlers();
 }

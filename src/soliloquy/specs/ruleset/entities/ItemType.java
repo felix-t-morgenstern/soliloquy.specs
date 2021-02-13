@@ -1,11 +1,10 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.entities.Function;
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
-import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
@@ -77,17 +76,17 @@ public interface ItemType extends HasDefaultTileOffsets, HasPluralName, HasId {
 	/**
 	 * @return This ItemType's ActiveAbilities, e.g. Fireball, Heal Character
 	 */
-	Collection<ActiveAbility> activeAbilities();
+	List<ActiveAbility> activeAbilities();
 
 	/**
 	 * @return This Item's ReactiveAbilities, e.g. Counter-attack, Absorb Mana
 	 */
-	Collection<ReactiveAbility> reactiveAbilities();
+	List<ReactiveAbility> reactiveAbilities();
 
 	/**
 	 * @return This Item's PassiveAbilities, e.g. Resist Cold, Deflect Counter-attacks, Sex Appeal
 	 */
-	Collection<PassiveAbility> passiveAbilities();
+	List<PassiveAbility> passiveAbilities();
 	
 	/**
 	 * The Sprite returned can depend on the status of the item, e.g. whether it is on the ground,

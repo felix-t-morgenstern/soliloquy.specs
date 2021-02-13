@@ -1,11 +1,10 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
-import soliloquy.specs.common.valueobjects.ReadableCoordinate;
+import soliloquy.specs.common.valueobjects.Coordinate;
 
 /**
  * <b>GameZone</b>
@@ -29,7 +28,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 	/**
 	 * @return The maximum x and y values of Coordinates in the GameZone
 	 */
-	ReadableCoordinate maxCoordinates();
+	Coordinate maxCoordinates();
 	
 	/**
 	 * @param x - The x coordinate of the Tile to return
@@ -41,23 +40,23 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 	Tile tile(int x, int y) throws IllegalArgumentException;
 
 	/**
-	 * @return A Collection of Actions which are fired when the Party enters this GameZone.
+	 * @return A List of Actions which are fired when the Party enters this GameZone.
 	 * <p>
 	 * (It is expected that this will be called when GameState.setCurrentGameZone is called.)
 	 */
-	Collection<Action> onEntry();
+	List<Action> onEntry();
 	
 	/**
-	 * @return A Collection of Actions which are fired when the Party leaves this GameZone.
+	 * @return A List of Actions which are fired when the Party leaves this GameZone.
 	 * <p>
 	 * (It is expected that this will be called when GameState.setCurrentGameZone is called.)
 	 * <p>
 	 * (Also, this is where Timers which are intended only for this GameZone can be eliminated.)
 	 */
-	Collection<Action> onExit();
+	List<Action> onExit();
 
 	/**
-	 * @return A read-only collection of the Characters in this GameZone
+	 * @return A List of the Characters in this GameZone
 	 */
-	ReadableCollection<Character> charactersRepresentation();
+	List<Character> charactersRepresentation();
 }

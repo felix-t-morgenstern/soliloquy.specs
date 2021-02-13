@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableMap;
+import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.ruleset.entities.StatusEffectType;
 import soliloquy.specs.ruleset.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.Element;
@@ -35,8 +35,7 @@ public interface CharacterStatusEffects extends Deletable {
 	 * Character is not zero.
 	 * @throws IllegalStateException If this Character is deleted or dead
 	 */
-	ReadableMap<StatusEffectType,Integer> representation()
-			throws IllegalStateException;
+	Map<StatusEffectType,Integer> representation() throws IllegalStateException;
 	
 	/**
 	 * This is used for altering the value of a CharacterStatusEffect as part of an Ability, e.g.

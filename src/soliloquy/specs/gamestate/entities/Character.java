@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasName;
@@ -41,7 +41,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @return The Classifications of this Character, e.g. "undead", "elemental", etc.
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	Collection<CharacterClassification> classifications() throws EntityDeletedException;
+	List<CharacterClassification> classifications() throws EntityDeletedException;
 	
 	/**
 	 * @return The proper pronouns for this Character. The key for the Map is the grammatical case

@@ -54,18 +54,17 @@ public interface PersistentValuesHandler extends SoliloquyClass {
 	Object generateArchetype(String valueType) throws IllegalArgumentException;
 	
 	/**
-	 * @return A new Collection of the parameter types with registered PersistentValueTypeHandlers
+	 * @return A new List of the parameter types with registered PersistentValueTypeHandlers
 	 * in this PersistentValuesHandler
 	 */
-	Collection<String> persistentValueTypesHandled();
+	List<String> persistentValueTypesHandled();
 
 	/**
-	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)
-	 * @param persistentCollectionHandler - The PersistentValueTypeHandler for generic Collections
+	 * (NB: persistentListHandler can be null, but this is extremely ill-advised.)
+	 * @param persistentListHandler - The PersistentValueTypeHandler for generic Collections
 	 *                                    to be used by this PersistentValuesHandler
 	 */
-	void registerPersistentCollectionHandler(
-			PersistentCollectionHandler persistentCollectionHandler);
+	void registerPersistentListHandler(PersistentListHandler persistentListHandler);
 
 	/**
 	 * (NB: persistentCollectionHandler can be null, but this is extremely ill-advised.)

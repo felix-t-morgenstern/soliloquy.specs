@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableMap;
+import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.ruleset.entities.CharacterStatisticType;
 import soliloquy.specs.ruleset.gameconcepts.CharacterStatisticCalculation;
 
@@ -25,12 +25,11 @@ public interface CharacterStatistic<TStatType extends CharacterStatisticType>
     int totalValue() throws IllegalStateException;
 
     /**
-     * @return A read-only Map, where each key is the name of a modifier (e.g. "FromBase",
-     * "FromItems", etc.), and each value is the value from that modifier contributing to the total
-     * value.
+     * @return A Map, where each key is the name of a modifier (e.g. "FromBase", "FromItems",
+     * etc.), and each value is the value from that modifier contributing to the total value.
      * @throws IllegalStateException If the Character has been deleted
      */
-    ReadableMap<String,Integer> representation() throws IllegalStateException;
+    Map<String,Integer> representation() throws IllegalStateException;
 
     /**
      * Calculates the value of this CharacterStatistic (using a calculator from the

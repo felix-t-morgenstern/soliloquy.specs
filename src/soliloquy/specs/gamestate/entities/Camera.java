@@ -1,12 +1,9 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
-import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate;
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.infrastructure.Map;
-import soliloquy.specs.common.valueobjects.ReadableCoordinate;
 import soliloquy.specs.ruleset.gameconcepts.TileVisibility;
 
 /**
@@ -142,5 +139,5 @@ public interface Camera extends SoliloquyClass {
 	 * changed manually, e.g. in cutscenes.)
 	 * @return A collection of the Tiles which are currently visible to the player
 	 */
-	Collection<ReadableCoordinate> visibleTiles();
+	List<Coordinate> visibleTiles();
 }

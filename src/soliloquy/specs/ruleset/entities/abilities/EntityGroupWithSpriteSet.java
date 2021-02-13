@@ -1,7 +1,7 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
 import soliloquy.specs.common.shared.EntityGroup;
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.SpriteSet;
 
@@ -21,7 +21,7 @@ public interface EntityGroupWithSpriteSet<Entity> extends SoliloquyClass {
 	/**
 	 * @return All of the entities/subgroupings in this grouping
 	 */
-	Collection<EntityGroupWithSpriteSetItem<Entity>> getAllGrouped();
+	List<EntityGroupWithSpriteSetItem<Entity>> getAllGrouped();
 	
 	/**
 	 * @param order - The number of the item to retrieve. (The first item has an order of 0.)

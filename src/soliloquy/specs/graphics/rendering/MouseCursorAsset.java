@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.graphics.colorshifting.ColorShiftType;
@@ -35,9 +35,9 @@ public interface MouseCursorAsset {
     void set(Animation animation, int msPosition) throws IllegalArgumentException;
 
     /**
-     * @return A mutable Collection of color shifts for the mouse cursor
+     * @return A mutable List of color shifts for the mouse cursor
      */
-    Collection<ColorShiftType> colorShifts();
+    List<ColorShiftType> colorShifts();
 
     /**
      * Clears the asset used for the mouse cursor, returning it to the default OS mouse cursor

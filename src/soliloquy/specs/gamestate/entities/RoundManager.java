@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableCollection;
-import soliloquy.specs.common.infrastructure.ReadablePair;
+import soliloquy.specs.common.infrastructure.List;
+import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
@@ -18,7 +18,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  *
  */
-public interface RoundManager extends Iterable<ReadablePair<Character,VariableCache>>,
+public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 		SoliloquyClass {
 	/**
 	 * @param character - The Character whose presence in the queue to verify
@@ -103,12 +103,12 @@ public interface RoundManager extends Iterable<ReadablePair<Character,VariableCa
 
 	/**
 	 * @return A read-only representation of the Character queue, where the number index to the
-	 * Collection is the order of Characters in the queue, and the VariableCache paired with that
+	 * List is the order of Characters in the queue, and the VariableCache paired with that
 	 * Character describes all information about that Character that is specific to that round
 	 * only, e.g. the Character's action points, whether they are spending the round in defensive
 	 * mode, etc.
 	 */
-	ReadableCollection<ReadablePair<Character, VariableCache>> characterQueueRepresentation();
+	List<Pair<Character, VariableCache>> characterQueueRepresentation();
 	
 	/**
 	 * If there is an active Character, ends their turn; if there are no remaining Characters in
@@ -162,15 +162,14 @@ public interface RoundManager extends Iterable<ReadablePair<Character,VariableCa
 	/**
 	 * NB: This method is a representation; to add a Timer to this RoundManager, simply create it
 	 * with the correct Factory; and to delete it, simply delete the Timer.
-	 * @return A Collection representing the One-Time Timers currently in effect
+	 * @return A List representing the One-Time Timers currently in effect
 	 */
-	ReadableCollection<OneTimeTimer> oneTimeTimersRepresentation();
+	List<OneTimeTimer> oneTimeTimersRepresentation();
 	
 	/**
 	 * NB: This method is a representation; to add a Timer to this RoundManager, simply create it
 	 * with the correct Factory; and to delete it, simply delete the Timer.
-	 * @return A Collection representing the Recurring Timers currently in effect
+	 * @return A List representing the Recurring Timers currently in effect
 	 */
-	ReadableCollection<RecurringTimer> recurringTimersRepresentation();
-	
+	List<RecurringTimer> recurringTimersRepresentation();
 }

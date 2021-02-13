@@ -1,7 +1,6 @@
 package soliloquy.specs.audio.factories;
 
 import soliloquy.specs.audio.entities.Sound;
-import soliloquy.specs.common.infrastructure.ReadableMap;
 import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.common.shared.SoliloquyClass;
 

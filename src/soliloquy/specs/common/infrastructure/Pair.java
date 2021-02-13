@@ -1,5 +1,8 @@
 package soliloquy.specs.common.infrastructure;
 
+import soliloquy.specs.common.shared.Cloneable;
+import soliloquy.specs.common.shared.HasTwoGenericParams;
+
 /**
  * <b>Pair</b>
  * <p>
@@ -11,7 +14,17 @@ package soliloquy.specs.common.infrastructure;
  * @param <T1> The type of the first entity
  * @param <T2> The type of the second entity
  */
-public interface Pair<T1, T2> extends ReadablePair<T1, T2> {
+public interface Pair<T1, T2> extends Cloneable<Pair<T1,T2>>, HasTwoGenericParams<T1, T2> {
+	/**
+	 * @return The first item
+	 */
+	T1 getItem1();
+
+	/**
+	 * @return The second item
+	 */
+	T2 getItem2();
+
 	/**
 	 * @param item - The value to which to set the first item
 	 * @throws IllegalArgumentException If the item provided is an illegal value, e.g. null,
@@ -25,6 +38,4 @@ public interface Pair<T1, T2> extends ReadablePair<T1, T2> {
 	 * out-of-range, invalid Id, etc.
 	 */
 	void setItem2(T2 item) throws IllegalArgumentException;
-
-	ReadablePair<T1, T2> representation();
 }

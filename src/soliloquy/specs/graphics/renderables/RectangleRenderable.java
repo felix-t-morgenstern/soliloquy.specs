@@ -12,7 +12,7 @@ import java.util.List;
  * @version 0.0.1
  *
  */
-public interface RectangleRenderable extends RenderableWithArea {
+public interface RectangleRenderable extends RenderableWithArea<RectangleRenderable> {
     /**
      * @return The left x pixel (inclusive) of this rectangle
      */

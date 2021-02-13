@@ -10,7 +10,7 @@ import soliloquy.specs.common.infrastructure.Registry;
  * <p>
  * This is the top-level class for the Audio component.
  * <p>
- * It contains a Collection of the Sounds currently playing, a SoundsLibrary which can create new
+ * It contains a List of the Sounds currently playing, a SoundsLibrary which can create new
  * Sounds, and the audio Settings.
  * 
  * @author felix.t.morgenstern
@@ -19,7 +19,7 @@ import soliloquy.specs.common.infrastructure.Registry;
  */
 public interface Audio {
 	/**
-	 * @return A Collection of the Sounds currently playing
+	 * @return A List of the Sounds currently playing
 	 * <p>
 	 * <i>Note that this includes Sounds which are currently paused, but not Sounds which have been
 	 * stopped.</i>

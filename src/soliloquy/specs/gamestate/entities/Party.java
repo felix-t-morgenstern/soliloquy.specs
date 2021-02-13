@@ -1,13 +1,13 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
  * <b>Party</b>
  * <p>
- * The Party stores a Collection of the player-controlled Characters; and characterStatisticTypes of the Party,
+ * The Party stores a List of the player-controlled Characters; and characterStatisticTypes of the Party,
  * e.g. gold, military rank, group combat blessings
  * 
  * @author felix.t.morgenstern
@@ -16,9 +16,9 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface Party extends SoliloquyClass {
 	/**
-	 * @return A Collection of all player-controlled Characters
+	 * @return A List of all player-controlled Characters
 	 */
-	Collection<Character> characters();
+	List<Character> characters();
 	
 	/**
 	 * @return A set of characterStatisticTypes of the Party, e.g. gold, military rank, group combat blessings

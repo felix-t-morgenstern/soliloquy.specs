@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableCollection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
@@ -81,7 +81,7 @@ public interface CharacterEntitiesOfType<TEntityType extends HasId,
     void clear();
 
     /**
-     * @return A collection of the entities present here
+     * @return A List of the entities present here
      */
-    ReadableCollection<TEntity> representation();
+    List<TEntity> representation();
 }

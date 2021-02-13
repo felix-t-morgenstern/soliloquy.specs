@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.infrastructure.Collection;
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
@@ -39,9 +39,9 @@ public interface CharacterType extends HasPluralName, HasId {
 	/**
 	 * The name keys of this Map are names of the triggering events which cause the corresponding
 	 * Collections of GameCharacterEvents to fire.
-	 * @return A Collection of events which occur from the Character of this type when certain
+	 * @return A List of events which occur from the Character of this type when certain
 	 * triggering events occur, e.g. when the Character is killed, when the Character takes damage,
 	 * when the Character is attacked, when the demonic ritual is complete, etc.
 	 */
-	Map<String, Collection<GameCharacterEvent>> events();
+	Map<String, List<GameCharacterEvent>> events();
 }

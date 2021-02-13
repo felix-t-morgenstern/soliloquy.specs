@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.ReadableMap;
+import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
 
 /**
@@ -15,12 +15,12 @@ public interface CharacterVariableStatistics
         extends CharacterEntitiesOfType<CharacterVariableStatisticType,
         CharacterVariableStatistic> {
     /**
-     * @return A read-only map linking each present stat type to its current value
+     * @return A Map representing the links between each present stat type and its current value
      */
-    ReadableMap<CharacterVariableStatisticType, Integer> currentValues();
+    Map<CharacterVariableStatisticType, Integer> currentValues();
 
     /**
-     * @return A read-only map linking each present stat type to its maximum value
+     * @return A Map representing the links between each present stat type and its maximum value
      */
-    ReadableMap<CharacterVariableStatisticType, Integer> maxValues();
+    Map<CharacterVariableStatisticType, Integer> maxValues();
 }
