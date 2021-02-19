@@ -1,4 +1,4 @@
-package soliloquy.specs.common.infrastructure;
+package soliloquy.specs.common.persistence;
 
 import soliloquy.specs.common.shared.HasOneGenericParam;
 

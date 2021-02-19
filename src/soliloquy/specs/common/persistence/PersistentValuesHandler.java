@@ -1,5 +1,6 @@
-package soliloquy.specs.common.infrastructure;
+package soliloquy.specs.common.persistence;
 
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**

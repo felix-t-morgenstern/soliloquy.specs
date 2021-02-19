@@ -1,4 +1,6 @@
-package soliloquy.specs.common.infrastructure;
+package soliloquy.specs.common.persistence;
+
+import soliloquy.specs.common.infrastructure.Map;
 
 /**
  * <b>PersistentMapHandler</b>

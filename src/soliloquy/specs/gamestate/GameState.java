@@ -1,9 +1,10 @@
-package soliloquy.specs.gamestate.entities;
+package soliloquy.specs.gamestate;
 
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.Registry;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.*;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.gamestate.factories.*;

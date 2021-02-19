@@ -2,7 +2,7 @@ package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.GameState;
+import soliloquy.specs.gamestate.GameState;
 import soliloquy.specs.gamestate.entities.Party;
 
 /**
