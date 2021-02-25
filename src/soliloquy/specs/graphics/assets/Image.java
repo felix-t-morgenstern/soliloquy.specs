@@ -18,6 +18,12 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface Image extends SoliloquyClass {
     /**
+     * @return The id of the corresponding texture, which can be used by
+     * {@link soliloquy.specs.graphics.rendering.RendererType}s
+     */
+    int textureId();
+
+    /**
      * @return The location of this Image, relative to the base directory of the application
      */
     String relativeLocation();
