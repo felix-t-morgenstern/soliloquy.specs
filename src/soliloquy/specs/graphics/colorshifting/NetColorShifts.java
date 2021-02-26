@@ -5,10 +5,9 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 /**
  * <b>NetColorShifts</b>
  * <p>
- * This class specifies the net color shifts of all {@link ColorShiftType}s, to be used by the
- * default shader. This class is to be generated when rendering a
- * {@link soliloquy.specs.graphics.renderables.Renderable} with a stack of
- * {@link ColorShiftType}s.
+ * This class specifies the net color shifts of all {@link ColorShift}s, to be used by the default
+ * shader. This class is to be generated when rendering a
+ * {@link soliloquy.specs.graphics.renderables.Renderable} with a stack of {@link ColorShift}s.
  * <p>
  * Intended use for this class is to be generated at runtime as an anonymous class.
  *

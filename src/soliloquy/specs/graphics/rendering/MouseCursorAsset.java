@@ -3,7 +3,7 @@ package soliloquy.specs.graphics.rendering;
 import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.Sprite;
-import soliloquy.specs.graphics.colorshifting.ColorShiftType;
+import soliloquy.specs.graphics.colorshifting.ColorShift;
 
 /**
  * <b>MouseCursorAsset</b>
@@ -37,7 +37,7 @@ public interface MouseCursorAsset {
     /**
      * @return A mutable List of color shifts for the mouse cursor
      */
-    List<ColorShiftType> colorShifts();
+    List<ColorShift> colorShifts();
 
     /**
      * Clears the asset used for the mouse cursor, returning it to the default OS mouse cursor

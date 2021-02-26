@@ -4,7 +4,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.Renderable;
 
 /**
- * <b>RendererType</b>
+ * <b>Renderer</b>
  * <p>
  * This class defines a class that renders renderables of a specific {@link Renderable}, e.g.
  * {@link soliloquy.specs.graphics.renderables.SpriteRenderable} or
@@ -14,7 +14,7 @@ import soliloquy.specs.graphics.renderables.Renderable;
  * @version 0.0.1
  *
  */
-public interface RendererType<TRenderable extends Renderable> extends SoliloquyClass {
+public interface Renderer<TRenderable extends Renderable> extends SoliloquyClass {
     /**
      * @param renderable The renderable of the provided type to render
      * @throws IllegalArgumentException If and only if renderable is null

@@ -3,7 +3,7 @@ package soliloquy.specs.graphics.colorshifting;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
- * <b>ColorShiftType</b>
+ * <b>ColorShift</b>
  * <p>
  * A type of color shift (e.g. brightness adjustment, red/green swapping, etc.)
  *
@@ -11,9 +11,9 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface ColorShiftType extends SoliloquyClass {
+public interface ColorShift extends SoliloquyClass {
     /**
-     * 'Type' here refers to specific implementations of ColorShiftType; so, for example, if a
+     * 'Type' here refers to specific implementations of ColorShift; so, for example, if a
      * {@link BrightnessShift} returns True from this method, then all BrightnessShifts lower in
      * the stack are ignored.
      * @return If true, then this shift overrides all previous shifts of the same type.

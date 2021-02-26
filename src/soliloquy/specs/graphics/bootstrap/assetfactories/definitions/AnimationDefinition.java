@@ -2,6 +2,7 @@ package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
 
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.AnimationFrameSnippet;
+import soliloquy.specs.graphics.rendering.Renderer;
 
 import java.util.Map;
 
@@ -26,8 +27,7 @@ public interface AnimationDefinition extends AssetDefinition<Animation> {
     /**
      * This Map is set up so that each frame snippet at a given int key is rendered starting at
      * that int key's millisecond position, until the millisecond position of another frame is
-     * encountered by the {@link soliloquy.specs.graphics.rendering.RendererType} for Animations
-     * (the AnimationRenderer).
+     * encountered by the {@link Renderer} for Animations (the AnimationRenderer).
      * NB: There must be at least one frame snippet definition for 0ms, and no map keys may be less
      * than 0 or greater than the duration of the Animation in milliseconds.
      * @return A Map, where the key is the position in milliseconds in which the frame snippet

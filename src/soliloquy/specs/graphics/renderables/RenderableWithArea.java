@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.graphics.colorshifting.ColorShiftType;
+import soliloquy.specs.graphics.colorshifting.ColorShift;
 
 import java.util.List;
 
@@ -60,5 +60,5 @@ public interface RenderableWithArea<TRenderable extends Renderable>
      * @return A List of color shifts, to be applied to this Renderable, when rendering it in
      * the shader
      */
-    List<ColorShiftType> colorShifts();
+    List<ColorShift> colorShifts();
 }

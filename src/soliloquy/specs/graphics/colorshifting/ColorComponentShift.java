@@ -13,7 +13,7 @@ package soliloquy.specs.graphics.colorshifting;
  * @version 0.0.1
  *
  */
-public interface ColorComponentShift extends ColorShiftType {
+public interface ColorComponentShift extends ColorShift {
     /**
      * @return The ColorComponent to shift (i.e. red, green, or blue--alpha is unsupported)
      */

@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.assets.Animation;
+import soliloquy.specs.graphics.rendering.Renderer;
 
 /**
  * <b>AnimationRenderable</b>
@@ -19,9 +20,8 @@ public interface AnimationRenderable extends RenderableWithArea<AnimationRendera
 
     /**
      * @return The UI millisecond timestamp at which the Animation started. (NB: This timestamp is
-     * the timestamp of the Animation renderer (i.e.
-     * {@link soliloquy.specs.graphics.rendering.RendererType<Animation>}), not the timestamp of
-     * the application.)
+     * the timestamp of the Animation renderer (i.e. {@link Renderer<Animation>}), not the
+     * timestamp of the application.)
      */
     long startMs();
 }

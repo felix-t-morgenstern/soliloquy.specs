@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.assets;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.graphics.rendering.Renderer;
 
 /**
  * <b>Image</b>
@@ -18,8 +19,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface Image extends SoliloquyClass {
     /**
-     * @return The id of the corresponding texture, which can be used by
-     * {@link soliloquy.specs.graphics.rendering.RendererType}s
+     * @return The id of the corresponding texture, which can be used by {@link Renderer}s
      */
     int textureId();
 

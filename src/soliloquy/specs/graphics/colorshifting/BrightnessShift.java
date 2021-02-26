@@ -12,7 +12,7 @@ package soliloquy.specs.graphics.colorshifting;
  * @version 0.0.1
  *
  */
-public interface BrightnessShift extends ColorShiftType {
+public interface BrightnessShift extends ColorShift {
     /**
      * The value provided here is to range between -1.0 and 1.0, inclusively. A value of 0.0
      * implies no change. A value of 1.0 implies that every pixel is set to white (i.e.
