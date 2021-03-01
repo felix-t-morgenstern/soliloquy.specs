@@ -28,5 +28,5 @@ public interface AssetFactory<TAssetDefinition extends AssetDefinition<TAssetTyp
      * @throws IllegalArgumentException If and only if definition is null, or possesses invalid
      * values
      */
-    TAssetType create(TAssetDefinition definition) throws IllegalArgumentException;
+    TAssetType make(TAssetDefinition definition) throws IllegalArgumentException;
 }

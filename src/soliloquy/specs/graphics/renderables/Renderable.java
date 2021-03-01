@@ -2,6 +2,7 @@ package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.shared.Cloneable;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.graphics.rendering.FloatBox;
 
 /**
  * <b>Renderable</b>
@@ -20,31 +21,9 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 public interface Renderable<TRenderable extends Renderable>
 		extends Cloneable<Renderable<TRenderable>>, SoliloquyClass {
 	/**
-	 * @return The x location of this Renderable on the window, where -1.0 is the left edge of the
-	 * window, and 1.0 is the right edge of the window
+	 * @return The area in the window into which to render
 	 */
-	float xLoc();
-	/**
-	 * @return The y location of this Renderable on the window, where -1.0 is the bottom edge of
-	 * the window, and 1.0 is the top edge of the window
-	 */
-	float yLoc();
-
-	/**
-	 * <i>NB: Can be negative. E.g., with a {@link RasterizedLineSegmentRenderable}, a negative
-	 * width implies that the line will start to the left of its origin.</i>
-	 * @return The width of this Renderable on the window, where 2.0 is the total width of the
-	 * window (c.f. {@link #xLoc})
-	 */
-	float width();
-
-	/**
-	 * <i>NB: Can be negative. E.g., with a {@link RasterizedLineSegmentRenderable}, a negative
-	 * height implies that the line will start to the left of its origin.</i>
-	 * @return The height of this Renderable on the window, where 2.0 is the total height of the
-	 * window (c.f. {@link #yLoc})
-	 */
-	float height();
+	FloatBox renderingArea();
 
 	/**
 	 * <i>NB: Higher z values will be rendered first.</i>
