@@ -8,8 +8,6 @@ import java.util.function.Consumer;
  * <b>GraphicsCoreLoop</b>
  * <p>
  * This class starts up the most basic graphics engine infrastructure, and runs the core loop.
- * <p>
- * NB: Since this class is intended to
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

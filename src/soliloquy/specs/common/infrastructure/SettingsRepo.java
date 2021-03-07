@@ -24,7 +24,7 @@ public interface SettingsRepo extends EntityGroup<Setting>, HasId {
 	 * place.)</i>
 	 * @param settingId - The Id (i.e. name) of the Setting to retrieve
 	 * @param <V> The type of Setting to retrieve 
-	 * @return The desired setting
+	 * @return The desired setting; if no such setting found, returns null
 	 * @throws IllegalArgumentException If and only if settingId is null or empty
 	 */
 	<V> Setting<V> getSetting(String settingId) throws IllegalArgumentException;
