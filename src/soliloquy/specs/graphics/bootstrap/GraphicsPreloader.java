@@ -26,10 +26,8 @@ public interface GraphicsPreloader extends SoliloquyClass {
      * {@link soliloquy.specs.graphics.assets.AssetType}; and if needed, to calculate the Images'
      * alpha threshold map for mouse event capturing. (Determining which Images require alpha
      * threshold maps depends on the implementation of the Graphics engine.)
-     * @param callback The function to call once all Images have finished loading
-     * @throws IllegalArgumentException If and only if callback is null
      */
-    void load(Consumer<Void> callback) throws IllegalArgumentException;
+    void load();
 
     /**
      * @return The (estimated) percentage of graphics successfully loaded, e.g. to be used in a
@@ -38,8 +36,11 @@ public interface GraphicsPreloader extends SoliloquyClass {
     float percentageComplete();
 
     /**
-     * @return A list of human-readable status message indicating the progress of graphics loading,
-     * e.g. "Creatures: 100% loaded", "Fixtures: 40% loaded", etc.
+     * @param component The component whose completion to report (e.g. "FONTS",
+     *                  "LOADING_SCREEN_PREREQS", "CHARACTER_ASSETS", etc.)
+     * @return The (estimated) completion percentage of the specified section
+     * @throws IllegalArgumentException If and only if component is null or empty, or does not
+     * correspond to a valid component
      */
-    List<String> statusMessage();
+    float percentageComplete(String component) throws IllegalArgumentException;
 }
