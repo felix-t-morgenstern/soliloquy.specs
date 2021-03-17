@@ -5,11 +5,11 @@ import soliloquy.specs.common.shared.EntityGroup;
 import soliloquy.specs.common.shared.EntityGroupItem;
 
 /**
- * <b>EntityGroupWithSpriteSetItem</b>
+ * <b>EntityGroupWithImageAssetSetItem</b>
  * <p>
  * (This interface is analogous to {@link EntityGroupItem}, with the
  * difference being that if the GroupItem is a Group, it returns an
- * {@link EntityGroupWithSpriteSet} instead of an
+ * {@link EntityGroupWithImageAssetSet} instead of an
  * {@link EntityGroup}.)
  * 
  * @author felix.t.morgenstern
@@ -17,7 +17,7 @@ import soliloquy.specs.common.shared.EntityGroupItem;
  *
  * @param <Entity> The type of Entity being grouped
  */
-public interface EntityGroupWithSpriteSetItem<Entity> extends SoliloquyClass {
+public interface EntityGroupWithImageAssetSetItem<Entity> extends SoliloquyClass {
 	// NB: There MUST be an invariant that ONLY
 	//     one or the other of these should return
 	//     an object.
@@ -49,14 +49,14 @@ public interface EntityGroupWithSpriteSetItem<Entity> extends SoliloquyClass {
 	 * @throws UnsupportedOperationException If either the EntityGroup or Entity for this
 	 * EntityGroupItem has been initialized
 	 */
-	void initializeGroup(EntityGroupWithSpriteSet<Entity> group) throws IllegalArgumentException, UnsupportedOperationException;
+	void initializeGroup(EntityGroupWithImageAssetSet<Entity> group) throws IllegalArgumentException, UnsupportedOperationException;
 
 	/**
 	 * @return The actual value of this EntityGroupItem, i.e., an EntityGroup subgrouping
 	 * @throws UnsupportedOperationException If this EntityGroupItem is not a subgrouping, i.e. an
 	 * EntityGroup
 	 */
-	EntityGroupWithSpriteSet<Entity> group() throws UnsupportedOperationException;
+	EntityGroupWithImageAssetSet<Entity> group() throws UnsupportedOperationException;
 	
 	/**
 	 * Initializes the actual value of this EntityGroupItem; in this case, an Entity

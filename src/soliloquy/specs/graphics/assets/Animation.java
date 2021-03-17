@@ -15,7 +15,7 @@ package soliloquy.specs.graphics.assets;
  * @version 0.0.1
  *
  */
-public interface Animation extends AssetType {
+public interface Animation extends ImageAsset {
     /**
      * @return The total duration (inclusive) of the Animation in milliseconds
      */

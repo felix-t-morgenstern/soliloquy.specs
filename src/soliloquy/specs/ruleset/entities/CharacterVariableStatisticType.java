@@ -16,5 +16,6 @@ import soliloquy.specs.common.shared.HasPluralName;
  *
  */
 public interface CharacterVariableStatisticType extends CharacterStatisticType,
-        ActOnCharacterOnTurnAndRound, HasPluralName, IconForCharacter {
+        ActOnCharacterOnTurnAndRound, HasPluralName,
+        IconForCharacter<CharacterVariableStatisticType> {
 }

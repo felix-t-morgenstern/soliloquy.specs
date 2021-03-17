@@ -3,15 +3,15 @@ package soliloquy.specs.graphics.assets;
 import soliloquy.specs.common.shared.HasId;
 
 /**
- * <b>AssetType</b>
+ * <b>Asset</b>
  * <p>
- * This class is a type of Asset, e.g. {@link Sprite} or {@link SpriteSet}. This interface exists
- * to facilitate defensive typing for
+ * This class is an Asset, e.g. {@link Sprite} or {@link ImageAssetSet}. This interface exists to
+ * facilitate stricter typing for
  * {@link soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AssetDefinition}s.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface AssetType extends HasId {
+public interface Asset extends HasId {
 }

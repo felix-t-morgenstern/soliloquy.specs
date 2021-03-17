@@ -6,13 +6,13 @@ import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
+import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 import soliloquy.specs.ruleset.entities.CharacterStaticStatisticType;
 import soliloquy.specs.ruleset.entities.CharacterType;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
-import soliloquy.specs.graphics.assets.SpriteSet;
 
 /**
  * <b>Character</b>
@@ -92,18 +92,19 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	void setDirection(String direction) throws IllegalArgumentException, EntityDeletedException;
 	
 	/**
-	 * @return The SpriteSet for this Character
+	 * @return The ImageAssetSet for this Character
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	SpriteSet getSpriteSet() throws EntityDeletedException;
+	ImageAssetSet getImageAssetSet() throws EntityDeletedException;
 	
 	/**
-	 * @param spriteSet - The SpriteSet to set for this Character
+	 * @param imageAssetSet - The ImageAssetSet to set for this Character
 	 * @throws IllegalArgumentException You <i>may</i> wish to throw this exception if the
-	 * provided SpriteSet is null
+	 * provided ImageAssetSet is null
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	void setSpriteSet(SpriteSet spriteSet) throws IllegalArgumentException, EntityDeletedException;
+	void setImageAssetSet(ImageAssetSet imageAssetSet)
+			throws IllegalArgumentException, EntityDeletedException;
 	
 	/**
 	 * @return This Character's AI script ID (to be looked up in GameState.characterAIs)

@@ -12,5 +12,5 @@ package soliloquy.specs.graphics.assets;
  * @version 0.0.1
  *
  */
-public interface Sprite extends AssetSnippet, AssetType {
+public interface Sprite extends AssetSnippet, ImageAsset {
 }

@@ -3,8 +3,8 @@ package soliloquy.specs.graphics;
 import soliloquy.specs.common.infrastructure.Registry;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Animation;
+import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.graphics.assets.Sprite;
-import soliloquy.specs.graphics.assets.SpriteSet;
 import soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop;
 import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
 import soliloquy.specs.graphics.rendering.MouseCursorAsset;
@@ -30,9 +30,9 @@ public interface Graphics extends SoliloquyClass {
     Registry<Sprite> spritesRegistry();
 
     /**
-     * @return A {@link Registry} of {@link SpriteSet}s
+     * @return A {@link Registry} of {@link ImageAssetSet}s
      */
-    Registry<SpriteSet> spriteSetsRegistry();
+    Registry<ImageAssetSet> imageAssetSetsRegistry();
 
     /**
      * @return A {@link Registry} of {@link Animation}s

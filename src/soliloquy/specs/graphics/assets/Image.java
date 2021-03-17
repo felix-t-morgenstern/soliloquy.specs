@@ -7,7 +7,7 @@ import soliloquy.specs.graphics.rendering.Renderer;
  * <b>Image</b>
  * <p>
  * This specifies an image, loaded into memory, which can be used to generate other assets (e.g.
- * {@link Sprite}s, {@link SpriteSet}s, etc.). It has a file location (relative to the application
+ * {@link Sprite}s, {@link ImageAssetSet}s, etc.). It has a file location (relative to the application
  * base directory). If it is an Image that supports mouse event capturing, then this class can be
  * used to ask whether this Image is non-transparent at a given pixel. (Alpha threshold, aka
  * opacity threshold, is a {@link soliloquy.specs.common.infrastructure.Setting}, whose name will

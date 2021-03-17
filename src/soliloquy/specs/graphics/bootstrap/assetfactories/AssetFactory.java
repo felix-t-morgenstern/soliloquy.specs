@@ -2,13 +2,13 @@ package soliloquy.specs.graphics.bootstrap.assetfactories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AssetDefinition;
-import soliloquy.specs.graphics.assets.AssetType;
+import soliloquy.specs.graphics.assets.Asset;
 
 /**
  * <b>AssetDefinition</b>
  * <p>
  * This class takes an {@link AssetDefinition}, and produces an asset of the corresponding
- * {@link AssetType}. This class is intended to be used by the
+ * {@link Asset}. This class is intended to be used by the
  * {@link soliloquy.specs.graphics.bootstrap.GraphicsPreloader}, to populate
  * {@link soliloquy.specs.common.infrastructure.Registry}s of various AssetTypes, e.g.
  * {@link soliloquy.specs.graphics.Graphics#spritesRegistry}.
@@ -18,7 +18,7 @@ import soliloquy.specs.graphics.assets.AssetType;
  *
  */
 public interface AssetFactory<TAssetDefinition extends AssetDefinition<TAssetType>,
-        TAssetType extends AssetType> extends SoliloquyClass {
+        TAssetType extends Asset> extends SoliloquyClass {
     /**
      * NB: This method is intended to populate
      * {@link soliloquy.specs.common.infrastructure.Registry}s of various AssetTypes, e.g.

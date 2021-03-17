@@ -9,7 +9,7 @@ import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
-import soliloquy.specs.graphics.assets.SpriteSet;
+import soliloquy.specs.graphics.assets.ImageAssetSet;
 
 /**
  * <b>ItemType</b>
@@ -20,7 +20,7 @@ import soliloquy.specs.graphics.assets.SpriteSet;
  * @version 0.0.1
  *
  */
-public interface ItemType extends HasDefaultTileOffsets, HasPluralName, HasId {
+public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPluralName, HasId {
 	/**
 	 * @return The EquipmentType (e.g. helmets, necklaces, mystical auras, makeup) of this
 	 * ItemType; used to determine in which types of equipment slots this Item can be equipped
@@ -87,11 +87,15 @@ public interface ItemType extends HasDefaultTileOffsets, HasPluralName, HasId {
 	 * @return This Item's PassiveAbilities, e.g. Resist Cold, Deflect Counter-attacks, Sex Appeal
 	 */
 	List<PassiveAbility> passiveAbilities();
-	
+
+	// NB: Underlying HasImageAssetSet method is overriden to provide clearer description
 	/**
-	 * The Sprite returned can depend on the status of the item, e.g. whether it is on the ground,
-	 * whether it is in inventory, how many charges it has, etc.
-	 * @return The Sprite for this Item
+	 * The {@link soliloquy.specs.graphics.assets.ImageAsset} for an
+	 * {@link soliloquy.specs.gamestate.entities.Item} of this type can depend on the status of the
+	 * Item, e.g. whether it is on the ground, whether it is in inventory, how many charges it has,
+	 * etc.
+	 * @return The ImageAssetSet for this Item
 	 */
-	SpriteSet spriteSet();
+	@Override
+	ImageAssetSet imageAssetSet();
 }

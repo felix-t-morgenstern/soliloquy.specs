@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.entities;
 import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.graphics.assets.Sprite;
+import soliloquy.specs.graphics.assets.ImageAsset;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 
@@ -19,9 +19,9 @@ import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
  */
 public interface TileObjectType extends HasDefaultColorShifts, HasGlobalAccess {
 	/**
-	 * @return The {@link Sprite} for this TileObject
+	 * @return The {@link ImageAsset} for this TileObject
 	 */
-	Sprite sprite();
+	ImageAsset imageAsset();
 	
 	/**
 	 * This determines what happens when a Character steps into a Tile with this TileObject on it.

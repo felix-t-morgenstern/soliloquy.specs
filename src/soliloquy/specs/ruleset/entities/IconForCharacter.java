@@ -2,7 +2,7 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.graphics.assets.Sprite;
+import soliloquy.specs.graphics.assets.ImageAsset;
 
 /**
  * <b>IconForCharacter</b>
@@ -27,6 +27,6 @@ public interface IconForCharacter<TStatisticType> {
 	 * (An example use of display priorities is to have a very severe poisoning be displayed 
 	 * before a mild burn, or to have petrification be displayed before being distracted.)
 	 */
-	Pair<Sprite,Integer> getIcon(TStatisticType statisticType, String iconType,
-								 Character character);
+	Pair<ImageAsset,Integer> getIcon(TStatisticType statisticType, String iconType,
+									 Character character);
 }

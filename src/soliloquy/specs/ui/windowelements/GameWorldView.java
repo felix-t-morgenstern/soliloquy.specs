@@ -7,6 +7,7 @@ import soliloquy.specs.gamestate.entities.Camera;
 import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.graphics.assets.Sprite;
 
+// NB: This is a trash interface
 //TODO: Document this interface
 public interface GameWorldView extends SoliloquyClass {
 	Camera getCamera();
