@@ -16,34 +16,39 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface FrameTimer extends SoliloquyClass {
     /**
-     * @return The milliseconds between intervals in which the FrameTimer determines whether to
-     * render the next frame
-     */
-    int getPollingInterval();
-
-    /**
-     * <i>NB: This does not guarantee that the FrameTimer will be asked every ms milliseconds
-     * whether a new frame should be rendered; instead, it guarantees a <b>delay</b> of ms
-     * milliseconds between either the end of rendering a frame, or determining that a frame
-     * needn't be rendered yet, and the next time the FrameTimer will be asked again whether the
-     * next frame will be rendered. Think about it as a <u>delay</u>.</i>
-     * @param ms The milliseconds between the end of rendering the most recent frame, or when the
-     *           FrameTimer stated that the next frame should not be rendered yet, and the next
-     *           time {@link soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop} should ask the
-     *           FrameTimer again whether to render the next frame.
-     * @throws IllegalArgumentException If ms is less than or equal to zero
-     */
-    void setPollingInterval(int ms) throws IllegalArgumentException;
-
-    /**
      * @param targetFps The target frames per second (FPS)
      * @throws IllegalArgumentException If ms is less than or equal to zero
      */
-    void setTargetFps(int targetFps) throws IllegalArgumentException;
+    void setTargetFps(float targetFps) throws IllegalArgumentException;
+
+    /**
+     * Starts the FrameTimer (e.g. begins calculating frames completed per second, being able to
+     * report whether to execute the next frame, etc.).
+     * <p>
+     * <i>NB: This method is both intended to be started on its own thread, and to also start a new
+     * thread for tracking information about the current period, i.e. second</i>
+     * @throws UnsupportedOperationException If and only if FrameTimer has already been started.
+     * (Even if it has been stopped, it cannot be restarted.)
+     */
+    void start() throws UnsupportedOperationException;
+
+    /**
+     * Stops the FrameTimer
+     * @throws UnsupportedOperationException If and only if FrameTimer is not running
+     */
+    void stop() throws UnsupportedOperationException;
+
+    /**
+     * Registers the completion of a frame, contributing to the FPS for the current second interval
+     * @throws UnsupportedOperationException If ad only if FrameTimer is not running
+     */
+    void registerFrameExecution() throws UnsupportedOperationException;
 
     /**
      * NB: This
      * @return True, if and only if it is the right time for the next frame to be executed
+     * @throws UnsupportedOperationException If and only if the FrameTimer has not been started, or
+     * if it has been stopped
      */
-    boolean shouldExecuteNextFrame();
+    boolean shouldExecuteNextFrame() throws UnsupportedOperationException;
 }
