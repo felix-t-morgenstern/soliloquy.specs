@@ -2,6 +2,10 @@ package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.assets.Font;
 
+import java.awt.*;
+import java.util.List;
+import java.util.Map;
+
 /**
  * <b>TextLineRenderable</b>
  * <p>
@@ -18,7 +22,39 @@ public interface TextLineRenderable extends Renderable<TextLineRenderable> {
     Font font();
 
     /**
+     * @return The height of the line, where the entirety of the window has a height of 1.0.
+     */
+    float lineHeight();
+
+    /**
      * @return The text of this line
      */
     String lineText();
+
+    /**
+     * When the Color value is null, this corresponds to the default font color
+     * @return A map, where the integer keys correspond to the indices in the String (c.f.
+     * {@link #lineText}), and the Color value corresponds to the color to draw all subsequent
+     * glyphs. This method may return null, in which case, the entire text line is rendered in the
+     * default text color.
+     */
+    Map<Integer, Color> colorIndices();
+
+    /**
+     * @return A list of integer keys, corresponding to the indices in the String (c.f.
+     * {@link #lineText()}. The first index corresponds to when the text should begin rendering as
+     * italicized, the second corresponds to when the text should stop rendering as italicized, the
+     * third when it should resume rendering as italicized, and so-on. This method may return null,
+     * in which case, the entire text line is rendered non-italicized.
+     */
+    List<Integer> italicIndices();
+
+    /**
+     * @return A list of integer keys, corresponding to the indices in the String (c.f.
+     * {@link #lineText()}. The first index corresponds to when the text should begin rendering as
+     * bold, the second corresponds to when the text should stop rendering as bold, the third when
+     * it should resume rendering as bold, and so-on. This method may return null, in which case,
+     * the entire text line is rendered non-bold.
+     */
+    List<Integer> boldIndices();
 }

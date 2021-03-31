@@ -17,12 +17,7 @@ import soliloquy.specs.graphics.rendering.Renderer;
  * @version 0.0.1
  *
  */
-public interface Image extends SoliloquyClass {
-    /**
-     * @return The id of the corresponding texture, which can be used by {@link Renderer}s
-     */
-    int textureId();
-
+public interface Image extends HasTextureId {
     /**
      * @return The location of this Image, relative to the base directory of the application
      */
