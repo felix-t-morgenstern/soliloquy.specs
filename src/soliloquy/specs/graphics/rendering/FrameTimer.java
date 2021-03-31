@@ -16,10 +16,12 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface FrameTimer extends SoliloquyClass {
     /**
-     * @param targetFps The target frames per second (FPS)
-     * @throws IllegalArgumentException If ms is less than or equal to zero
+     * <i>NB: If targetFps is null, this implies that there is no target FPS, and therefore the
+     * FrameTimer will try to maximize FPS.</i>
+     * @param targetFps The target frames per second (FPS); may be null
+     * @throws IllegalArgumentException If targetFps is less than or equal to zero
      */
-    void setTargetFps(float targetFps) throws IllegalArgumentException;
+    void setTargetFps(Float targetFps) throws IllegalArgumentException;
 
     /**
      * Starts the FrameTimer (e.g. begins calculating frames completed per second, being able to

@@ -19,10 +19,11 @@ import java.util.Date;
 public interface FrameRateReporter extends SoliloquyClass {
     /**
      * @param datetime The datetime for the given polling interval
-     * @param targetFps The target frames per second
+     * @param targetFps The target frames per second (may be null if no target is set, c.f. 
+     *                  {@link FrameTimer#setTargetFps})
      * @param actualFps The frames per second which were actually executed
      * @throws IllegalArgumentException If and only if datetime is null
      */
-    void reportFrameRate(Date datetime, float targetFps, float actualFps)
+    void reportFrameRate(Date datetime, Float targetFps, float actualFps)
             throws IllegalArgumentException;
 }
