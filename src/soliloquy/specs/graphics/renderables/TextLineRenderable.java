@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.assets.Font;
+import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.awt.*;
 import java.util.List;
@@ -22,14 +23,21 @@ public interface TextLineRenderable extends Renderable<TextLineRenderable> {
     Font font();
 
     /**
-     * @return The height of the line, where the entirety of the window has a height of 1.0.
-     */
-    float lineHeight();
-
-    /**
      * @return The text of this line
      */
     String lineText();
+
+    /**
+     * <b>NB: For TextLineRenderables, only the left X and top Y values are considered; the height
+     * is calculated using {@link #lineHeight}, and the width is calculated at runtime from the </b>
+     * @return The area in the window into which to render
+     */
+    FloatBox renderingArea();
+
+    /**
+     * @return The height of the line, where the entirety of the window has a height of 1.0.
+     */
+    float lineHeight();
 
     /**
      * When the Color value is null, this corresponds to the default font color
