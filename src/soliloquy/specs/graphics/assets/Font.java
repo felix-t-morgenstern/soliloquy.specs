@@ -34,6 +34,15 @@ public interface Font extends Asset, HasTextureId {
     FloatBox getUvCoordinatesForGlyphBold(char glyph) throws IllegalArgumentException;
 
     /**
+     * (C.f. {@link #getUvCoordinatesForGlyph} for more details)
+     * @param glyph The glyph for which to retrieve the UV coordinates
+     * @return The UV coordinates of the provided glyph
+     * @throws IllegalArgumentException If and only if glyph corresponds to an invalid character
+     * (e.g. ASCII control characters, such as DEL or CR)
+     */
+    FloatBox getUvCoordinatesForGlyphBoldItalic(char glyph) throws IllegalArgumentException;
+
+    /**
      * @return The texture for this font when italicized
      */
     int textureIdItalic();
@@ -42,4 +51,9 @@ public interface Font extends Asset, HasTextureId {
      * @return The texture for this font when bold
      */
     int textureIdBold();
+
+    /**
+     * @return The texture for this font when bold italic
+     */
+    int textureIdBoldItalic();
 }

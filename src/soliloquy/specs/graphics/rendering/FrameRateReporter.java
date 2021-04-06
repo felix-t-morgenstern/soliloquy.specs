@@ -26,4 +26,40 @@ public interface FrameRateReporter extends SoliloquyClass {
      */
     void reportFrameRate(Date datetime, Float targetFps, float actualFps)
             throws IllegalArgumentException;
+
+    /**
+     * @return The current frames per second; if frame execution for the most recent period was
+     * paused for the whole duration of that period, this method returns null
+     */
+    Float currentActualFps();
+
+    /**
+     * @param id The id of the {@link FrameRateReporterAggregateOutput} to activate
+     * @throws IllegalArgumentException If id is null or empty, or does not correspond to a
+     * FrameRateReporterAggregateOutput
+     */
+    void activateAggregateOutput(String id) throws IllegalArgumentException;
+
+    /**
+     * @param id The id of the {@link FrameRateReporterAggregateOutput} to deactivate
+     * @throws IllegalArgumentException If id is null or empty, or does not correspond to a
+     * FrameRateReporterAggregateOutput
+     */
+    void deactivateAggregateOutput(String id) throws IllegalArgumentException;
+
+    /**
+     * @param timestamp The timestamp at which the pause of frame execution began (c.f.
+     *                  {@link GlobalClock#globalTimestamp})
+     * @throws IllegalArgumentException If and only if timestamp is not within the current
+     * aggregation period
+     */
+    void reportPause(long timestamp) throws IllegalArgumentException;
+
+    /**
+     * @param timestamp The timestamp at which the pause of frame execution ended (c.f.
+     *                  {@link GlobalClock#globalTimestamp})
+     * @throws IllegalArgumentException If and only if timestamp is not within the current
+     * aggregation period
+     */
+    void reportUnpause(long timestamp) throws IllegalArgumentException;
 }
