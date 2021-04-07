@@ -49,6 +49,8 @@ public interface TextLineRenderable extends Renderable<TextLineRenderable> {
     Map<Integer, Color> colorIndices();
 
     /**
+     * <i>NB: It is assumed that indices will be in ascending order; if they are not, the
+     * {@link soliloquy.specs.graphics.rendering.TextLineRenderer} will throw an exception.</i>
      * @return A list of integer keys, corresponding to the indices in the String (c.f.
      * {@link #lineText()}. The first index corresponds to when the text should begin rendering as
      * italicized, the second corresponds to when the text should stop rendering as italicized, the
@@ -58,6 +60,8 @@ public interface TextLineRenderable extends Renderable<TextLineRenderable> {
     List<Integer> italicIndices();
 
     /**
+     * <i>NB: It is assumed that indices will be in ascending order; if they are not, the
+     * {@link soliloquy.specs.graphics.rendering.TextLineRenderer} will throw an exception.</i>
      * @return A list of integer keys, corresponding to the indices in the String (c.f.
      * {@link #lineText()}. The first index corresponds to when the text should begin rendering as
      * bold, the second corresponds to when the text should stop rendering as bold, the third when
