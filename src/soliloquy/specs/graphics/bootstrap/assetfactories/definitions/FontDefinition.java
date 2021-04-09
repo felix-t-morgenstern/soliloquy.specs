@@ -24,12 +24,26 @@ public interface FontDefinition extends AssetDefinition<Font> {
     float maxLosslessFontSize();
 
     /**
-     * The padding here is expressed in percentage of glyph width, so a value of 0.1f implies an
-     * additional padding of 10% of the glyph's width. <i>This method exists because some fonts
-     * require additional padding to prevent glyphs from overlapping.</i>
-     * @return The amount of padding between rendered glyphs of this Font (cannot be less than 0)
+     * <i>NB: This value only specifies how the glyphs are padded when stored on the GPU; it does
+     * not affect how they are rendered whatsoever.</i> The padding here is expressed in percentage
+     * of glyph width, so a value of 0.1f implies an additional padding of 10% of the glyph's
+     * width. <i>This method exists because some fonts require additional padding to prevent glyphs
+     * from overlapping.</i>
+     * @return The amount of horizontal padding between rendered glyphs of this Font (cannot be
+     * less than 0)
      */
-    float additionalGlyphPadding();
+    float additionalGlyphHorizontalPadding();
+
+    /**
+     * <i>NB: This value only specifies how the glyphs are padded when stored on the GPU; it does
+     * not affect how they are rendered whatsoever.</i> The padding here is expressed in percentage
+     * of glyph height, so a value of 0.1f implies an additional padding of 10% of the glyph's
+     * height. <i>This method exists because some fonts require additional padding to prevent
+     * glyphs from overlapping.</i>
+     * @return The amount of vertical padding between rendered glyphs of this Font (cannot be less
+     * than 0)
+     */
+    float additionalGlyphVerticalPadding();
 
     /**
      * <i>This method exists because some TTF files do not properly encode the leading of their
