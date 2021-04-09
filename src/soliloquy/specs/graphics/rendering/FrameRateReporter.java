@@ -11,6 +11,11 @@ import java.util.Date;
  * second), containing both the target and observed frames per second. The intent of this class is
  * to be enabled for either debugging purposes mid-execution, or for performance monitoring data
  * (perhaps with results aggregated over larger timeframes).
+ * <p>
+ * "Period" here refers to "seconds", whereas "aggregate" here refers to some aggregate of periods,
+ * e.g. 5s. Intended use is for FrameRateReporter to receive aggregate length in terms of periods
+ * from its constructor, possibly through the
+ * {@link soliloquy.specs.common.infrastructure.SettingsRepo}.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -18,13 +23,18 @@ import java.util.Date;
  */
 public interface FrameRateReporter extends SoliloquyClass {
     /**
+     * NB: Periods when frame execution was paused for the entire duration should still report 0
+     * fps to the FrameReporter; the FrameReporter will handle that logic. Similarly, if targetFps
+     * is null for some but not all periods, the {@link FrameRateReporterAggregateOutput} will
+     * receive an average of the non-null targetFps values; and if they are all null, it will
+     * instead receive null.
      * @param datetime The datetime for the given polling interval
      * @param targetFps The target frames per second (may be null if no target is set, c.f. 
      *                  {@link FrameTimer#setTargetFps})
      * @param actualFps The frames per second which were actually executed
-     * @throws IllegalArgumentException If and only if datetime is null
+     * @throws IllegalArgumentException If and only if targetFps or actualFps are negative
      */
-    void reportFrameRate(Date datetime, Float targetFps, float actualFps)
+    void reportFrameRate(long datetime, Float targetFps, float actualFps)
             throws IllegalArgumentException;
 
     /**
@@ -34,6 +44,7 @@ public interface FrameRateReporter extends SoliloquyClass {
     Float currentActualFps();
 
     /**
+     * <i>NB: Aggregate outputs default to being active</i>
      * @param id The id of the {@link FrameRateReporterAggregateOutput} to activate
      * @throws IllegalArgumentException If id is null or empty, or does not correspond to a
      * FrameRateReporterAggregateOutput
@@ -41,6 +52,7 @@ public interface FrameRateReporter extends SoliloquyClass {
     void activateAggregateOutput(String id) throws IllegalArgumentException;
 
     /**
+     * <i>NB: Aggregate outputs default to being active</i>
      * @param id The id of the {@link FrameRateReporterAggregateOutput} to deactivate
      * @throws IllegalArgumentException If id is null or empty, or does not correspond to a
      * FrameRateReporterAggregateOutput
