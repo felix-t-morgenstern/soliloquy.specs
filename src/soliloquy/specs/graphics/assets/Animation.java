@@ -3,8 +3,8 @@ package soliloquy.specs.graphics.assets;
 /**
  * <b>Sprite</b>
  * <p>
- * This class defines an object which can be used to generate an
- * {@link soliloquy.specs.graphics.renderables.AnimationRenderable} at some location in the window.
+ * This class defines an object which can be used to generate a
+ * {@link soliloquy.specs.graphics.renderables.RenderableAnimation} at some location in the window.
  * It is defined by an Image; a total duration in milliseconds; and for each millisecond within
  * that range, it provides top-left and bottom-right boundaries (inclusive) for the desired frame
  * of the Animation, and an offset in pixels for the Animation. (The pixel offset can be measured

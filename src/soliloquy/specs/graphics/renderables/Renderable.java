@@ -1,7 +1,9 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.shared.Cloneable;
+import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.Deletable;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 /**
@@ -19,7 +21,7 @@ import soliloquy.specs.graphics.rendering.FloatBox;
  *
  */
 public interface Renderable<TRenderable extends Renderable>
-		extends Cloneable<Renderable<TRenderable>>, SoliloquyClass {
+		extends Cloneable<Renderable<TRenderable>>, HasUuid {
 	/**
 	 * @return The area in the window into which to render
 	 */
@@ -32,4 +34,10 @@ public interface Renderable<TRenderable extends Renderable>
 	 * the containing Renderable.)
 	 */
 	int z();
+
+	/**
+	 * (Currently only needed when {@link GlobalLoopingAnimationRenderable}s are deleted; handles
+	 * unsubscribing that class from a publisher of pause and unpause updates.)
+	 */
+	void delete();
 }

@@ -8,7 +8,7 @@ import soliloquy.specs.graphics.renderables.Renderable;
  * <p>
  * This class defines a class that renders renderables of a specific {@link Renderable}, e.g.
  * {@link soliloquy.specs.graphics.renderables.SpriteRenderable} or
- * {@link soliloquy.specs.graphics.renderables.AnimationRenderable}.
+ * {@link soliloquy.specs.graphics.renderables.FiniteAnimationRenderable}.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

@@ -6,7 +6,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.Renderable;
 
 /**
- * <b>RenderableStack</b>
+ * <b>ContainsRenderables</b>
  * <p>
  * This class is a stack of {@link Renderable}s, to be rendered, in descending order of
  * z-indices.
@@ -21,11 +21,11 @@ import soliloquy.specs.graphics.renderables.Renderable;
  * @version 0.0.1
  *
  */
-public interface RenderableStack extends SoliloquyClass {
+public interface ContainsRenderables extends SoliloquyClass {
     /**
-     * Clears the stack
+     * Clears the contained Renderables
      */
-    void clear();
+    void clearContainedRenderables();
 
     /**
      * <i>NB: Higher z values will be rendered first.</i>
