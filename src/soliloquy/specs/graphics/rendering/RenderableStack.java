@@ -6,7 +6,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.Renderable;
 
 /**
- * <b>ContainsRenderables</b>
+ * <b>RenderableStack</b>
  * <p>
  * This class is a stack of {@link Renderable}s, to be rendered, in descending order of
  * z-indices.
@@ -21,7 +21,7 @@ import soliloquy.specs.graphics.renderables.Renderable;
  * @version 0.0.1
  *
  */
-public interface ContainsRenderables extends SoliloquyClass {
+public interface RenderableStack extends SoliloquyClass {
     /**
      * Clears the contained Renderables
      */
@@ -37,9 +37,8 @@ public interface ContainsRenderables extends SoliloquyClass {
 
     // TODO: Ensure that snapshot ONLY includes clones
     /**
-     * @return A read-only representation of the stack. <i>(NB: All of the Renderables are to be
-     * clones, so any changes to Renderables taking place during the rendering of a frame will not
-     * change what is expected to be rendered on that frame mid-rendering.)</i>
+     * @return A snapshot of the stack. (NB: While the Renderables are not clones, there should
+     * also be nothing mutable about any Renderable; they are essentially stateless)
      */
     Map<Integer, List<Renderable>> snapshot();
 }

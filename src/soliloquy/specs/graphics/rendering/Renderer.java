@@ -29,7 +29,11 @@ public interface Renderer<TRenderable extends Renderable> extends SoliloquyClass
 
     /**
      * @param renderable The renderable of the provided type to render
-     * @throws IllegalArgumentException If and only if renderable is null
+     * @param timestamp The timestamp at which to render the Renderable; this parameter is of
+     *                  particular importance to
+     *                  {@link soliloquy.specs.graphics.renderables.RenderableAnimation}.
+     * @throws IllegalArgumentException If and only if renderable is null, or if timestamp is
+     * before the most recently rendered timestamp
      */
-    void render(TRenderable renderable) throws IllegalArgumentException;
+    void render(TRenderable renderable, long timestamp) throws IllegalArgumentException;
 }

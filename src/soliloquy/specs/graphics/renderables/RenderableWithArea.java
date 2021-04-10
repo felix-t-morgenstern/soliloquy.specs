@@ -21,8 +21,7 @@ import java.util.List;
  * @version 0.0.1
  *
  */
-public interface RenderableWithArea<TRenderable extends Renderable>
-        extends Renderable<TRenderable> {
+public interface RenderableWithArea extends Renderable {
     /**
      * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
      * events

@@ -12,8 +12,7 @@ package soliloquy.specs.graphics.renderables;
  * @version 0.0.1
  *
  */
-public interface GlobalLoopingAnimationRenderable
-        extends RenderableWithArea<GlobalLoopingAnimationRenderable> {
+public interface GlobalLoopingAnimationRenderable extends RenderableWithArea {
     /**
      * NB: The intended use of this method is to have a single, looping RenderableAnimation
      * supporting many different GlobalLoopingAnimationRenderables; for instance, all torches or

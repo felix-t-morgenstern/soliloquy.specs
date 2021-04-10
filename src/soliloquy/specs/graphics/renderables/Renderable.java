@@ -13,15 +13,12 @@ import soliloquy.specs.graphics.rendering.FloatBox;
  * <p>
  * Each renderable can contain Renderables within it, each with their own internal z-indices, which
  * cannot supersede the rendering of anything with a higher z-index than its parent Renderable.
- * <p>
- * Intended use for this class is to be generated at runtime as an anonymous class.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface Renderable<TRenderable extends Renderable>
-		extends Cloneable<Renderable<TRenderable>>, HasUuid {
+public interface Renderable extends HasUuid {
 	/**
 	 * @return The area in the window into which to render
 	 */

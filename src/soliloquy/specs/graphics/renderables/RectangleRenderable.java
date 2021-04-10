@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.graphics.rendering.ContainsRenderables;
+import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.Color;
 
@@ -13,8 +13,7 @@ import java.awt.Color;
  * @version 0.0.1
  *
  */
-public interface RectangleRenderable
-        extends RenderableWithArea<RectangleRenderable>, ContainsRenderables {
+public interface RectangleRenderable extends RenderableWithArea, RenderableStack {
     /**
      * @return The color at the top left of this rectangle
      */
