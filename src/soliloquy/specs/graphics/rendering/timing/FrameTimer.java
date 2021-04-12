@@ -1,4 +1,4 @@
-package soliloquy.specs.graphics.rendering;
+package soliloquy.specs.graphics.rendering.timing;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 

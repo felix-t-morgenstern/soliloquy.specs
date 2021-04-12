@@ -56,8 +56,9 @@ public interface WindowResolutionManager extends SoliloquyClass {
 
     /**
      * This method updates the size, display mode, etc. of the window, if there have been any
-     * changes, whenever the next frame is executed (c.f. {@link FrameTimer}). (If the window has
-     * not yet been created, this method will create it.)
+     * changes, whenever the next frame is executed (c.f.
+     * {@link soliloquy.specs.graphics.rendering.timing.FrameTimer}). (If the window has not yet
+     * been created, this method will create it.)
      * @param windowId The id of the current window
      * @param titlebar The string to be displayed in the titlebar
      * @return The window Id, which changes when switching from one display mode to another
