@@ -1,8 +1,5 @@
 package soliloquy.specs.graphics.assets;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.rendering.Renderer;
-
 /**
  * <b>Image</b>
  * <p>

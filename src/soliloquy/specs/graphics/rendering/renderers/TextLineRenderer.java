@@ -1,4 +1,4 @@
-package soliloquy.specs.graphics.rendering;
+package soliloquy.specs.graphics.rendering.renderers;
 
 import soliloquy.specs.graphics.renderables.TextLineRenderable;
 

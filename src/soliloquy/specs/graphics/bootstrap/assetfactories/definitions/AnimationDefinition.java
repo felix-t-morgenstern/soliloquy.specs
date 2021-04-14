@@ -2,7 +2,7 @@ package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
 
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.AnimationFrameSnippet;
-import soliloquy.specs.graphics.rendering.Renderer;
+import soliloquy.specs.graphics.rendering.renderers.Renderer;
 
 import java.util.Map;
 

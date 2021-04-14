@@ -1,13 +1,13 @@
 package soliloquy.specs.graphics.rendering.timing;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.rendering.Renderer;
 
 /**
  * <b>GlobalClock</b>
  * <p>
  * This class tracks the milliseconds, e.g. in UTC milliseconds. This clock is to be used by both
- * the {@link FrameTimer}, as well as by the {@link Renderer} for
+ * the {@link FrameTimer}, as well as by the
+ * {@link soliloquy.specs.graphics.rendering.renderers.Renderer} for
  * {@link soliloquy.specs.graphics.assets.Animation}s. (It is expected that the Animation renderer
  * will manage the relationship between the GlobalClock and the current frame of all Animations,
  * both during and after any pauses for those specific Animations.)

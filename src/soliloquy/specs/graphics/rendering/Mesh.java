@@ -15,7 +15,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 public interface Mesh extends SoliloquyClass {
     /**
      * Renders the object whose vertices have just been defined (intended to be used by
-     * {@link Renderer#render}).
+     * {@link soliloquy.specs.graphics.rendering.renderers.Renderer#render}).
      */
     void render();
 

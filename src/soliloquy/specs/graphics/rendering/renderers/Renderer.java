@@ -1,7 +1,9 @@
-package soliloquy.specs.graphics.rendering;
+package soliloquy.specs.graphics.rendering.renderers;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.Renderable;
+import soliloquy.specs.graphics.rendering.Mesh;
+import soliloquy.specs.graphics.rendering.Shader;
 
 /**
  * <b>Renderer</b>

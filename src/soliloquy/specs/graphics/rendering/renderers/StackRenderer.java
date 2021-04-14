@@ -1,6 +1,7 @@
-package soliloquy.specs.graphics.rendering;
+package soliloquy.specs.graphics.rendering.renderers;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.graphics.rendering.RenderableStack;
 
 /**
  * <b>StackRenderer</b>

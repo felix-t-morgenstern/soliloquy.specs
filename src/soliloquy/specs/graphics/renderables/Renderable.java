@@ -1,9 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.common.shared.Cloneable;
 import soliloquy.specs.common.shared.HasUuid;
-import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.Deletable;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 /**
@@ -35,6 +32,9 @@ public interface Renderable extends HasUuid {
 	/**
 	 * (Currently only needed when {@link GlobalLoopingAnimationRenderable}s are deleted; handles
 	 * unsubscribing that class from a publisher of pause and unpause updates.)
+	 * <p>
+	 * (NB: This class does not extend Deletable, since there is no need to assess whether it has
+	 * been deleted.)
 	 */
 	void delete();
 }

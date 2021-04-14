@@ -1,7 +1,7 @@
 package soliloquy.specs.graphics.assets;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.rendering.Renderer;
+import soliloquy.specs.graphics.rendering.renderers.Renderer;
 
 /**
  * <b>HasTextureId</b>
