@@ -2,6 +2,8 @@ package soliloquy.specs.graphics.assets;
 
 import soliloquy.specs.graphics.rendering.FloatBox;
 
+import java.util.Map;
+
 public interface Font extends Asset, HasTextureId {
     // TODO: Fill this in later! Implementation details are highly likely to determine what is exposed here
 
@@ -41,6 +43,14 @@ public interface Font extends Asset, HasTextureId {
      * (e.g. ASCII control characters, such as DEL or CR)
      */
     FloatBox getUvCoordinatesForGlyphBoldItalic(char glyph) throws IllegalArgumentException;
+
+    /**
+     * @return This method is used by
+     * {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer#render} to ensure that
+     * glyphs with additional padding, like a 'Q' with a long tail, don't push subsequent glyphs
+     * off to the right by that same amount. This method can return null.
+     */
+    Map<Character, Float> glyphwiseAdditionalHorizontalPadding();
 
     /**
      * @return The texture for this font when italicized

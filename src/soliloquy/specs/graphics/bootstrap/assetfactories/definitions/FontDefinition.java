@@ -2,6 +2,8 @@ package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
 
 import soliloquy.specs.graphics.assets.Font;
 
+import java.util.Map;
+
 /**
  * <b>FontDefinition</b>
  * <p>
@@ -33,6 +35,17 @@ public interface FontDefinition extends AssetDefinition<Font> {
      * less than 0)
      */
     float additionalGlyphHorizontalPadding();
+
+    /**
+     * <i>NB: This method is intended for fonts with specific problematic characters, like a 'Q'
+     * whose tail juts out dramatically to the right, potentially overlapping with other
+     * glyphs.</i>
+     * @return A Map linking Characters to their horizontal padding, in addition to what is
+     * specified by {@link #additionalGlyphHorizontalPadding}. This method can return null. (It can
+     * also contain invalid characters, which will just be ignored.) However, all values for valid
+     * characters must be non-null.
+     */
+    Map<Character, Float> glyphwiseAdditionalHorizontalPadding();
 
     /**
      * <i>NB: This value only specifies how the glyphs are padded when stored on the GPU; it does
