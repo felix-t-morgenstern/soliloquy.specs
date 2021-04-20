@@ -1,6 +1,9 @@
 package soliloquy.specs.graphics.rendering;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Coordinate;
+
+import java.util.function.Consumer;
 
 /**
  * <b>WindowResolutionManager</b>
@@ -42,17 +45,21 @@ public interface WindowResolutionManager extends SoliloquyClass {
 
     /**
      * @return The current width of the window
-     * @throws UnsupportedOperationException If and only if current WindowDisplayMode is
-     * WindowedFullscreen (c.f. {@link #setDimensions})
      */
-    int getWidth() throws UnsupportedOperationException;
+    int getWidth();
 
     /**
      * @return The current height of the window
-     * @throws UnsupportedOperationException If and only if current WindowDisplayMode is
-     * WindowedFullscreen (c.f. {@link #setDimensions})
      */
-    int getHeight() throws UnsupportedOperationException;
+    int getHeight();
+
+    /**
+     * @param subscriber A method which will receive a Pair containing the width and height of the
+     *                   screen, respectively, every time these values change
+     * @throws IllegalArgumentException If and only if subscriber is null
+     */
+    void registerResolutionSubscriber(Consumer<Coordinate> subscriber)
+            throws IllegalArgumentException;
 
     /**
      * This method updates the size, display mode, etc. of the window, if there have been any

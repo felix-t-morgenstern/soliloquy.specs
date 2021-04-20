@@ -54,4 +54,11 @@ public interface FloatBox extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if box is null
      */
     FloatBox intersection(FloatBox box) throws IllegalArgumentException;
+
+    /**
+     * @param xTranslation The amount by which to move the copy of this FloatBox along the x-axis
+     * @param yTranslation The amount by which to move the copy of this FloatBox along the y-axis
+     * @return A copy of this FloatBox, moved by some amount on either the x or y axes
+     */
+    FloatBox translate(float xTranslation, float yTranslation);
 }
