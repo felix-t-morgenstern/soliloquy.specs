@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.assets;
 
+import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.util.Map;
@@ -53,9 +54,31 @@ public interface Font extends Asset, HasTextureId {
     Map<Character, Float> glyphwiseAdditionalHorizontalPadding();
 
     /**
+     * @return The dimensions of the texture generated for the font (non-italic, non-bold)
+     */
+    Coordinate textureDimensions();
+
+    /**
+     * @return The width-to-height ratio of the texture generated for the font (non-italic,
+     * non-bold)
+     */
+    float textureWidthToHeightRatio();
+
+    /**
      * @return The texture for this font when italicized
      */
     int textureIdItalic();
+
+    /**
+     * @return The dimensions of the texture generated for the italic version of the font
+     */
+    Coordinate textureDimensionsItalic();
+
+    /**
+     * @return The width-to-height ratio of the texture generated for the italic version of the
+     * font
+     */
+    float textureWidthToHeightRatioItalic();
 
     /**
      * @return The texture for this font when bold
@@ -63,7 +86,28 @@ public interface Font extends Asset, HasTextureId {
     int textureIdBold();
 
     /**
+     * @return The dimensions of the texture generated for the bold version of the font
+     */
+    Coordinate textureDimensionsBold();
+
+    /**
+     * @return The width-to-height ratio of the texture generated for the bold version of the font
+     */
+    float textureWidthToHeightRatioBold();
+
+    /**
      * @return The texture for this font when bold italic
      */
     int textureIdBoldItalic();
+
+    /**
+     * @return The dimensions of the texture generated for the bold and italic version of the font
+     */
+    Coordinate textureDimensionsBoldItalic();
+
+    /**
+     * @return The width-to-height ratio of the texture generated for the bold and italic version
+     * of the font
+     */
+    float textureWidthToHeightRatioBoldItalic();
 }
