@@ -2,6 +2,8 @@ package soliloquy.specs.graphics.rendering;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 
+import java.awt.*;
+
 /**
  * <b>Shader</b>
  * <p>
@@ -57,4 +59,11 @@ public interface Shader extends SoliloquyClass {
      */
     void setUniform(String name, float f1, float f2, float f3, float f4)
             throws IllegalArgumentException;
+
+    /**
+     * @param name The name of the uniform value to set
+     * @param color The color to set for the specified uniform value
+     * @throws IllegalArgumentException If and only if name is null or empty, or if color is null
+     */
+    void setUniform(String name, Color color) throws IllegalArgumentException;
 }
