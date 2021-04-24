@@ -1,15 +1,19 @@
 package soliloquy.specs.graphics.assets;
 
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+
 /**
  * <b>Sprite</b>
  * <p>
- * This class defines an object which can be used to generate a
- * {@link soliloquy.specs.graphics.renderables.RenderableAnimation} at some location in the window.
- * It is defined by an Image; a total duration in milliseconds; and for each millisecond within
- * that range, it provides top-left and bottom-right boundaries (inclusive) for the desired frame
- * of the Animation, and an offset in pixels for the Animation. (The pixel offset can be measured
- * in pixels here, since if the Animation is expanded or shrunk by some scale when rendered, the
- * offset in pixels will undergo the same transformation.)
+ * This class defines an object which can be used to generate a {@link ProviderAtTime} of
+ * {@link AnimationFrameSnippet}s for one of the two types of Animation Renderables,
+ * {@link soliloquy.specs.graphics.renderables.GlobalLoopingAnimationRenderable} or
+ * {@link soliloquy.specs.graphics.renderables.FiniteAnimationRenderable}, at some location in the
+ * window. It is defined by an Image; a total duration in milliseconds; and for each millisecond
+ * within that range, it provides top-left and bottom-right boundaries (inclusive) for the desired
+ * frame of the Animation, and an offset in pixels for the Animation. (The pixel offset can be
+ * measured in pixels here, since if the Animation is expanded or shrunk by some scale when
+ * rendered, the offset in pixels will undergo the same transformation.)
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

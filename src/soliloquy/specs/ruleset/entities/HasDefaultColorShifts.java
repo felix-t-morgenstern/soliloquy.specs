@@ -1,7 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.graphics.colorshifting.ColorShift;
+import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 
 /**
  * <b>HasDefaultColorShifts</b>

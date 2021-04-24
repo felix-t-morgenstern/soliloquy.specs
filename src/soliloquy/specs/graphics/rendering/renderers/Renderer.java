@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.rendering.renderers;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.rendering.Mesh;
 import soliloquy.specs.graphics.rendering.Shader;
@@ -33,7 +34,7 @@ public interface Renderer<TRenderable extends Renderable> extends SoliloquyClass
      * @param renderable The renderable of the provided type to render
      * @param timestamp The timestamp at which to render the Renderable; this parameter is of
      *                  particular importance to
-     *                  {@link soliloquy.specs.graphics.renderables.RenderableAnimation}.
+     *                  {@link ProviderAtTime}.
      * @throws IllegalArgumentException If and only if renderable is null, or if timestamp is
      * before the most recently rendered timestamp
      */

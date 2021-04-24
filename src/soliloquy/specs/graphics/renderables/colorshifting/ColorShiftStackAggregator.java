@@ -1,4 +1,4 @@
-package soliloquy.specs.graphics.colorshifting;
+package soliloquy.specs.graphics.renderables.colorshifting;
 
 import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
@@ -17,10 +17,11 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 public interface ColorShiftStackAggregator extends SoliloquyClass {
     /**
      * @param colorShifts The ColorShiftTypes to aggregate
+     * @param timestamp The timestamp for which to aggregate the ColorShifts
      * @return The NetColorShifts resulting from the provided colorShifts
      * @throws IllegalArgumentException If and only if colorShifts is null, or contains any
      * ColorShiftTypes with invalid values
      */
-    NetColorShifts aggregate(List<ColorShift> colorShifts)
+    NetColorShifts aggregate(List<ColorShift> colorShifts, long timestamp)
             throws IllegalArgumentException;
 }

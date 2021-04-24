@@ -19,5 +19,6 @@ public interface TextLineRenderer extends Renderer<TextLineRenderable> {
      * @throws IllegalArgumentException If and only if textLineRenderable is null or has invalid
      * values
      */
-    float textLineLength(TextLineRenderable textLineRenderable) throws IllegalArgumentException;
+    float textLineLength(TextLineRenderable textLineRenderable)
+            throws IllegalArgumentException;
 }

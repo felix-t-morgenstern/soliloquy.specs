@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.shared.HasUuid;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 /**
@@ -17,9 +18,10 @@ import soliloquy.specs.graphics.rendering.FloatBox;
  */
 public interface Renderable extends HasUuid {
 	/**
-	 * @return The area in the window into which to render
+	 * @return A ProviderAtTime which provides the area in the window into which to render. <i>It
+	 * is expected that the returned value will never be null.</i>
 	 */
-	FloatBox renderingArea();
+	ProviderAtTime<FloatBox> renderingAreaProvider();
 
 	/**
 	 * <i>NB: Higher z values will be rendered first.</i>

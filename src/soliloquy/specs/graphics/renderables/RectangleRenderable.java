@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.Color;
@@ -15,24 +16,25 @@ import java.awt.Color;
  */
 public interface RectangleRenderable extends RenderableWithArea, RenderableStack {
     /**
-     * @return The color at the top left of this rectangle
+     * @return A ProviderAtTime which provides the color at the top-left of this rectangle for a
+     * given timestamp.
      */
-    Color topLeftColor();
-
+    ProviderAtTime<Color> topLeftColorProvider();
     /**
-     * @return The color at the top right of this rectangle
+     * @return A ProviderAtTime which provides the color at the top-right of this rectangle for a
+     * given timestamp.
      */
-    Color topRightColor();
-
+    ProviderAtTime<Color> topRightColorProvider();
     /**
-     * @return The color at the bottom right of this rectangle
+     * @return A ProviderAtTime which provides the color at the bottom-right of this rectangle for
+     * a given timestamp.
      */
-    Color bottomRightColor();
-
+    ProviderAtTime<Color> bottomRightColorProvider();
     /**
-     * @return The color at the bottom left of this rectangle
+     * @return A ProviderAtTime which provides the color at the bottom-left of this rectangle for a
+     * given timestamp.
      */
-    Color bottomLeftColor();
+    ProviderAtTime<Color> bottomLeftColorProvider();
 
     // TODO: Expose members to define backgrounds, whether those backgrounds are stretched, and whether (and how) those backgrounds are repeated
 }

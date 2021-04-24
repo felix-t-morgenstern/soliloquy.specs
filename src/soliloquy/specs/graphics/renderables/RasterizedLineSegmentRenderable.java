@@ -1,5 +1,9 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+
+import java.awt.*;
+
 /**
  * <b>RasterizedLineSegmentRenderable</b>
  * <p>
@@ -11,9 +15,11 @@ package soliloquy.specs.graphics.renderables;
  */
 public interface RasterizedLineSegmentRenderable extends Renderable {
     /**
-     * @return The thickness of this line segment, <i>in rasterized pixels</i>
+     * @return A ProviderAtTime which provides the thickness of this line segment, <i>in rasterized
+     * pixels</i>, for a given timestamp. <i>It is expected that the value provided will never be
+     * null.</i>
      */
-    float thickness();
+    ProviderAtTime<Float> thicknessProvider();
 
     /**
      * @return The stippling pattern for this line segment (see documentation for more information
@@ -27,24 +33,9 @@ public interface RasterizedLineSegmentRenderable extends Renderable {
      */
     int stippleFactor();
 
-    // TODO: java.awt.Color was giving some issues; look into this
     /**
-     * @return The red channel of this line segment, from 0.0 - 1.0
+     * @return A ProviderAtTime which provides the color of this line segment. <i>It is expected
+     * that the value provided will never be null.</i>
      */
-    float red();
-
-    /**
-     * @return The green channel of this line segment, from 0.0 - 1.0
-     */
-    float green();
-
-    /**
-     * @return The blue channel of this line segment, from 0.0 - 1.0
-     */
-    float blue();
-
-    /**
-     * @return The alpha channel of this line segment, from 0.0 - 1.0
-     */
-    float alpha();
+    ProviderAtTime<Color> colorProvider();
 }

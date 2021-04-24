@@ -1,4 +1,6 @@
-package soliloquy.specs.graphics.colorshifting;
+package soliloquy.specs.graphics.renderables.colorshifting;
+
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 /**
  * <b>ColorComponentShift</b>
@@ -7,7 +9,8 @@ package soliloquy.specs.graphics.colorshifting;
  * green, or blue--alpha is not supported for this operation). When shifts of this type are
  * stacked, they are stacked additively, with a floor at -1.0, and a ceiling at 1.0.
  * <p>
- * Intended use for this class is to be generated at runtime as an anonymous class.
+ * Intended use for this class is to be generated at runtime as an anonymous class. <i>It is
+ * expected that the value provided will never be null.</i>
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -26,7 +29,8 @@ public interface ColorComponentShift extends ColorShift {
      * component is set to 0. A value of 0.5 implies that every pixel's specified component's
      * distance to 255 is halved. A value of -0.5 implies that every pixel's specified component's
      * distance to 0 is halved.
-     * @return The amount to which to shift the value of the specified ColorComponent
+     * @return The amount to which to shift the value of the specified ColorComponent at the
+     * provided timestamp.
      */
-    float shiftAmount();
+    ProviderAtTime<Float> shiftAmountProvider();
 }

@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.assets.Font;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.awt.*;
@@ -32,21 +33,22 @@ public interface TextLineRenderable extends Renderable {
      * is calculated using {@link #lineHeight}, and the width is calculated at runtime from the </b>
      * @return The area in the window into which to render
      */
-    FloatBox renderingArea();
+    ProviderAtTime<FloatBox> renderingAreaProvider();
 
+    // TODO: Consider making this a ProviderAtTime
     /**
      * @return The height of the line, where the entirety of the window has a height of 1.0.
      */
     float lineHeight();
 
     /**
-     * When the Color value is null, this corresponds to the default font color
+     * When the Color value provided is null, this corresponds to the default font color
      * @return A map, where the integer keys correspond to the indices in the String (c.f.
-     * {@link #lineText}), and the Color value corresponds to the color to draw all subsequent
-     * glyphs. This method may return null, in which case, the entire text line is rendered in the
-     * default text color.
+     * {@link #lineText}), and the ProviderAtTime values correspond to providers which provide the
+     * color to draw all subsequent glyphs at a given timestamp. This method may return null, in
+     * which case, the entire text line is rendered in the default text color.
      */
-    Map<Integer, Color> colorIndices();
+    Map<Integer, ProviderAtTime<Color>> colorProviderIndices();
 
     /**
      * <i>NB: It is assumed that indices will be in ascending order; if they are not, the

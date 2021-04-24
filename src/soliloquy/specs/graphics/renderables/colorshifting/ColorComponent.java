@@ -1,4 +1,4 @@
-package soliloquy.specs.graphics.colorshifting;
+package soliloquy.specs.graphics.renderables.colorshifting;
 
 public enum ColorComponent {
     UNKNOWN,

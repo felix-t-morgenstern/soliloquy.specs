@@ -1,5 +1,8 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.graphics.assets.AnimationFrameSnippet;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+
 /**
  * <b>FiniteAnimationRenderable</b>
  * <p>
@@ -13,11 +16,12 @@ package soliloquy.specs.graphics.renderables;
  * @version 0.0.1
  *
  */
-public interface FiniteAnimationRenderable extends RenderableAnimation, RenderableWithArea {
+public interface FiniteAnimationRenderable
+        extends ProviderAtTime<AnimationFrameSnippet>, RenderableWithArea {
     /**
      * (NB: This method will return higher values each time this Renderable is paused and later
      * unpaused; the purpose of this method is to ensure that there is no call to
-     * {@link #currentSnippet} before the start of this finite animation.)
+     * {@link #provide} before the start of this finite animation.)
      * @return The timestamp at which the finite animation began
      */
     long startTimestamp();
@@ -25,7 +29,7 @@ public interface FiniteAnimationRenderable extends RenderableAnimation, Renderab
     /**
      * (NB: This method will return higher values each time this Renderable is paused and later
      * unpaused; the purpose of this method is to ensure that there is no call to
-     * {@link #currentSnippet} after the end of this finite animation.)
+     * {@link #provide} after the end of this finite animation.)
      * @return The timestamp at which the finite animation began
      */
     long endTimestamp();

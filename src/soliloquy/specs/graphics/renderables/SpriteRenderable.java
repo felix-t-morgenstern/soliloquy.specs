@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.assets.Sprite;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 import java.awt.*;
 
@@ -20,13 +21,16 @@ public interface SpriteRenderable extends RenderableWithArea {
     Sprite sprite();
 
     /**
-     * @return The thickness of the border to render around this Sprite, expressed in percentage of
-     * the screen height
+     * @return A ProviderAtTime providing thickness of the border to render around this Sprite for
+     * a given timestamp, expressed in percentage of the screen height. If the provider returns
+     * null, this implies no border.
      */
-    Float borderThickness();
+    ProviderAtTime<Float> borderThicknessProvider();
 
     /**
-     * @return The color of the border to render around this Sprite
+     * @return A ProviderAtTime providing the color of the border to render around this Sprite for
+     * a given timestamp. If the borderThickness ProviderAtTime returns a non-null value, this
+     * ProviderAtTime must return a non-null value as well.
      */
-    Color borderColor();
+    ProviderAtTime<Color> borderColorProvider();
 }

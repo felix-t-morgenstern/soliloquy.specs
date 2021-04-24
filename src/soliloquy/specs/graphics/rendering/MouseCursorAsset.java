@@ -3,7 +3,7 @@ package soliloquy.specs.graphics.rendering;
 import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.Sprite;
-import soliloquy.specs.graphics.colorshifting.ColorShift;
+import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 
 /**
  * <b>MouseCursorAsset</b>

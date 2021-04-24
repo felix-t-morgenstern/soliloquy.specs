@@ -1,5 +1,8 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.graphics.assets.AnimationFrameSnippet;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+
 /**
  * <b>GlobalLoopingAnimationRenderable</b>
  * <p>
@@ -14,11 +17,11 @@ package soliloquy.specs.graphics.renderables;
  */
 public interface GlobalLoopingAnimationRenderable extends RenderableWithArea {
     /**
-     * NB: The intended use of this method is to have a single, looping RenderableAnimation
+     * NB: The intended use of this method is to have a single, looping ProviderAtTime
      * supporting many different GlobalLoopingAnimationRenderables; for instance, all torches or
      * lampposts might share the same looping animation, and this method enables all of them to
      * indirectly point back to a single {@link soliloquy.specs.graphics.assets.Animation}.
-     * @return The underlying RenderableAnimation supporting this Renderable.
+     * @return The underlying ProviderAtTime supporting this Renderable.
      */
-    RenderableAnimation loopingAnimation();
+    ProviderAtTime<AnimationFrameSnippet> loopingAnimation();
 }

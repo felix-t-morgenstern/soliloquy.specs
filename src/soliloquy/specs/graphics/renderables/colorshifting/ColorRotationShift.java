@@ -1,4 +1,6 @@
-package soliloquy.specs.graphics.colorshifting;
+package soliloquy.specs.graphics.renderables.colorshifting;
+
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 /**
  * <b>ColorRotationShift</b>
@@ -12,14 +14,15 @@ package soliloquy.specs.graphics.colorshifting;
  * @version 0.0.1
  *
  */
-public interface ColorRotationShift {
+public interface ColorRotationShift extends ColorShift {
     /**
      * A value of 0.0 implies no change. Positive values imply a "clockwise" rotation within the
      * color wheel, going from red to green to blue, and back to red. Conversely, negative values
      * imply a "counter-clockwise" rotation, going from red to blue to green, and back to red. A
      * value of 1.0 is a full rotation clockwise, i.e. it has no effect. Similarly, a value of -1.0
      * is a full rotation counter-clockwise, i.e. it also has no effect.
-     * @return The amount by which the colors are rotated
+     * @return The amount by which the colors are rotated at the specified timestamp. <i>It is
+     * expected that the value provided will never be null.</i>
      */
-    float shiftAmount();
+    ProviderAtTime<Float> shiftAmountProvider();
 }

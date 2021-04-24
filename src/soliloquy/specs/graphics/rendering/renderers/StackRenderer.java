@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.rendering.renderers;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
 /**
@@ -21,7 +22,7 @@ public interface StackRenderer extends SoliloquyClass {
 	 * Renders the contents of the top-level {@link RenderableStack}.
 	 * @param timestamp The timestamp at which to render the top-level {@link RenderableStack}.
 	 *                  (The timestamp provided is primarily used by
-	 *                  {@link soliloquy.specs.graphics.renderables.RenderableAnimation}s.)
+	 *                  {@link ProviderAtTime}s.)
 	 * @throws IllegalArgumentException If and only if timestamp is less than the previously
 	 * rendered timestamp
 	 */
