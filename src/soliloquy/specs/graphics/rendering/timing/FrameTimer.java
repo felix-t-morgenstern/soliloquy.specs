@@ -34,6 +34,7 @@ public interface FrameTimer extends SoliloquyClass {
      */
     void start() throws UnsupportedOperationException;
 
+    // TODO: Review implementation and specify use case for this method (i.e. "should only be used when tearing down application")
     /**
      * Stops the FrameTimer
      * @throws UnsupportedOperationException If and only if FrameTimer is not running

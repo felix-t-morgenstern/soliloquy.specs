@@ -8,7 +8,6 @@ import soliloquy.specs.gamestate.entities.*;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.gamestate.factories.*;
-import soliloquy.specs.ruleset.Ruleset;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 
 /**
@@ -95,7 +94,7 @@ public interface GameState extends SoliloquyClass {
 
 	/**
 	 */
-	TimerFactory timerFactory();
+	TurnBasedTimerFactory turnBasedTimerFactory();
 
 	/**
 	 */

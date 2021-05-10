@@ -3,7 +3,8 @@ package soliloquy.specs.ruleset.gameconcepts;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.CharacterVariableStatistic;
-import soliloquy.specs.gamestate.entities.Timer;
+import soliloquy.specs.gamestate.entities.timers.RecurringTurnBasedTimer;
+import soliloquy.specs.gamestate.entities.timers.TurnBasedTimer;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ import java.util.Map;
  * {@link CharacterVariableStatistic}s and
  * {@link soliloquy.specs.gamestate.entities.CharacterStatusEffects} (c.f.
  * {@link soliloquy.specs.ruleset.entities.ActOnCharacterOnTurnAndRound}), and the firing of
- * {@link soliloquy.specs.gamestate.entities.Timer}, after the end of the current round, or the
+ * {@link TurnBasedTimer}, after the end of the current round, or the
  * elapsing of an arbitrary number of rounds at once.
  *
  * @author felix.t.morgenstern
@@ -47,7 +48,7 @@ public interface RoundEndHandling extends SoliloquyClass {
      * @param turnEndEventsToFire - The number of turn end events to fire for each Character
      * @param roundEndEventsToFire - The number of round end events to fire for each Character
      * @param timersToFire - The timers to fire (may contain duplicate entries, e.g.
-     *                     {@link soliloquy.specs.gamestate.entities.RecurringTimer}s)
+     *                     {@link RecurringTurnBasedTimer}s)
      * @param activeCharacterAtRoundEnd - The active Character at the end of the previous round
      * @param activeCharacterAtStartOfNewRound - The active Character at the start of the new round
      * @throws IllegalArgumentException If and only if any of the parameters are null, or if any of
@@ -56,7 +57,7 @@ public interface RoundEndHandling extends SoliloquyClass {
     void runEndOfRoundEvents(Map<Character, Integer> turnStartEventsToFire,
                              Map<Character, Integer> turnEndEventsToFire,
                              Map<Character, Integer> roundEndEventsToFire,
-                             List<Timer> timersToFire,
+                             List<TurnBasedTimer> timersToFire,
                              Character activeCharacterAtRoundEnd,
                              Character activeCharacterAtStartOfNewRound)
             throws IllegalArgumentException;

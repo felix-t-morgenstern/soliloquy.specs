@@ -4,6 +4,8 @@ import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.timers.OneTimeTurnBasedTimer;
+import soliloquy.specs.gamestate.entities.timers.RecurringTurnBasedTimer;
 
 /**
  * <b>RoundManager</b>
@@ -160,16 +162,16 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 	void advanceRounds(int numberOfRounds) throws IllegalArgumentException;
 	
 	/**
-	 * NB: This method is a representation; to add a Timer to this RoundManager, simply create it
-	 * with the correct Factory; and to delete it, simply delete the Timer.
+	 * NB: This method is a representation; to add a TurnBasedTimer to this RoundManager, simply
+	 * create it with the correct Factory; and to delete it, simply delete the TurnBasedTimer.
 	 * @return A List representing the One-Time Timers currently in effect
 	 */
-	List<OneTimeTimer> oneTimeTimersRepresentation();
+	List<OneTimeTurnBasedTimer> oneTimeTurnBasedTimersRepresentation();
 	
 	/**
-	 * NB: This method is a representation; to add a Timer to this RoundManager, simply create it
-	 * with the correct Factory; and to delete it, simply delete the Timer.
+	 * NB: This method is a representation; to add a TurnBasedTimer to this RoundManager, simply
+	 * create it with the correct Factory; and to delete it, simply delete the TurnBasedTimer.
 	 * @return A List representing the Recurring Timers currently in effect
 	 */
-	List<RecurringTimer> recurringTimersRepresentation();
+	List<RecurringTurnBasedTimer> recurringTurnBasedTimersRepresentation();
 }

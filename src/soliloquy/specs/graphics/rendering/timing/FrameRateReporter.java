@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.rendering.timing;
 
+import soliloquy.specs.common.shared.PausableAtTime;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
@@ -19,7 +20,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface FrameRateReporter extends SoliloquyClass {
+public interface FrameRateReporter extends PausableAtTime {
     /**
      * NB: Periods when frame execution was paused for the entire duration should still report 0
      * fps to the FrameReporter; the FrameReporter will handle that logic. Similarly, if targetFps
