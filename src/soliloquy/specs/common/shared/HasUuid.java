@@ -20,5 +20,5 @@ public interface HasUuid extends SoliloquyClass {
 	 * {@link soliloquy.specs.gamestate.entities.Deletable} entities which have been deleted.)
 	 * @return This entity's ID
 	 */
-	EntityUuid id();
+	EntityUuid uuid();
 }
