@@ -1,8 +1,15 @@
 package soliloquy.specs.gamestate.entities.timers;
 
-import soliloquy.specs.gamestate.entities.gameevents.firings.FrameBlockingEvent;
-
-// TODO: Draft class summary
+/**
+ * <b>ClockBasedTimerManager</b>
+ * <p>
+ * This class determines which {@link ClockBasedTimer}s are to fire every time
+ * {@link soliloquy.specs.graphics.rendering.FrameExecutor#execute} is called, and it handles timer
+ * deletion in the case of {@link OneTimeClockBasedTimer}s.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ */
 public interface ClockBasedTimerManager {
     /**
      * @param timer The Timer to register and manage
