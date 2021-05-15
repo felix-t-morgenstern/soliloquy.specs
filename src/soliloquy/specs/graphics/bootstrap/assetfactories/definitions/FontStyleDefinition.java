@@ -8,9 +8,9 @@ public interface FontStyleDefinition extends SoliloquyClass {
     /**
      * <i>NB: This value only specifies how the glyphs are padded when stored on the GPU; it does
      * not affect how they are rendered whatsoever.</i> The padding here is expressed in percentage
-     * of glyph width, so a value of 0.1f implies an additional padding of 10% of the glyph's
-     * width. <i>This method exists because some fonts require additional padding to prevent glyphs
-     * from overlapping.</i>
+     * of glyph height, so a value of 0.1f implies an additional padding of 10% of the glyph's
+     * height. <i>This method exists because some fonts require additional padding to prevent
+     * glyphs from overlapping.</i>
      * @return The amount of horizontal padding between rendered glyphs of this style of this Font
      * (cannot be less than 0)
      */
