@@ -42,6 +42,13 @@ public interface TextLineRenderable extends Renderable {
     float lineHeight();
 
     /**
+     * @return The amount of padding between glyphs, where 0f implies the standard padding between
+     * glyphs of the font (rather than no space between glyphs whatsoever), and 1f implies an
+     * additional space between letters equal to {@link #lineHeight}.
+     */
+    float paddingBetweenGlyphs();
+
+    /**
      * When the Color value provided is null, this corresponds to the default font color
      * @return A map, where the integer keys correspond to the indices in the String (c.f.
      * {@link #lineText}), and the ProviderAtTime values correspond to providers which provide the

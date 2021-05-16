@@ -28,15 +28,17 @@ public interface FontStyleInfo extends HasTextureId {
     float textureWidthToHeightRatio();
 
     /**
-     * @return The amount of additional horizontal padding for all glyphs of this style of the font
+     * @return The amount of additional horizontal texture spacing (c.f.
+     * {@link soliloquy.specs.graphics.bootstrap.assetfactories.definitions.FontStyleDefinition#additionalGlyphHorizontalTextureSpacing}
+     * for all glyphs of this style of the font
      */
-    float additionalHorizontalPadding();
+    float additionalHorizontalTextureSpacing();
 
     /**
      * @return This method is used by
      * {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer#render} to ensure that
-     * glyphs with additional padding, like a 'Q' with a long tail, don't push subsequent glyphs
-     * off to the right by that same amount. This method can return null.
+     * glyphs with additional texture spacing, like a 'Q' with a long tail, don't push subsequent
+     * glyphs off to the right by that same amount. This method can return null.
      */
-    Map<Character, Float> glyphwiseAdditionalHorizontalPadding();
+    Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing();
 }

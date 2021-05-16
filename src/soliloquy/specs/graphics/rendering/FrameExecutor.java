@@ -19,13 +19,15 @@ public interface FrameExecutor {
      * @param triggeredEvent The TriggeredEvent for which to place a block on event firing
      * @throws IllegalArgumentException If and only if triggeredEvent is null
      */
-    void placeEventFiringBlock(TriggeredEvent triggeredEvent) throws IllegalArgumentException;
+    void placeTriggeredEventFiringBlock(TriggeredEvent triggeredEvent)
+            throws IllegalArgumentException;
 
     /**
      * @param triggeredEvent The TriggeredEvent for which
      * @throws IllegalArgumentException If and only if triggeredEvent is null
      */
-    void releaseEventFiringBlock(TriggeredEvent triggeredEvent) throws IllegalArgumentException;
+    void releaseTriggeredEventFiringBlock(TriggeredEvent triggeredEvent)
+            throws IllegalArgumentException;
 
     /**
      * @param triggeredEvent The TriggeredEvent to fire if it has the highest priority the next
@@ -63,7 +65,7 @@ public interface FrameExecutor {
      * <p>
      * Second, the first {@link TriggeredEvent} by priority is selected. All TriggeredEvents do not
      * block frame execution. When a TriggeredEvent begins firing, it places a block on the
-     * firing of other TriggeredEvents by way of {@link #placeEventFiringBlock}. Any
+     * firing of other TriggeredEvents by way of {@link #placeTriggeredEventFiringBlock}. Any
      * TriggeredEvents fired within that initial TriggeredEvent will also place a block on the
      * firing of further TriggeredEvents. The FrameExecutor will continue to run frames unabated;
      * each time, it will avoid firing any TriggeredEvents, unless there are no TriggeredEvents
