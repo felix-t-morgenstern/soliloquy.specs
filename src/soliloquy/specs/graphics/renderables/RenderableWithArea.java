@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
-import soliloquy.specs.graphics.renderables.colorshifting.ColorShiftStackAggregator;
 
 import java.util.List;
 
@@ -52,8 +51,8 @@ public interface RenderableWithArea extends Renderable {
 
     /**
      * Color shifts at the front of the List are processed by the
-     * {@link ColorShiftStackAggregator} before color shifts
-     * at the end.
+     * {@link soliloquy.specs.graphics.renderables.colorshifting.ColorShiftStackAggregator}
+     * before color shifts at the end.
      * <p>
      * <i>NB: There should not be any color shifts for a {@link RectangleRenderable} which does not
      * have a background Sprite or Animation.</i>
