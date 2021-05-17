@@ -31,7 +31,7 @@ public interface RasterizedLineSegmentRenderable extends Renderable {
      * @return The stippling factor for this line segment (see documentation for more information
      * about line segment stippling)
      */
-    int stippleFactor();
+    short stippleFactor();
 
     /**
      * @return A ProviderAtTime which provides the color of this line segment. <i>It is expected
