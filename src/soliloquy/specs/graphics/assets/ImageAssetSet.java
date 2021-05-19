@@ -1,14 +1,12 @@
 package soliloquy.specs.graphics.assets;
 
-import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
-
 /**
  * <b>ImageAssetSet</b>
  * <p>
  * This class defines an object which can be used to generate a
- * {@link ImageAssetSetRenderable} at some location in the window.
- * It is defined one or more Images, and various snippets of those Images, corresponding to the
- * type and direction requested of this ImageAssetSet. (See description of
+ * {@link soliloquy.specs.graphics.renderables.ImageAssetSetRenderable} at some location in the
+ * window. It is defined one or more Images, and various snippets of those Images, corresponding to
+ * the type and direction requested of this ImageAssetSet. (See description of
  * {@link #getImageAssetForTypeAndDirection} for more information about type and
  * direction.)
  * <p>
@@ -35,4 +33,12 @@ public interface ImageAssetSet extends Asset {
 	 */
 	ImageAsset getImageAssetForTypeAndDirection(String type, String direction)
 			throws IllegalArgumentException;
+
+	/**
+	 * <i>NB: This method is used to ensure that
+	 * {@link soliloquy.specs.graphics.renderables.ImageAssetSetRenderable}s intended to support
+	 * mouse event capturing only accept ImageAssetSets which support mouse event capturing.</i>
+	 * @return True, if and only if this ImageAssetSet supports mouse event capturing
+	 */
+	boolean capturesMouseEvents();
 }

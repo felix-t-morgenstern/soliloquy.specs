@@ -32,4 +32,9 @@ public interface Animation extends ImageAsset {
      * the total duration of the Animation
      */
     AnimationFrameSnippet snippetAtFrame(int msPosition) throws IllegalArgumentException;
+
+    /**
+     * @return True, if and only if this Animation supports mouse event capturing
+     */
+    boolean capturesMouseEvents();
 }
