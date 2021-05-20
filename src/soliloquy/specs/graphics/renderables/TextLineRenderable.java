@@ -28,6 +28,7 @@ public interface TextLineRenderable extends Renderable {
      */
     String lineText();
 
+    // TODO: Consider making this a Coordinate, and create an interface which supports renderingAreaProvider
     /**
      * <b>NB: For TextLineRenderables, only the left X and top Y values are considered; the height
      * is calculated using {@link #lineHeight}, and the width is calculated at runtime from the </b>
