@@ -24,6 +24,7 @@ public interface Graphics extends SoliloquyClass {
      */
     GraphicsTeardown teardown();
 
+    // TODO: Consider replacing Registry with a method that simply provides the Assets in question
     /**
      * @return A {@link Registry} of {@link Sprite}s
      */
