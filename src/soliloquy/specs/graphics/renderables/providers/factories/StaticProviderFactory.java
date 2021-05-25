@@ -2,6 +2,7 @@ package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+import soliloquy.specs.graphics.renderables.providers.StaticProvider;
 
 /**
  * <b>FloatBoxFactory</b>
@@ -21,5 +22,5 @@ public interface StaticProviderFactory extends SoliloquyClass {
      * timestamp.
      * @throws IllegalArgumentException If and only if archetype is null
      */
-    <T> ProviderAtTime<T> make(T value, T archetype) throws IllegalArgumentException;
+    <T> StaticProvider<T> make(T value, T archetype) throws IllegalArgumentException;
 }
