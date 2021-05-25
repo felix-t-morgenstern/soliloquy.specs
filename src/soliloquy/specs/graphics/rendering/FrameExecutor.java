@@ -48,17 +48,12 @@ public interface FrameExecutor {
     void registerFrameBlockingEvent(Consumer<Long> fireFunction) throws IllegalArgumentException;
 
     /**
-     * @param clockBasedTimer The ClockBasedTimer to register
-     * @throws IllegalArgumentException If and only if clockBasedTimer is null
-     */
-    void registerClockBasedTimer(ClockBasedTimer clockBasedTimer) throws IllegalArgumentException;
-
-    /**
      * The workflow of this method is as follows:
      * <p>
      * First, all frame-blocking events (including all {@link ClockBasedTimer}s) are fired in
-     * parallel. These are events which are expected to occur (effectively) simultaneously, like
-     * the initiation of {@link soliloquy.specs.audio.entities.Sound}s, the placement of
+     * parallel via {@link soliloquy.specs.gamestate.entities.timers.ClockBasedTimerManager}. These
+     * are events which are expected to occur (effectively) simultaneously, like the initiation of
+     * {@link soliloquy.specs.audio.entities.Sound}s, the placement of
      * {@link soliloquy.specs.graphics.renderables.Renderable}s, or
      * {@link soliloquy.specs.gamestate.entities.TileEntity}s, etc. These events are expected to be
      * extremely brief, on the level of 2 ms in total, though this is not enforced.

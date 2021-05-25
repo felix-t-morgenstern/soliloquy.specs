@@ -9,5 +9,10 @@ package soliloquy.specs.gamestate.entities.timers;
  * @version 0.0.1
  */
 public interface OneTimeClockBasedTimer extends ClockBasedTimer {
+    /**
+     * <i>NB: This time is updated whenever {@link #reportUnpause} is called, adding on the amount
+     * of time spent paused.</i>
+     * @return The time at which to fire this Timer.
+     */
     long firingTime();
 }
