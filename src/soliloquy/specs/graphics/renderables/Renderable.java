@@ -21,7 +21,15 @@ public interface Renderable extends HasUuid {
 	 * @return A ProviderAtTime which provides the area in the window into which to render. <i>It
 	 * is expected that the returned value will never be null.</i>
 	 */
-	ProviderAtTime<FloatBox> renderingAreaProvider();
+	ProviderAtTime<FloatBox> getRenderingAreaProvider();
+
+	/**
+	 * C.f. {@link #getRenderingAreaProvider()} for more information
+	 * @param renderingAreaProvider The renderingAreaProvider to set for this Renderable
+	 * @throws IllegalArgumentException If and only if renderingAreaProvider is null
+	 */
+	void setRenderingAreaProvider(ProviderAtTime<FloatBox> renderingAreaProvider)
+			throws IllegalArgumentException;
 
 	/**
 	 * <i>NB: Higher z values will be rendered first.</i>
@@ -29,7 +37,13 @@ public interface Renderable extends HasUuid {
 	 * then the z-index is only used to determine rendering order amongst other Renderables within
 	 * the containing Renderable.)
 	 */
-	int z();
+	int getZ();
+
+	/**
+	 * C.f. {@link #getZ()} for more information
+	 * @param z The value to assign for the z-index
+	 */
+	void setZ(int z);
 
 	/**
 	 * (Currently only needed when {@link GlobalLoopingAnimationRenderable}s are deleted; handles

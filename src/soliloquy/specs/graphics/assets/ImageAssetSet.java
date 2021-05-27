@@ -40,5 +40,5 @@ public interface ImageAssetSet extends Asset {
 	 * mouse event capturing only accept ImageAssetSets which support mouse event capturing.</i>
 	 * @return True, if and only if this ImageAssetSet supports mouse event capturing
 	 */
-	boolean capturesMouseEvents();
+	boolean supportsMouseEventCapturing();
 }

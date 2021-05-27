@@ -28,8 +28,9 @@ public interface RenderableStack extends SoliloquyClass {
     void clearContainedRenderables();
 
     /**
-     * <i>NB: Higher z values will be rendered first.</i>
-     * If renderable is already present in the stack, this method does nothing.
+     * <i>NB: Higher z values will be rendered first. To remove a Renderable from this class, call
+     * {@link Renderable#delete()}. If Renderable is already present in the stack, this method
+     * refreshes its z-index.</i>
      * @param renderable The Renderable to add to the stack
      * @throws IllegalArgumentException If and only if renderable is null
      */

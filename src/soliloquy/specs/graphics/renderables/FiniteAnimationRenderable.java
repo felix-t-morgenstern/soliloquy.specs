@@ -30,7 +30,7 @@ public interface FiniteAnimationRenderable
      * (NB: This method will return higher values each time this Renderable is paused and later
      * unpaused; the purpose of this method is to ensure that there is no call to
      * {@link #provide} after the end of this finite animation.)
-     * @return The timestamp at which the finite animation began
+     * @return The timestamp at which the finite animation ends
      */
     long endTimestamp();
 }

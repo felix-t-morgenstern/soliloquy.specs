@@ -24,17 +24,22 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * @param renderingAreaProvider A class which provides the area in which to render
      * @param z The z index within the container
      * @param uuid The universally unique identifier
+     * @param updateZIndexInContainer A Consumer which will accept this object to update its
+     *                                z-index within its container when
+     *                                {@link ImageAssetSetRenderable#setZ} is called
      * @param removeFromContainer A Consumer which will accept this object to delete it from its
      *                            container when deleted
      * @return The newly-created ImageAssetSetRenderable
      * @throws IllegalArgumentException If and only if imageAssetSet is null; both type and
      * direction are null or empty; colorShifts is null; renderingAreaProvider is null; uuid is
-     * null; or removeFromContainer is null
+     * null; updateZIndexInContainer is null; or removeFromContainer is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
                                  List<ColorShift> colorShifts,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
-                                 EntityUuid uuid, Consumer<Renderable> removeFromContainer)
+                                 EntityUuid uuid,
+                                 Consumer<Renderable> updateZIndexInContainer,
+                                 Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;
 
     /**
@@ -50,12 +55,15 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * @param renderingAreaProvider A class which provides the area in which to render
      * @param z The z index within the container
      * @param uuid The universally unique identifier
+     * @param updateZIndexInContainer A Consumer which will accept this object to update its
+     *                                z-index within its container when
+     *                                {@link ImageAssetSetRenderable#setZ} is called
      * @param removeFromContainer A Consumer which will accept this object to delete it from its
      *                            container when deleted
      * @return The newly-created ImageAssetSetRenderable
      * @throws IllegalArgumentException If and only if imageAssetSet is null; both type and
      * direction are null or empty; colorShifts is null; renderingAreaProvider is null; uuid is
-     * null; or removeFromContainer is null
+     * null; updateZIndexInContainer is null; or removeFromContainer is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
                                  @SuppressWarnings("rawtypes") Action onClick,
@@ -63,6 +71,8 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  @SuppressWarnings("rawtypes") Action onMouseLeave,
                                  List<ColorShift> colorShifts,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
-                                 EntityUuid uuid, Consumer<Renderable> removeFromContainer)
+                                 EntityUuid uuid,
+                                 Consumer<Renderable> updateZIndexInContainer,
+                                 Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;
 }

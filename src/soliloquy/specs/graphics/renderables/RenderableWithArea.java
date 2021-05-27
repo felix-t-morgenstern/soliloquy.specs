@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 
 import java.util.List;
@@ -26,7 +27,15 @@ public interface RenderableWithArea extends Renderable {
      * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
      * events
      */
-    boolean capturesMouseEvents();
+    boolean getCapturesMouseEvents();
+
+    /**
+     * C.f. {@link #getCapturesMouseEvents()} for more information
+     * @param capturesMouseEvents Whether this Renderable supports mouse-capturing events
+     * @throws IllegalArgumentException If and only if capturesMouseEvents is true, and the
+     * underlying Asset does not support capturing mouse events
+     */
+    void setCapturesMouseEvents(boolean capturesMouseEvents) throws IllegalArgumentException;
 
     /**
      * Triggers the onClick mouse event
@@ -36,6 +45,12 @@ public interface RenderableWithArea extends Renderable {
     void click() throws UnsupportedOperationException;
 
     /**
+     * C.f. {@link #click()} for more information
+     * @param onClick The Action to fire when this Renderable is clicked; can be null
+     */
+    void setOnClick(@SuppressWarnings("rawtypes") Action onClick);
+
+    /**
      * Triggers the onMouseOver mouse event
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      * events
@@ -43,11 +58,23 @@ public interface RenderableWithArea extends Renderable {
     void mouseOver() throws UnsupportedOperationException;
 
     /**
+     * C.f. {@link #mouseOver()} for more information
+     * @param onMouseOver The Action to fire when the mouse goes over this Renderable; can be null
+     */
+    void setOnMouseOver(@SuppressWarnings("rawtypes") Action onMouseOver);
+
+    /**
      * Triggers the onMouseLeave mouse event
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      * events
      */
     void mouseLeave() throws UnsupportedOperationException;
+
+    /**
+     * C.f. {@link #mouseLeave()} for more information
+     * @param onMouseLeave The Action to fire when the mouse leaves this Renderable; can be null
+     */
+    void setOnMouseLeave(@SuppressWarnings("rawtypes") Action onMouseLeave);
 
     /**
      * Color shifts at the front of the List are processed by the

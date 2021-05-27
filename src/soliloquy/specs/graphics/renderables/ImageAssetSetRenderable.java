@@ -15,17 +15,36 @@ public interface ImageAssetSetRenderable extends RenderableWithArea {
     /**
      * @return The ImageAssetSet to be rendered
      */
-    ImageAssetSet imageAssetSet();
+    ImageAssetSet getImageAssetSet();
+
+    /**
+     * C.f. {@link #getImageAssetSet()} for more information
+     * @param imageAssetSet The ImageAssetSet to set for this Renderable
+     * @throws IllegalArgumentException If and only if imageAssetSet is null
+     */
+    void setImageAssetSet(ImageAssetSet imageAssetSet) throws IllegalArgumentException;
 
     /**
      * @return The type to render for the ImageAssetSet (c.f.
      * {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      */
-    String type();
+    String getType();
+
+    /**
+     * C.f. {@link #getType()} for more information
+     * @param type The type to set for this Renderable
+     */
+    void setType(String type);
 
     /**
      * @return The direction to render for the ImageAssetSet (c.f.
      * {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      */
-    String direction();
+    String getDirection();
+
+    /**
+     * C.f. {@link #getDirection()} for more information
+     * @param direction The direction to set for this Renderable
+     */
+    void setDirection(String direction);
 }

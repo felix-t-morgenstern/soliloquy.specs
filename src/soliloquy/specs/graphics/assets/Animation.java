@@ -36,5 +36,5 @@ public interface Animation extends ImageAsset {
     /**
      * @return True, if and only if this Animation supports mouse event capturing
      */
-    boolean capturesMouseEvents();
+    boolean supportsMouseEventCapturing();
 }

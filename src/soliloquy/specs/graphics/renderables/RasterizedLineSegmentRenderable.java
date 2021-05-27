@@ -19,23 +19,53 @@ public interface RasterizedLineSegmentRenderable extends Renderable {
      * pixels</i>, for a given timestamp. <i>It is expected that the value provided will never be
      * null.</i>
      */
-    ProviderAtTime<Float> thicknessProvider();
+    ProviderAtTime<Float> getThicknessProvider();
+
+    /**
+     * C.f. {@link #getThicknessProvider()} for more information
+     * @param thicknessProvider The ThicknessProvider to set for this Renderable
+     * @throws IllegalArgumentException If and only if thicknessProvider is null
+     */
+    void setThicknessProvider(ProviderAtTime<Float> thicknessProvider)
+            throws IllegalArgumentException;
 
     /**
      * @return The stippling pattern for this line segment (see documentation for more information
      * about line segment stippling)
      */
-    short stipplePattern();
+    short getStipplePattern();
+
+    /**
+     * C.f. {@link #getStipplePattern()} for more information
+     * @param stipplePattern The stipple pattern to set for this Renderable
+     * @throws IllegalArgumentException If and only if stipplePattern is 0
+     */
+    void setStipplePattern(short stipplePattern) throws IllegalArgumentException;
 
     /**
      * @return The stippling factor for this line segment (see documentation for more information
      * about line segment stippling)
      */
-    short stippleFactor();
+    short getStippleFactor();
+
+    /**
+     * C.f. {@link #getStippleFactor()} for more information
+     * @param stippleFactor The stipple factor to set for this Renderable
+     * @throws IllegalArgumentException If and only if stippleFactor is less than 1 or greater than
+     * 256
+     */
+    void setStippleFactor(short stippleFactor) throws IllegalArgumentException;
 
     /**
      * @return A ProviderAtTime which provides the color of this line segment. <i>It is expected
      * that the value provided will never be null.</i>
      */
-    ProviderAtTime<Color> colorProvider();
+    ProviderAtTime<Color> getColorProvider();
+
+    /**
+     * C.f. {@link #getColorProvider()} for more information
+     * @param colorProvider The color provider to set for this Renderable
+     * @throws IllegalArgumentException If and only if colorProvider is null
+     */
+    void setColorProvider(ProviderAtTime<Color> colorProvider) throws IllegalArgumentException;
 }
