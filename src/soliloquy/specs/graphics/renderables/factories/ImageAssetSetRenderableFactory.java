@@ -14,6 +14,15 @@ import java.awt.*;
 import java.util.List;
 import java.util.function.Consumer;
 
+/**
+ * <b>ImageAssetSetRenderableFactory</b>
+ * <p>
+ * Creates {@link ImageAssetSetRenderable}s
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
 public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
     /**
      * @param imageAssetSet The ImageAssetSet to render
@@ -59,7 +68,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * @param colorShifts The ColorShifts to apply when rendering
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider A class which provides the color of the border to render
-     * @param renderingAreaProvider A class which provides the area in which to render
+     * @param renderingDimensionsProvider A class which provides the area in which to render
      * @param z The z index within the container
      * @param uuid The universally unique identifier
      * @param updateZIndexInContainer A Consumer which will accept this object to update its
@@ -69,8 +78,8 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      *                            container when deleted
      * @return The newly-created ImageAssetSetRenderable
      * @throws IllegalArgumentException If and only if imageAssetSet is null; both type and
-     * direction are null or empty; colorShifts is null; renderingAreaProvider is null; uuid is
-     * null; updateZIndexInContainer is null; or removeFromContainer is null
+     * direction are null or empty; colorShifts is null; renderingDimensionsProvider is null; uuid
+     * is null; updateZIndexInContainer is null; or removeFromContainer is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
                                  @SuppressWarnings("rawtypes") Action onClick,
@@ -79,7 +88,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  List<ColorShift> colorShifts,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
-                                 ProviderAtTime<FloatBox> renderingAreaProvider, int z,
+                                 ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
                                  EntityUuid uuid,
                                  Consumer<Renderable> updateZIndexInContainer,
                                  Consumer<Renderable> removeFromContainer)
