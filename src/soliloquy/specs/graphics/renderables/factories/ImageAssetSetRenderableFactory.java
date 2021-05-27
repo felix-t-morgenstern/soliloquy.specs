@@ -10,6 +10,7 @@ import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
+import java.awt.*;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -21,6 +22,8 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * @param direction The current direction to render from the ImageAssetSet (c.f.
      * {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      * @param colorShifts The ColorShifts to apply when rendering
+     * @param borderThicknessProvider A class which provides the thickness of the border to render
+     * @param borderColorProvider A class which provides the color of the border to render
      * @param renderingAreaProvider A class which provides the area in which to render
      * @param z The z index within the container
      * @param uuid The universally unique identifier
@@ -36,6 +39,8 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
                                  List<ColorShift> colorShifts,
+                                 ProviderAtTime<Float> borderThicknessProvider,
+                                 ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
                                  EntityUuid uuid,
                                  Consumer<Renderable> updateZIndexInContainer,
@@ -52,6 +57,8 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * @param onMouseOver The Action which is fired when the mouse moves over this renderable
      * @param onMouseLeave The Action which is fired when the mouse leaves this renderable
      * @param colorShifts The ColorShifts to apply when rendering
+     * @param borderThicknessProvider A class which provides the thickness of the border to render
+     * @param borderColorProvider A class which provides the color of the border to render
      * @param renderingAreaProvider A class which provides the area in which to render
      * @param z The z index within the container
      * @param uuid The universally unique identifier
@@ -70,6 +77,8 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  @SuppressWarnings("rawtypes") Action onMouseOver,
                                  @SuppressWarnings("rawtypes") Action onMouseLeave,
                                  List<ColorShift> colorShifts,
+                                 ProviderAtTime<Float> borderThicknessProvider,
+                                 ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
                                  EntityUuid uuid,
                                  Consumer<Renderable> updateZIndexInContainer,
