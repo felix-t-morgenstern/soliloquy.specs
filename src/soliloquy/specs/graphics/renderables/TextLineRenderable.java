@@ -1,5 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.graphics.assets.Font;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
@@ -42,21 +44,20 @@ public interface TextLineRenderable extends Renderable {
      */
     void setLineText(String lineText) throws IllegalArgumentException;
 
-    // TODO: Consider making this a Coordinate, and create an interface which supports renderingAreaProvider
     /**
      * <b>NB: For TextLineRenderables, only the left X and top Y values are considered; the height
      * is calculated using {@link #getLineHeight}, and the width is calculated at runtime from the
      * width of the text</b>
-     * @return The area in the window into which to render
+     * @return The top-left coordinate at which this text line is rendered
      */
-    ProviderAtTime<FloatBox> getRenderingAreaProvider();
+    ProviderAtTime<Pair<Float,Float>> getRenderingLocationProvider();
 
     /**
-     * C.f. {@link #getRenderingAreaProvider()} for more information
-     * @param renderingAreaProvider The renderingAreaProvider to set for this Renderable
-     * @throws IllegalArgumentException If and only if renderingAreaProvider is null
+     * C.f. {@link #getRenderingLocationProvider()} for more information
+     * @param renderingLocationProvider The renderingLocationProvider to set for this Renderable
+     * @throws IllegalArgumentException If and only if renderingLocationProvider is null
      */
-    void setRenderingAreaProvider(ProviderAtTime<FloatBox> renderingAreaProvider)
+    void setRenderingLocationProvider(ProviderAtTime<Pair<Float,Float>> renderingLocationProvider)
             throws IllegalArgumentException;
 
     // TODO: Consider making this a ProviderAtTime

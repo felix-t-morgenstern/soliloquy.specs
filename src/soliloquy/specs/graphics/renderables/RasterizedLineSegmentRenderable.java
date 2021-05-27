@@ -13,7 +13,7 @@ import java.awt.*;
  * @version 0.0.1
  *
  */
-public interface RasterizedLineSegmentRenderable extends Renderable {
+public interface RasterizedLineSegmentRenderable extends RenderableWithDimensions {
     /**
      * @return A ProviderAtTime which provides the thickness of this line segment, <i>in rasterized
      * pixels</i>, for a given timestamp. <i>It is expected that the value provided will never be

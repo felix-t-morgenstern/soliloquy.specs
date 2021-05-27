@@ -15,14 +15,12 @@ import java.util.List;
  * capturing are only relevant to Renderables with an area. (Currently, TextLineRenderables are not
  * defined as having area, because the present implementation of text line rendering does not lend
  * itself to determining which pixel is currently under the mouse cursor.)
- * <p>
- * Intended use for this class is to be generated at runtime as an anonymous class.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface RenderableWithArea extends Renderable {
+public interface RenderableWithArea extends RenderableWithDimensions {
     /**
      * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
      * events
