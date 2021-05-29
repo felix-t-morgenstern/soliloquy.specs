@@ -28,6 +28,18 @@ public interface FontStyleDefinition extends SoliloquyClass {
     Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing();
 
     /**
+     * <i>NB: This method is intended for fonts with specific problematic glyph spacing, like where
+     * the space that the 'i' glyph is rendered includes the left-most tip of the 'j' glyph; and
+     * conversely, when the 'j' glyph is rendered, it does not include that left-most tip. For this
+     * method, a Map is returned, where the character corresponds to the glyph in need of that
+     * extra left space, and the corresponding float value is the amount of left space needed,
+     * expressed in percentage of this FontStyle's glyph height.</i>
+     * @return A Map, linking characters to the shifting of their left boundaries, expressed in
+     * line height
+     */
+    Map<Character, Float> glyphwiseAdditionalLeftBoundaryShift();
+
+    /**
      * <i>NB: This value only specifies how the glyphs are spaced in the texture stored in the GPU;
      * it does not affect how they are rendered whatsoever.</i> The spacing here is expressed in
      * percentage of glyph height, so a value of 0.1f implies an additional spacing of 10% of the
