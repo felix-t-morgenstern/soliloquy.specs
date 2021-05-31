@@ -1,10 +1,8 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.infrastructure.Pair;
-import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.graphics.assets.Font;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.awt.*;
 import java.util.List;
@@ -45,10 +43,11 @@ public interface TextLineRenderable extends Renderable {
     void setLineText(String lineText) throws IllegalArgumentException;
 
     /**
-     * <b>NB: For TextLineRenderables, only the left X and top Y values are considered; the height
-     * is calculated using {@link #getLineHeight}, and the width is calculated at runtime from the
-     * width of the text</b>
-     * @return The top-left coordinate at which this text line is rendered
+     * <i>NB: This provider will return the x and y locations (respectively) for where this text
+     * line will start its rendering. For left or right aligned text lines, this location will be
+     * the left-most or right-most location of text on this line, respectively. For horizontally
+     * centered text, this location will specify the center of the text line.</i>
+     * @return A provider which specifies the location at which this text line is rendered
      */
     ProviderAtTime<Pair<Float,Float>> getRenderingLocationProvider();
 
@@ -85,6 +84,18 @@ public interface TextLineRenderable extends Renderable {
      * @param paddingBetweenGlyphs The padding between glyphs for this line
      */
     void setPaddingBetweenGlyphs(float paddingBetweenGlyphs);
+
+    /**
+     * @return The justification of the text line to be rendered (e.g. left, center, or right
+     * horizontal alignment)
+     */
+    TextJustification getJustification();
+
+    /**
+     * @param justification The horizontal justification (i.e. alignment) of this line of text
+     * @throws IllegalArgumentException If and only if justification is null or UNKNOWN
+     */
+    void setJustification(TextJustification justification) throws IllegalArgumentException;
 
     /**
      * When the Color value provided is null, this corresponds to the default font color
