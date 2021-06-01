@@ -20,7 +20,8 @@ public interface ImageAssetSetRenderable extends RenderableWithArea {
     /**
      * C.f. {@link #getImageAssetSet()} for more information
      * @param imageAssetSet The ImageAssetSet to set for this Renderable
-     * @throws IllegalArgumentException If and only if imageAssetSet is null
+     * @throws IllegalArgumentException If and only if imageAssetSet is null, or if imageAssetSet
+     * does not support mouse events, while this Renderable does support mouse events
      */
     void setImageAssetSet(ImageAssetSet imageAssetSet) throws IllegalArgumentException;
 

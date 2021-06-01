@@ -97,8 +97,10 @@ public interface RenderableWithArea extends RenderableWithDimensions {
 
     /**
      * C.f. {@link #getBorderThicknessProvider()} for more information
-     * @param borderThicknessProvider The border thickness provider to set for this Renderable
-     * @throws IllegalArgumentException If and only if borderThicknessProvider is null
+     * @param borderThicknessProvider The border thickness provider to set for this Renderable; can
+     *                                be null, in which case there is no border
+     * @throws IllegalArgumentException If and only if borderThicknessProvider is non-null, and
+     * borderColorProvider is null
      */
     void setBorderThicknessProvider(ProviderAtTime<Float> borderThicknessProvider)
             throws IllegalArgumentException;
@@ -113,7 +115,8 @@ public interface RenderableWithArea extends RenderableWithDimensions {
     /**
      * C.f. {@link #getBorderColorProvider()} for more information
      * @param borderColorProvider The border color provider to set for this Renderable
-     * @throws IllegalArgumentException If and only if borderColorProvider is null
+     * @throws IllegalArgumentException If and only if borderThicknessProvider is non-null, and
+     * borderColorProvider is null
      */
     void setBorderColorProvider(ProviderAtTime<Color> borderColorProvider)
             throws IllegalArgumentException;

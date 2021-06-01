@@ -11,10 +11,10 @@ import soliloquy.specs.graphics.renderables.SpriteRenderable;
  * A provider of an object of a specified type--e.g. an
  * {@link soliloquy.specs.graphics.assets.AnimationFrameSnippet} for a
  * {@link FiniteAnimationRenderable}, a float for
- * {@link SpriteRenderable#borderThicknessProvider()}, or a {@link java.awt.Color} for
- * {@link SpriteRenderable#borderColorProvider()}. By accepting a timestamp, the ProviderAtTime can
- * support animations of varying sorts--not only the animated sprites for the dedicated Animation
- * classes, but also animating
+ * {@link SpriteRenderable#getBorderThicknessProvider()}, or a {@link java.awt.Color} for
+ * {@link SpriteRenderable#getBorderColorProvider()}. By accepting a timestamp, the ProviderAtTime
+ * can support animations of varying sorts--not only the animated sprites for the dedicated
+ * Animation classes, but also animating
  * {@link soliloquy.specs.graphics.renderables.colorshifting.ColorShift}s, Sprite borders, etc.
  * This class can also be implemented to simply provide a static value, for when you simply don't
  * want to animate any of these things.

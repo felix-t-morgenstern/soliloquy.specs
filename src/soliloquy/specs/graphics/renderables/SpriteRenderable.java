@@ -22,7 +22,8 @@ public interface SpriteRenderable extends RenderableWithArea {
     /**
      * C.f. {@link #getSprite()} for more information
      * @param sprite The Sprite to set for this Renderable
-     * @throws IllegalArgumentException If and only if sprite is null
+     * @throws IllegalArgumentException If and only if sprite is null, or if sprite does not
+     * support mouse events, while this Renderable does support mouse events
      */
     void setSprite(Sprite sprite) throws IllegalArgumentException;
 }

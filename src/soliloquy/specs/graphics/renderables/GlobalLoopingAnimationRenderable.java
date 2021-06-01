@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.graphics.assets.AnimationFrameSnippet;
-import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+import soliloquy.specs.graphics.renderables.providers.GlobalLoopingAnimation;
 
 /**
  * <b>GlobalLoopingAnimationRenderable</b>
@@ -17,11 +16,15 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  */
 public interface GlobalLoopingAnimationRenderable extends RenderableWithArea {
     /**
-     * NB: The intended use of this method is to have a single, looping ProviderAtTime
-     * supporting many different GlobalLoopingAnimationRenderables; for instance, all torches or
-     * lampposts might share the same looping animation, and this method enables all of them to
-     * indirectly point back to a single {@link soliloquy.specs.graphics.assets.Animation}.
-     * @return The underlying ProviderAtTime supporting this Renderable.
+     * @return The GlobalLoopingAnimation supporting this Renderable.
      */
-    ProviderAtTime<AnimationFrameSnippet> loopingAnimation();
+    GlobalLoopingAnimation getGlobalLoopingAnimation();
+
+    /**
+     * @param globalLoopingAnimation The GlobalLoopingAnimation to support this Renderable
+     * @throws IllegalArgumentException If and only if globalLoopingAnimation is null; or if it
+     * does not support mouse events, while this Renderable does support mouse events
+     */
+    void setGlobalLoopingAnimation(GlobalLoopingAnimation globalLoopingAnimation)
+            throws IllegalArgumentException;
 }
