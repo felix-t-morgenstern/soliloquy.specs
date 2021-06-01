@@ -1,15 +1,22 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.graphics.assets.ImageAsset;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  * <b>RectangleRenderable</b>
  * <p>
  * A rectangle which can be rendered in the window
+ * <p>
+ * <i>NB: When you use both a texture as a tile as well as colors in any of the corners, you will
+ * not draw those colors on top of your tile; instead, those colors will act as masks, limiting how
+ * much of each of the channels of the underlying tile image will be allowed to pass through. So,
+ * if you have a corner that is red, only the red parts of the image will be drawn. If you have a
+ * corner that is cyan (i.e. both green and blue), then the green and blue parts of the tile will
+ * be allowed to pass through, but not the red. If you want to draw a gradient on top of your tile,
+ * you will need to render two rectangles.</i>
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
