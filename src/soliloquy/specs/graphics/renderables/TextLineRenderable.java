@@ -17,7 +17,7 @@ import java.util.Map;
  * @version 0.0.1
  *
  */
-public interface TextLineRenderable extends Renderable {
+public interface TextLineRenderable extends RenderableWithBorders {
     /**
      * @return The Font of this line
      */
