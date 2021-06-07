@@ -16,8 +16,8 @@ import java.awt.*;
  */
 public interface RenderableWithBorders extends Renderable {
     /**
-     * @return A ProviderAtTime providing thickness of the border to render around this Sprite for
-     * a given timestamp, expressed in percentage of the screen height. If the provider returns
+     * @return A ProviderAtTime providing thickness of the border to render around this Renderable
+     * for a given timestamp, expressed in percentage of the screen height. If the provider returns
      * null, this implies no border.
      */
     ProviderAtTime<Float> getBorderThicknessProvider();
@@ -33,8 +33,8 @@ public interface RenderableWithBorders extends Renderable {
             throws IllegalArgumentException;
 
     /**
-     * @return A ProviderAtTime providing the color of the border to render around this Sprite for
-     * a given timestamp. If the borderThickness ProviderAtTime returns a non-null value, this
+     * @return A ProviderAtTime providing the color of the border to render around this Renderable
+     * for a given timestamp. If the borderThickness ProviderAtTime returns a non-null value, this
      * ProviderAtTime must return a non-null value as well.
      */
     ProviderAtTime<Color> getBorderColorProvider();

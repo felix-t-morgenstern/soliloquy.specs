@@ -70,7 +70,8 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
      * @return The newly-created SpriteRenderable
      * @throws IllegalArgumentException If and only if sprite is null; colorShifts is null;
      * renderingDimensionsProvider is null; uuid is null; updateZIndexInContainer is null; or
-     * removeFromContainer is null
+     * removeFromContainer is null; borderThicknessProvider is null, and borderColorProvider is
+     * non-null
      */
     SpriteRenderable make(Sprite sprite, ProviderAtTime<Float> borderThicknessProvider,
                           ProviderAtTime<Color> borderColorProvider,
