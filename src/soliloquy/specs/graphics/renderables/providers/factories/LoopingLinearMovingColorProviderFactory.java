@@ -1,8 +1,8 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingColorProvider;
-import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingProvider;
+import soliloquy.specs.graphics.renderables.providers.LoopingMovingColorProvider;
+import soliloquy.specs.graphics.renderables.providers.LoopingMovingProvider;
 
 import java.awt.*;
 import java.util.List;
@@ -11,14 +11,16 @@ import java.util.Map;
 public interface LoopingLinearMovingColorProviderFactory extends SoliloquyClass {
     /**
      * @param periodDuration The duration of the period over which this provider loops (c.f.
-     * {@link LoopingLinearMovingProvider#periodDuration()}
+     *                       {@link LoopingMovingProvider#periodDuration()}
      * @param periodModuloOffset The offset of the period (c.f.
-     * {@link LoopingLinearMovingProvider#periodModuloOffset()})
+     *                           {@link LoopingMovingProvider#periodModuloOffset()})
+     * @param movementIsLinear Sets whether the movement is linear or discrete (c.f.
+     *                         {@link LoopingMovingProvider#movementIsLinear}
      * @param valuesWithinPeriod The values corresponding to different ms positions within the
      *                           period (c.f.
-     *                           {@link LoopingLinearMovingProvider#valuesWithinPeriod()}
+     *                           {@link LoopingMovingProvider#valuesWithinPeriod()}
      * @param hueMovementIsClockwise The rotational direction of each movement
-     * @return The newly-created LoopingLinearMovingProvider
+     * @return The newly-created LoopingMovingProvider
      * @throws IllegalArgumentException If and only if periodDuration is less than or equal to 0,
      * periodModuloOffset is less than 0, periodModuloOffset is greater than or equal to
      * periodDuration, valuesWithinPeriod is null, or valuesWithinPeriod does not have a value
@@ -26,8 +28,9 @@ public interface LoopingLinearMovingColorProviderFactory extends SoliloquyClass 
      * any null items, or if hueMovementIsClockwise has a size different from that of
      * valuesWithinPeriod
      */
-    LoopingLinearMovingColorProvider make(int periodDuration, int periodModuloOffset,
-                                          Map<Integer, Color> valuesWithinPeriod,
-                                          List<Boolean> hueMovementIsClockwise)
+    LoopingMovingColorProvider make(int periodDuration, int periodModuloOffset,
+                                    boolean movementIsLinear,
+                                    Map<Integer, Color> valuesWithinPeriod,
+                                    List<Boolean> hueMovementIsClockwise)
             throws IllegalArgumentException;
 }

@@ -13,7 +13,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @version 0.0.1
  *
  */
-public interface NonStaticProvider extends SoliloquyClass {
+public interface NonStaticProvider<T> extends ProviderAtTime<T> {
     /**
      * @return If this class has been paused, this method reports the timestamp at which its pause
      * began; otherwise, this method returns null

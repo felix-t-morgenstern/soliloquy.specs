@@ -16,6 +16,13 @@ import java.util.Map;
  *
  */
 public interface ImageAsset extends Asset {
+    /**
+     * This enum exists so that ImageAsset definitions in text files can use the proper numerical
+     * indicator for the type of ImageAsset to be loaded for the ImageAssets which compose an
+     * {@link ImageAssetSet}, used by the
+     * {@link soliloquy.specs.graphics.bootstrap.assetfactories.AssetFactory} which creates
+     * ImageAssetSets
+     */
     enum ImageAssetType {
         UNKNOWN(0),
         SPRITE(1),

@@ -16,7 +16,7 @@ import java.util.Map;
  * @version 0.0.1
  *
  */
-public interface FiniteLinearMovingProvider<T> extends ProviderAtTime<T>, NonStaticProvider {
+public interface FiniteLinearMovingProvider<T> extends NonStaticProvider<T> {
     /**
      * <i>NB: This method is used to calculate motion, e.g. a moving
      * {@link soliloquy.specs.graphics.rendering.FloatBox} representing the position of a
