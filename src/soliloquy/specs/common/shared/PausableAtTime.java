@@ -17,4 +17,12 @@ public interface PausableAtTime extends SoliloquyClass {
      * object was already paused
      */
     void reportUnpause(long timestamp) throws IllegalArgumentException;
+
+    /**
+     * <i>NB: This method exists to support PausableAtTime classes which need to be generated when
+     * loading a savefile with their paused times intact.</i>
+     * @return If null, this object is not paused; else, he timestamp at which this object has been
+     * paused
+     */
+    Long pausedTimestamp();
 }

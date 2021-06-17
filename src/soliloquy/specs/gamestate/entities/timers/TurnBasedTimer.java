@@ -1,6 +1,8 @@
 package soliloquy.specs.gamestate.entities.timers;
 
+import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.gamestate.entities.Deletable;
 import soliloquy.specs.gamestate.entities.gameevents.firings.TriggeredEvent;
 
 /**
@@ -12,10 +14,9 @@ import soliloquy.specs.gamestate.entities.gameevents.firings.TriggeredEvent;
  * @version 0.0.1
  *
  */
-public interface TurnBasedTimer extends HasId, Timer, TriggeredEvent {
+public interface TurnBasedTimer extends HasId, TriggeredEvent, Deletable {
     /**
-     * Fires the TurnBasedTimer. For {@link OneTimeTurnBasedTimer}s, this also calls
-     * {@link OneTimeTurnBasedTimer#delete}.
+     * @return The {@link Action} which runs when this TurnBasedTimer is fired
      */
-    void fire();
+    Action action();
 }

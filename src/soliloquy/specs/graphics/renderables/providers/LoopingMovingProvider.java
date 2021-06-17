@@ -1,5 +1,7 @@
 package soliloquy.specs.graphics.renderables.providers;
 
+import soliloquy.specs.common.shared.HasPeriodDuration;
+
 import java.util.Map;
 
 /**
@@ -16,12 +18,7 @@ import java.util.Map;
  * @version 0.0.1
  *
  */
-public interface LoopingMovingProvider<T> extends PausableProviderWithOffset<T> {
-    /**
-     * @return The duration, in ms, of the period over which this provider loops
-     */
-    int periodDuration();
-
+public interface LoopingMovingProvider<T> extends LoopingProvider<T>, HasPeriodDuration {
     /**
      * C.f. {@link #valuesWithinPeriod} for a more thorough explanation
      * @return Whether or not the movement from one value to the next is linear or discrete
