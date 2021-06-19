@@ -4,6 +4,7 @@ import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <b>RenderableWithArea</b>
@@ -35,44 +36,102 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
      */
     void setCapturesMouseEvents(boolean capturesMouseEvents) throws IllegalArgumentException;
 
+    // TODO: Verify whether the set mouse action methods should throw UnsupportedOperationException when events are unsupported
     /**
      * Triggers the onClick mouse event
+     * @param mouseButton The mouse button being pressed (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param timestamp The timestamp at which the mouse button has been pressed
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      * events
+     * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
+     * mouse button
      */
-    void click() throws UnsupportedOperationException;
+    void press(int mouseButton, long timestamp)
+            throws UnsupportedOperationException, IllegalArgumentException;
 
     /**
-     * C.f. {@link #click()} for more information
-     * @param onClick The Action to fire when this Renderable is clicked; can be null
+     * C.f. {@link #press} for more information
+     * @param mouseButton The mouse button being pressed (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onPress The Action to run when the area of this Renderable is pressed; can be null
+     * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
+     * mouse button
      */
-    void setOnClick(@SuppressWarnings("rawtypes") Action onClick);
+    void setOnPress(int mouseButton, Action<Long> onPress) throws IllegalArgumentException;
+
+    /**
+     * @return A Map linking mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) to the Ids of the Actions ran
+     * when those respective mouse buttons are pressed
+     */
+    Map<Integer, String> pressActionIds();
+
+    /**
+     * Triggers the onRelease mouse event
+     * @param mouseButton The mouse button being released (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param timestamp The timestamp at which the mouse button has been released
+     * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
+     * events
+     * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
+     * mouse button
+     */
+    void release(int mouseButton, long timestamp)
+            throws UnsupportedOperationException, IllegalArgumentException;
+
+    /**
+     * C.f. {@link #release} for more information
+     * @param mouseButton The mouse button being released (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onRelease The Action to run when the area of this Renderable is released; can be null
+     * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
+     * mouse button
+     */
+    void setOnRelease(int mouseButton, Action<Long> onRelease) throws IllegalArgumentException;
+
+    /**
+     * @return A Map linking mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) to the Ids of the Actions ran
+     * when those respective mouse buttons are released
+     */
+    Map<Integer, String> releaseActionIds();
 
     /**
      * Triggers the onMouseOver mouse event
+     * @param timestamp The timestamp at which the mouse moved over the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      * events
+     * @throws IllegalArgumentException If and only if the timestamp is out-of-date
      */
-    void mouseOver() throws UnsupportedOperationException;
+    void mouseOver(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
 
     /**
-     * C.f. {@link #mouseOver()} for more information
-     * @param onMouseOver The Action to fire when the mouse goes over this Renderable; can be null
+     * C.f. {@link #mouseOver} for more information
+     * @param onMouseOver The Action to fire when the mouse goes over the area of this Renderable;
+     *                    can be null
      */
-    void setOnMouseOver(@SuppressWarnings("rawtypes") Action onMouseOver);
+    void setOnMouseOver(Action<Long> onMouseOver);
+
+    /**
+     * @return The Id of the Action ran when the mouse moves over the area of this Renderable
+     */
+    String mouseOverActionId();
 
     /**
      * Triggers the onMouseLeave mouse event
+     * @param timestamp The timestamp at which the mouse left the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      * events
+     * @throws IllegalArgumentException If and only if the timestamp is out-of-date
      */
-    void mouseLeave() throws UnsupportedOperationException;
+    void mouseLeave(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
 
     /**
-     * C.f. {@link #mouseLeave()} for more information
-     * @param onMouseLeave The Action to fire when the mouse leaves this Renderable; can be null
+     * C.f. {@link #mouseLeave} for more information
+     * @param onMouseLeave The Action to fire when the mouse leaves the area of this Renderable;
+     *                     can be null
      */
-    void setOnMouseLeave(@SuppressWarnings("rawtypes") Action onMouseLeave);
+    void setOnMouseLeave(Action<Long> onMouseLeave);
+
+    /**
+     * @return The Id of the Action ran when the mouse leaves the area of this Renderable
+     */
+    String mouseLeaveActionId();
 
     /**
      * Color shifts at the front of the List are processed by the

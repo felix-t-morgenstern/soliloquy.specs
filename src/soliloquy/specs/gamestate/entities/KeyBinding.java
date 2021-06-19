@@ -27,40 +27,36 @@ public interface KeyBinding extends SoliloquyClass {
 	List<java.lang.Character> boundCharacters();
 
 	/**
-	 * @return The Action that is fired when this key is pressed
+	 * Runs the Action that is ran when this key is pressed
+	 * @throws IllegalArgumentException If and only if timestamp is out-of-date
 	 */
-	@SuppressWarnings("rawtypes")
-	Action getOnPress();
+	void press(long timestamp) throws IllegalArgumentException;
 	
 	/**
-	 * @param onPress - The Action to fire when the bound key is pressed (Can be null)
+	 * @param onPress The Action to run when the bound key is pressed (Can be null)
 	 */
-	@SuppressWarnings("rawtypes")
-	void setOnPress(Action onPress);
+	void setOnPress(Action<Long> onPress);
 
 	/**
-	 * @return The Action that is fired when this key is released
+	 * @return The Id of the Action that is ran when this key is pressed; can be null
 	 */
-	@SuppressWarnings("rawtypes")
-	Action getOnRelease();
+	String onPressActionId();
 
 	/**
-	 * @param onRelease - The Action to fire when the bound key is pressed (Can be null)
+	 * Runs the Action that is ran when this key is released
+	 * @throws IllegalArgumentException If and only if timestamp is out-of-date
 	 */
-	@SuppressWarnings("rawtypes")
-	void setOnRelease(Action onRelease);
+	void release(long timestamp) throws IllegalArgumentException;
 
 	/**
-	 * @return The Action that is fired when this key is released
+	 * @param onRelease The Action to run when the bound key is released (Can be null)
 	 */
-	@SuppressWarnings("rawtypes")
-	Action getOnType();
+	void setOnRelease(Action<Long> onRelease);
 
 	/**
-	 * @param onType - The Action to fire when the bound key is typed (Can be null)
+	 * @return The Id of the Action that is ran when this key is released; can be null
 	 */
-	@SuppressWarnings("rawtypes")
-	void setOnType(Action onType);
+	String onReleaseActionId();
 	
 	/**
 	 * @return True, if and only if this KeyBinding blocks KeyBindings in lower KeyBindingContexts

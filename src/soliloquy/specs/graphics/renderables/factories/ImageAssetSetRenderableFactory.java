@@ -12,6 +12,7 @@ import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.awt.*;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 /**
@@ -62,7 +63,12 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      * @param direction The current direction to render from the ImageAssetSet (c.f.
      * {@link ImageAssetSet#getImageAssetForTypeAndDirection})
-     * @param onClick The Action which is fired when a click is registered on this renderable
+     * @param onPress The Actions which is fired when a click is registered on this renderable,
+     *                with the integer keys corresponding to mouse buttons (c.f.
+     *                GLFW_MOUSE_BUTTON_*)
+     * @param onRelease The Actions which is fired when a click is registered on this renderable,
+     *                  with the integer keys corresponding to mouse buttons (c.f.
+     *                  GLFW_MOUSE_BUTTON_*)
      * @param onMouseOver The Action which is fired when the mouse moves over this renderable
      * @param onMouseLeave The Action which is fired when the mouse leaves this renderable
      * @param colorShifts The ColorShifts to apply when rendering
@@ -82,9 +88,9 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * is null; updateZIndexInContainer is null; or removeFromContainer is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
-                                 @SuppressWarnings("rawtypes") Action onClick,
-                                 @SuppressWarnings("rawtypes") Action onMouseOver,
-                                 @SuppressWarnings("rawtypes") Action onMouseLeave,
+                                 Map<Integer, Action<Long>> onPress,
+                                 Map<Integer, Action<Long>> onRelease,
+                                 Action<Long> onMouseOver, Action<Long> onMouseLeave,
                                  List<ColorShift> colorShifts,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
