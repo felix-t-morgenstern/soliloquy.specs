@@ -1,16 +1,16 @@
 package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.KeyPressListener;
+import soliloquy.specs.gamestate.entities.KeyEventListener;
 
 /**
- * <b>KeyPressListenerFactory</b>
+ * <b>KeyEventListenerFactory</b>
  * <p>
  * This class creates KeyBindingContexts
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface KeyPressListenerFactory extends SoliloquyClass {
-    KeyPressListener make();
+public interface KeyEventListenerFactory extends SoliloquyClass {
+    KeyEventListener make();
 }

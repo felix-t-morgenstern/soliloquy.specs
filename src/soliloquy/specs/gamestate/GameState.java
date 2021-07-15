@@ -106,5 +106,5 @@ public interface GameState extends SoliloquyClass {
 
 	/**
 	 */
-	KeyPressListenerFactory keyPressListenerFactory();
+	KeyEventListenerFactory keyPressListenerFactory();
 }
