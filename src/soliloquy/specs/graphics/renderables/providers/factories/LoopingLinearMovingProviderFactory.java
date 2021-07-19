@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.providers.LoopingMovingProvider;
 
 import java.util.Map;
@@ -16,6 +17,7 @@ import java.util.Map;
  */
 public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
     /**
+     * @param id The id of this ProviderAtTime
      * @param periodDuration The duration of the period over which this provider loops (c.f.
      *                       {@link LoopingMovingProvider#periodDuration()}
      * @param periodModuloOffset The offset of the period (c.f.
@@ -27,12 +29,12 @@ public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
      *                           {@link LoopingMovingProvider#valuesWithinPeriod()}
      * @param <T> The type of value provided
      * @return The newly-created LoopingMovingProvider
-     * @throws IllegalArgumentException If and only if periodDuration is less than or equal to 0,
-     * periodModuloOffset is less than 0, periodModuloOffset is greater than or equal to
-     * periodDuration, valuesWithinPeriod is null, or valuesWithinPeriod does not have a value
+     * @throws IllegalArgumentException If and only if id is null, periodDuration is less than or
+     * equal to 0, periodModuloOffset is less than 0, periodModuloOffset is greater than or equal
+     * to periodDuration, valuesWithinPeriod is null, or valuesWithinPeriod does not have a value
      * corresponding to 0ms
      */
-    <T> LoopingMovingProvider<T> make(int periodDuration, int periodModuloOffset,
+    <T> LoopingMovingProvider<T> make(EntityUuid id, int periodDuration, int periodModuloOffset,
                                       boolean movementIsLinear,
                                       Map<Integer, T> valuesWithinPeriod)
             throws IllegalArgumentException;

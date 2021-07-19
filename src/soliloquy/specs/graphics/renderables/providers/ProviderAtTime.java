@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables.providers;
 
 import soliloquy.specs.common.shared.HasOneGenericParam;
+import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.shared.PausableAtTime;
 import soliloquy.specs.graphics.renderables.FiniteAnimationRenderable;
 import soliloquy.specs.graphics.renderables.SpriteRenderable;
@@ -23,7 +24,7 @@ import soliloquy.specs.graphics.renderables.SpriteRenderable;
  * @version 0.0.1
  *
  */
-public interface ProviderAtTime<T> extends PausableAtTime, HasOneGenericParam<T> {
+public interface ProviderAtTime<T> extends PausableAtTime, HasOneGenericParam<T>, HasUuid {
     /**
      * @param timestamp The timestamp for which to provide the specified type of object
      * @return The specified type of object, at the provided timestamp
