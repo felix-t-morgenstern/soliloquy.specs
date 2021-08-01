@@ -22,6 +22,8 @@ public interface LoopingLinearMovingColorProviderFactory extends SoliloquyClass 
      *                           period (c.f.
      *                           {@link LoopingMovingProvider#valuesWithinPeriod()}
      * @param hueMovementIsClockwise The rotational direction of each movement
+     * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
+     *                            null, implying no value provided
      * @return The newly-created LoopingMovingProvider
      * @throws IllegalArgumentException If and only if id is null, periodDuration is less than or
      * equal to 0, periodModuloOffset is less than 0, periodModuloOffset is greater than or equal
@@ -33,6 +35,6 @@ public interface LoopingLinearMovingColorProviderFactory extends SoliloquyClass 
     LoopingMovingColorProvider make(EntityUuid id, int periodDuration, int periodModuloOffset,
                                     boolean movementIsLinear,
                                     Map<Integer, Color> valuesWithinPeriod,
-                                    List<Boolean> hueMovementIsClockwise)
+                                    List<Boolean> hueMovementIsClockwise, Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }

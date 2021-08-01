@@ -20,11 +20,14 @@ public interface FiniteLinearMovingProviderFactory extends SoliloquyClass {
      * @param id The id of this ProviderAtTime
      * @param valuesAtTimestamps The valuesAtTimestamps to provide (c.f.
      * {@link FiniteLinearMovingProvider#valuesAtTimestamps})
+     * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
+     *                            null, implying no value provided
      * @param <T> The type this Provider will provide
      * @return The newly-created FiniteLinearMovingProvider
      * @throws IllegalArgumentException If and only if id is null; or valuesAtTimestamps is null,
      * or contains fewer than two key-value pairs
      */
-    <T> FiniteLinearMovingProvider<T> make(EntityUuid id, Map<Long, T> valuesAtTimestamps)
+    <T> FiniteLinearMovingProvider<T> make(EntityUuid id, Map<Long, T> valuesAtTimestamps,
+                                           Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }

@@ -24,6 +24,8 @@ public interface FiniteLinearMovingColorProviderFactory extends SoliloquyClass {
      * {@link FiniteLinearMovingColorProvider#valuesAtTimestamps})
      * @param hueMovementIsClockwise The rotational directions of hue movements (c.f.
      * {@link FiniteLinearMovingColorProvider#hueMovementIsClockwise})
+     * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
+     *                            null, implying no value provided
      * @return The newly-created FiniteLinearMovingProvider
      * @throws IllegalArgumentException If and only if id is null; or valuesAtTimestamps is null,
      * or contains fewer than two key-value pairs; or if hueMovementIsClockwise is null, or if
@@ -31,6 +33,7 @@ public interface FiniteLinearMovingColorProviderFactory extends SoliloquyClass {
      * from the size of valuesAtTimestamps minus one
      */
     FiniteLinearMovingColorProvider make(EntityUuid id, Map<Long, Color> valuesAtTimestamps,
-                                         List<Boolean> hueMovementIsClockwise)
+                                         List<Boolean> hueMovementIsClockwise,
+                                         Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }

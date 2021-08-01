@@ -27,6 +27,8 @@ public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
      * @param valuesWithinPeriod The values corresponding to different ms positions within the
      *                           period (c.f.
      *                           {@link LoopingMovingProvider#valuesWithinPeriod()}
+     * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
+     *                            null, implying no value provided
      * @param <T> The type of value provided
      * @return The newly-created LoopingMovingProvider
      * @throws IllegalArgumentException If and only if id is null, periodDuration is less than or
@@ -36,6 +38,6 @@ public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
      */
     <T> LoopingMovingProvider<T> make(EntityUuid id, int periodDuration, int periodModuloOffset,
                                       boolean movementIsLinear,
-                                      Map<Integer, T> valuesWithinPeriod)
+                                      Map<Integer, T> valuesWithinPeriod, Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }

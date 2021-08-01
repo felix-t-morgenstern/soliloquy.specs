@@ -1,10 +1,10 @@
 package soliloquy.specs.graphics.rendering.renderers;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.renderables.Renderable;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.Mesh;
 import soliloquy.specs.graphics.rendering.Shader;
+import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
 
 /**
  * <b>Renderer</b>
@@ -17,7 +17,7 @@ import soliloquy.specs.graphics.rendering.Shader;
  * @version 0.0.1
  *
  */
-public interface Renderer<TRenderable extends Renderable> extends SoliloquyClass {
+public interface Renderer<TRenderable extends Renderable> extends HasMostRecentTimestamp {
     /**
      * @param mesh The Mesh to assign to this Renderer
      * @throws IllegalArgumentException If and only if mesh is null
