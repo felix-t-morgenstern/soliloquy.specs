@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities.timers;
 
+import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 import java.util.function.Consumer;
@@ -60,4 +61,14 @@ public interface ClockBasedTimerManager extends SoliloquyClass {
      * after timestamp
      */
     void fireTimers(long timestamp) throws IllegalArgumentException;
+
+    /**
+     * @return A representation of the currently active OneTimeClockBasedTimers
+     */
+    List<OneTimeClockBasedTimer> oneTimeTimersRepresentation();
+
+    /**
+     * @return A representation of the currently active RecurringClockBasedTimers
+     */
+    List<RecurringClockBasedTimer> recurringTimersRepresentation();
 }
