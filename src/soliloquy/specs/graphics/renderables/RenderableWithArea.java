@@ -36,7 +36,6 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
      */
     void setCapturesMouseEvents(boolean capturesMouseEvents) throws IllegalArgumentException;
 
-    // TODO: Verify whether the set mouse action methods should throw UnsupportedOperationException when events are unsupported
     /**
      * Triggers the onClick mouse event
      * @param mouseButton The mouse button being pressed (c.f. GLFW_MOUSE_BUTTON_*)

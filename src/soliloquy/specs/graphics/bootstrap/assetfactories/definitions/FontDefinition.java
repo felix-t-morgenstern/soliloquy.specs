@@ -17,7 +17,6 @@ public interface FontDefinition extends AssetDefinition<Font> {
      */
     String relativeLocation();
 
-    // TODO: Consider moving away from the term "lossless" here
     /**
      * @return The maximum size of the font which can be displayed without getting blurry from
      * being drawn too large (cannot be less than 0)
