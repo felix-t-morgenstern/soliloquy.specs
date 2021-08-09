@@ -28,7 +28,10 @@ import java.util.function.Consumer;
 public interface SpriteRenderableFactory extends SoliloquyClass {
     /**
      * @param sprite The Sprite to assign to this Renderable
-     * @param colorShifts The ColorShifts to apply when rendering
+     * @param colorShiftProviders The ColorShifts to apply when rendering (NB: This List is
+     *                            intended to contain Providers which will provide ColorShifts of
+     *                            the same type for each entry in the list; however, you can
+     *                            obviously use it differently if you please.)
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider A class which provides the color of the border to render
      * @param renderingDimensionsProvider A class which provides the dimensions in which to render
@@ -46,7 +49,7 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
      */
     SpriteRenderable make(Sprite sprite, ProviderAtTime<Float> borderThicknessProvider,
                           ProviderAtTime<Color> borderColorProvider,
-                          List<ColorShift> colorShifts,
+                          List<ProviderAtTime<ColorShift>> colorShiftProviders,
                           ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
                           EntityUuid uuid, Consumer<Renderable> updateZIndexInContainer,
                           Consumer<Renderable> removeFromContainer)
@@ -62,7 +65,10 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
      *                  GLFW_MOUSE_BUTTON_*)
      * @param onMouseOver The Action which is fired when the mouse moves over this renderable
      * @param onMouseLeave The Action which is fired when the mouse leaves this renderable
-     * @param colorShifts The ColorShifts to apply when rendering
+     * @param colorShiftProviders The ColorShifts to apply when rendering (NB: This List is
+     *                            intended to contain Providers which will provide ColorShifts of
+     *                            the same type for each entry in the list; however, you can
+     *                            obviously use it differently if you please.)
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider A class which provides the color of the border to render
      * @param renderingDimensionsProvider A class which provides the dimensions in which to render
@@ -84,7 +90,7 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
                           Map<Integer, Action<Long>> onPress,
                           Map<Integer, Action<Long>> onRelease,
                           Action<Long> onMouseOver, Action<Long> onMouseLeave,
-                          List<ColorShift> colorShifts,
+                          List<ProviderAtTime<ColorShift>> colorShiftProviders,
                           ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
                           EntityUuid uuid, Consumer<Renderable> updateZIndexInContainer,
                           Consumer<Renderable> removeFromContainer)

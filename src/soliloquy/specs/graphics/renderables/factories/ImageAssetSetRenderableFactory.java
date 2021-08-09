@@ -31,7 +31,10 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      * @param direction The current direction to render from the ImageAssetSet (c.f.
      * {@link ImageAssetSet#getImageAssetForTypeAndDirection})
-     * @param colorShifts The ColorShifts to apply when rendering
+     * @param colorShiftProviders The ColorShifts to apply when rendering (NB: This List is
+     *                            intended to contain Providers which will provide ColorShifts of
+     *                            the same type for each entry in the list; however, you can
+     *                            obviously use it differently if you please.)
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider A class which provides the color of the border to render
      * @param renderingAreaProvider A class which provides the area in which to render
@@ -48,7 +51,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      * null; updateZIndexInContainer is null; or removeFromContainer is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
-                                 List<ColorShift> colorShifts,
+                                 List<ProviderAtTime<ColorShift>> colorShiftProviders,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
@@ -71,7 +74,10 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      *                  GLFW_MOUSE_BUTTON_*)
      * @param onMouseOver The Action which is fired when the mouse moves over this renderable
      * @param onMouseLeave The Action which is fired when the mouse leaves this renderable
-     * @param colorShifts The ColorShifts to apply when rendering
+     * @param colorShiftProviders The ColorShifts to apply when rendering (NB: This List is
+     *                            intended to contain Providers which will provide ColorShifts of
+     *                            the same type for each entry in the list; however, you can
+     *                            obviously use it differently if you please.)
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider A class which provides the color of the border to render
      * @param renderingDimensionsProvider A class which provides the area in which to render
@@ -91,7 +97,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  Map<Integer, Action<Long>> onPress,
                                  Map<Integer, Action<Long>> onRelease,
                                  Action<Long> onMouseOver, Action<Long> onMouseLeave,
-                                 List<ColorShift> colorShifts,
+                                 List<ProviderAtTime<ColorShift>> colorShiftProviders,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,

@@ -2,6 +2,7 @@ package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 import java.util.List;
 import java.util.Map;
@@ -139,8 +140,8 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
      * <p>
      * <i>NB: There should not be any color shifts for a {@link RectangleRenderable} which does not
      * have a background Sprite or Animation.</i>
-     * @return A List of color shifts, to be applied to this Renderable, when rendering it in
-     * the shader
+     * @return A List of Providers of ColorShifts, to be applied to this Renderable, when rendering
+     * it in the {@link soliloquy.specs.graphics.rendering.Shader}
      */
-    List<ColorShift> colorShifts();
+    List<ProviderAtTime<ColorShift>> colorShiftProviders();
 }
