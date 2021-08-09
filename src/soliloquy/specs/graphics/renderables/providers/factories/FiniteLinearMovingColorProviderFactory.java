@@ -21,7 +21,7 @@ public interface FiniteLinearMovingColorProviderFactory extends SoliloquyClass {
     /**
      * @param id The id of this ProviderAtTime
      * @param valuesAtTimestamps The valuesAtTimestamps to provide (c.f.
-     * {@link FiniteLinearMovingColorProvider#valuesAtTimestamps})
+     * {@link FiniteLinearMovingColorProvider#valuesAtTimestampsRepresentation})
      * @param hueMovementIsClockwise The rotational directions of hue movements (c.f.
      * {@link FiniteLinearMovingColorProvider#hueMovementIsClockwise})
      * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be

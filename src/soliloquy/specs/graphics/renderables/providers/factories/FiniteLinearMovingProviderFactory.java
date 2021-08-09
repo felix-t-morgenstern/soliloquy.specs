@@ -19,7 +19,7 @@ public interface FiniteLinearMovingProviderFactory extends SoliloquyClass {
     /**
      * @param id The id of this ProviderAtTime
      * @param valuesAtTimestamps The valuesAtTimestamps to provide (c.f.
-     * {@link FiniteLinearMovingProvider#valuesAtTimestamps})
+     * {@link FiniteLinearMovingProvider#valuesAtTimestampsRepresentation})
      * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
      *                            null, implying no value provided
      * @param <T> The type this Provider will provide

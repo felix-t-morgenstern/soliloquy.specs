@@ -18,16 +18,19 @@ import java.util.Map;
  */
 public interface FiniteLinearMovingProvider<T> extends ProviderAtTime<T> {
     /**
-     * <i>NB: This method is used to calculate motion, e.g. a moving
+     * <i>NB: The values represented by method are used to calculate motion, e.g. a moving
      * {@link soliloquy.specs.graphics.rendering.FloatBox} representing the position of a
      * {@link soliloquy.specs.graphics.renderables.Renderable} in the window. The notion is that a
      * rendering area can start at one place in the window at one timestamp, and it will move
      * towards another place in the window, arriving there by the timestamp corresponding to that
      * second place. If this class is asked to provide the value prior to the first timestamp, it
      * will return the value at the first timestamp; similarly, if this class is asked to provide
-     * the value after the last timestamp, it will return the value at the last timestamp.</i>
+     * the value after the last timestamp, it will return the value at the last timestamp.
+     * <p>
+     * ALSO note that this method returns a representation, not the actual values!</i>
      * @return A Map, linking timestamps to the values provided at that timestamp. Linear movement
-     * is calculated for any given timestamp by finding the distance between the two nearest timestamps.
+     * is calculated for any given timestamp by finding the distance between the two nearest
+     * timestamps.
      */
-    Map<Long, T> valuesAtTimestamps();
+    Map<Long, T> valuesAtTimestampsRepresentation();
 }
