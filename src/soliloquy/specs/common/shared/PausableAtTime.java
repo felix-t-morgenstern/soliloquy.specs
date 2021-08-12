@@ -1,5 +1,7 @@
 package soliloquy.specs.common.shared;
 
+import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
+
 // TODO: Draft class summary
 public interface PausableAtTime extends SoliloquyClass {
     /**

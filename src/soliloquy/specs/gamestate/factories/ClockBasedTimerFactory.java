@@ -12,12 +12,14 @@ public interface ClockBasedTimerFactory extends SoliloquyClass {
      * @param pausedTimestamp The timestamp at which this Timer has been paused; null if it has not
      *                        been paused. (This parameter largely exists for ClockBasedTimers
      *                        which may need to be reloaded from a save state.)
+     * @param mostRecentTimestamp The most recent timestamp provided to this class
      * @return The newly-created Timer
      * @throws IllegalArgumentException If and only if pausedTimestamp is greater than or equal to
-     * firingTimestamp or firingAction is null
+     * firingTimestamp, or firingAction is null, or pausedTimestamp is non-null while
+     * mostRecentTimestamp is null, or if pausedTimestamp is greater than mostRecentTimestamp
      */
     OneTimeClockBasedTimer make(long firingTimestamp, Action<Long> firingAction,
-                                Long pausedTimestamp)
+                                Long pausedTimestamp, Long mostRecentTimestamp)
             throws IllegalArgumentException;
 
     /**
@@ -32,14 +34,18 @@ public interface ClockBasedTimerFactory extends SoliloquyClass {
      *                        been paused. (This parameter largely exists for ClockBasedTimers
      *                        which may need to be reloaded from a save state.)
      * @param lastFiringTimestamp The time at which this Timer has fired most recently
+     * @param mostRecentTimestamp The most recent timestamp provided to this class
      * @return The newly-created Timer
      * @throws IllegalArgumentException If and only if periodDuration is less than or equal to 0,
      * periodModuloOffset is less than or equal to 0 or greater than or equal to periodDuration,
-     * or fireAction is null
+     * fireAction is null, or pausedTimestamp is non-null while mostRecentTimestamp is null, or if
+     * pausedTimestamp is greater than mostRecentTimestamp, or if lastFiringTimestamp is greater
+     * than mostRecentTimestamp
      */
     RecurringClockBasedTimer make(int periodDuration, int periodModuloOffset,
                                   Action<Long> firingAction,
                                   boolean fireMultipleTimesForMultiplePeriodsElapsed,
-                                  Long pausedTimestamp, long lastFiringTimestamp)
+                                  Long pausedTimestamp, long lastFiringTimestamp,
+                                  Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }
