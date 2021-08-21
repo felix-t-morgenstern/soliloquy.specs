@@ -2,8 +2,9 @@ package soliloquy.specs.ruleset;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.entities.Function;
-import soliloquy.specs.common.shared.EntityGroup;
+import soliloquy.specs.common.infrastructure.Registry;
 import soliloquy.specs.common.infrastructure.SettingsRepo;
+import soliloquy.specs.common.shared.EntityGroup;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
@@ -11,7 +12,6 @@ import soliloquy.specs.ruleset.entities.*;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
-import soliloquy.specs.common.infrastructure.Registry;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
 // TODO: Document this interface

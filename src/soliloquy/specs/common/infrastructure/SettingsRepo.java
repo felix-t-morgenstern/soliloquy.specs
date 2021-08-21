@@ -7,7 +7,7 @@ import soliloquy.specs.common.shared.HasId;
  * <b>SettingsRepo</b>
  * <p>
  * This is a repository for Settings. It is agnostic to the type of its Settings, because it needs
- * to provide all of them as an EntityGroup for UI purposes.
+ * to provide all of them as an EntityGroupOfType for UI purposes.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
