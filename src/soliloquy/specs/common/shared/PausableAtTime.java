@@ -1,8 +1,17 @@
 package soliloquy.specs.common.shared;
 
-import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
-
-// TODO: Draft class summary
+/**
+ * <b>PausableAtTime</b>
+ * <p>
+ * This class can be paused or unpaused at varying timestamps. This class cannot be paused while
+ * already paused, unpaused while already unpaused, or paused or unpaused before it has already
+ * been paused or unpaused. Lastly, it exposes the pausedTimestamp, to permit pauses to be
+ * persisted.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
 public interface PausableAtTime extends SoliloquyClass {
     /**
      * @param timestamp The time at which the pause has begun
