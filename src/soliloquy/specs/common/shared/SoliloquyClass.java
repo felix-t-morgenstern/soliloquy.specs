@@ -3,14 +3,14 @@ package soliloquy.specs.common.shared;
 /**
  * <b>SoliloquyClass</b>
  * <p>
- * This specifies the capability of nearly all Soliloquy classes to access the top-level Soliloquy
- * class, i.e. Game.
- * <p>
- * All classes (or at least nearly all classes) have access to Game to give developers maximum
- * power to do as they see fit. Intended common uses are to access Settings and
- * PersistentVariables.
- * <p>
- * It also permits every class in the Game to perform Logging functions. 
+ * This class is defined within the soliloquy namespace, and therefore can be asked to expose a
+ * type-qualified class name, e.g. "{@link soliloquy.specs.common.infrastructure.List}<
+ * {@link soliloquy.specs.gamestate.entities.Character}>". At present, Java does not expose the
+ * generic type parameters of a class, so Soliloquy classes must expose this information
+ * themselves, to be fed to the correct
+ * {@link soliloquy.specs.common.persistence.PersistentValueTypeHandler} when the type of a class
+ * is not known in advance, e.g. {@link soliloquy.specs.common.infrastructure.Setting}s or items in
+ * the {@link soliloquy.specs.common.infrastructure.VariableCache}.
  * 
  * @author felix.t.morgenstern
  * @version 0.0.1
