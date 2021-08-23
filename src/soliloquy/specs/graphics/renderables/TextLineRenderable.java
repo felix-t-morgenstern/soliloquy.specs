@@ -59,23 +59,23 @@ public interface TextLineRenderable extends RenderableWithBorders {
     void setRenderingLocationProvider(ProviderAtTime<Pair<Float,Float>> renderingLocationProvider)
             throws IllegalArgumentException;
 
-    // TODO: Consider making this a ProviderAtTime
     /**
      * @return The height of the line, where the entirety of the window has a height of 1.0.
      */
-    float getLineHeight();
+    ProviderAtTime<Float> lineHeightProvider();
 
     /**
-     * C.f. {@link #getLineHeight()} for more information
-     * @param lineHeight The height to set for this line
-     * @throws IllegalArgumentException If and only if lineHeight is less than or equal to 0
+     * C.f. {@link #lineHeightProvider()} for more information
+     * @param lineHeightProvider The height to set for this line
+     * @throws IllegalArgumentException If and only if lineHeightProvider is null
      */
-    void setLineHeight(float lineHeight) throws IllegalArgumentException;
+    void setLineHeightProvider(ProviderAtTime<Float> lineHeightProvider)
+            throws IllegalArgumentException;
 
     /**
      * @return The amount of padding between glyphs, where 0f implies the standard padding between
      * glyphs of the font (rather than no space between glyphs whatsoever), and 1f implies an
-     * additional space between letters equal to {@link #getLineHeight}.
+     * additional space between letters equal to {@link #lineHeightProvider}.
      */
     float getPaddingBetweenGlyphs();
 

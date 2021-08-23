@@ -28,8 +28,8 @@ public interface TextLineRenderableFactory extends SoliloquyClass {
     /**
      * @param font The Font to set for this Renderable
      * @param lineText The text of this line
-     * @param lineHeight The height of the line, where the entirety of the window has a height of
-     *                   1.0.
+     * @param lineHeightProvider The {@link ProviderAtTime} for the height of the line, where the
+     *                           entirety of the window has a height of 1.0.
      * @param justification The justification of the text line to be rendered (e.g. left, center,
      *                      or right horizontal alignment)
      * @param paddingBetweenGlyphs The amount of padding between glyphs, c.f.
@@ -63,7 +63,7 @@ public interface TextLineRenderableFactory extends SoliloquyClass {
      * non-null; renderingLocationProvider is null; uuid is null; updateZIndexInContainer is null;
      * or removeFromContainer is null
      */
-    TextLineRenderable make(Font font, String lineText, float lineHeight,
+    TextLineRenderable make(Font font, String lineText, ProviderAtTime<Float> lineHeightProvider,
                             TextJustification justification, float paddingBetweenGlyphs,
                             Map<Integer, ProviderAtTime<Color>> colorProviderIndices,
                             List<Integer> italicIndices, List<Integer> boldIndices,
