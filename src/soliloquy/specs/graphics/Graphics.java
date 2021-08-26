@@ -33,21 +33,29 @@ public interface Graphics extends SoliloquyClass {
      */
     GraphicsTeardown teardown();
 
-    // TODO: Consider replacing Registry with a method that simply provides the Assets in question
     /**
-     * @return A {@link Registry} of {@link Sprite}s
+     * @param spriteId The id of the Sprite requested
+     * @return The desired Sprite
+     * @throws IllegalArgumentException If and only if spriteId is null, empty, or does not
+     * correspond to a valid Sprite
      */
-    Registry<Sprite> spritesRegistry();
+    Sprite getSprite(String spriteId) throws IllegalArgumentException;
 
     /**
-     * @return A {@link Registry} of {@link ImageAssetSet}s
+     * @param imageAssetSetId The id of the ImageAssetSet requested
+     * @return The desired ImageAssetSet
+     * @throws IllegalArgumentException If and only if imageAssetSetId is null, empty, or does not
+     * correspond to a valid Sprite
      */
-    Registry<ImageAssetSet> imageAssetSetsRegistry();
+    ImageAssetSet getImageAssetSet(String imageAssetSetId);
 
     /**
-     * @return A {@link Registry} of {@link Animation}s
+     * @param animationId The id of the Animation requested
+     * @return The desired Animation
+     * @throws IllegalArgumentException If and only if animationId is null, empty, or does not
+     * correspond to a valid Animation
      */
-    Registry<Animation> animationsRegistry();
+    Animation getAnimation(String animationId) throws IllegalArgumentException;
 
     /**
      * @return The {@link WindowResolutionManager}, to manage the size of the window (and, if
