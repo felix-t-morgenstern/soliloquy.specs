@@ -34,9 +34,10 @@ public interface FrameTimer extends SoliloquyClass {
      */
     void start() throws UnsupportedOperationException;
 
-    // TODO: Review implementation and specify use case for this method (i.e. "should only be used when tearing down application")
     /**
-     * Stops the FrameTimer
+     * Stops the FrameTimer. This is intended to be called once, during app teardown; it will
+     * cause {@link #shouldExecuteNextFrame} to always return false, and it will cause this class
+     * to stop waiting for the next time scheduled to fire a frame (c.f. {@link #setTargetFps}).
      * @throws UnsupportedOperationException If and only if FrameTimer is not running
      */
     void stop() throws UnsupportedOperationException;
