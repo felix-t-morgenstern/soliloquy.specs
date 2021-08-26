@@ -10,7 +10,16 @@ import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
 import soliloquy.specs.graphics.rendering.MouseCursorAsset;
 import soliloquy.specs.graphics.rendering.WindowResolutionManager;
 
-// TODO: Document this interface
+/**
+ * <b>Graphics</b>
+ * <p>
+ * This class encompasses all of the functionality of the graphics engine which will be needed at
+ * runtime.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
 public interface Graphics extends SoliloquyClass {
 	// TODO: Just wait until the module is worked out to figure out what even goes in here
 
