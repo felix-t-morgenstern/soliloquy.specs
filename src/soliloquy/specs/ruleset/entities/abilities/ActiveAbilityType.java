@@ -5,6 +5,7 @@ import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 
 /**
  * <b>ActiveAbilityType</b>
@@ -18,9 +19,9 @@ import soliloquy.specs.gamestate.entities.Tile;
 public interface ActiveAbilityType extends AbilityType {
 	/**
 	 * Uses this ActiveAbilityType against some target(s)
-	 * @param source - The source of the ActiveAbilityType
-	 * @param targets - The target(s) of the ActiveAbilityType
-	 * @param params - The parameters regarding the effects (e.g. damage healed, chance-to-hit) of
+	 * @param source The source of the ActiveAbilityType
+	 * @param targets The target(s) of the ActiveAbilityType
+	 * @param params The parameters regarding the effects (e.g. damage healed, chance-to-hit) of
 	 * the ActiveAbilityType
 	 */
 	void use(AbilitySource source, List<Pair<Character, Tile>> targets,

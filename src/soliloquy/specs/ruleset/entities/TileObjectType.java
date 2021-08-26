@@ -1,11 +1,8 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.graphics.assets.ImageAsset;
-import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
-import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 
 /**
  * <b>TileObject</b>
@@ -38,24 +35,4 @@ public interface TileObjectType extends HasDefaultColorShifts, HasGlobalAccess {
 	 * it
 	 */
 	boolean canStep(Character character);
-	
-	/**
-	 * These ActiveAbilities are default behaviors of this TileObject, and will be present for
-	 * every instance of this TileObject.
-	 * @return A named Map of this TileObject's ActiveAbilities; e.g. Heal Nearby Allies, Generate
-	 * Golem; the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
-	 * FixtureType
-	 */
-	Map<String, ActiveAbility> activeAbilities() throws IllegalStateException;
-	
-	/**
-	 * These ReactiveAbilities are default behaviors of this TileObject, and will be present for
-	 * every instance of this TileObject.
-	 * @return A named Map of this TileObject's ReactiveAbilities; e.g. Explode, Talk, Trigger
-	 * Event when Investigated; the Ids are the AbilityTypeIds
-	 * @throws IllegalStateException If this TileFixture has been deleted or if it has no
-	 * FixtureType
-	 */
-	Map<String, ReactiveAbility> reactiveAbilities() throws IllegalStateException;
 }

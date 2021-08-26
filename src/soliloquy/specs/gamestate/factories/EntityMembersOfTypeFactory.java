@@ -4,20 +4,20 @@ import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.gamestate.entities.CharacterEntitiesOfType;
-import soliloquy.specs.gamestate.entities.CharacterEntityOfType;
+import soliloquy.specs.gamestate.entities.EntityMemberOfType;
+import soliloquy.specs.gamestate.entities.EntityMembersOfType;
 
 import java.util.function.Function;
 
 /**
- * <b>CharacterEntitiesOfTypeFactory</b>
+ * <b>EntityMembersOfTypeFactory</b>
  * <p>
  * Creates a collection of Character entities of a specified type
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterEntitiesOfTypeFactory extends SoliloquyClass {
+public interface EntityMembersOfTypeFactory extends SoliloquyClass {
     /**
      * @param character - The Character for whom to make an aggregated entity (e.g.
      *                  {@link soliloquy.specs.gamestate.entities.CharacterStatistic})
@@ -30,8 +30,8 @@ public interface CharacterEntitiesOfTypeFactory extends SoliloquyClass {
      *                                       specified types
      */
     @SuppressWarnings("rawtypes")
-    <TEntityType extends HasId, TCharacterEntityOfType extends CharacterEntityOfType<TEntityType>>
-    CharacterEntitiesOfType make(Character character, TCharacterEntityOfType archetype)
+    <TEntityType extends HasId, TCharacterEntityOfType extends EntityMemberOfType<TEntityType>>
+    EntityMembersOfType make(Character character, TCharacterEntityOfType archetype)
             throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
@@ -41,7 +41,7 @@ public interface CharacterEntitiesOfTypeFactory extends SoliloquyClass {
      * @param <TCharacterEntityOfType> The type of the CharacterEntity made by the factory
      * @throws IllegalArgumentException If and only if archetype or factory are null
      */
-    <TEntityType extends HasId, TCharacterEntityOfType extends CharacterEntityOfType<TEntityType>>
+    <TEntityType extends HasId, TCharacterEntityOfType extends EntityMemberOfType<TEntityType>>
     void registerFactory(TCharacterEntityOfType archetype,
                          Function<Character,Function<TEntityType,Function<VariableCache,
                                  TCharacterEntityOfType>>> entityFactory)

@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
-import soliloquy.specs.ruleset.entities.abilities.AbilitySource;
+import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.Element;
 
 /**

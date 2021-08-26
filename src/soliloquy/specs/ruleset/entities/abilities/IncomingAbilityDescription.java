@@ -2,6 +2,7 @@ package soliloquy.specs.ruleset.entities.abilities;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 
 /**
  * <b>IncomingAbilityDescription</b>
@@ -20,13 +21,13 @@ public interface IncomingAbilityDescription extends SoliloquyClass {
 	 * If reactiveAbilityTypeId() returns a non-null value, this method <b>must</b> return null.
 	 * @return the Id of the ActiveAbilityType
 	 */
-	String activeAbilityTypeId();
+	ActiveAbilityType activeAbilityTypeId();
 
 	/**
 	 * If activeAbilityTypeId() returns a non-null value, this method <b>must</b> return null.
 	 * @return the Id of the RectiveAbilityType
 	 */
-	String reactiveAbilityTypeId();
+	ReactiveAbilityType reactiveAbilityType();
 	
 	/**
 	 * @return The source of the incoming Ability

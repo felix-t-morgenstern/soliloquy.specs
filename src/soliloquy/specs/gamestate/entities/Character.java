@@ -5,12 +5,16 @@ import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
+import soliloquy.specs.gamestate.entities.abilities.ActiveAbility;
+import soliloquy.specs.gamestate.entities.abilities.PassiveAbility;
+import soliloquy.specs.gamestate.entities.abilities.ReactiveAbility;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 import soliloquy.specs.ruleset.entities.CharacterStaticStatisticType;
 import soliloquy.specs.ruleset.entities.CharacterType;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
+import soliloquy.specs.ruleset.entities.abilities.PassiveAbilityType;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
@@ -72,7 +76,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	String getStance() throws EntityDeletedException;
 	
 	/**
-	 * @param stance - The stance to set for this Character
+	 * @param stance The stance to set for this Character
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
 	void setStance(String stance) throws EntityDeletedException;
@@ -84,7 +88,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	String getDirection() throws EntityDeletedException;
 	
 	/**
-	 * @param direction - The direction to set for this Character, e.g. "N", "NW"
+	 * @param direction The direction to set for this Character, e.g. "N", "NW"
 	 * @throws IllegalArgumentException If the provided direction is illegal, e.g. if it is null, a
 	 * blank string, not a valid direction
 	 * @throws EntityDeletedException If this Character has been deleted
@@ -98,7 +102,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	ImageAssetSet getImageAssetSet() throws EntityDeletedException;
 	
 	/**
-	 * @param imageAssetSet - The ImageAssetSet to set for this Character
+	 * @param imageAssetSet The ImageAssetSet to set for this Character
 	 * @throws IllegalArgumentException You <i>may</i> wish to throw this exception if the
 	 * provided ImageAssetSet is null
 	 * @throws EntityDeletedException If this Character has been deleted
@@ -115,7 +119,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	/**
 	 * <i>NB: This should still be set for PCs, since the player may lose control of PCs, e.g. 
 	 * confusion, charming</i>
-	 * @param characterAIType - The AI script to assign to this Character
+	 * @param characterAIType The AI script to assign to this Character
 	 * @throws IllegalArgumentException If characterAIType is null
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
@@ -153,8 +157,8 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @return This Character's static statistics, e.g. Intelligence, Swordplay, Etiquette
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterEntitiesOfType<CharacterStaticStatisticType,
-			CharacterStatistic<CharacterStaticStatisticType>> staticStatistics()
+	EntityMembersOfType<CharacterStaticStatisticType,
+					CharacterStatistic<CharacterStaticStatisticType>> staticStatistics()
 			throws EntityDeletedException;
 	
 	/**
@@ -164,21 +168,27 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	CharacterStatusEffects statusEffects() throws EntityDeletedException;
 
 	/**
-	 * @return A named Map of this Character's ActiveAbilities; e.g., Melee Attack, Fireball, Talk
-	 * to Character; the Id is the AbilityTypeId
+	 * @return A collection of this Character's ActiveAbilities; e.g., Melee Attack, Fireball, Talk
+	 * to Character; this is also used to add ActiveAbilities to the Character
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterEntitiesOfType<ActiveAbilityType,
-			CharacterEntityOfType<ActiveAbilityType>> activeAbilities()
+	EntityMembersOfType<ActiveAbilityType, ActiveAbility> activeAbilities()
+			throws EntityDeletedException;
+
+	/**
+	 * @return A collection of this Character's PassiveAbilities; e.g., Exceptional Dodge, Friendly
+	 * Demeanor, Large Poops; this is also used to add PassiveAbilities to the Character
+	 * @throws EntityDeletedException If this Character has been deleted
+	 */
+	EntityMembersOfType<PassiveAbilityType, PassiveAbility> passiveAbilities()
 			throws EntityDeletedException;
 
 	/**
 	 * @return A collection of this Character's ReactiveAbilities; e.g., Counter-attack, Absorb
-	 * Mana; the Id is the AbilityTypeId
+	 * Mana; this is also used to add ReactiveAbilities to the Character
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	CharacterEntitiesOfType<ReactiveAbilityType,
-			CharacterEntityOfType<ReactiveAbilityType>> reactiveAbilities()
+	EntityMembersOfType<ReactiveAbilityType, ReactiveAbility> reactiveAbilities()
 				throws EntityDeletedException;
 	
 	/**
@@ -192,7 +202,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	boolean getPlayerControlled() throws EntityDeletedException;
 	
 	/**
-	 * @param playerControlled - True, if and only if this Character is controlled by the player
+	 * @param playerControlled True, if and only if this Character is controlled by the player
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
 	void setPlayerControlled(boolean playerControlled) throws EntityDeletedException;

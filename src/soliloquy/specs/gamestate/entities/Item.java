@@ -3,8 +3,14 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.gamestate.entities.abilities.ActiveAbility;
+import soliloquy.specs.gamestate.entities.abilities.PassiveAbility;
+import soliloquy.specs.gamestate.entities.abilities.ReactiveAbility;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.ItemType;
+import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
+import soliloquy.specs.ruleset.entities.abilities.PassiveAbilityType;
+import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
 
 /**
  * <b>Item</b>
@@ -177,4 +183,28 @@ public interface Item extends TileEntity, HasTileOffsets, HasPluralName, HasUuid
 	 */
 	void assignTileFixtureAfterAddedItemToTileFixtureItems(TileFixture tileFixture)
 			throws IllegalArgumentException, IllegalStateException, EntityDeletedException;
+
+	/**
+	 * @return A collection of this Item's ActiveAbilities; e.g., Melee Attack, Fireball; this is
+	 * also used to add ActiveAbilities to the Item
+	 * @throws EntityDeletedException If this Item has been deleted
+	 */
+	EntityMembersOfType<ActiveAbilityType, ActiveAbility> activeAbilities()
+			throws EntityDeletedException;
+
+	/**
+	 * @return A collection of this Item's PassiveAbilities; e.g., Exceptional Dodge, Friendly
+	 * Demeanor, Large Poops; this is also used to add PassiveAbilities to the Item
+	 * @throws EntityDeletedException If this Item has been deleted
+	 */
+	EntityMembersOfType<PassiveAbilityType, PassiveAbility> passiveAbilities()
+			throws EntityDeletedException;
+
+	/**
+	 * @return A collection of this Item's ReactiveAbilities; e.g., Counter-attack, Absorb Mana;
+	 * this is also used to add ReactiveAbilities to the Item
+	 * @throws EntityDeletedException If this Item has been deleted
+	 */
+	EntityMembersOfType<ReactiveAbilityType, ReactiveAbility> reactiveAbilities()
+			throws EntityDeletedException;
 }

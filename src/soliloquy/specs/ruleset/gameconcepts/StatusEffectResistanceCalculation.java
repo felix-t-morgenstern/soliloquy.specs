@@ -4,7 +4,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.Element;
 import soliloquy.specs.ruleset.entities.StatusEffectType;
-import soliloquy.specs.ruleset.entities.abilities.AbilitySource;
+import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 
 /**
  * <b>StatusEffectResistanceCalculation</b>

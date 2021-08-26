@@ -6,9 +6,9 @@ import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
-import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
-import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
+import soliloquy.specs.gamestate.entities.abilities.ActiveAbility;
+import soliloquy.specs.gamestate.entities.abilities.PassiveAbility;
+import soliloquy.specs.gamestate.entities.abilities.ReactiveAbility;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 
 /**
@@ -74,19 +74,20 @@ public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPl
 	int defaultCharges() throws UnsupportedOperationException;
 	
 	/**
-	 * @return This ItemType's ActiveAbilities, e.g. Fireball, Heal Character
+	 * @return This ItemType's default ActiveAbilities, e.g. Fireball, Heal Character
 	 */
-	List<ActiveAbility> activeAbilities();
+	List<ActiveAbility> defaultActiveAbilities();
 
 	/**
-	 * @return This Item's ReactiveAbilities, e.g. Counter-attack, Absorb Mana
+	 * @return This ItemType's default ReactiveAbilities, e.g. Counter-attack, Absorb Mana
 	 */
-	List<ReactiveAbility> reactiveAbilities();
+	List<ReactiveAbility> defaultReactiveAbilities();
 
 	/**
-	 * @return This Item's PassiveAbilities, e.g. Resist Cold, Deflect Counter-attacks, Sex Appeal
+	 * @return This ItemType's default PassiveAbilities, e.g. Resist Cold, Deflect Counter-attacks,
+	 * Sex Appeal
 	 */
-	List<PassiveAbility> passiveAbilities();
+	List<PassiveAbility> defaultPassiveAbilities();
 
 	// NB: Underlying HasImageAssetSet method is overriden to provide clearer description
 	/**

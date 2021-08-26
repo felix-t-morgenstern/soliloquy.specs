@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities.abilities;
+package soliloquy.specs.gamestate.entities.abilities;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;

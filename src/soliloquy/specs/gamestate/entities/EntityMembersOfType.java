@@ -3,12 +3,13 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
 
 /**
- * <b>CharacterEntitiesOfType</b>
+ * <b>EntityMembersOfType</b>
  * <p>
- * A collection of the statistics for a {@link Character} of a certain type (e.g.
+ * A collection of the statistics for a {@link Character} or {@link Item} of a certain type (e.g.
  * {@link CharacterVariableStatisticType} or
  * {@link soliloquy.specs.ruleset.entities.CharacterStaticStatisticType}).
  *
@@ -17,8 +18,8 @@ import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
  *
  * @param <TEntityType> The type of statistic (e.g. static or variable) being contained here
  */
-public interface CharacterEntitiesOfType<TEntityType extends HasId,
-        TEntity extends CharacterEntityOfType<TEntityType>>
+public interface EntityMembersOfType<TEntityType extends HasId,
+        TEntity extends EntityMemberOfType<TEntityType>>
             extends Iterable<TEntity>, Deletable {
     /**
      * Broadly, an entity placed here will have the same default values as its corresponding fields
@@ -29,12 +30,14 @@ public interface CharacterEntitiesOfType<TEntityType extends HasId,
      * <p>
      * If the entity has already been added, then nothing is changed.
      * <p>
-     * <i>NB: This method creates a CharacterEntityOfType with no data. To instantiate the
-     * CharacterEntityOfType with data, cf {@link #add(HasId, VariableCache)}</i>.
-     * @param entityType The type of entity to add to this {@link Character}
+     * <i>NB: This method creates a EntityMemberOfType with no data. To instantiate the
+     * EntityMemberOfType with data, cf {@link #add(HasId, VariableCache)}</i>.
+     * @param entityType The type of entity to add to this {@link Character} or {@link Item}
      * @throws IllegalArgumentException If and only if entityType is null
+     * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
+     * has been deleted
      */
-    void add(TEntityType entityType) throws IllegalArgumentException;
+    void add(TEntityType entityType) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * Broadly, an entity placed here will have the same default values as its corresponding fields
@@ -46,15 +49,20 @@ public interface CharacterEntitiesOfType<TEntityType extends HasId,
      * If the entity has already been added, then nothing is changed.
      * @param entityType The type of entity to add to this {@link Character}
      * @throws IllegalArgumentException If and only if entityType is null
+     * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
+     * has been deleted
      */
-    void add(TEntityType entityType, VariableCache data) throws IllegalArgumentException;
+    void add(TEntityType entityType, VariableCache data)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param entityType - The type of the entity to retrieve
      * @return The entity of the corresponding type, if present; otherwise, null
      * @throws IllegalArgumentException If and only if entityType is null
+     * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
+     * has been deleted
      */
-    TEntity get(TEntityType entityType) throws IllegalArgumentException;
+    TEntity get(TEntityType entityType) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @return The number of entities in this collection
@@ -65,23 +73,32 @@ public interface CharacterEntitiesOfType<TEntityType extends HasId,
      * @param entityType - The type of entity to remove from this {@link Character}
      * @return True, if and only if the entity of the provided type was present
      * @throws IllegalArgumentException If and only if entityType is null
+     * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
+     * has been deleted
      */
-    boolean remove(TEntityType entityType) throws IllegalArgumentException;
+    boolean remove(TEntityType entityType) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param entityType - The type of statistic whose presence to verify
      * @return True, if and only if the item is present
      * @throws IllegalArgumentException If and only if statType is null
+     * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
+     * has been deleted
      */
-    boolean contains(TEntityType entityType) throws IllegalArgumentException;
+    boolean contains(TEntityType entityType)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * Clears all entities
+     * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
+     * has been deleted
      */
-    void clear();
+    void clear() throws EntityDeletedException;
 
     /**
      * @return A List of the entities present here
+     * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
+     * has been deleted
      */
-    List<TEntity> representation();
+    List<TEntity> representation() throws EntityDeletedException;
 }

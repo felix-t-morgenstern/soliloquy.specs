@@ -8,9 +8,6 @@ package soliloquy.specs.ruleset.entities.abilities;
  * be represented through a {@link soliloquy.specs.gamestate.entities.CharacterStatistic}, a
  * {@link soliloquy.specs.gamestate.entities.CharacterStatusEffects}, or that Character's data.
  * <p>
- * It has an Id -- its Id identifies the effect it has, e.g. changing Attributes, Aptitudes, etc.
- * The individual PassiveAbilities specify *which* Attributes are changed, by how much, etc.)
- * <p>
  * It can generate a description for a specific PassiveAbilityType, depending on the parameters of
  * its effectiveness.
  * 

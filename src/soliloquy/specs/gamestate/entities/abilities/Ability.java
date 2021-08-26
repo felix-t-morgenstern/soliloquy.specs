@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities.abilities;
+package soliloquy.specs.gamestate.entities.abilities;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasGlobalAccess;
@@ -20,22 +20,14 @@ import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
  *
  */
 public interface Ability extends GameEntity, HasName, HasGlobalAccess {
-	// TODO: Verify whether Abilities are still initialized with sources
 	/**
-	 * If this Ability belongs to a Character or an Item, its AbilitySource <b>must</b> point back
-	 * to that Character or Item
+	 * (NB: All Abilities must belong to either a Character or an Item)
 	 * @return The entity to which this Ability belongs
 	 * @throws IllegalStateException If the source has not been initialized; or the source for this
 	 * Ability is a Character or an Item, but that source does not have this Ability
 	 * @throws EntityDeletedException if this Ability has been deleted
 	 */
 	AbilitySource source() throws IllegalStateException, EntityDeletedException;
-	
-	/**
-	 * @return The AbilityType corresponding to this Ability
-	 * @throws EntityDeletedException If this Ability has been deleted
-	 */
-	AbilityType abilityType() throws EntityDeletedException;
 	
 	/**
 	 * (It is expected that Items and Characters will use different means of determining ability
@@ -57,8 +49,8 @@ public interface Ability extends GameEntity, HasName, HasGlobalAccess {
 	
 	/**
 	 * Only considered for Items' Abilities
-	 * @param onlyWhenEquipped - Whether this Item's Ability will take effect only when that Item
-	 * is equipped
+	 * @param onlyWhenEquipped Whether this Item's Ability will take effect only when that Item is
+	 *                         equipped
 	 * @throws UnsupportedOperationException If this Ability does not belong to an Item
 	 * @throws EntityDeletedException If this Ability has been deleted
 	 */

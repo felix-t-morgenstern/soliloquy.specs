@@ -15,14 +15,12 @@ import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
  * @version 0.0.1
  *
  */
-public interface AbilityType extends GameEntity, HasName, HasId {
+public interface AbilityType extends HasName, HasId {
 	/**
 	 * Returns a string describing the Ability.
-	 * @param params - Used to help describe the effects of the Ability (e.g. the damage it will
-	 *                  do)
+	 * @param params Used to help describe the effects of the Ability (e.g. the damage it will do)
 	 * @return The full description of the Ability.
 	 * @throws IllegalStateException If this AbilityType has no Id
-	 * @throws EntityDeletedException In the extremely unorthodox case that this has been deleted
 	 */
-	String description(VariableCache params) throws IllegalStateException, EntityDeletedException;
+	String description(VariableCache params) throws IllegalStateException;
 }

@@ -87,19 +87,6 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
 	 * @throws IllegalStateException If this Tile has been deleted
 	 */
 	TileWallSegments wallSegments() throws IllegalStateException;
-
-	/**
-	 * @return A List of events which fire when a Character moves into this Tile
-	 * @throws IllegalStateException If this Tile has been deleted
-	 */
-	List<GameMovementEvent> movementEvents() throws IllegalStateException;
-
-	/**
-	 * @return A List of events which fire when an Ability from a Character or an Item is
-	 * used on this Tile
-	 * @throws IllegalStateException If this Tile has been deleted
-	 */
-	List<GameAbilityEvent> abilityEvents() throws IllegalStateException;
 	
 	/**
 	 * @return A numbered Map of Sprites on this Tile, where the numerical value of the Map

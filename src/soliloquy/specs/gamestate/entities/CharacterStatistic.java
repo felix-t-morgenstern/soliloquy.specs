@@ -17,7 +17,7 @@ import soliloquy.specs.ruleset.gameconcepts.CharacterStatisticCalculation;
  * @param <TStatType> The type (e.g. variable or static) of this statistic
  */
 public interface CharacterStatistic<TStatType extends CharacterStatisticType>
-        extends CharacterEntityOfType<TStatType> {
+        extends EntityMemberOfType<TStatType> {
     /**
      * @return The total value, resulting from all modifiers
      * @throws IllegalStateException If the Character has been deleted

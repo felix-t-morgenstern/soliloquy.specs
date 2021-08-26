@@ -4,21 +4,21 @@ import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.gamestate.entities.CharacterEntityOfType;
+import soliloquy.specs.gamestate.entities.EntityMemberOfType;
 
 /**
- * <b>CharacterEntityOfTypeFactory</b>
+ * <b>EntityMemberOfTypeFactory</b>
  * <p>
  * Creates an entity for a provided {@link Character} of a given type
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterEntityOfTypeFactory<TCharacterEntityType extends HasId,
-        TCharacterEntityOfType extends CharacterEntityOfType<TCharacterEntityType>>
+public interface EntityMemberOfTypeFactory<TCharacterEntityType extends HasId,
+        TCharacterEntityOfType extends EntityMemberOfType<TCharacterEntityType>>
             extends SoliloquyClass {
     /**
-     * <i>NB: This method creates a CharacterEntityOfType without any data; to provide data, cf
+     * <i>NB: This method creates a EntityMemberOfType without any data; to provide data, cf
      * {@link #make(Character, HasId, VariableCache)}</i>.
      * @param character - The Character for whom to make the entity
      * @param type - The type of the CharacterEntity of the provided type

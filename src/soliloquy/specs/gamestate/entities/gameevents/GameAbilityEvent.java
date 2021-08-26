@@ -2,7 +2,8 @@ package soliloquy.specs.gamestate.entities.gameevents;
 
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
-import soliloquy.specs.ruleset.entities.abilities.AbilitySource;
+import soliloquy.specs.gamestate.entities.abilities.Ability;
+import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.abilities.AbilityType;
 
 /**
@@ -31,7 +32,7 @@ public interface GameAbilityEvent extends HasId, HasGlobalAccess {
      * method returns null, this means that </i>
      * @param source - The source ({@link soliloquy.specs.gamestate.entities.Character} or
      * {@link soliloquy.specs.gamestate.entities.Item}) of the
-     * {@link soliloquy.specs.ruleset.entities.abilities.Ability} causing this GameAbilityEvent
+     * {@link Ability} causing this GameAbilityEvent
      * @param target - The {@link GameEventTarget} of this GameMovementEvent
      * @throws IllegalArgumentException If and only if source or target are null
      */

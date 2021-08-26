@@ -5,7 +5,7 @@ import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.CharacterVariableStatistics;
 
 /**
- * <b>CharacterEntitiesOfTypeFactory</b>
+ * <b>EntityMembersOfTypeFactory</b>
  * <p>
  * Creates a collection of variable statistics for a given  {@link Character}
  *

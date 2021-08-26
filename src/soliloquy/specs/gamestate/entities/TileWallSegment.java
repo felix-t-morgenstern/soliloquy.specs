@@ -13,7 +13,7 @@ import soliloquy.specs.ruleset.entities.WallSegmentType;
  * @version 0.0.1
  *
  */
-public interface TileWallSegment extends TileEntity, HasName {
+public interface TileWallSegment extends TileEntity, GameEventTargetEntity, HasName {
 	/**
 	 * @return The WallSegmentType of this TileWallSegment
 	 * @throws IllegalStateException If this TileWallSegment has no type
