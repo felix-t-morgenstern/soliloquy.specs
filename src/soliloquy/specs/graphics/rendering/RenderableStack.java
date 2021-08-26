@@ -36,10 +36,9 @@ public interface RenderableStack extends SoliloquyClass {
      */
     void add(Renderable renderable) throws IllegalArgumentException;
 
-    // TODO: Ensure that snapshot ONLY includes clones
     /**
-     * @return A snapshot of the stack. (NB: While the Renderables are not clones, there should
-     * also be nothing mutable about any Renderable; they are essentially stateless)
+     * @return A read-only representation of the stack. (NB: While the Renderables are not clones,
+     * there should also be nothing mutable about any Renderable; they are essentially stateless.)
      */
-    Map<Integer, List<Renderable>> snapshot();
+    Map<Integer, List<Renderable>> representation();
 }
