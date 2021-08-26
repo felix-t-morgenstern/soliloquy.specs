@@ -4,6 +4,17 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 
 import java.util.Map;
 
+/**
+ * <b>FontStyleDefinition</b>
+ * <p>
+ * This class describes the characteristics of a font, usually in the form of a .ttf file, to be
+ * used to generate a texture in OpenGL, and a corresponding
+ * {@link soliloquy.specs.graphics.assets.FontStyleInfo}.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
 public interface FontStyleDefinition extends SoliloquyClass {
     /**
      * <i>NB: This value only specifies how the glyphs are spaced in the texture stored in the GPU;

@@ -5,7 +5,18 @@ import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.util.Map;
 
-// TODO: Add javadocs header
+/**
+ * <b>FontStyleInfo</b>
+ * <p>
+ * This class describes a texture (c.f.
+ * {@linktourl https://learnopengl.com/Getting-started/Textures}) which can be rendered by the
+ * {@link soliloquy.specs.graphics.renderables.TextLineRenderable}, given the information provided
+ * in this class.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
 public interface FontStyleInfo extends HasTextureId {
     /**
      * ("UV coordinates" here refers to the coordinates within a texture uploaded to the GPU; this
