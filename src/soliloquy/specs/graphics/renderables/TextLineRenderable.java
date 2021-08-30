@@ -128,4 +128,51 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * when it should resume rendering as bold, and so-on. This method may not return null.
      */
     List<Integer> boldIndices();
+
+    /**
+     * <i>NB: {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer#render} will
+     * fail if this method produces a value less than 0.0.</i>
+     * @return A ProviderAtTime which provides the size of the drop shadow, where the entirety of
+     * the window has a height of 1.0.
+     */
+    ProviderAtTime<Float> dropShadowSizeProvider();
+
+    /**
+     * @param dropShadowSizeProvider The ProviderAtTime for the size of the drop shadow, where the
+     *                               entirety of the window has a height of 1.0.
+     * @throws IllegalArgumentException If and only if dropShadowSizeProvider is null
+     */
+    void setDropShadowSizeProvider(ProviderAtTime<Float> dropShadowSizeProvider)
+            throws IllegalArgumentException;
+
+    /**
+     * @return A ProviderAtTime which provides the offset of the drop shadow, where the two floats
+     * provided are x and y offsets respectively, and entirety of the window has a height of 1.0
+     */
+    ProviderAtTime<Pair<Float, Float>> dropShadowOffsetProvider();
+
+    /**
+     * <i>NB: If {@link #dropShadowSizeProvider} returns a non-null and non-zero value, this
+     * ProviderAtTIme cannot return null.</i>
+     * @param dropShadowOffsetProvider The ProviderAtTime which provides the offset of the drop
+     *                                 shadow, where the two floats provided are x and y offsets
+     *                                 respectively, and entirety of the window has a height of 1.0
+     * @throws IllegalArgumentException If and only if dropShadowOffsetProvider is null
+     */
+    void setDropShadowOffsetProvider(ProviderAtTime<Pair<Float, Float>> dropShadowOffsetProvider)
+            throws IllegalArgumentException;
+
+    /**
+     * <i>NB: If {@link #dropShadowSizeProvider} returns a non-null and non-zero value, this
+     * ProviderAtTIme cannot return null.</i>
+     * @return A ProviderAtTime which provides the color of the drop shadow.
+     */
+    ProviderAtTime<Color> dropShadowColorProvider();
+
+    /**
+     * @param dropShadowColorProvider The ProviderAtTime for the color of the drop shadow
+     * @throws IllegalArgumentException If and only if dropShadowColorProvider is null
+     */
+    void setDropShadowColorProvider(ProviderAtTime<Color> dropShadowColorProvider)
+            throws IllegalArgumentException;
 }

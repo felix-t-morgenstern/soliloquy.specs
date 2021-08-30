@@ -49,6 +49,12 @@ public interface TextLineRenderableFactory extends SoliloquyClass {
      * @param renderingLocationProvider A provider which specifies the location at which this text
      *                                  line is rendered, c.f.
      *                                  {@link TextLineRenderable#getRenderingLocationProvider}
+     * @param dropShadowSizeProvider The ProviderAtTime for the size of the drop shadow, where the
+     *                               entirety of the window has a height of 1.0.
+     * @param dropShadowOffsetProvider The ProviderAtTime which provides the offset of the drop
+     *                                 shadow, where the two floats provided are x and y offsets
+     *                                 respectively, and entirety of the window has a height of 1.0
+     * @param dropShadowColorProvider The ProviderAtTime for the color of the drop shadow
      * @param z The z-index of this Renderable, c.f. {@link Renderable#getZ}
      * @param uuid The uuid of this Renderable
      * @param updateZIndexInContainer A Consumer which will accept this object to update its
@@ -60,8 +66,9 @@ public interface TextLineRenderableFactory extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if font is null; lineText is null; lineHeight
      * is 0 or less; justification is null or UNKNOWN; colorProviderIndices is null; italicIndices
      * is null; boldIndices is null; borderThicknessProvider is null, and borderColorProvider is
-     * non-null; renderingLocationProvider is null; uuid is null; updateZIndexInContainer is null;
-     * or removeFromContainer is null
+     * non-null; renderingLocationProvider is null; dropShadowSizeProvider is null;
+     * dropShadowOffsetProvider is null; dropShadowColorProvider is null; uuid is null;
+     * updateZIndexInContainer is null; or removeFromContainer is null
      */
     TextLineRenderable make(Font font, String lineText, ProviderAtTime<Float> lineHeightProvider,
                             TextJustification justification, float paddingBetweenGlyphs,
@@ -70,6 +77,9 @@ public interface TextLineRenderableFactory extends SoliloquyClass {
                             ProviderAtTime<Float> borderThicknessProvider,
                             ProviderAtTime<Color> borderColorProvider,
                             ProviderAtTime<Pair<Float,Float>> renderingLocationProvider,
+                            ProviderAtTime<Float> dropShadowSizeProvider,
+                            ProviderAtTime<Pair<Float,Float>> dropShadowOffsetProvider,
+                            ProviderAtTime<Color> dropShadowColorProvider,
                             int z, EntityUuid uuid,
                             Consumer<Renderable> updateZIndexInContainer,
                             Consumer<Renderable> removeFromContainer)
