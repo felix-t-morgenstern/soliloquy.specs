@@ -7,6 +7,7 @@ import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop;
 import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
+import soliloquy.specs.graphics.renderables.providers.GlobalLoopingAnimation;
 import soliloquy.specs.graphics.rendering.MouseCursorAsset;
 import soliloquy.specs.graphics.rendering.WindowResolutionManager;
 
@@ -56,6 +57,15 @@ public interface Graphics extends SoliloquyClass {
      * correspond to a valid Animation
      */
     Animation getAnimation(String animationId) throws IllegalArgumentException;
+
+    /**
+     * @param globalLoopingAnimationId The id of the GlobalLoopingAnimation requested
+     * @return The desired GlobalLoopingAnimation
+     * @throws IllegalArgumentException If and only if globalLoopingAnimationId is null, empty, or
+     * does not correspond to a valid GlobalLoopingAnimation
+     */
+    GlobalLoopingAnimation getGlobalLoopingAnimation(String globalLoopingAnimationId)
+            throws IllegalArgumentException;
 
     /**
      * @return The {@link WindowResolutionManager}, to manage the size of the window (and, if

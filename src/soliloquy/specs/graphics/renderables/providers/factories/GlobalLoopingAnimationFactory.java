@@ -16,7 +16,9 @@ import soliloquy.specs.graphics.renderables.providers.GlobalLoopingAnimation;
  */
 public interface GlobalLoopingAnimationFactory extends SoliloquyClass {
     /**
-     * @param uuid The id of this GlobalLoopingAnimation
+     * NB: This class only exposes uuid since it's a requirement of
+     * {@link soliloquy.specs.graphics.renderables.providers.ProviderAtTime}
+     * @param id The (human-readable) id of this GlobalLoopingAnimation
      * @param animation The Animation to use for this GlobalLoopingAnimation
      * @param periodModuloOffset The milliseconds by which the period of this Animation is offset
      *                           (c.f. {@link soliloquy.specs.common.shared.HasPeriodModuloOffset})
@@ -24,6 +26,6 @@ public interface GlobalLoopingAnimationFactory extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if uuid is null, animation is null, or
      * periodModuloOffset is negative or greater than or equal to the ms duration of animation
      */
-    GlobalLoopingAnimation make(EntityUuid uuid, Animation animation, int periodModuloOffset)
+    GlobalLoopingAnimation make(String id, Animation animation, int periodModuloOffset)
             throws IllegalArgumentException;
 }
