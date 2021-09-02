@@ -1,22 +1,20 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
-import soliloquy.specs.gamestate.entities.abilities.ActiveAbility;
-import soliloquy.specs.gamestate.entities.abilities.PassiveAbility;
-import soliloquy.specs.gamestate.entities.abilities.ReactiveAbility;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
 import soliloquy.specs.ruleset.entities.CharacterStaticStatisticType;
 import soliloquy.specs.ruleset.entities.CharacterType;
-import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
-import soliloquy.specs.ruleset.entities.abilities.PassiveAbilityType;
-import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
+import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
+import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
+import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <b>Character</b>
@@ -158,7 +156,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
 	EntityMembersOfType<CharacterStaticStatisticType,
-					CharacterStatistic<CharacterStaticStatisticType>> staticStatistics()
+					CharacterStatistic<CharacterStaticStatisticType>, Character> staticStatistics()
 			throws EntityDeletedException;
 	
 	/**
@@ -168,28 +166,25 @@ public interface Character extends TileEntity, HasName, HasUuid {
 	CharacterStatusEffects statusEffects() throws EntityDeletedException;
 
 	/**
-	 * @return A collection of this Character's ActiveAbilities; e.g., Melee Attack, Fireball, Talk
-	 * to Character; this is also used to add ActiveAbilities to the Character
-	 * @throws EntityDeletedException If this Character has been deleted
-	 */
-	EntityMembersOfType<ActiveAbilityType, ActiveAbility> activeAbilities()
-			throws EntityDeletedException;
-
-	/**
 	 * @return A collection of this Character's PassiveAbilities; e.g., Exceptional Dodge, Friendly
 	 * Demeanor, Large Poops; this is also used to add PassiveAbilities to the Character
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	EntityMembersOfType<PassiveAbilityType, PassiveAbility> passiveAbilities()
-			throws EntityDeletedException;
+	List<PassiveAbility> passiveAbilities() throws EntityDeletedException;
+
+	/**
+	 * @return A collection of this Character's ActiveAbilities; e.g., Melee Attack, Fireball, Talk
+	 * to Character; this is also used to add ActiveAbilities to the Character
+	 * @throws EntityDeletedException If this Character has been deleted
+	 */
+	List<ActiveAbility> activeAbilities() throws EntityDeletedException;
 
 	/**
 	 * @return A collection of this Character's ReactiveAbilities; e.g., Counter-attack, Absorb
 	 * Mana; this is also used to add ReactiveAbilities to the Character
 	 * @throws EntityDeletedException If this Character has been deleted
 	 */
-	EntityMembersOfType<ReactiveAbilityType, ReactiveAbility> reactiveAbilities()
-				throws EntityDeletedException;
+	List<ReactiveAbility> reactiveAbilities() throws EntityDeletedException;
 	
 	/**
 	 * <i>This method should return FALSE when a PC is charmed, confused, or otherwise only 

@@ -1,14 +1,13 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.gamestate.entities.abilities.Ability;
+import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.Item;
 
 /**
- * <b>ReactiveAbilityType</b>
+ * <b>ReactiveAbility</b>
  * <p>
- * It has an Id for its type.
- * <p>
- * It has a priority, in case multiple ReactiveAbilities wish to respond to the same incoming
- * Ability
+ * It has an Id, and a priority, in case multiple ReactiveAbilities wish to respond to the same
+ * incoming Ability
  * <p>
  * It specifies which phase of an Ability it responds to
  * <p>
@@ -21,9 +20,9 @@ import soliloquy.specs.gamestate.entities.abilities.Ability;
  * @version 0.0.1
  *
  */
-public interface ReactiveAbilityType extends AbilityType {
+public interface ReactiveAbility extends Ability {
 	/**
-	 * @return The (optional) priority for when this ReactiveAbilityType performs its reaction, if
+	 * @return The (optional) priority for when this ReactiveAbility performs its reaction, if
 	 * there are multiple ReactiveAbilityTypes reacting to the same incoming ability
 	 */
 	Integer priority();
@@ -31,7 +30,7 @@ public interface ReactiveAbilityType extends AbilityType {
 	/**
 	 * @return An ability has names for various movementEvents during its execution (e.g. when it
 	 * selects a target, before the target is hit, and after the target is hit). This string
-	 * identifies the event to which this ReactiveAbilityType reacts. (For instance, it might take
+	 * identifies the event to which this ReactiveAbility reacts. (For instance, it might take
 	 * effect before the Character is hit, or after, depending on this value.)
 	 */
 	String eventHook();
@@ -43,13 +42,24 @@ public interface ReactiveAbilityType extends AbilityType {
 	 * incoming Ability 
 	 */
 	boolean willReact(Ability incomingAbility);
-	
+
 	/**
 	 * Determines how the ReactiveAbility does actually react
 	 * @param alreadyBlocked True, if and if the incoming Ability has already been blocked. (Some
 	 * ReactiveAbilities won't bother doing anything if this is the case; others will.)
+	 * @param abilitySource The Character source for the Ability being reacted to
 	 * @param incomingAbility The incoming Ability
 	 * @return True, if and only if the incoming Ability has been blocked
 	 */
-	boolean react(boolean alreadyBlocked, Ability incomingAbility);
+	boolean react(boolean alreadyBlocked, Character abilitySource, Ability incomingAbility);
+
+	/**
+	 * Determines how the ReactiveAbility does actually react
+	 * @param alreadyBlocked True, if and if the incoming Ability has already been blocked. (Some
+	 * ReactiveAbilities won't bother doing anything if this is the case; others will.)
+	 * @param abilitySource The Character source for the Ability being reacted to
+	 * @param incomingAbility The incoming Ability
+	 * @return True, if and only if the incoming Ability has been blocked
+	 */
+	boolean react(boolean alreadyBlocked, Item abilitySource, Ability incomingAbility);
 }

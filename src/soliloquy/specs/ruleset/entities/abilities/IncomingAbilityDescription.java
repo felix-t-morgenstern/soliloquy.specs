@@ -19,15 +19,15 @@ import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 public interface IncomingAbilityDescription extends SoliloquyClass {
 	/**
 	 * If reactiveAbilityTypeId() returns a non-null value, this method <b>must</b> return null.
-	 * @return the Id of the ActiveAbilityType
+	 * @return the Id of the ActiveAbility
 	 */
-	ActiveAbilityType activeAbilityTypeId();
+	ActiveAbility activeAbilityTypeId();
 
 	/**
 	 * If activeAbilityTypeId() returns a non-null value, this method <b>must</b> return null.
 	 * @return the Id of the RectiveAbilityType
 	 */
-	ReactiveAbilityType reactiveAbilityType();
+	ReactiveAbility reactiveAbilityType();
 	
 	/**
 	 * @return The source of the incoming Ability

@@ -9,18 +9,18 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.*;
-import soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType;
-import soliloquy.specs.ruleset.entities.abilities.PassiveAbilityType;
-import soliloquy.specs.ruleset.entities.abilities.ReactiveAbilityType;
+import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
+import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
+import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
 // TODO: Document this interface
 public interface Ruleset extends SoliloquyClass {
-	EntityGroup<ActiveAbilityType> activeAbilityTypes();
+	EntityGroup<ActiveAbility> activeAbilityTypes();
 	
-	EntityGroup<ReactiveAbilityType> reactiveAbilityTypes();
+	EntityGroup<ReactiveAbility> reactiveAbilityTypes();
 	
-	EntityGroup<PassiveAbilityType> passiveAbilityTypes();
+	EntityGroup<PassiveAbility> passiveAbilityTypes();
 
 	EntityGroup<CharacterVariableStatisticType> variableStatisticTypesGrouped();
 

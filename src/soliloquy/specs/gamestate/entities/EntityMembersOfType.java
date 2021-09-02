@@ -16,11 +16,13 @@ import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
- * @param <TEntityType> The type of statistic (e.g. static or variable) being contained here
+ * @param <TEntityMemberType> The type of statistic (e.g. static or variable) being contained here
  */
-public interface EntityMembersOfType<TEntityType extends HasId,
-        TEntity extends EntityMemberOfType<TEntityType>>
-            extends Iterable<TEntity>, Deletable {
+// NB: TEntity exists to facilitate genericization of constructor params
+public interface EntityMembersOfType<TEntityMemberType extends HasId,
+        TEntityMember extends EntityMemberOfType<TEntityMemberType>,
+        TEntity extends Deletable>
+            extends Iterable<TEntityMember>, Deletable {
     /**
      * Broadly, an entity placed here will have the same default values as its corresponding fields
      * (i.e. booleans will default to false, ints to 0, etc.).
@@ -37,7 +39,7 @@ public interface EntityMembersOfType<TEntityType extends HasId,
      * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
      * has been deleted
      */
-    void add(TEntityType entityType) throws IllegalArgumentException, EntityDeletedException;
+    void add(TEntityMemberType entityType) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * Broadly, an entity placed here will have the same default values as its corresponding fields
@@ -52,7 +54,7 @@ public interface EntityMembersOfType<TEntityType extends HasId,
      * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
      * has been deleted
      */
-    void add(TEntityType entityType, VariableCache data)
+    void add(TEntityMemberType entityType, VariableCache data)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -62,7 +64,7 @@ public interface EntityMembersOfType<TEntityType extends HasId,
      * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
      * has been deleted
      */
-    TEntity get(TEntityType entityType) throws IllegalArgumentException, EntityDeletedException;
+    TEntityMember get(TEntityMemberType entityType) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @return The number of entities in this collection
@@ -76,7 +78,7 @@ public interface EntityMembersOfType<TEntityType extends HasId,
      * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
      * has been deleted
      */
-    boolean remove(TEntityType entityType) throws IllegalArgumentException, EntityDeletedException;
+    boolean remove(TEntityMemberType entityType) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param entityType - The type of statistic whose presence to verify
@@ -85,7 +87,7 @@ public interface EntityMembersOfType<TEntityType extends HasId,
      * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
      * has been deleted
      */
-    boolean contains(TEntityType entityType)
+    boolean contains(TEntityMemberType entityType)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -100,5 +102,5 @@ public interface EntityMembersOfType<TEntityType extends HasId,
      * @throws EntityDeletedException If and only if the parent entity (e.g. the Character or Item)
      * has been deleted
      */
-    List<TEntity> representation() throws EntityDeletedException;
+    List<TEntityMember> representation() throws EntityDeletedException;
 }

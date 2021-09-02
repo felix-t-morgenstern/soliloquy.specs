@@ -3,12 +3,13 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 
 /**
  * <b>EntityMemberOfType</b>
  * <p>
  * An entity of a specific type (e.g.
- * {@link soliloquy.specs.ruleset.entities.abilities.ActiveAbilityType} or
+ * {@link ActiveAbility} or
  * {@link CharacterVariableStatisticType}), belonging to another entity, e.g. a Character or Item
  *
  * @author felix.t.morgenstern

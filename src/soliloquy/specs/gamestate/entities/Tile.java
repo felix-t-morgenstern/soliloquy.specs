@@ -1,12 +1,10 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.Coordinate;
-import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
-import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.GroundType;
 import soliloquy.specs.graphics.assets.Sprite;
+
+import java.util.Map;
 
 /**
  * <b>Tile</b>

@@ -6,10 +6,10 @@ import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.gamestate.entities.abilities.ActiveAbility;
-import soliloquy.specs.gamestate.entities.abilities.PassiveAbility;
-import soliloquy.specs.gamestate.entities.abilities.ReactiveAbility;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
+import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
+import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
+import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 
 /**
  * <b>ItemType</b>
