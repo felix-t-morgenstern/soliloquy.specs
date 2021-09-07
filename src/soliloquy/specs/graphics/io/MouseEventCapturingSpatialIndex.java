@@ -1,10 +1,11 @@
-package soliloquy.specs.graphics.rendering;
+package soliloquy.specs.graphics.io;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.RenderableWithArea;
+import soliloquy.specs.graphics.rendering.FloatBox;
 
 /**
- * <b>MouseEventCapturingSpatialMap</b>
+ * <b>MouseEventCapturingSpatialIndex</b>
  * <p>
  * This class is used to store spatial information about the
  * {@link soliloquy.specs.graphics.renderables.Renderable}s currently on the screen which capture
@@ -15,7 +16,7 @@ import soliloquy.specs.graphics.renderables.RenderableWithArea;
  * @version 0.0.1
  *
  */
-public interface MouseEventCapturingSpatialMap extends SoliloquyClass {
+public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
     /**
      * @param x The x location in the window, ranging from 0.0 to 1.0, to check for a Renderable
      *          which captures mouse events
@@ -30,17 +31,22 @@ public interface MouseEventCapturingSpatialMap extends SoliloquyClass {
             throws IllegalArgumentException;
 
     /**
-     * If renderable is already present in this map, its location is updated
-     * @param renderable The Renderable to place in this map
+     * If renderable is already present in this index, its location is updated.
+     * <p>
+     * NB: This method accepts both the renderable and its renderingDimensions separately to avoid
+     * having to calculate the rendering dimensions of that renderable at a given timestamp twice.
+     * @param renderable The Renderable to place in this index
+     * @param renderingDimensions The rendering dimensions of the Renderable being placed
      * @throws IllegalArgumentException If and only if renderable is null, or does not capture
      * mouse events
      */
-    void putRenderable(RenderableWithArea renderable) throws IllegalArgumentException;
+    void putRenderable(RenderableWithArea renderable, FloatBox renderingDimensions)
+            throws IllegalArgumentException;
 
     /**
      * (NB: This method does not require renderable to capture mouse events, since it can be used
      * to remove Renderables which are altered to no longer capture mouse events.)
-     * @param renderable The Renderable to remove from this map
+     * @param renderable The Renderable to remove from this index
      * @throws IllegalArgumentException If and only if renderable is null
      */
     void removeRenderable(RenderableWithArea renderable) throws IllegalArgumentException;

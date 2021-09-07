@@ -33,8 +33,8 @@ public interface WindowResolutionManager extends SoliloquyClass {
      * <p>
      * Also, this method throws an exception when the window is in windowed fullscreen mode, since
      * the window in that case should conform to the resolution of the screen.
-     * @param width The width to which to set the screen resolution
-     * @param height The height to which to set the screen resolution
+     * @param width The width to which to set the window resolution
+     * @param height The height to which to set the window resolution
      * @throws IllegalArgumentException If and only if width or height are less than 1, or are
      * invalid, according to the rules of the graphics engine implementation.
      * @throws UnsupportedOperationException If and only if current WindowDisplayMode is
@@ -54,12 +54,9 @@ public interface WindowResolutionManager extends SoliloquyClass {
     int getHeight();
 
     /**
-     * @param subscriber A method which will receive a Pair containing the width and height of the
-     *                   screen, respectively, every time these values change
-     * @throws IllegalArgumentException If and only if subscriber is null
+     * @return The ratio of the window width to the window height
      */
-    void registerResolutionSubscriber(Consumer<Coordinate> subscriber)
-            throws IllegalArgumentException;
+    float windowWidthToHeightRatio();
 
     /**
      * This method updates the size, display mode, etc. of the window, if there have been any
