@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics;
 
-import soliloquy.specs.common.infrastructure.Registry;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
@@ -8,7 +7,6 @@ import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop;
 import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
 import soliloquy.specs.graphics.renderables.providers.GlobalLoopingAnimation;
-import soliloquy.specs.graphics.rendering.MouseCursorAsset;
 import soliloquy.specs.graphics.rendering.WindowResolutionManager;
 
 /**
@@ -72,9 +70,4 @@ public interface Graphics extends SoliloquyClass {
      * fullscreen, the screen itself)
      */
     WindowResolutionManager windowResolutionManager();
-
-    /**
-     * @return An interface to mutate the current mouse cursor asset
-     */
-    MouseCursorAsset mouseCursorAsset();
 }
