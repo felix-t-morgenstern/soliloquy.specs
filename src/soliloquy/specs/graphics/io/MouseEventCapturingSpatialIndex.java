@@ -22,12 +22,14 @@ public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
      *          which captures mouse events
      * @param y The y location in the window, ranging from 0.0 to 1.0, to check for a Renderable
      *          which captures mouse events
+     * @param timestamp The timestamp at which to determine the capturing Renderable at the
+     *                  specified point
      * @return The RenderableWithArea capturing mouse events at that particular location; if no
      * Renderable is capturing events, this method returns null
      * @throws IllegalArgumentException If and only if x or y are outside of the range of [0.0,
-     * 1.0]
+     * 1.0], or if timestamp is out-of-date
      */
-    RenderableWithArea getCapturingRenderableAtPoint(float x, float y)
+    RenderableWithArea getCapturingRenderableAtPoint(float x, float y, long timestamp)
             throws IllegalArgumentException;
 
     /**

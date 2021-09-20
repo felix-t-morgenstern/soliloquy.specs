@@ -38,6 +38,20 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
     void setCapturesMouseEvents(boolean capturesMouseEvents) throws IllegalArgumentException;
 
     /**
+     * @param x The x location, in the window, on which this Renderable was clicked
+     * @param y The y location, in the window, on which this Renderable was clicked
+     * @param timestamp The timestamp at which this Renderable was clicked
+     * @return True, if and only if this Renderable captures mouse events at the timestamp and
+     * location provided
+     * @throws UnsupportedOperationException If and only if this Renderable does not support mouse
+     * events
+     * @throws IllegalArgumentException If and only if x or y are outside of the window boundaries
+     * (i.e. [0f,1f]), or if timestamp is out-of-date
+     */
+    boolean capturesMouseEventAtPoint(float x, float y, long timestamp)
+            throws UnsupportedOperationException, IllegalArgumentException;
+
+    /**
      * Triggers the onClick mouse event
      * @param mouseButton The mouse button being pressed (c.f. GLFW_MOUSE_BUTTON_*)
      * @param timestamp The timestamp at which the mouse button has been pressed
