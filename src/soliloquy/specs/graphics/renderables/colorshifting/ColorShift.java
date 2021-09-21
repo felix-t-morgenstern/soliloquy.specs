@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables.colorshifting;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 /**
  * <b>ColorShift</b>
@@ -12,6 +13,15 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  */
 public interface ColorShift extends SoliloquyClass {
+    /**
+     * See the individual implementations for more details:
+     * {@link BrightnessShift#shiftAmountProvider()},
+     * {@link ColorComponentShift#shiftAmountProvider()}, and
+     * {@link ColorRotationShift#shiftAmountProvider()}
+     * @return A Provider, providing the value for this ColorShift at a given time
+     */
+    ProviderAtTime<Float> shiftAmountProvider();
+
     /**
      * 'Type' here refers to specific implementations of ColorShift; so, for example, if a
      * {@link BrightnessShift} returns True from this method, then all BrightnessShifts lower in
