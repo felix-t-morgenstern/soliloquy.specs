@@ -22,10 +22,13 @@ public interface GlobalLoopingAnimationFactory extends SoliloquyClass {
      * @param animation The Animation to use for this GlobalLoopingAnimation
      * @param periodModuloOffset The milliseconds by which the period of this Animation is offset
      *                           (c.f. {@link soliloquy.specs.common.shared.HasPeriodModuloOffset})
+     * @param pauseTimestamp The timestamp at which this GlobalLoopingAnimation has been paused; if
+     *                       unpaused, this value should be null
      * @return The newly-created GlobalLoopingAnimation
      * @throws IllegalArgumentException If and only if uuid is null, animation is null, or
      * periodModuloOffset is negative or greater than or equal to the ms duration of animation
      */
-    GlobalLoopingAnimation make(String id, Animation animation, int periodModuloOffset)
+    GlobalLoopingAnimation make(String id, Animation animation, int periodModuloOffset,
+                                Long pauseTimestamp)
             throws IllegalArgumentException;
 }
