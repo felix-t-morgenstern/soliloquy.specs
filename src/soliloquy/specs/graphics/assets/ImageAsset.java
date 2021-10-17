@@ -7,9 +7,10 @@ import java.util.Map;
  * <b>ImageAsset</b>
  * <p>
  * This class is a type of Asset which is made of one or more snippets of an {@link Image}, i.e.
- * {@link Sprite} and {@link Animation}. This interface exists to allow {@link ImageAssetSet}s to
- * return assets of either of these types. This interface also contains an enum value of the
- * ImageAssetTypes, to be used (and not defined) by the graphics engine.
+ * {@link Sprite}, {@link Animation}, and {@link GlobalLoopingAnimation}. This interface exists to
+ * allow {@link ImageAssetSet}s to return assets of any of these types. This interface also
+ * contains an enum value of the ImageAssetTypes, to be used (and not defined) by the graphics
+ * engine.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -26,7 +27,8 @@ public interface ImageAsset extends Asset {
     enum ImageAssetType {
         UNKNOWN(0),
         SPRITE(1),
-        ANIMATION(2);
+        ANIMATION(2),
+        GLOBAL_LOOPING_ANIMATION(3);
 
         private static final Map<Integer, ImageAssetType> BY_VALUE = new HashMap<>();
 

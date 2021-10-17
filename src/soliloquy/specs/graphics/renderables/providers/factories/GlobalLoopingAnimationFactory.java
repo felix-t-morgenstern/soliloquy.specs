@@ -1,9 +1,8 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.assets.Animation;
-import soliloquy.specs.graphics.renderables.providers.GlobalLoopingAnimation;
+import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
 
 /**
  * <b>GlobalLoopingAnimationFactory</b>

@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.graphics.renderables.providers.GlobalLoopingAnimation;
+import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
 
 /**
  * <b>GlobalLoopingAnimationRenderable</b>

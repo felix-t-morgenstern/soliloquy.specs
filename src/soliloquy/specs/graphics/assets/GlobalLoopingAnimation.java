@@ -1,10 +1,10 @@
-package soliloquy.specs.graphics.renderables.providers;
+package soliloquy.specs.graphics.assets;
 
-import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.valueobjects.EntityUuid;
-import soliloquy.specs.graphics.assets.AnimationFrameSnippet;
+import soliloquy.specs.graphics.renderables.providers.LoopingProvider;
 
-public interface GlobalLoopingAnimation extends LoopingProvider<AnimationFrameSnippet>, HasId {
+public interface GlobalLoopingAnimation
+        extends LoopingProvider<AnimationFrameSnippet>, ImageAsset {
     /**
      * @return True, if and only if the underlying
      * {@link soliloquy.specs.graphics.assets.Animation} supports mouse events
