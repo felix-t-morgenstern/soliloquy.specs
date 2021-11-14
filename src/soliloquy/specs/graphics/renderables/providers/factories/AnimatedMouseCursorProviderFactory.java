@@ -35,7 +35,7 @@ public interface AnimatedMouseCursorProviderFactory extends SoliloquyClass {
      * pausedTimestamp is defined, and mostRecentTimestamp is either null or less than
      * pausedTimestamp
      */
-    AnimatedMouseCursorProvider make(String id, Map<Long, Long> cursorsAtMs, int msDuration,
+    AnimatedMouseCursorProvider make(String id, Map<Integer, Long> cursorsAtMs, int msDuration,
                                      int periodModuloOffset, Long pausedTimestamp,
                                      Long mostRecentTimestamp)
             throws IllegalArgumentException;
