@@ -20,12 +20,6 @@ import java.util.Map;
  */
 public interface LoopingMovingProvider<T> extends LoopingProvider<T>, HasPeriodDuration {
     /**
-     * C.f. {@link #valuesWithinPeriod} for a more thorough explanation
-     * @return Whether or not the movement from one value to the next is linear or discrete
-     */
-    boolean movementIsLinear();
-
-    /**
      * <i>NB: <u>When the movement is linear,</u> this method links milliseconds within a period to
      * the values; when this provider is requested for a value at a timestamp falling in the middle
      * of two milliseconds within this period, this provider takes a linear interpolation of the
