@@ -23,7 +23,7 @@ public interface PersistentValuesHandler extends SoliloquyClass {
 	/**
 	 * (NB: You can technically have multiple String identifiers of a specific type; this may not
 	 * be the best design.)
-	 * @param persistentValueTypeHandler - The PersistenValueTypeHandler to be added
+	 * @param persistentValueTypeHandler - The PersistentValueTypeHandler to be added
 	 * @throws IllegalArgumentException If persistentValueType of persistentValueTypeHandler is
 	 * null
 	 */
