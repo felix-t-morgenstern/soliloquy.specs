@@ -13,7 +13,7 @@ import soliloquy.specs.common.valueobjects.EntityUuid;
  * @version 0.0.1
  *
  */
-public interface AnimatedMouseCursorProvider extends ProviderAtTime<Long>, HasId {
+public interface AnimatedMouseCursorProvider extends ResettableProvider<Long>, HasId {
     /**
      * AnimatedMouseCursorProviders are not identified by Uuid, but rather by their String Ids.
      */

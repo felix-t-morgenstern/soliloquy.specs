@@ -10,5 +10,5 @@ import soliloquy.specs.common.shared.HasPeriodModuloOffset;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface LoopingProvider<T> extends ProviderAtTime<T>, HasPeriodModuloOffset {
+public interface LoopingProvider<T> extends ResettableProvider<T>, HasPeriodModuloOffset {
 }
