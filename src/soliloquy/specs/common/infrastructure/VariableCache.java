@@ -50,7 +50,7 @@ public interface VariableCache extends Cloneable<VariableCache>, SoliloquyClass 
 	 * @return A List of the names of the names of PersistentVariables in this
 	 * VariableCache
 	 */
-	List<String> namesRepresentation();
+	java.util.List<String> namesRepresentation();
 
 	/**
 	 * NB: Changing the contents of this Map does not change which PersistentVariables are present
@@ -58,7 +58,7 @@ public interface VariableCache extends Cloneable<VariableCache>, SoliloquyClass 
 	 * and changing their values will result in the real variable values being changed.
 	 * @return A Map of the PersistentVariables in this VariableCache
 	 */
-	Map<String,Object> variablesRepresentation();
+	java.util.Map<String,Object> variablesRepresentation();
 
 	/**
 	 * Clears all PersistentVariables in this VariableCache
