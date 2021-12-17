@@ -18,7 +18,7 @@ package soliloquy.specs.common.shared;
  * @param <P1> The type parameter corresponding to the single generic type argument provided to the
  * class implementing this interface
  */
-public interface HasOneGenericParam<P1> extends HasGenericParams {
+public interface HasOneGenericParam<P1> extends SoliloquyClass {
 	/**
 	 * @return The archetype provided to this class (to describe its generic parameter type) 
 	 */

@@ -15,17 +15,19 @@ package soliloquy.specs.common.shared;
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
- * @param <P1> The type parameter corresponding to the single generic type argument provided to the
+ * @param <T1> The type parameter corresponding to the first generic type argument provided to the
+ * class implementing this interface
+ * @param <T2> The type parameter corresponding to the second generic type argument provided to the
  * class implementing this interface
  */
-public interface HasTwoGenericParams<P1,P2> extends HasGenericParams {
+public interface HasTwoGenericParams<T1, T2> extends SoliloquyClass {
 	/**
 	 * @return The first archetype
 	 */
-	P1 getFirstArchetype() throws IllegalStateException;
+	T1 getFirstArchetype() throws IllegalStateException;
 	
 	/**
 	 * @return The second archetype
 	 */
-	P2 getSecondArchetype() throws IllegalStateException;
+	T2 getSecondArchetype() throws IllegalStateException;
 }

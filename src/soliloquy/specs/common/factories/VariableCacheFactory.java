@@ -7,7 +7,8 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * <b>VariableCacheFactory</b>
  * <p>
  * This class instantiates new PersistentVariableCaches. (Intended use is for a
- * PersistentTypeHandler to read PersistentVariableCaches from memory.)
+ * {@link soliloquy.specs.common.persistence.TypeHandler} to read PersistentVariableCaches from
+ * memory.)
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

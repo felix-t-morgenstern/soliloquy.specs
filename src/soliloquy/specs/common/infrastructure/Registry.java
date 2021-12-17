@@ -107,5 +107,5 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
      * modifying this returned List will not modify the contents of this Registry.
      * @return A List containing all of the entities in this Registry
      */
-    List<T> representation();
+    java.util.List<T> representation();
 }

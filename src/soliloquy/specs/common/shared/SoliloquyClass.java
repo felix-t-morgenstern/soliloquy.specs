@@ -1,5 +1,7 @@
 package soliloquy.specs.common.shared;
 
+import soliloquy.specs.common.persistence.TypeHandler;
+
 /**
  * <b>SoliloquyClass</b>
  * <p>
@@ -8,7 +10,7 @@ package soliloquy.specs.common.shared;
  * {@link soliloquy.specs.gamestate.entities.Character}>". At present, Java does not expose the
  * generic type parameters of a class, so Soliloquy classes must expose this information
  * themselves, to be fed to the correct
- * {@link soliloquy.specs.common.persistence.PersistentValueTypeHandler} when the type of a class
+ * {@link TypeHandler} when the type of a class
  * is not known in advance, e.g. {@link soliloquy.specs.common.infrastructure.Setting}s or items in
  * the {@link soliloquy.specs.common.infrastructure.VariableCache}.
  * 
