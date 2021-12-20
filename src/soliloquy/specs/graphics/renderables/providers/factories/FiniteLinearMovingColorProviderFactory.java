@@ -19,21 +19,24 @@ import java.util.Map;
  */
 public interface FiniteLinearMovingColorProviderFactory extends SoliloquyClass {
     /**
-     * @param id The id of this ProviderAtTime
+     * @param uuid The uuid of this ProviderAtTime
      * @param valuesAtTimestamps The valuesAtTimestamps to provide (c.f.
      * {@link FiniteLinearMovingColorProvider#valuesAtTimestampsRepresentation})
      * @param hueMovementIsClockwise The rotational directions of hue movements (c.f.
      * {@link FiniteLinearMovingColorProvider#hueMovementIsClockwise})
+     * @param pausedTimestamp The timestamp at which this Provider is paused; if unpaused, this
+     *                        parameter should be null
      * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
      *                            null, implying no value provided
      * @return The newly-created FiniteLinearMovingProvider
      * @throws IllegalArgumentException If and only if id is null; or valuesAtTimestamps is null,
      * or contains fewer than two key-value pairs; or if hueMovementIsClockwise is null, or if
      * hueMovementIsClockwise has any null items, or if hueMovementIsClockwise has a size different
-     * from the size of valuesAtTimestamps minus one
+     * from the size of valuesAtTimestamps minus one; or if pausedTimestamp is non-null, and
+     * mostRecentTimestamp is either null or prior to pausedTimestamp
      */
-    FiniteLinearMovingColorProvider make(EntityUuid id, Map<Long, Color> valuesAtTimestamps,
+    FiniteLinearMovingColorProvider make(EntityUuid uuid, Map<Long, Color> valuesAtTimestamps,
                                          List<Boolean> hueMovementIsClockwise,
-                                         Long mostRecentTimestamp)
+                                         Long pausedTimestamp, Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }
