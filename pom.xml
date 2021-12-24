@@ -2,9 +2,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>disorg.soliloquy</groupId>
   <artifactId>soliloquy.specs</artifactId>
-  <version>0.0.247</version>
+  <version>0.0.251</version>
   <name>Soliloquy Specifications</name>
-  <description>The common suite of specifications to which all Soliloquy classes and components are to expect one another to adhere</description>
+  <description>The common suite of specifications to which all Soliloquy classes and components are
+      to expect one another to adhere</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>

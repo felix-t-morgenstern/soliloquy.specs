@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.gamestate.entities.gameevents.firings.TriggeredEvent;
+import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.timers.ClockBasedTimer;
 
 import java.util.function.Consumer;
@@ -8,36 +8,12 @@ import java.util.function.Consumer;
 /**
  * <b>FrameExecutor</b>
  * <p>
- * This class manages the execution of frames, as well as frame-blocking events and
- * {@link TriggeredEvent}s.
+ * This class manages the execution of frames, as well as frame-blocking events.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FrameExecutor {
-    /**
-     * @param triggeredEvent The TriggeredEvent for which to place a block on event firing
-     * @throws IllegalArgumentException If and only if triggeredEvent is null
-     */
-    void placeTriggeredEventFiringBlock(TriggeredEvent triggeredEvent)
-            throws IllegalArgumentException;
-
-    /**
-     * @param triggeredEvent The TriggeredEvent for which
-     * @throws IllegalArgumentException If and only if triggeredEvent is null
-     */
-    void releaseTriggeredEventFiringBlock(TriggeredEvent triggeredEvent)
-            throws IllegalArgumentException;
-
-    /**
-     * @param triggeredEvent The TriggeredEvent to fire if it has the highest priority the next
-     *                       time {@link #execute} is called without a block placed on the firing
-     *                       of TriggeredEvents
-     * @throws IllegalArgumentException If and only if triggeredEvent is null
-     */
-    void registerTriggeredEventToFire(TriggeredEvent triggeredEvent)
-            throws IllegalArgumentException;
-
+public interface FrameExecutor extends SoliloquyClass {
     /**
      * <i>(NB: All frame-blocking events are fired parallelly via an internal semaphore, so no
      * frame-blocking events should be capable of generating race conditions.)</i>
@@ -50,21 +26,22 @@ public interface FrameExecutor {
     /**
      * The workflow of this method is as follows:
      * <p>
-     * First, all frame-blocking events (including all {@link ClockBasedTimer}s) are fired in
-     * parallel via {@link soliloquy.specs.gamestate.entities.timers.ClockBasedTimerManager}. These
-     * are events which are expected to occur (effectively) simultaneously, like the initiation of
-     * {@link soliloquy.specs.audio.entities.Sound}s, the placement of
-     * {@link soliloquy.specs.graphics.renderables.Renderable}s, or
+     * First, all frame-blocking events (including all {@link ClockBasedTimer}s provided to
+     * {@link #registerFrameBlockingEvent} via
+     * {@link soliloquy.specs.gamestate.entities.timers.ClockBasedTimerManager}) are fired in
+     * parallel. These are events which are expected to occur (effectively) simultaneously, like
+     * the initiation of {@link soliloquy.specs.audio.entities.Sound}s, the placement of
+     * {@link soliloquy.specs.graphics.renderables.Renderable}s or
      * {@link soliloquy.specs.gamestate.entities.TileEntity}s, etc. These events are expected to be
-     * extremely brief, on the level of 2 ms in total, though this is not enforced.
+     * extremely brief, on the level of 2-5 ms in total, though this is not enforced.
      * <p>
-     * Second, the first {@link TriggeredEvent} by priority is selected. All TriggeredEvents do not
-     * block frame execution. When a TriggeredEvent begins firing, it places a block on the
-     * firing of other TriggeredEvents by way of {@link #placeTriggeredEventFiringBlock}. Any
-     * TriggeredEvents fired within that initial TriggeredEvent will also place a block on the
-     * firing of further TriggeredEvents. The FrameExecutor will continue to run frames unabated;
-     * each time, it will avoid firing any TriggeredEvents, unless there are no TriggeredEvents
-     * whose firing has placed a block on the firing of other TriggeredEvents.
+     * Then, FrameExecutor calls
+     * {@link soliloquy.specs.graphics.rendering.renderers.StackRenderer#render} <i>at the current
+     * time after the firing of all frame-blocking events.</i> The reasoning here is that
+     * frame-blocking events do genuinely block frame rendering; therefore, even if events take
+     * 12ms to fire, the FrameExecutor will be sure to render the {@link RenderableStack} only
+     * after those 12ms, to ensure that animations etc are not staggered or stilted by those
+     * frame-blocking events.
      */
     void execute();
 }

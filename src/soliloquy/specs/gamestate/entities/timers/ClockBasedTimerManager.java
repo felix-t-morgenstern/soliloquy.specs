@@ -3,8 +3,6 @@ package soliloquy.specs.gamestate.entities.timers;
 import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
-import java.util.function.Consumer;
-
 /**
  * <b>ClockBasedTimerManager</b>
  * <p>
@@ -54,9 +52,9 @@ public interface ClockBasedTimerManager extends SoliloquyClass {
             throws IllegalArgumentException;
 
     /**
-     * Fires any timers whose time has come, by registering their firing at
+     * Selects all Timers whose time has come be fired, and registers them to be fired at
      * {@link soliloquy.specs.graphics.rendering.FrameExecutor#registerFrameBlockingEvent}.
-     * @param timestamp The timestamp at which to determine whether the timers should fire
+     * @param timestamp The timestamp at which to determine whether the Timers should fire
      * @throws IllegalArgumentException If and only if this method has already been called at or
      * after timestamp
      */
