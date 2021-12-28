@@ -1,9 +1,10 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.Renderable;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <b>RenderableStack</b>

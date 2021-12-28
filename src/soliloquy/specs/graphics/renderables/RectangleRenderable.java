@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.*;
 
@@ -22,7 +21,7 @@ import java.awt.*;
  * @version 0.0.1
  *
  */
-public interface RectangleRenderable extends RenderableWithArea, RenderableStack {
+public interface RectangleRenderable extends RenderableWithArea {
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * corner.</i>
