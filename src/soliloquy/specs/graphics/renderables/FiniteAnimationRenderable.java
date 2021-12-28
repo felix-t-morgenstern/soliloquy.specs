@@ -33,4 +33,9 @@ public interface FiniteAnimationRenderable
      * @return The timestamp at which the finite animation ends
      */
     long endTimestamp();
+
+    /**
+     * @return The Id of the Animation to render
+     */
+    String animationId();
 }
