@@ -4,7 +4,6 @@ import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.assets.Sprite;
-import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.SpriteRenderable;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
@@ -38,8 +37,8 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
      * @param z The z index within the container
      * @param uuid The universally unique identifier
      * @param updateZIndexInContainer A Consumer which will accept this object to update its
-     *                                z-index within its container when
-     *                                {@link ImageAssetSetRenderable#setZ} is called
+     *                                z-index within its container when {@link Renderable#setZ} is
+     *                                called
      * @param removeFromContainer A Consumer which will accept this object to delete it from its
      *                            container when deleted
      * @return The newly-created SpriteRenderable
@@ -75,8 +74,8 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
      * @param z The z index within the container
      * @param uuid The universally unique identifier
      * @param updateZIndexInContainer A Consumer which will accept this object to update its
-     *                                z-index within its container when
-     *                                {@link ImageAssetSetRenderable#setZ} is called
+     *                                z-index within its container when {@link Renderable#setZ} is
+     *                                called
      * @param removeFromContainer A Consumer which will accept this object to delete it from its
      *                            container when deleted
      * @return The newly-created SpriteRenderable
