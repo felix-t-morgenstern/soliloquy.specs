@@ -15,6 +15,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+/**
+ * <b>SpriteRenderableFactory</b>
+ * <p>
+ * Creates {@link FiniteAnimationRenderable}s
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
 public interface FiniteAnimationRenderableFactory extends SoliloquyClass {
     /**
      * <i>NB: This method is for FiniteAnimationRenderables which do not support mouse events.</i>
