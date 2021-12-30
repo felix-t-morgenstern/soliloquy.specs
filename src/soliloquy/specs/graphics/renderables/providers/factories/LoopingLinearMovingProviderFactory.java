@@ -22,22 +22,25 @@ public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
      *                       {@link LoopingMovingProvider#periodDuration()}
      * @param periodModuloOffset The offset of the period (c.f.
      *                           {@link LoopingMovingProvider#periodModuloOffset()})
-     * @param movementIsLinear Sets whether the movement is linear or discrete (c.f.
-     *                         {@link LoopingMovingProvider#movementIsLinear}
      * @param valuesWithinPeriod The values corresponding to different ms positions within the
      *                           period (c.f.
      *                           {@link LoopingMovingProvider#valuesWithinPeriod()}
      * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
      *                            null, implying no value provided
+     * @param pausedTimestamp The time at which this Provider has been paused
+     * @param archetype An archetype, used by the factory to determine which type of Provider to
+     *                  make. (NB: It is needed due to limitations in how Java handles generic
+     *                  types.)
      * @param <T> The type of value provided
      * @return The newly-created LoopingMovingProvider
      * @throws IllegalArgumentException If and only if id is null, periodDuration is less than or
      * equal to 0, periodModuloOffset is less than 0, periodModuloOffset is greater than or equal
-     * to periodDuration, valuesWithinPeriod is null, or valuesWithinPeriod does not have a value
-     * corresponding to 0ms
+     * to periodDuration, valuesWithinPeriod is null, valuesWithinPeriod does not have a value
+     * corresponding to 0ms, or pausedTimestamp is non-null and mostRecentTimestamp is null or
+     * prior to pausedTimestamp, or archetype is null
      */
     <T> LoopingMovingProvider<T> make(EntityUuid id, int periodDuration, int periodModuloOffset,
-                                      boolean movementIsLinear,
-                                      Map<Integer, T> valuesWithinPeriod, Long mostRecentTimestamp)
+                                      Map<Integer, T> valuesWithinPeriod, Long mostRecentTimestamp,
+                                      Long pausedTimestamp, T archetype)
             throws IllegalArgumentException;
 }
