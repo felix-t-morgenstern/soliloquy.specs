@@ -5,7 +5,7 @@ import soliloquy.specs.common.shared.HasPeriodDuration;
 import java.util.Map;
 
 /**
- * <b>LoopingMovingProvider</b>
+ * <b>LoopingLinearMovingProvider</b>
  * <p>
  * A ProviderAtTime which supports linear movement from one value, e.g. a rendering area or a
  * float, to another, on a loop, within a period; this can be paused and resumed
@@ -18,7 +18,7 @@ import java.util.Map;
  * @version 0.0.1
  *
  */
-public interface LoopingMovingProvider<T> extends LoopingProvider<T>, HasPeriodDuration {
+public interface LoopingLinearMovingProvider<T> extends LoopingProvider<T>, HasPeriodDuration {
     /**
      * <i>NB: <u>When the movement is linear,</u> this method links milliseconds within a period to
      * the values; when this provider is requested for a value at a timestamp falling in the middle

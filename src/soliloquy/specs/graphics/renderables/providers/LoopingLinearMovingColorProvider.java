@@ -3,7 +3,7 @@ package soliloquy.specs.graphics.renderables.providers;
 import java.awt.*;
 import java.util.List;
 
-public interface LoopingMovingColorProvider extends LoopingMovingProvider<Color> {
+public interface LoopingLinearMovingColorProvider extends LoopingLinearMovingProvider<Color> {
     /**
      * <i>NB: This class exists because hues in color space are circular. For instance, a movement
      * from red to green can travel clockwise, from red to yellow to green; but it can also travel
