@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities.timers;
 
+import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.PausableAtTime;
 import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
 
@@ -15,7 +16,7 @@ import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
  * @version 0.0.1
  *
  */
-public interface ClockBasedTimer extends PausableAtTime, HasMostRecentTimestamp {
+public interface ClockBasedTimer extends HasId, PausableAtTime, HasMostRecentTimestamp {
     /**
      * @return The Id of the {@link soliloquy.specs.common.entities.Action} which runs when this
      * ClockBasedTimer is fired
