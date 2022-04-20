@@ -38,18 +38,16 @@ public interface ClockBasedTimerManager extends SoliloquyClass {
             throws IllegalArgumentException;
 
     /**
-     * @param oneTimeClockBasedTimer The OneTimeClockBasedTimer to deregister
-     * @throws IllegalArgumentException If and only if oneTimeClockBasedTimer is null
+     * @param id The Id of the OneTimeClockBasedTimer to deregister
+     * @throws IllegalArgumentException If and only if id is null or empty
      */
-    void deregisterOneTimeTimer(OneTimeClockBasedTimer oneTimeClockBasedTimer)
-            throws IllegalArgumentException;
+    void deregisterOneTimeTimer(String id) throws IllegalArgumentException;
 
     /**
-     * @param recurringClockBasedTimer The RecurringClockBasedTimer to deregister
-     * @throws IllegalArgumentException If and only if recurringClockBasedTimer is null
+     * @param id The Id of the RecurringClockBasedTimer to deregister
+     * @throws IllegalArgumentException If and only if id is null or empty
      */
-    void deregisterRecurringTimer(RecurringClockBasedTimer recurringClockBasedTimer)
-            throws IllegalArgumentException;
+    void deregisterRecurringTimer(String id) throws IllegalArgumentException;
 
     /**
      * Selects all Timers whose time has come be fired, and registers them to be fired at
