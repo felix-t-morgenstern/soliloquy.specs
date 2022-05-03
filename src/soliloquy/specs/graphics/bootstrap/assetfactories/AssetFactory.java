@@ -11,7 +11,7 @@ import soliloquy.specs.graphics.assets.Asset;
  * {@link Asset}. This class is intended to be used by the
  * {@link soliloquy.specs.graphics.bootstrap.GraphicsPreloader}, to populate
  * {@link soliloquy.specs.common.infrastructure.Registry}s of various AssetTypes, e.g.
- * {@link soliloquy.specs.graphics.Graphics#spritesRegistry}.
+ * {@link soliloquy.specs.graphics.Graphics#getSprite}.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -20,9 +20,8 @@ import soliloquy.specs.graphics.assets.Asset;
 public interface AssetFactory<TAssetDefinition extends AssetDefinition<TAssetType>,
         TAssetType extends Asset> extends SoliloquyClass {
     /**
-     * NB: This method is intended to populate
-     * {@link soliloquy.specs.common.infrastructure.Registry}s of various AssetTypes, e.g.
-     * {@link soliloquy.specs.graphics.Graphics#spritesRegistry}.
+     * NB: This method is intended to populate the Graphics engine with various AssetTypes, e.g.
+     * {@link soliloquy.specs.graphics.Graphics#getSprite}.
      * @param definition The definition of the asset to create
      * @return The created asset
      * @throws IllegalArgumentException If and only if definition is null, or possesses invalid
