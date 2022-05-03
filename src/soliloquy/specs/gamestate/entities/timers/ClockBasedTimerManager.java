@@ -1,7 +1,8 @@
 package soliloquy.specs.gamestate.entities.timers;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
+
+import java.util.List;
 
 /**
  * <b>ClockBasedTimerManager</b>
@@ -48,6 +49,11 @@ public interface ClockBasedTimerManager extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if id is null or empty
      */
     void deregisterRecurringTimer(String id) throws IllegalArgumentException;
+
+    /**
+     * Clears all clock-based timers
+     */
+    void clear();
 
     /**
      * Selects all Timers whose time has come be fired, and registers them to be fired at
