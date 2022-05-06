@@ -119,8 +119,10 @@ public interface RoundManager extends SoliloquyClass {
 	 * <p>
 	 * Intended use case will have this method call the ActOnCharacterOnTurnAndRound methods of
 	 * StatusEffectTypes and VitalAttributes.
+	 * @throws IllegalStateException If and only if {@link #setActiveCharactersProvider} has not
+	 * been called
 	 */
-	void endActiveCharacterTurn();
+	void endActiveCharacterTurn() throws IllegalStateException;
 	
 	/**
 	 * @return The active Character; null, if no Character is active
