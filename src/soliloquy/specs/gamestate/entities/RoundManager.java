@@ -1,11 +1,11 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.timers.OneTimeTurnBasedTimer;
-import soliloquy.specs.gamestate.entities.timers.RecurringTurnBasedTimer;
+
+import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * <b>RoundManager</b>
@@ -20,10 +20,9 @@ import soliloquy.specs.gamestate.entities.timers.RecurringTurnBasedTimer;
  * @author felix.t.morgenstern
  *
  */
-public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
-		SoliloquyClass {
+public interface RoundManager extends SoliloquyClass {
 	/**
-	 * @param character - The Character whose presence in the queue to verify
+	 * @param character The Character whose presence in the queue to verify
 	 * @return True, if and only if character is present in characterQueue
 	 * @throws IllegalArgumentException If and only if character is null
 	 */
@@ -32,13 +31,12 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 	/**
 	 * The queue starts at position 0, and increasing numbers designate positions further back in
 	 * the queue.
-	 * @param character - The Character whose position in the queue to retrieve
+	 * @param character The Character whose position in the queue to retrieve
 	 * @return If character is present in the queue, then returns their order in the queue; else,
 	 * null
 	 * @throws IllegalArgumentException If and only if character is null
 	 */
-	Integer getCharacterPositionInQueue(Character character)
-			throws IllegalArgumentException;
+	Integer getCharacterPositionInQueue(Character character) throws IllegalArgumentException;
 
 	/**
 	 * @return The size of the queue
@@ -46,9 +44,9 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 	int queueSize();
 
 	/**
-	 * The round data for a Character is information about that Character which is only in effect
-	 * for a single round, c.f. {@link #characterQueueRepresentation}.
-	 * @param character - The Character whose round-specific data to retrieve
+	 * The round-specific data for a Character is information about that Character which is only in
+	 * effect for a single round, c.f. {@link #characterQueueRepresentation}.
+	 * @param character The Character whose round-specific data to retrieve
 	 * @return If character is present in the queue, returns their round-specific data; else, null
 	 * @throws IllegalArgumentException If and only if character is null
 	 */
@@ -70,8 +68,8 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 	 * the position in the <i>current</i> queue positioning, not what the queue positioning
 	 * <i>would</i> look like if that Character were removed. (So, for instance, if a Character is
 	 * to be moved to the position they currently occupy, they will not move.)
-	 * @param character - The Character whose position in the queue to set
-	 * @param position - The position to assign to character
+	 * @param character The Character whose position in the queue to set
+	 * @param position The position to assign to character
 	 * @throws IllegalArgumentException If and only if character is null, or if position is less
 	 * than zero
 	 */
@@ -79,19 +77,16 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 			throws IllegalArgumentException;
 
 	/**
-	 * Identical to {@link #setCharacterPositionInQueue(Character, int)}, except it also sets (and
-	 * can override) a Character's round data
-	 * @param character - The Character whose position in the queue to set
-	 * @param position - The position to assign to character
-	 * @param roundData - The round data for character
-	 * @throws IllegalArgumentException If and only if character is null,  if position is less than
-	 * zero, or if roundData is null
+	 * If character is not present in the queue, this method will have no effect.
+	 * @param character The Character whose round-specific data to set
+	 * @param roundData The round-specific data to set for character
+	 * @throws IllegalArgumentException If and only if character or roundData are null
 	 */
-	void setCharacterPositionInQueue(Character character, int position, VariableCache roundData)
+	void setCharacterRoundData(Character character, VariableCache roundData)
 			throws IllegalArgumentException;
 
 	/**
-	 * @param character - The Character to remove from characterQueue
+	 * @param character The Character to remove from characterQueue
 	 * @return True, if and only if character was present in characterQueue (prior to being
 	 * removed)
 	 * @throws IllegalArgumentException If and only if character is null
@@ -99,7 +94,7 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 	boolean removeCharacterFromQueue(Character character) throws IllegalArgumentException;
 
 	/**
-	 * Removes all {@link Character}s from the queue
+	 * Removes all {@link Character}s (and their round-specific data) from the queue
 	 */
 	void clearQueue();
 
@@ -128,7 +123,7 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 	void endActiveCharacterTurn();
 	
 	/**
-	 * @return The active Character
+	 * @return The active Character; null, if no Character is active
 	 */
 	Character activeCharacter();
 	
@@ -139,39 +134,37 @@ public interface RoundManager extends Iterable<Pair<Character,VariableCache>>,
 	
 	/**
 	 * @param roundNumber The round number to which to set the Game
-	 * @throws IllegalArgumentException If the roundNumber is illegal, e.g. if it is negative, and
-	 * the current implementation does not support negative values
 	 */
-	void setRoundNumber(int roundNumber) throws IllegalArgumentException;
+	void setRoundNumber(int roundNumber);
+
+	// NB: This _should_ be provided in the constructor, but since active character provision is a
+	//     responsibility of the Ruleset module, and since the Ruleset module currently depends on
+	//     the Gamestate module, this method must be exposed.
+	/**
+	 * @param provider The function which provides a list of active Characters, paired with the
+	 *                 round-specific data associated with that Character at the start of a new
+	 *                 round
+	 * @throws IllegalArgumentException If and only if provider is null
+	 */
+	void setActiveCharactersProvider(Supplier<List<Pair<Character, VariableCache>>> provider)
+			throws IllegalArgumentException;
 	
 	/**
 	 * This method doesn't just change the arbitrary number corresponding to the rounds; it
 	 * triggers any timers, status effects, etc. associated with the advancement of rounds.
 	 * <p>
 	 * Since the purpose of this method is to trigger movementEvents related to the progression of
-	 * Rounds in the Game, it is encouraged to not allow the Game to "advance" by negative rounds,
-	 * and to use getRound and setRound instead.
+	 * Rounds in the Game, it is not permitted to allow the Game to "advance" by 0 or negative
+	 * rounds; use {@link #setRoundNumber} instead.
 	 * <p>
 	 * Intended use case will have this method call the ActOnCharacterOnTurnAndRound methods of
 	 * StatusEffectTypes and VitalAttributes, and it will also check to see if Timers should be
-	 * triggered.
-	 * @param numberOfRounds The number of rounds by which to advance the Game.
-	 * @throws IllegalArgumentException If the numberOfRounds is illegal, e.g. if it is negative,
-	 * or if it would push the round number past the maximum value for an int
+	 * triggered by calling
+	 * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager#fireTimersForRoundsElapsed}.
+	 * @param numberOfRounds The number of rounds to advance
+	 * @throws IllegalArgumentException If and only if numberOfRounds is 0 or negative
+	 * @throws IllegalStateException If and only if {@link #setActiveCharactersProvider} has not
+	 * been called
 	 */
-	void advanceRounds(int numberOfRounds) throws IllegalArgumentException;
-	
-	/**
-	 * NB: This method is a representation; to add a TurnBasedTimer to this RoundManager, simply
-	 * create it with the correct Factory; and to delete it, simply delete the TurnBasedTimer.
-	 * @return A List representing the One-Time Timers currently in effect
-	 */
-	List<OneTimeTurnBasedTimer> oneTimeTurnBasedTimersRepresentation();
-	
-	/**
-	 * NB: This method is a representation; to add a TurnBasedTimer to this RoundManager, simply
-	 * create it with the correct Factory; and to delete it, simply delete the TurnBasedTimer.
-	 * @return A List representing the Recurring Timers currently in effect
-	 */
-	List<RecurringTurnBasedTimer> recurringTurnBasedTimersRepresentation();
+	void advanceRounds(int numberOfRounds) throws IllegalArgumentException, IllegalStateException;
 }

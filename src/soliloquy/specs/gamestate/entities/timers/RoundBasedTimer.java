@@ -6,17 +6,17 @@ import soliloquy.specs.gamestate.entities.Deletable;
 import soliloquy.specs.gamestate.entities.gameevents.TriggeredEvent;
 
 /**
- * <b>TurnBasedTimer</b>
+ * <b>RoundBasedTimer</b>
  * <p>
- * Shared functionality of OneTimeTurnBasedTimer and RecurringTurnBasedTimer
+ * Shared functionality of OneTimeRoundBasedTimer and RecurringRoundBasedTimer
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface TurnBasedTimer extends HasId, TriggeredEvent, Deletable {
+public interface RoundBasedTimer extends HasId, TriggeredEvent, Deletable {
     /**
-     * @return The {@link Action} which runs when this TurnBasedTimer is fired
+     * @return The Id of the {@link Action} which runs when this RoundBasedTimer is fired
      */
-    Action action();
+    String actionId();
 }
