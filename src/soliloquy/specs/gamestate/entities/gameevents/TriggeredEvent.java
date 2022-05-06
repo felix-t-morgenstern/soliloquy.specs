@@ -1,4 +1,4 @@
-package soliloquy.specs.gamestate.entities.gameevents.firings;
+package soliloquy.specs.gamestate.entities.gameevents;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 

@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.gameevents.firings.TriggeredEvent;
+import soliloquy.specs.gamestate.entities.gameevents.TriggeredEvent;
 
 /**
  * <b>TriggeredEventFactory</b>

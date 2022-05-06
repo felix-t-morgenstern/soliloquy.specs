@@ -3,7 +3,7 @@ package soliloquy.specs.gamestate.entities.timers;
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.Deletable;
-import soliloquy.specs.gamestate.entities.gameevents.firings.TriggeredEvent;
+import soliloquy.specs.gamestate.entities.gameevents.TriggeredEvent;
 
 /**
  * <b>TurnBasedTimer</b>

@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities.timers;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.gameevents.TriggeredEvent;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * <i>NB: All ClockBasedTimers are frame-blocking events, whose firings are passed to
  * {@link soliloquy.specs.graphics.rendering.FrameExecutor#registerFrameBlockingEvent}; c.f.
  * FrameExecutor.execute, referenced above. If you want to have a ClockBasedTimer trigger a
- * {@link soliloquy.specs.gamestate.entities.gameevents.firings.TriggeredEvent}, have the triggered
+ * {@link TriggeredEvent}, have the triggered
  * ClockBasedTimer generate (and register) that TriggeredEvent when fired.</i>
  *
  * @author felix.t.morgenstern
