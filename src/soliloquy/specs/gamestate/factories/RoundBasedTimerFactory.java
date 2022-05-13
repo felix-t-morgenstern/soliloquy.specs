@@ -28,7 +28,7 @@ public interface RoundBasedTimerFactory extends SoliloquyClass {
 	 * TimerType,
 	 * or if roundWhenGoesOff is less than 1, or if roundWhenGoesOff has already elapsed.
 	 */
-	OneTimeRoundBasedTimer makeOneTimeTimer(String timerId, Action action, long roundWhenGoesOff,
+	OneTimeRoundBasedTimer makeOneTimeTimer(String timerId, Action action, int roundWhenGoesOff,
                                             int priority)
 			throws IllegalArgumentException;
 	

@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface RoundBasedTimerManager extends SoliloquyClass {
     /**
+     * If the timer is already present, it is not added again.
      * @param oneTimeRoundBasedTimer The one-time turn-based timer to register
      * @throws IllegalArgumentException If and only if oneTimeRoundBasedTimer is null
      */
@@ -28,6 +29,7 @@ public interface RoundBasedTimerManager extends SoliloquyClass {
         throws IllegalArgumentException;
 
     /**
+     * If the timer is already present, it is not added again.
      * @param recurringRoundBasedTimer The recurring turn-based timer to register
      * @throws IllegalArgumentException If and only if oneTimeRoundBasedTimer is null
      */

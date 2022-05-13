@@ -27,7 +27,7 @@ import java.util.function.Consumer;
 public interface TextLineRenderableFactory extends SoliloquyClass {
     /**
      * @param font The Font to set for this Renderable
-     * @param lineText The text of this line
+     * @param lineTextProvider The text of this line
      * @param lineHeightProvider The {@link ProviderAtTime} for the height of the line, where the
      *                           entirety of the window has a height of 1.0.
      * @param justification The justification of the text line to be rendered (e.g. left, center,
@@ -63,14 +63,15 @@ public interface TextLineRenderableFactory extends SoliloquyClass {
      * @param removeFromContainer A Consumer which will accept this object to delete it from its
      *                            container when deleted
      * @return The newly-created TextLineRenderable
-     * @throws IllegalArgumentException If and only if font is null; lineText is null; lineHeight
+     * @throws IllegalArgumentException If and only if font is null; lineTextProvider is null; lineHeight
      * is 0 or less; justification is null or UNKNOWN; colorProviderIndices is null; italicIndices
      * is null; boldIndices is null; borderThicknessProvider is null, and borderColorProvider is
      * non-null; renderingLocationProvider is null; dropShadowSizeProvider is null;
      * dropShadowOffsetProvider is null; dropShadowColorProvider is null; uuid is null;
      * updateZIndexInContainer is null; or removeFromContainer is null
      */
-    TextLineRenderable make(Font font, String lineText, ProviderAtTime<Float> lineHeightProvider,
+    TextLineRenderable make(Font font, ProviderAtTime<String> lineTextProvider,
+                            ProviderAtTime<Float> lineHeightProvider,
                             TextJustification justification, float paddingBetweenGlyphs,
                             Map<Integer, ProviderAtTime<Color>> colorProviderIndices,
                             List<Integer> italicIndices, List<Integer> boldIndices,

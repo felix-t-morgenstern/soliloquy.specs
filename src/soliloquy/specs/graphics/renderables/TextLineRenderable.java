@@ -33,14 +33,15 @@ public interface TextLineRenderable extends RenderableWithBorders {
     /**
      * @return The text of this line
      */
-    String getLineText();
+    ProviderAtTime<String> getLineTextProvider();
 
     /**
-     * C.f. {@link #getLineText()} for more information
-     * @param lineText The text to set for this line
-     * @throws IllegalArgumentException If and only if lineText is null
+     * C.f. {@link #getLineTextProvider()} for more information
+     * @param lineTextProvider The text to set for this line
+     * @throws IllegalArgumentException If and only if lineTextProvider is null
      */
-    void setLineText(String lineText) throws IllegalArgumentException;
+    void setLineTextProvider(ProviderAtTime<String> lineTextProvider)
+            throws IllegalArgumentException;
 
     /**
      * <i>NB: This provider will return the x and y locations (respectively) for where this text
@@ -100,7 +101,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
     /**
      * When the Color value provided is null, this corresponds to the default font color
      * @return A map, where the integer keys correspond to the indices in the String (c.f.
-     * {@link #getLineText}), and the ProviderAtTime values correspond to providers which provide
+     * {@link #getLineTextProvider}), and the ProviderAtTime values correspond to providers which provide
      * the color to draw all subsequent glyphs at a given timestamp. This method may return null,
      * in which case, the entire text line is rendered in the default text color.
      */
@@ -111,7 +112,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer} will throw an
      * exception.</i>
      * @return A list of integer keys, corresponding to the indices in the String (c.f.
-     * {@link #getLineText()}. The first index corresponds to when the text should begin rendering
+     * {@link #getLineTextProvider()}. The first index corresponds to when the text should begin rendering
      * as italicized, the second corresponds to when the text should stop rendering as italicized,
      * the third when it should resume rendering as italicized, and so-on. This method may not
      * return null.
@@ -123,7 +124,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer} will throw an
      * exception.</i>
      * @return A list of integer keys, corresponding to the indices in the String (c.f.
-     * {@link #getLineText()}. The first index corresponds to when the text should begin rendering
+     * {@link #getLineTextProvider()}. The first index corresponds to when the text should begin rendering
      * as bold, the second corresponds to when the text should stop rendering as bold, the third
      * when it should resume rendering as bold, and so-on. This method may not return null.
      */

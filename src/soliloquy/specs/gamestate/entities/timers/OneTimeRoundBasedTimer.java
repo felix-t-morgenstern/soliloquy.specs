@@ -14,5 +14,5 @@ public interface OneTimeRoundBasedTimer extends RoundBasedTimer {
 	 * <i>This means that this Timer will fire at the <u>end</u> of the specified round.</i>
 	 * @return The round on which this RoundBasedTimer will fire
 	 */
-	long roundWhenGoesOff();
+	int roundWhenGoesOff();
 }
