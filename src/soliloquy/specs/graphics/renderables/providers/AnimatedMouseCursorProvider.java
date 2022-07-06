@@ -1,7 +1,8 @@
 package soliloquy.specs.graphics.renderables.providers;
 
 import soliloquy.specs.common.shared.HasId;
-import soliloquy.specs.common.valueobjects.EntityUuid;
+
+import java.util.UUID;
 
 /**
  * <b>AnimatedMouseCursorProvider</b>
@@ -18,5 +19,5 @@ public interface AnimatedMouseCursorProvider extends ResettableProvider<Long>, H
      * AnimatedMouseCursorProviders are not identified by Uuid, but rather by their String Ids.
      */
     @Override
-    EntityUuid uuid() throws UnsupportedOperationException;
+    UUID uuid() throws UnsupportedOperationException;
 }

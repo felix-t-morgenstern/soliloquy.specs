@@ -1,6 +1,6 @@
 package soliloquy.specs.common.shared;
 
-import soliloquy.specs.common.valueobjects.EntityUuid;
+import java.util.UUID;
 
 /**
  * <b>HasUuid</b>
@@ -20,5 +20,5 @@ public interface HasUuid extends SoliloquyClass {
 	 * {@link soliloquy.specs.gamestate.entities.Deletable} entities which have been deleted.)
 	 * @return This entity's ID
 	 */
-	EntityUuid uuid();
+	UUID uuid();
 }

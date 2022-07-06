@@ -1,9 +1,10 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.renderables.providers.StaticProvider;
+
+import java.util.UUID;
 
 /**
  * <b>FloatBoxFactory</b>
@@ -26,6 +27,6 @@ public interface StaticProviderFactory extends SoliloquyClass {
      * timestamp.
      * @throws IllegalArgumentException If and only if id or archetype is null
      */
-    <T> StaticProvider<T> make(EntityUuid id, T value, T archetype, Long mostRecentTimestamp)
+    <T> StaticProvider<T> make(UUID id, T value, T archetype, Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }

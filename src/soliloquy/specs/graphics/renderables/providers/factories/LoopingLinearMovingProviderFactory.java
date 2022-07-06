@@ -1,10 +1,10 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingProvider;
 
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * <b>LoopingLinearMovingProviderFactory</b>
@@ -39,7 +39,7 @@ public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
      * corresponding to 0ms, or pausedTimestamp is non-null and mostRecentTimestamp is null or
      * prior to pausedTimestamp, or archetype is null
      */
-    <T> LoopingLinearMovingProvider<T> make(EntityUuid id, int periodDuration,
+    <T> LoopingLinearMovingProvider<T> make(UUID id, int periodDuration,
                                             int periodModuloOffset,
                                             Map<Integer, T> valuesWithinPeriod,
                                             Long mostRecentTimestamp,

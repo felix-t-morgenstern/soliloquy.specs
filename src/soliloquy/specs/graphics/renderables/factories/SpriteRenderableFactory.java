@@ -2,7 +2,6 @@ package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.SpriteRenderable;
@@ -13,6 +12,7 @@ import soliloquy.specs.graphics.rendering.FloatBox;
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
@@ -50,7 +50,7 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
                           ProviderAtTime<Color> borderColorProvider,
                           List<ProviderAtTime<ColorShift>> colorShiftProviders,
                           ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
-                          EntityUuid uuid, Consumer<Renderable> updateZIndexInContainer,
+                          UUID uuid, Consumer<Renderable> updateZIndexInContainer,
                           Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;
 
@@ -91,7 +91,7 @@ public interface SpriteRenderableFactory extends SoliloquyClass {
                           Action<Long> onMouseOver, Action<Long> onMouseLeave,
                           List<ProviderAtTime<ColorShift>> colorShiftProviders,
                           ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
-                          EntityUuid uuid, Consumer<Renderable> updateZIndexInContainer,
+                          UUID uuid, Consumer<Renderable> updateZIndexInContainer,
                           Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;
 }

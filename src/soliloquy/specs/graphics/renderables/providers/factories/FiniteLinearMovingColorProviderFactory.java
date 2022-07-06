@@ -1,12 +1,12 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.providers.FiniteLinearMovingColorProvider;
 
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * <b>FiniteLinearMovingProviderFactory</b>
@@ -35,7 +35,7 @@ public interface FiniteLinearMovingColorProviderFactory extends SoliloquyClass {
      * from the size of valuesAtTimestamps minus one; or if pausedTimestamp is non-null, and
      * mostRecentTimestamp is either null or prior to pausedTimestamp
      */
-    FiniteLinearMovingColorProvider make(EntityUuid uuid, Map<Long, Color> valuesAtTimestamps,
+    FiniteLinearMovingColorProvider make(UUID uuid, Map<Long, Color> valuesAtTimestamps,
                                          List<Boolean> hueMovementIsClockwise,
                                          Long pausedTimestamp, Long mostRecentTimestamp)
             throws IllegalArgumentException;

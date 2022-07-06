@@ -1,8 +1,9 @@
 package soliloquy.specs.audio.factories;
 
 import soliloquy.specs.audio.entities.Sound;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.common.shared.SoliloquyClass;
+
+import java.util.UUID;
 
 /**
  * <b>SoundFactory</b>
@@ -17,22 +18,19 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface SoundFactory extends SoliloquyClass {
 	/**
-	 * @param soundTypeId - The Id of the type of Sound to make
-	 * @return The Sound made, with a randomly-generated {@link EntityUuid}
-	 * as its Id
+	 * @param soundTypeId The Id of the type of Sound to make
+	 * @return The Sound made, with a randomly-generated UUID
 	 * @throws IllegalArgumentException If and only if there exists no Sound with the specified
 	 * soundTypeId
 	 */
 	Sound make(String soundTypeId) throws IllegalArgumentException;
 
 	/**
-	 * @param soundTypeId - The Id of the type of Sound to make
-	 * @param entityUuid - The {@link soliloquy.specs.common.valueobjects.EntityUuid} of the Sound
-	 *                      to make
-	 * @return The Sound made, with the specified
-	 * {@link soliloquy.specs.common.valueobjects.EntityUuid} as its Id
+	 * @param soundTypeId The Id of the type of Sound to make
+	 * @param uuid The UUID of the Sound to make
+	 * @return The Sound made, with the specified UUID
 	 * @throws IllegalArgumentException If and only if there exists no Sound with the specified
 	 * soundTypeId
 	 */
-	Sound make(String soundTypeId, EntityUuid entityUuid) throws IllegalArgumentException;
+	Sound make(String soundTypeId, UUID uuid) throws IllegalArgumentException;
 }

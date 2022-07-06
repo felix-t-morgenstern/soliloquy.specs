@@ -1,7 +1,8 @@
 package soliloquy.specs.graphics.assets;
 
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.providers.LoopingProvider;
+
+import java.util.UUID;
 
 public interface GlobalLoopingAnimation
         extends LoopingProvider<AnimationFrameSnippet>, ImageAsset {
@@ -23,5 +24,5 @@ public interface GlobalLoopingAnimation
      * @return Nothing (c.f. throws)
      * @throws UnsupportedOperationException Every time this class is called
      */
-    EntityUuid uuid() throws UnsupportedOperationException;
+    UUID uuid() throws UnsupportedOperationException;
 }

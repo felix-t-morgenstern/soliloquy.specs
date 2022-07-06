@@ -2,7 +2,8 @@ package soliloquy.specs.audio.entities;
 
 import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
+
+import java.util.UUID;
 
 /**
  * <b>SoundsPlaying</b>
@@ -28,19 +29,19 @@ public interface SoundsPlaying extends SoliloquyClass, Iterable<Sound> {
 	List<Sound> representation();
 	
 	/**
-	 * @param soundId - The id to check for
+	 * @param soundId - The UUID to check for
 	 * @return True, if and only if the sound specified is currently playing
 	 * @throws IllegalArgumentException if and only if soundId is null
 	 */
-	boolean isPlayingSound(EntityUuid soundId) throws IllegalArgumentException;
+	boolean isPlayingSound(UUID soundId) throws IllegalArgumentException;
 	
 	/**
-	 * @param soundId - The id of the Sound to retrieve
+	 * @param soundId - The UUID of the Sound to retrieve
 	 * @return The Sound corresponding to soundId, if a Sound of that id is currently playing;
 	 * else, null
 	 * @throws IllegalArgumentException If and only if soundId is null
 	 */
-	Sound getSound(EntityUuid soundId) throws IllegalArgumentException;
+	Sound getSound(UUID soundId) throws IllegalArgumentException;
 	
 	/**
 	 * @param sound - The Sound to register as currently playing

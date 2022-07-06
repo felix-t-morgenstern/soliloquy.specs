@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.RasterizedLineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
@@ -9,6 +8,7 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.awt.*;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
@@ -50,7 +50,7 @@ public interface RasterizedLineSegmentRenderableFactory extends SoliloquyClass {
                                          short stipplePattern, short stippleFactor,
                                          ProviderAtTime<Color> colorProvider,
                                          ProviderAtTime<FloatBox> renderingDimensionsProvider,
-                                         int z, EntityUuid uuid,
+                                         int z, UUID uuid,
                                          Consumer<Renderable> updateZIndexInContainer,
                                          Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;

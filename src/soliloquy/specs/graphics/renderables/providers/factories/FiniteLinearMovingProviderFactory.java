@@ -1,10 +1,10 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.providers.FiniteLinearMovingProvider;
 
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * <b>FiniteLinearMovingProviderFactory</b>
@@ -29,7 +29,7 @@ public interface FiniteLinearMovingProviderFactory extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if uuid is null; or valuesAtTimestamps is null,
      * or contains fewer than two key-value pairs
      */
-    <T> FiniteLinearMovingProvider<T> make(EntityUuid uuid, Map<Long, T> valuesAtTimestamps,
+    <T> FiniteLinearMovingProvider<T> make(UUID uuid, Map<Long, T> valuesAtTimestamps,
                                            Long pausedTimestamp, Long mostRecentTimestamp)
             throws IllegalArgumentException;
 }

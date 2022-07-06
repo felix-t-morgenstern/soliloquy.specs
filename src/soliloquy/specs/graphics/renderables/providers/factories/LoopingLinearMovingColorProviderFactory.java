@@ -1,13 +1,13 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingColorProvider;
 import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingProvider;
 
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 public interface LoopingLinearMovingColorProviderFactory extends SoliloquyClass {
     /**
@@ -32,7 +32,7 @@ public interface LoopingLinearMovingColorProviderFactory extends SoliloquyClass 
      * hueMovementIsClockwise is null, or if hueMovementIsClockwise has any null items, or if
      * hueMovementIsClockwise has a size different from that of valuesWithinPeriod
      */
-    LoopingLinearMovingColorProvider make(EntityUuid uuid, Map<Integer, Color> valuesWithinPeriod,
+    LoopingLinearMovingColorProvider make(UUID uuid, Map<Integer, Color> valuesWithinPeriod,
                                           List<Boolean> hueMovementIsClockwise,
                                           int periodDuration, int periodModuloOffset,
                                           Long pausedTimestamp, Long mostRecentTimestamp)

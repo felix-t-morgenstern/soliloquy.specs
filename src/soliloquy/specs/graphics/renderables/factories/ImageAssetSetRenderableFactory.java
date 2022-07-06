@@ -2,7 +2,6 @@ package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
@@ -13,6 +12,7 @@ import soliloquy.specs.graphics.rendering.FloatBox;
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
@@ -55,7 +55,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
-                                 EntityUuid uuid,
+                                 UUID uuid,
                                  Consumer<Renderable> updateZIndexInContainer,
                                  Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;
@@ -101,7 +101,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
-                                 EntityUuid uuid,
+                                 UUID uuid,
                                  Consumer<Renderable> updateZIndexInContainer,
                                  Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;

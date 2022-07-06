@@ -2,7 +2,6 @@ package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.EntityUuid;
 import soliloquy.specs.graphics.renderables.RectangleRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
@@ -12,6 +11,7 @@ import soliloquy.specs.graphics.rendering.FloatBox;
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
@@ -80,7 +80,7 @@ public interface RectangleRenderableFactory extends SoliloquyClass {
                              List<ProviderAtTime<ColorShift>> colorShiftProviders,
                              ProviderAtTime<FloatBox> renderingAreaProvider,
                              int z,
-                             EntityUuid uuid,
+                             UUID uuid,
                              Consumer<Renderable> updateZIndexInContainer,
                              Consumer<Renderable> removeFromContainer)
             throws IllegalArgumentException;
