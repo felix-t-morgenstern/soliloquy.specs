@@ -73,8 +73,8 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
     void setOnPress(int mouseButton, Action<Long> onPress) throws IllegalArgumentException;
 
     /**
-     * @return A Map linking mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) to the Ids of the Actions ran
-     * when those respective mouse buttons are pressed
+     * @return A Map representing the links between mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) and
+     * the Ids of the Actions ran when those respective mouse buttons are pressed
      */
     Map<Integer, String> pressActionIds();
 
@@ -100,8 +100,8 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
     void setOnRelease(int mouseButton, Action<Long> onRelease) throws IllegalArgumentException;
 
     /**
-     * @return A Map linking mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) to the Ids of the Actions ran
-     * when those respective mouse buttons are released
+     * @return A Map representing the links between mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) and
+     * the Ids of the Actions ran when those respective mouse buttons are released
      */
     Map<Integer, String> releaseActionIds();
 
