@@ -27,7 +27,7 @@ public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
      * @return The RenderableWithArea capturing mouse events at that particular location; if no
      * Renderable is capturing events, this method returns null
      * @throws IllegalArgumentException If and only if x or y are outside of the range of [0.0,
-     * 1.0], or if timestamp is out-of-date
+     * 1.0], or if timestamp is before most recent timestamp provided to class
      */
     RenderableWithArea getCapturingRenderableAtPoint(float x, float y, long timestamp)
             throws IllegalArgumentException;

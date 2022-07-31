@@ -28,7 +28,8 @@ public interface KeyBinding extends SoliloquyClass {
 
 	/**
 	 * Runs the Action that is ran when this key is pressed
-	 * @throws IllegalArgumentException If and only if timestamp is out-of-date
+	 * @throws IllegalArgumentException If and only if timestamp is before most recent timestamp
+	 * provided to class
 	 */
 	void press(long timestamp) throws IllegalArgumentException;
 	
@@ -44,7 +45,8 @@ public interface KeyBinding extends SoliloquyClass {
 
 	/**
 	 * Runs the Action that is ran when this key is released
-	 * @throws IllegalArgumentException If and only if timestamp is out-of-date
+	 * @throws IllegalArgumentException If and only if timestamp is before most recent timestamp
+	 * provided to class
 	 */
 	void release(long timestamp) throws IllegalArgumentException;
 

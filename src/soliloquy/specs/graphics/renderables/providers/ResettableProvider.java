@@ -13,7 +13,8 @@ package soliloquy.specs.graphics.renderables.providers;
 public interface ResettableProvider<T> extends ProviderAtTime<T> {
     /**
      * @param timestamp The time at which to reset this Provider
-     * @throws IllegalArgumentException If and only if timestamp is out-of-date
+     * @throws IllegalArgumentException If and only if timestamp is before most recent timestamp
+     * provided to class
      */
     void reset(long timestamp) throws IllegalArgumentException;
 }

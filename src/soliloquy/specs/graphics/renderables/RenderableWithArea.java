@@ -46,7 +46,7 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not support mouse
      * events
      * @throws IllegalArgumentException If and only if x or y are outside of the window boundaries
-     * (i.e. [0f,1f]), or if timestamp is out-of-date
+     * (i.e. [0f,1f]), or if timestamp is before most recent timestamp provided to class
      */
     boolean capturesMouseEventAtPoint(float x, float y, long timestamp)
             throws UnsupportedOperationException, IllegalArgumentException;
@@ -110,7 +110,8 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
      * @param timestamp The timestamp at which the mouse moved over the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      * events
-     * @throws IllegalArgumentException If and only if the timestamp is out-of-date
+     * @throws IllegalArgumentException If and only if the timestamp is before most recent
+     * timestamp provided to class
      */
     void mouseOver(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
 
@@ -131,7 +132,8 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
      * @param timestamp The timestamp at which the mouse left the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      * events
-     * @throws IllegalArgumentException If and only if the timestamp is out-of-date
+     * @throws IllegalArgumentException If and only if the timestamp is before most recent
+     * timestamp provided to class
      */
     void mouseLeave(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
 

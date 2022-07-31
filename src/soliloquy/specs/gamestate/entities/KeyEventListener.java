@@ -41,7 +41,7 @@ public interface KeyEventListener extends SoliloquyClass {
      * @param key The key which is pressed
      * @param timestamp The timestamp at which the key is pressed
      * @throws IllegalArgumentException If and only if key is an illegal value, or if timestamp is
-     * out-of-date
+     * before most recent timestamp provided to class
      */
     void press(char key, long timestamp) throws IllegalArgumentException;
 
@@ -49,7 +49,7 @@ public interface KeyEventListener extends SoliloquyClass {
      * @param key The key which has been released
      * @param timestamp The timestamp at which the key is pressed
      * @throws IllegalArgumentException If and only if key is an illegal value, or if timestamp is
-     * out-of-date
+     * before most recent timestamp provided to class
      */
     void release(char key, long timestamp) throws IllegalArgumentException;
 
