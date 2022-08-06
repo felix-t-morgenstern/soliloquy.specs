@@ -18,11 +18,24 @@ import java.util.Map;
  * @version 0.0.1
  *
  */
-public interface AnimationDefinition extends AssetDefinition<Animation> {
+public class AnimationDefinition extends AssetDefinition<Animation> {
+    private final int MS_DURATION;
+    private final Map<Integer, AnimationFrameSnippet> FRAME_SNIPPET_DEFINITIONS;
+
+    public AnimationDefinition(String id,
+                               int msDuration,
+                               Map<Integer, AnimationFrameSnippet> frameSnippetDefinitions) {
+        super(id);
+        MS_DURATION = msDuration;
+        FRAME_SNIPPET_DEFINITIONS = frameSnippetDefinitions;
+    }
+
     /**
      * @return The total duration of the Animation in milliseconds
      */
-    int msDuration();
+    public int msDuration(){
+        return MS_DURATION;
+    }
 
     /**
      * This Map is set up so that each frame snippet at a given int key is rendered starting at
@@ -33,5 +46,7 @@ public interface AnimationDefinition extends AssetDefinition<Animation> {
      * @return A Map, where the key is the position in milliseconds in which the frame snippet
      * first occurs.
      */
-    Map<Integer,AnimationFrameSnippet> frameSnippetDefinitions();
+    public Map<Integer,AnimationFrameSnippet> frameSnippetDefinitions() {
+        return FRAME_SNIPPET_DEFINITIONS;
+    }
 }

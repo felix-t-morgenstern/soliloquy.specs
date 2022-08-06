@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.Map;
 
 /**
@@ -15,7 +13,23 @@ import java.util.Map;
  * @version 0.0.1
  *
  */
-public interface FontStyleDefinition extends SoliloquyClass {
+public class FontStyleDefinition {
+    private final float ADDITIONAL_GLYPH_HORIZONTAL_TEXTURE_SPACING;
+    private final Map<Character, Float> GLYPHWISE_ADDITIONAL_HORIZONTAL_TEXTURE_SPACING;
+    private final Map<Character, Float> GLYPHWISE_ADDITIONAL_LEFT_BOUNDARY_SHIFT;
+    private final float ADDITIONAL_GLYPH_VERTICAL_TEXTURE_SPACING;
+
+    public FontStyleDefinition(float additionalGlyphHorizontalTextureSpacing,
+                               Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing,
+                               Map<Character, Float> glyphwiseAdditionalLeftBoundaryShift,
+                               float additionalGlyphVerticalTextureSpacing) {
+        ADDITIONAL_GLYPH_HORIZONTAL_TEXTURE_SPACING = additionalGlyphHorizontalTextureSpacing;
+        GLYPHWISE_ADDITIONAL_HORIZONTAL_TEXTURE_SPACING =
+                glyphwiseAdditionalHorizontalTextureSpacing;
+        GLYPHWISE_ADDITIONAL_LEFT_BOUNDARY_SHIFT = glyphwiseAdditionalLeftBoundaryShift;
+        ADDITIONAL_GLYPH_VERTICAL_TEXTURE_SPACING = additionalGlyphVerticalTextureSpacing;
+    }
+
     /**
      * <i>NB: This value only specifies how the glyphs are spaced in the texture stored in the GPU;
      * it does not affect how they are rendered whatsoever.</i> The spacing here is expressed in
@@ -25,7 +39,9 @@ public interface FontStyleDefinition extends SoliloquyClass {
      * @return The amount of horizontal texture spacing between rendered glyphs of this style of
      * this Font (cannot be less than 0)
      */
-    float additionalGlyphHorizontalTextureSpacing();
+    public float additionalGlyphHorizontalTextureSpacing() {
+        return ADDITIONAL_GLYPH_HORIZONTAL_TEXTURE_SPACING;
+    }
 
     /**
      * <i>NB: This method is intended for fonts with specific problematic characters, like a 'Q'
@@ -36,7 +52,9 @@ public interface FontStyleDefinition extends SoliloquyClass {
      * (It can also contain invalid characters, which will just be ignored.) However, all values
      * for valid characters must be non-null.
      */
-    Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing();
+    public Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing() {
+        return GLYPHWISE_ADDITIONAL_HORIZONTAL_TEXTURE_SPACING;
+    }
 
     /**
      * <i>NB: This method is intended for fonts with specific problematic glyph spacing, like where
@@ -48,7 +66,9 @@ public interface FontStyleDefinition extends SoliloquyClass {
      * @return A Map, linking characters to the shifting of their left boundaries, expressed in
      * line height
      */
-    Map<Character, Float> glyphwiseAdditionalLeftBoundaryShift();
+    public Map<Character, Float> glyphwiseAdditionalLeftBoundaryShift() {
+        return GLYPHWISE_ADDITIONAL_LEFT_BOUNDARY_SHIFT;
+    }
 
     /**
      * <i>NB: This value only specifies how the glyphs are spaced in the texture stored in the GPU;
@@ -59,5 +79,7 @@ public interface FontStyleDefinition extends SoliloquyClass {
      * @return The amount of vertical texture spacing between rendered glyphs of this style of this
      * Font (cannot be less than 0)
      */
-    float additionalGlyphVerticalTextureSpacing();
+    public float additionalGlyphVerticalTextureSpacing() {
+        return ADDITIONAL_GLYPH_VERTICAL_TEXTURE_SPACING;
+    }
 }

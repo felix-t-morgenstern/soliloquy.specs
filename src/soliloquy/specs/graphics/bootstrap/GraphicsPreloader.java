@@ -25,19 +25,4 @@ public interface GraphicsPreloader extends SoliloquyClass {
      * maps depends on the implementation of the Graphics engine.)
      */
     void load();
-
-    /**
-     * @return The (estimated) percentage of graphics successfully loaded, e.g. to be used in a
-     * loading bar
-     */
-    float percentageComplete();
-
-    /**
-     * @param component The component whose completion to report (e.g. "FONTS",
-     *                  "LOADING_SCREEN_PREREQS", "CHARACTER_ASSETS", etc.)
-     * @return The (estimated) completion percentage of the specified section
-     * @throws IllegalArgumentException If and only if component is null or empty, or does not
-     * correspond to a valid component
-     */
-    float percentageComplete(String component) throws IllegalArgumentException;
 }

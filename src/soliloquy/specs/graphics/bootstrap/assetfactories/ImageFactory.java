@@ -2,6 +2,7 @@ package soliloquy.specs.graphics.bootstrap.assetfactories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Image;
+import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.ImageDefinition;
 
 /**
  * <b>ImageFactory</b>
@@ -14,13 +15,10 @@ import soliloquy.specs.graphics.assets.Image;
  */
 public interface ImageFactory extends SoliloquyClass {
     /**
-     * @param relativeLocation The location of the Image file, relative to the executing program
-     * @param supportsMouseEventCapturing True, if and only if the returned Image is to support
-     *                                    mouse event capturing
-     *                                    (c.f. {@link Image#capturesMouseEventsAtPixel})
+     * @param imageDefinition The definition of the Image to be created
      * @return The newly-created Image
-     * @throws IllegalArgumentException If and only if relativeLocation is null or empty
+     * @throws IllegalArgumentException If and only if imageDefinition is null, or has a null or
+     * empty relativeLocation
      */
-    Image make(String relativeLocation, boolean supportsMouseEventCapturing)
-            throws IllegalArgumentException;
+    Image make(ImageDefinition imageDefinition) throws IllegalArgumentException;
 }

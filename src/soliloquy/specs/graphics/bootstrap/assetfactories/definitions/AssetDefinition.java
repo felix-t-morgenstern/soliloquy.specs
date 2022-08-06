@@ -14,5 +14,20 @@ import soliloquy.specs.graphics.assets.Asset;
  * @version 0.0.1
  *
  */
-public interface AssetDefinition<AssetType extends Asset> extends HasId {
+public abstract class AssetDefinition<AssetType extends Asset> implements HasId {
+    private final String ID;
+
+    public AssetDefinition(String id) {
+        ID = id;
+    }
+
+    @Override
+    public String id() throws IllegalStateException {
+        return ID;
+    }
+
+    @Override
+    public String getInterfaceName() {
+        return null;
+    }
 }

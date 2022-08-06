@@ -3,6 +3,7 @@ package soliloquy.specs.graphics.renderables.providers.factories;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
+import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.GlobalLoopingAnimationDefinition;
 
 /**
  * <b>GlobalLoopingAnimationFactory</b>
@@ -15,19 +16,12 @@ import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
  */
 public interface GlobalLoopingAnimationFactory extends SoliloquyClass {
     /**
-     * NB: This class only exposes uuid since it's a requirement of
-     * {@link soliloquy.specs.graphics.renderables.providers.ProviderAtTime}
-     * @param id The (human-readable) id of this GlobalLoopingAnimation
-     * @param animation The Animation to use for this GlobalLoopingAnimation
-     * @param periodModuloOffset The milliseconds by which the period of this Animation is offset
-     *                           (c.f. {@link soliloquy.specs.common.shared.HasPeriodModuloOffset})
-     * @param pauseTimestamp The timestamp at which this GlobalLoopingAnimation has been paused; if
-     *                       unpaused, this value should be null
+     * @param definition The definition of the GlobalLoopingAnimation to be created
      * @return The newly-created GlobalLoopingAnimation
-     * @throws IllegalArgumentException If and only if uuid is null, animation is null, or
-     * periodModuloOffset is negative or greater than or equal to the ms duration of animation
+     * @throws IllegalArgumentException If and only if definition is null; or its uuid is null, its
+     * animation is null, or its periodModuloOffset is negative or greater than or equal to the ms
+     * duration of animation
      */
-    GlobalLoopingAnimation make(String id, Animation animation, int periodModuloOffset,
-                                Long pauseTimestamp)
+    GlobalLoopingAnimation make(GlobalLoopingAnimationDefinition definition)
             throws IllegalArgumentException;
 }

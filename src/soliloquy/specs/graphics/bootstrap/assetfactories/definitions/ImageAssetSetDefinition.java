@@ -15,9 +15,19 @@ import java.util.List;
  * @version 0.0.1
  *
  */
-public interface ImageAssetSetDefinition extends AssetDefinition<ImageAssetSet> {
+public class ImageAssetSetDefinition extends AssetDefinition<ImageAssetSet> {
+    private final List<ImageAssetSetAssetDefinition> ASSET_DEFINITIONS;
+
+    public ImageAssetSetDefinition(String id,
+                                   List<ImageAssetSetAssetDefinition> assetDefinitions) {
+        super(id);
+        ASSET_DEFINITIONS = assetDefinitions;
+    }
+
     /**
      * @return The snippet definitions for this ImageAssetSet
      */
-    List<ImageAssetSetAssetDefinition> assetDefinitions();
+    public List<ImageAssetSetAssetDefinition> assetDefinitions() {
+        return ASSET_DEFINITIONS;
+    }
 }

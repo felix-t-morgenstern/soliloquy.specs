@@ -1,12 +1,9 @@
 package soliloquy.specs.graphics;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.assets.Animation;
-import soliloquy.specs.graphics.assets.ImageAssetSet;
-import soliloquy.specs.graphics.assets.Sprite;
+import soliloquy.specs.graphics.assets.*;
 import soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop;
 import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
-import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
 import soliloquy.specs.graphics.rendering.WindowResolutionManager;
 
 /**
@@ -33,37 +30,44 @@ public interface Graphics extends SoliloquyClass {
     GraphicsTeardown teardown();
 
     /**
-     * @param spriteId The id of the Sprite requested
+     * @param id The id of the Sprite requested
      * @return The desired Sprite
-     * @throws IllegalArgumentException If and only if spriteId is null, empty, or does not
-     * correspond to a valid Sprite
+     * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
+     * a valid Sprite
      */
-    Sprite getSprite(String spriteId) throws IllegalArgumentException;
+    Sprite getSprite(String id) throws IllegalArgumentException;
 
     /**
-     * @param imageAssetSetId The id of the ImageAssetSet requested
+     * @param id The id of the ImageAssetSet requested
      * @return The desired ImageAssetSet
-     * @throws IllegalArgumentException If and only if imageAssetSetId is null, empty, or does not
-     * correspond to a valid Sprite
+     * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
+     * a valid Sprite
      */
-    ImageAssetSet getImageAssetSet(String imageAssetSetId);
+    ImageAssetSet getImageAssetSet(String id);
 
     /**
-     * @param animationId The id of the Animation requested
+     * @param id The id of the Animation requested
      * @return The desired Animation
-     * @throws IllegalArgumentException If and only if animationId is null, empty, or does not
-     * correspond to a valid Animation
+     * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
+     * a valid Animation
      */
-    Animation getAnimation(String animationId) throws IllegalArgumentException;
+    Animation getAnimation(String id) throws IllegalArgumentException;
 
     /**
-     * @param globalLoopingAnimationId The id of the GlobalLoopingAnimation requested
+     * @param id The id of the GlobalLoopingAnimation requested
      * @return The desired GlobalLoopingAnimation
-     * @throws IllegalArgumentException If and only if globalLoopingAnimationId is null, empty, or
-     * does not correspond to a valid GlobalLoopingAnimation
+     * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
+     * a valid GlobalLoopingAnimation
      */
-    GlobalLoopingAnimation getGlobalLoopingAnimation(String globalLoopingAnimationId)
-            throws IllegalArgumentException;
+    GlobalLoopingAnimation getGlobalLoopingAnimation(String id) throws IllegalArgumentException;
+
+    /**
+     * @param id The Id of the Font requested
+     * @return The desired Font
+     * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
+     * a valid Font
+     */
+    Font getFont(String id) throws IllegalArgumentException;
 
     /**
      * @return The {@link WindowResolutionManager}, to manage the size of the window (and, if

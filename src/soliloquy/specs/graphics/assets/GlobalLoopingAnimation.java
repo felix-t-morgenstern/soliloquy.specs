@@ -3,7 +3,17 @@ package soliloquy.specs.graphics.assets;
 import soliloquy.specs.graphics.renderables.providers.LoopingProvider;
 
 import java.util.UUID;
-
+/**
+ * <b>GlobalLoopingAnimationDefinition</b>
+ * <p>
+ * This class represents an {@link Animation}, which loops constantly, to be reused many times in a
+ * game, e.g. to make all water tiles' waves all ebb and flow at the same time, or to have all
+ * soldiers pace in unison.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ *
+ */
 public interface GlobalLoopingAnimation
         extends LoopingProvider<AnimationFrameSnippet>, ImageAsset {
     /**

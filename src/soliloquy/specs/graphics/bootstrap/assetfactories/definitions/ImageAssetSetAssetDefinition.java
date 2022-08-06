@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.ImageAsset;
 
 /**
@@ -14,26 +13,49 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  * @version 0.0.1
  *
  */
-public interface ImageAssetSetAssetDefinition extends SoliloquyClass {
+public class ImageAssetSetAssetDefinition {
+    private final String TYPE;
+    private final String DIRECTION;
+    private final ImageAsset.ImageAssetType ASSET_TYPE;
+    private final String ASSET_ID;
+
+    public ImageAssetSetAssetDefinition(String type,
+                                        String direction,
+                                        ImageAsset.ImageAssetType assetType,
+                                        String assetId) {
+        TYPE = type;
+        DIRECTION = direction;
+        ASSET_TYPE = assetType;
+        ASSET_ID = assetId;
+    }
+
     /**
      * @return The type of this ImageAssetSetAssetDefinition (can be null)
      */
-    String type();
+    public String type() {
+        return TYPE;
+    }
 
     /**
      * @return The direction of this ImageAssetSetAssetDefinition (can be null)
      */
-    String direction();
+    public String direction() {
+        return DIRECTION;
+    }
 
     /**
      * @return The type of {@link ImageAsset} used for this SpriteSetAsset
      */
-    ImageAsset.ImageAssetType assetType();
+    public ImageAsset.ImageAssetType assetType() {
+        return ASSET_TYPE;
+    }
 
     /**
      * @return The Id of the {@link soliloquy.specs.graphics.assets.Sprite} or
      * {@link soliloquy.specs.graphics.assets.Animation} used for this SpriteSetAsset (c.f.
      * {@link #assetType} to know which asset type to use)
      */
-    String assetId();
+    public String assetId() {
+        return ASSET_ID;
+    }
 }
