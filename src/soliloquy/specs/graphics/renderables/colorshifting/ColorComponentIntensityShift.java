@@ -3,7 +3,7 @@ package soliloquy.specs.graphics.renderables.colorshifting;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 /**
- * <b>ColorComponentShift</b>
+ * <b>ColorComponentIntensityShift</b>
  * <p>
  * A color shift that increases or decreases the value of a specific color component (i.e. red,
  * green, or blue--alpha is not supported for this operation). When shifts of this type are
@@ -16,7 +16,7 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  * @version 0.0.1
  *
  */
-public interface ColorComponentShift extends ColorShift {
+public interface ColorComponentIntensityShift extends ColorShift {
     /**
      * @return The ColorComponent to shift (i.e. red, green, or blue--alpha is unsupported)
      */

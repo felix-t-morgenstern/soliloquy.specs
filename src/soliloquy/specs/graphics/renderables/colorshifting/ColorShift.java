@@ -16,7 +16,7 @@ public interface ColorShift extends SoliloquyClass {
     /**
      * See the individual implementations for more details:
      * {@link BrightnessShift#shiftAmountProvider()},
-     * {@link ColorComponentShift#shiftAmountProvider()}, and
+     * {@link ColorComponentIntensityShift#shiftAmountProvider()}, and
      * {@link ColorRotationShift#shiftAmountProvider()}
      * @return A Provider, providing the value for this ColorShift at a given time
      */
