@@ -1,7 +1,7 @@
 package soliloquy.specs.graphics.io;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.renderables.RenderableWithArea;
+import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 /**
@@ -29,7 +29,7 @@ public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if x or y are outside of the range of [0.0,
      * 1.0], or if timestamp is before most recent timestamp provided to class
      */
-    RenderableWithArea getCapturingRenderableAtPoint(float x, float y, long timestamp)
+    RenderableWithMouseEvents getCapturingRenderableAtPoint(float x, float y, long timestamp)
             throws IllegalArgumentException;
 
     /**
@@ -42,7 +42,7 @@ public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if renderable is null, or does not capture
      * mouse events
      */
-    void putRenderable(RenderableWithArea renderable, FloatBox renderingDimensions)
+    void putRenderable(RenderableWithMouseEvents renderable, FloatBox renderingDimensions)
             throws IllegalArgumentException;
 
     /**
@@ -51,5 +51,5 @@ public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
      * @param renderable The Renderable to remove from this index
      * @throws IllegalArgumentException If and only if renderable is null
      */
-    void removeRenderable(RenderableWithArea renderable) throws IllegalArgumentException;
+    void removeRenderable(RenderableWithMouseEvents renderable) throws IllegalArgumentException;
 }

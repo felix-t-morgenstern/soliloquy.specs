@@ -17,7 +17,7 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  *
  */
 public interface FiniteAnimationRenderable
-        extends ProviderAtTime<AnimationFrameSnippet>, RenderableWithArea {
+        extends ProviderAtTime<AnimationFrameSnippet>, ImageAssetRenderable {
     /**
      * (NB: This method will return higher values each time this Renderable is paused and later
      * unpaused; the purpose of this method is to ensure that there is no call to

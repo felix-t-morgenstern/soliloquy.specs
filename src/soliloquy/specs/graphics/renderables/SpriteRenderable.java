@@ -13,7 +13,7 @@ import java.awt.*;
  * @version 0.0.1
  *
  */
-public interface SpriteRenderable extends RenderableWithArea {
+public interface SpriteRenderable extends ImageAssetRenderable {
     /**
      * @return The Sprite to be rendered
      */

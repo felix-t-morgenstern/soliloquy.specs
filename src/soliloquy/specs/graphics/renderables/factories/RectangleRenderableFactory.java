@@ -47,10 +47,6 @@ public interface RectangleRenderableFactory extends SoliloquyClass {
      *                  GLFW_MOUSE_BUTTON_*)
      * @param onMouseOver The Action which is fired when the mouse moves over this renderable
      * @param onMouseLeave The Action which is fired when the mouse leaves this renderable
-     * @param colorShiftProviders The ColorShifts to apply when rendering (NB: This List is
-     *                            intended to contain Providers which will provide ColorShifts of
-     *                            the same type for each entry in the list; however, you can
-     *                            obviously use it differently if you please.)
      * @param renderingAreaProvider A class which provides the dimensions in which to render
      * @param z The z index within the container
      * @param uuid The universally unique identifier
@@ -77,7 +73,6 @@ public interface RectangleRenderableFactory extends SoliloquyClass {
                              Map<Integer, Action<Long>> onRelease,
                              Action<Long> onMouseOver,
                              Action<Long> onMouseLeave,
-                             List<ProviderAtTime<ColorShift>> colorShiftProviders,
                              ProviderAtTime<FloatBox> renderingAreaProvider,
                              int z,
                              UUID uuid,

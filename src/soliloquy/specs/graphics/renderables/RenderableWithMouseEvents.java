@@ -1,28 +1,19 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
-import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
-import java.util.List;
 import java.util.Map;
 
 /**
- * <b>RenderableWithArea</b>
+ * <b>RenderableWithMouseEvents</b>
  * <p>
- * An object which can be rendered in the window, which has area (i.e. which is not a
- * {@link RasterizedLineSegmentRenderable} or a {@link TextLineRenderable}).
- * <p>
- * This interface is segregated out from {@link Renderable}, since members related to mouse event
- * capturing are only relevant to Renderables with an area. (Currently, TextLineRenderables are not
- * defined as having area, because the present implementation of text line rendering does not lend
- * itself to determining which pixel is currently under the mouse cursor.)
+ * A {@link Renderable} which can capture mouse events.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  *
  */
-public interface RenderableWithArea extends RenderableWithDimensions, RenderableWithBorders {
+public interface RenderableWithMouseEvents extends Renderable {
     /**
      * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
      * events
@@ -148,16 +139,4 @@ public interface RenderableWithArea extends RenderableWithDimensions, Renderable
      * @return The Id of the Action ran when the mouse leaves the area of this Renderable
      */
     String mouseLeaveActionId();
-
-    /**
-     * Color shifts at the front of the List are processed by the
-     * {@link soliloquy.specs.graphics.renderables.colorshifting.ColorShiftStackAggregator}
-     * before color shifts at the end.
-     * <p>
-     * <i>NB: There should not be any color shifts for a {@link RectangleRenderable} which does not
-     * have a background Sprite or Animation.</i>
-     * @return A List of Providers of ColorShifts, to be applied to this Renderable, when rendering
-     * it in the {@link soliloquy.specs.graphics.rendering.Shader}
-     */
-    List<ProviderAtTime<ColorShift>> colorShiftProviders();
 }

@@ -9,7 +9,8 @@ import java.util.List;
  * <p>
  * This class handles mouse events at a given location within the screen. This class triggers
  * press, release, mouseOver and mouseLeave events for all
- * {@link soliloquy.specs.graphics.renderables.RenderableWithArea}s which capture mouse events.
+ * {@link soliloquy.specs.graphics.renderables.RenderableWithMouseEvents}s which capture mouse
+ * events.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

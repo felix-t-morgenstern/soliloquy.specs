@@ -14,7 +14,7 @@ import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
  * @version 0.0.1
  *
  */
-public interface GlobalLoopingAnimationRenderable extends RenderableWithArea {
+public interface GlobalLoopingAnimationRenderable extends ImageAssetRenderable {
     /**
      * @return The GlobalLoopingAnimation supporting this Renderable.
      */

@@ -11,7 +11,7 @@ import soliloquy.specs.graphics.assets.ImageAssetSet;
  * @version 0.0.1
  *
  */
-public interface ImageAssetSetRenderable extends RenderableWithArea {
+public interface ImageAssetSetRenderable extends ImageAssetRenderable {
     /**
      * @return The ImageAssetSet to be rendered
      */
