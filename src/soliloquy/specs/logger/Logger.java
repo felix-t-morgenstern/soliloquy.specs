@@ -22,22 +22,19 @@ public interface Logger extends SoliloquyClass {
 	
 	/**
 	 * @param e - The Exception to log (e.g. to file)
-	 * @param timestamp - The date and time of the exception
 	 * @throws IOException Iff a connection to the log cannot be accessed for IO
 	 */
-	void logException(Exception e, String timestamp) throws IOException;
+	void logException(Exception e) throws IOException;
 	
 	/**
 	 * @param warning - The warning to log (e.g. to file)
-	 * @param timestamp - The date and time of the warning
 	 * @throws IOException Iff a connection to the log cannot be accessed for IO
 	 */
-	void logWarning(String warning, String timestamp) throws IOException;
+	void logWarning(String warning) throws IOException;
 	
 	/**
 	 * @param info - The info message to log (e.g. to file)
-	 * @param timestamp - The date and time of the message
 	 * @throws IOException Iff a connection to the log cannot be accessed for IO
 	 */
-	void logInfo(String info, String timestamp) throws IOException;
+	void logInfo(String info) throws IOException;
 }
