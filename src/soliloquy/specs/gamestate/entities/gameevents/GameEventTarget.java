@@ -17,19 +17,19 @@ import soliloquy.specs.gamestate.entities.TileWallSegment;
 public interface GameEventTarget extends SoliloquyClass {
     /**
      * @return The {@link Tile} which is the target for this {@link GameMovementEvent}; may be
-     * null.
+     *         null.
      */
     Tile tile();
 
     /**
      * @return The {@link TileFixture} which is the target for this {@link GameMovementEvent}; may
-     * be null.
+     *         be null.
      */
     TileFixture tileFixture();
 
     /**
      * @return The {@link TileWallSegment} which is the target for this {@link GameMovementEvent};
-     * may be null.
+     *         may be null.
      */
     TileWallSegment tileWallSegment();
 }

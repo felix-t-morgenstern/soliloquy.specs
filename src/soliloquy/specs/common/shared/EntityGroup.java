@@ -6,10 +6,9 @@ package soliloquy.specs.common.shared;
  * An {@link EntityGroupOfType}, without any exotic features. This class exists to simplify type
  * declarations.
  *
+ * @param <EntityType> The entity being grouped
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
- * @param <EntityType> The entity being grouped
  */
 public interface EntityGroup<EntityType>
         extends EntityGroupOfType<EntityType, EntityGroup<EntityType>,

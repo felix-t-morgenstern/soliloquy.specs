@@ -11,7 +11,6 @@ import soliloquy.specs.graphics.rendering.OutputController;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface OutputControllerFactory extends SoliloquyClass {
     /**
@@ -19,7 +18,8 @@ public interface OutputControllerFactory extends SoliloquyClass {
      *                     creation can be drawn
      * @return The newly-created OutputController
      * @throws IllegalArgumentException If settingsRepo is null, or if it does not contain all
-     * required {@link soliloquy.specs.common.infrastructure.Setting}s
+     *                                  required
+     *                                  {@link soliloquy.specs.common.infrastructure.Setting}s
      */
     OutputController make(SettingsRepo settingsRepo) throws IllegalArgumentException;
 }

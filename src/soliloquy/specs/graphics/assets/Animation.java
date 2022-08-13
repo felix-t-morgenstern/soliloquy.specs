@@ -17,7 +17,6 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface Animation extends ImageAsset {
     /**
@@ -29,7 +28,7 @@ public interface Animation extends ImageAsset {
      * @param msPosition The position, in milliseconds, of this Animation
      * @return A definition of the Animation at msPosition
      * @throws IllegalArgumentException If and only if msPosition is less than zero or greater than
-     * the total duration of the Animation
+     *                                  the total duration of the Animation
      */
     AnimationFrameSnippet snippetAtFrame(int msPosition) throws IllegalArgumentException;
 

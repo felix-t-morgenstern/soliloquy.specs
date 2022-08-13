@@ -11,10 +11,9 @@ import soliloquy.specs.ruleset.gameconcepts.CharacterStatisticCalculation;
  * {@link soliloquy.specs.ruleset.entities.CharacterVariableStatisticType} or
  * {@link soliloquy.specs.ruleset.entities.CharacterStaticStatisticType}).
  *
+ * @param <TStatType> The type (e.g. variable or static) of this statistic
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
- * @param <TStatType> The type (e.g. variable or static) of this statistic
  */
 public interface CharacterStatistic<TStatType extends CharacterStatisticType>
         extends EntityMemberOfType<TStatType> {
@@ -26,15 +25,17 @@ public interface CharacterStatistic<TStatType extends CharacterStatisticType>
 
     /**
      * @return A Map, where each key is the name of a modifier (e.g. "FromBase", "FromItems",
-     * etc.), and each value is the value from that modifier contributing to the total value.
+     *         etc.), and each value is the value from that modifier contributing to the total
+     *         value.
      * @throws IllegalStateException If the Character has been deleted
      */
-    Map<String,Integer> representation() throws IllegalStateException;
+    Map<String, Integer> representation() throws IllegalStateException;
 
     /**
      * Calculates the value of this CharacterStatistic (using a calculator from the
      * Ruleset module, e.g. an implementation of {@link
      * CharacterStatisticCalculation})
+     *
      * @throws IllegalStateException If the Character has been deleted
      */
     void calculate() throws IllegalStateException;

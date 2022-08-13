@@ -17,7 +17,6 @@ import java.util.Collection;
  * {@link soliloquy.specs.game.Game} or by the {@link soliloquy.specs.ruleset.Ruleset}.
  *
  * @param <T> The Type to register (e.g. {@link soliloquy.specs.ruleset.entities.CharacterType})
- *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
@@ -25,6 +24,7 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
     /**
      * NB: If there is already an item with the same Id as the item provided, this method
      * overwrites the previous item.
+     *
      * @param item The item to add to the registry
      * @throws IllegalArgumentException If and only if item is null
      */
@@ -33,15 +33,17 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
     /**
      * NB: If there are already any items with the same Id as any of the items provided, this
      * method overwrites those previous items.
+     *
      * @param items The items to add to the registry
      * @throws IllegalArgumentException If and only if items is null, or if the array is not of the
-     * correct type
+     *                                  correct type
      */
     void addAll(Object[] items) throws IllegalArgumentException;
 
     /**
      * NB: If there are already any items with the same Id as any of the items provided, this
      * method overwrites those previous items.
+     *
      * @param items The items to add to the registry
      * @throws IllegalArgumentException If and only if items is null
      */
@@ -50,6 +52,7 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
     /**
      * NB: If there are already any items with the same Id as any of the items provided, this
      * method overwrites those previous items.
+     *
      * @param items The items to add to the registry
      * @throws IllegalArgumentException If and only if items is null
      */
@@ -79,7 +82,7 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
     /**
      * @param id The Id of the entity to remove
      * @return True, if and only if an entity with that id was removed (and was therefore in the
-     * registry)
+     *         registry)
      * @throws IllegalArgumentException If and only if id is empty or null
      */
     boolean remove(String id) throws IllegalArgumentException;
@@ -87,7 +90,7 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
     /**
      * @param item The the entity to remove
      * @return True, if and only if an entity with that id was removed (and was therefore in the
-     * registry)
+     *         registry)
      * @throws IllegalArgumentException If and only if item is null
      */
     boolean remove(T item) throws IllegalArgumentException;
@@ -105,6 +108,7 @@ public interface Registry<T extends HasId> extends Iterable<T>, HasOneGenericPar
     /**
      * NB: This is a modifiable List, because it is a clone of the contents of this Registry; so,
      * modifying this returned List will not modify the contents of this Registry.
+     *
      * @return A List containing all of the entities in this Registry
      */
     java.util.List<T> representation();

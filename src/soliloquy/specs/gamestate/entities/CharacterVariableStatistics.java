@@ -13,7 +13,7 @@ import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
  */
 public interface CharacterVariableStatistics
         extends EntityMembersOfType<CharacterVariableStatisticType,
-                        CharacterVariableStatistic, Character> {
+        CharacterVariableStatistic, Character> {
     /**
      * @return A Map representing the links between each present stat type and its current value
      */

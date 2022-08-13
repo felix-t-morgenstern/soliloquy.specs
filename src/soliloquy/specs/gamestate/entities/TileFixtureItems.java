@@ -21,33 +21,34 @@ public interface TileFixtureItems extends Deletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this
      * TileFixture. To add or remove Items, use the other methods specified.</i>
+     *
      * @return A List of the Items in this TileFixture.
      * @throws UnsupportedOperationException If this TileFixture's FixtureType is not a container
-     * @throws IllegalStateException If this TileFixture has been deleted
+     * @throws IllegalStateException         If this TileFixture has been deleted
      */
     List<Item> representation()
             throws UnsupportedOperationException, IllegalStateException;
 
     /**
-     * @param item - The Item to add to this TileFixture
+     * @param item The Item to add to this TileFixture
      * @throws IllegalArgumentException If and only if item is null, or item exists elsewhere
-     * @throws IllegalStateException If this TileFixture has been deleted
+     * @throws IllegalStateException    If this TileFixture has been deleted
      */
     void add(Item item) throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param item - The Item to remove from this TileFixture
+     * @param item The Item to remove from this TileFixture
      * @return True, if and only if the Item was present, and therefore removed
      * @throws IllegalArgumentException If and only if item is null
-     * @throws IllegalStateException If this TileFixture has been deleted
+     * @throws IllegalStateException    If this TileFixture has been deleted
      */
     boolean remove(Item item) throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param item - The Item whose presence to verify
+     * @param item The Item whose presence to verify
      * @return True, if and only if item is present in this TileFixtureItems
      * @throws IllegalArgumentException If and only if item is null
-     * @throws IllegalStateException If this TileFixture has been deleted
+     * @throws IllegalStateException    If this TileFixture has been deleted
      */
     boolean contains(Item item)
             throws IllegalArgumentException, IllegalStateException;

@@ -10,7 +10,6 @@ import soliloquy.specs.graphics.rendering.Shader;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface ShaderFactory extends SoliloquyClass {
     /**

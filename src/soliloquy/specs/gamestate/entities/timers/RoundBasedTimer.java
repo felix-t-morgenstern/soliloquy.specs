@@ -12,7 +12,6 @@ import soliloquy.specs.gamestate.entities.gameevents.TriggeredEvent;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface RoundBasedTimer extends HasId, TriggeredEvent, Deletable {
     /**

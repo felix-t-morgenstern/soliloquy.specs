@@ -16,7 +16,7 @@ import java.util.function.Supplier;
  */
 public interface CameraFactory extends SoliloquyClass {
     /**
-     * @param getGameZone - A function which obtains the current GameZone at any given time
+     * @param getGameZone A function which obtains the current GameZone at any given time
      * @return The newly-created Camera
      * @throws IllegalArgumentException If and only if getGameZone is null
      */

@@ -12,24 +12,24 @@ import soliloquy.specs.common.infrastructure.Registry;
  * <p>
  * It contains a List of the Sounds currently playing, a SoundsLibrary which can create new
  * Sounds, and the audio Settings.
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface Audio {
-	/**
-	 * @return A List of the Sounds currently playing
-	 * <p>
-	 * <i>Note that this includes Sounds which are currently paused, but not Sounds which have been
-	 * stopped.</i>
-	 */
-	SoundsPlaying soundsPlaying();
-	
-	/**
-	 * @return The library of all Sounds in the Game, which can also create those Sounds
-	 */
-	SoundFactory soundFactory();
+    /**
+     * @return A List of the Sounds currently playing
+     *         <p>
+     *         <i>Note that this includes Sounds which are currently paused, but not Sounds which
+     *         have been
+     *         stopped.</i>
+     */
+    SoundsPlaying soundsPlaying();
 
-	Registry<SoundType> soundTypes();
+    /**
+     * @return The library of all Sounds in the Game, which can also create those Sounds
+     */
+    SoundFactory soundFactory();
+
+    Registry<SoundType> soundTypes();
 }

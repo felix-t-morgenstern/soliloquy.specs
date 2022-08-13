@@ -14,7 +14,6 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface FloatBox extends SoliloquyClass {
     /**
@@ -49,6 +48,7 @@ public interface FloatBox extends SoliloquyClass {
 
     /**
      * <i>NB: If there is no intersection, this method returns null.</i>
+     *
      * @param box The box to intersect with this box
      * @return The intersection (i.e. overlap) with this box; if no overlap, returns null
      * @throws IllegalArgumentException If and only if box is null

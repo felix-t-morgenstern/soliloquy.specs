@@ -13,15 +13,14 @@ import java.util.List;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface ColorShiftStackAggregator extends SoliloquyClass {
     /**
      * @param colorShifts The ColorShiftTypes to aggregate
-     * @param timestamp The timestamp for which to aggregate the ColorShifts
+     * @param timestamp   The timestamp for which to aggregate the ColorShifts
      * @return The NetColorShifts resulting from the provided colorShifts
      * @throws IllegalArgumentException If and only if colorShifts is null, or contains any
-     * ColorShiftTypes with invalid values
+     *                                  ColorShiftTypes with invalid values
      */
     NetColorShifts aggregate(List<ColorShift> colorShifts, long timestamp)
             throws IllegalArgumentException;

@@ -12,18 +12,19 @@ import java.awt.*;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface LineSegmentRenderable extends RenderableWithDimensions {
     /**
      * @return A ProviderAtTime which provides the thickness of this line segment, <i>in rasterized
-     * pixels</i>, for a given timestamp. <i>It is expected that the value provided will never be
-     * null.</i>
+     *         pixels</i>, for a given timestamp. <i>It is expected that the value provided will
+     *         never be
+     *         null.</i>
      */
     ProviderAtTime<Float> getThicknessProvider();
 
     /**
      * C.f. {@link #getThicknessProvider()} for more information
+     *
      * @param thicknessProvider The ThicknessProvider to set for this Renderable
      * @throws IllegalArgumentException If and only if thicknessProvider is null
      */
@@ -32,12 +33,13 @@ public interface LineSegmentRenderable extends RenderableWithDimensions {
 
     /**
      * @return A ProviderAtTime which provides the color of this line segment. <i>It is expected
-     * that the value provided will never be null.</i>
+     *         that the value provided will never be null.</i>
      */
     ProviderAtTime<Color> getColorProvider();
 
     /**
      * C.f. {@link #getColorProvider()} for more information
+     *
      * @param colorProvider The color provider to set for this Renderable
      * @throws IllegalArgumentException If and only if colorProvider is null
      */

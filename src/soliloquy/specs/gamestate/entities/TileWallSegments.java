@@ -16,93 +16,94 @@ import soliloquy.specs.common.infrastructure.Pair;
  */
 public interface TileWallSegments
         extends Iterable<Pair<TileWallSegmentDirection,
-            Pair<TileWallSegment, TileWallSegmentDimensions>>>, Deletable {
+        Pair<TileWallSegment, TileWallSegmentDimensions>>>, Deletable {
     /**
      * <i>NB: This is only supposed to be a REPRESENTATION of the TileWallSegments on this Tile. To
      * add or remove a TileWallSegment, use the other methods specified.</i>
+     *
      * @return A representation of the TileWallSegments on this Tile.
      * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
      */
-    Map<TileWallSegmentDirection, Map<TileWallSegment,TileWallSegmentDimensions>>
-        representation()
+    Map<TileWallSegmentDirection, Map<TileWallSegment, TileWallSegmentDimensions>>
+    representation()
             throws IllegalStateException;
 
     /**
-     * @param direction - The direction the TileWallSegment will face
-     * @param segment - The {@link TileWallSegment} to add to this Tile
-     * @param height - The height of the newly-added segment
+     * @param direction The direction the TileWallSegment will face
+     * @param segment   The {@link TileWallSegment} to add to this Tile
+     * @param height    The height of the newly-added segment
      * @throws IllegalArgumentException If and only if segment is null, or if direction is null,
-     * UNKNOWN, or NOT_FOUND
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     *                                  UNKNOWN, or NOT_FOUND
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     void add(TileWallSegmentDirection direction, TileWallSegment segment, int height)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param direction - The direction the TileWallSegment will face
-     * @param segment - The {@link TileWallSegment} to add to this Tile
-     * @param height - The height of the newly-added segment
-     * @param zIndex - The z index of the TileWallSegment to be added
+     * @param direction The direction the TileWallSegment will face
+     * @param segment   The {@link TileWallSegment} to add to this Tile
+     * @param height    The height of the newly-added segment
+     * @param zIndex    The z index of the TileWallSegment to be added
      * @throws IllegalArgumentException If and only if segment is null, or if direction is null,
-     * UNKNOWN, or NOT_FOUND
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     *                                  UNKNOWN, or NOT_FOUND
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     void add(TileWallSegmentDirection direction, TileWallSegment segment, int height, int zIndex)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param segment - The TileWallSegment whose z index to retrieve
+     * @param segment The TileWallSegment whose z index to retrieve
      * @return The z index of the provided segment; if not present, then returns null
      * @throws IllegalArgumentException If and only if tileWallSegment is null
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     Integer getZIndex(TileWallSegment segment)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param segment - The TileWallSegment whose z index to set
-     * @param zIndex - The z index to set for segment
+     * @param segment The TileWallSegment whose z index to set
+     * @param zIndex  The z index to set for segment
      * @throws IllegalArgumentException If and only if tileWallSegment is null, or not present in
-     * this object
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     *                                  this object
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     void setZIndex(TileWallSegment segment, int zIndex)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param segment - The TileWallSegment whose z index to retrieve
+     * @param segment The TileWallSegment whose z index to retrieve
      * @return The height of the provided segment; if not present, then returns null
      * @throws IllegalArgumentException If and only if tileWallSegment is null
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     Integer getHeight(TileWallSegment segment)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param segment - The TileWallSegment whose z index to set
-     * @param height - The height to set for segment
+     * @param segment The TileWallSegment whose z index to set
+     * @param height  The height to set for segment
      * @throws IllegalArgumentException If and only if tileWallSegment is null, or not present in
-     * this object
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     *                                  this object
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     void setHeight(TileWallSegment segment, int height)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param tileWallSegment - The TileWallSegment to remove from this Tile
+     * @param tileWallSegment The TileWallSegment to remove from this Tile
      * @return True, if and only if this TileWallSegment was present in this Tile, and was
-     * therefore removed
+     *         therefore removed
      * @throws IllegalArgumentException If and only if tileWallSegment is null
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     boolean remove(TileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param tileWallSegment - The TileWallSegment whose presence to verify
+     * @param tileWallSegment The TileWallSegment whose presence to verify
      * @return True, if and only if tileWallSegment is present in this TileWallSegments
      * @throws IllegalArgumentException If and only if tileWallSegment is null
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     boolean contains(TileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;
@@ -114,19 +115,20 @@ public interface TileWallSegments
     int size() throws IllegalStateException;
 
     /**
-     * @param direction - The direction for which to retrieve the number of wall segments
+     * @param direction The direction for which to retrieve the number of wall segments
      * @return The number of TileWallSegments on this Tile in the specified direction
      * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
      */
     int size(TileWallSegmentDirection direction) throws IllegalStateException;
 
     /**
-     * @param tileWallSegment - The {@link TileWallSegment} whose {@link TileWallSegmentDirection}
+     * @param tileWallSegment The {@link TileWallSegment} whose {@link TileWallSegmentDirection}
      *                        to retrieve
      * @return The {@link TileWallSegmentDirection} of the specified {@link TileWallSegment}
-     * (Returns {@link TileWallSegmentDirection#NOT_FOUND} if tileWallSegment is not present.)
+     *         (Returns {@link TileWallSegmentDirection#NOT_FOUND} if tileWallSegment is not
+     *         present.)
      * @throws IllegalArgumentException If and only if tileWallSegment is null
-     * @throws IllegalStateException If this TileWallSegments or its Tile have been deleted
+     * @throws IllegalStateException    If this TileWallSegments or its Tile have been deleted
      */
     TileWallSegmentDirection getDirection(TileWallSegment tileWallSegment)
             throws IllegalArgumentException, IllegalStateException;

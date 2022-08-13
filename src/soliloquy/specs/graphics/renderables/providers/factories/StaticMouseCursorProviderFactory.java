@@ -8,7 +8,7 @@ public interface StaticMouseCursorProviderFactory {
      * @param definition The definition used to create the StaticMouseCursorProvider
      * @return The newly-created StaticMouseCursorProvider
      * @throws IllegalArgumentException If and only if definition is null, or if its id or relative
-     * locations are null or empty
+     *                                  locations are null or empty
      */
     StaticMouseCursorProvider make(StaticMouseCursorProviderDefinition definition)
             throws IllegalArgumentException;

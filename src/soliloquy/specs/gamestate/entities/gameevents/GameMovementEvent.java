@@ -27,10 +27,11 @@ public interface GameMovementEvent extends HasId, HasGlobalAccess {
      * If this method returns null, that means that if any other GameMovementEvents on that Tile
      * have returned true or false, then that result will not be changed by this event.
      * method returns null, this means that </i>
-     * @param character - The {@link Character} causing this GameMovementEvent
-     * @param target - The {@link GameEventTarget} of this GameMovementEvent
+     *
+     * @param character The {@link Character} causing this GameMovementEvent
+     * @param target    The {@link GameEventTarget} of this GameMovementEvent
      * @return True, if character is allowed to step into the space; false, if they are not; and
-     * null, if this event does not make a decision one way or the other.
+     *         null, if this event does not make a decision one way or the other.
      * @throws IllegalArgumentException If and only if source or target are null
      */
     Boolean fire(Character character, GameEventTarget target)

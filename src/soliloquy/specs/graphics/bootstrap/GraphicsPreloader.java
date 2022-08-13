@@ -14,7 +14,6 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface GraphicsPreloader extends SoliloquyClass {
     /**

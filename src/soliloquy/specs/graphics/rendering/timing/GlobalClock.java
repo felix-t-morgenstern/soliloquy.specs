@@ -14,13 +14,12 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface GlobalClock extends SoliloquyClass {
     /**
      * @return The current global timestamp, e.g. in UTC milliseconds
      * @throws UnsupportedOperationException If and only if the GlobalClock has not yet been
-     * started
+     *                                       started
      */
     long globalTimestamp() throws UnsupportedOperationException;
 }

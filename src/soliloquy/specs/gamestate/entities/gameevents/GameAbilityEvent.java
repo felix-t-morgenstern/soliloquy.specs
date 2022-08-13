@@ -19,6 +19,7 @@ import soliloquy.specs.ruleset.entities.abilities.Ability;
 public interface GameAbilityEvent extends HasId, HasGlobalAccess {
     /**
      * Fires this Event with the provided source and target.
+     *
      * @param source The source Character or Item of the {@link Ability} causing this
      *               GameAbilityEvent
      * @param target The {@link GameEventTarget} of this GameMovementEvent

@@ -9,7 +9,6 @@ import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface TileEntity extends GameEntity {
     /**
@@ -23,10 +22,11 @@ public interface TileEntity extends GameEntity {
      * {@link TileEntities#add} and {@link TileEntities#remove}; it is intended to
      * check whether the Tile assigned to this entity has this entity on it, prior to
      * assignment or removal.</b>
-     * @param tile - The Tile to which to assign to this entity (may be null)
+     *
+     * @param tile The Tile to which to assign to this entity (may be null)
      * @throws IllegalArgumentException If and only if tile is null, or tile does not contain this
-     * entity
-     * @throws EntityDeletedException If this entity has been deleted
+     *                                  entity
+     * @throws EntityDeletedException   If this entity has been deleted
      */
     void assignTileAfterAddedToTileEntitiesOfType(Tile tile)
             throws IllegalArgumentException, EntityDeletedException;

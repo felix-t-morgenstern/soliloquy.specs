@@ -17,7 +17,7 @@ import java.util.Set;
 public interface AudioLoader extends SoliloquyClass {
     /**
      * @return A (mutable) Set of filetypes which can be recognized as audio files (e.g. "mp3",
-     * "wav")
+     *         "wav")
      */
     Set<String> filetypes();
 
@@ -28,11 +28,12 @@ public interface AudioLoader extends SoliloquyClass {
      * <p>
      * Additionally, if defaultLoopingStopMsForIds contains any Ids already set, those previous
      * values are overwritten.
-     * @param defaultLoopingStopMsForIds - A Map, where the keys are SoundType Ids, and the values
+     *
+     * @param defaultLoopingStopMsForIds A Map, where the keys are SoundType Ids, and the values
      *                                   are the default loop stopping millisecond positions.
      * @throws IllegalArgumentException If and only if defaultLoopingStopMsForIds is null
      */
-    void setDefaultLoopingStopMsForIds(Map<String,Integer> defaultLoopingStopMsForIds)
+    void setDefaultLoopingStopMsForIds(Map<String, Integer> defaultLoopingStopMsForIds)
             throws IllegalArgumentException;
 
     /**
@@ -42,12 +43,13 @@ public interface AudioLoader extends SoliloquyClass {
      * <p>
      * Additionally, if defaultLoopingRestartMsForIds contains any Ids already set, those previous
      * values are overwritten.
-     * @param defaultLoopingRestartMsForIds - A Map, where the keys are SoundType Ids, and the
+     *
+     * @param defaultLoopingRestartMsForIds A Map, where the keys are SoundType Ids, and the
      *                                      values are the default loop restarting millisecond
      *                                      positions.
      * @throws IllegalArgumentException If and only if defaultLoopingRestartMsForIds is null
      */
-    void setDefaultLoopingRestartMsForIds(Map<String,Integer> defaultLoopingRestartMsForIds)
+    void setDefaultLoopingRestartMsForIds(Map<String, Integer> defaultLoopingRestartMsForIds)
             throws IllegalArgumentException;
 
     /**
@@ -55,12 +57,13 @@ public interface AudioLoader extends SoliloquyClass {
      * against idsForFilenames; for any matches, new SoundTypes are generated, using the looping
      * information specified by setDefaultLoopingStopMsForIds and setDefaultLoopingRestartMsForIds,
      * and added to {@link soliloquy.specs.audio.Audio#soundTypes}.
-     * @param relativePath The relative path, from the code source of this very class, specifying
-     *                     the folder from which to draw up new SoundTypes.
-     * @param idsForFilenames - The Ids corresponding to all filenames to be searched for within
+     *
+     * @param relativePath    The relative path, from the code source of this very class, specifying
+     *                        the folder from which to draw up new SoundTypes.
+     * @param idsForFilenames The Ids corresponding to all filenames to be searched for within
      *                        the directory identified by relativePath
      * @throws IllegalArgumentException If and only if relativePath or idsForFilenames are null
      */
-    void loadFromDirectory(String relativePath, Map<String,String[]> idsForFilenames)
+    void loadFromDirectory(String relativePath, Map<String, String[]> idsForFilenames)
             throws IllegalArgumentException;
 }

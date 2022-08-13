@@ -12,7 +12,6 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface BrightnessShift extends ColorShift {
     /**
@@ -21,8 +20,9 @@ public interface BrightnessShift extends ColorShift {
      * (255,255,255) in RGB values). A value of -1.0 implies that every pixel is set to black (i.e.
      * (0,0,0) in RGB values). A value of 0.5 implies that every pixel's distance to (255,255,255)
      * is halved. A value of -0.5 implies that every pixel's distance to (0,0,0) is halved.
+     *
      * @return The amount to which to shift the brightness at the provided timestamp. <i>It is
-     * expected that the returned value will never be null.</i>
+     *         expected that the returned value will never be null.</i>
      */
     ProviderAtTime<Float> shiftAmountProvider();
 }

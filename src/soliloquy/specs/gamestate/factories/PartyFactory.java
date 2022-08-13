@@ -14,7 +14,7 @@ import soliloquy.specs.gamestate.entities.Party;
  */
 public interface PartyFactory extends SoliloquyClass {
     /**
-     * @param data - The data for the newly-created Party object
+     * @param data The data for the newly-created Party object
      * @return The newly-created Party object
      * @throws IllegalArgumentException If and only if data is null
      */

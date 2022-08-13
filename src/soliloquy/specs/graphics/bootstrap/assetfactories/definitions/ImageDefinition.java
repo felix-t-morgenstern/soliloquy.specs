@@ -7,7 +7,6 @@ package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public class ImageDefinition {
     private final String RELATIVE_LOCATION;

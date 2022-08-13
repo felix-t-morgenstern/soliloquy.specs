@@ -10,7 +10,6 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface OutputController extends SoliloquyClass {
     /**
@@ -23,6 +22,7 @@ public interface OutputController extends SoliloquyClass {
      * Determines the next output (i.e. addition to the actual level observed previously) for the
      * next period, based on the actual output level seen in the current period, and the target
      * output level desired
+     *
      * @param actual The actual output level observed in the current period
      * @param target The target output level for the next period
      * @return The adjustment to the output for the next period, to attempt to get to the target

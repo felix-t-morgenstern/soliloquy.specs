@@ -14,10 +14,9 @@ import soliloquy.specs.graphics.rendering.WindowResolutionManager;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface Graphics extends SoliloquyClass {
-	// TODO: Just wait until the module is worked out to figure out what even goes in here
+    // TODO: Just wait until the module is worked out to figure out what even goes in here
 
     /**
      * @return The core Graphics loop, to be started immediately on app startup
@@ -33,7 +32,7 @@ public interface Graphics extends SoliloquyClass {
      * @param id The id of the Sprite requested
      * @return The desired Sprite
      * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
-     * a valid Sprite
+     *                                  a valid Sprite
      */
     Sprite getSprite(String id) throws IllegalArgumentException;
 
@@ -41,7 +40,7 @@ public interface Graphics extends SoliloquyClass {
      * @param id The id of the ImageAssetSet requested
      * @return The desired ImageAssetSet
      * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
-     * a valid Sprite
+     *                                  a valid Sprite
      */
     ImageAssetSet getImageAssetSet(String id);
 
@@ -49,7 +48,7 @@ public interface Graphics extends SoliloquyClass {
      * @param id The id of the Animation requested
      * @return The desired Animation
      * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
-     * a valid Animation
+     *                                  a valid Animation
      */
     Animation getAnimation(String id) throws IllegalArgumentException;
 
@@ -57,7 +56,7 @@ public interface Graphics extends SoliloquyClass {
      * @param id The id of the GlobalLoopingAnimation requested
      * @return The desired GlobalLoopingAnimation
      * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
-     * a valid GlobalLoopingAnimation
+     *                                  a valid GlobalLoopingAnimation
      */
     GlobalLoopingAnimation getGlobalLoopingAnimation(String id) throws IllegalArgumentException;
 
@@ -65,13 +64,13 @@ public interface Graphics extends SoliloquyClass {
      * @param id The Id of the Font requested
      * @return The desired Font
      * @throws IllegalArgumentException If and only if id is null, empty, or does not correspond to
-     * a valid Font
+     *                                  a valid Font
      */
     Font getFont(String id) throws IllegalArgumentException;
 
     /**
      * @return The {@link WindowResolutionManager}, to manage the size of the window (and, if
-     * fullscreen, the screen itself)
+     *         fullscreen, the screen itself)
      */
     WindowResolutionManager windowResolutionManager();
 }

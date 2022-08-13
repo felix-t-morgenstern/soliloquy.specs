@@ -12,6 +12,7 @@ public interface OneTimeClockBasedTimer extends ClockBasedTimer {
     /**
      * <i>NB: This time is updated whenever {@link #reportUnpause} is called, adding on the amount
      * of time spent paused.</i>
+     *
      * @return The time at which to fire
      */
     long firingTime();

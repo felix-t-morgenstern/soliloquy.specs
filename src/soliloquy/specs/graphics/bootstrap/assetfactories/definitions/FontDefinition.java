@@ -9,7 +9,6 @@ import soliloquy.specs.graphics.assets.Font;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public class FontDefinition extends AssetDefinition<Font> {
     private final String RELATIVE_LOCATION;
@@ -47,7 +46,7 @@ public class FontDefinition extends AssetDefinition<Font> {
 
     /**
      * @return The maximum size of the font which can be displayed without getting blurry from
-     * being drawn too large (cannot be less than 0)
+     *         being drawn too large (cannot be less than 0)
      */
     public float maxLosslessFontSize() {
         return MAX_LOSSLESS_FONT_SIZE;
@@ -62,8 +61,10 @@ public class FontDefinition extends AssetDefinition<Font> {
      * implies that an additional 10% of the line height should be read by the Graphics engine as
      * the leading of the font.
      * <p>
-     * @see <a href="https://en.wikipedia.org/wiki/Leading">https://en.wikipedia.org/wiki/Leading</a>
+     *
      * @return The additional percentage of the font's total line height to interpret as leading
+     * @see
+     * <a href="https://en.wikipedia.org/wiki/Leading">https://en.wikipedia.org/wiki/Leading</a>
      */
     public float leadingAdjustment() {
         return LEADING_ADJUSTMENT;

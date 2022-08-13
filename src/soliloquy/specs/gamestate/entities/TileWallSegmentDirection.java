@@ -18,7 +18,7 @@ public enum TileWallSegmentDirection {
     }
 
     public static TileWallSegmentDirection fromValue(int value) {
-        switch(value) {
+        switch (value) {
             case -1:
                 return NOT_FOUND;
             case 0:

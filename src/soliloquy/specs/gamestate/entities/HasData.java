@@ -11,12 +11,11 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface HasData extends SoliloquyClass {
     /**
      * @return Any parameters regarding this entity which do not fit neatly into any of their other
-     * properties.
+     *         properties.
      * @throws IllegalStateException If this Item has been deleted
      */
     VariableCache data() throws IllegalStateException;

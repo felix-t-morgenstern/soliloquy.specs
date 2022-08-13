@@ -16,45 +16,45 @@ import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
 // TODO: Document this interface
 public interface Ruleset extends SoliloquyClass {
-	EntityGroup<ActiveAbility> activeAbilityTypes();
-	
-	EntityGroup<ReactiveAbility> reactiveAbilityTypes();
-	
-	EntityGroup<PassiveAbility> passiveAbilityTypes();
+    EntityGroup<ActiveAbility> activeAbilityTypes();
 
-	EntityGroup<CharacterVariableStatisticType> variableStatisticTypesGrouped();
+    EntityGroup<ReactiveAbility> reactiveAbilityTypes();
 
-	EntityGroup<CharacterStaticStatisticType> characterStaticStatisticTypes();
-	
-	Registry<CharacterClassification> characterClassifications();
+    EntityGroup<PassiveAbility> passiveAbilityTypes();
 
-	Registry<CharacterType> characterTypes();
+    EntityGroup<CharacterVariableStatisticType> variableStatisticTypesGrouped();
 
-	Registry<CharacterAIType> characterAITypes();
+    EntityGroup<CharacterStaticStatisticType> characterStaticStatisticTypes();
 
-	Registry<Element> elements();
+    Registry<CharacterClassification> characterClassifications();
 
-	Registry<EquipmentType> equipmentTypes();
+    Registry<CharacterType> characterTypes();
 
-	Registry<FixtureType> fixtureTypes();
+    Registry<CharacterAIType> characterAITypes();
 
-	Registry<GameMovementEvent> gameMovementEvents();
+    Registry<Element> elements();
 
-	Registry<GameAbilityEvent> gameAbilityEvents();
+    Registry<EquipmentType> equipmentTypes();
 
-	Registry<GroundType> groundTypes();
+    Registry<FixtureType> fixtureTypes();
 
-	Registry<ItemType> itemTypes();
+    Registry<GameMovementEvent> gameMovementEvents();
 
-	Registry<StatusEffectType> statusEffectTypes();
+    Registry<GameAbilityEvent> gameAbilityEvents();
 
-	Registry<CharacterVariableStatisticType> variableStatisticTypes();
+    Registry<GroundType> groundTypes();
 
-	Registry<WallSegmentType> wallSegmentTypes();
+    Registry<ItemType> itemTypes();
 
-	Registry<Action> actions();
+    Registry<StatusEffectType> statusEffectTypes();
 
-	Registry<Function> functions();
-	
-	SettingsRepo rulesetSettings();
+    Registry<CharacterVariableStatisticType> variableStatisticTypes();
+
+    Registry<WallSegmentType> wallSegmentTypes();
+
+    Registry<Action> actions();
+
+    Registry<Function> functions();
+
+    SettingsRepo rulesetSettings();
 }

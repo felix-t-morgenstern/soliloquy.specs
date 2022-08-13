@@ -15,9 +15,11 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 public interface TriggeredEvent extends Runnable, SoliloquyClass {
     /**
      * @return The priority for this TriggeredEvent, with higher value implying higher priority;
-     * when multiple TriggeredEvents are fired, events with higher priority are fired first. (If
-     * multiple TriggeredEvents have the same priority, no assurances are made as to which will
-     * fire first!)
+     *         when multiple TriggeredEvents are fired, events with higher priority are fired first.
+     *         (If
+     *         multiple TriggeredEvents have the same priority, no assurances are made as to which
+     *         will
+     *         fire first!)
      */
     int priority();
 

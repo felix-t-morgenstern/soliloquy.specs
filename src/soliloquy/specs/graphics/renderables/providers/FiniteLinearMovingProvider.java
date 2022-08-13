@@ -14,7 +14,6 @@ import java.util.Map;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface FiniteLinearMovingProvider<T> extends ProviderAtTime<T> {
     /**
@@ -28,9 +27,10 @@ public interface FiniteLinearMovingProvider<T> extends ProviderAtTime<T> {
      * the value after the last timestamp, it will return the value at the last timestamp.
      * <p>
      * ALSO note that this method returns a representation, not the actual values!</i>
+     *
      * @return A Map, linking timestamps to the values provided at that timestamp. Linear movement
-     * is calculated for any given timestamp by finding the distance between the two nearest
-     * timestamps.
+     *         is calculated for any given timestamp by finding the distance between the two nearest
+     *         timestamps.
      */
     Map<Long, T> valuesAtTimestampsRepresentation();
 }

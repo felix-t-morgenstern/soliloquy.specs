@@ -10,7 +10,6 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface ColorShift extends SoliloquyClass {
     /**
@@ -18,6 +17,7 @@ public interface ColorShift extends SoliloquyClass {
      * {@link BrightnessShift#shiftAmountProvider()},
      * {@link ColorComponentIntensityShift#shiftAmountProvider()}, and
      * {@link ColorRotationShift#shiftAmountProvider()}
+     *
      * @return A Provider, providing the value for this ColorShift at a given time
      */
     ProviderAtTime<Float> shiftAmountProvider();
@@ -26,6 +26,7 @@ public interface ColorShift extends SoliloquyClass {
      * 'Type' here refers to specific implementations of ColorShift; so, for example, if a
      * {@link BrightnessShift} returns True from this method, then all BrightnessShifts lower in
      * the stack are ignored.
+     *
      * @return If true, then this shift overrides all previous shifts of the same type.
      */
     boolean overridesPriorShiftsOfSameType();

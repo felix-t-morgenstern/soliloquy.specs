@@ -13,7 +13,8 @@ import soliloquy.specs.gamestate.entities.gameevents.TriggeredEvent;
  */
 public interface TriggeredEventFactory extends SoliloquyClass {
     /**
-     * @param priority The priority of the TriggeredEvent (c.f. {@link TriggeredEvent#priority()})
+     * @param priority    The priority of the TriggeredEvent (c.f.
+     * {@link TriggeredEvent#priority()})
      * @param eventAction The action to be fired when this event is triggered
      * @return The created TriggeredEvent
      * @throws IllegalArgumentException If and only if eventAction is null

@@ -2,8 +2,6 @@ package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.assets.Sprite;
 
-import java.awt.*;
-
 /**
  * <b>SpriteRenderable</b>
  * <p>
@@ -11,7 +9,6 @@ import java.awt.*;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface SpriteRenderable extends ImageAssetRenderable {
     /**
@@ -21,9 +18,11 @@ public interface SpriteRenderable extends ImageAssetRenderable {
 
     /**
      * C.f. {@link #getSprite()} for more information
+     *
      * @param sprite The Sprite to set for this Renderable
      * @throws IllegalArgumentException If and only if sprite is null, or if sprite does not
-     * support mouse events, while this Renderable does support mouse events
+     *                                  support mouse events, while this Renderable does support
+     *                                  mouse events
      */
     void setSprite(Sprite sprite) throws IllegalArgumentException;
 }

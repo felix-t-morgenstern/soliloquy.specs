@@ -17,6 +17,7 @@ import soliloquy.specs.gamestate.entities.gameevents.TriggeredEvent;
 public interface GameSaveBlocker extends SoliloquyClass {
     /**
      * This call is expected to be made when an event first fires
+     *
      * @param triggeredEvent The TriggeredEvent for which to place a block on saving the gamestate
      * @throws IllegalArgumentException If and only if triggeredEvent is null
      */
@@ -24,6 +25,7 @@ public interface GameSaveBlocker extends SoliloquyClass {
 
     /**
      * This call is expected to be made when an event has finished firing
+     *
      * @param triggeredEvent The TriggeredEvent for whose block on saving the gamestate to remove
      * @throws IllegalArgumentException If and only if triggeredEvent is null
      */
@@ -43,8 +45,9 @@ public interface GameSaveBlocker extends SoliloquyClass {
 
     /**
      * @return True, if and only if the gamestate can be saved; i.e., if and only if there are no
-     * TriggeredEvents placing blocks on saving the game, and if there is no manual block placed on
-     * saving the game.
+     *         TriggeredEvents placing blocks on saving the game, and if there is no manual block
+     *         placed on
+     *         saving the game.
      */
     boolean canSaveGame();
 }

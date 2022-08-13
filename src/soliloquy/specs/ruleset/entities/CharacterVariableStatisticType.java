@@ -10,10 +10,9 @@ import soliloquy.specs.common.shared.HasPluralName;
  * <p>
  * It has behaviors which can be performed on each Character at the start or end of their turn or
  * the round, e.g. regeneration, taking damage from poison, spilling blood on the ground, etc.
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface CharacterVariableStatisticType extends CharacterStatisticType,
         ActOnCharacterOnTurnAndRound, HasPluralName,

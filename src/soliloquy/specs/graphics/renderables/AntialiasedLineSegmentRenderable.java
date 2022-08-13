@@ -9,11 +9,11 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface AntialiasedLineSegmentRenderable extends LineSegmentRenderable {
     /**
-     * @return A Provider which provides the percentage of the line segment's thickness which should be
+     * @return A Provider which provides the percentage of the line segment's thickness which should
+     *         be
      */
     ProviderAtTime<Float> thicknessGradientPercentProvider();
 

@@ -13,12 +13,12 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface RenderingBoundaries extends Iterable<FloatBox>, SoliloquyClass {
     /**
      * <i>NB: If there is no place in the window within which rendering can take place, this method
      * returns null.</i>
+     *
      * @return The current rendering boundaries; can be null
      */
     FloatBox currentBoundaries();
@@ -30,6 +30,7 @@ public interface RenderingBoundaries extends Iterable<FloatBox>, SoliloquyClass 
      * boundaries.
      * <p>
      * <i>If box is null, that implies that there will then be no valid rendering area.</i>
+     *
      * @param box The rendering boundaries to add.
      */
     void pushNewBoundaries(FloatBox box);

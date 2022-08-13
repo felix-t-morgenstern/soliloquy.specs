@@ -20,7 +20,6 @@ import java.awt.*;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface TriangleRenderable extends PolygonRenderable {
     /**
@@ -38,12 +37,14 @@ public interface TriangleRenderable extends PolygonRenderable {
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * vertex.</i>
+     *
      * @return A ProviderAtTime which provides the color at the first vertex
      */
     ProviderAtTime<Color> getVertex1ColorProvider();
 
     /**
      * C.f. {@link #getVertex1ColorProvider()} for more information
+     *
      * @param provider The Color provider for the first vertex
      * @throws IllegalArgumentException If and only if provider is null
      */
@@ -64,12 +65,14 @@ public interface TriangleRenderable extends PolygonRenderable {
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * vertex.</i>
+     *
      * @return A ProviderAtTime which provides the color at the second vertex
      */
     ProviderAtTime<Color> getVertex2ColorProvider();
 
     /**
      * C.f. {@link #getVertex1ColorProvider()} for more information
+     *
      * @param provider The Color provider for the second vertex
      * @throws IllegalArgumentException If and only if provider is null
      */
@@ -90,12 +93,14 @@ public interface TriangleRenderable extends PolygonRenderable {
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * vertex.</i>
+     *
      * @return A ProviderAtTime which provides the color at the third vertex
      */
     ProviderAtTime<Color> getVertex3ColorProvider();
 
     /**
      * C.f. {@link #getVertex1ColorProvider()} for more information
+     *
      * @param provider The Color provider for the third vertex
      * @throws IllegalArgumentException If and only if provider is null
      */

@@ -16,14 +16,13 @@ import soliloquy.specs.common.shared.HasId;
  * complete
  * <p>
  * CharacterAIs may be written to and read from save files.
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface CharacterAIType extends HasId, HasGlobalAccess {
-	/**
-	 * Causes this Character to act when they are active
-	 */
-	void act();
+    /**
+     * Causes this Character to act when they are active
+     */
+    void act();
 }

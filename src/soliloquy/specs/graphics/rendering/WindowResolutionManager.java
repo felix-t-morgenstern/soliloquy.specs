@@ -1,9 +1,6 @@
 package soliloquy.specs.graphics.rendering;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.Coordinate;
-
-import java.util.function.Consumer;
 
 /**
  * <b>WindowResolutionManager</b>
@@ -13,7 +10,6 @@ import java.util.function.Consumer;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface WindowResolutionManager extends SoliloquyClass {
     /**
@@ -33,12 +29,14 @@ public interface WindowResolutionManager extends SoliloquyClass {
      * <p>
      * Also, this method throws an exception when the window is in windowed fullscreen mode, since
      * the window in that case should conform to the resolution of the screen.
-     * @param width The width to which to set the window resolution
+     *
+     * @param width  The width to which to set the window resolution
      * @param height The height to which to set the window resolution
-     * @throws IllegalArgumentException If and only if width or height are less than 1, or are
-     * invalid, according to the rules of the graphics engine implementation.
+     * @throws IllegalArgumentException      If and only if width or height are less than 1, or are
+     *                                       invalid, according to the rules of the graphics engine
+     *                                       implementation.
      * @throws UnsupportedOperationException If and only if current WindowDisplayMode is
-     * WindowedFullscreen
+     *                                       WindowedFullscreen
      */
     void setDimensions(int width, int height)
             throws IllegalArgumentException, UnsupportedOperationException;
@@ -63,6 +61,7 @@ public interface WindowResolutionManager extends SoliloquyClass {
      * changes, whenever the next frame is executed (c.f.
      * {@link soliloquy.specs.graphics.rendering.timing.FrameTimer}). (If the window has not yet
      * been created, this method will create it.)
+     *
      * @param windowId The id of the current window
      * @param titlebar The string to be displayed in the titlebar
      * @return The window Id, which changes when switching from one display mode to another

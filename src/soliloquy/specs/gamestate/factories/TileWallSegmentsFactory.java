@@ -14,7 +14,7 @@ import soliloquy.specs.gamestate.entities.TileWallSegments;
  */
 public interface TileWallSegmentsFactory extends SoliloquyClass {
     /**
-     * @param tile - The {@link Tile} for which this {@link TileWallSegments} is to be made
+     * @param tile The {@link Tile} for which this {@link TileWallSegments} is to be made
      * @return A {@link TileWallSegments} for tile
      * @throws IllegalArgumentException If and only if tile is null
      */

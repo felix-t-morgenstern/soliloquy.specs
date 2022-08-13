@@ -8,10 +8,9 @@ import soliloquy.specs.common.shared.HasName;
  * <p>
  * An Element is type of effect which can occur to a Character, e.g. fire, ice, healing, poison,
  * unblockable
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface Element extends HasName, HasId, HasImageAssetSet {
 }

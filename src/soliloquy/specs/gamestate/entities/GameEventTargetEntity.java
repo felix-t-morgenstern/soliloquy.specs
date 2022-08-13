@@ -20,14 +20,14 @@ import java.util.List;
 public interface GameEventTargetEntity extends SoliloquyClass {
     /**
      * @return A {@link List} of {@link GameMovementEvent}s, triggered when a {@link Character}
-     * steps on this entity.
+     *         steps on this entity.
      * @throws IllegalStateException If this entity has been deleted
      */
     List<GameMovementEvent> movementEvents() throws IllegalStateException;
 
     /**
      * @return A {@link List} of {@link GameMovementEvent}s, triggered when a {@link Character} or
-     * {@link Item} uses an {@link Ability} on this entity.
+     *         {@link Item} uses an {@link Ability} on this entity.
      * @throws IllegalStateException If this entity has been deleted
      */
     List<GameAbilityEvent> abilityEvents() throws IllegalStateException;

@@ -16,7 +16,6 @@ import java.util.Map;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public class AnimationDefinition extends AssetDefinition<Animation> {
     private final int MS_DURATION;
@@ -33,7 +32,7 @@ public class AnimationDefinition extends AssetDefinition<Animation> {
     /**
      * @return The total duration of the Animation in milliseconds
      */
-    public int msDuration(){
+    public int msDuration() {
         return MS_DURATION;
     }
 
@@ -43,10 +42,11 @@ public class AnimationDefinition extends AssetDefinition<Animation> {
      * encountered by the {@link Renderer} for Animations (the AnimationRenderer).
      * NB: There must be at least one frame snippet definition for 0ms, and no map keys may be less
      * than 0 or greater than the duration of the Animation in milliseconds.
+     *
      * @return A Map, where the key is the position in milliseconds in which the frame snippet
-     * first occurs.
+     *         first occurs.
      */
-    public Map<Integer,AnimationFrameSnippet> frameSnippetDefinitions() {
+    public Map<Integer, AnimationFrameSnippet> frameSnippetDefinitions() {
         return FRAME_SNIPPET_DEFINITIONS;
     }
 }

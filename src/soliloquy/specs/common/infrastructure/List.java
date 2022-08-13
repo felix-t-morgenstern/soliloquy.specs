@@ -21,11 +21,10 @@ import soliloquy.specs.common.shared.HasOneGenericParam;
  * It can be asked how many items it has.
  * <p>
  * Items can be removed from it.
- * 
- * @author felix.t.morgenstern
- * @version 0.0.1
  *
  * @param <V> The type of entities in this List
+ * @author felix.t.morgenstern
+ * @version 0.0.1
  */
 public interface List<V> extends java.util.List<V>, Cloneable<List<V>>, HasOneGenericParam<V> {
 }

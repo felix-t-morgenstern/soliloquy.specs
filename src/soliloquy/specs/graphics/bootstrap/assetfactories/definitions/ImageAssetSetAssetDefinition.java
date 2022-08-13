@@ -11,7 +11,6 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public class ImageAssetSetAssetDefinition {
     private final String TYPE;
@@ -52,8 +51,8 @@ public class ImageAssetSetAssetDefinition {
 
     /**
      * @return The Id of the {@link soliloquy.specs.graphics.assets.Sprite} or
-     * {@link soliloquy.specs.graphics.assets.Animation} used for this SpriteSetAsset (c.f.
-     * {@link #assetType} to know which asset type to use)
+     *         {@link soliloquy.specs.graphics.assets.Animation} used for this SpriteSetAsset (c.f.
+     *         {@link #assetType} to know which asset type to use)
      */
     public String assetId() {
         return ASSET_ID;

@@ -9,7 +9,6 @@ package soliloquy.specs.ruleset.entities;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface CharacterStaticStatisticType extends CharacterStatisticType {
 }

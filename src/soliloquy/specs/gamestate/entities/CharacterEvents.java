@@ -17,86 +17,88 @@ import soliloquy.specs.gamestate.entities.gameevents.GameCharacterEvent;
  */
 public interface CharacterEvents extends Deletable {
     /**
-     * @param trigger - The name of the event trigger to trigger the added event
-     * @param event - The event to trigger on the firing of an event of the specified trigger
+     * @param trigger The name of the event trigger to trigger the added event
+     * @param event   The event to trigger on the firing of an event of the specified trigger
      * @throws IllegalArgumentException If and only if trigger is null or empty, or if event is
-     * null
-     * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     *                                  null
+     * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
+     *                                  class is deleted
      */
     void addEvent(String trigger, GameCharacterEvent event)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param trigger - The type of event whose corresponding events will no longer be triggered
+     * @param trigger The type of event whose corresponding events will no longer be triggered
      *                for this {@link Character}
      * @throws IllegalArgumentException If and only if trigger is null or empty
-     * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
+     *                                  class is deleted
      */
     void clearTrigger(String trigger) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * Clears all events for all trigger types for this {@link Character}
+     *
      * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     *                               class is deleted
      */
     void clearAllTriggers() throws IllegalStateException;
 
     /**
-     * @param event - The Event whose corresponding triggers to retrieve. (A given event may be
+     * @param event The Event whose corresponding triggers to retrieve. (A given event may be
      *              triggered by multiple types of triggers.)
      * @return A List of all of the triggers which will trigger the specified event.
      * @throws IllegalArgumentException If and only if event is null
-     * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
+     *                                  class is deleted
      */
     List<String> getTriggersForEvent(GameCharacterEvent event)
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param trigger - The name of the trigger for which the specified event will no longer be
+     * @param trigger The name of the trigger for which the specified event will no longer be
      *                associated
-     * @param event - The event which will no longer be associated with the specified trigger
+     * @param event   The event which will no longer be associated with the specified trigger
      * @return True, if and only if the specified event had previously been associated with the
-     * specified trigger type
+     *         specified trigger type
      * @throws IllegalArgumentException If and only if trigger is null or empty, or if event is
-     * null
-     * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     *                                  null
+     * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
+     *                                  class is deleted
      */
     boolean removeEvent(String trigger, GameCharacterEvent event)
             throws IllegalArgumentException, IllegalStateException;
 
 
     /**
-     * @param trigger - The trigger type to check for any association with the specified event
-     * @param event - The event to check for any association with the specified trigger type
+     * @param trigger The trigger type to check for any association with the specified event
+     * @param event   The event to check for any association with the specified trigger type
      * @return True, if and only if the specified event is set to fire when a trigger of the
-     * specified type occurs
+     *         specified type occurs
      * @throws IllegalArgumentException If and only if trigger is null or empty, or if event is
-     * null
-     * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     *                                  null
+     * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
+     *                                  class is deleted
      */
     boolean containsEvent(String trigger, GameCharacterEvent event)
-        throws IllegalArgumentException, IllegalStateException;
+            throws IllegalArgumentException, IllegalStateException;
 
     /**
      * Fires all events for this {@link Character} which are associated with the specified trigger.
      * (This may result in no events being fired.)
-     * @param trigger - The type of trigger whose corresponding events to fire
+     *
+     * @param trigger The type of trigger whose corresponding events to fire
      * @throws IllegalArgumentException If and only if trigger is null or empty
-     * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
+     *                                  class is deleted
      */
     void fire(String trigger) throws IllegalArgumentException, IllegalStateException;
 
     /**
      * @return A Map, whose indices are all triggers with at least one associated event, and whose
-     * values are Collections of all events associated with the corresponding triggers
+     *         values are Collections of all events associated with the corresponding triggers
      * @throws IllegalStateException If and only if the {@link Character} corresponding to this
-     * class is deleted
+     *                               class is deleted
      */
     Map<String, List<GameCharacterEvent>> representation() throws IllegalStateException;
 }

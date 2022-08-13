@@ -16,7 +16,6 @@ import java.util.Map;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface LoopingLinearMovingProvider<T> extends LoopingProvider<T>, HasPeriodDuration {
     /**
@@ -35,6 +34,7 @@ public interface LoopingLinearMovingProvider<T> extends LoopingProvider<T>, HasP
      * <p>
      * <i>(This method only exists for the sake of persistence handling--it should <u>not</u>
      * return the same map, but rather, a clone.)</i>
+     *
      * @return A Map, linking ms within a period to their corresponding values.
      */
     Map<Integer, T> valuesWithinPeriod();

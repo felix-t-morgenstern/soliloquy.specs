@@ -12,7 +12,6 @@ import java.util.Map;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public class AnimatedMouseCursorProviderDefinition implements HasId {
     private final String ID;
@@ -38,8 +37,8 @@ public class AnimatedMouseCursorProviderDefinition implements HasId {
 
     /**
      * @return cursorsAtMs The mouse cursor Ids (defined by OpenGL) corresponding to each
-     * millisecond within the period, analogous to
-     * {@link soliloquy.specs.graphics.assets.Animation}
+     *         millisecond within the period, analogous to
+     *         {@link soliloquy.specs.graphics.assets.Animation}
      */
     public Map<Integer, Long> cursorsAtMs() {
         return CURSORS_AT_MS;
@@ -54,7 +53,7 @@ public class AnimatedMouseCursorProviderDefinition implements HasId {
 
     /**
      * @return The number of ms to add onto the current timestamp to determine which mouse cursor
-     * to provide
+     *         to provide
      */
     public int periodModuloOffset() {
         return PERIOD_MODULO_OFFSET;

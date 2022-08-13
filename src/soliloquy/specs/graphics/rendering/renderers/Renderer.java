@@ -15,7 +15,6 @@ import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface Renderer<TRenderable extends Renderable> extends HasMostRecentTimestamp {
     /**
@@ -32,11 +31,11 @@ public interface Renderer<TRenderable extends Renderable> extends HasMostRecentT
 
     /**
      * @param renderable The renderable of the provided type to render
-     * @param timestamp The timestamp at which to render the Renderable; this parameter is of
-     *                  particular importance to
-     *                  {@link ProviderAtTime}.
+     * @param timestamp  The timestamp at which to render the Renderable; this parameter is of
+     *                   particular importance to
+     *                   {@link ProviderAtTime}.
      * @throws IllegalArgumentException If and only if renderable is null, or if timestamp is
-     * before the most recently rendered timestamp
+     *                                  before the most recently rendered timestamp
      */
     void render(TRenderable renderable, long timestamp) throws IllegalArgumentException;
 }

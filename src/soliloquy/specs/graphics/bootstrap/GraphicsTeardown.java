@@ -7,7 +7,6 @@ package soliloquy.specs.graphics.bootstrap;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface GraphicsTeardown {
     /**

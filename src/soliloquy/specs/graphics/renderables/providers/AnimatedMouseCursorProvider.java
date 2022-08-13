@@ -12,7 +12,6 @@ import java.util.UUID;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface AnimatedMouseCursorProvider extends ResettableProvider<Long>, HasId {
     /**

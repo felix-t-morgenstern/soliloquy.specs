@@ -14,7 +14,6 @@ import soliloquy.specs.gamestate.entities.CharacterVariableStatistic;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface TurnHandling {
     /**
@@ -24,11 +23,12 @@ public interface TurnHandling {
      * once is intended to fire events for multiple turn starts at one time, when multiple rounds
      * are elapsed at one time; c.f.
      * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}.)
-     * @param character - The Character for whom to process start-of-round actions
-     * @param numberOfTurns - The number of rounds for which to fire turn start events for
+     *
+     * @param character     The Character for whom to process start-of-round actions
+     * @param numberOfTurns The number of rounds for which to fire turn start events for
      *                      character
      * @throws IllegalArgumentException If and only if character is null, or numberOfTurns is less
-     * than 1
+     *                                  than 1
      */
     void onTurnStart(Character character, int numberOfTurns) throws IllegalArgumentException;
 
@@ -39,10 +39,11 @@ public interface TurnHandling {
      * is intended to fire events for multiple turn starts at one time, when multiple rounds are
      * elapsed at one time; c.f.
      * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}.)
-     * @param character - The Character for whom to process end-of-round actions
-     * @param numberOfTurns - The number of rounds for which to fire turn end events for character
+     *
+     * @param character     The Character for whom to process end-of-round actions
+     * @param numberOfTurns The number of rounds for which to fire turn end events for character
      * @throws IllegalArgumentException If and only if character is null, or numberOfTurns is less
-     * than 1
+     *                                  than 1
      */
     void onTurnEnd(Character character, int numberOfTurns) throws IllegalArgumentException;
 }

@@ -10,7 +10,6 @@ import soliloquy.specs.graphics.rendering.RenderableStack;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface RenderableStackFactory extends SoliloquyClass {
     /**

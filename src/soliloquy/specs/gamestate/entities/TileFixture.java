@@ -17,24 +17,23 @@ import soliloquy.specs.ruleset.entities.FixtureType;
  * May have a pixel offset.
  * <p>
  * May have Active and Reactive Abilities.
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface TileFixture extends GameEventTargetEntity, TileEntity, HasTileOffsets, HasName,
-		HasUuid {
-	/**
-	 * @return The FixtureType of this TileFixture
-	 * @throws IllegalStateException If it has no FixtureType
-	 * @throws EntityDeletedException If this TileFixture has been deleted
-	 */
-	FixtureType type() throws IllegalStateException, EntityDeletedException;
+        HasUuid {
+    /**
+     * @return The FixtureType of this TileFixture
+     * @throws IllegalStateException  If it has no FixtureType
+     * @throws EntityDeletedException If this TileFixture has been deleted
+     */
+    FixtureType type() throws IllegalStateException, EntityDeletedException;
 
-	/**
-	 * @return A class by which items contained in this fixture may be accessed and altered
-	 * @throws IllegalStateException If it has no FixtureType
-	 * @throws EntityDeletedException If this TileFixture has been deleted
-	 */
-	TileFixtureItems items() throws IllegalStateException, EntityDeletedException;
+    /**
+     * @return A class by which items contained in this fixture may be accessed and altered
+     * @throws IllegalStateException  If it has no FixtureType
+     * @throws EntityDeletedException If this TileFixture has been deleted
+     */
+    TileFixtureItems items() throws IllegalStateException, EntityDeletedException;
 }

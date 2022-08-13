@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.factories;
 
+import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.CharacterEquipmentSlots;
-import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
  * <b>CharacterEquipmentSlotsFactory</b>
@@ -15,7 +15,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface CharacterEquipmentSlotsFactory extends SoliloquyClass {
     /**
-     * @param character - The Character for whom to make the CharacterEquipmentSlots
+     * @param character The Character for whom to make the CharacterEquipmentSlots
      * @return The new CharacterEquipmentSlots
      * @throws IllegalArgumentException If and only if character is null
      */

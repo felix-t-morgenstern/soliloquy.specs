@@ -13,36 +13,35 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface NetColorShifts extends SoliloquyClass {
     /**
      * @return The net brightness shift, c.f. {@link BrightnessShift#shiftAmountProvider}, ranging
-     * from -1.0 to 1.0.
+     *         from -1.0 to 1.0.
      */
     float brightnessShift();
 
     /**
      * @return The net increase for red, c.f.
-     * {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
+     *         {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
      */
     float redIntensityShift();
 
     /**
      * @return The net increase for green, c.f.
-     * {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
+     *         {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
      */
     float greenIntensityShift();
 
     /**
      * @return The net increase for blue, c.f.
-     * {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
+     *         {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
      */
     float blueIntensityShift();
 
     /**
      * @return The net color rotation shift, c.f. {@link ColorRotationShift#shiftAmountProvider},
-     * ranging from -1.0 to 1.0.
+     *         ranging from -1.0 to 1.0.
      */
     float colorRotationShift();
 }

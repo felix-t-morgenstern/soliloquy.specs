@@ -12,10 +12,9 @@ import soliloquy.specs.common.shared.HasPluralName;
  * <p>
  * CharacterClassifications have plural names, e.g. the CharacterClassification "Giant" will have
  * the plural name "Giants"
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface CharacterClassification extends HasId, HasPluralName {
 }

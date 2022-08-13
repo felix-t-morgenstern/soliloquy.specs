@@ -19,19 +19,20 @@ import java.awt.*;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface RectangleRenderable extends PolygonRenderable, RenderableWithDimensions {
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * corner.</i>
+     *
      * @return A ProviderAtTime which provides the color at the top-left of this rectangle for a
-     * given timestamp.
+     *         given timestamp.
      */
     ProviderAtTime<Color> getTopLeftColorProvider();
 
     /**
      * C.f. {@link #getTopLeftColorProvider()} for more information
+     *
      * @param topLeftColorProvider The top-left Color provider for this Renderable
      * @throws IllegalArgumentException If and only if topLeftColorProvider is null
      */
@@ -41,13 +42,15 @@ public interface RectangleRenderable extends PolygonRenderable, RenderableWithDi
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * corner.</i>
+     *
      * @return A ProviderAtTime which provides the color at the top-right of this rectangle for a
-     * given timestamp.
+     *         given timestamp.
      */
     ProviderAtTime<Color> getTopRightColorProvider();
 
     /**
      * C.f. {@link #getTopRightColorProvider()} for more information
+     *
      * @param topRightColorProvider The top-right Color provider for this Renderable
      * @throws IllegalArgumentException If and only if topRightColorProvider is null
      */
@@ -57,13 +60,15 @@ public interface RectangleRenderable extends PolygonRenderable, RenderableWithDi
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * corner.</i>
+     *
      * @return A ProviderAtTime which provides the color at the bottom-right of this rectangle for
-     * a given timestamp.
+     *         a given timestamp.
      */
     ProviderAtTime<Color> getBottomRightColorProvider();
 
     /**
      * C.f. {@link #getBottomRightColorProvider()} for more information
+     *
      * @param bottomRightColorProvider The bottom-right Color provider for this Renderable
      * @throws IllegalArgumentException If and only if bottomRightColorProvider is null
      */
@@ -73,13 +78,15 @@ public interface RectangleRenderable extends PolygonRenderable, RenderableWithDi
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * corner.</i>
+     *
      * @return A ProviderAtTime which provides the color at the bottom-left of this rectangle for a
-     * given timestamp.
+     *         given timestamp.
      */
     ProviderAtTime<Color> getBottomLeftColorProvider();
 
     /**
      * C.f. {@link #getBottomLeftColorProvider()} for more information
+     *
      * @param bottomLeftColorProvider The bottom-left Color provider for this Renderable
      * @throws IllegalArgumentException If and only if bottomLeftColorProvider is null
      */

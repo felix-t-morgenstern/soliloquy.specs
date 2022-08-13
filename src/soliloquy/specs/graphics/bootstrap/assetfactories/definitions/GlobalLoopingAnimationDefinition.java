@@ -11,7 +11,6 @@ import soliloquy.specs.graphics.assets.Animation;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public class GlobalLoopingAnimationDefinition implements HasId, HasPeriodModuloOffset {
     private final String ID;
@@ -48,7 +47,7 @@ public class GlobalLoopingAnimationDefinition implements HasId, HasPeriodModuloO
 
     /**
      * @return The timestamp at which this GlobalLoopingAnimation is paused; if null, that implies
-     * it is unpaused.
+     *         it is unpaused.
      */
     public Long pauseTimestamp() {
         return PAUSE_TIMESTAMP;

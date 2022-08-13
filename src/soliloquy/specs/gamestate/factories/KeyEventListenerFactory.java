@@ -15,6 +15,7 @@ public interface KeyEventListenerFactory extends SoliloquyClass {
     /**
      * (NB: This method accepts mostRecentTimestamp to ensure that timestamp information is
      * persisted.)
+     *
      * @param mostRecentTimestamp The most recent timestamp at which a key event was registered
      * @return The newly-created KeyEventListener
      */

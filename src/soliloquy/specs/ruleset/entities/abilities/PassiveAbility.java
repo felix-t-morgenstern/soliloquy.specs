@@ -10,10 +10,9 @@ package soliloquy.specs.ruleset.entities.abilities;
  * <p>
  * It can generate a description for a specific PassiveAbility, depending on the parameters of
  * its effectiveness.
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface PassiveAbility extends Ability {
 }

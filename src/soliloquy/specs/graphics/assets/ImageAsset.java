@@ -14,7 +14,6 @@ import java.util.Map;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface ImageAsset extends Asset {
     /**
@@ -54,7 +53,7 @@ public interface ImageAsset extends Asset {
 
         @Override
         public String toString() {
-            switch(this) {
+            switch (this) {
                 case UNKNOWN:
                     return "UNKNOWN";
                 case SPRITE:

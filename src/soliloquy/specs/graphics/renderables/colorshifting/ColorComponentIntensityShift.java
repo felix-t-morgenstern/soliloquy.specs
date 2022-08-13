@@ -14,7 +14,6 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface ColorComponentIntensityShift extends ColorShift {
     /**
@@ -29,8 +28,9 @@ public interface ColorComponentIntensityShift extends ColorShift {
      * component is set to 0. A value of 0.5 implies that every pixel's specified component's
      * distance to 255 is halved. A value of -0.5 implies that every pixel's specified component's
      * distance to 0 is halved.
+     *
      * @return The amount to which to shift the value of the specified ColorComponent at the
-     * provided timestamp.
+     *         provided timestamp.
      */
     ProviderAtTime<Float> shiftAmountProvider();
 }

@@ -17,6 +17,7 @@ public interface FrameExecutor extends SoliloquyClass {
     /**
      * <i>(NB: All frame-blocking events are fired parallelly via an internal semaphore, so no
      * frame-blocking events should be capable of generating race conditions.)</i>
+     *
      * @param fireFunction The function to be called when this event is fired; the consumed value
      *                     is the global timestamp corresponding to the time of frame execution
      * @throws IllegalArgumentException If and only if fireFunction is null

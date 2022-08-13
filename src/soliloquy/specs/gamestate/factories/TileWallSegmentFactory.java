@@ -19,7 +19,7 @@ public interface TileWallSegmentFactory extends SoliloquyClass {
     TileWallSegment make();
 
     /**
-     * @param data - The data to assign to the newly-created TileWallSegment
+     * @param data The data to assign to the newly-created TileWallSegment
      * @return A newly-created TileWallSegment with the provided data
      */
     TileWallSegment make(VariableCache data);

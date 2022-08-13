@@ -12,7 +12,6 @@ import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface GlobalLoopingAnimationRenderable extends ImageAssetRenderable {
     /**
@@ -23,7 +22,8 @@ public interface GlobalLoopingAnimationRenderable extends ImageAssetRenderable {
     /**
      * @param globalLoopingAnimation The GlobalLoopingAnimation to support this Renderable
      * @throws IllegalArgumentException If and only if globalLoopingAnimation is null; or if it
-     * does not support mouse events, while this Renderable does support mouse events
+     *                                  does not support mouse events, while this Renderable does
+     *                                  support mouse events
      */
     void setGlobalLoopingAnimation(GlobalLoopingAnimation globalLoopingAnimation)
             throws IllegalArgumentException;

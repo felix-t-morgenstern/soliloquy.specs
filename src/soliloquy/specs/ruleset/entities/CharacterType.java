@@ -14,34 +14,36 @@ import soliloquy.specs.gamestate.entities.gameevents.GameCharacterEvent;
  * <p>
  * It has an Id, and it can generate a {@link Character Character} of this CharacterType on a
  * {@link Tile}.
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface CharacterType extends HasPluralName, HasId {
-	/**
-	 * Generates a Character of this CharacterType
-	 * @param tile - The Tile in which to place the new Character; can be null
-	 * @param params - Parameters specifying how this Character is to be created (e.g. its Id,
-	 *                  whether it is hidden, parameters adjusting dynamic attribute generation,
-	 *                  etc.); can be null
-	 * @return The newly-created Character
-	 */
-	Character generate(Tile tile, VariableCache params);
+    /**
+     * Generates a Character of this CharacterType
+     *
+     * @param tile   The Tile in which to place the new Character; can be null
+     * @param params Parameters specifying how this Character is to be created (e.g. its Id,
+     *               whether it is hidden, parameters adjusting dynamic attribute generation,
+     *               etc.); can be null
+     * @return The newly-created Character
+     */
+    Character generate(Tile tile, VariableCache params);
 
-	/**
-	 * @return The default data for this CharacterType, including their default statistics,
-	 * classifications, etc.
-	 */
-	VariableCache defaultData();
+    /**
+     * @return The default data for this CharacterType, including their default statistics,
+     *         classifications, etc.
+     */
+    VariableCache defaultData();
 
-	/**
-	 * The name keys of this Map are names of the triggering events which cause the corresponding
-	 * Collections of GameCharacterEvents to fire.
-	 * @return A List of events which occur from the Character of this type when certain
-	 * triggering events occur, e.g. when the Character is killed, when the Character takes damage,
-	 * when the Character is attacked, when the demonic ritual is complete, etc.
-	 */
-	Map<String, List<GameCharacterEvent>> events();
+    /**
+     * The name keys of this Map are names of the triggering events which cause the corresponding
+     * Collections of GameCharacterEvents to fire.
+     *
+     * @return A List of events which occur from the Character of this type when certain
+     *         triggering events occur, e.g. when the Character is killed, when the Character takes
+     *         damage,
+     *         when the Character is attacked, when the demonic ritual is complete, etc.
+     */
+    Map<String, List<GameCharacterEvent>> events();
 }

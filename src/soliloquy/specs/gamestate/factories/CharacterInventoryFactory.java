@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.gamestate.entities.CharacterInventory;
-import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.CharacterInventory;
 
 /**
  * <b>CharacterInventoryFactory</b>
@@ -14,7 +14,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface CharacterInventoryFactory extends SoliloquyClass {
     /**
-     * @param character - The Character for whom to make this CharacterInventory
+     * @param character The Character for whom to make this CharacterInventory
      * @return A new CharacterInventory for the provided Character
      */
     CharacterInventory make(Character character);

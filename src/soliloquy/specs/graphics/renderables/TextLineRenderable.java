@@ -15,7 +15,6 @@ import java.util.Map;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface TextLineRenderable extends RenderableWithBorders {
     /**
@@ -25,6 +24,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
 
     /**
      * C.f. {@link #getFont()} for more information
+     *
      * @param font The Font to set for this Renderable
      * @throws IllegalArgumentException If and only if font is null
      */
@@ -37,6 +37,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
 
     /**
      * C.f. {@link #getLineTextProvider()} for more information
+     *
      * @param lineTextProvider The text to set for this line
      * @throws IllegalArgumentException If and only if lineTextProvider is null
      */
@@ -48,16 +49,18 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * line will start its rendering. For left or right aligned text lines, this location will be
      * the left-most or right-most location of text on this line, respectively. For horizontally
      * centered text, this location will specify the center of the text line.</i>
+     *
      * @return A provider which specifies the location at which this text line is rendered
      */
-    ProviderAtTime<Pair<Float,Float>> getRenderingLocationProvider();
+    ProviderAtTime<Pair<Float, Float>> getRenderingLocationProvider();
 
     /**
      * C.f. {@link #getRenderingLocationProvider()} for more information
+     *
      * @param renderingLocationProvider The renderingLocationProvider to set for this Renderable
      * @throws IllegalArgumentException If and only if renderingLocationProvider is null
      */
-    void setRenderingLocationProvider(ProviderAtTime<Pair<Float,Float>> renderingLocationProvider)
+    void setRenderingLocationProvider(ProviderAtTime<Pair<Float, Float>> renderingLocationProvider)
             throws IllegalArgumentException;
 
     /**
@@ -67,6 +70,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
 
     /**
      * C.f. {@link #lineHeightProvider()} for more information
+     *
      * @param lineHeightProvider The height to set for this line
      * @throws IllegalArgumentException If and only if lineHeightProvider is null
      */
@@ -75,20 +79,22 @@ public interface TextLineRenderable extends RenderableWithBorders {
 
     /**
      * @return The amount of padding between glyphs, where 0f implies the standard padding between
-     * glyphs of the font (rather than no space between glyphs whatsoever), and 1f implies an
-     * additional space between letters equal to {@link #lineHeightProvider}.
+     *         glyphs of the font (rather than no space between glyphs whatsoever), and 1f implies
+     *         an
+     *         additional space between letters equal to {@link #lineHeightProvider}.
      */
     float getPaddingBetweenGlyphs();
 
     /**
      * C.f. {@link #getPaddingBetweenGlyphs()} for more information
+     *
      * @param paddingBetweenGlyphs The padding between glyphs for this line
      */
     void setPaddingBetweenGlyphs(float paddingBetweenGlyphs);
 
     /**
      * @return The justification of the text line to be rendered (e.g. left, center, or right
-     * horizontal alignment)
+     *         horizontal alignment)
      */
     TextJustification getJustification();
 
@@ -100,10 +106,13 @@ public interface TextLineRenderable extends RenderableWithBorders {
 
     /**
      * When the Color value provided is null, this corresponds to the default font color
+     *
      * @return A map, where the integer keys correspond to the indices in the String (c.f.
-     * {@link #getLineTextProvider}), and the ProviderAtTime values correspond to providers which provide
-     * the color to draw all subsequent glyphs at a given timestamp. This method may return null,
-     * in which case, the entire text line is rendered in the default text color.
+     *         {@link #getLineTextProvider}), and the ProviderAtTime values correspond to providers
+     *         which provide
+     *         the color to draw all subsequent glyphs at a given timestamp. This method may return
+     *         null,
+     *         in which case, the entire text line is rendered in the default text color.
      */
     Map<Integer, ProviderAtTime<Color>> colorProviderIndices();
 
@@ -111,11 +120,15 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * <i>NB: It is assumed that indices will be in ascending order; if they are not, the
      * {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer} will throw an
      * exception.</i>
+     *
      * @return A list of integer keys, corresponding to the indices in the String (c.f.
-     * {@link #getLineTextProvider()}. The first index corresponds to when the text should begin rendering
-     * as italicized, the second corresponds to when the text should stop rendering as italicized,
-     * the third when it should resume rendering as italicized, and so-on. This method may not
-     * return null.
+     *         {@link #getLineTextProvider()}. The first index corresponds to when the text should
+     *         begin rendering
+     *         as italicized, the second corresponds to when the text should stop rendering as
+     *         italicized,
+     *         the third when it should resume rendering as italicized, and so-on. This method may
+     *         not
+     *         return null.
      */
     List<Integer> italicIndices();
 
@@ -123,18 +136,22 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * <i>NB: It is assumed that indices will be in ascending order; if they are not, the
      * {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer} will throw an
      * exception.</i>
+     *
      * @return A list of integer keys, corresponding to the indices in the String (c.f.
-     * {@link #getLineTextProvider()}. The first index corresponds to when the text should begin rendering
-     * as bold, the second corresponds to when the text should stop rendering as bold, the third
-     * when it should resume rendering as bold, and so-on. This method may not return null.
+     *         {@link #getLineTextProvider()}. The first index corresponds to when the text should
+     *         begin rendering
+     *         as bold, the second corresponds to when the text should stop rendering as bold, the
+     *         third
+     *         when it should resume rendering as bold, and so-on. This method may not return null.
      */
     List<Integer> boldIndices();
 
     /**
      * <i>NB: {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer#render} will
      * fail if this method produces a value less than 0.0.</i>
+     *
      * @return A ProviderAtTime which provides the size of the drop shadow, where the entirety of
-     * the window has a height of 1.0.
+     *         the window has a height of 1.0.
      */
     ProviderAtTime<Float> dropShadowSizeProvider();
 
@@ -148,13 +165,15 @@ public interface TextLineRenderable extends RenderableWithBorders {
 
     /**
      * @return A ProviderAtTime which provides the offset of the drop shadow, where the two floats
-     * provided are x and y offsets respectively, and entirety of the window has a height of 1.0
+     *         provided are x and y offsets respectively, and entirety of the window has a height of
+     *         1.0
      */
     ProviderAtTime<Pair<Float, Float>> dropShadowOffsetProvider();
 
     /**
      * <i>NB: If {@link #dropShadowSizeProvider} returns a non-null and non-zero value, this
      * ProviderAtTIme cannot return null.</i>
+     *
      * @param dropShadowOffsetProvider The ProviderAtTime which provides the offset of the drop
      *                                 shadow, where the two floats provided are x and y offsets
      *                                 respectively, and entirety of the window has a height of 1.0
@@ -166,6 +185,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
     /**
      * <i>NB: If {@link #dropShadowSizeProvider} returns a non-null and non-zero value, this
      * ProviderAtTIme cannot return null.</i>
+     *
      * @return A ProviderAtTime which provides the color of the drop shadow.
      */
     ProviderAtTime<Color> dropShadowColorProvider();

@@ -14,7 +14,6 @@ import java.util.List;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface FiniteLinearMovingColorProvider extends FiniteLinearMovingProvider<Color> {
     /**
@@ -24,9 +23,11 @@ public interface FiniteLinearMovingColorProvider extends FiniteLinearMovingProvi
      * {@link #valuesAtTimestampsRepresentation} after the first, that implies a movement in hue;
      * and this method outlines whether each of those movements of hue are clockwise or
      * counterclockwise.</i>
+     *
      * @return A List containing booleans, each of which is true if the corresponding hue movement
-     * implied in {@link #valuesAtTimestampsRepresentation} is clockwise, i.e. from red to green to
-     * blue
+     *         implied in {@link #valuesAtTimestampsRepresentation} is clockwise, i.e. from red to
+     *         green to
+     *         blue
      */
     List<Boolean> hueMovementIsClockwise();
 }

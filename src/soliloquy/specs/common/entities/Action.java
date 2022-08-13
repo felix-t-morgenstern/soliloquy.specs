@@ -9,19 +9,19 @@ import soliloquy.specs.common.shared.HasOneGenericParam;
  * <p>
  * An Action is a {@link Function}, which receives an Input (or perhaps no input), and performs
  * some action with it.
- * 
- * @author felix.t.morgenstern
- * @version 0.0.1
  *
  * @param <Input> The type of Input received by this Action. (If this is Void, then there is no
- * input.)
+ *                input.)
+ * @author felix.t.morgenstern
+ * @version 0.0.1
  */
 
 public interface Action<Input> extends HasId, HasOneGenericParam<Input>, HasGlobalAccess {
-	/**
-	 * Runs this Action
-	 * @param input - The input to this Action
-	 * @throws IllegalArgumentException If and only if the input to this Action is illegal
-	 */
-	void run (Input input) throws IllegalArgumentException;
+    /**
+     * Runs this Action
+     *
+     * @param input The input to this Action
+     * @throws IllegalArgumentException If and only if the input to this Action is illegal
+     */
+    void run(Input input) throws IllegalArgumentException;
 }

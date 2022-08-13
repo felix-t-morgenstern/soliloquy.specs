@@ -14,7 +14,6 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface FiniteAnimationRenderable
         extends ProviderAtTime<AnimationFrameSnippet>, ImageAssetRenderable {
@@ -22,6 +21,7 @@ public interface FiniteAnimationRenderable
      * (NB: This method will return higher values each time this Renderable is paused and later
      * unpaused; the purpose of this method is to ensure that there is no call to
      * {@link #provide} before the start of this finite animation.)
+     *
      * @return The timestamp at which the finite animation began
      */
     long startTimestamp();
@@ -30,6 +30,7 @@ public interface FiniteAnimationRenderable
      * (NB: This method will return higher values each time this Renderable is paused and later
      * unpaused; the purpose of this method is to ensure that there is no call to
      * {@link #provide} after the end of this finite animation.)
+     *
      * @return The timestamp at which the finite animation ends
      */
     long endTimestamp();

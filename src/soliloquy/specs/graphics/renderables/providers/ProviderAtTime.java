@@ -23,7 +23,6 @@ import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface ProviderAtTime<T>
         extends PausableAtTime, HasOneGenericParam<T>, HasUuid, HasMostRecentTimestamp {
@@ -31,7 +30,8 @@ public interface ProviderAtTime<T>
      * @param timestamp The timestamp for which to provide the specified type of object
      * @return The specified type of object, at the provided timestamp
      * @throws IllegalArgumentException If and only if timestamp is before the most recent
-     * timestamp at which a value was requested, or a pause or unpause was reported
+     *                                  timestamp at which a value was requested, or a pause or
+     *                                  unpause was reported
      */
     T provide(long timestamp) throws IllegalArgumentException;
 }

@@ -13,7 +13,6 @@ import java.util.List;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface HasColorShifts extends SoliloquyClass {
     /**
@@ -23,8 +22,9 @@ public interface HasColorShifts extends SoliloquyClass {
      * <p>
      * <i>NB: There should not be any color shifts for a {@link RectangleRenderable} which does not
      * have a background Sprite or Animation.</i>
+     *
      * @return A List of Providers of ColorShifts, to be applied to this Renderable, when rendering
-     * it in the {@link soliloquy.specs.graphics.rendering.Shader}
+     *         it in the {@link soliloquy.specs.graphics.rendering.Shader}
      */
     List<ProviderAtTime<ColorShift>> colorShiftProviders();
 }

@@ -14,7 +14,8 @@ import java.util.UUID;
  * {@link Character} of that type.
  * <p>
  * <i>NB: {@link CharacterType} is responsible for calling {@link #make}, and then setting values
- * such as base characterStatisticTypes, equipment slots, inventory items, etc. This is necessary to allow
+ * such as base characterStatisticTypes, equipment slots, inventory items, etc. This is necessary to
+ * allow
  * CharacterTypes to be generated dynamically, without forcing a specific pattern of  value
  * generation.</i>
  *
@@ -22,21 +23,22 @@ import java.util.UUID;
  * @version 0.0.1
  */
 public interface CharacterFactory extends SoliloquyClass {
-	/**
-	 * This method creates a {@link Character} with a randomly-generated UUID.
-	 * @param characterType The {@link CharacterType} of which to make a new {@link Character}
-	 * @return The newly-created {@link Character}
-	 * @throws IllegalArgumentException If and only if characterType is null
-	 */
-	Character make(CharacterType characterType) throws IllegalArgumentException;
+    /**
+     * This method creates a {@link Character} with a randomly-generated UUID.
+     *
+     * @param characterType The {@link CharacterType} of which to make a new {@link Character}
+     * @return The newly-created {@link Character}
+     * @throws IllegalArgumentException If and only if characterType is null
+     */
+    Character make(CharacterType characterType) throws IllegalArgumentException;
 
-	/**
-	 * @param characterType The {@link CharacterType} of which to make a new {@link Character}
-	 * @param uuid The UUID for the newly-created {@link Character}
-	 * @param data The data for the newly-created {@link Character}
-	 * @return The newly-created {@link Character}
-	 * @throws IllegalArgumentException If and only if characterType or uuid is null
-	 */
-	Character make(CharacterType characterType, UUID uuid, VariableCache data)
-			throws IllegalArgumentException;
+    /**
+     * @param characterType The {@link CharacterType} of which to make a new {@link Character}
+     * @param uuid          The UUID for the newly-created {@link Character}
+     * @param data          The data for the newly-created {@link Character}
+     * @return The newly-created {@link Character}
+     * @throws IllegalArgumentException If and only if characterType or uuid is null
+     */
+    Character make(CharacterType characterType, UUID uuid, VariableCache data)
+            throws IllegalArgumentException;
 }

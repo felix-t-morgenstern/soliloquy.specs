@@ -17,7 +17,7 @@ public interface HasDescription extends SoliloquyClass {
     String getDescription();
 
     /**
-     * @param description - The description to set for this entity
+     * @param description The description to set for this entity
      */
     void setDescription(String description);
 }

@@ -11,7 +11,6 @@ package soliloquy.specs.graphics.renderables.providers;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface StaticProvider<T> extends ProviderAtTime<T> {
 }

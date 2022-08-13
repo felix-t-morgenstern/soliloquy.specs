@@ -12,12 +12,11 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface HasMostRecentTimestamp extends SoliloquyClass {
     /**
      * @return The most recent timestamp at which rendering has occurred; if rendering has not
-     * occurred, this method returns null.
+     *         occurred, this method returns null.
      */
     Long mostRecentTimestamp();
 }

@@ -15,8 +15,8 @@ import soliloquy.specs.gamestate.entities.TileEntity;
  */
 public interface TileEntitiesFactory extends SoliloquyClass {
     /**
-     * @param tile - The {@link Tile} for which this TileEntities is to be made
-     * @param archetype - The archetype for the newly created TileEntities
+     * @param tile      The {@link Tile} for which this TileEntities is to be made
+     * @param archetype The archetype for the newly created TileEntities
      * @return A {@link TileEntities} for tile
      * @throws IllegalArgumentException If and only if tile or archetype are null
      */

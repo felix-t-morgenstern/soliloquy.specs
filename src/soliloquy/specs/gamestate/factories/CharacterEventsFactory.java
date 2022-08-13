@@ -14,7 +14,7 @@ import soliloquy.specs.gamestate.entities.CharacterEvents;
  */
 public interface CharacterEventsFactory extends SoliloquyClass {
     /**
-     * @param character - The Character for whom to create the CharacterEvents class
+     * @param character The Character for whom to create the CharacterEvents class
      * @return The newly-created CharacterEvents class
      * @throws IllegalArgumentException If and only if character is null
      */

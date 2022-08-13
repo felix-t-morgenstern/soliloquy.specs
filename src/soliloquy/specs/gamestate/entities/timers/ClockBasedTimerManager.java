@@ -25,8 +25,10 @@ public interface ClockBasedTimerManager extends SoliloquyClass {
     /**
      * @param oneTimeClockBasedTimer The OneTimeClockBasedTimer to register and manage
      * @throws IllegalArgumentException If and only if oneTimeClockBasedTimer is null. <i>(NB: If
-     * its firing time is in the past, this is still valid, since there may be a race condition
-     * between its intended firing time and when it is registered by this method.)</i>
+     *                                  its firing time is in the past, this is still valid, since
+     *                                  there may be a race condition
+     *                                  between its intended firing time and when it is registered
+     *                                  by this method.)</i>
      */
     void registerOneTimeTimer(OneTimeClockBasedTimer oneTimeClockBasedTimer)
             throws IllegalArgumentException;
@@ -34,7 +36,8 @@ public interface ClockBasedTimerManager extends SoliloquyClass {
     /**
      * @param recurringClockBasedTimer The RecurringClockBasedTimer to register and manage
      * @throws IllegalArgumentException If and only if recurringClockBasedTimer is null or invalid,
-     * i.e. if its firingTimeModuloOffset is greater than or equal to its firingTimePeriod
+     *                                  i.e. if its firingTimeModuloOffset is greater than or equal
+     *                                  to its firingTimePeriod
      */
     void registerRecurringTimer(RecurringClockBasedTimer recurringClockBasedTimer)
             throws IllegalArgumentException;
@@ -59,9 +62,10 @@ public interface ClockBasedTimerManager extends SoliloquyClass {
     /**
      * Selects all Timers whose time has come be fired, and registers them to be fired at
      * {@link soliloquy.specs.graphics.rendering.FrameExecutor#registerFrameBlockingEvent}.
+     *
      * @param timestamp The timestamp at which to determine whether the Timers should fire
      * @throws IllegalArgumentException If and only if this method has already been called at or
-     * after timestamp
+     *                                  after timestamp
      */
     void fireTimers(long timestamp) throws IllegalArgumentException;
 

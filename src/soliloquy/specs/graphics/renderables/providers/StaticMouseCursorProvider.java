@@ -11,7 +11,6 @@ import java.util.UUID;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface StaticMouseCursorProvider extends StaticProvider<Long>, HasId {
     /**

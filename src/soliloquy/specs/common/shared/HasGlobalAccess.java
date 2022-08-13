@@ -15,19 +15,18 @@ import soliloquy.specs.logger.Logger;
  * <i>This design feature runs the risk of being misused by developers; but the philosophy behind
  * Soliloquy, broadly speaking, is to allow developers the flexibility to do whatever they want in
  * their games.</i>
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface HasGlobalAccess extends SoliloquyClass {
-	/**
-	 * @return The Game
-	 */
-	Game game();
-	
-	/**
-	 * @return A Logger
-	 */
-	Logger logger();
+    /**
+     * @return The Game
+     */
+    Game game();
+
+    /**
+     * @return A Logger
+     */
+    Logger logger();
 }

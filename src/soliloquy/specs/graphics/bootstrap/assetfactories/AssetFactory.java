@@ -1,8 +1,8 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AssetDefinition;
 import soliloquy.specs.graphics.assets.Asset;
+import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AssetDefinition;
 
 /**
  * <b>AssetDefinition</b>
@@ -15,17 +15,17 @@ import soliloquy.specs.graphics.assets.Asset;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface AssetFactory<TAssetDefinition extends AssetDefinition<TAssetType>,
         TAssetType extends Asset> extends SoliloquyClass {
     /**
      * NB: This method is intended to populate the Graphics engine with various AssetTypes, e.g.
      * {@link soliloquy.specs.graphics.Graphics#getSprite}.
+     *
      * @param definition The definition of the asset to create
      * @return The created asset
      * @throws IllegalArgumentException If and only if definition is null, or possesses invalid
-     * values
+     *                                  values
      */
     TAssetType make(TAssetDefinition definition) throws IllegalArgumentException;
 }

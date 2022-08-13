@@ -15,8 +15,8 @@ import soliloquy.specs.gamestate.entities.Party;
  */
 public interface GameStateFactory extends SoliloquyClass {
     /**
-     * @param party - The Party for the game
-     * @param data - The VariableCache for the game
+     * @param party The Party for the game
+     * @param data  The VariableCache for the game
      * @return The newly-created GameState
      * @throws IllegalArgumentException If and only if data is null
      */

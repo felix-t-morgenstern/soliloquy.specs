@@ -8,7 +8,6 @@ package soliloquy.specs.graphics.bootstrap.assetfactories.definitions;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public class MouseCursorImageDefinition {
     private final String RELATIVE_LOCATION;

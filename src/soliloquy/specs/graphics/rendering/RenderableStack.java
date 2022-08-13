@@ -20,7 +20,6 @@ import java.util.Map;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface RenderableStack extends SoliloquyClass {
     /**
@@ -32,6 +31,7 @@ public interface RenderableStack extends SoliloquyClass {
      * <i>NB: Higher z values will be rendered first. To remove a Renderable from this class, call
      * {@link Renderable#delete()}. If Renderable is already present in the stack, this method
      * refreshes its z-index.</i>
+     *
      * @param renderable The Renderable to add to the stack
      * @throws IllegalArgumentException If and only if renderable is null
      */
@@ -39,7 +39,8 @@ public interface RenderableStack extends SoliloquyClass {
 
     /**
      * @return A read-only representation of the stack. (NB: While the Renderables are not clones,
-     * there should also be nothing mutable about any Renderable; they are essentially stateless.)
+     *         there should also be nothing mutable about any Renderable; they are essentially
+     *         stateless.)
      */
     Map<Integer, List<Renderable>> representation();
 }

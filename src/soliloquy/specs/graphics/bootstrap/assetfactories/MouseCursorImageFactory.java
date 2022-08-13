@@ -9,14 +9,13 @@ import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.MouseCursor
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface MouseCursorImageFactory {
     /**
      * @param definition The definition of the mouse cursor image to create
      * @return The Id of the mouse cursor image loaded into the GPU
      * @throws IllegalArgumentException If and only if definition is null, its relative location is
-     * null or empty, or either its x or y hotspot is less than 0.
+     *                                  null or empty, or either its x or y hotspot is less than 0.
      */
     Output make(MouseCursorImageDefinition definition) throws IllegalArgumentException;
 

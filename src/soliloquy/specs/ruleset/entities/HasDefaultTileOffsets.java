@@ -9,20 +9,21 @@ package soliloquy.specs.ruleset.entities;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface HasDefaultTileOffsets {
     /**
      * A Tile's width is defined here as 1.0f
+     *
      * @return The default offset, in the percentage of the width of a Tile, at which TileFixtures
-     * of this FixtureType are placed.
+     *         of this FixtureType are placed.
      */
     float defaultXTileWidthOffset();
 
     /**
      * A Tile's height is defined here as 1.0f
+     *
      * @return The default offset, in the percentage of the height of a Tile, at which TileFixtures
-     * of this FixtureType are placed.
+     *         of this FixtureType are placed.
      */
     float defaultYTileHeightOffset();
 }

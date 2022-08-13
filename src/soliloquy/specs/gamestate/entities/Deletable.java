@@ -21,6 +21,7 @@ public interface Deletable extends SoliloquyClass {
      * So, when deleting a Tile, all Items, Fixtures, and Characters on that Tile are deleted. When
      * deleting a Fixture, all Items it contains are deleted. When deleting a Character, all Items
      * held by that Character (in inventory or equipment) are deleted.
+     *
      * @throws IllegalStateException If this entity has already been deleted
      */
     void delete() throws IllegalStateException;
@@ -28,6 +29,7 @@ public interface Deletable extends SoliloquyClass {
     /**
      * This method is intended to be used in cases where this entity has been deleted (by the
      * delete method), but this object has not been deleted by the garbage collector.
+     *
      * @return True if and only if this entity has been deleted
      */
     boolean isDeleted();

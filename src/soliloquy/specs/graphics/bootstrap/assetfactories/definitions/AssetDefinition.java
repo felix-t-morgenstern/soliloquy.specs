@@ -12,7 +12,6 @@ import soliloquy.specs.graphics.assets.Asset;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public abstract class AssetDefinition<AssetType extends Asset> implements HasId {
     private final String ID;

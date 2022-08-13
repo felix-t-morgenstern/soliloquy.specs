@@ -11,7 +11,6 @@ package soliloquy.specs.graphics.assets;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface AnimationFrameSnippet extends AssetSnippet {
     /**

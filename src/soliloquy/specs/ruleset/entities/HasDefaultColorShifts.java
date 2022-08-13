@@ -12,7 +12,6 @@ import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface HasDefaultColorShifts {
     /**

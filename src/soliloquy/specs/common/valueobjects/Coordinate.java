@@ -15,30 +15,29 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * <p>
  * <b>Coordinates are mutable, so if you pass one into a method, be sure to <u>make a copy</u> in
  * the class receiving that Coordinate as an input!</b>
- * 
+ *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
-public interface Coordinate  extends Comparable<Coordinate>, Cloneable<Coordinate>,
-		SoliloquyClass {
-	/**
-	 * @return The x value of this coordinate
-	 */
-	int getX();
+public interface Coordinate extends Comparable<Coordinate>, Cloneable<Coordinate>,
+        SoliloquyClass {
+    /**
+     * @return The x value of this coordinate
+     */
+    int getX();
 
-	/**
-	 * @param x - The x value to set for this coordinate
-	 */
-	void setX(int x);
+    /**
+     * @param x The x value to set for this coordinate
+     */
+    void setX(int x);
 
-	/**
-	 * @return The y value of this coordinate
-	 */
-	int getY();
-	
-	/**
-	 * @param y - The y value to set for this coordinate
-	 */
-	void setY(int y);
+    /**
+     * @return The y value of this coordinate
+     */
+    int getY();
+
+    /**
+     * @param y The y value to set for this coordinate
+     */
+    void setY(int y);
 }

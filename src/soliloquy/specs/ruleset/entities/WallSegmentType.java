@@ -21,29 +21,29 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
- *
  */
 public interface WallSegmentType extends HasId {
-	/**
-	 * This method allows this class to support things like whether it is fully vertically visible,
-	 * or whether only a small portion is displayed, to prevent the wall from obscuring the
-	 * player's view of the room the party is in.
-	 * @return The ImageAssetSet for this WallSegmentType
-	 */
-	ImageAsset imageAsset();
+    /**
+     * This method allows this class to support things like whether it is fully vertically visible,
+     * or whether only a small portion is displayed, to prevent the wall from obscuring the
+     * player's view of the room the party is in.
+     *
+     * @return The ImageAssetSet for this WallSegmentType
+     */
+    ImageAsset imageAsset();
 
-	/**
-	 * @return True, if and only if a TileWallSegment of this type blocks movement to the west
-	 */
-	boolean blocksWest();
+    /**
+     * @return True, if and only if a TileWallSegment of this type blocks movement to the west
+     */
+    boolean blocksWest();
 
-	/**
-	 * @return True, if and only if a TileWallSegment of this type blocks movement to the northwest
-	 */
-	boolean blocksNorthwest();
+    /**
+     * @return True, if and only if a TileWallSegment of this type blocks movement to the northwest
+     */
+    boolean blocksNorthwest();
 
-	/**
-	 * @return True, if and only if a TileWallSegment of this type blocks movement to the north
-	 */
-	boolean blocksNorth();
+    /**
+     * @return True, if and only if a TileWallSegment of this type blocks movement to the north
+     */
+    boolean blocksNorth();
 }

@@ -18,7 +18,7 @@ import java.util.UUID;
 public interface ItemFactory extends SoliloquyClass {
     /**
      * @param itemType The type of Item to create
-     * @param data The data for the newly-created Item; may be null
+     * @param data     The data for the newly-created Item; may be null
      * @return The newly-created Item
      * @throws IllegalArgumentException If type is null
      */
@@ -26,8 +26,8 @@ public interface ItemFactory extends SoliloquyClass {
 
     /**
      * @param itemType The type of Item to create
-     * @param data The data for the newly-created Item; may be null
-     * @param uuid The uuid of the Item to create
+     * @param data     The data for the newly-created Item; may be null
+     * @param uuid     The uuid of the Item to create
      * @return The newly-created Item
      * @throws IllegalArgumentException If type or uuid is null
      */

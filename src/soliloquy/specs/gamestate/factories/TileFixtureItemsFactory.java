@@ -1,8 +1,8 @@
 package soliloquy.specs.gamestate.factories;
 
+import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.TileFixture;
 import soliloquy.specs.gamestate.entities.TileFixtureItems;
-import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
  * <b>TileFixtureItems</b>
@@ -14,7 +14,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  */
 public interface TileFixtureItemsFactory extends SoliloquyClass {
     /**
-     * @param tileFixture - The TileFixture for which to make the new TileFixtureItems
+     * @param tileFixture The TileFixture for which to make the new TileFixtureItems
      * @return A TileFixtureItems for the provided TileFixture
      */
     TileFixtureItems make(TileFixture tileFixture);
