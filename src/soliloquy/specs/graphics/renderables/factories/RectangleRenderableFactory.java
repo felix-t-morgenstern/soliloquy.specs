@@ -13,7 +13,7 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 /**
- * <b>SpriteRenderableFactory</b>
+ * <b>RectangleRenderableFactory</b>
  * <p>
  * Creates {@link RectangleRenderable}s
  *
@@ -30,10 +30,7 @@ public interface RectangleRenderableFactory extends SoliloquyClass {
      *                                    {@link RectangleRenderable#getBottomRightColorProvider()}
      * @param bottomLeftColorProvider     A Provider for the color mask at the top-left corner (c.f.
      *                                    {@link RectangleRenderable#getBottomLeftColorProvider()}
-     * @param backgroundTextureIdProvider A Provider for the background texture (c.f.
-     *
-     *
-     *                                  {@link RectangleRenderable#getBackgroundTextureIdProvider()}
+     * @param backgroundTextureIdProvider A Provider for the background texture (c.f. {@link RectangleRenderable#getBackgroundTextureIdProvider()}
      * @param backgroundTextureTileWidth  The width of each "tile" of the background texture
      *                                    provided, where 1.0 is the width of the window
      * @param backgroundTextureTileHeight The width of each "tile" of the background texture
@@ -57,11 +54,9 @@ public interface RectangleRenderableFactory extends SoliloquyClass {
      * @param uuid                        The universally unique identifier
      * @param updateZIndexInContainer     A Consumer which will accept this object to update its
      *                                    z-index within its container when {@link Renderable#setZ}
-     *                                    is
-     *                                    called
+     *                                    is called
      * @param removeFromContainer         A Consumer which will accept this object to delete it from
-     *                                    its
-     *                                    container when deleted
+     *                                    its container when deleted
      * @return The newly-created RectangleRenderable
      * @throws IllegalArgumentException If and only if topLeftColorProvider, topRightColorProvider,
      *                                  bottomRightColorProvider, bottomLeftColorProvider,
