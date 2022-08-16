@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 /**
@@ -10,19 +11,36 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface AntialiasedLineSegmentRenderable extends LineSegmentRenderable {
+public interface AntialiasedLineSegmentRenderable extends RenderableWithColorAndThickness {
+    /**
+     * @return A ProviderAtTime which provides the thickness of this line segment, <i>expressed in a
+     *         percentage of the window width</i>, for a given timestamp. <i>It is expected that the
+     *         value provided will never be null.</i>
+     */
+    ProviderAtTime<Float> getThicknessProvider();
+
     /**
      * @return A Provider which provides the percentage of the line segment's thickness which should
-     *         be
+     *         be made of a gradient from its color to transparent
      */
-    ProviderAtTime<Float> thicknessGradientPercentProvider();
+    ProviderAtTime<Float> getThicknessGradientPercentProvider();
 
     void setThicknessGradientPercentProvider(
             ProviderAtTime<Float> thicknessGradientPercentProvider)
             throws IllegalArgumentException;
 
-    ProviderAtTime<Float> lengthGradientPercentProvider();
+    ProviderAtTime<Float> getLengthGradientPercentProvider();
 
     void setLengthGradientPercentProvider(ProviderAtTime<Float> lengthGradientPercentProvider)
+            throws IllegalArgumentException;
+
+    ProviderAtTime<Pair<Float, Float>> getVertex1LocationProvider();
+
+    void setVertex1LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
+            throws IllegalArgumentException;
+
+    ProviderAtTime<Pair<Float, Float>> getVertex2LocationProvider();
+
+    void setVertex2LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
             throws IllegalArgumentException;
 }
