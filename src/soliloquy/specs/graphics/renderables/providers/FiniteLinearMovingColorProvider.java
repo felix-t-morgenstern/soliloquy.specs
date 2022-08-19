@@ -22,7 +22,9 @@ public interface FiniteLinearMovingColorProvider extends FiniteLinearMovingProvi
      * counterclockwise, from red to purple to blue to cyan to green. For every value within
      * {@link #valuesAtTimestampsRepresentation} after the first, that implies a movement in hue;
      * and this method outlines whether each of those movements of hue are clockwise or
-     * counterclockwise.</i>
+     * counterclockwise.
+     * <p>
+     * ALSO note that this method returns a representation, not the actual values!</i>
      *
      * @return A List containing booleans, each of which is true if the corresponding hue movement
      *         implied in {@link #valuesAtTimestampsRepresentation} is clockwise, i.e. from red to
