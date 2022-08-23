@@ -7,8 +7,7 @@ package soliloquy.specs.gamestate.entities.timers;
  * Round.
  * <p>
  * So, for instance, if roundModulo() returns 3, then the RecurringRoundBasedTimer will fire on
- * every third
- * turn.
+ * every third turn.
  * <p>
  * There is also an offset. So, if roundModulo() returns 3 and roundOffset() returns 1, the
  * RecurringRoundBasedTimer will fire on rounds 1, 4, 7, etc.

@@ -48,7 +48,7 @@ public interface RoundBasedTimerManager extends SoliloquyClass {
      * This method fires the appropriate RoundBasedTimers based on the number of rounds elapsed.
      * This method also handles the deregistering of OneTimeRoundBasedTimers as they fire. This
      * method is intended to be called by
-     * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}.
+     * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}. The assumption is that this method will be called <i>before</i> the start of newRound.
      *
      * @param previousRound The previous round, which is currently ending
      * @param newRound      The new round, which begins <i>after</i> this class fires the specified

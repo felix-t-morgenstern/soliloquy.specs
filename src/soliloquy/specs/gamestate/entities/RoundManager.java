@@ -170,6 +170,9 @@ public interface RoundManager extends SoliloquyClass {
      * StatusEffectTypes and VitalAttributes, and it will also check to see if Timers should be
      * triggered by calling
      * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager#fireTimersForRoundsElapsed}.
+     * If the round is advanced from round N to round M, the
+     * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimer}s
+     * will be fired as if it is the end of round N, and not the start of round N.
      *
      * @param numberOfRounds The number of rounds to advance
      * @throws IllegalArgumentException If and only if numberOfRounds is 0 or negative
