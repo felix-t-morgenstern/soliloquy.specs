@@ -3,6 +3,7 @@ package soliloquy.specs.graphics.renderables.factories;
 import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
+import soliloquy.specs.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.RasterizedLineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
@@ -27,7 +28,7 @@ public interface RasterizedLineSegmentRenderableFactory extends SoliloquyClass {
      *                                segment
      * @param thicknessProvider       A ProviderAtTime which provides the thickness of this line
      *                                segment, c.f.
-     *                                {@link RasterizedLineSegmentRenderable#getThicknessProvider}
+     *                                {@link LineSegmentRenderable#getThicknessProvider()}
      * @param stipplePattern          The stippling pattern for this line segment, c.f.
      *                                {@link RasterizedLineSegmentRenderable#getStippleFactor}
      * @param stippleFactor           The stippling factor for this line segment, c.f.
