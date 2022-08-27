@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 /**
@@ -11,7 +10,7 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface AntialiasedLineSegmentRenderable extends RenderableWithColorAndThickness {
+public interface AntialiasedLineSegmentRenderable extends LineSegmentRenderable {
     /**
      * @return A ProviderAtTime which provides the thickness of this line segment, <i>expressed in a
      *         percentage of the window width</i>, for a given timestamp. <i>It is expected that the
@@ -32,15 +31,5 @@ public interface AntialiasedLineSegmentRenderable extends RenderableWithColorAnd
     ProviderAtTime<Float> getLengthGradientPercentProvider();
 
     void setLengthGradientPercentProvider(ProviderAtTime<Float> lengthGradientPercentProvider)
-            throws IllegalArgumentException;
-
-    ProviderAtTime<Pair<Float, Float>> getVertex1LocationProvider();
-
-    void setVertex1LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
-            throws IllegalArgumentException;
-
-    ProviderAtTime<Pair<Float, Float>> getVertex2LocationProvider();
-
-    void setVertex2LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
             throws IllegalArgumentException;
 }
