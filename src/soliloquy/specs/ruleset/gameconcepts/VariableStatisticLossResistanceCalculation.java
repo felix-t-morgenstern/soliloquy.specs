@@ -7,7 +7,7 @@ import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
 import soliloquy.specs.ruleset.entities.Element;
 
 /**
- * <b>VariableStatisticAlterationResistanceCalculation</b>
+ * <b>VariableStatisticLossResistanceCalculation</b>
  * <p>
  * A heuristic for calculating the resistance a Character has to Abilities (or other
  * movementEvents) which change that Character's status effect level or variable statistic current
@@ -20,7 +20,7 @@ import soliloquy.specs.ruleset.entities.Element;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface VariableStatisticAlterationResistanceCalculation extends SoliloquyClass {
+public interface VariableStatisticLossResistanceCalculation extends SoliloquyClass {
 
     /**
      * Calculates the effective change to a Status Effect for a specific Character, given the

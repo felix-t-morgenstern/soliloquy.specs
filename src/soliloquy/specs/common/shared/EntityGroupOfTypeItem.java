@@ -1,5 +1,7 @@
 package soliloquy.specs.common.shared;
 
+import soliloquy.specs.ruleset.entities.abilities.EntityGroupWithImageAssetSetItem;
+
 /**
  * <b>EntityGroupOfTypeItem</b>
  * <p>
@@ -7,18 +9,8 @@ package soliloquy.specs.common.shared;
  * EntityGroupOfType.
  *
  * @param <EntityType>    The type of Entity being grouped
- * @param <GroupItemType> The type of EntityGroupOfTypeItem (e.g. {@link EntityGroupItem} or
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *              {@link soliloquy.specs.ruleset.entities.abilities.EntityGroupWithImageAssetSetItem})
+ * @param <GroupItemType> The type of EntityGroupOfTypeItem (e.g. {@link EntityGroupItem} or {@link
+ *                        EntityGroupWithImageAssetSetItem})
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
@@ -33,8 +25,7 @@ public interface EntityGroupOfTypeItem<EntityType,
 
     /**
      * Initializes the actual value of this EntityGroupOfTypeItem; in this case, a subgrouping, i.e.
-     * an
-     * EntityGroupOfType
+     * an EntityGroupOfType
      *
      * @param group The EntityGroupOfType to which to set this EntityGroupOfTypeItem's actual value
      * @throws IllegalArgumentException      If the group provided is illegal, e.g. if it is a
@@ -49,8 +40,7 @@ public interface EntityGroupOfTypeItem<EntityType,
      * @return The actual value of this EntityGroupOfTypeItem, i.e., an EntityGroupOfType
      *         subgrouping
      * @throws UnsupportedOperationException If this EntityGroupOfTypeItem is not a subgrouping,
-     *                                       i.e. an
-     *                                       EntityGroupOfType
+     *                                       i.e. an EntityGroupOfType
      */
     GroupType group() throws UnsupportedOperationException;
 
@@ -59,8 +49,7 @@ public interface EntityGroupOfTypeItem<EntityType,
      *
      * @param entity The Entity to which to set this EntityGroupOfTypeItem's actual value
      * @throws IllegalArgumentException      If the entity provided is illegal, e.g. if it is null,
-     *                                       if
-     *                                       it is a duplicate, etc.
+     *                                       if it is a duplicate, etc.
      * @throws UnsupportedOperationException If either the EntityGroupOfType or Entity for this
      *                                       EntityGroupOfTypeItem has been initialized
      */

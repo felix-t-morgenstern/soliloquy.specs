@@ -1,5 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 
@@ -25,4 +26,21 @@ public interface CharacterAIType extends HasId, HasGlobalAccess {
      * Causes this Character to act when they are active
      */
     void act();
+
+    /**
+     * This is intended to be run within the course of some other game event, e.g. a {@link
+     * soliloquy.specs.gamestate.entities.gameevents.GameEventFiring} or the behavior of another
+     * Character AI
+     *
+     * @param eventType The type of event, e.g. "receiveDamage"
+     * @param eventData The data corresponding to that event, e.g., the {@link Element} of that
+     *                  damage, the {@link soliloquy.specs.gamestate.entities.Character} who
+     *                  inflicted it, etc.
+     * @throws IllegalArgumentException If and only if eventType is null or empty, or eventData is
+     *                                  null. <i>Specific Character AIs may throw specific errors if
+     *                                  eventData does not contain specific data, e.g., a
+     *                                  "receiveDamage" event may throw an exception if the Element
+     *                                  of that damage is not specified.</i>
+     */
+    void fireEvent(String eventType, VariableCache eventData) throws IllegalArgumentException;
 }

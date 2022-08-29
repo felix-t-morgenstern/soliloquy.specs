@@ -31,15 +31,7 @@ public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPl
      * @return A function which generates a description of this ItemType, and which takes a
      *         Character as its input (e.g. to calculate how much damage a sword will do)
      */
-    Function<Character, String> getDescriptionFunction();
-
-    /**
-     * @param descriptionFunction The function to set for this ItemType which generates a
-     *                            description of this ItemType, and which takes a Character as its
-     *                            input (e.g. to calculate
-     *                            how much damage a sword will do)
-     */
-    void setDescriptionFunction(Function<Character, String> descriptionFunction);
+    Function<Character, String> descriptionFunction();
 
     /**
      * This is intended for item traits like sell value, weight, damage done, whether it is cursed,
@@ -52,7 +44,7 @@ public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPl
 
     /**
      * A stackable ItemType would be something like "stone", where an Item of this ItemType can
-     * have numerInStack of 3, meaning that Item represents three stones.
+     * have numberInStack of 3, meaning that Item represents three stones.
      *
      * @return True, if and only if instances of this ItemType can be "stacked" (i.e. where one
      *         instance of this Item class can represent multiple instances of the underlying
@@ -98,7 +90,7 @@ public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPl
     /**
      * The {@link soliloquy.specs.graphics.assets.ImageAsset} for an
      * {@link soliloquy.specs.gamestate.entities.Item} of this type can depend on the status of the
-     * Item, e.g. whether it is on the ground, whether it is in inventory, how many charges it has,
+     * Item, e.g., whether it is on the ground, whether it is in inventory, how many charges it has,
      * etc.
      *
      * @return The ImageAssetSet for this Item
