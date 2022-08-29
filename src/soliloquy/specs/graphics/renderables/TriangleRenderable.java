@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.valueobjects.Pair;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 import java.awt.*;
@@ -25,13 +26,13 @@ public interface TriangleRenderable extends PolygonRenderable {
     /**
      * @return A ProviderAtTime which provides the location for the first vertex
      */
-    ProviderAtTime<Pair<Float, Float>> getVertex1LocationProvider();
+    ProviderAtTime<Vertex> getVertex1Provider();
 
     /**
      * @param provider Provides the location of the first vertex at a given timestamp
      * @throws IllegalArgumentException If and only if provider is null
      */
-    void setVertex1LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
+    void setVertex1Provider(ProviderAtTime<Vertex> provider)
             throws IllegalArgumentException;
 
     /**
@@ -53,13 +54,13 @@ public interface TriangleRenderable extends PolygonRenderable {
     /**
      * @return A ProviderAtTime which provides the location for the second vertex
      */
-    ProviderAtTime<Pair<Float, Float>> getVertex2LocationProvider();
+    ProviderAtTime<Vertex> getVertex2Provider();
 
     /**
      * @param provider Provides the location of the second vertex at a given timestamp
      * @throws IllegalArgumentException If and only if provider is null
      */
-    void setVertex2LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
+    void setVertex2Provider(ProviderAtTime<Vertex> provider)
             throws IllegalArgumentException;
 
     /**
@@ -81,13 +82,13 @@ public interface TriangleRenderable extends PolygonRenderable {
     /**
      * @return A ProviderAtTime which provides the location for the third vertex
      */
-    ProviderAtTime<Pair<Float, Float>> getVertex3LocationProvider();
+    ProviderAtTime<Vertex> getVertex3Provider();
 
     /**
      * @param provider Provides the location of the third vertex at a given timestamp
      * @throws IllegalArgumentException If and only if provider is null
      */
-    void setVertex3LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
+    void setVertex3Provider(ProviderAtTime<Vertex> provider)
             throws IllegalArgumentException;
 
     /**

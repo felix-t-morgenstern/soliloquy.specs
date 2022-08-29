@@ -1,15 +1,13 @@
 package soliloquy.specs.graphics.renderables.factories;
 
-import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.AntialiasedLineSegmentRenderable;
-import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 import java.awt.*;
-import java.util.function.Consumer;
 
 /**
  * <b>AntialiasedLineSegmentRenderableFactory</b>
@@ -21,9 +19,9 @@ import java.util.function.Consumer;
  */
 public interface AntialiasedLineSegmentRenderableFactory extends SoliloquyClass {
     /**
-     * @param vertex1LocationProvider          A Provider, which provides the first vertex of this
+     * @param vertex1Provider                  A Provider, which provides the first vertex of this
      *                                         line segment
-     * @param vertex2LocationProvider          A Provider, which provides the second vertex of this
+     * @param vertex2Provider                  A Provider, which provides the second vertex of this
      *                                         line segment
      * @param thicknessProvider                A ProviderAtTime which provides the thickness of this
      *                                         line segment, c.f.
@@ -41,10 +39,8 @@ public interface AntialiasedLineSegmentRenderableFactory extends SoliloquyClass 
      * @param uuid                             The uuid of this Renderable
      * @return The newly-created AntialiasedLineSegmentRenderable
      */
-    AntialiasedLineSegmentRenderable make(ProviderAtTime<Pair<Float, Float>>
-                                                  vertex1LocationProvider,
-                                          ProviderAtTime<Pair<Float, Float>>
-                                                  vertex2LocationProvider,
+    AntialiasedLineSegmentRenderable make(ProviderAtTime<Vertex> vertex1Provider,
+                                          ProviderAtTime<Vertex> vertex2Provider,
                                           ProviderAtTime<Float> thicknessProvider,
                                           ProviderAtTime<Color> colorProvider,
                                           ProviderAtTime<Float> thicknessGradientPercentProvider,

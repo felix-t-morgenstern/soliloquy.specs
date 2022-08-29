@@ -1,8 +1,8 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.TriangleRenderable;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
@@ -64,11 +64,11 @@ public interface TriangleRenderableFactory extends SoliloquyClass {
      *                                  backgroundTextureTileWidth
      *                                  or backgroundTextureTileHeight are less than 0
      */
-    TriangleRenderable make(ProviderAtTime<Pair<Float, Float>> vertex1LocationProvider,
+    TriangleRenderable make(ProviderAtTime<Vertex> vertex1LocationProvider,
                             ProviderAtTime<Color> vertex1ColorProvider,
-                            ProviderAtTime<Pair<Float, Float>> vertex2LocationProvider,
+                            ProviderAtTime<Vertex> vertex2LocationProvider,
                             ProviderAtTime<Color> vertex2ColorProvider,
-                            ProviderAtTime<Pair<Float, Float>> vertex3LocationProvider,
+                            ProviderAtTime<Vertex> vertex3LocationProvider,
                             ProviderAtTime<Color> vertex3ColorProvider,
                             ProviderAtTime<Integer> backgroundTextureIdProvider,
                             float backgroundTextureTileWidth,

@@ -1,7 +1,7 @@
 package soliloquy.specs.graphics.renderables.factories;
 
-import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.assets.Font;
 import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
@@ -89,9 +89,9 @@ public interface TextLineRenderableFactory extends SoliloquyClass {
                             List<Integer> italicIndices, List<Integer> boldIndices,
                             ProviderAtTime<Float> borderThicknessProvider,
                             ProviderAtTime<Color> borderColorProvider,
-                            ProviderAtTime<Pair<Float, Float>> renderingLocationProvider,
+                            ProviderAtTime<Vertex> renderingLocationProvider,
                             ProviderAtTime<Float> dropShadowSizeProvider,
-                            ProviderAtTime<Pair<Float, Float>> dropShadowOffsetProvider,
+                            ProviderAtTime<Vertex> dropShadowOffsetProvider,
                             ProviderAtTime<Color> dropShadowColorProvider,
                             int z, UUID uuid,
                             Consumer<Renderable> updateZIndexInContainer,

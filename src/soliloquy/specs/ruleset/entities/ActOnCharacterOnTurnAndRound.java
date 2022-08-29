@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
 

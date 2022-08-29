@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;

@@ -1,7 +1,7 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.Character;
 

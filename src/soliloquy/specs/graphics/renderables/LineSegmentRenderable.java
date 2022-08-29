@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 import java.awt.*;
@@ -18,27 +18,27 @@ public interface LineSegmentRenderable extends Renderable {
     /**
      * @return A Provider, which provides the first vertex of this line segment
      */
-    ProviderAtTime<Pair<Float, Float>> getVertex1LocationProvider();
+    ProviderAtTime<Vertex> getVertex1Provider();
 
     /**
      * @param provider The Provider to set, to provide the location of the first vertex of this line
      *                 segment
      * @throws IllegalArgumentException If and only if provider is null
      */
-    void setVertex1LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
+    void setVertex1Provider(ProviderAtTime<Vertex> provider)
             throws IllegalArgumentException;
 
     /**
      * @return A Provider, which provides the first vertex of this line segment
      */
-    ProviderAtTime<Pair<Float, Float>> getVertex2LocationProvider();
+    ProviderAtTime<Vertex> getVertex2Provider();
 
     /**
      * @param provider The Provider to set, to provide the location of the second vertex of this
      *                 line segment
      * @throws IllegalArgumentException If and only if provider is null
      */
-    void setVertex2LocationProvider(ProviderAtTime<Pair<Float, Float>> provider)
+    void setVertex2Provider(ProviderAtTime<Vertex> provider)
             throws IllegalArgumentException;
 
     /**

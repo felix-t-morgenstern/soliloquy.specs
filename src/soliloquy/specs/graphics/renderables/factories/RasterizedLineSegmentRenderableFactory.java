@@ -1,7 +1,7 @@
 package soliloquy.specs.graphics.renderables.factories;
 
-import soliloquy.specs.common.infrastructure.Pair;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.RasterizedLineSegmentRenderable;
@@ -22,9 +22,9 @@ import java.util.function.Consumer;
  */
 public interface RasterizedLineSegmentRenderableFactory extends SoliloquyClass {
     /**
-     * @param vertex1LocationProvider A Provider, which provides the first vertex of this line
+     * @param vertex1Provider         A Provider, which provides the first vertex of this line
      *                                segment
-     * @param vertex2LocationProvider A Provider, which provides the second vertex of this line
+     * @param vertex2Provider         A Provider, which provides the second vertex of this line
      *                                segment
      * @param thicknessProvider       A ProviderAtTime which provides the thickness of this line
      *                                segment, c.f.
@@ -50,8 +50,8 @@ public interface RasterizedLineSegmentRenderableFactory extends SoliloquyClass {
      *                                  uuid is null; updateZIndexInContainer is null; or
      *                                  removeFromContainer is null
      */
-    RasterizedLineSegmentRenderable make(ProviderAtTime<Pair<Float, Float>> vertex1LocationProvider,
-                                         ProviderAtTime<Pair<Float, Float>> vertex2LocationProvider,
+    RasterizedLineSegmentRenderable make(ProviderAtTime<Vertex> vertex1Provider,
+                                         ProviderAtTime<Vertex> vertex2Provider,
                                          ProviderAtTime<Float> thicknessProvider,
                                          short stipplePattern, short stippleFactor,
                                          ProviderAtTime<Color> colorProvider,

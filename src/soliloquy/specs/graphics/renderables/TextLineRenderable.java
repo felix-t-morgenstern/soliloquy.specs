@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.common.infrastructure.Pair;
+import soliloquy.specs.common.valueobjects.Pair;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.assets.Font;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
@@ -52,7 +53,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
      *
      * @return A provider which specifies the location at which this text line is rendered
      */
-    ProviderAtTime<Pair<Float, Float>> getRenderingLocationProvider();
+    ProviderAtTime<Vertex> getRenderingLocationProvider();
 
     /**
      * C.f. {@link #getRenderingLocationProvider()} for more information
@@ -60,7 +61,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * @param renderingLocationProvider The renderingLocationProvider to set for this Renderable
      * @throws IllegalArgumentException If and only if renderingLocationProvider is null
      */
-    void setRenderingLocationProvider(ProviderAtTime<Pair<Float, Float>> renderingLocationProvider)
+    void setRenderingLocationProvider(ProviderAtTime<Vertex> renderingLocationProvider)
             throws IllegalArgumentException;
 
     /**
@@ -168,7 +169,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
      *         provided are x and y offsets respectively, and entirety of the window has a height of
      *         1.0
      */
-    ProviderAtTime<Pair<Float, Float>> dropShadowOffsetProvider();
+    ProviderAtTime<Vertex> dropShadowOffsetProvider();
 
     /**
      * <i>NB: If {@link #dropShadowSizeProvider} returns a non-null and non-zero value, this
@@ -179,7 +180,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
      *                                 respectively, and entirety of the window has a height of 1.0
      * @throws IllegalArgumentException If and only if dropShadowOffsetProvider is null
      */
-    void setDropShadowOffsetProvider(ProviderAtTime<Pair<Float, Float>> dropShadowOffsetProvider)
+    void setDropShadowOffsetProvider(ProviderAtTime<Vertex> dropShadowOffsetProvider)
             throws IllegalArgumentException;
 
     /**
