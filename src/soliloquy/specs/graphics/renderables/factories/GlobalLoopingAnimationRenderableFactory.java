@@ -9,6 +9,7 @@ import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
+import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.*;
 import java.util.List;
@@ -37,16 +38,11 @@ public interface GlobalLoopingAnimationRenderableFactory extends SoliloquyClass 
      * @param renderingAreaProvider   A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param updateZIndexInContainer A Consumer which will accept this object to update its
-     *                                z-index within its container when
-     *                                {@link ImageAssetSetRenderable#setZ} is called
-     * @param removeFromContainer     A Consumer which will accept this object to delete it from its
-     *                                container when deleted
+     * @param containingStack         The RenderableStack to contain the Renderable
      * @return The newly-created GlobalLoopingAnimationRenderable
      * @throws IllegalArgumentException If and only if globalLoopingAnimation is null; colorShifts
      *                                  is null; renderingAreaProvider is null; uuid is null;
-     *                                  updateZIndexInContainer is null; or
-     *                                  removeFromContainer is null
+     *                                  or containingStack is null
      */
     GlobalLoopingAnimationRenderable make(GlobalLoopingAnimation globalLoopingAnimation,
                                           ProviderAtTime<Float> borderThicknessProvider,
@@ -54,8 +50,7 @@ public interface GlobalLoopingAnimationRenderableFactory extends SoliloquyClass 
                                           List<ProviderAtTime<ColorShift>> colorShiftProviders,
                                           ProviderAtTime<FloatBox> renderingAreaProvider,
                                           int z, UUID uuid,
-                                          Consumer<Renderable> updateZIndexInContainer,
-                                          Consumer<Renderable> removeFromContainer)
+                                          RenderableStack containingStack)
             throws IllegalArgumentException;
 
     /**
@@ -82,16 +77,11 @@ public interface GlobalLoopingAnimationRenderableFactory extends SoliloquyClass 
      * @param renderingAreaProvider   A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param updateZIndexInContainer A Consumer which will accept this object to update its
-     *                                z-index within its container when
-     *                                {@link ImageAssetSetRenderable#setZ} is called
-     * @param removeFromContainer     A Consumer which will accept this object to delete it from its
-     *                                container when deleted
+     * @param containingStack         The RenderableStack to contain the Renderable
      * @return The newly-created GlobalLoopingAnimationRenderable
      * @throws IllegalArgumentException If and only if globalLoopingAnimation is null; colorShifts
      *                                  is null; renderingDimensionsProvider is null; uuid is null;
-     *                                  updateZIndexInContainer is null;
-     *                                  or removeFromContainer is null
+     *                                  or containingStack is null
      */
     GlobalLoopingAnimationRenderable make(GlobalLoopingAnimation globalLoopingAnimation,
                                           ProviderAtTime<Float> borderThicknessProvider,
@@ -103,7 +93,6 @@ public interface GlobalLoopingAnimationRenderableFactory extends SoliloquyClass 
                                           List<ProviderAtTime<ColorShift>> colorShiftProviders,
                                           ProviderAtTime<FloatBox> renderingAreaProvider,
                                           int z, UUID uuid,
-                                          Consumer<Renderable> updateZIndexInContainer,
-                                          Consumer<Renderable> removeFromContainer)
+                                          RenderableStack containingStack)
             throws IllegalArgumentException;
 }

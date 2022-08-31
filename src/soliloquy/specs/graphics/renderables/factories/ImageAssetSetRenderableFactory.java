@@ -8,6 +8,7 @@ import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
+import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.*;
 import java.util.List;
@@ -32,25 +33,19 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      *                                {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      * @param colorShiftProviders     The ColorShifts to apply when rendering (NB: This List is
      *                                intended to contain Providers which will provide ColorShifts
-     *                                of
-     *                                the same type for each entry in the list; however, you can
+     *                                of the same type for each entry in the list; however, you can
      *                                obviously use it differently if you please.)
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider     A class which provides the color of the border to render
      * @param renderingAreaProvider   A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param updateZIndexInContainer A Consumer which will accept this object to update its
-     *                                z-index within its container when
-     *                                {@link ImageAssetSetRenderable#setZ} is called
-     * @param removeFromContainer     A Consumer which will accept this object to delete it from its
-     *                                container when deleted
+     * @param containingStack         The RenderableStack to contain the Renderable
      * @return The newly-created ImageAssetSetRenderable
      * @throws IllegalArgumentException If and only if imageAssetSet is null; both type and
      *                                  direction are null or empty; colorShifts is null;
-     *                                  renderingAreaProvider is null; uuid is
-     *                                  null; updateZIndexInContainer is null; or
-     *                                  removeFromContainer is null
+     *                                  renderingAreaProvider is null; uuid is null; or
+     *                                  containingStack is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
                                  List<ProviderAtTime<ColorShift>> colorShiftProviders,
@@ -58,8 +53,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
                                  UUID uuid,
-                                 Consumer<Renderable> updateZIndexInContainer,
-                                 Consumer<Renderable> removeFromContainer)
+                                 RenderableStack containingStack)
             throws IllegalArgumentException;
 
     /**
@@ -70,43 +64,32 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      *                                    (c.f.
      *                                    {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      * @param onPress                     The Actions which is fired when a click is registered on
-     *                                    this renderable,
-     *                                    with the integer keys corresponding to mouse buttons
-     *                                    (c.f.
-     *                                    GLFW_MOUSE_BUTTON_*)
+     *                                    this renderable, with the integer keys corresponding to
+     *                                    mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
      * @param onRelease                   The Actions which is fired when a click is registered on
-     *                                    this renderable,
-     *                                    with the integer keys corresponding to mouse buttons
-     *                                    (c.f.
-     *                                    GLFW_MOUSE_BUTTON_*)
+     *                                    this renderable, with the integer keys corresponding to
+     *                                    mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
      * @param onMouseOver                 The Action which is fired when the mouse moves over this
      *                                    renderable
      * @param onMouseLeave                The Action which is fired when the mouse leaves this
      *                                    renderable
      * @param colorShiftProviders         The ColorShifts to apply when rendering (NB: This List is
      *                                    intended to contain Providers which will provide
-     *                                    ColorShifts of
-     *                                    the same type for each entry in the list; however, you
-     *                                    can
-     *                                    obviously use it differently if you please.)
+     *                                    ColorShifts of the same type for each entry in the list;
+     *                                    however, you can obviously use it differently if you
+     *                                    please.)
      * @param borderThicknessProvider     A class which provides the thickness of the border to
      *                                    render
      * @param borderColorProvider         A class which provides the color of the border to render
      * @param renderingDimensionsProvider A class which provides the area in which to render
      * @param z                           The z index within the container
      * @param uuid                        The universally unique identifier
-     * @param updateZIndexInContainer     A Consumer which will accept this object to update its
-     *                                    z-index within its container when
-     *                                    {@link ImageAssetSetRenderable#setZ} is called
-     * @param removeFromContainer         A Consumer which will accept this object to delete it from
-     *                                    its
-     *                                    container when deleted
+     * @param containingStack             The RenderableStack to contain the Renderable
      * @return The newly-created ImageAssetSetRenderable
      * @throws IllegalArgumentException If and only if imageAssetSet is null; both type and
      *                                  direction are null or empty; colorShifts is null;
-     *                                  renderingDimensionsProvider is null; uuid
-     *                                  is null; updateZIndexInContainer is null; or
-     *                                  removeFromContainer is null
+     *                                  renderingDimensionsProvider is null; uuid is null; or
+     *                                  containingStack is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
                                  Map<Integer, Action<Long>> onPress,
@@ -118,7 +101,6 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
                                  UUID uuid,
-                                 Consumer<Renderable> updateZIndexInContainer,
-                                 Consumer<Renderable> removeFromContainer)
+                                 RenderableStack containingStack)
             throws IllegalArgumentException;
 }

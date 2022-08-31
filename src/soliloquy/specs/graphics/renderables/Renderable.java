@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.shared.HasUuid;
+import soliloquy.specs.graphics.rendering.RenderableStack;
 
 /**
  * <b>Renderable</b>
@@ -17,10 +18,7 @@ public interface Renderable extends HasUuid {
     /**
      * <i>NB: Higher z values will be rendered first.</i>
      *
-     * @return The z-index of this Renderable. (If this Renderable is within another Renderable,
-     *         then the z-index is only used to determine rendering order amongst other Renderables
-     *         within
-     *         the containing Renderable.)
+     * @return The z-index of this Renderable within its {@link #containingStack()}
      */
     int getZ();
 
@@ -32,8 +30,15 @@ public interface Renderable extends HasUuid {
     void setZ(int z);
 
     /**
-     * (Currently only needed when {@link GlobalLoopingAnimationRenderable}s are deleted; handles
-     * unsubscribing that class from a publisher of pause and unpause updates.)
+     * @return The RenderableStack containing this Renderable. Will return null if and only if this
+     *         Renderable has been deleted.
+     */
+    RenderableStack containingStack();
+
+    /**
+     * The intended method to remove a Renderable from its RenderingStack. Invokes
+     * {@link RenderableStack#remove}. Also handles unsubscribing
+     * {@link GlobalLoopingAnimationRenderable}s from a publisher of pause and unpause updates.
      * <p>
      * (NB: This class does not extend Deletable, since there is no need to assess whether it has
      * been deleted.)

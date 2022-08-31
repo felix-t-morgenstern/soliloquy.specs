@@ -6,8 +6,10 @@ import soliloquy.specs.graphics.renderables.AntialiasedLineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.*;
+import java.util.function.Consumer;
 
 /**
  * <b>AntialiasedLineSegmentRenderableFactory</b>
@@ -37,7 +39,13 @@ public interface AntialiasedLineSegmentRenderableFactory extends SoliloquyClass 
      * @param z                                The z-index of this Renderable, c.f. {@link
      *                                         Renderable#getZ}
      * @param uuid                             The uuid of this Renderable
+     * @param containingStack                  The RenderableStack to contain the Renderable
      * @return The newly-created AntialiasedLineSegmentRenderable
+     * @throws IllegalArgumentException If and only if vertex1Provider, vertex2Provider,
+     *                                  thicknessProvider, colorProvider,
+     *                                  thicknessGradientPercentProvider,
+     *                                  lengthGradientPercentProvider, uuid, or containingStack are
+     *                                  null
      */
     AntialiasedLineSegmentRenderable make(ProviderAtTime<Vertex> vertex1Provider,
                                           ProviderAtTime<Vertex> vertex2Provider,
@@ -46,6 +54,7 @@ public interface AntialiasedLineSegmentRenderableFactory extends SoliloquyClass 
                                           ProviderAtTime<Float> thicknessGradientPercentProvider,
                                           ProviderAtTime<Float> lengthGradientPercentProvider,
                                           int z,
-                                          java.util.UUID uuid)
+                                          java.util.UUID uuid,
+                                          RenderableStack containingStack)
             throws IllegalArgumentException;
 }

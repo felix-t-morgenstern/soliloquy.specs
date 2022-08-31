@@ -21,7 +21,7 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RenderableStack extends SoliloquyClass {
+public interface RenderableStack extends Renderable {
     /**
      * Clears the contained Renderables
      */
@@ -38,9 +38,34 @@ public interface RenderableStack extends SoliloquyClass {
     void add(Renderable renderable) throws IllegalArgumentException;
 
     /**
+     * <i>NB: This method is only intended to be called by {@link Renderable#delete()}. That is why
+     * this method will fail when renderable's containingStack is non-null; it is expected that
+     * renderable will update its containingStack to null before calling this method.</i>
+     *
+     * @param renderable The Renderable to remove from this stack
+     * @throws IllegalArgumentException If and only if renderable is null, or renderable's
+     *                                  containingStack is non-null.
+     */
+    void remove(Renderable renderable) throws IllegalArgumentException;
+
+    /**
+     * @return The rendering dimensions of this RenderableStack; all Renderables contained within
+     *         will not be drawn beyond the dimensions provided here
+     */
+    FloatBox renderingDimensions();
+
+    /**
      * @return A read-only representation of the stack. (NB: While the Renderables are not clones,
      *         there should also be nothing mutable about any Renderable; they are essentially
      *         stateless.)
      */
-    Map<Integer, List<Renderable>> representation();
+    Map<Integer, List<Renderable>> renderablesByZIndexRepresentation();
+
+    /**
+     * <i>NB: Higher z values will be rendered first.</i>
+     *
+     * @return The z-index of this Renderable within its {@link #containingStack()}
+     * @throws UnsupportedOperationException If and only if this is a top-level RenderableStack
+     */
+    int getZ() throws UnsupportedOperationException;
 }
