@@ -1,13 +1,10 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.gamestate.entities.gameevents.GameCharacterEvent;
 
 /**
  * <b>CharacterType</b>

@@ -1,10 +1,11 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
+
+import java.util.List;
 
 /**
  * <b>EntityMembersOfType</b>
@@ -37,8 +38,7 @@ public interface EntityMembersOfType<TEntityMemberType extends HasId,
      * @param entityType The type of entity to add to this {@link Character} or {@link Item}
      * @throws IllegalArgumentException If and only if entityType is null
      * @throws EntityDeletedException   If and only if the parent entity (e.g. the Character or
-     *                                  Item)
-     *                                  has been deleted
+     *                                  Item) has been deleted
      */
     void add(TEntityMemberType entityType) throws IllegalArgumentException, EntityDeletedException;
 
@@ -54,8 +54,7 @@ public interface EntityMembersOfType<TEntityMemberType extends HasId,
      * @param entityType The type of entity to add to this {@link Character}
      * @throws IllegalArgumentException If and only if entityType is null
      * @throws EntityDeletedException   If and only if the parent entity (e.g. the Character or
-     *                                  Item)
-     *                                  has been deleted
+     *                                  Item) has been deleted
      */
     void add(TEntityMemberType entityType, VariableCache data)
             throws IllegalArgumentException, EntityDeletedException;
@@ -65,8 +64,7 @@ public interface EntityMembersOfType<TEntityMemberType extends HasId,
      * @return The entity of the corresponding type, if present; otherwise, null
      * @throws IllegalArgumentException If and only if entityType is null
      * @throws EntityDeletedException   If and only if the parent entity (e.g. the Character or
-     *                                  Item)
-     *                                  has been deleted
+     *                                  Item) has been deleted
      */
     TEntityMember get(TEntityMemberType entityType)
             throws IllegalArgumentException, EntityDeletedException;
@@ -81,8 +79,7 @@ public interface EntityMembersOfType<TEntityMemberType extends HasId,
      * @return True, if and only if the entity of the provided type was present
      * @throws IllegalArgumentException If and only if entityType is null
      * @throws EntityDeletedException   If and only if the parent entity (e.g. the Character or
-     *                                  Item)
-     *                                  has been deleted
+     *                                  Item) has been deleted
      */
     boolean remove(TEntityMemberType entityType)
             throws IllegalArgumentException, EntityDeletedException;
@@ -92,8 +89,7 @@ public interface EntityMembersOfType<TEntityMemberType extends HasId,
      * @return True, if and only if the item is present
      * @throws IllegalArgumentException If and only if statType is null
      * @throws EntityDeletedException   If and only if the parent entity (e.g. the Character or
-     *                                  Item)
-     *                                  has been deleted
+     *                                  Item) has been deleted
      */
     boolean contains(TEntityMemberType entityType)
             throws IllegalArgumentException, EntityDeletedException;

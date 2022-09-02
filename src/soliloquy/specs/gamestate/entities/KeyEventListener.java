@@ -1,8 +1,9 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.shared.SoliloquyClass;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <b>KeyEventListener</b>
@@ -42,7 +43,7 @@ public interface KeyEventListener extends SoliloquyClass {
      * @param key       The key which is pressed
      * @param timestamp The timestamp at which the key is pressed
      * @throws IllegalArgumentException If and only if key is an illegal value, or if timestamp is
-     *                                  before most recent timestamp provided to class
+     *                                  before the most recent timestamp provided to class
      */
     void press(char key, long timestamp) throws IllegalArgumentException;
 
@@ -50,15 +51,14 @@ public interface KeyEventListener extends SoliloquyClass {
      * @param key       The key which has been released
      * @param timestamp The timestamp at which the key is pressed
      * @throws IllegalArgumentException If and only if key is an illegal value, or if timestamp is
-     *                                  before most recent timestamp provided to class
+     *                                  before the most recent timestamp provided to class
      */
     void release(char key, long timestamp) throws IllegalArgumentException;
 
     /**
      * @return An ordered representation of KeyBindingContexts; intended use is that
      *         KeyBindingContexts will be triggered by key press events in the order specified by
-     *         the index
-     *         of this Map, with higher-numbered indexes firing first.
+     *         the index of this Map, with higher-numbered indexes firing first.
      */
     Map<Integer, List<KeyBindingContext>> contextsRepresentation();
 }

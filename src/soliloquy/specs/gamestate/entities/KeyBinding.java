@@ -1,8 +1,9 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
+
+import java.util.List;
 
 /**
  * <b>KeyBinding</b>
@@ -28,7 +29,7 @@ public interface KeyBinding extends SoliloquyClass {
     List<java.lang.Character> boundCharacters();
 
     /**
-     * Runs the Action that is ran when this key is pressed
+     * Runs the Action that is run when this key is pressed
      *
      * @throws IllegalArgumentException If and only if timestamp is before most recent timestamp
      *                                  provided to class
@@ -46,7 +47,7 @@ public interface KeyBinding extends SoliloquyClass {
     String onPressActionId();
 
     /**
-     * Runs the Action that is ran when this key is released
+     * Runs the Action that is run when this key is released
      *
      * @throws IllegalArgumentException If and only if timestamp is before most recent timestamp
      *                                  provided to class

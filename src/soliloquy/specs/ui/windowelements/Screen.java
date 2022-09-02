@@ -1,7 +1,8 @@
 package soliloquy.specs.ui.windowelements;
 
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.graphics.renderables.Renderable;
+
+import java.util.Map;
 
 //TODO: Document this interface
 public interface Screen extends Renderable {

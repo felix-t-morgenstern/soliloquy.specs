@@ -1,7 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.Pair;
+
+import java.util.Map;
 
 /**
  * <b>TileWallSegments</b>

@@ -1,7 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
+
+import java.util.List;
 
 /**
  * <b>KeyBindingContext</b>

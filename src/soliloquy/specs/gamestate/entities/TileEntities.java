@@ -1,10 +1,10 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.shared.HasOneGenericParam;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 
+import java.util.Map;
 import java.util.function.Consumer;
 
 /**
@@ -123,7 +123,7 @@ public interface TileEntities<TEntity extends TileEntity>
      *
      * @param actionAfterRemoving A function, which is called whenever an entity of type TEntity
      *                            is removed from this class; that function can take certain
-     *                            actions, e.g removing a Character to both the GameZone and the
+     *                            actions, e.g., removing a Character to both the GameZone and the
      *                            RoundManager.
      *                            <p>
      *                            (This parameter may be null.)

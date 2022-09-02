@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
+import java.util.List;
 
 /**
  * <b>CharacterInventory</b>
@@ -11,8 +11,8 @@ import soliloquy.specs.common.infrastructure.List;
  * <p>
  * This class also supports providing a <i>representation</i> of the CharacterInventory for this
  * Character; i.e., a Map containing all of those Items. <u>Editing the Map provided by
- * getRepresentation will not change the Inventory for this Character.</u> To do that, use
- * the add and remove methods, also provided.
+ * getRepresentation will not change the Inventory for this Character.</u> To do that, use the add
+ * and remove methods, also provided.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -24,7 +24,7 @@ public interface CharacterInventory extends Iterable<Item>, Deletable {
      *
      * @return A representation of this Character's inventory.
      * @throws IllegalStateException If this Character does not have a GameZone, or if this
-     *                               Character has been deleted, or if it has no Id
+     *                               Character has been deleted, or if it has no id
      */
     List<Item> representation() throws IllegalStateException;
 
@@ -33,7 +33,7 @@ public interface CharacterInventory extends Iterable<Item>, Deletable {
      * @throws IllegalArgumentException If and only if item is null, or is deleted, or exists
      *                                  elsewhere
      * @throws IllegalStateException    If this Character does not have a GameZone, or if this
-     *                                  Character has been deleted, or if it has no Id
+     *                                  Character has been deleted, or if it has no id
      */
     void add(Item item) throws IllegalArgumentException, IllegalStateException;
 
@@ -43,7 +43,7 @@ public interface CharacterInventory extends Iterable<Item>, Deletable {
      *         therefore removed
      * @throws IllegalArgumentException If and only if item is null
      * @throws IllegalStateException    If this Character does not have a GameZone, or if this
-     *                                  Character has been deleted, or if it has no Id
+     *                                  Character has been deleted, or if it has no id
      */
     boolean remove(Item item) throws IllegalArgumentException,
             IllegalStateException;
@@ -53,7 +53,7 @@ public interface CharacterInventory extends Iterable<Item>, Deletable {
      * @return True, if and only if item is present in this CharacterInventory
      * @throws IllegalArgumentException If and only if item is null
      * @throws IllegalStateException    If this Character does not have a GameZone, or if this
-     *                                  Character has been deleted, or if it has no Id
+     *                                  Character has been deleted, or if it has no id
      */
     boolean contains(Item item) throws IllegalArgumentException, IllegalStateException;
 }

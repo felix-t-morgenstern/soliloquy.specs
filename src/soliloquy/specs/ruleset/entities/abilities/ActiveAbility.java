@@ -1,11 +1,12 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Item;
 import soliloquy.specs.gamestate.entities.Tile;
+
+import java.util.List;
 
 /**
  * <b>ActiveAbility</b>

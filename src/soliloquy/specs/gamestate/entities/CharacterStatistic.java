@@ -1,8 +1,9 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.ruleset.entities.CharacterStatisticType;
 import soliloquy.specs.ruleset.gameconcepts.CharacterStatisticCalculation;
+
+import java.util.Map;
 
 /**
  * <b>CharacterStatistic</b>

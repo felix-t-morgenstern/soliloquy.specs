@@ -1,8 +1,9 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.gamestate.entities.gameevents.GameCharacterEvent;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <b>CharacterEvents</b>
@@ -28,8 +29,8 @@ public interface CharacterEvents extends Deletable {
             throws IllegalArgumentException, IllegalStateException;
 
     /**
-     * @param trigger The type of event whose corresponding events will no longer be triggered
-     *                for this {@link Character}
+     * @param trigger The type of event whose corresponding events will no longer be triggered for
+     *                this {@link Character}
      * @throws IllegalArgumentException If and only if trigger is null or empty
      * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
      *                                  class is deleted
@@ -47,7 +48,7 @@ public interface CharacterEvents extends Deletable {
     /**
      * @param event The Event whose corresponding triggers to retrieve. (A given event may be
      *              triggered by multiple types of triggers.)
-     * @return A List of all of the triggers which will trigger the specified event.
+     * @return A List of all the triggers which will trigger the specified event.
      * @throws IllegalArgumentException If and only if event is null
      * @throws IllegalStateException    If and only if the {@link Character} corresponding to this
      *                                  class is deleted

@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Map;
+import java.util.Map;
 
 /**
  * <b>CharacterEquipmentSlots</b>
@@ -93,14 +93,12 @@ public interface CharacterEquipmentSlots extends Deletable {
      *
      * @param equipmentSlotType The equipment slot in which to equip item
      * @param item              The Item to equip to this slot. <b>This may be null, in the case
-     *                          where an Item
-     *                          is being unequipped from the slot.</b>
+     *                          where an Item is being unequipped from the slot.</b>
      * @return The Item previously equipped to this slot (if any)
      * @throws IllegalArgumentException      If and only if equipmentSlotType is null or empty, or
-     *                                       if
-     *                                       equipmentSlotType does not exist for this Character, or
-     *                                       if item is null, or if item cannot
-     *                                       be equipped to this slot
+     *                                       if equipmentSlotType does not exist for this Character,
+     *                                       or if item is null, or if item cannot be equipped to
+     *                                       this slot
      * @throws IllegalStateException         If this Character does not have a GameZone, or if this
      *                                       Character has been deleted
      * @throws UnsupportedOperationException If and only if equipmentSlotType is set to not allow
@@ -117,9 +115,8 @@ public interface CharacterEquipmentSlots extends Deletable {
      * @throws IllegalArgumentException If and only if equipmentSlotType is null or empty, or if
      *                                  equipmentSlotType does not exist for this Character
      * @throws IllegalStateException    If the Item currently in this slot cannot be equipped to
-     *                                  this
-     *                                  slot, or if the Character for this CharacterEquipmentSlot
-     *                                  has been deleted
+     *                                  this slot, or if the Character for this
+     *                                  CharacterEquipmentSlot has been deleted
      */
     boolean getCanAlterEquipmentInSlot(String equipmentSlotType)
             throws IllegalArgumentException, IllegalStateException;
@@ -128,13 +125,10 @@ public interface CharacterEquipmentSlots extends Deletable {
      * @param canAlterEquipmentInSlot Whether the Item currently in this slot can be removed
      * @throws UnsupportedOperationException If there is no Item in this slot
      * @throws IllegalArgumentException      If and only if equipmentSlotType is null or empty, or
-     *                                       if
-     *                                       equipmentSlotType does not exist for this Character
+     *                                       if equipmentSlotType does not exist for this Character
      * @throws IllegalStateException         If the Item currently in this slot cannot be equipped
-     *                                       to this
-     *                                       slot, or if the Character for this
-     *                                       CharacterEquipmentSlot
-     *                                       has been deleted
+     *                                       to this slot, or if the Character for this
+     *                                       CharacterEquipmentSlot has been deleted
      */
     void setCanAlterEquipmentInSlot(String equipmentSlotType, boolean canAlterEquipmentInSlot)
             throws IllegalArgumentException, IllegalStateException;

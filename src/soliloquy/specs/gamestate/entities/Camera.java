@@ -1,10 +1,11 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate;
 import soliloquy.specs.ruleset.gameconcepts.TileVisibility;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <b>Camera</b>

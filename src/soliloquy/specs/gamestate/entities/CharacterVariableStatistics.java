@@ -1,7 +1,8 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
+
+import java.util.Map;
 
 /**
  * <b>CharacterVariableStatistics</b>

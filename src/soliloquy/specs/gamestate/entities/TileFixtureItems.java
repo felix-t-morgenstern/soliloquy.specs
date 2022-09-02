@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
+import java.util.List;
 
 /**
  * <b>TileFixtureItems</b>
@@ -19,15 +19,14 @@ import soliloquy.specs.common.infrastructure.List;
  */
 public interface TileFixtureItems extends Deletable {
     /**
-     * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this
-     * TileFixture. To add or remove Items, use the other methods specified.</i>
+     * <i>NB: This is only supposed to be a REPRESENTATION of the Items present in this TileFixture.
+     * To add or remove Items, use the other methods specified.</i>
      *
      * @return A List of the Items in this TileFixture.
      * @throws UnsupportedOperationException If this TileFixture's FixtureType is not a container
      * @throws IllegalStateException         If this TileFixture has been deleted
      */
-    List<Item> representation()
-            throws UnsupportedOperationException, IllegalStateException;
+    List<Item> representation() throws UnsupportedOperationException, IllegalStateException;
 
     /**
      * @param item The Item to add to this TileFixture
@@ -50,6 +49,5 @@ public interface TileFixtureItems extends Deletable {
      * @throws IllegalArgumentException If and only if item is null
      * @throws IllegalStateException    If this TileFixture has been deleted
      */
-    boolean contains(Item item)
-            throws IllegalArgumentException, IllegalStateException;
+    boolean contains(Item item) throws IllegalArgumentException, IllegalStateException;
 }

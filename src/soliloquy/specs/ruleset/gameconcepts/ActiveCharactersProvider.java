@@ -1,9 +1,10 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.Character;
+
+import java.util.List;
 
 /**
  * <b>ActiveCharactersProvider</b>
@@ -24,16 +25,12 @@ public interface ActiveCharactersProvider {
      * @return A List of active Characters, in order of their turn priority, each paired with
      *         round-specific data, corresponding with their data at the start of a round. (See
      *         {@link soliloquy.specs.gamestate.entities.RoundManager#characterQueueRepresentation}
-     *         for
-     *         more information on the Character queue within a given round. Characters are added
-     *         to
-     *         ActiveCharactersProvider when they are generated; and at the top of each round, by
-     *         adding
-     *         every Character present in the current
-     *         {@link soliloquy.specs.gamestate.entities.GameZone}.
-     *         It may be possible for Characters to be withheld from activeCharacters by setting
-     *         some value
-     *         in their data, but that is specific to an individual ruleset.
+     *         for more information on the Character queue within a given round. Characters are
+     *         added to ActiveCharactersProvider when they are generated; and at the top of each
+     *         round, by adding every Character present in the current
+     *         {@link soliloquy.specs.gamestate.entities.GameZone}. It may be possible for
+     *         Characters to be withheld from activeCharacters by setting some value in their data,
+     *         but that is specific to an individual ruleset.
      */
     List<Pair<Character, VariableCache>> activeCharacters();
 }

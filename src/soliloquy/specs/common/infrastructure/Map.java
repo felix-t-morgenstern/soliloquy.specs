@@ -16,13 +16,6 @@ import soliloquy.specs.common.shared.HasTwoGenericParams;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Map<K, V> extends java.util.Map<K, V>, Cloneable<Map<K, V>>,
-        HasTwoGenericParams<K, V> {
-    /**
-     * <i>NB: This method returns the SoliloquyClass {@link List} with an archetype, which can be
-     * properly stored to file.</i>
-     *
-     * @return A List of the values of this Map
-     */
-    List<V> getValuesList();
+public interface Map<K, V>
+        extends java.util.Map<K, V>, Cloneable<Map<K, V>>, HasTwoGenericParams<K, V> {
 }

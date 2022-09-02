@@ -1,7 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.entities.Function;
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
@@ -11,19 +10,20 @@ import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 
+import java.util.List;
+
 /**
  * <b>ItemType</b>
  * <p>
- * An ItemType has an EquipmentType, it can have charges or be stacked (but not both),
+ * An ItemType has an EquipmentType, it can have charges or be stacked (but not both)
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
 public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPluralName, HasId {
     /**
-     * @return The EquipmentType (e.g. helmets, necklaces, mystical auras, makeup) of this
-     *         ItemType; used to determine in which types of equipment slots this Item can be
-     *         equipped
+     * @return The EquipmentType (e.g. helmets, necklaces, mystical auras, makeup) of this ItemType;
+     *         used to determine in which types of equipment slots this Item can be equipped
      */
     EquipmentType equipmentType();
 

@@ -1,15 +1,15 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
+
+import java.util.List;
 
 /**
  * <b>Party</b>
  * <p>
  * The Party stores a List of the player-controlled Characters; and characterStatisticTypes of the
- * Party,
- * e.g. gold, military rank, group combat blessings
+ * Party, e.g. gold, military rank, group combat blessings
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

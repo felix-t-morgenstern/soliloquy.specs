@@ -1,10 +1,11 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.Coordinate;
+
+import java.util.List;
 
 /**
  * <b>GameZone</b>

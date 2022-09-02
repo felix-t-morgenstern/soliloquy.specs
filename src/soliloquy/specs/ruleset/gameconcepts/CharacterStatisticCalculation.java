@@ -1,10 +1,11 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.infrastructure.Map;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.CharacterStatisticType;
+
+import java.util.Map;
 
 /**
  * <b>CharacterStatisticCalculation</b>

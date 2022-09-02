@@ -1,8 +1,8 @@
 package soliloquy.specs.audio.entities;
 
-import soliloquy.specs.common.infrastructure.List;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
