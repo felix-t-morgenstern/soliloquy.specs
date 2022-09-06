@@ -53,6 +53,8 @@ public interface Character extends TileEntity, HasName, HasUuid {
      */
     Map<String, String> pronouns() throws EntityDeletedException;
 
+    // NB: This method is already defined on HasData, but the description here improves the API docs
+
     /**
      * Data can be traits relevant to combat or stats, e.g. experience points, Character level,
      * skill points
