@@ -1,7 +1,7 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.Renderable;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 import java.util.List;
 import java.util.Map;
@@ -49,10 +49,20 @@ public interface RenderableStack extends Renderable {
     void remove(Renderable renderable) throws IllegalArgumentException;
 
     /**
-     * @return The rendering dimensions of this RenderableStack; all Renderables contained within
-     *         will not be drawn beyond the dimensions provided here
+     * @return Provider for the rendering boundaries of this RenderableStack; all Renderables
+     *         contained within will not be drawn beyond the dimensions provided here
      */
-    FloatBox renderingDimensions();
+    ProviderAtTime<FloatBox> getRenderingBoundariesProvider();
+
+    /**
+     * @param renderingBoundariesProvider The Provider to assign for the rendering boundaries
+     * @throws IllegalArgumentException      If and only if renderingBoundariesProvider is null
+     * @throws UnsupportedOperationException If and only if the RenderingStack is top-level; the
+     *                                       top-level RenderingStack should always only provide the
+     *                                       whole screen as rendering boundaries
+     */
+    void setRenderingBoundariesProvider(ProviderAtTime<FloatBox> renderingBoundariesProvider)
+            throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
      * @return A read-only representation of the stack. (NB: While the Renderables are not clones,
