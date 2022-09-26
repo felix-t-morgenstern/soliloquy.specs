@@ -1,45 +1,39 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>disorg.soliloquy</groupId>
-  <artifactId>soliloquy.specs</artifactId>
-  <version>0.0.358</version>
-  <name>Soliloquy Specifications</name>
-  <description>The common suite of specifications to which all Soliloquy classes and components are
-      to expect one another to adhere</description>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <resources>
-      <resource>
-        <directory>src</directory>
-        <excludes>
-          <exclude>**/*.java</exclude>
-        </excludes>
-      </resource>
-    </resources>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
-        <configuration>
-          <release>9</release>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <distributionManagement>
-      <repository>
-          <id>github</id>
-          <name>Soliloquy Specifications</name>
-          <uniqueVersion>false</uniqueVersion>
-          <url>https://maven.pkg.github.com/felix-t-morgenstern/soliloquy.specs</url>
-      </repository>
-      <snapshotRepository>
-          <id>github</id>
-          <name>Soliloquy Specifications</name>
-          <uniqueVersion>false</uniqueVersion>
-          <url>file://${project.build.directory}/mvn-repo</url>
-      </snapshotRepository>
-      <downloadUrl>https://github.com/felix-t-morgenstern/soliloquy.specs</downloadUrl>
-  </distributionManagement>
-  <inceptionYear>2018</inceptionYear>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>disorg.soliloquy</groupId>
+    <artifactId>soliloquy.specs</artifactId>
+    <version>0.0.358</version>
+    <name>Soliloquy Specifications</name>
+    <description>The common suite of specifications to which all Soliloquy classes and components
+        are to expect one another to adhere
+    </description>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <release>9</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Soliloquy Specifications</name>
+            <uniqueVersion>false</uniqueVersion>
+            <url>https://maven.pkg.github.com/felix-t-morgenstern/soliloquy.specs</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <name>Soliloquy Specifications</name>
+            <uniqueVersion>false</uniqueVersion>
+            <url>file://${project.build.directory}/mvn-repo</url>
+        </snapshotRepository>
+        <downloadUrl>https://github.com/felix-t-morgenstern/soliloquy.specs</downloadUrl>
+    </distributionManagement>
+    <inceptionYear>2018</inceptionYear>
 </project>
