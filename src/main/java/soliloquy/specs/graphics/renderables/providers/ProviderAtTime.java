@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables.providers;
 
 import soliloquy.specs.common.shared.HasOneGenericParam;
+import soliloquy.specs.common.shared.HasTwoGenericParams;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.shared.PausableAtTime;
 import soliloquy.specs.graphics.renderables.FiniteAnimationRenderable;
@@ -34,4 +35,17 @@ public interface ProviderAtTime<T>
      *                                  unpause was reported
      */
     T provide(long timestamp) throws IllegalArgumentException;
+
+    /**
+     * <i>NB: This method exists for {@link soliloquy.specs.common.persistence.TypeHandler}s, which
+     * are expected to cast the output to the required type. Recipients of a ProviderAtTime should
+     * not be expected to know what type is used to represent the values provided. This is a
+     * representation, so changing the output of this method will not change the behavior of the
+     * ProviderAtTime<./i>
+     *
+     * @return A representation of how values are to be provided, e.g., a {@link java.util.Map}
+     *         describing which {@link soliloquy.specs.graphics.rendering.FloatBox} to provide at a
+     *         given timestamp
+     */
+    Object representation();
 }
