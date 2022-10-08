@@ -1,6 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.gamestate.entities.TileWallSegment;
 import soliloquy.specs.graphics.assets.ImageAsset;
@@ -22,7 +23,7 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface WallSegmentType extends HasId {
+public interface WallSegmentType extends HasId, HasName {
     /**
      * This method allows this class to support things like whether it is fully vertically visible,
      * or whether only a small portion is displayed, to prevent the wall from obscuring the
