@@ -4,6 +4,14 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.ruleset.definitions.ElementDefinition;
 import soliloquy.specs.ruleset.entities.Element;
 
+/**
+ * <b>ElementFactory</b>
+ * <p>
+ * Creates {@link Element}s
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ */
 public interface ElementFactory extends SoliloquyClass {
     /**
      * @param definition The definition of the Element to create
