@@ -12,9 +12,10 @@ import soliloquy.specs.common.shared.HasId;
  */
 public interface SoundType extends HasId {
     /**
-     * @return The absolute path of the filename of the sound file corresponding to this SoundType
+     * @return The path of the filename of the sound file corresponding to this SoundType, relative
+     *         to the execution directory
      */
-    String absolutePath();
+    String relativePath();
 
     /**
      * @return The default millisecond position at which a Sound of this type, when looping, will
