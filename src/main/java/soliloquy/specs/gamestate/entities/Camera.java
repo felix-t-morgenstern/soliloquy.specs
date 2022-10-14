@@ -2,6 +2,8 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate;
+import soliloquy.specs.common.valueobjects.Vertex;
+import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ruleset.gameconcepts.TileVisibility;
 
 import java.util.List;
@@ -29,41 +31,40 @@ public interface Camera extends SoliloquyClass {
     Coordinate getTileLocation();
 
     /**
-     * @param x The x location of Tile on which to center the Camera
-     * @param y The y location of Tile on which to center the Camera
-     * @throws IllegalArgumentException If and only if x or y are negative
+     * <i>NB: x and y can be outside of the bounds of the current GameZone; this is equivalent to
+     * the Camera moving out of the range of all visible Tiles.</i>
+     *
+     * @param tileLocation The Tile on which the Camera is located
+     * @throws IllegalArgumentException If and only if tileLocation is null
      */
-    void setTileLocation(int x, int y) throws IllegalArgumentException;
+    void setTileLocation(Coordinate tileLocation) throws IllegalArgumentException;
 
     /**
-     * @return The x offset of the Camera, defined in terms of a Tile's width, which is defined
-     *         here to be 1.0f
-     *         <p>
-     *         (Intended use is for things like shaking the Camera, smooth transitions across the
-     *         GameWorld, etc.)
+     * @return A Provider, providing a Vertex representing the offset of the Camera from the center
+     *         of the Tile in question. The x value of the Vertex represents how much the Camera is
+     *         adjusted to the right of the Tile center, where 1.0 represents a whole Tile width.
+     *         Similarly, the y value of the Vertex represents the offset from the Tile center,
+     *         where a value of 1.0 represents a whole tile height.
      */
-    float getXTileWidthOffset();
+    ProviderAtTime<Vertex> tileCenterOffsetProvider();
 
     /**
-     * @return The y offset of the Camera, defined in terms of a Tile's height, which is defined
-     *         here to be 1.0f
-     *         <p>
-     *         (Intended use is for things like shaking the Camera, smooth transitions across the
-     *         GameWorld, etc.)
+     *
      */
-    float getYTileHeightOffset();
+    void setTileCenterOffsetProvider(ProviderAtTime<Vertex> tileCenterOffsetProvider)
+            throws IllegalArgumentException;
 
     /**
-     * @param xTileWidthOffset The x offset to set for the Camera, defined in terms of a Tile's
-     *                         width, which is defined here to be 1.0f
+     * @return The level of zoom, where the value returned represents the number of tile widths
+     *         visible in the view of the GameZone
      */
-    void setXTileWidthOffset(float xTileWidthOffset);
+    float getZoom();
 
     /**
-     * @param YTileHeightOffset The x offset to set for the Camera, defined in terms of a Tile's
-     *                          height, which is defined here to be 1.0f
+     * @param zoom The amount of zoom to set, c.f. {@link #getZoom()}
+     * @throws IllegalArgumentException If and only if zoom is less than or equal to 0.0
      */
-    void setYTileHeightOffset(float YTileHeightOffset);
+    void setZoom(float zoom) throws IllegalArgumentException;
 
     /**
      * This method does not return how many Tiles away a given Character can see; instead, it

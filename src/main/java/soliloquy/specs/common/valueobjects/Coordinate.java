@@ -1,43 +1,49 @@
 package soliloquy.specs.common.valueobjects;
 
-import soliloquy.specs.common.shared.Cloneable;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
  * <b>Coordinate2d</b>
  * <p>
- * This object has both an x and a y coordinate.
- * <p>
- * A Coordinate can be compared with another coordinate. When it is thusly compared, Coordinates
- * are counted, with (0,0) as the first Coordinate, (0,1) as the second, (1,0) as the third, (0,2)
- * as the fourth, and so-on; and the difference between these two counts is used. (In this sense,
- * Coordinates with negative x or y coordinates will not be compared properly.)
- * <p>
- * <b>Coordinates are mutable, so if you pass one into a method, be sure to <u>make a copy</u> in
- * the class receiving that Coordinate as an input!</b>
+ * This object has both an x and a y value.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Coordinate extends Comparable<Coordinate>, Cloneable<Coordinate>,
-        SoliloquyClass {
-    /**
-     * @return The x value of this coordinate
-     */
-    int getX();
+public class Coordinate implements SoliloquyClass {
+    private final int X;
+    private final int Y;
 
-    /**
-     * @param x The x value to set for this coordinate
-     */
-    void setX(int x);
+    private Coordinate(int x, int y) {
+        X = x;
+        Y = y;
+    }
 
-    /**
-     * @return The y value of this coordinate
-     */
-    int getY();
+    public static Coordinate of(int x, int y) {
+        return new Coordinate(x, y);
+    }
 
-    /**
-     * @param y The y value to set for this coordinate
-     */
-    void setY(int y);
+    public int x() {
+        return X;
+    }
+
+    public int y() {
+        return Y;
+    }
+
+    @Override
+    public String getInterfaceName() {
+        return Coordinate.class.getCanonicalName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Coordinate) {
+            Coordinate coordinate = (Coordinate) o;
+            return coordinate.x() == X && coordinate.y() == Y;
+        }
+        else {
+            return false;
+        }
+    }
 }
