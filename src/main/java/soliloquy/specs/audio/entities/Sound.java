@@ -152,6 +152,13 @@ public interface Sound extends HasUuid {
     void setIsLooping(boolean isLooping) throws UnsupportedOperationException;
 
     /**
+     * <i>NB: This method exists to handle Sound persistence</i>
+     * @return The ms position at which the looping Sound stops and then restarts
+     * @throws UnsupportedOperationException If and only if the Sound is not looping
+     */
+    int getLoopingStopMs() throws UnsupportedOperationException;
+
+    /**
      * (NB: If this Sound is not set to looping, this function can still be called; the looping
      * stop millisecond position will still be set, but will be ignored until looping is turned
      * on.)
@@ -165,6 +172,13 @@ public interface Sound extends HasUuid {
      */
     void setLoopingStopMs(Integer msPosition)
             throws IllegalArgumentException;
+
+    /**
+     * <i>NB: This method exists to handle Sound persistence</i>
+     * @return The ms position at which the Sound restarts when it reaches the end of a loop
+     * @throws UnsupportedOperationException If and only if the Sound is not looping
+     */
+    int getLoopingRestartMs() throws UnsupportedOperationException;
 
     /**
      * (NB: If this Sound is not set to looping, this function can still be called; the looping

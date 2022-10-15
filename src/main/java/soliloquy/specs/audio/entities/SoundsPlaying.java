@@ -16,12 +16,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface SoundsPlaying extends SoliloquyClass, Iterable<Sound> {
-    /**
-     * @return The number of Sounds currently playing
-     */
-    int size();
-
+public interface SoundsPlaying extends SoliloquyClass {
     /**
      * @return A read-only List of all sounds currently being played
      */

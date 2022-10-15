@@ -64,6 +64,6 @@ public interface AudioLoader extends SoliloquyClass {
      *                        the directory identified by relativePath
      * @throws IllegalArgumentException If and only if relativePath or idsForFilenames are null
      */
-    void loadFromDirectory(String relativePath, Map<String, String[]> idsForFilenames)
+    void loadFromDirectory(String relativePath, Map<String, String> idsForFilenames)
             throws IllegalArgumentException;
 }
