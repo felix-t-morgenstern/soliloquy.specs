@@ -1,12 +1,12 @@
 package soliloquy.specs.common.valueobjects;
 
 public class Vertex {
-    public float x;
-    public float y;
+    public final float X;
+    public final float Y;
 
     public Vertex(float x, float y) {
-        this.x = x;
-        this.y = y;
+        X = x;
+        Y = y;
     }
 
     public static Vertex of(float x, float y) {
@@ -17,7 +17,7 @@ public class Vertex {
     public boolean equals(Object o) {
         if (o instanceof Vertex) {
             Vertex v = (Vertex)o;
-            return v.x == x && v.y == y;
+            return v.X == X && v.Y == Y;
         } else {
             return false;
         }

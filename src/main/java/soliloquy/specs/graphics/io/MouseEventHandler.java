@@ -1,6 +1,9 @@
 package soliloquy.specs.graphics.io;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Vertex;
+
+import java.util.Map;
 
 /**
  * <b>MouseEventHandler</b>
@@ -18,20 +21,19 @@ public interface MouseEventHandler extends SoliloquyClass {
      * This method handles all mouse events for a given frame, given the mouse's current location,
      * and the mouse buttons being held at the start of that frame.
      *
-     * @param x           The current x location of the mouse
-     * @param y           The current y location of the mouse
-     * @param mouseButton The button which has been pressed or released; can be null, if no mouse
-     *                    press or release has been registered (c.f.
-     *                    <a href="https://www.glfw.org/docs/3.3/group__buttons.html">https://www.glfw.org/docs/3.3/group__buttons.html</a>)
-     * @param eventType   Specifies whether the mouse button was pressed down, or released. If null,
-     *                    implies that the mouse button was neither pressed or released.
-     * @throws IllegalArgumentException If and only if x and y are outside of window boundaries; or
-     *                                  if eventType is non-null, and mouseButton is null; or if
-     *                                  mouseButton does not correspond to
-     *                                  a valid mouse button (see link under mouseButton parameter
-     *                                  description)
+     * @param location     The current location of the mouse
+     * @param buttonEvents The mouse button events (i.e. being pressed down or being released) for
+     *                     any mouse buttons (c.f. <a
+     *                     href="https://www.glfw.org/docs/3.3/group__buttons.html">https://www
+     *                     .glfw.org/docs/3.3/group__buttons.html</a>)
+     *                     which have been pressed down or released
+     * @param timestamp    The timestamp at which the events are to be handled
+     * @throws IllegalArgumentException If and only if vertex is null or outside of window
+     *                                  boundaries; or if buttonEvents is null, or has any null keys
+     *                                  or values; or if timestamp is out-of-date
      */
-    void actOnMouseLocationAndEvents(float x, float y, Integer mouseButton, EventType eventType)
+    void actOnMouseLocationAndEvents(Vertex location, Map<Integer, EventType> buttonEvents,
+                                     long timestamp)
             throws IllegalArgumentException;
 
     enum EventType {

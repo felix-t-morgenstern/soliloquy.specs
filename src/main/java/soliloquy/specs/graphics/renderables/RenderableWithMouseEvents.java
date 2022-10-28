@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.util.Map;
@@ -32,21 +33,20 @@ public interface RenderableWithMouseEvents extends Renderable {
     /**
      * (NB: This method should return false if the mouse event occurs outside the
      * {@link soliloquy.specs.graphics.rendering.RenderingBoundaries} set by
-     * {@link #containingStack()}'s {@link RenderableStack#renderingBoundaries()}
+     * {@link #containingStack()}'s {@link RenderableStack#getRenderingBoundariesProvider()}
      *
-     * @param x         The x location, in the window, on which this Renderable was clicked
-     * @param y         The y location, in the window, on which this Renderable was clicked
+     * @param point     The point in the window on which this Renderable may or may not capture
+     *                  mouse events
      * @param timestamp The timestamp at which this Renderable was clicked
      * @return True, if and only if this Renderable captures mouse events at the timestamp and
      *         location provided
      * @throws UnsupportedOperationException If and only if this Renderable does not support mouse
      *                                       events
-     * @throws IllegalArgumentException      If and only if x or y are outside of the window
-     *                                       boundaries
-     *                                       (i.e. [0f,1f]), or if timestamp is before most recent
-     *                                       timestamp provided to class
+     * @throws IllegalArgumentException      If and only if point is null or outside the window
+     *                                       boundaries (i.e. [0f,1f]), or if timestamp is before
+     *                                       the most recent timestamp provided to class
      */
-    boolean capturesMouseEventAtPoint(float x, float y, long timestamp)
+    boolean capturesMouseEventAtPoint(Vertex point, long timestamp)
             throws UnsupportedOperationException, IllegalArgumentException;
 
     /**

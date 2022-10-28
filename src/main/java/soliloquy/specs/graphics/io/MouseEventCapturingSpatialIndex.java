@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.io;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
@@ -17,21 +18,17 @@ import soliloquy.specs.graphics.rendering.FloatBox;
  */
 public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
     /**
-     * @param x         The x location in the window, ranging from 0.0 to 1.0, to check for a
-     *                  Renderable
-     *                  which captures mouse events
-     * @param y         The y location in the window, ranging from 0.0 to 1.0, to check for a
-     *                  Renderable
-     *                  which captures mouse events
+     * @param location  The location in the window, with x and y values ranging from 0.0 to 1.0, to
+     *                  check for a Renderable which captures mouse events
      * @param timestamp The timestamp at which to determine the capturing Renderable at the
      *                  specified point
      * @return The RenderableWithArea capturing mouse events at that particular location; if no
      *         Renderable is capturing events, this method returns null
-     * @throws IllegalArgumentException If and only if x or y are outside of the range of [0.0,
-     *                                  1.0], or if timestamp is before most recent timestamp
-     *                                  provided to class
+     * @throws IllegalArgumentException If and only if location is null or outside the range of
+     *                                  [0.0,1.0], or if timestamp is before the most recent
+     *                                  timestamp provided to class
      */
-    RenderableWithMouseEvents getCapturingRenderableAtPoint(float x, float y, long timestamp)
+    RenderableWithMouseEvents getCapturingRenderableAtPoint(Vertex location, long timestamp)
             throws IllegalArgumentException;
 
     /**
