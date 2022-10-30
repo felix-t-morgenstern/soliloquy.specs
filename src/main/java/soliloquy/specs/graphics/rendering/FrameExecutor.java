@@ -41,8 +41,10 @@ public interface FrameExecutor extends SoliloquyClass {
      * time after the firing of all frame-blocking events.</i> The reasoning here is that
      * frame-blocking events do genuinely block frame rendering; therefore, even if events take
      * 12ms to fire, the FrameExecutor will be sure to render the {@link RenderableStack} only
-     * after those 12ms, to ensure that animations etc are not staggered or stilted by those
+     * after those 12ms, to ensure that animations, etc. are not staggered or stilted by those
      * frame-blocking events.
+     * @param timestamp The timestamp at which the next frame is being executed
+     * @throws IllegalArgumentException If and only if timestamp is out-of-date
      */
-    void execute();
+    void execute(long timestamp) throws IllegalArgumentException;
 }

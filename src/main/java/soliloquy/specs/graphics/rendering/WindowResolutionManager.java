@@ -1,11 +1,12 @@
 package soliloquy.specs.graphics.rendering;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.valueobjects.Pair;
 
 /**
  * <b>WindowResolutionManager</b>
  * <p>
- * This class manages the current WindowDisplayMode (i.e. Windowed, Windowed Fullscreen, or
+ * This class keeps track of the current WindowDisplayMode (i.e. Windowed, Windowed Fullscreen, or
  * Fullscreen) of the window, and its current dimensions and location.
  *
  * @author felix.t.morgenstern
@@ -27,29 +28,25 @@ public interface WindowResolutionManager extends SoliloquyClass {
      * NB: Graphics engine implementation may restrict width and height combinations to common
      * screen resolutions, e.g. 800x600, 1920x1080, etc.
      * <p>
-     * Also, this method throws an exception when the window is in windowed fullscreen mode, since
-     * the window in that case should conform to the resolution of the screen.
+     * This method is expected to update the width and height when the screen resolution updates.
+     * Calling this method does not actually handle changing the resolution; that is handled via
+     * {@link #updateWindowSizeAndLocation}. This method simply records the new dimensions, so they
+     * can be retrieved via {@link #getWindowDimensions()} and {@link #windowWidthToHeightRatio()},
+     * since it's impossible to make calls to the graphics engine outside the main thread.
      *
      * @param width  The width to which to set the window resolution
      * @param height The height to which to set the window resolution
-     * @throws IllegalArgumentException      If and only if width or height are less than 1, or are
-     *                                       invalid, according to the rules of the graphics engine
-     *                                       implementation.
-     * @throws UnsupportedOperationException If and only if current WindowDisplayMode is
-     *                                       WindowedFullscreen
+     * @throws IllegalArgumentException If and only if width or height are less than 1, or are
+     *                                  invalid, according to the rules of the graphics engine
+     *                                  implementation.
      */
-    void setDimensions(int width, int height)
+    void updateDimensions(int width, int height)
             throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
-     * @return The current width of the window
+     * @return The current width and height of the window
      */
-    int getWidth();
-
-    /**
-     * @return The current height of the window
-     */
-    int getHeight();
+    Pair<Integer, Integer> getWindowDimensions();
 
     /**
      * @return The ratio of the window width to the window height
