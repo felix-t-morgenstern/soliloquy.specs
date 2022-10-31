@@ -6,6 +6,8 @@ import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.Coordinate;
 
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * <b>GameZone</b>
@@ -31,13 +33,12 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
     Coordinate maxCoordinates();
 
     /**
-     * @param x The x coordinate of the Tile to return
-     * @param y The y coordinate of the Tile to return
+     * @param coordinate The coordinate of the Tile to retrieve
      * @return The Tile at those coordinates
-     * @throws IllegalArgumentException If the x or y coordinate is beyond the dimensions of the
+     * @throws IllegalArgumentException If coordinate is null, or beyond the dimensions of the
      *                                  GameZone
      */
-    Tile tile(int x, int y) throws IllegalArgumentException;
+    Tile tile(Coordinate coordinate) throws IllegalArgumentException;
 
     /**
      * @return A List of Actions which are fired when the Party enters this GameZone.
@@ -59,7 +60,11 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
     List<Action> onExit();
 
     /**
-     * @return A List of the Characters in this GameZone
+     * <i>NB: This method returns a representation of Characters in this GameZone, so altering its
+     * contents will not change the characters in this GameZone.</i>
+     *
+     * @return A Map containing all the Characters in this GameZone, where the key is the id of each
+     *         corresponding Character.
      */
-    List<Character> charactersRepresentation();
+    Map<UUID, Character> charactersRepresentation();
 }
