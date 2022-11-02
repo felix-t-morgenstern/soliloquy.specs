@@ -45,6 +45,11 @@ public interface RoundBasedTimerManager extends SoliloquyClass {
             throws IllegalArgumentException;
 
     /**
+     * Clears all registered Timers
+     */
+    void clear();
+
+    /**
      * This method fires the appropriate RoundBasedTimers based on the number of rounds elapsed.
      * This method also handles the deregistering of OneTimeRoundBasedTimers as they fire. This
      * method is intended to be called by
