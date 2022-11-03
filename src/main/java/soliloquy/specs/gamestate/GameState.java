@@ -6,6 +6,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.*;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
+import soliloquy.specs.gamestate.entities.timers.ClockBasedTimerManager;
 import soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager;
 import soliloquy.specs.gamestate.factories.*;
 import soliloquy.specs.ruleset.entities.CharacterAIType;
@@ -35,7 +36,13 @@ public interface GameState extends SoliloquyClass {
      * @return The caches of persistent variables for the Game (i.e., variables keeping track of
      *         in-Game movementEvents, e.g. quests, party choices, etc.)
      */
-    VariableCache variableCache();
+    VariableCache getVariableCache();
+
+    /**
+     * @param variableCache The new VariableCache to assign to the GameState
+     * @throws IllegalArgumentException If and only if variableCache is null
+     */
+    void setVariableCache(VariableCache variableCache) throws IllegalArgumentException;
 
     /**
      * @return A Map of AIs which can be assigned to various characters
@@ -81,11 +88,17 @@ public interface GameState extends SoliloquyClass {
 
     /**
      * @return The RoundBasedTimerManager, i.e., the class which tracks
-     *         {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimer}, and fires them
-     *         when
-     *         specified.
+     *         {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimer}s, and fires them
+     *         when specified.
      */
     RoundBasedTimerManager roundBasedTimerManager();
+
+    /**
+     * @return The ClockBasedTimerManager, i.e., the class which tracks
+     *         {@link soliloquy.specs.gamestate.entities.timers.ClockBasedTimer}s, and fires them
+     *         when specified.
+     */
+    ClockBasedTimerManager clockBasedTimerManager();
 
     /**
      * @return The current KeyBindingContexts (i.e., the Actions which take place when various keys
