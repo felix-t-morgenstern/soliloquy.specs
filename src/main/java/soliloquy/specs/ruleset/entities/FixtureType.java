@@ -1,6 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.common.shared.HasName;
 
 /**
  * <b>FixtureType</b>
@@ -11,7 +12,7 @@ import soliloquy.specs.common.shared.HasId;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FixtureType extends HasDefaultTileOffsets, TileObjectType, HasId {
+public interface FixtureType extends HasDefaultTileOffsets, TileObjectType, HasName, HasId {
     /**
      * @return True, if and only if this FixtureType is a container (e.g. chests, bookshelves,
      *         corpses, secret cracks in the floor)
