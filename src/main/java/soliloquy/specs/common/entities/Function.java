@@ -20,7 +20,8 @@ import soliloquy.specs.common.shared.HasTwoGenericParams;
  * @version 0.0.1
  */
 public interface Function<Input, Output>
-        extends HasId, HasTwoGenericParams<Input, Output>, HasGlobalAccess {
+        extends java.util.function.Function<Input, Output>, HasId,
+        HasTwoGenericParams<Input, Output>, HasGlobalAccess {
     /**
      * Runs this Function
      *
@@ -28,5 +29,5 @@ public interface Function<Input, Output>
      * @return The output of this Function
      * @throws IllegalArgumentException If and only if the input to this Action is illegal
      */
-    Output run(Input input) throws IllegalArgumentException;
+    Output apply(Input input) throws IllegalArgumentException;
 }
