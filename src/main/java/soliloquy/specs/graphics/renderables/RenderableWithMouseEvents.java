@@ -1,10 +1,12 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * <b>RenderableWithMouseEvents</b>
@@ -71,7 +73,8 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
      *                                  mouse button
      */
-    void setOnPress(int mouseButton, Action<Long> onPress) throws IllegalArgumentException;
+    void setOnPress(int mouseButton, Action<MouseEventInputs> onPress)
+            throws IllegalArgumentException;
 
     /**
      * @return A Map representing the links between mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) and
@@ -102,7 +105,8 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
      *                                  mouse button
      */
-    void setOnRelease(int mouseButton, Action<Long> onRelease) throws IllegalArgumentException;
+    void setOnRelease(int mouseButton, Action<MouseEventInputs> onRelease)
+            throws IllegalArgumentException;
 
     /**
      * @return A Map representing the links between mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) and
@@ -116,7 +120,7 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @param timestamp The timestamp at which the mouse moved over the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      *                                       events
-     * @throws IllegalArgumentException      If and only if the timestamp is before most recent
+     * @throws IllegalArgumentException      If and only if the timestamp is before the most recent
      *                                       timestamp provided to class
      */
     void mouseOver(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
@@ -127,10 +131,10 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @param onMouseOver The Action to fire when the mouse goes over the area of this Renderable;
      *                    can be null
      */
-    void setOnMouseOver(Action<Long> onMouseOver);
+    void setOnMouseOver(Action<MouseEventInputs> onMouseOver);
 
     /**
-     * @return The Id of the Action ran when the mouse moves over the area of this Renderable
+     * @return The id of the Action ran when the mouse moves over the area of this Renderable
      */
     String mouseOverActionId();
 
@@ -140,7 +144,7 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @param timestamp The timestamp at which the mouse left the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      *                                       events
-     * @throws IllegalArgumentException      If and only if the timestamp is before most recent
+     * @throws IllegalArgumentException      If and only if the timestamp is before the most recent
      *                                       timestamp provided to class
      */
     void mouseLeave(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
@@ -151,10 +155,34 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @param onMouseLeave The Action to fire when the mouse leaves the area of this Renderable;
      *                     can be null
      */
-    void setOnMouseLeave(Action<Long> onMouseLeave);
+    void setOnMouseLeave(Action<MouseEventInputs> onMouseLeave);
 
     /**
-     * @return The Id of the Action ran when the mouse leaves the area of this Renderable
+     * @return The id of the Action ran when the mouse leaves the area of this Renderable
      */
     String mouseLeaveActionId();
+
+    class MouseEventInputs {
+        public final long TIMESTAMP;
+        public final RenderableWithMouseEvents RENDERABLE;
+
+        private MouseEventInputs(long timestamp, RenderableWithMouseEvents renderable) {
+            TIMESTAMP = timestamp;
+            RENDERABLE = renderable;
+        }
+
+        public static MouseEventInputs of(long timestamp, RenderableWithMouseEvents renderable) {
+            return new MouseEventInputs(timestamp, renderable);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (o instanceof MouseEventInputs) {
+                MouseEventInputs i = (MouseEventInputs) o;
+                return i.TIMESTAMP == TIMESTAMP && i.RENDERABLE == RENDERABLE;
+            } else {
+                return false;
+            }
+        }
+    }
 }

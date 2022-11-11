@@ -48,6 +48,10 @@ public class Pair<T1, T2> implements Cloneable<Pair<T1, T2>>, HasTwoGenericParam
         ARCHETYPE_2 = archetype2;
     }
 
+    public static <Type1, Type2> Pair<Type1, Type2> of(Type1 item1, Type2 item2) {
+        return new Pair<>(item1, item2);
+    }
+
     /**
      * @return The first item
      */

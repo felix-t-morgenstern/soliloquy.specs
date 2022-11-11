@@ -3,6 +3,7 @@ package soliloquy.specs.graphics.renderables.factories;
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
+import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.graphics.renderables.TriangleRenderable;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.RenderableStack;
@@ -63,10 +64,10 @@ public interface TriangleRenderableFactory extends SoliloquyClass {
                             ProviderAtTime<Integer> backgroundTextureIdProvider,
                             float backgroundTextureTileWidth,
                             float backgroundTextureTileHeight,
-                            Map<Integer, Action<Long>> onPress,
-                            Map<Integer, Action<Long>> onRelease,
-                            Action<Long> onMouseOver,
-                            Action<Long> onMouseLeave,
+                            Map<Integer, Action<MouseEventInputs>> onPress,
+                            Map<Integer, Action<MouseEventInputs>> onRelease,
+                            Action<MouseEventInputs> onMouseOver,
+                            Action<MouseEventInputs> onMouseLeave,
                             int z,
                             UUID uuid,
                             RenderableStack containingStack)

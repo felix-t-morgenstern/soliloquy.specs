@@ -3,7 +3,7 @@ package soliloquy.specs.graphics.renderables.factories;
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.RectangleRenderable;
-import soliloquy.specs.graphics.renderables.Renderable;
+import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
 import soliloquy.specs.graphics.rendering.RenderableStack;
@@ -11,7 +11,6 @@ import soliloquy.specs.graphics.rendering.RenderableStack;
 import java.awt.*;
 import java.util.Map;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 /**
  * <b>RectangleRenderableFactory</b>
@@ -70,10 +69,10 @@ public interface RectangleRenderableFactory extends SoliloquyClass {
                              ProviderAtTime<Integer> backgroundTextureIdProvider,
                              float backgroundTextureTileWidth,
                              float backgroundTextureTileHeight,
-                             Map<Integer, Action<Long>> onPress,
-                             Map<Integer, Action<Long>> onRelease,
-                             Action<Long> onMouseOver,
-                             Action<Long> onMouseLeave,
+                             Map<Integer, Action<MouseEventInputs>> onPress,
+                             Map<Integer, Action<MouseEventInputs>> onRelease,
+                             Action<MouseEventInputs> onMouseOver,
+                             Action<MouseEventInputs> onMouseLeave,
                              ProviderAtTime<FloatBox> renderingAreaProvider,
                              int z,
                              UUID uuid,

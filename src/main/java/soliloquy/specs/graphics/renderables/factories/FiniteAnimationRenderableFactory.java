@@ -4,7 +4,7 @@ import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.renderables.FiniteAnimationRenderable;
-import soliloquy.specs.graphics.renderables.Renderable;
+import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
@@ -14,7 +14,6 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 /**
  * <b>SpriteRenderableFactory</b>
@@ -94,10 +93,10 @@ public interface FiniteAnimationRenderableFactory extends SoliloquyClass {
     FiniteAnimationRenderable make(Animation animation,
                                    ProviderAtTime<Float> borderThicknessProvider,
                                    ProviderAtTime<Color> borderColorProvider,
-                                   Map<Integer, Action<Long>> onPress,
-                                   Map<Integer, Action<Long>> onRelease,
-                                   Action<Long> onMouseOver,
-                                   Action<Long> onMouseLeave,
+                                   Map<Integer, Action<MouseEventInputs>> onPress,
+                                   Map<Integer, Action<MouseEventInputs>> onRelease,
+                                   Action<MouseEventInputs> onMouseOver,
+                                   Action<MouseEventInputs> onMouseLeave,
                                    List<ProviderAtTime<ColorShift>> colorShiftProviders,
                                    ProviderAtTime<FloatBox> renderingAreaProvider,
                                    int z,
