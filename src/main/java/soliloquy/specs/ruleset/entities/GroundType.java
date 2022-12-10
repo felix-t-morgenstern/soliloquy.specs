@@ -1,6 +1,7 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.common.shared.HasName;
 
 /**
  * <b>GroundType</b>
@@ -11,5 +12,5 @@ import soliloquy.specs.common.shared.HasId;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GroundType extends TileObjectType, HasId {
+public interface GroundType extends TileObjectType, HasName, HasId {
 }
