@@ -20,11 +20,12 @@ public interface StackRenderer extends SoliloquyClass {
      * <i>NB: Higher z values will be rendered first.</i>
      * Renders the contents of the top-level {@link RenderableStack}.
      *
+     * @param stack     The RenderableStack to render
      * @param timestamp The timestamp at which to render the top-level {@link RenderableStack}.
      *                  (The timestamp provided is primarily used by
      *                  {@link ProviderAtTime}s.)
-     * @throws IllegalArgumentException If and only if timestamp is less than the previously
-     *                                  rendered timestamp
+     * @throws IllegalArgumentException If and only if stack is null, or timestamp is less than the
+     *                                  previously rendered timestamp
      */
-    void render(long timestamp) throws IllegalArgumentException;
+    void render(RenderableStack stack, long timestamp) throws IllegalArgumentException;
 }

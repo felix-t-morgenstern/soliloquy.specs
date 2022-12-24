@@ -50,7 +50,7 @@ public interface RenderableStack extends Renderable {
 
     /**
      * @return Provider for the rendering boundaries of this RenderableStack; all Renderables
-     *         contained within will not be drawn beyond the dimensions provided here
+     * contained within will not be drawn beyond the dimensions provided here
      */
     ProviderAtTime<FloatBox> getRenderingBoundariesProvider();
 
@@ -66,8 +66,8 @@ public interface RenderableStack extends Renderable {
 
     /**
      * @return A read-only representation of the stack. (NB: While the Renderables are not clones,
-     *         there should also be nothing mutable about any Renderable; they are essentially
-     *         stateless.)
+     * there should also be nothing mutable about any Renderable; they are essentially
+     * stateless.)
      */
     Map<Integer, List<Renderable>> renderablesByZIndexRepresentation();
 
