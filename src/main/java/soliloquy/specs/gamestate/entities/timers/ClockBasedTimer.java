@@ -27,8 +27,7 @@ public interface ClockBasedTimer extends HasId, PausableAtTime, HasMostRecentTim
      * @throws UnsupportedOperationException If and only if timestamp is greater than or equal to
      *                                       the current paused timestamp
      * @throws IllegalArgumentException      If and only if timestamp is before most recent
-     *                                       timestamp
-     *                                       provided to this class
+     *                                       timestamp provided to this class
      */
     void fire(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
 }
