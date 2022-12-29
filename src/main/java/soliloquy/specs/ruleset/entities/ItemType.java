@@ -86,7 +86,6 @@ public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPl
     List<PassiveAbility> defaultPassiveAbilities();
 
     // NB: Underlying HasImageAssetSet method is overriden to provide clearer description
-
     /**
      * The {@link soliloquy.specs.graphics.assets.ImageAsset} for an
      * {@link soliloquy.specs.gamestate.entities.Item} of this type can depend on the status of the

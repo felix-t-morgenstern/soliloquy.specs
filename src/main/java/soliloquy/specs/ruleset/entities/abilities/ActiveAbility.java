@@ -19,6 +19,9 @@ import java.util.List;
 public interface ActiveAbility extends Ability {
     /**
      * Uses this ActiveAbility against some target(s)
+     * <p>
+     * This method is intended to calculate the potency of this Ability by looking up some
+     * property(s) of the Character, e.g. {@link Character#staticStatistics()}
      *
      * @param source  The source Character of the ActiveAbility
      * @param targets The target(s) of the ActiveAbility
@@ -29,6 +32,9 @@ public interface ActiveAbility extends Ability {
 
     /**
      * Uses this ActiveAbility against some target(s)
+     * <p>
+     * This method is intended to calculate the potency of this Ability by looking up some
+     * property(s) of the Item, e.g. {@link Item#data()}
      *
      * @param source  The source Item of the ActiveAbility
      * @param targets The target(s) of the ActiveAbility
