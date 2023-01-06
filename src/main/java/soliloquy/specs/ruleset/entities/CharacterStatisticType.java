@@ -3,8 +3,10 @@ package soliloquy.specs.ruleset.entities;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.graphics.renderables.HasColorShifts;
+import soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange;
 
-public interface CharacterStatisticType extends HasId, HasName, HasImageAssetSet, HasColorShifts {
+public interface CharacterStatisticType extends EffectsCharacterOnRoundOrTurnChange, HasId,
+        HasName, HasImageAssetSet, HasColorShifts {
     /**
      * @return The description of this entity
      */

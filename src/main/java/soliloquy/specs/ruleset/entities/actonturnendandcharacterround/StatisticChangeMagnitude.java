@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities.actonturnandroundend;
+package soliloquy.specs.ruleset.entities.actonturnendandcharacterround;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Pair;

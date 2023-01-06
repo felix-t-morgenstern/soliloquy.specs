@@ -122,8 +122,9 @@ public interface RoundManager extends SoliloquyClass {
      * end their turn entirely, removing them from the order; but they may also delay the rest of
      * their turn, pushing them toward the back of the queue, but not removing them from the queue.
      * <p>
-     * Intended use case will have this method call the ActOnCharacterOnTurnAndRound methods of
-     * StatusEffectTypes and VitalAttributes.
+     * Intended use case will have this method invoke the
+     * {@link soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange}
+     * from the Character's {@link CharacterVariableStatistic}s and {@link CharacterStatusEffects}.
      *
      * @throws IllegalStateException If and only if {@link #setActiveCharactersProvider} has not
      *                               been called
@@ -166,9 +167,10 @@ public interface RoundManager extends SoliloquyClass {
      * Rounds in the Game, it is not permitted to allow the Game to "advance" by 0 or negative
      * rounds; use {@link #setRoundNumber} instead.
      * <p>
-     * Intended use case will have this method call the ActOnCharacterOnTurnAndRound methods of
-     * StatusEffectTypes and VitalAttributes, and it will also check to see if Timers should be
-     * triggered by calling
+     * Intended use case will have this method invoke the
+     * {@link soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange}
+     * from the Character's {@link CharacterVariableStatistic}s and {@link CharacterStatusEffects},
+     * and it will also check to see if Timers should be triggered by calling
      * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager#fireTimersForRoundsElapsed}.
      * If the round is advanced from round N to round M, the
      * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimer}s

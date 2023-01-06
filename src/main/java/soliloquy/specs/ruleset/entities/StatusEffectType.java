@@ -2,19 +2,21 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
+import soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange;
 
 /**
  * <b>StatusEffectType</b>
  * <p>
- * It has a name and id.
+ * A type of status effect, e.g. regenerating, poisoned, adrenaline rush, etc.
  * <p>
- * It has Actions, which can be performed on each Character, at the start and end of their turn,
- * and the start and end of the round.
+ * It has behaviors which can be performed on each Character at the start or end of their turn or
+ * the round, e.g. regeneration, taking damage from poison, spilling blood on the ground, etc.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface StatusEffectType extends IconForCharacter, HasName, HasId {
+public interface StatusEffectType
+        extends EffectsCharacterOnRoundOrTurnChange, IconForCharacter, HasName, HasId {
     /**
      * Intended use is to return true if and only if it makes no sense for this StatusEffectType to
      * ever go below zero. For instance, it makes no sense to have a negative amount of poisoning
