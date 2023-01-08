@@ -6,7 +6,7 @@ import soliloquy.specs.common.shared.HasTwoGenericParams;
 /**
  * <b>Pair</b>
  * <p>
- * A pair of two entities, of two specified types.
+ * A pair of two non-null entities, of two specified types.
  * <p>
  * <i>NB: This class is implemented concretely rather than described as an interface, since it has
  * negligible logic, and keeping it as an interface with a corresponding factory is highly

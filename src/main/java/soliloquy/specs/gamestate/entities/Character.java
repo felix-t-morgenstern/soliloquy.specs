@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
@@ -47,8 +48,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
     /**
      * @return The proper pronouns for this Character. The key for the Map is the grammatical case
      *         in question (e.g. nominative, oblique, genitive, etc.). Every Character can choose
-     *         their own
-     *         pronouns.
+     *         their own pronouns.
      * @throws EntityDeletedException If this Character has been deleted
      */
     Map<String, String> pronouns() throws EntityDeletedException;
@@ -83,18 +83,17 @@ public interface Character extends TileEntity, HasName, HasUuid {
     void setStance(String stance) throws EntityDeletedException;
 
     /**
-     * @return The current direction of this Character, e.g. "NW", "S"
+     * @return The direction this Character is facing
      * @throws EntityDeletedException If this Character has been deleted
      */
     String getDirection() throws EntityDeletedException;
 
     /**
-     * @param direction The direction to set for this Character, e.g. "N", "NW"
-     * @throws IllegalArgumentException If the provided direction is illegal, e.g. if it is null, a
-     *                                  blank string, not a valid direction
+     * @param direction The direction this Character is facing
+     * @throws IllegalArgumentException If direction is null or UNKNOWN
      * @throws EntityDeletedException   If this Character has been deleted
      */
-    void setDirection(String direction) throws IllegalArgumentException, EntityDeletedException;
+    void setDirection(Direction direction) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @return The ImageAssetSet for this Character

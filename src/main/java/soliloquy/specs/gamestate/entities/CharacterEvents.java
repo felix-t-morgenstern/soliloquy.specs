@@ -46,6 +46,12 @@ public interface CharacterEvents extends Deletable {
     void clearAllTriggers() throws IllegalStateException;
 
     /**
+     * @param events The events to copy into this class
+     * @throws IllegalArgumentException If and only if events is null
+     */
+    void copyAllTriggers(CharacterEvents events) throws IllegalArgumentException;
+
+    /**
      * @param event The Event whose corresponding triggers to retrieve. (A given event may be
      *              triggered by multiple types of triggers.)
      * @return A List of all the triggers which will trigger the specified event.
