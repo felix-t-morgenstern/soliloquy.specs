@@ -1,10 +1,8 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.Direction;
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.gamestate.entities.TileWallSegmentDirection;
 import soliloquy.specs.graphics.assets.ImageAsset;
 
 /**
@@ -16,7 +14,7 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface TileObjectType extends HasDefaultColorShifts, HasGlobalAccess {
+public interface TileObjectType extends HasDefaultColorShifts {
     /**
      * @return The {@link ImageAsset} for this TileObject
      */

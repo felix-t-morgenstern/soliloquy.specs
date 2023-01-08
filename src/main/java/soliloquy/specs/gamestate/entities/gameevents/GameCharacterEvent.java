@@ -1,10 +1,9 @@
 package soliloquy.specs.gamestate.entities.gameevents;
 
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.Character;
 
-public interface GameCharacterEvent extends HasId, HasGlobalAccess {
+public interface GameCharacterEvent extends HasId {
     /**
      * Runs this event for a specific Character
      *

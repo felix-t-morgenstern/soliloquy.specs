@@ -1,6 +1,5 @@
 package soliloquy.specs.common.entities;
 
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasTwoGenericParams;
 
@@ -21,7 +20,7 @@ import soliloquy.specs.common.shared.HasTwoGenericParams;
  */
 public interface Function<Input, Output>
         extends java.util.function.Function<Input, Output>, HasId,
-        HasTwoGenericParams<Input, Output>, HasGlobalAccess {
+        HasTwoGenericParams<Input, Output> {
     /**
      * Runs this Function
      *

@@ -1,6 +1,5 @@
 package soliloquy.specs.common.entities;
 
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasOneGenericParam;
 
@@ -16,7 +15,7 @@ import soliloquy.specs.common.shared.HasOneGenericParam;
  * @version 0.0.1
  */
 
-public interface Action<Input> extends HasId, HasOneGenericParam<Input>, HasGlobalAccess {
+public interface Action<Input> extends HasId, HasOneGenericParam<Input> {
     /**
      * Runs this Action
      *

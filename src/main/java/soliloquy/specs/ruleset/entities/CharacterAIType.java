@@ -1,7 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 
 /**
@@ -21,7 +20,7 @@ import soliloquy.specs.common.shared.HasId;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterAIType extends HasId, HasGlobalAccess {
+public interface CharacterAIType extends HasId {
     /**
      * Causes this Character to act when they are active
      */

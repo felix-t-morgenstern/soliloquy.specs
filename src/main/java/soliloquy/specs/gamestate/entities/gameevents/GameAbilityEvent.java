@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.entities.gameevents;
 
-import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.abilities.Ability;
@@ -16,7 +15,7 @@ import soliloquy.specs.ruleset.entities.abilities.Ability;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GameAbilityEvent extends HasId, HasGlobalAccess {
+public interface GameAbilityEvent extends HasId {
     /**
      * Fires this Event with the provided source and target.
      *
