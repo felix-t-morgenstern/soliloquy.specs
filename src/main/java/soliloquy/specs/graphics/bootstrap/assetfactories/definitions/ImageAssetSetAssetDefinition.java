@@ -14,12 +14,12 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  */
 public class ImageAssetSetAssetDefinition {
     private final String TYPE;
-    private final String DIRECTION;
+    private final Integer DIRECTION;
     private final ImageAsset.ImageAssetType ASSET_TYPE;
     private final String ASSET_ID;
 
     public ImageAssetSetAssetDefinition(String type,
-                                        String direction,
+                                        Integer direction,
                                         ImageAsset.ImageAssetType assetType,
                                         String assetId) {
         TYPE = type;
@@ -38,7 +38,7 @@ public class ImageAssetSetAssetDefinition {
     /**
      * @return The direction of this ImageAssetSetAssetDefinition (can be null)
      */
-    public String direction() {
+    public Integer direction() {
         return DIRECTION;
     }
 

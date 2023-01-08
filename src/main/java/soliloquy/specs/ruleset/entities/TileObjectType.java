@@ -1,7 +1,10 @@
 package soliloquy.specs.ruleset.entities;
 
+import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.common.shared.HasGlobalAccess;
 import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.gamestate.entities.TileWallSegmentDirection;
 import soliloquy.specs.graphics.assets.ImageAsset;
 
 /**
@@ -35,4 +38,22 @@ public interface TileObjectType extends HasDefaultColorShifts, HasGlobalAccess {
      *         it
      */
     boolean canStep(Character character);
+
+    /**
+     * @return The additional movement cost for moving into or onto this object
+     */
+    int additionalMovementCost();
+
+    /**
+     * This method is intended for things like stairs or ramps which make going up or down large
+     * heights take up less movement
+     *
+     * @param tile      The {@link Tile} onto which the {@link Character} is moving
+     * @param character The {@link Character} moving onto the {@link Tile}
+     * @param direction The direction in which the {@link Character} is moving to get into or onto
+     *                  this object
+     * @return The degree to which the height movement penalty is mitigated for a {@link Character}
+     *         moving in the specified direction
+     */
+    int heightMovementPenaltyMitigation(Tile tile, Character character, Direction direction);
 }

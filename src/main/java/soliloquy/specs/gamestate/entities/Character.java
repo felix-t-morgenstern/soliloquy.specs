@@ -86,11 +86,11 @@ public interface Character extends TileEntity, HasName, HasUuid {
      * @return The direction this Character is facing
      * @throws EntityDeletedException If this Character has been deleted
      */
-    String getDirection() throws EntityDeletedException;
+    Direction getDirection() throws EntityDeletedException;
 
     /**
      * @param direction The direction this Character is facing
-     * @throws IllegalArgumentException If direction is null or UNKNOWN
+     * @throws IllegalArgumentException If direction is null
      * @throws EntityDeletedException   If this Character has been deleted
      */
     void setDirection(Direction direction) throws IllegalArgumentException, EntityDeletedException;

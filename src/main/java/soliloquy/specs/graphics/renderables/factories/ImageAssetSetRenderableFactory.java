@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
@@ -46,7 +47,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      *                                  renderingAreaProvider is null; uuid is null; or
      *                                  containingStack is null
      */
-    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
+    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, Direction direction,
                                  List<ProviderAtTime<ColorShift>> colorShiftProviders,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
@@ -90,7 +91,7 @@ public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
      *                                  renderingDimensionsProvider is null; uuid is null; or
      *                                  containingStack is null
      */
-    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, String direction,
+    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, Direction direction,
                                  Map<Integer, Action<MouseEventInputs>> onPress,
                                  Map<Integer, Action<MouseEventInputs>> onRelease,
                                  Action<MouseEventInputs> onMouseOver,

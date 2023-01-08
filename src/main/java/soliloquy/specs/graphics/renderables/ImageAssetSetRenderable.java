@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.renderables;
 
+import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 
 /**
@@ -43,12 +44,12 @@ public interface ImageAssetSetRenderable extends ImageAssetRenderable {
      * @return The direction to render for the ImageAssetSet (c.f.
      *         {@link ImageAssetSet#getImageAssetForTypeAndDirection})
      */
-    String getDirection();
+    Direction getDirection();
 
     /**
      * C.f. {@link #getDirection()} for more information
      *
      * @param direction The direction to set for this Renderable
      */
-    void setDirection(String direction);
+    void setDirection(Direction direction);
 }

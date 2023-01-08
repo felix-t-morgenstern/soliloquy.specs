@@ -22,9 +22,10 @@ public interface TileWallSegment extends TileEntity, GameEventTargetEntity, HasN
 
     /**
      * @param wallSegmentType The WallSegmentType to set for this TileWallSegment
-     * @throws IllegalStateException  If this TileWallSegment has no type
-     * @throws EntityDeletedException If this TileWallSegment has been deleted
+     * @throws IllegalArgumentException If and only if wallSegmentType is null
+     * @throws IllegalStateException    If this TileWallSegment has no type
+     * @throws EntityDeletedException   If this TileWallSegment has been deleted
      */
     void setType(WallSegmentType wallSegmentType)
-            throws IllegalStateException, EntityDeletedException;
+            throws IllegalArgumentException, IllegalStateException, EntityDeletedException;
 }

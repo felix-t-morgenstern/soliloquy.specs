@@ -128,18 +128,15 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
         }
 
         public static AmountType fromValue(int value) {
-            switch (value) {
-                case 1:
-                    return VALUE;
-                case 2:
-                    return PERCENT_OF_CURRENT;
-                case 3:
-                    return PERCENT_OF_MAXIMUM;
-                default:
-                    throw new IllegalArgumentException("StatisticChangeMagnitude.AmountType" +
-                            ".fromValue: value(" + value + ") does not correspond to valid enum " +
-                            "type");
-            }
+            return switch (value) {
+                case 1 -> VALUE;
+                case 2 -> PERCENT_OF_CURRENT;
+                case 3 -> PERCENT_OF_MAXIMUM;
+                default ->
+                        throw new IllegalArgumentException("StatisticChangeMagnitude.AmountType" +
+                                ".fromValue: value(" + value + ") does not correspond to valid enum " +
+                                "type");
+            };
         }
     }
 }

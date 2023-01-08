@@ -19,20 +19,8 @@ import java.util.UUID;
 public interface FiniteLinearMovingColorProviderFactory extends SoliloquyClass {
     /**
      * @param uuid                   The uuid of this ProviderAtTime
-     * @param valuesAtTimestamps     The valuesAtTimestamps to provide (c.f.
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *                     {@link FiniteLinearMovingColorProvider#valuesAtTimestampsRepresentation})
-     * @param hueMovementIsClockwise The rotational directions of hue movements (c.f.
-     *                               {@link FiniteLinearMovingColorProvider#hueMovementIsClockwise})
+     * @param valuesAtTimestamps     The valuesAtTimestamps to provide
+     * @param hueMovementIsClockwise The rotational directions of hue movements
      * @param pausedTimestamp        The timestamp at which this Provider is paused; if unpaused,
      *                               this
      *                               parameter should be null

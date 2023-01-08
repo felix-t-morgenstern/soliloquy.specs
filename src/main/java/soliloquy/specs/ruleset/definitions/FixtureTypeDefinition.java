@@ -10,6 +10,8 @@ public class FixtureTypeDefinition {
     public boolean isContainer;
     public String onStepFunctionId;
     public String canStepFunctionId;
+    public int additionalMovementCost;
+    public String heightMovementPenaltyMitigationFunctionId;
     public String[] defaultColorShifts;
     public float defaultXTileWidthOffset;
     public float defaultYTileHeightOffset;
@@ -17,6 +19,8 @@ public class FixtureTypeDefinition {
     public FixtureTypeDefinition(String id, String name, String imageAssetSetId,
                                  ImageAsset.ImageAssetType imageAssetType, boolean isContainer,
                                  String onStepFunctionId, String canStepFunctionId,
+                                 int additionalMovementCost,
+                                 String heightMovementPenaltyMitigationFunctionId,
                                  String[] defaultColorShifts, float defaultXTileWidthOffset,
                                  float defaultYTileHeightOffset) {
         this.id = id;
@@ -26,6 +30,8 @@ public class FixtureTypeDefinition {
         this.isContainer = isContainer;
         this.onStepFunctionId = onStepFunctionId;
         this.canStepFunctionId = canStepFunctionId;
+        this.additionalMovementCost = additionalMovementCost;
+        this.heightMovementPenaltyMitigationFunctionId = heightMovementPenaltyMitigationFunctionId;
         this.defaultColorShifts = defaultColorShifts;
         this.defaultXTileWidthOffset = defaultXTileWidthOffset;
         this.defaultYTileHeightOffset = defaultYTileHeightOffset;

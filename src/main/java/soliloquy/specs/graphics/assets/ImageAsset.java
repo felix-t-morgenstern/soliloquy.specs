@@ -24,7 +24,6 @@ public interface ImageAsset extends Asset {
      * ImageAssetSets
      */
     enum ImageAssetType {
-        UNKNOWN(0),
         SPRITE(1),
         ANIMATION(2),
         GLOBAL_LOOPING_ANIMATION(3);
@@ -32,7 +31,7 @@ public interface ImageAsset extends Asset {
         private static final Map<Integer, ImageAssetType> BY_VALUE = new HashMap<>();
 
         static {
-            for (ImageAssetType imageAssetType : values()) {
+            for (var imageAssetType : values()) {
                 BY_VALUE.put(imageAssetType.VALUE, imageAssetType);
             }
         }
@@ -48,21 +47,17 @@ public interface ImageAsset extends Asset {
             if (BY_VALUE.containsKey(value)) {
                 return BY_VALUE.get(value);
             }
-            return UNKNOWN;
+            throw new IllegalArgumentException("ImageAsset: value (" + value + ") does not " +
+                    "correspond to a valid ImageAsset type");
         }
 
         @Override
         public String toString() {
-            switch (this) {
-                case UNKNOWN:
-                    return "UNKNOWN";
-                case SPRITE:
-                    return Sprite.class.getCanonicalName();
-                case ANIMATION:
-                    return Animation.class.getCanonicalName();
-            }
-            throw new UnsupportedOperationException(
-                    "Cannot perform toString on undefined enum value");
+            return switch (this) {
+                case SPRITE -> Sprite.class.getCanonicalName();
+                case ANIMATION -> Animation.class.getCanonicalName();
+                case GLOBAL_LOOPING_ANIMATION -> GlobalLoopingAnimation.class.getCanonicalName();
+            };
         }
     }
 }
