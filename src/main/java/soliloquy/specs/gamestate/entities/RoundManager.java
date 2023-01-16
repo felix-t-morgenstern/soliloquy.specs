@@ -5,7 +5,6 @@ import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 /**
  * <b>RoundManager</b>
@@ -16,6 +15,9 @@ import java.util.function.Supplier;
  * currently active, the order in which Characters will act, and Characters' action points.
  * <p>
  * It handles round advancement and Timers.
+ * <p>
+ * It uses {@link soliloquy.specs.ruleset.gameconcepts.ActiveCharactersProvider} to determine which
+ * Characters are present at the start of each round.
  *
  * @author felix.t.morgenstern
  */
@@ -125,9 +127,6 @@ public interface RoundManager extends SoliloquyClass {
      * Intended use case will have this method invoke the
      * {@link soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange}
      * from the Character's {@link CharacterVariableStatistic}s and {@link CharacterStatusEffects}.
-     *
-     * @throws IllegalStateException If and only if {@link #setActiveCharactersProvider} has not
-     *                               been called
      */
     void endActiveCharacterTurn() throws IllegalStateException;
 
@@ -145,19 +144,6 @@ public interface RoundManager extends SoliloquyClass {
      * @param roundNumber The round number to which to set the Game
      */
     void setRoundNumber(int roundNumber);
-
-    // NB: This _should_ be provided in the constructor, but since active character provision is a
-    //     responsibility of the Ruleset module, and since the Ruleset module currently depends on
-    //     the Gamestate module, this method must be exposed.
-
-    /**
-     * @param provider The function which provides a list of active Characters, paired with the
-     *                 round-specific data associated with that Character at the start of a new
-     *                 round
-     * @throws IllegalArgumentException If and only if provider is null
-     */
-    void setActiveCharactersProvider(Supplier<List<Pair<Character, VariableCache>>> provider)
-            throws IllegalArgumentException;
 
     /**
      * This method doesn't just change the arbitrary number corresponding to the rounds; it
@@ -178,8 +164,6 @@ public interface RoundManager extends SoliloquyClass {
      *
      * @param numberOfRounds The number of rounds to advance
      * @throws IllegalArgumentException If and only if numberOfRounds is 0 or negative
-     * @throws IllegalStateException    If and only if {@link #setActiveCharactersProvider} has not
-     *                                  been called
      */
     void advanceRounds(int numberOfRounds) throws IllegalArgumentException, IllegalStateException;
 }
