@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
+import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
 
 /**
  * <b>CharacterVariableStatistic</b>
@@ -26,10 +27,9 @@ public interface CharacterVariableStatistic extends
      * value.
      *
      * @return The current value of this CharacterVariableStatistic.
-     * @throws IllegalStateException If the Character has been deleted, or if the Character or
-     *                               CharacterVariableStatisticType have not been specified
+     * @throws EntityDeletedException If the Character has been deleted
      */
-    int getCurrentValue() throws IllegalStateException;
+    int getCurrentValue() throws EntityDeletedException;
 
     /**
      * The <i>current</i> value is different from the <i>total</i> value. For instance, if a
@@ -40,8 +40,7 @@ public interface CharacterVariableStatistic extends
      *
      * @param currentVal The value to which to set the current value of this
      *                   CharacterVariableStatistic
-     * @throws IllegalStateException    If the Character has been deleted, or if the Character or
-     *                                  CharacterVariableStatisticType have not been specified
+     * @throws EntityDeletedException   If the Character has been deleted
      * @throws IllegalArgumentException If your ruleset has restrictions on what the current value
      *                                  of a CharacterValueAttribute can be, e.g. if you forbid the
      *                                  current value from exceeding the
@@ -49,5 +48,13 @@ public interface CharacterVariableStatistic extends
      *                                  values should result in this
      *                                  exception.
      */
-    void setCurrentValue(int currentVal) throws IllegalStateException, IllegalArgumentException;
+    void setCurrentValue(int currentVal) throws EntityDeletedException, IllegalArgumentException;
+
+    /**
+     * @param amount The amount by which to alter the current value (not the maximum value) of this
+     *               statistic
+     * @return The new value of this statistic
+     * @throws EntityDeletedException If and only if this Character has been deleted
+     */
+    int alterCurrentValue(int amount) throws EntityDeletedException;
 }

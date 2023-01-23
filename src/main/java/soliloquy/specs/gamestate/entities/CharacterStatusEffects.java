@@ -2,7 +2,7 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.Element;
-import soliloquy.specs.ruleset.entities.StatusEffectType;
+import soliloquy.specs.ruleset.entities.character.StatusEffectType;
 
 import java.util.Map;
 

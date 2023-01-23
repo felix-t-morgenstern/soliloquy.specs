@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
 
 import java.util.Map;
 

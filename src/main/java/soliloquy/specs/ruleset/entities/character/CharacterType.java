@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities;
+package soliloquy.specs.ruleset.entities.character;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;

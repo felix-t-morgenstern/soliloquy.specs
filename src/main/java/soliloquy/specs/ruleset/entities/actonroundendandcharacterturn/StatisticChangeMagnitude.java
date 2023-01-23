@@ -1,14 +1,17 @@
-package soliloquy.specs.ruleset.entities.actonturnendandcharacterround;
+package soliloquy.specs.ruleset.entities.actonroundendandcharacterturn;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Pair;
+import soliloquy.specs.ruleset.entities.Element;
+import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.StatusEffectType;
 
 /**
  * <b>StatisticChangeMagnitude</b>
  * <p>
  * A StatisticChangeMagnitude is the degree to which a given
  * {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic} will be impacted by the
- * level of a given {@link soliloquy.specs.ruleset.entities.StatusEffectType} or
+ * level of a given {@link StatusEffectType} or
  * {@link soliloquy.specs.gamestate.entities.CharacterStatistic}.
  *
  * @param <TValue> The numerical type of this magnitude. <i>If {@link #amountType()} is Value, then
@@ -19,6 +22,16 @@ import soliloquy.specs.common.valueobjects.Pair;
  * @version 0.0.1
  */
 public interface StatisticChangeMagnitude<TValue extends Number> extends SoliloquyClass {
+    /**
+     * @return The CharacterVariableStatisticType effected by a change of this magnitude
+     */
+    CharacterVariableStatisticType effectedStatisticType();
+
+    /**
+     * @return The Element of this effect on the target Character. Can be null.
+     */
+    Element element();
+
     /**
      * @return The type of effect, see {@link EffectType}
      */
@@ -34,11 +47,11 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
      * null, it is assumed that a flat amount is added per level.
      * <br>
      * An example of this is poison, which might deal 1-5 damage per level of poisoning. In that
-     * case, that {@link soliloquy.specs.ruleset.entities.StatusEffectType}'s
+     * case, that {@link StatusEffectType}'s
      * StatisticChangeMagnitude would have a perLevelRange of [-1, -5].
      *
      * @return The range of values to add to this magnitude per level of the given
-     *         {@link soliloquy.specs.ruleset.entities.StatusEffectType} or
+     *         {@link StatusEffectType} or
      *         {@link soliloquy.specs.gamestate.entities.CharacterStatistic}. If null, then there is
      *         no magnitude added per level.
      */
@@ -50,12 +63,12 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
      * <br>
      * An example of this might be sickness, which might reduce health by 5-10%, so long as the
      * {@link soliloquy.specs.gamestate.entities.Character} has any amount of sickness. In that
-     * case, that {@link soliloquy.specs.ruleset.entities.StatusEffectType}'s
+     * case, that {@link StatusEffectType}'s
      * StatisticChangeMagnitude would have an absoluteRange of [-0.05, -0.1].
      *
      * @return The range of values to add once to this magnitude, if there is any amount of the
      *         {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic} or
-     *         {@link soliloquy.specs.ruleset.entities.StatusEffectType} present whatsoever on the
+     *         {@link StatusEffectType} present whatsoever on the
      *         {@link soliloquy.specs.gamestate.entities.Character} in question. If null, then there
      *         is no absolute magnitude added.
      */
@@ -85,16 +98,14 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
         }
 
         public static EffectType fromValue(int value) {
-            switch (value) {
-                case 1:
-                    return ALTERATION;
-                case 2:
-                    return DAMAGE;
-                default:
-                    throw new IllegalArgumentException("StatisticChangeMagnitude.EffectType" +
-                            ".fromValue: value(" + value + ") does not correspond to valid enum " +
-                            "type");
-            }
+            return switch (value) {
+                case 1 -> ALTERATION;
+                case 2 -> DAMAGE;
+                default ->
+                        throw new IllegalArgumentException("StatisticChangeMagnitude.EffectType" +
+                                ".fromValue: value(" + value + ") does not correspond to valid " +
+                                "enum type");
+            };
         }
     }
 
@@ -134,7 +145,8 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
                 case 3 -> PERCENT_OF_MAXIMUM;
                 default ->
                         throw new IllegalArgumentException("StatisticChangeMagnitude.AmountType" +
-                                ".fromValue: value(" + value + ") does not correspond to valid enum " +
+                                ".fromValue: value(" + value + ") does not correspond to valid " +
+                                "enum " +
                                 "type");
             };
         }

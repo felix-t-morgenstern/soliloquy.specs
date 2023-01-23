@@ -12,6 +12,7 @@ import soliloquy.specs.ruleset.entities.*;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
+import soliloquy.specs.ruleset.entities.character.*;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
 // TODO: Document this interface

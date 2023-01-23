@@ -1,6 +1,7 @@
-package soliloquy.specs.ruleset.entities;
+package soliloquy.specs.ruleset.entities.character;
 
 import soliloquy.specs.common.shared.HasPluralName;
+import soliloquy.specs.ruleset.entities.IconForCharacter;
 
 /**
  * <b>CharacterVariableStatisticType</b>

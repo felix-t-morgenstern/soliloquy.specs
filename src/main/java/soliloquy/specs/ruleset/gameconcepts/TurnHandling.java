@@ -8,7 +8,7 @@ import soliloquy.specs.gamestate.entities.CharacterVariableStatistic;
  * <p>
  * This class processes the effects taken on {@link CharacterVariableStatistic}s and
  * {@link soliloquy.specs.gamestate.entities.CharacterStatusEffects} (c.f.
- * {@link soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange})
+ * {@link soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange})
  * at the end of a round, or the start or end of a
  * {@link soliloquy.specs.gamestate.entities.Character}'s turn.
  *

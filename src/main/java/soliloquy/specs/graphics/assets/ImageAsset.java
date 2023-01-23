@@ -50,14 +50,5 @@ public interface ImageAsset extends Asset {
             throw new IllegalArgumentException("ImageAsset: value (" + value + ") does not " +
                     "correspond to a valid ImageAsset type");
         }
-
-        @Override
-        public String toString() {
-            return switch (this) {
-                case SPRITE -> Sprite.class.getCanonicalName();
-                case ANIMATION -> Animation.class.getCanonicalName();
-                case GLOBAL_LOOPING_ANIMATION -> GlobalLoopingAnimation.class.getCanonicalName();
-            };
-        }
     }
 }

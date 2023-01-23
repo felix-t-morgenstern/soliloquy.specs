@@ -2,7 +2,7 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 
 /**

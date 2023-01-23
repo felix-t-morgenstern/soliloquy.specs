@@ -1,8 +1,9 @@
-package soliloquy.specs.ruleset.entities;
+package soliloquy.specs.ruleset.entities.character;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
-import soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange;
+import soliloquy.specs.ruleset.entities.IconForCharacter;
+import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange;
 
 /**
  * <b>StatusEffectType</b>

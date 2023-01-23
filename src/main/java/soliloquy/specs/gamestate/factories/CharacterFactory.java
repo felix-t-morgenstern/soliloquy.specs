@@ -3,7 +3,7 @@ package soliloquy.specs.gamestate.factories;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.ruleset.entities.CharacterType;
+import soliloquy.specs.ruleset.entities.character.CharacterType;
 
 import java.util.UUID;
 

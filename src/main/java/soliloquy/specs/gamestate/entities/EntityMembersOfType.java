@@ -3,7 +3,8 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.ruleset.entities.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.CharacterStaticStatisticType;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * <p>
  * A collection of the statistics for a {@link Character} or {@link Item} of a certain type (e.g.
  * {@link CharacterVariableStatisticType} or
- * {@link soliloquy.specs.ruleset.entities.CharacterStaticStatisticType}).
+ * {@link CharacterStaticStatisticType}).
  *
  * @param <TEntityMemberType> The type of statistic (e.g. static or variable) being contained here
  * @author felix.t.morgenstern

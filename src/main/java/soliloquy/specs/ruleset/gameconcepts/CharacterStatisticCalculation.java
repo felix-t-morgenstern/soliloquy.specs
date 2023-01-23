@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.ruleset.entities.CharacterStatisticType;
+import soliloquy.specs.ruleset.entities.character.CharacterStatisticType;
 
 import java.util.Map;
 

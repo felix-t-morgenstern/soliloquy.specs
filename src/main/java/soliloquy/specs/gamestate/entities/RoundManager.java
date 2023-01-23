@@ -125,7 +125,7 @@ public interface RoundManager extends SoliloquyClass {
      * their turn, pushing them toward the back of the queue, but not removing them from the queue.
      * <p>
      * Intended use case will have this method invoke the
-     * {@link soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange}
+     * {@link soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange}
      * from the Character's {@link CharacterVariableStatistic}s and {@link CharacterStatusEffects}.
      */
     void endActiveCharacterTurn() throws IllegalStateException;
@@ -154,7 +154,7 @@ public interface RoundManager extends SoliloquyClass {
      * rounds; use {@link #setRoundNumber} instead.
      * <p>
      * Intended use case will have this method invoke the
-     * {@link soliloquy.specs.ruleset.entities.actonturnendandcharacterround.EffectsCharacterOnRoundOrTurnChange}
+     * {@link soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange}
      * from the Character's {@link CharacterVariableStatistic}s and {@link CharacterStatusEffects},
      * and it will also check to see if Timers should be triggered by calling
      * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager#fireTimersForRoundsElapsed}.
