@@ -1,5 +1,6 @@
 package soliloquy.specs.ruleset.entities.actonroundendandcharacterturn;
 
+import soliloquy.specs.common.shared.HasPriority;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
@@ -35,13 +36,7 @@ public interface EffectsCharacterOnRoundOrTurnChange extends SoliloquyClass {
      */
     EffectsOnCharacter onTurnEnd();
 
-    interface EffectsOnCharacter {
-        /**
-         * @return The priority for this entity to take effect. Entities with higher priority take
-         *         effect sooner.
-         */
-        int priority();
-
+    interface EffectsOnCharacter extends HasPriority {
         /**
          * @return The magnitude of change that this entity has on one or more
          *         {@link CharacterVariableStatisticType}s. It is assumed that this will never be

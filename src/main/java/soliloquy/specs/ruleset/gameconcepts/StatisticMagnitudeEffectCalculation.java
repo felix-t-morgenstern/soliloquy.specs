@@ -32,10 +32,6 @@ public interface StatisticMagnitudeEffectCalculation {
      * @param magnitude             The magnitude of statistic change applied to the Character
      * @param sourceCurrentValue    The current value of the {@link CharacterVariableStatistic}
      *                              generating the effect
-     * @param effectedMaxValue      The maximum value of the {@link CharacterVariableStatistic} to
-     *                              effect
-     * @param effectedCurrentValue  The maximum value of the {@link CharacterVariableStatistic} to
-     *                              effect
      * @param character             The Character to whom the effect will transpire
      * @return The net statistic change effect
      * @throws IllegalArgumentException If and only if variableStatisticType is null, or magnitude
@@ -44,8 +40,7 @@ public interface StatisticMagnitudeEffectCalculation {
      */
     <T extends Number> int getEffect(CharacterVariableStatisticType variableStatisticType,
                                      StatisticChangeMagnitude<T> magnitude,
-                                     int sourceCurrentValue, int effectedMaxValue,
-                                     int effectedCurrentValue, Character character)
+                                     int sourceCurrentValue, Character character)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -60,10 +55,6 @@ public interface StatisticMagnitudeEffectCalculation {
      * @param magnitude            The magnitude of statistic change applied to the Character
      * @param levels               The current levels of the {@link StatusEffectType} for the
      *                             {@link Character} in question
-     * @param effectedMaxValue     The maximum value of the {@link CharacterVariableStatistic} to
-     *                             effect
-     * @param effectedCurrentValue The maximum value of the {@link CharacterVariableStatistic} to
-     *                             effect
      * @param character            The Character to whom the effect will transpire
      * @return The net statistic change effect
      * @throws IllegalArgumentException If and only if statusEffectType is null, or magnitude is
@@ -72,7 +63,6 @@ public interface StatisticMagnitudeEffectCalculation {
      */
     <T extends Number> int getEffect(StatusEffectType statusEffectType,
                                      StatisticChangeMagnitude<T> magnitude, int levels,
-                                     int effectedMaxValue, int effectedCurrentValue,
                                      Character character)
             throws IllegalArgumentException, EntityDeletedException;
 }

@@ -3,7 +3,7 @@ package soliloquy.specs.common.shared;
 /**
  * <b>HasId</b>
  * <p>
- * It has a String Id, to be initialized behind-the-scenes, before it can be accessed.
+ * It has a String Id.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

@@ -2,6 +2,7 @@ package soliloquy.specs.gamestate.entities.timers;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.HasId;
+import soliloquy.specs.common.shared.HasPriority;
 import soliloquy.specs.gamestate.entities.Deletable;
 
 /**
@@ -16,14 +17,7 @@ import soliloquy.specs.gamestate.entities.Deletable;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RoundBasedTimer extends HasId, Deletable, Runnable {
-    /**
-     * @return The priority for this event, with higher value implying higher priority; when
-     *         multiple events are fired, events with higher priority are fired first. (If multiple
-     *         events have the same priority, no assurances are made as to which will fire first!)
-     */
-    int priority();
-
+public interface RoundBasedTimer extends HasId, HasPriority, Deletable, Runnable {
     /**
      * @return The Id of the {@link Action} which runs when this RoundBasedTimer is fired
      */
