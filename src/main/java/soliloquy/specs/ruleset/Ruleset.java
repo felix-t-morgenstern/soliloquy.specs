@@ -17,11 +17,11 @@ import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
 // TODO: Document this interface
 public interface Ruleset extends SoliloquyClass {
-    EntityGroup<ActiveAbility> activeAbilityTypes();
+    EntityGroup<ActiveAbility> activeAbilities();
 
-    EntityGroup<ReactiveAbility> reactiveAbilityTypes();
+    EntityGroup<ReactiveAbility> reactiveAbilities();
 
-    EntityGroup<PassiveAbility> passiveAbilityTypes();
+    EntityGroup<PassiveAbility> passiveAbilities();
 
     EntityGroup<CharacterVariableStatisticType> variableStatisticTypesGrouped();
 
