@@ -1,6 +1,8 @@
 package soliloquy.specs.ruleset.entities.character;
 
 import soliloquy.specs.common.shared.HasPluralName;
+import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.IconForCharacter;
 
 /**
@@ -17,4 +19,16 @@ import soliloquy.specs.ruleset.entities.IconForCharacter;
  */
 public interface CharacterVariableStatisticType
         extends CharacterStatisticType, HasPluralName, IconForCharacter {
+    /**
+     * This function is to be used after incoming changes have been moderated by
+     * {@link soliloquy.specs.ruleset.gameconcepts.VariableStatisticLossResistanceCalculation}, if
+     * applicable.
+     *
+     * @param character The character whose current value to alter
+     * @param amount    The amount by which to alter the current value
+     * @throws IllegalArgumentException If and only if character is null
+     * @throws EntityDeletedException   If and only if character is deleted
+     */
+    void alter(Character character, int amount)
+            throws IllegalArgumentException, EntityDeletedException;
 }

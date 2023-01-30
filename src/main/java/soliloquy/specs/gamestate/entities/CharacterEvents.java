@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.gamestate.entities.gameevents.GameCharacterEvent;
 
@@ -71,11 +72,12 @@ public interface CharacterEvents extends Deletable {
      * (This may result in no events being fired.)
      *
      * @param trigger The type of trigger whose corresponding events to fire
+     * @param data The data corresponding to the event. May be null.
      * @throws IllegalArgumentException If and only if trigger is null or empty
      * @throws EntityDeletedException   If and only if the {@link Character} corresponding to this
      *                                  class is deleted
      */
-    void fire(String trigger) throws IllegalArgumentException, EntityDeletedException;
+    void fire(String trigger, VariableCache data) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @return A Map, whose indices are all triggers with at least one associated event, and whose

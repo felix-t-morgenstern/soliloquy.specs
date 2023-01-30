@@ -2,6 +2,8 @@ package soliloquy.specs.ruleset.entities.character;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
+import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.IconForCharacter;
 import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange;
 
@@ -41,4 +43,21 @@ public interface StatusEffectType
      *                                       true)
      */
     String nameAtValue(int value) throws UnsupportedOperationException;
+
+    /**
+     * Intended use is for an {@link soliloquy.specs.ruleset.entities.abilities.Ability} (or
+     * whatever else) to call this method after having calculated resistance using
+     * {@link
+     * soliloquy.specs.ruleset.gameconcepts.StatusEffectResistanceCalculation#calculateEffectiveChange},
+     * if relevant. This function will relay the relevant events to
+     * {@link soliloquy.specs.gamestate.entities.CharacterEvents} and any relevant
+     * {@link soliloquy.specs.ruleset.entities.abilities.ReactiveAbility}s.
+     *
+     * @param character The Character whose level of this Status Effect is to be changed
+     * @param amount    The amount by which to change this Status Effect
+     * @throws IllegalArgumentException If and only if character is null, or amount is 0
+     * @throws EntityDeletedException   If and only if character is deleted
+     */
+    void alterValue(Character character, int amount)
+            throws IllegalArgumentException, EntityDeletedException;
 }
