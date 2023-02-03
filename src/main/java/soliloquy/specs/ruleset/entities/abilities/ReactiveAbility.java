@@ -1,5 +1,8 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
+import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.ruleset.gameconcepts.CharacterEventFiring;
+
 /**
  * <b>ReactiveAbility</b>
  * <p>
@@ -9,19 +12,14 @@ package soliloquy.specs.ruleset.entities.abilities;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ReactiveAbility extends Ability {
-    /**
-     * @return The (optional) priority for when this ReactiveAbility performs its reaction, if
-     *         there are multiple ReactiveAbilityTypes reacting to the same Ability or event
-     */
-    Integer priority();
-
+public interface ReactiveAbility extends Ability, CharacterEventFiring.RespondsToEvents {
     /**
      * @param event The event to check for whether this ReactiveAbility will fire
+     * @param data  The data associated with the event firing
      * @return True, if and only if this ReactiveAbility will fire for the specified event
-     * @throws IllegalArgumentException If and only if event is null or empty
+     * @throws IllegalArgumentException If and only if event is null or empty, or if data is null
      */
-    boolean firesOnEvent(String event) throws IllegalArgumentException;
+    boolean firesOnEvent(String event, VariableCache data) throws IllegalArgumentException;
 
     /**
      * @param source The source of the Ability to check for whether this ReactiveAbility will fire
@@ -30,27 +28,4 @@ public interface ReactiveAbility extends Ability {
      * @throws IllegalArgumentException If and only if source is null
      */
     boolean firesAgainstAbility(AbilitySource source) throws IllegalArgumentException;
-
-    /**
-     * Determines how the ReactiveAbility does actually react
-     *
-     * @param alreadyBlocked True, if and if the incoming Ability has already been blocked. (Some
-     *                       ReactiveAbilities won't bother doing anything if this is the case;
-     *                       others will.)
-     * @param source         The source of the Ability being reacted to
-     * @return True, if and only if the incoming Ability has been blocked
-     * @throws IllegalArgumentException If and only if source is null
-     */
-    boolean reactToAbility(boolean alreadyBlocked, AbilitySource source)
-            throws IllegalArgumentException;
-
-    /**
-     * Determines how the ReactiveAbility does actually react
-     *
-     * @param alreadyBlocked True, if and if the incoming event has already been blocked. (Some
-     *                       ReactiveAbilities won't bother doing anything if this is the case;
-     *                       others will.)
-     * @return True, if and only if the incoming Ability has been blocked
-     */
-    boolean reactToEvent(boolean alreadyBlocked);
 }

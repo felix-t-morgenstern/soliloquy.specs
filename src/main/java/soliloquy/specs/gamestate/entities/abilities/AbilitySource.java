@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities.abilities;
 
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Item;
@@ -17,16 +18,24 @@ import soliloquy.specs.gamestate.entities.Item;
  */
 public interface AbilitySource extends SoliloquyClass {
     /**
-     * @return The Item from which this Ability originated
+     * @return The Item from which this {@link soliloquy.specs.ruleset.entities.abilities.Ability}
+     *         originated; if null, then this Ability did not originate from an Item.
      * @throws IllegalStateException If the specified Item does not have this Ability, or if this
      *                               AbilitySource has more than one source specified
      */
     Item item() throws IllegalStateException;
 
     /**
-     * @return The Character from which this Ability originated; if null, then this Ability did not
-     *         originate from a Character.
+     * @return The Character from which this
+     *         {@link soliloquy.specs.ruleset.entities.abilities.Ability} originated; if null, then
+     *         this Ability did not originate from a Character.
      * @throws IllegalStateException If the specified Character does not have this Ability
      */
     Character character() throws IllegalStateException;
+
+    /**
+     * @return Other data associated with the firing of the relevant
+     *         {@link soliloquy.specs.ruleset.entities.abilities.Ability}
+     */
+    VariableCache data();
 }
