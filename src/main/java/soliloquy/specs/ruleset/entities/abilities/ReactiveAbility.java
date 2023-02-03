@@ -19,7 +19,7 @@ public interface ReactiveAbility extends Ability, CharacterEventFiring.RespondsT
      * @return True, if and only if this ReactiveAbility will fire for the specified event
      * @throws IllegalArgumentException If and only if event is null or empty, or if data is null
      */
-    boolean firesOnEvent(String event, VariableCache data) throws IllegalArgumentException;
+    boolean firesAgainstEvent(String event, VariableCache data) throws IllegalArgumentException;
 
     /**
      * @param source The source of the Ability to check for whether this ReactiveAbility will fire
