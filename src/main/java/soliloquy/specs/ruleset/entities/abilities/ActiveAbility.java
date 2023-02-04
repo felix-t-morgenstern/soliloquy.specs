@@ -10,6 +10,14 @@ package soliloquy.specs.ruleset.entities.abilities;
  */
 public interface ActiveAbility extends Ability {
     /**
+     * This method is intended to be used by the UI to limit the types of entities which can be
+     * highlighted and selected in the UI, and passed into the ActiveAbility.
+     *
+     * @return The types of targets which this ActiveAbility can take.
+     */
+    TargetType[] targetTypes();
+
+    /**
      * Uses this ActiveAbility against some target(s)
      * <p>
      * This method is intended to calculate the potency of this Ability by looking up some
@@ -21,4 +29,11 @@ public interface ActiveAbility extends Ability {
      *                                  targets are null
      */
     void use(AbilitySource source, Object... targets) throws IllegalArgumentException;
+
+    enum TargetType {
+        TILE,
+        CHARACTER,
+        TILE_FIXTURE,
+        WALL_SEGMENT
+    }
 }
