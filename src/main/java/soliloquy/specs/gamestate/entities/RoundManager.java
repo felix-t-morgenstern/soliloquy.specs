@@ -115,20 +115,10 @@ public interface RoundManager extends SoliloquyClass {
     List<Pair<Character, VariableCache>> characterQueueRepresentation();
 
     /**
-     * If there is an active Character, ends their turn; if there are no remaining Characters in
-     * characterOrder, starts a new round; and if there are remaining Characters in characterOrder,
-     * then sets the top Character in the queue as the active Character.
-     * <p>
-     * This method <b>does not remove</b> the active Character from the ordering. This is to
-     * support different means of a Character no longer being active; for instance, a Character may
-     * end their turn entirely, removing them from the order; but they may also delay the rest of
-     * their turn, pushing them toward the back of the queue, but not removing them from the queue.
-     * <p>
-     * Intended use case will have this method invoke the
-     * {@link soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange}
-     * from the Character's {@link CharacterVariableStatistic}s and {@link CharacterStatusEffects}.
+     * Runs the turn of the current active {@link Character}, using
+     * {@link soliloquy.specs.ruleset.gameconcepts.TurnHandling#runTurn}
      */
-    void endActiveCharacterTurn() throws IllegalStateException;
+    void runActiveCharacterTurn();
 
     /**
      * @return The active Character; null, if no Character is active
@@ -154,13 +144,17 @@ public interface RoundManager extends SoliloquyClass {
      * rounds; use {@link #setRoundNumber} instead.
      * <p>
      * Intended use case will have this method invoke the
-     * {@link soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange}
-     * from the Character's {@link CharacterVariableStatistic}s and {@link CharacterStatusEffects},
-     * and it will also check to see if Timers should be triggered by calling
-     * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager#fireTimersForRoundsElapsed}.
+     * {@link
+     * soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange}
+     * from the Character's
+     * {@link soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType}s and
+     * {@link CharacterStatusEffects}, and it will also check to see if Timers should be triggered
+     * by calling
+     * {@link
+     * soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager#fireTimersForRoundsElapsed}.
      * If the round is advanced from round N to round M, the
-     * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimer}s
-     * will be fired as if it is the end of round N, and not the start of round N.
+     * {@link soliloquy.specs.gamestate.entities.timers.RoundBasedTimer}s will be fired as if it is
+     * the end of round N, and not the start of round N.
      *
      * @param numberOfRounds The number of rounds to advance
      * @throws IllegalArgumentException If and only if numberOfRounds is 0 or negative

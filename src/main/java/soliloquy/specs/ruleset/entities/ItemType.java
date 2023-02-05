@@ -1,6 +1,5 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.entities.Function;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
@@ -11,6 +10,7 @@ import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * <b>ItemType</b>

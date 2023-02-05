@@ -1,5 +1,6 @@
 package soliloquy.specs.ruleset.entities.character;
 
+import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
@@ -15,8 +16,11 @@ import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 public interface CharacterAIType extends HasId {
     /**
      * @param character The Character whose turn to execute
-     * @throws IllegalArgumentException If and only if character is null
-     * @throws EntityDeletedException If and only if character has been deleted
+     * @param turnData  The turn-specific data for this Character (see
+     *                  {@link soliloquy.specs.gamestate.entities.RoundManager#characterRoundData}
+     * @throws IllegalArgumentException If and only if character or turnData is null
+     * @throws EntityDeletedException   If and only if character has been deleted
      */
-    void act(Character character) throws IllegalArgumentException, EntityDeletedException;
+    void act(Character character, VariableCache turnData)
+            throws IllegalArgumentException, EntityDeletedException;
 }

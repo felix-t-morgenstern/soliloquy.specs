@@ -6,6 +6,15 @@ import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.abilities.Ability;
 
+/**
+ * <b>CharacterEventFiring</b>
+ * <p>
+ * This class handles when events (see {@link soliloquy.specs.gamestate.entities.CharacterEvents})
+ * or {@link Ability}s are directed towards a {@link soliloquy.specs.gamestate.entities.Character}.
+ *
+ * @author felix.t.morgenstern
+ * @version 0.0.1
+ */
 public interface CharacterEventFiring {
     /**
      * @param target The Character being targeted by the event

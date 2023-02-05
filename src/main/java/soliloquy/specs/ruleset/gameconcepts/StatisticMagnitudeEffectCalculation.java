@@ -29,8 +29,6 @@ public interface StatisticMagnitudeEffectCalculation {
      *
      * @param variableStatisticType The {@link CharacterVariableStatisticType} of the magnitude
      * @param magnitude             The magnitude of statistic change applied to the Character
-     * @param sourceCurrentValue    The current value of the {@link CharacterVariableStatisticType}
-     *                              generating the effect
      * @param character             The Character to whom the effect will transpire
      * @return The net statistic change effect
      * @throws IllegalArgumentException If and only if variableStatisticType is null, or magnitude
@@ -38,8 +36,7 @@ public interface StatisticMagnitudeEffectCalculation {
      * @throws EntityDeletedException   If and only if character is deleted
      */
     <T extends Number> int getEffect(CharacterVariableStatisticType variableStatisticType,
-                                     StatisticChangeMagnitude<T> magnitude,
-                                     int sourceCurrentValue, Character character)
+                                     StatisticChangeMagnitude<T> magnitude, Character character)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -52,8 +49,6 @@ public interface StatisticMagnitudeEffectCalculation {
      *
      * @param statusEffectType The {@link CharacterVariableStatisticType} of the magnitude
      * @param magnitude        The magnitude of statistic change applied to the Character
-     * @param levels           The current levels of the {@link StatusEffectType} for the
-     *                         {@link Character} in question
      * @param character        The Character to whom the effect will transpire
      * @return The net statistic change effect
      * @throws IllegalArgumentException If and only if statusEffectType is null, or magnitude is
@@ -61,7 +56,6 @@ public interface StatisticMagnitudeEffectCalculation {
      * @throws EntityDeletedException   If and only if character is deleted
      */
     <T extends Number> int getEffect(StatusEffectType statusEffectType,
-                                     StatisticChangeMagnitude<T> magnitude, int levels,
-                                     Character character)
+                                     StatisticChangeMagnitude<T> magnitude, Character character)
             throws IllegalArgumentException, EntityDeletedException;
 }

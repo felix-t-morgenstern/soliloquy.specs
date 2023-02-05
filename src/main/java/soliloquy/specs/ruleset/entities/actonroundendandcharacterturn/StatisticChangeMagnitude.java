@@ -10,14 +10,13 @@ import soliloquy.specs.ruleset.entities.character.StatusEffectType;
  * <b>StatisticChangeMagnitude</b>
  * <p>
  * A StatisticChangeMagnitude is the degree to which a given
- * {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic} will be impacted by the
- * level of a given {@link StatusEffectType} or
- * {@link soliloquy.specs.gamestate.entities.CharacterStatistic}.
+ * {@link soliloquy.specs.gamestate.entities.Character#getVariableStatisticCurrentValue} will be
+ * impacted by the level of a given {@link StatusEffectType} or variable statistic.
  *
  * @param <TValue> The numerical type of this magnitude. <i>If {@link #amountType()} is Value, then
  *                 this will be Integer; otherwise, if it is Percent, of either the
- *                 {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic}'s current
- *                 or maximum it will be a Float.</i>
+ *                 {@link CharacterVariableStatisticType}'s current or maximum it will be a
+ *                 Float.</i>
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
@@ -51,9 +50,8 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
      * StatisticChangeMagnitude would have a perLevelRange of [-1, -5].
      *
      * @return The range of values to add to this magnitude per level of the given
-     *         {@link StatusEffectType} or
-     *         {@link soliloquy.specs.gamestate.entities.CharacterStatistic}. If null, then there is
-     *         no magnitude added per level.
+     *         {@link StatusEffectType} or {@link CharacterVariableStatisticType}. If null, then
+     *         there is no magnitude added per level.
      */
     Pair<TValue, TValue> perLevelRange();
 
@@ -67,10 +65,9 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
      * StatisticChangeMagnitude would have an absoluteRange of [-0.05, -0.1].
      *
      * @return The range of values to add once to this magnitude, if there is any amount of the
-     *         {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic} or
-     *         {@link StatusEffectType} present whatsoever on the
-     *         {@link soliloquy.specs.gamestate.entities.Character} in question. If null, then there
-     *         is no absolute magnitude added.
+     *         {@link CharacterVariableStatisticType} or {@link StatusEffectType} present whatsoever
+     *         on the {@link soliloquy.specs.gamestate.entities.Character} in question. If null,
+     *         then there is no absolute magnitude added.
      */
     Pair<TValue, TValue> absoluteRange();
 
@@ -112,19 +109,20 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
     enum AmountType {
         /**
          * A magnitude whose AmountType is Value will impact the corresponding
-         * {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic} by a flat amount.
+         * {@link soliloquy.specs.gamestate.entities.Character#getVariableStatisticCurrentValue} by
+         * a flat amount.
          */
         VALUE(1),
         /**
          * A magnitude whose AmountType is Percent Of Current will impact the corresponding
-         * {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic} by a percentage of
-         * its current value.
+         * {@link soliloquy.specs.gamestate.entities.Character#getVariableStatisticCurrentValue} by
+         * a percentage of its current value.
          */
         PERCENT_OF_CURRENT(2),
         /**
          * A magnitude whose AmountType is Percent Of Maximum will impact the corresponding
-         * {@link soliloquy.specs.gamestate.entities.CharacterVariableStatistic} by a percentage of
-         * its maximum value.
+         * {@link soliloquy.specs.gamestate.entities.Character#getVariableStatisticCurrentValue} by
+         * a percentage of its maximum value.
          */
         PERCENT_OF_MAXIMUM(3);
 
