@@ -1,6 +1,7 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.gameconcepts.CharacterEventFiring;
 
 /**

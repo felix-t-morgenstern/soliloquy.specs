@@ -1,5 +1,7 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
+import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
+
 /**
  * <b>ActiveAbility</b>
  * <p>

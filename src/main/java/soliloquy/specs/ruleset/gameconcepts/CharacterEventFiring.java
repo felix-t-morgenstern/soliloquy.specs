@@ -2,6 +2,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasPriority;
+import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.abilities.Ability;
