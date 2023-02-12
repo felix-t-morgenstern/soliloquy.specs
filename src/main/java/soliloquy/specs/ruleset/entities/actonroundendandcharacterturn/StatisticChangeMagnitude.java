@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.entities.actonroundendandcharacterturn;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.ruleset.entities.Element;
-import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.VariableStatisticType;
 import soliloquy.specs.ruleset.entities.character.StatusEffectType;
 
 /**
@@ -15,16 +15,16 @@ import soliloquy.specs.ruleset.entities.character.StatusEffectType;
  *
  * @param <TValue> The numerical type of this magnitude. <i>If {@link #amountType()} is Value, then
  *                 this will be Integer; otherwise, if it is Percent, of either the
- *                 {@link CharacterVariableStatisticType}'s current or maximum it will be a
+ *                 {@link VariableStatisticType}'s current or maximum it will be a
  *                 Float.</i>
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
 public interface StatisticChangeMagnitude<TValue extends Number> extends SoliloquyClass {
     /**
-     * @return The CharacterVariableStatisticType effected by a change of this magnitude
+     * @return The VariableStatisticType effected by a change of this magnitude
      */
-    CharacterVariableStatisticType effectedStatisticType();
+    VariableStatisticType effectedStatisticType();
 
     /**
      * @return The Element of this effect on the target Character. Can be null.
@@ -50,7 +50,7 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
      * StatisticChangeMagnitude would have a perLevelRange of [-1, -5].
      *
      * @return The range of values to add to this magnitude per level of the given
-     *         {@link StatusEffectType} or {@link CharacterVariableStatisticType}. If null, then
+     *         {@link StatusEffectType} or {@link VariableStatisticType}. If null, then
      *         there is no magnitude added per level.
      */
     Pair<TValue, TValue> perLevelRange();
@@ -65,7 +65,7 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
      * StatisticChangeMagnitude would have an absoluteRange of [-0.05, -0.1].
      *
      * @return The range of values to add once to this magnitude, if there is any amount of the
-     *         {@link CharacterVariableStatisticType} or {@link StatusEffectType} present whatsoever
+     *         {@link VariableStatisticType} or {@link StatusEffectType} present whatsoever
      *         on the {@link soliloquy.specs.gamestate.entities.Character} in question. If null,
      *         then there is no absolute magnitude added.
      */

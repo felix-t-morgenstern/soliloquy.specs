@@ -7,12 +7,11 @@ import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.ruleset.entities.character.CharacterAIType;
-import soliloquy.specs.ruleset.entities.character.CharacterStaticStatisticType;
 import soliloquy.specs.ruleset.entities.character.CharacterType;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
-import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.VariableStatisticType;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
 import java.util.List;
@@ -153,31 +152,31 @@ public interface Character extends TileEntity, HasName, HasUuid {
     /**
      * This function is intended to get the current value of a VariableStatistic, contrasted to its
      * maximum value. So, for instance, if a Character has 30 out of 40 health,
-     * {@link soliloquy.specs.ruleset.gameconcepts.CharacterStatisticCalculation} would tell you
-     * that the Character has 40 maximum health; this function will tell you that they have 30
-     * current health.
+     * {@link soliloquy.specs.ruleset.gameconcepts.StatisticCalculation} would tell you that the
+     * Character has 40 maximum health; this function will tell you that they have 30 current
+     * health.
      * <p>
      * If this function is called for a statistic whose current value has not yet been set, it will
      * default to a value of 0. The intent is that when a Character is created, either via
      * {@link CharacterType#generate} or by
-     * {@link soliloquy.specs.common.persistence.TypeHandler#read}, that those functions will handle
+     * {@link soliloquy.specs.common.persistence.TypeHandler#read}, that those functions will
+     * handle
      * setting the current values for Variable Statistics properly.
      *
      * @param statistic The statistic whose current value to retrieve
      * @throws IllegalArgumentException If and only if statistic is null
      * @throws EntityDeletedException   If and only if this Character has been deleted
      */
-    int getVariableStatisticCurrentValue(CharacterVariableStatisticType statistic)
+    int getVariableStatisticCurrentValue(VariableStatisticType statistic)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * This function is to be used, among other things, by
-     * {@link CharacterVariableStatisticType#alter}, and the
+     * {@link VariableStatisticType#alter}, and the
      * {@link soliloquy.specs.common.persistence.TypeHandler} for Characters. This function will not
      * relay any events related to the change in the statistic's current value, e.g., if this
      * function is used to set the current value of Health to 0, that will not trigger this
-     * Character's death; to trigger that event properly, use
-     * {@link CharacterVariableStatisticType#alter}.
+     * Character's death; to trigger that event properly, use {@link VariableStatisticType#alter}.
      *
      * @param statistic The statistic whose current value to set
      * @param value     The amount to which to set the current value of this statistic. Can be
@@ -186,14 +185,14 @@ public interface Character extends TileEntity, HasName, HasUuid {
      * @throws IllegalArgumentException If and only if statistic is null
      * @throws EntityDeletedException   If and only if this Character has been deleted
      */
-    void setVariableStatisticCurrentValue(CharacterVariableStatisticType statistic, int value)
+    void setVariableStatisticCurrentValue(VariableStatisticType statistic, int value)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @return A representation of the current values of all of this Character's Variable Statistics
      * @throws EntityDeletedException If and only if this Character has been deleted
      */
-    Map<CharacterVariableStatisticType, Integer> variableStatisticCurrentValuesRepresentation()
+    Map<VariableStatisticType, Integer> variableStatisticCurrentValuesRepresentation()
             throws EntityDeletedException;
 
     /**

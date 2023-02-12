@@ -3,15 +3,15 @@ package soliloquy.specs.ruleset.gameconcepts;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.StatisticChangeMagnitude;
-import soliloquy.specs.ruleset.entities.character.CharacterStaticStatisticType;
-import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.StaticStatisticType;
+import soliloquy.specs.ruleset.entities.character.VariableStatisticType;
 import soliloquy.specs.ruleset.entities.character.StatusEffectType;
 
 /**
  * <b>StatisticMagnitudeEffectCalculation</b>
  * <p>
- * This class is used by {@link ActOnRoundEndAndCharacterTurn} to calculate the amount by which to
- * alter a given {@link CharacterVariableStatisticType} for a given {@link Character} when
+ * This class is used by {@link TurnHandling} and {@link RoundEndHandling} to calculate the amount
+ * by which to alter a given {@link VariableStatisticType} for a given {@link Character} when
  * performing a given
  * {@link
  * soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange}.
@@ -26,9 +26,9 @@ public interface StatisticMagnitudeEffectCalculation {
      * {@link VariableStatisticLossResistanceCalculation} and
      * {@link StatusEffectResistanceCalculation}).
      * <p>
-     * This method is only for StatisticChangeMagnitudes of {@link CharacterVariableStatisticType}s.
+     * This method is only for StatisticChangeMagnitudes of {@link StaticStatisticType}s.
      *
-     * @param staticStatisticType The {@link CharacterVariableStatisticType} of the magnitude
+     * @param staticStatisticType The {@link VariableStatisticType} of the magnitude
      * @param magnitude           The magnitude of statistic change applied to the Character
      * @param character           The Character to whom the effect will transpire
      * @return The net statistic change effect
@@ -36,7 +36,7 @@ public interface StatisticMagnitudeEffectCalculation {
      *                                  is null or invalid, or character is null
      * @throws EntityDeletedException   If and only if character is deleted
      */
-    <T extends Number> int getEffect(CharacterStaticStatisticType staticStatisticType,
+    <T extends Number> int getEffect(StaticStatisticType staticStatisticType,
                                      StatisticChangeMagnitude<T> magnitude, Character character)
             throws IllegalArgumentException, EntityDeletedException;
 
@@ -46,9 +46,9 @@ public interface StatisticMagnitudeEffectCalculation {
      * {@link VariableStatisticLossResistanceCalculation} and
      * {@link StatusEffectResistanceCalculation}).
      * <p>
-     * This method is only for StatisticChangeMagnitudes of {@link CharacterVariableStatisticType}s.
+     * This method is only for StatisticChangeMagnitudes of {@link VariableStatisticType}s.
      *
-     * @param variableStatisticType The {@link CharacterVariableStatisticType} of the magnitude
+     * @param variableStatisticType The {@link VariableStatisticType} of the magnitude
      * @param magnitude             The magnitude of statistic change applied to the Character
      * @param character             The Character to whom the effect will transpire
      * @return The net statistic change effect
@@ -56,7 +56,7 @@ public interface StatisticMagnitudeEffectCalculation {
      *                                  is null or invalid, or character is null
      * @throws EntityDeletedException   If and only if character is deleted
      */
-    <T extends Number> int getEffect(CharacterVariableStatisticType variableStatisticType,
+    <T extends Number> int getEffect(VariableStatisticType variableStatisticType,
                                      StatisticChangeMagnitude<T> magnitude, Character character)
             throws IllegalArgumentException, EntityDeletedException;
 
@@ -68,7 +68,7 @@ public interface StatisticMagnitudeEffectCalculation {
      * <p>
      * This method is only for StatisticChangeMagnitudes of {@link StatusEffectType}s.
      *
-     * @param statusEffectType The {@link CharacterVariableStatisticType} of the magnitude
+     * @param statusEffectType The {@link VariableStatisticType} of the magnitude
      * @param magnitude        The magnitude of statistic change applied to the Character
      * @param character        The Character to whom the effect will transpire
      * @return The net statistic change effect

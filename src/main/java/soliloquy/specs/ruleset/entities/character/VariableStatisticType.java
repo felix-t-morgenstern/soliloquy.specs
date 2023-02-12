@@ -6,7 +6,7 @@ import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.IconForCharacter;
 
 /**
- * <b>CharacterVariableStatisticType</b>
+ * <b>VariableStatisticType</b>
  * <p>
  * It has a name, a pluralized name, a way to obtain icons for Characters (e.g. for status
  * indicators on a {@link soliloquy.specs.gamestate.entities.Party} member's portrait), and an Id.
@@ -17,8 +17,8 @@ import soliloquy.specs.ruleset.entities.IconForCharacter;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterVariableStatisticType
-        extends CharacterStatisticType, HasPluralName, IconForCharacter {
+public interface VariableStatisticType
+        extends StatisticType, HasPluralName, IconForCharacter {
     /**
      * This function is to be used after incoming changes have been moderated by
      * {@link soliloquy.specs.ruleset.gameconcepts.VariableStatisticLossResistanceCalculation}, if

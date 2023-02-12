@@ -23,9 +23,9 @@ public interface Ruleset extends SoliloquyClass {
 
     EntityGroup<PassiveAbility> passiveAbilities();
 
-    EntityGroup<CharacterVariableStatisticType> variableStatisticTypesGrouped();
+    EntityGroup<VariableStatisticType> variableStatisticTypesGrouped();
 
-    EntityGroup<CharacterStaticStatisticType> characterStaticStatisticTypes();
+    EntityGroup<StaticStatisticType> characterStaticStatisticTypes();
 
     Registry<CharacterClassification> characterClassifications();
 
@@ -49,7 +49,7 @@ public interface Ruleset extends SoliloquyClass {
 
     Registry<StatusEffectType> statusEffectTypes();
 
-    Registry<CharacterVariableStatisticType> variableStatisticTypes();
+    Registry<VariableStatisticType> variableStatisticTypes();
 
     Registry<WallSegmentType> wallSegmentTypes();
 

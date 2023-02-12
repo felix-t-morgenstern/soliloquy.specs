@@ -4,7 +4,8 @@ import soliloquy.specs.common.shared.HasPriority;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.StatisticType;
+import soliloquy.specs.ruleset.entities.character.VariableStatisticType;
 import soliloquy.specs.ruleset.entities.character.StatusEffectType;
 import soliloquy.specs.ruleset.gameconcepts.RoundEndHandling;
 
@@ -13,9 +14,9 @@ import java.util.List;
 /**
  * <b>EffectsCharacterOnRoundOrTurnChange</b>
  * <p>
- * This describes the effects that a {@link CharacterVariableStatisticType} or
- * {@link StatusEffectType} has on a {@link Character#getVariableStatisticCurrentValue} at the end
- * of a round, or the start or end of that {@link Character}'s turn.
+ * This describes the effects that a {@link StatisticType} or {@link StatusEffectType} has on a
+ * {@link Character#getVariableStatisticCurrentValue} at the end of a round, or the start or end of
+ * that {@link Character}'s turn.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -40,7 +41,7 @@ public interface EffectsCharacterOnRoundOrTurnChange extends SoliloquyClass {
     interface EffectsOnCharacter extends HasPriority {
         /**
          * @return The magnitude of change that this entity has on one or more
-         *         {@link CharacterVariableStatisticType}s. It is assumed that this will never be
+         *         {@link VariableStatisticType}s. It is assumed that this will never be
          *         null.
          */
         @SuppressWarnings("rawtypes")

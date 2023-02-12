@@ -7,6 +7,6 @@ import soliloquy.specs.ruleset.entities.HasDescription;
 import soliloquy.specs.ruleset.entities.HasImageAssetSet;
 import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange;
 
-public interface CharacterStatisticType extends EffectsCharacterOnRoundOrTurnChange, HasId,
+public interface StatisticType extends EffectsCharacterOnRoundOrTurnChange, HasId,
         HasName, HasDescription, HasImageAssetSet, HasColorShifts {
 }

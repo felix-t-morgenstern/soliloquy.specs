@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
-import soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType;
+import soliloquy.specs.ruleset.entities.character.VariableStatisticType;
 import soliloquy.specs.ruleset.entities.Element;
 
 /**
@@ -39,8 +39,7 @@ public interface VariableStatisticLossResistanceCalculation extends SoliloquyCla
      *                                  or element is null in a case which does not permit it to be
      *                                  null
      */
-    int calculateEffectiveChange(Character character,
-                                 CharacterVariableStatisticType variableStatisticType,
+    int calculateEffectiveChange(Character character, VariableStatisticType variableStatisticType,
                                  int baseAmount, Element element, AbilitySource abilitySource)
             throws IllegalStateException, IllegalArgumentException;
 }

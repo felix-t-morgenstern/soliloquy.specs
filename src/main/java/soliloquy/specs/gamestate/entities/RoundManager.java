@@ -3,6 +3,7 @@ package soliloquy.specs.gamestate.entities;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.ruleset.entities.character.StatisticType;
 
 import java.util.List;
 
@@ -104,13 +105,11 @@ public interface RoundManager extends SoliloquyClass {
     void clearQueue();
 
     /**
-     * @return A read-only representation of the Character queue, where the number index to the
-     *         List is the order of Characters in the queue, and the VariableCache paired with that
+     * @return A read-only representation of the Character queue, where the number index to the List
+     *         is the order of Characters in the queue, and the VariableCache paired with that
      *         Character describes all information about that Character that is specific to that
-     *         round
-     *         only, e.g. the Character's action points, whether they are spending the round in
-     *         defensive
-     *         mode, etc.
+     *         round only, e.g. the Character's action points, whether they are spending the round
+     *         in defensive mode, etc.
      */
     List<Pair<Character, VariableCache>> characterQueueRepresentation();
 
@@ -146,10 +145,8 @@ public interface RoundManager extends SoliloquyClass {
      * Intended use case will have this method invoke the
      * {@link
      * soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange}
-     * from the Character's
-     * {@link soliloquy.specs.ruleset.entities.character.CharacterVariableStatisticType}s and
-     * {@link CharacterStatusEffects}, and it will also check to see if Timers should be triggered
-     * by calling
+     * from the Character's {@link StatisticType}s and {@link CharacterStatusEffects}, and it will
+     * also check to see if Timers should be triggered by calling
      * {@link
      * soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager#fireTimersForRoundsElapsed}.
      * If the round is advanced from round N to round M, the
