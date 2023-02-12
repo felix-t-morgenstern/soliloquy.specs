@@ -1,6 +1,6 @@
 # Soliloquy Specs
 
-This project is a series of interfaces whose namespace (beneath "soliloquy") specify an intended module.
+This project is a series of interfaces whose second-level namespace values (beneath "soliloquy", e.g. "common", "ruleset") specify an intended module.
 
 This project is to only contain interfaces. Any implementations are to be placed in separate projects for the corresponding modules.
 
@@ -10,7 +10,7 @@ These instructions will get you a copy of the Soliloquy Specs running on your lo
 
 ### Prerequisites
 
-* [Maven](https://maven.apache.org/) - Dependency Management
+* [Gradle](https://gradle.org/) - Dependency Management
 
 ### Installing
 
