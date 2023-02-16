@@ -3,13 +3,9 @@ package soliloquy.specs.ruleset.entities.abilities;
 /**
  * <b>PassiveAbility</b>
  * <p>
- * A Passive Ability belongs only to an {@link soliloquy.specs.gamestate.entities.Item}. (For
- * {@link soliloquy.specs.gamestate.entities.Character}s, the equivalent of a passive ability would
- * be represented through a {@link soliloquy.specs.gamestate.entities.CharacterStatistic}, a
- * {@link soliloquy.specs.gamestate.entities.CharacterStatusEffects}, or that Character's data.
- * <p>
- * It can generate a description for a specific PassiveAbility, depending on the parameters of
- * its effectiveness.
+ * A Passive Ability is an {@link Ability} which cannot be actively used (see {@link ActiveAbility},
+ * and which is not activated in response to some other Ability or event (see
+ * {@link ReactiveAbility}).
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
