@@ -5,6 +5,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.character.StatisticType;
 
+import java.math.BigDecimal;
 import java.util.Map;
 
 /**
@@ -30,7 +31,7 @@ public interface StatisticCalculation extends SoliloquyClass {
 
     /**
      * This method calculates both the value for a {@link Character}, as well as a Map of various
-     * modifier types with the respective integer adjustments
+     * modifying entities with the respective adjustment amounts
      *
      * @param character     The {@link Character} whose statistic to calculate
      * @param statisticType The type of the statistic to calculate for character
@@ -40,7 +41,7 @@ public interface StatisticCalculation extends SoliloquyClass {
      * @throws IllegalArgumentException If and only if character or entityType are null
      * @throws IllegalStateException    If and only if character is deleted
      */
-    Pair<Integer, Map<String, Float>> calculateWithDescriptors(Character character,
-                                                               StatisticType statisticType)
+    Pair<Integer, Map<Object, BigDecimal>> calculateWithDescriptors(Character character,
+                                                                    StatisticType statisticType)
             throws IllegalArgumentException, IllegalStateException;
 }
