@@ -12,5 +12,5 @@ import soliloquy.specs.gamestate.entities.KeyBinding;
  * @version 0.0.1
  */
 public interface KeyBindingFactory extends SoliloquyClass {
-    KeyBinding make();
+    KeyBinding make(char[] chars);
 }

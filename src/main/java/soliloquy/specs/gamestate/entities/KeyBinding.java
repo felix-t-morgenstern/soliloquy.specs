@@ -42,14 +42,14 @@ public interface KeyBinding extends SoliloquyClass {
     void setOnPress(Action<Long> onPress);
 
     /**
-     * @return The Id of the Action that is ran when this key is pressed; can be null
+     * @return The id of the Action that is run when this key is pressed; can be null
      */
     String onPressActionId();
 
     /**
      * Runs the Action that is run when this key is released
      *
-     * @throws IllegalArgumentException If and only if timestamp is before most recent timestamp
+     * @throws IllegalArgumentException If and only if timestamp is before the most recent timestamp
      *                                  provided to class
      */
     void release(long timestamp) throws IllegalArgumentException;
@@ -60,7 +60,7 @@ public interface KeyBinding extends SoliloquyClass {
     void setOnRelease(Action<Long> onRelease);
 
     /**
-     * @return The Id of the Action that is ran when this key is released; can be null
+     * @return The id of the Action that is run when this key is released; can be null
      */
     String onReleaseActionId();
 
