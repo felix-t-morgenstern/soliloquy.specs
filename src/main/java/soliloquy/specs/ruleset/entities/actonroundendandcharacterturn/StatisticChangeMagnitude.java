@@ -5,6 +5,7 @@ import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.ruleset.entities.Element;
 import soliloquy.specs.ruleset.entities.character.VariableStatisticType;
 import soliloquy.specs.ruleset.entities.character.StatusEffectType;
+import soliloquy.specs.ruleset.gameconcepts.DamageResistanceCalculation;
 
 /**
  * <b>StatisticChangeMagnitude</b>
@@ -78,8 +79,7 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
          */
         ALTERATION(1),
         /**
-         * A magnitude that is Damage is reduced according to
-         * {@link soliloquy.specs.ruleset.gameconcepts.VariableStatisticLossResistanceCalculation}
+         * A magnitude that is Damage is reduced according to {@link DamageResistanceCalculation}
          * before effecting the CharacterVariableStatistic
          */
         DAMAGE(2);

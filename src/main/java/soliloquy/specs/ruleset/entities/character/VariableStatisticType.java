@@ -4,6 +4,7 @@ import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.ruleset.entities.IconForCharacter;
+import soliloquy.specs.ruleset.gameconcepts.DamageResistanceCalculation;
 
 /**
  * <b>VariableStatisticType</b>
@@ -21,8 +22,7 @@ public interface VariableStatisticType
         extends StatisticType, HasPluralName, IconForCharacter {
     /**
      * This function is to be used after incoming changes have been moderated by
-     * {@link soliloquy.specs.ruleset.gameconcepts.VariableStatisticLossResistanceCalculation}, if
-     * applicable.
+     * {@link DamageResistanceCalculation}, if applicable.
      *
      * @param character The character whose current value to alter
      * @param amount    The amount by which to alter the current value

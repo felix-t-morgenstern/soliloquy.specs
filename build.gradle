@@ -31,7 +31,7 @@ publishing {
             url = uri("https://maven.pkg.github.com/felix-t-morgenstern/soliloquy.specs")
             credentials {
                 username = 'felix-t-morgenstern'
-                password = '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'
+                password = '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'
             }
         }
     }

@@ -22,8 +22,7 @@ import soliloquy.specs.ruleset.entities.character.StatusEffectType;
 public interface StatisticMagnitudeEffectCalculation {
     /**
      * Calculates an ultimate statistic change effect for a change of a given magnitude, after
-     * potentially taking into account resistances (see
-     * {@link VariableStatisticLossResistanceCalculation} and
+     * potentially taking into account resistances (see {@link DamageResistanceCalculation} and
      * {@link StatusEffectResistanceCalculation}).
      * <p>
      * This method is only for StatisticChangeMagnitudes of {@link StaticStatisticType}s.
@@ -42,8 +41,7 @@ public interface StatisticMagnitudeEffectCalculation {
 
     /**
      * Calculates an ultimate statistic change effect for a change of a given magnitude, after
-     * potentially taking into account resistances (see
-     * {@link VariableStatisticLossResistanceCalculation} and
+     * potentially taking into account resistances (see {@link DamageResistanceCalculation} and
      * {@link StatusEffectResistanceCalculation}).
      * <p>
      * This method is only for StatisticChangeMagnitudes of {@link VariableStatisticType}s.
@@ -62,8 +60,7 @@ public interface StatisticMagnitudeEffectCalculation {
 
     /**
      * Calculates an ultimate statistic change effect for a change of a given magnitude, after
-     * potentially taking into account resistances (see
-     * {@link VariableStatisticLossResistanceCalculation} and
+     * potentially taking into account resistances (see {@link DamageResistanceCalculation} and
      * {@link StatusEffectResistanceCalculation}).
      * <p>
      * This method is only for StatisticChangeMagnitudes of {@link StatusEffectType}s.
