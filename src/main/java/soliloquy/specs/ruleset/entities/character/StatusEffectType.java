@@ -4,6 +4,7 @@ import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
+import soliloquy.specs.ruleset.entities.HasResistanceStat;
 import soliloquy.specs.ruleset.entities.IconForCharacter;
 import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange;
 
@@ -19,7 +20,8 @@ import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCha
  * @version 0.0.1
  */
 public interface StatusEffectType
-        extends EffectsCharacterOnRoundOrTurnChange, IconForCharacter, HasName, HasId {
+        extends EffectsCharacterOnRoundOrTurnChange, IconForCharacter, HasName, HasId,
+        HasResistanceStat {
     /**
      * Intended use is to return true if and only if it makes no sense for this StatusEffectType to
      * ever go below zero. For instance, it makes no sense to have a negative amount of poisoning
@@ -37,7 +39,7 @@ public interface StatusEffectType
      *
      * @param value The value of this StatusEffect whose name to retrieve
      * @return The proper name for the StatusEffectType, depending on its value (e.g. whether it is
-     *         non-negative)
+     * non-negative)
      * @throws UnsupportedOperationException If and only if this StatusEffectType cannot be
      *                                       negative (i.e. if and only if stopsAtZero returns
      *                                       true)

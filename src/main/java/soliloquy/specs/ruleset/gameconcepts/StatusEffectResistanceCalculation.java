@@ -21,6 +21,11 @@ public interface StatusEffectResistanceCalculation extends SoliloquyClass {
     /**
      * Calculates the effective change to a Status Effect for a specific Character, given the
      * following parameters:
+     * <p>
+     * <i>NB: At present, it is assumed that the <u>greater</u> of
+     * {@link Element#resistanceStatisticType()} or
+     * {@link StatusEffectType#resistanceStatisticType()} will be used to calculate effective
+     * resistance.</i>
      *
      * @param character        The Character whose resistance to calculate
      * @param statusEffectType The type of the Status Effect to be effected
@@ -36,15 +41,13 @@ public interface StatusEffectResistanceCalculation extends SoliloquyClass {
      *                         "non-elemental" attack, create an element for "non-elemental" (and
      *                         then perhaps implement
      *                         this interface to ignore resistances for that Element).
-     * @param abilitySource    The AbilitySource of this effect. May be null.
      * @return The effective change to this Character's Status Effect of the specified type, after
-     *         having calculated appropriate resistances.
+     * having calculated appropriate resistances.
      * @throws IllegalStateException    If and only if the Character is dead or deleted
      * @throws IllegalArgumentException If and only if Character is null, StatusEffectType is null,
      *                                  or element is null
      */
     int calculateEffectiveChange(Character character, StatusEffectType statusEffectType,
-                                 int baseAmount, boolean stopAtZero, Element element,
-                                 AbilitySource abilitySource)
+                                 int baseAmount, boolean stopAtZero, Element element)
             throws IllegalStateException, IllegalArgumentException;
 }
