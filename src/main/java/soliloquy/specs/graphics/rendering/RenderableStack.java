@@ -49,6 +49,7 @@ public interface RenderableStack extends Renderable {
     void remove(Renderable renderable) throws IllegalArgumentException;
 
     /**
+     * <i>NB: To be used by {@link RenderingBoundaries#currentBoundaries()}</i>
      * @return Provider for the rendering boundaries of this RenderableStack; all Renderables
      * contained within will not be drawn beyond the dimensions provided here
      */

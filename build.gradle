@@ -19,14 +19,14 @@ repositories {
 }
 
 group = 'disorg.soliloquy'
-version = '0.0.498'
+version = '0.0.505'
 description = 'Soliloquy Specifications'
 java.sourceCompatibility = JavaVersion.VERSION_18
 
 publishing {
     publications {
-        myLibrary(MavenPublication) {
-            from components.java
+        gpr(MavenPublication) {
+            from(components.java)
         }
     }
     repositories {
@@ -35,7 +35,7 @@ publishing {
             url = uri("https://maven.pkg.github.com/felix-t-morgenstern/soliloquy.specs")
             credentials {
                 username = 'felix-t-morgenstern'
-                password = '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'
+                password = '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'
             }
         }
     }

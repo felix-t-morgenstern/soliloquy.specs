@@ -14,7 +14,7 @@ import java.awt.*;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CircleRenderable extends SoliloquyClass {
+public interface CircleRenderable extends Renderable {
     /**
      * @return A Provider, which specifies the point in the screen at which the circle is centered
      */

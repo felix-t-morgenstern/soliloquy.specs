@@ -117,12 +117,18 @@ public interface StatisticChangeMagnitude<TValue extends Number> extends Soliloq
          * A magnitude whose AmountType is Percent Of Current will impact the corresponding
          * {@link soliloquy.specs.gamestate.entities.Character#getVariableStatisticCurrentValue} by
          * a percentage of its current value.
+         * <p>
+         * An example of this would be a disease, which each turn drains you of 5-10% of your
+         * current health.
          */
         PERCENT_OF_CURRENT(2),
         /**
          * A magnitude whose AmountType is Percent Of Maximum will impact the corresponding
          * {@link soliloquy.specs.gamestate.entities.Character#getVariableStatisticCurrentValue} by
          * a percentage of its maximum value.
+         * <p>
+         * An example of this would be magical regeneration, which each turn gives you back 2-4% of
+         * your maximum health.
          */
         PERCENT_OF_MAXIMUM(3);
 
