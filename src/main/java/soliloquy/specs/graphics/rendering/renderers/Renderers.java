@@ -27,6 +27,12 @@ public interface Renderers extends HasMostRecentTimestamp {
             throws IllegalArgumentException;
 
     /**
+     * @param stackRenderer The StackRenderer to be used
+     * @throws IllegalArgumentException If and only if stackRenderer is null
+     */
+    void registerStackRenderer(StackRenderer stackRenderer) throws IllegalArgumentException;
+
+    /**
      * @param renderable The renderable to render
      * @param timestamp  The timestamp at which to render the Renderable; this parameter is of
      *                   particular importance to {@link ProviderAtTime}.

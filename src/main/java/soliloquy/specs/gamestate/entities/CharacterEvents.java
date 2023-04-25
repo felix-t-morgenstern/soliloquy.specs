@@ -31,6 +31,13 @@ public interface CharacterEvents extends Deletable {
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
+     * @param trigger The event trigger
+     * @return All the CharacterEvents corresponding to a given trigger
+     * @throws IllegalArgumentException If and only if trigger is null or empty
+     */
+    CharacterEvent[] eventsForTrigger(String trigger) throws IllegalArgumentException;
+
+    /**
      * @param event The event which will no longer be associated with the specified trigger
      * @return True, if and only if the specified event had previously been associated with the
      *         specified trigger type

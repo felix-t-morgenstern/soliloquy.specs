@@ -14,7 +14,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RenderingBoundaries extends Iterable<FloatBox>, SoliloquyClass {
+public interface RenderingBoundaries extends SoliloquyClass {
     /**
      * <i>NB: If there is no place in the window within which rendering can take place, this method
      * returns null.</i>

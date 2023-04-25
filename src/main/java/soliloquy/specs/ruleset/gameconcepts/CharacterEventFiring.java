@@ -2,6 +2,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.HasPriority;
+import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
@@ -16,7 +17,7 @@ import soliloquy.specs.ruleset.entities.abilities.Ability;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterEventFiring {
+public interface CharacterEventFiring extends SoliloquyClass {
     /**
      * @param target The Character being targeted by the event
      * @param event  The type of event being fired
