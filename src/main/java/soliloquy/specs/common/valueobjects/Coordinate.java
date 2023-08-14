@@ -3,7 +3,7 @@ package soliloquy.specs.common.valueobjects;
 import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
- * <b>Coordinate2d</b>
+ * <b>Coordinate</b>
  * <p>
  * This object has both an x and a y value.
  *

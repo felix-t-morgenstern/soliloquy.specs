@@ -17,7 +17,7 @@ public interface HasName extends SoliloquyClass {
     /**
      * Sets the name of the entity
      *
-     * @param name the name to which to set the entity
+     * @param name the name to which to set the entity (can be null)
      */
     void setName(String name);
 }

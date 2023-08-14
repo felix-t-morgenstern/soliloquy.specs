@@ -33,12 +33,65 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
     Coordinate maxCoordinates();
 
     /**
-     * @param coordinate The coordinate of the Tile to retrieve
+     * @param location The Coordinate of the Tile to retrieve
      * @return The Tile at those coordinates
-     * @throws IllegalArgumentException If coordinate is null, or beyond the dimensions of the
+     * @throws IllegalArgumentException If location is null, or beyond the dimensions of the
      *                                  GameZone
      */
-    Tile tile(Coordinate coordinate) throws IllegalArgumentException;
+    Tile tile(Coordinate location) throws IllegalArgumentException;
+
+    /**
+     * A north-facing Segment with a location of (0,0) is on the north edge of the Tile at (0,0). A
+     * west-facing Segment with a location of (0,0) is on the west edge of the Tile at (0,0). A
+     * northwest-facing Segment with a location of (0,0) is in the northwest corner of the Tile at
+     * (0,0).
+     *
+     * @param location  The location of the Segments to retrieve
+     * @param direction The direction of Segments to retrieve at the location
+     * @return The Segments facing the specified direction at the specified location. The indexes of
+     *         the Map returned correspond to the z indices of the respective Segments.
+     * @throws IllegalArgumentException If and only if location or direction are null, or if the x
+     *                                  or y value of location are below 0, or if location is
+     *                                  beyond the {@link #maxCoordinates()}
+     */
+    Map<Integer, WallSegment> getSegments(Coordinate location,
+                                          WallSegmentDirection direction)
+            throws IllegalArgumentException;
+
+    /**
+     * @param location    The location at which to set the Segment  ({@link WallSegment#getType()}
+     *                    specifies the {@link WallSegmentDirection})
+     * @param z           The height at which to place the Segment
+     * @param wallSegment The Segment to set at the location provided. (Can be null)
+     * @throws IllegalArgumentException If and only if location or wallSegment are null, or if the
+     *                                  x or y value of location are below 0, or if location is
+     *                                  beyond the {@link #maxCoordinates()}
+     */
+    void setSegment(Coordinate location, int z, WallSegment wallSegment)
+            throws IllegalArgumentException;
+
+    /**
+     * @param location  The location at which to remove a Segment
+     * @param z         The z-index at which to remove a Segment
+     * @param direction The direction of Segment to remove
+     * @return True, if and only if a Segment was present, prior to being removed
+     * @throws IllegalArgumentException If and only if location or direction are null, or if the x
+     *                                  or y value of location are below 0, or if location is beyond
+     *                                  the {@link #maxCoordinates()}
+     */
+    boolean removeSegment(Coordinate location, int z, WallSegmentDirection direction)
+            throws IllegalArgumentException;
+
+    /**
+     * Removes all WallSegments facing a specified direction at a specified location
+     * @param location The location at which to remove all Segments
+     * @param direction The direction of Segments to remove
+     * @throws IllegalArgumentException If and only if location or direction are null, or if the x
+     *                                  or y value of location are below 0, or if location is beyond
+     *                                  the {@link #maxCoordinates()}
+     */
+    void removeAllSegments(Coordinate location, WallSegmentDirection direction)
+            throws IllegalArgumentException;
 
     /**
      * @return A List of Actions which are fired when the Party enters this GameZone.

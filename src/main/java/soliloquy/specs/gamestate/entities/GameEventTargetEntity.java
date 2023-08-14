@@ -17,7 +17,7 @@ import java.util.List;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GameEventTargetEntity extends SoliloquyClass {
+public interface GameEventTargetEntity extends GameEntity {
     /**
      * @return A {@link List} of {@link GameMovementEvent}s, triggered when a {@link Character}
      *         steps on this entity.
@@ -26,6 +26,7 @@ public interface GameEventTargetEntity extends SoliloquyClass {
     List<GameMovementEvent> movementEvents() throws IllegalStateException;
 
     /**
+     * An example of this is a barrel being burned away by a fireball.
      * @return A {@link List} of {@link GameMovementEvent}s, triggered when a {@link Character} or
      *         {@link Item} uses an {@link Ability} on this entity.
      * @throws IllegalStateException If this entity has been deleted

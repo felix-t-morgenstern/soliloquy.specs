@@ -3,7 +3,7 @@ package soliloquy.specs.gamestate.entities.gameevents;
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.gamestate.entities.TileFixture;
-import soliloquy.specs.gamestate.entities.TileWallSegment;
+import soliloquy.specs.gamestate.entities.WallSegment;
 
 /**
  * <b>GameEventSource</b>
@@ -28,8 +28,8 @@ public interface GameEventTarget extends SoliloquyClass {
     TileFixture tileFixture();
 
     /**
-     * @return The {@link TileWallSegment} which is the target for this {@link GameMovementEvent};
+     * @return The {@link WallSegment} which is the target for this {@link GameMovementEvent};
      *         may be null.
      */
-    TileWallSegment tileWallSegment();
+    WallSegment tileWallSegment();
 }

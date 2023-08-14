@@ -2,7 +2,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.gamestate.entities.TileWallSegment;
+import soliloquy.specs.gamestate.entities.WallSegment;
 
 /**
  * <b>TileVisibility</b>
@@ -22,6 +22,6 @@ public interface TileVisibility extends SoliloquyClass {
      */
     boolean canSeeTile(Tile origin, Tile target) throws IllegalArgumentException;
 
-    boolean canSeeTileWallSegment(Tile origin, TileWallSegment tileWallSegment)
+    boolean canSeeTileWallSegment(Tile origin, WallSegment wallSegment)
             throws IllegalArgumentException;
 }

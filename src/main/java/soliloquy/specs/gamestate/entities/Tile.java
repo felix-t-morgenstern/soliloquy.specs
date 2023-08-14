@@ -17,7 +17,7 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Tile extends GameEventTargetEntity, Deletable, HasData {
+public interface Tile extends GameEventTargetEntity {
     /**
      * @return The GameZone in which this Tile exists
      * @throws IllegalStateException If the GameZone does not contain this Tile at the location
@@ -71,20 +71,6 @@ public interface Tile extends GameEventTargetEntity, Deletable, HasData {
      * @throws IllegalStateException If this Tile has been deleted
      */
     TileEntities<TileFixture> fixtures() throws IllegalStateException;
-
-    /**
-     * This is a numbered Map of numbered Maps of TileWallSegments.
-     * <p>
-     * The first (outer) index refers to the height.
-     * <p>
-     * The second (inner) index is the z-index, i.e. the determinant of which wall segments go
-     * "atop" one another. (For instance, you may have a cliff face; and that cliff face may have
-     * rock outcrops on it, which are also TileWallSegments.)
-     *
-     * @return A collection of the TileWallSegments on this Tile
-     * @throws IllegalStateException If this Tile has been deleted
-     */
-    TileWallSegments wallSegments() throws IllegalStateException;
 
     /**
      * @return A numbered Map of Sprites on this Tile, where the numerical value of the Map
