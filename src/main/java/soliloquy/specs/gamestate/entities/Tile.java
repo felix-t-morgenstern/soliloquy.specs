@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.Coordinate;
+import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.ruleset.entities.GroundType;
 
@@ -29,7 +29,7 @@ public interface Tile extends GameEventTargetEntity {
      * @return The Coordinate at which this Tile is located
      * @throws IllegalStateException If the GameZone does not contain this Tile at the location
      */
-    Coordinate location() throws IllegalStateException;
+    Coordinate2d location() throws IllegalStateException;
 
     /**
      * @return The height of this Tile in the GameWorld

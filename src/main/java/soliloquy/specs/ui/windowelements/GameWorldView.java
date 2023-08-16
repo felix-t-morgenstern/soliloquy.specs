@@ -1,7 +1,7 @@
 package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.Coordinate;
+import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.gamestate.entities.Camera;
 import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.graphics.assets.Sprite;
@@ -17,7 +17,7 @@ public interface GameWorldView extends SoliloquyClass {
 
     void refreshView();
 
-    Map<Coordinate, Tile> tiles();
+    Map<Coordinate2d, Tile> tiles();
 
     // NB: The index implies the z index
     Map<Integer, Sprite> gameWorldBoxSprites();

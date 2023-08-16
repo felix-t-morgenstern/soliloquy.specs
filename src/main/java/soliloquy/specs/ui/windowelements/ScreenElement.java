@@ -1,6 +1,6 @@
 package soliloquy.specs.ui.windowelements;
 
-import soliloquy.specs.common.valueobjects.Coordinate;
+import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.graphics.renderables.Renderable;
 
 /**
@@ -42,5 +42,5 @@ public interface ScreenElement extends Renderable {
     /**
      * @param offset The (x,y) offset in the Screen to which to set this ScreenElement
      */
-    void setOffset(Coordinate offset);
+    void setOffset(Coordinate2d offset);
 }

@@ -1,27 +1,26 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.gamestate.entities.WallSegment;
 
-/**
- * <b>TileVisibility</b>
- * <p>
- * This class contains the rules determining whether a Character on one Tile can see another Tile
- *
- * @author felix.t.morgenstern
- * @version 0.0.1
- */
-public interface TileVisibility extends SoliloquyClass {
+public interface TileVisibility {
     /**
-     * @param origin The origin Tile
-     * @param target The destination Tile
-     * @return True, if and only if a Character on the origin Tile can see the target Tile
-     * @throws IllegalArgumentException If either origin or target are null, if they are the same
-     *                                  Tile, or if they are in different GameZones
+     * (Ray targets are calculated radially. The center of the origin point can be considered
+     * (0.0,0.0); the tile below it would be (0.0,1.0), and so on. If the center of a Tile is within
+     * a circle centered on the origin with the provided radius, then it is included among the
+     * targets to be used by {@link TileVisibilityCalculation#castRay}.)
+     *
+     * @param point            The point at which visibility is calculated
+     * @param visibilityRadius The number of Tiles away from the provided point to use as targets
+     *                         when casting visibility rays. A radius of 0 implies that only the
+     *                         point itself and its neighboring
+     *                         {@link soliloquy.specs.gamestate.entities.WallSegment}s are visible,
+     *                         and not any Tiles or WallSegments past that.
+     * @return The visibility of all {@link Tile}s and
+     *         {@link soliloquy.specs.gamestate.entities.WallSegment}s visible from the provided
+     *         point
+     * @throws IllegalArgumentException If and only if point is null, or visibilityRadius is
+     *                                  negative.
      */
-    boolean canSeeTile(Tile origin, Tile target) throws IllegalArgumentException;
-
-    boolean canSeeTileWallSegment(Tile origin, WallSegment wallSegment)
+    TileVisibilityCalculation.Result atPoint(Tile point, int visibilityRadius)
             throws IllegalArgumentException;
 }

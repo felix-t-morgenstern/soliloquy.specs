@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.assets;
 
-import soliloquy.specs.common.valueobjects.Coordinate;
+import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.util.Map;
@@ -31,7 +31,7 @@ public interface FontStyleInfo extends HasTextureId {
     /**
      * @return The dimensions of the texture generated for this style of the font
      */
-    Coordinate textureDimensions();
+    Coordinate2d textureDimensions();
 
     /**
      * @return The width-to-height ratio of the texture generated for this style of the font
