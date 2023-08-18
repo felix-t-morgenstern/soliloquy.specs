@@ -17,104 +17,14 @@ import soliloquy.specs.common.shared.HasTwoGenericParams;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public class Pair<T1, T2> implements Cloneable<Pair<T1, T2>>, HasTwoGenericParams<T1, T2> {
-    private final T1 ITEM_1;
-    private final T2 ITEM_2;
-
-    private final T1 ARCHETYPE_1;
-    private final T2 ARCHETYPE_2;
-
-    public Pair(T1 item1, T2 item2) {
-        if (item1 == null) {
-            throw new IllegalArgumentException(
-                    "Pair: item1 cannot be null if no archetypes are provided");
-        }
-        if (item2 == null) {
-            throw new IllegalArgumentException(
-                    "Pair: item2 cannot be null if no archetypes are provided");
-        }
-
-        ITEM_1 = item1;
-        ITEM_2 = item2;
-
-        ARCHETYPE_1 = item1;
-        ARCHETYPE_2 = item2;
-    }
-
-    public Pair(T1 item1, T2 item2, T1 archetype1, T2 archetype2) {
-        ITEM_1 = item1;
-        ITEM_2 = item2;
-        ARCHETYPE_1 = archetype1;
-        ARCHETYPE_2 = archetype2;
-    }
-
-    public static <Type1, Type2> Pair<Type1, Type2> of(Type1 item1, Type2 item2) {
-        return new Pair<>(item1, item2);
-    }
-
+public interface Pair<T1, T2> extends Cloneable<Pair<T1, T2>>, HasTwoGenericParams<T1, T2> {
     /**
      * @return The first item
      */
-    public T1 getItem1() {
-        return ITEM_1;
-    }
+    T1 item1();
 
     /**
      * @return The second item
      */
-    public T2 getItem2() {
-        return ITEM_2;
-    }
-
-    @Override
-    public Pair<T1, T2> makeClone() {
-        return new Pair<>(ITEM_1, ITEM_2, ARCHETYPE_1, ARCHETYPE_2);
-    }
-
-    @Override
-    public T1 getFirstArchetype() throws IllegalStateException {
-        return ARCHETYPE_1;
-    }
-
-    @Override
-    public T2 getSecondArchetype() throws IllegalStateException {
-        return ARCHETYPE_2;
-    }
-
-    @Override
-    public String getInterfaceName() {
-        return Pair.class.getCanonicalName();
-    }
-
-    @SuppressWarnings("RedundantIfStatement")
-    @Override
-    public boolean equals(Object obj) {
-        if (!(obj instanceof Pair)) {
-            return false;
-        }
-        //noinspection rawtypes
-        Pair pair = (Pair) obj;
-
-        if (ITEM_1 == null) {
-            if (pair.getItem1() != null) {
-                return false;
-            }
-        } else {
-            if (!ITEM_1.equals(pair.getItem1())) {
-                return false;
-            }
-        }
-
-        if (ITEM_2 == null) {
-            if (pair.getItem2() != null) {
-                return false;
-            }
-        } else {
-            if (!ITEM_2.equals(pair.getItem2())) {
-                return false;
-            }
-        }
-
-        return true;
-    }
+    T2 item2();
 }

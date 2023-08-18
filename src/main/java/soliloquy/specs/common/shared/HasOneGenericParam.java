@@ -21,5 +21,5 @@ public interface HasOneGenericParam<P1> extends SoliloquyClass {
     /**
      * @return The archetype provided to this class (to describe its generic parameter type)
      */
-    P1 getArchetype();
+    P1 archetype();
 }

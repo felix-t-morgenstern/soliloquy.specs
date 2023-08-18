@@ -2,6 +2,8 @@ package soliloquy.specs.common.valueobjects;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 
+import java.util.Objects;
+
 /**
  * <b>Coordinate</b>
  * <p>
@@ -42,5 +44,10 @@ public class Coordinate3d implements SoliloquyClass {
         else {
             return false;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(X, Y, Z);
     }
 }

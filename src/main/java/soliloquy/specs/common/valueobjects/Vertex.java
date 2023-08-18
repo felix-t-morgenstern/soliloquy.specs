@@ -1,5 +1,7 @@
 package soliloquy.specs.common.valueobjects;
 
+import java.util.Objects;
+
 public class Vertex {
     public final float X;
     public final float Y;
@@ -21,5 +23,10 @@ public class Vertex {
         } else {
             return false;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(X, Y);
     }
 }

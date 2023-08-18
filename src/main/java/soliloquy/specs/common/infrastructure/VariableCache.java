@@ -49,7 +49,7 @@ public interface VariableCache extends Cloneable<VariableCache>, SoliloquyClass 
      * @return A List of the names of the names of variables in this
      *         VariableCache
      */
-    List<String> namesRepresentation();
+    java.util.List<String> namesRepresentation();
 
     /**
      * NB: Changing the contents of this Map does not change which variables are present in this
@@ -58,7 +58,7 @@ public interface VariableCache extends Cloneable<VariableCache>, SoliloquyClass 
      *
      * @return A representation of the variables in this VariableCache
      */
-    Map<String, Object> variablesRepresentation();
+    java.util.Map<String, Object> variablesRepresentation();
 
     /**
      * Clears all variables in this VariableCache

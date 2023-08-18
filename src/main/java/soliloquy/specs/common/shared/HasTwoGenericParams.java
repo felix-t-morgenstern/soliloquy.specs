@@ -23,10 +23,10 @@ public interface HasTwoGenericParams<T1, T2> extends SoliloquyClass {
     /**
      * @return The first archetype
      */
-    T1 getFirstArchetype() throws IllegalStateException;
+    T1 firstArchetype() throws IllegalStateException;
 
     /**
      * @return The second archetype
      */
-    T2 getSecondArchetype() throws IllegalStateException;
+    T2 secondArchetype() throws IllegalStateException;
 }
