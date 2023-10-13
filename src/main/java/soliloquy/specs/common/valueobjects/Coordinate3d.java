@@ -27,6 +27,10 @@ public class Coordinate3d implements SoliloquyClass {
         return new Coordinate3d(x, y, z);
     }
 
+    public static Coordinate3d of(Coordinate2d coordinate2d, int z) {
+        return new Coordinate3d(coordinate2d.X, coordinate2d.Y, z);
+    }
+
     public Coordinate2d to2d() {
         return Coordinate2d.of(X, Y);
     }

@@ -61,15 +61,5 @@ public interface TileVisibilityCalculation extends SoliloquyClass {
          *         {@link soliloquy.specs.gamestate.entities.WallSegment}s of that type
          */
         Map<WallSegmentDirection, Set<Coordinate3d>> segments();
-
-        /**
-         * @param other The other Result whose visibility of Tiles and Segments to add to this one
-         * @return The combined visibility of Tiles and Segments from this and the other Result
-         * @throws IllegalArgumentException If and only if other is null, returns null for either
-         *                                  tiles or segments, is missing any
-         *                                  {@link WallSegmentDirection} keys, or has a null value
-         *                                  for any WallSegmentDirections.
-         */
-        Result aggregate(Result other) throws IllegalArgumentException;
     }
 }
