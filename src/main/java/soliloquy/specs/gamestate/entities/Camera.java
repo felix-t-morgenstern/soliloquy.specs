@@ -4,6 +4,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+import soliloquy.specs.ruleset.gameconcepts.TileVisibilityCalculation;
 
 import java.util.Map;
 import java.util.Set;
@@ -78,7 +79,7 @@ public interface Camera extends SoliloquyClass {
      * members, e.g. to reveal an area in cutscenes. The keys of the Map are the locations providing
      * visibility to the player, and the corresponding integers are the radii of visibility at those
      * locations. The radii are used in
-     * {@link soliloquy.specs.ruleset.gameconcepts.TileVisibility#atPoint}.
+     * {@link TileVisibilityCalculation#atPoint}.
      *
      * @return A modifiable collection of locations providing visibility to the player
      */
