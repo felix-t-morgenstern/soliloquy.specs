@@ -31,7 +31,7 @@ public interface WallSegmentType extends HasId, HasName {
      * A north-facing Segment goes between the north edge of one Tile and the south edge of another.
      * A west-facing Segment goes between the west edge of one Tile and the east edge of another. A
      * northwest-facing Segment goes in a corner between up to four Tiles. C.f.
-     * {@link GameZone#getSegments} for an explanation of how direction corresponds with location.
+     * {@link GameZone#getSegmentLocations} for an explanation of how direction corresponds with location.
      *
      * @return The direction of this Segment
      * @throws EntityDeletedException If this WallSegment has been deleted

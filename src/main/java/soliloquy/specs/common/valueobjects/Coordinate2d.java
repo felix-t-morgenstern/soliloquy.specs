@@ -25,9 +25,18 @@ public class Coordinate2d implements SoliloquyClass {
         return new Coordinate2d(x, y);
     }
 
+    public Coordinate3d to3d (int z) {
+        return Coordinate3d.of(X, Y, z);
+    }
+
     @Override
     public String getInterfaceName() {
         return Coordinate2d.class.getCanonicalName();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%d,%d)", X, Y);
     }
 
     @Override

@@ -5,9 +5,11 @@ import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Coordinate3d;
+import soliloquy.specs.common.valueobjects.Pair;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -47,16 +49,16 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      * northwest-facing Segment with a location of (0,0) is in the northwest corner of the Tile at
      * (0,0).
      *
-     * @param location  The location of the Segments to retrieve
-     * @param direction The direction of Segments to retrieve at the location
-     * @return The Segments facing the specified direction at the specified location. The indexes of
-     *         the Map returned correspond to the z indices of the respective Segments.
+     * @param location The location of the Segments to retrieve
+     * @return The 3d locations of the WallSegments adjacent to the given location, and the
+     *         corresponding actual WallSegment, for each orientation. The value entries for each
+     *         key correspond to a given location and segment, whose orientation is the
+     *         corresponding key.
      * @throws IllegalArgumentException If and only if location or direction are null, or if the x
      *                                  or y value of location are below 0, or if location is
      *                                  beyond the {@link #maxCoordinates()}
      */
-    Map<Integer, WallSegment> getSegments(Coordinate2d location,
-                                          WallSegmentDirection direction)
+    Map<WallSegmentDirection, Map<Coordinate3d, WallSegment>> getSegments(Coordinate2d location)
             throws IllegalArgumentException;
 
     /**
@@ -82,8 +84,11 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
             throws IllegalArgumentException;
 
     /**
-     * Removes all WallSegments facing a specified direction at a specified location
-     * @param location The location at which to remove all Segments
+     * Removes all WallSegments of a given orientation at a given coordinate. (These are the
+     * coordinates of the segments themselves, and not the tiles; c.f. {@link #getSegments} for more
+     * info.)
+     *
+     * @param location  The location at which to remove all Segments
      * @param direction The direction of Segments to remove
      * @throws IllegalArgumentException If and only if location or direction are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond

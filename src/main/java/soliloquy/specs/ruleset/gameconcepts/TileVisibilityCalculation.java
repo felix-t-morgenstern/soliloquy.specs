@@ -38,7 +38,7 @@ public interface TileVisibilityCalculation {
 
         /**
          * @return A mapping of WallSegmentDirections to the locations (c.f.
-         *         {@link soliloquy.specs.gamestate.entities.GameZone#getSegments}) of visible
+         *         {@link soliloquy.specs.gamestate.entities.GameZone#getSegmentLocations}) of visible
          *         {@link soliloquy.specs.gamestate.entities.WallSegment}s of that type
          */
         Map<WallSegmentDirection, Set<Coordinate3d>> segments();

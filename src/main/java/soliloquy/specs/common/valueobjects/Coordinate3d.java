@@ -41,6 +41,11 @@ public class Coordinate3d implements SoliloquyClass {
     }
 
     @Override
+    public String toString() {
+        return String.format("(%d,%d,%d)", X, Y, Z);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o instanceof Coordinate3d coordinate3d) {
             return coordinate3d.X == X && coordinate3d.Y == Y && coordinate3d.Z == Z;
