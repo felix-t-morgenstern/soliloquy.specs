@@ -19,7 +19,7 @@ repositories {
 }
 
 group = 'disorg.soliloquy'
-version = '0.0.522'
+version = '0.0.524'
 description = 'Soliloquy Specifications'
 java.sourceCompatibility = JavaVersion.VERSION_18
 

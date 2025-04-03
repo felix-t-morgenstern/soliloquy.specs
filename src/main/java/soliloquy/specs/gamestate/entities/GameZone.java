@@ -9,6 +9,7 @@ import soliloquy.specs.gamestate.entities.shared.HasData;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -35,12 +36,57 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
     Coordinate2d maxCoordinates();
 
     /**
+     * This method is used when you know the z-index of the Tile you want to retrieve. If you don't
+     * know which z-index a Tile is at, use the method which accepts a Coordinate2d.
+     *
      * @param location The Coordinate of the Tile to retrieve
-     * @return The Tile at those coordinates
-     * @throws IllegalArgumentException If location is null, or beyond the dimensions of the
+     * @return The Tile at those coordinates, null if no Tile is present
+     * @throws IllegalArgumentException If and only if location is null, or beyond the dimensions of
+     *                                  the
      *                                  GameZone
      */
-    Tile tile(Coordinate2d location) throws IllegalArgumentException;
+    Tile tile(Coordinate3d location) throws IllegalArgumentException;
+
+    /**
+     * This method will return all Tiles at a location, regardless of z-indices. If you only want to
+     * return a single Tile and know its z-index, use the method which accepts at Coordinate3d.
+     *
+     * @param location The Coordinate of the Tiles to retrieve
+     * @return The Tiles at those coordinates, null if no Tiles are present
+     * @throws IllegalArgumentException If and only if location is null, or beyond the dimensions of
+     *                                  the
+     *                                  GameZone
+     */
+    Set<Tile> tiles(Coordinate2d location) throws IllegalArgumentException;
+
+    /**
+     * When this method places a Tile on a location which already has a Tile, it does not transport
+     * any {@link TileEntity}s from the previous Tile to the new one.
+     *
+     * @param tile     The tile to place at the location
+     * @param location The location at which to place tile
+     * @return The tile which had previously been present at the location, null if none was present
+     * @throws IllegalArgumentException If and only if tile is null, tile is already present in the
+     *                                  GameZone, or location is null or beyond the dimensions of
+     *                                  the GameZone
+     */
+    Tile addTile(Tile tile, Coordinate3d location) throws IllegalArgumentException;
+
+    /**
+     * @param location The location of the Tile to remove
+     * @return The Tile removed from the location, null if none was present
+     * @throws IllegalArgumentException If and only if location is null or beyond the dimensions of
+     *                                  the GameZone
+     */
+    Tile removeTile(Coordinate3d location) throws IllegalArgumentException;
+
+    /**
+     * @param location The location of the Tiles to remove
+     * @return The Tiles removed from the location, empty Set if none were present
+     * @throws IllegalArgumentException If and only if location is null or beyond the dimensions of
+     *                                  the GameZone
+     */
+    Set<Tile> removeTiles(Coordinate2d location) throws IllegalArgumentException;
 
     /**
      * @param location The location of the Segments to retrieve
@@ -89,7 +135,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
-    void removeAllSegments(Coordinate2d location, WallSegmentOrientation orientation)
+    Set<WallSegment> removeAllSegments(Coordinate2d location, WallSegmentOrientation orientation)
             throws IllegalArgumentException;
 
     /**
@@ -98,6 +144,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *         (It is expected that this will be called when GameState.setCurrentGameZone is
      *         called.)
      */
+    @SuppressWarnings("rawtypes")
     List<Action> onEntry();
 
     /**
@@ -109,6 +156,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *         (Also, this is where Timers which are intended only for this GameZone can be
      *         eliminated.)
      */
+    @SuppressWarnings("rawtypes")
     List<Action> onExit();
 
     /**
