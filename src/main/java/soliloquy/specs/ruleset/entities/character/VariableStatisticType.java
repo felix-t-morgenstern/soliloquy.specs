@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.entities.character;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.ruleset.entities.IconForCharacter;
+import soliloquy.specs.ruleset.entities.shared.HasIconForCharacter;
 import soliloquy.specs.ruleset.gameconcepts.DamageResistanceCalculation;
 
 /**
@@ -19,7 +19,7 @@ import soliloquy.specs.ruleset.gameconcepts.DamageResistanceCalculation;
  * @version 0.0.1
  */
 public interface VariableStatisticType
-        extends StatisticType, HasPluralName, IconForCharacter {
+        extends StatisticType, HasPluralName, HasIconForCharacter {
     /**
      * This function is to be used after incoming changes have been moderated by
      * {@link DamageResistanceCalculation}, if applicable.

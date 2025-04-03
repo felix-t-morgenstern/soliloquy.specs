@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities;
+package soliloquy.specs.ruleset.entities.shared;
 
 /**
  * <b>HasDescription</b>

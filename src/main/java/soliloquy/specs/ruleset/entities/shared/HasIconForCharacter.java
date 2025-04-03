@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities;
+package soliloquy.specs.ruleset.entities.shared;
 
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.gamestate.entities.Character;
@@ -16,7 +16,7 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface IconForCharacter {
+public interface HasIconForCharacter {
     /**
      * @param iconType  The type of icon to retrieve for a
      *                  {@link soliloquy.specs.ruleset.entities.character.StatusEffectType} or

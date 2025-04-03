@@ -1,5 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.gamestate.entities.shared.HasData;
+
 /**
  * <b>GameEntity</b>
  * <p>

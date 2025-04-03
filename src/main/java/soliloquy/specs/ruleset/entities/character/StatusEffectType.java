@@ -4,8 +4,8 @@ import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.ruleset.entities.HasResistanceStat;
-import soliloquy.specs.ruleset.entities.IconForCharacter;
+import soliloquy.specs.ruleset.entities.shared.HasResistanceStat;
+import soliloquy.specs.ruleset.entities.shared.HasIconForCharacter;
 import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCharacterOnRoundOrTurnChange;
 
 /**
@@ -20,7 +20,7 @@ import soliloquy.specs.ruleset.entities.actonroundendandcharacterturn.EffectsCha
  * @version 0.0.1
  */
 public interface StatusEffectType
-        extends EffectsCharacterOnRoundOrTurnChange, IconForCharacter, HasName, HasId,
+        extends EffectsCharacterOnRoundOrTurnChange, HasIconForCharacter, HasName, HasId,
         HasResistanceStat {
     /**
      * Intended use is to return true if and only if it makes no sense for this StatusEffectType to

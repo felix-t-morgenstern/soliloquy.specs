@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities;
+package soliloquy.specs.ruleset.entities.shared;
 
 import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.ImageAssetSet;

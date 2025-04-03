@@ -4,6 +4,7 @@ import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
+import soliloquy.specs.gamestate.entities.shared.HasTileOffsets;
 import soliloquy.specs.ruleset.entities.ItemType;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;

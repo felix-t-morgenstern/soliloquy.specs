@@ -5,11 +5,10 @@ import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Coordinate3d;
-import soliloquy.specs.common.valueobjects.Pair;
+import soliloquy.specs.gamestate.entities.shared.HasData;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
 /**

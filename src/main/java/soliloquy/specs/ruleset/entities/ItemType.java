@@ -8,6 +8,8 @@ import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
+import soliloquy.specs.ruleset.entities.shared.HasDefaultTileOffsets;
+import soliloquy.specs.ruleset.entities.shared.HasImageAssetSet;
 
 import java.util.List;
 import java.util.function.Function;

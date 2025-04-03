@@ -1,8 +1,8 @@
-package soliloquy.specs.gamestate.entities;
+package soliloquy.specs.gamestate.entities.shared;
 
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.ruleset.entities.HasDefaultTileOffsets;
+import soliloquy.specs.ruleset.entities.shared.HasDefaultTileOffsets;
 
 public interface HasTileOffsets {
     /**

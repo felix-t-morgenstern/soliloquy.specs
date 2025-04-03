@@ -1,4 +1,4 @@
-package soliloquy.specs.ruleset.entities;
+package soliloquy.specs.ruleset.entities.shared;
 
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 

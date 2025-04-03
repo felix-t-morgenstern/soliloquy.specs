@@ -2,6 +2,8 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
+import soliloquy.specs.ruleset.entities.shared.HasDefaultTileOffsets;
+import soliloquy.specs.ruleset.entities.shared.TileObjectType;
 
 /**
  * <b>FixtureType</b>

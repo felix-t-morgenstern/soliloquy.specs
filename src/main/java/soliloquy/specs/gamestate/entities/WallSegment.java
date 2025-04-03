@@ -2,6 +2,7 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
+import soliloquy.specs.gamestate.entities.shared.HasData;
 import soliloquy.specs.ruleset.entities.WallSegmentType;
 
 /**

@@ -1,4 +1,4 @@
-package soliloquy.specs.gamestate.entities;
+package soliloquy.specs.gamestate.entities.shared;
 
 import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.SoliloquyClass;
