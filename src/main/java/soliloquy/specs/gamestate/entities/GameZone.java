@@ -43,26 +43,21 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
     Tile tile(Coordinate2d location) throws IllegalArgumentException;
 
     /**
-     * A north-facing Segment with a location of (0,0) is on the north edge of the Tile at (0,0). A
-     * west-facing Segment with a location of (0,0) is on the west edge of the Tile at (0,0). A
-     * northwest-facing Segment with a location of (0,0) is in the northwest corner of the Tile at
-     * (0,0).
-     *
      * @param location The location of the Segments to retrieve
      * @return The 3d locations of the WallSegments adjacent to the given location, and the
      *         corresponding actual WallSegment, for each orientation. The value entries for each
      *         key correspond to a given location and segment, whose orientation is the
      *         corresponding key.
-     * @throws IllegalArgumentException If and only if location or direction are null, or if the x
-     *                                  or y value of location are below 0, or if location is
-     *                                  beyond the {@link #maxCoordinates()}
+     * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
+     *                                  or y value of location are below 0, or if location is beyond
+     *                                  the {@link #maxCoordinates()}
      */
-    Map<WallSegmentDirection, Map<Coordinate3d, WallSegment>> getSegments(Coordinate2d location)
+    Map<WallSegmentOrientation, Map<Coordinate3d, WallSegment>> getSegments(Coordinate2d location)
             throws IllegalArgumentException;
 
     /**
      * @param location    The location at which to set the Segment  ({@link WallSegment#getType()}
-     *                    specifies the {@link WallSegmentDirection}). The z vertex is height.
+     *                    specifies the {@link WallSegmentOrientation}). The z vertex is height.
      * @param wallSegment The Segment to set at the location provided. (Can be null)
      * @throws IllegalArgumentException If and only if location or wallSegment are null, or if the
      *                                  x or y value of location are below 0, or if location is
@@ -72,14 +67,14 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
             throws IllegalArgumentException;
 
     /**
-     * @param location  The location at which to remove a Segment. The z vertex is height.
-     * @param direction The direction of Segment to remove
+     * @param location    The location at which to remove a Segment. The z vertex is height.
+     * @param orientation The orientation of Segment to remove
      * @return True, if and only if a Segment was present, prior to being removed
-     * @throws IllegalArgumentException If and only if location or direction are null, or if the x
+     * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
-    boolean removeSegment(Coordinate3d location, WallSegmentDirection direction)
+    boolean removeSegment(Coordinate3d location, WallSegmentOrientation orientation)
             throws IllegalArgumentException;
 
     /**
@@ -87,13 +82,14 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      * coordinates of the segments themselves, and not the tiles; c.f. {@link #getSegments} for more
      * info.)
      *
-     * @param location  The location at which to remove all Segments
-     * @param direction The direction of Segments to remove
-     * @throws IllegalArgumentException If and only if location or direction are null, or if the x
+     * @param location    The location at which to remove all Segments
+     * @param orientation The orientation of Segments to remove
+     * @return The WallSegments at that location
+     * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
-    void removeAllSegments(Coordinate2d location, WallSegmentDirection direction)
+    void removeAllSegments(Coordinate2d location, WallSegmentOrientation orientation)
             throws IllegalArgumentException;
 
     /**

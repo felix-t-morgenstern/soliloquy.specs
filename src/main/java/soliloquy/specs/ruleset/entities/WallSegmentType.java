@@ -2,11 +2,10 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
-import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.gamestate.entities.GameZone;
 import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.gamestate.entities.WallSegment;
-import soliloquy.specs.gamestate.entities.WallSegmentDirection;
+import soliloquy.specs.gamestate.entities.WallSegmentOrientation;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.graphics.assets.ImageAsset;
 
@@ -37,7 +36,7 @@ public interface WallSegmentType extends HasId, HasName {
      * @return The direction of this Segment
      * @throws EntityDeletedException If this WallSegment has been deleted
      */
-    WallSegmentDirection direction() throws EntityDeletedException;
+    WallSegmentOrientation direction() throws EntityDeletedException;
 
     /**
      * This method allows this class to support things like whether it is fully vertically visible,

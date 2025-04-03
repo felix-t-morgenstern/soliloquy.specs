@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.gameconcepts;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Coordinate3d;
 import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.gamestate.entities.WallSegmentDirection;
+import soliloquy.specs.gamestate.entities.WallSegmentOrientation;
 
 import java.util.Map;
 import java.util.Set;
@@ -41,6 +41,6 @@ public interface TileVisibilityCalculation {
          *         {@link soliloquy.specs.gamestate.entities.GameZone#getSegmentLocations}) of visible
          *         {@link soliloquy.specs.gamestate.entities.WallSegment}s of that type
          */
-        Map<WallSegmentDirection, Set<Coordinate3d>> segments();
+        Map<WallSegmentOrientation, Set<Coordinate3d>> segments();
     }
 }

@@ -1,13 +1,13 @@
 package soliloquy.specs.gamestate.entities;
 
-public enum WallSegmentDirection {
+public enum WallSegmentOrientation {
     HORIZONTAL(1),
     CORNER(2),
     VERTICAL(3);
 
     private final int value;
 
-    WallSegmentDirection(int value) {
+    WallSegmentOrientation(int value) {
         this.value = value;
     }
 
@@ -15,7 +15,7 @@ public enum WallSegmentDirection {
         return value;
     }
 
-    public static WallSegmentDirection fromValue(int value) {
+    public static WallSegmentOrientation fromValue(int value) {
         return switch (value) {
             case 1 -> HORIZONTAL;
             case 2 -> CORNER;
