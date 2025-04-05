@@ -5,6 +5,7 @@ import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Coordinate3d;
+import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 import soliloquy.specs.gamestate.entities.shared.HasData;
 
 import java.util.List;
@@ -26,14 +27,9 @@ import java.util.UUID;
  */
 public interface GameZone extends HasName, HasId, HasData, Deletable {
     /**
-     * @return The type of the GameZone (e.g. expansive, local). Can be null or empty.
-     */
-    String type();
-
-    /**
      * @return The maximum x and y values of Coordinates in the GameZone
      */
-    Coordinate2d maxCoordinates();
+    Coordinate2d maxCoordinates() throws EntityDeletedException;
 
     /**
      * This method is used when you know the z-index of the Tile you want to retrieve. If you don't
@@ -45,7 +41,12 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *                                  the
      *                                  GameZone
      */
-    Tile tile(Coordinate3d location) throws IllegalArgumentException;
+    Tile tile(Coordinate3d location) throws IllegalArgumentException, EntityDeletedException;
+
+    /**
+     * @return All Tiles in this GameZone
+     */
+    Set<Tile> tiles() throws EntityDeletedException;
 
     /**
      * This method will return all Tiles at a location, regardless of z-indices. If you only want to
@@ -57,7 +58,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *                                  the
      *                                  GameZone
      */
-    Set<Tile> tiles(Coordinate2d location) throws IllegalArgumentException;
+    Set<Tile> tiles(Coordinate2d location) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * When this method places a Tile on a location which already has a Tile, it does not transport
@@ -70,7 +71,8 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *                                  GameZone, or location is null or beyond the dimensions of
      *                                  the GameZone
      */
-    Tile addTile(Tile tile, Coordinate3d location) throws IllegalArgumentException;
+    Tile addTile(Tile tile, Coordinate3d location)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param location The location of the Tile to remove
@@ -78,7 +80,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      * @throws IllegalArgumentException If and only if location is null or beyond the dimensions of
      *                                  the GameZone
      */
-    Tile removeTile(Coordinate3d location) throws IllegalArgumentException;
+    Tile removeTile(Coordinate3d location) throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param location The location of the Tiles to remove
@@ -86,42 +88,56 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      * @throws IllegalArgumentException If and only if location is null or beyond the dimensions of
      *                                  the GameZone
      */
-    Set<Tile> removeTiles(Coordinate2d location) throws IllegalArgumentException;
+    Set<Tile> removeTiles(Coordinate2d location)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param location The location of the Segments to retrieve
-     * @return The 3d locations of the WallSegments adjacent to the given location, and the
-     *         corresponding actual WallSegment, for each orientation. The value entries for each
-     *         key correspond to a given location and segment, whose orientation is the
+     * @return The 3d locations of the WallSegments adjacent to the given location on all sides, and
+     *         the corresponding actual WallSegment, for each orientation. The value entries for
+     *         each key correspond to a given location and segment, whose orientation is the
      *         corresponding key.
      * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
     Map<WallSegmentOrientation, Map<Coordinate3d, WallSegment>> getSegments(Coordinate2d location)
-            throws IllegalArgumentException;
+            throws IllegalArgumentException, EntityDeletedException;
+
+    /**
+     * @param orientation The orientation of Segment to return
+     * @param location    The location of the Segment to return (nb, [0,0] refers to the furthest
+     *                    northwest segments in the GameZone)
+     * @return The segment at the location, null if none exists
+     * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
+     *                                  or y value of location are below 0, or if location is beyond
+     *                                  the {@link #maxCoordinates()}
+     */
+    WallSegment getSegment(WallSegmentOrientation orientation, Coordinate3d location)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param location    The location at which to set the Segment  ({@link WallSegment#getType()}
      *                    specifies the {@link WallSegmentOrientation}). The z vertex is height.
      * @param wallSegment The Segment to set at the location provided. (Can be null)
+     * @return The previous WallSegment here, if one was present
      * @throws IllegalArgumentException If and only if location or wallSegment are null, or if the
      *                                  x or y value of location are below 0, or if location is
      *                                  beyond the {@link #maxCoordinates()}
      */
-    void setSegment(Coordinate3d location, WallSegment wallSegment)
-            throws IllegalArgumentException;
+    WallSegment setSegment(Coordinate3d location, WallSegment wallSegment)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @param location    The location at which to remove a Segment. The z vertex is height.
      * @param orientation The orientation of Segment to remove
-     * @return True, if and only if a Segment was present, prior to being removed
+     * @return The WallSegment removed, if one was present
      * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
-    boolean removeSegment(Coordinate3d location, WallSegmentOrientation orientation)
-            throws IllegalArgumentException;
+    WallSegment removeSegment(Coordinate3d location, WallSegmentOrientation orientation)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * Removes all WallSegments of a given orientation at a given coordinate. (These are the
@@ -130,13 +146,12 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *
      * @param location    The location at which to remove all Segments
      * @param orientation The orientation of Segments to remove
-     * @return The WallSegments at that location
      * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
-    Set<WallSegment> removeAllSegments(Coordinate2d location, WallSegmentOrientation orientation)
-            throws IllegalArgumentException;
+    void removeAllSegments(Coordinate2d location, WallSegmentOrientation orientation)
+            throws IllegalArgumentException, EntityDeletedException;
 
     /**
      * @return A List of Actions which are fired when the Party enters this GameZone.

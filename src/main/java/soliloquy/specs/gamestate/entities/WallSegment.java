@@ -1,19 +1,18 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.gamestate.entities.shared.HasData;
+import soliloquy.specs.gamestate.entities.shared.GameZoneTerrain;
 import soliloquy.specs.ruleset.entities.WallSegmentType;
 
 /**
  * <b>TileWallSegment</b>
  * <p>
- * This is a WallSegment between Tiles. It has a WallSegmentType, and a height.
+ * This is a WallSegment between Tiles.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface WallSegment extends GameEventTargetEntity, HasName, HasData {
+public interface WallSegment extends GameEventTargetEntity, GameZoneTerrain {
     /**
      * @return The WallSegmentType of this TileWallSegment
      * @throws EntityDeletedException If this TileWallSegment has been deleted

@@ -1,6 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.Coordinate2d;
+import soliloquy.specs.common.valueobjects.Coordinate3d;
+import soliloquy.specs.gamestate.entities.shared.GameZoneTerrain;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.ruleset.entities.GroundType;
 
@@ -17,32 +18,7 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Tile extends GameEventTargetEntity {
-    /**
-     * @return The GameZone in which this Tile exists
-     * @throws IllegalStateException If the GameZone does not contain this Tile at the location
-     *                               specified by {@link #location}
-     */
-    GameZone gameZone() throws IllegalStateException;
-
-    /**
-     * @return The Coordinate at which this Tile is located
-     * @throws IllegalStateException If the GameZone does not contain this Tile at the location
-     */
-    Coordinate2d location() throws IllegalStateException;
-
-    /**
-     * @return The height of this Tile in the GameWorld
-     * @throws IllegalStateException If this Tile has been deleted
-     */
-    int getHeight() throws IllegalStateException;
-
-    /**
-     * @param height The height in the GameWorld to set for this Tile
-     * @throws IllegalStateException If this Tile has been deleted
-     */
-    void setHeight(int height) throws IllegalStateException;
-
+public interface Tile extends GameEventTargetEntity, GameZoneTerrain {
     /**
      * @return The GroundType of this Tile
      * @throws IllegalStateException If this Tile has been deleted
@@ -78,17 +54,4 @@ public interface Tile extends GameEventTargetEntity {
      * @throws IllegalStateException If this Tile has been deleted
      */
     Map<Sprite, Integer> sprites() throws IllegalStateException;
-
-    /**
-     * <b>NB: This method is intended to <b><u>only</u></b> be used by the constructor of
-     * {@link GameZone}; it is intended to check whether the GameZone assigned to this entity has
-     * this entity on it, prior to assignment.</b>
-     *
-     * @param gameZone The Tile to which to assign to this entity (may be null)
-     * @throws IllegalArgumentException If and only if gameZone is null, or gameZone does not
-     *                                  contain this entity
-     * @throws IllegalStateException    If this entity has been deleted
-     */
-    void assignGameZoneAfterAddedToGameZone(GameZone gameZone)
-            throws IllegalArgumentException, IllegalStateException;
 }

@@ -28,15 +28,10 @@ import soliloquy.specs.graphics.assets.ImageAsset;
  */
 public interface WallSegmentType extends HasId, HasName {
     /**
-     * A north-facing Segment goes between the north edge of one Tile and the south edge of another.
-     * A west-facing Segment goes between the west edge of one Tile and the east edge of another. A
-     * northwest-facing Segment goes in a corner between up to four Tiles. C.f.
-     * {@link GameZone#getSegments} for an explanation of how direction corresponds with location.
-     *
-     * @return The direction of this Segment
+     * @return The orientation of this Segment (i.e., horizontal, vertical, corner)
      * @throws EntityDeletedException If this WallSegment has been deleted
      */
-    WallSegmentOrientation direction() throws EntityDeletedException;
+    WallSegmentOrientation orientation() throws EntityDeletedException;
 
     /**
      * This method allows this class to support things like whether it is fully vertically visible,

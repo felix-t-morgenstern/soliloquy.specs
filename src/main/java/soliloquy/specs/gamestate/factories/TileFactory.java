@@ -14,16 +14,13 @@ import soliloquy.specs.gamestate.entities.Tile;
  */
 public interface TileFactory extends SoliloquyClass {
     /**
-     * (NB: The intended use is for GameZone to invoke this class in its constructor; therefore,
-     * the constructor of Tile does not check whether gameZone contains the created Tile at the
-     * specified location.)
+     * (NB: Tiles can belong to either one or zero
+     * {@link soliloquy.specs.gamestate.entities.GameZone}s; therefore, the constructor of Tile does
+     * not check whether a GameZone contains the created Tile at the specified location.)
      *
-     * @param x    The x coordinate to which to assign the created Tile
-     * @param y    The y coordinate to which to assign the created Tile
      * @param data The data for the newly-created Tile
      * @return The created Tile
-     * @throws IllegalArgumentException If and only if gameZone is null or deleted or location is
-     *                                  null, or if x or y are negative
+     * @throws IllegalArgumentException If and only if data is null
      */
-    Tile make(int x, int y, VariableCache data) throws IllegalArgumentException;
+    Tile make(VariableCache data) throws IllegalArgumentException;
 }

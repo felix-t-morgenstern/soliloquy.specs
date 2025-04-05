@@ -17,6 +17,9 @@ public interface TileEntity extends GameEntity {
      */
     Tile tile() throws EntityDeletedException;
 
+    // TODO: Remove this; instead, insert publicly-exposed methods on implementations to be
+    //  injected as dependencies in factories created by the GamestateModule class (and
+    //  afterwards consider deleting this interface!)
     /**
      * <b>NB: This method is intended to <b><u>only</u></b> be used by
      * {@link TileEntities#add} and {@link TileEntities#remove}; it is intended to

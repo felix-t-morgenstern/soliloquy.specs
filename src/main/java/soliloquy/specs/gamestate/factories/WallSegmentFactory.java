@@ -13,15 +13,13 @@ public interface WallSegmentFactory extends SoliloquyClass {
     WallSegment make(Definition definition) throws IllegalArgumentException;
 
     class Definition {
-        public String name;
         public String typeId;
         public String[] movementEventIds;
         public String[] abilityEventIds;
         public String data;
 
-        public Definition(String name, String typeId, String[] movementEventIds,
-                          String[] abilityEventIds, String data) {
-            this.name = name;
+        public Definition(String typeId, String[] movementEventIds, String[] abilityEventIds,
+                          String data) {
             this.typeId = typeId;
             this.movementEventIds = movementEventIds;
             this.abilityEventIds = abilityEventIds;
