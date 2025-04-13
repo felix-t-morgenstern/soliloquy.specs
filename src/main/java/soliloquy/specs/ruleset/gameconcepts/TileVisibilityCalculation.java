@@ -1,12 +1,11 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Coordinate3d;
 import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.gamestate.entities.WallSegment;
 import soliloquy.specs.gamestate.entities.WallSegmentOrientation;
 
 import java.util.Map;
-import java.util.Set;
 
 public interface TileVisibilityCalculation {
     /**
@@ -32,15 +31,13 @@ public interface TileVisibilityCalculation {
 
     interface Result {
         /**
-         * @return The locations of Tiles visible in this Ray
+         * @return The Tiles visible, organized by their locations
          */
-        Set<Coordinate2d> tiles();
+        Map<Coordinate3d, Tile> tiles();
 
         /**
-         * @return A mapping of WallSegmentDirections to the locations (c.f.
-         *         {@link soliloquy.specs.gamestate.entities.GameZone#getSegmentLocations}) of visible
-         *         {@link soliloquy.specs.gamestate.entities.WallSegment}s of that type
+         * @return The WallSegments visible, organized by their orientations and locations
          */
-        Map<WallSegmentOrientation, Set<Coordinate3d>> segments();
+        Map<WallSegmentOrientation, Map<Coordinate3d, WallSegment>> segments();
     }
 }

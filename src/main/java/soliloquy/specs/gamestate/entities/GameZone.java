@@ -96,7 +96,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      * @return The 3d locations of the WallSegments adjacent to the given location on all sides, and
      *         the corresponding actual WallSegment, for each orientation. The value entries for
      *         each key correspond to a given location and segment, whose orientation is the
-     *         corresponding key.
+     *         corresponding key. A non-null value will be present for all three orientations.
      * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
