@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.valueobjects.Coordinate3d;
 import soliloquy.specs.gamestate.entities.shared.GameZoneTerrain;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.ruleset.entities.GroundType;

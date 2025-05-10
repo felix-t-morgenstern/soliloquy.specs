@@ -23,24 +23,12 @@ public interface GameZoneTerrain {
     GameZone gameZone() throws IllegalStateException;
 
     /**
+     * <i>NB: Location <u>is</u> mutable, but this is handled by an unexposed method fed into
+     * {@link GameZone} to be called by {@link GameZone#putTile} and
+     * {@link GameZone#putSegment}</i>
+     *
      * @return The Coordinate at which this entity is located
      * @throws IllegalStateException If the GameZone does not contain this entity at the location
      */
     Coordinate3d location() throws IllegalStateException;
-
-    /**
-     * <b>NB: This method is intended to <b><u>only</u></b> be used {@link GameZone} when adding
-     * this entity; it is intended to check whether the GameZone assigned to this entity has this
-     * entity on it, at the given location, prior to assignment.</b>
-     *
-     * @param gameZone The GameZone to which this entity has been added (may be null)
-     * @param location The location in which this entity has been placed (may be null if and only if
-     *                 gameZone is null)
-     * @throws IllegalArgumentException If and only if gameZone is null, and location is not; or,
-     *                                  gameZone does not contain this entity at the specified
-     *                                  location
-     * @throws IllegalStateException    If this entity has been deleted
-     */
-    void assignGameZoneAfterAddedToGameZone(GameZone gameZone, Coordinate3d location)
-            throws IllegalArgumentException, IllegalStateException;
 }

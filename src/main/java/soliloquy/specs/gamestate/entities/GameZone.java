@@ -71,7 +71,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *                                  GameZone, or location is null or beyond the dimensions of
      *                                  the GameZone
      */
-    Tile addTile(Tile tile, Coordinate3d location)
+    Tile putTile(Tile tile, Coordinate3d location)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -92,16 +92,26 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
-     * @param location The location of the Segments to retrieve
-     * @return The 3d locations of the WallSegments adjacent to the given location on all sides, and
-     *         the corresponding actual WallSegment, for each orientation. The value entries for
-     *         each key correspond to a given location and segment, whose orientation is the
-     *         corresponding key. A non-null value will be present for all three orientations.
+     * @param location    The location at which to retrieve the segments
+     * @param orientation The orientation of segments to retrieve
+     */
+    Set<WallSegment> segments(Coordinate2d location, WallSegmentOrientation orientation)
+            throws IllegalArgumentException;
+
+    /**
+     * This method returns the 3d locations of the WallSegments adjacent to the given <b>Tile
+     * location</b> on <b>all sides</b> of that Tile. To get WallSegments at a Segment location with
+     * a specific orientation, c.f. {@link #segments(Coordinate2d, WallSegmentOrientation)}
+     *
+     * @param tileLocation The Tile location of the Segments to retrieve
+     * @return The 3d locations and the corresponding WallSegments, for each orientation. The value
+     *         entries for each key correspond to a given location and segment, whose orientation is
+     *         the corresponding key. A non-null value will be present for all three orientations.
      * @throws IllegalArgumentException If and only if location or orientation are null, or if the x
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
-    Map<WallSegmentOrientation, Map<Coordinate3d, WallSegment>> getSegments(Coordinate2d location)
+    Map<WallSegmentOrientation, Map<Coordinate3d, WallSegment>> segments(Coordinate2d tileLocation)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -113,7 +123,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *                                  or y value of location are below 0, or if location is beyond
      *                                  the {@link #maxCoordinates()}
      */
-    WallSegment getSegment(WallSegmentOrientation orientation, Coordinate3d location)
+    WallSegment segment(WallSegmentOrientation orientation, Coordinate3d location)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -125,7 +135,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
      *                                  x or y value of location are below 0, or if location is
      *                                  beyond the {@link #maxCoordinates()}
      */
-    WallSegment setSegment(Coordinate3d location, WallSegment wallSegment)
+    WallSegment putSegment(Coordinate3d location, WallSegment wallSegment)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -141,7 +151,7 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
 
     /**
      * Removes all WallSegments of a given orientation at a given coordinate. (These are the
-     * coordinates of the segments themselves, and not the tiles; c.f. {@link #getSegments} for more
+     * coordinates of the segments themselves, and not the tiles; c.f. {@link #segments} for more
      * info.)
      *
      * @param location    The location at which to remove all Segments

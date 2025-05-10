@@ -6,7 +6,6 @@ import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.graphics.assets.ImageAsset;
 import soliloquy.specs.ruleset.entities.FixtureType;
 import soliloquy.specs.ruleset.entities.GroundType;
-import soliloquy.specs.ruleset.entities.shared.HasDefaultColorShifts;
 
 /**
  * <b>TileObject</b>
@@ -44,6 +43,15 @@ public interface TileObjectType extends HasDefaultColorShifts {
      * @return The additional movement cost for moving into or onto this object
      */
     int additionalMovementCost();
+
+    /**
+     * This method describes how much a Character's Z height is raised by when moving in a provided
+     * direction, e.g. stairs allowing a Character to reach higher or lower neighboring Tiles
+     *
+     * @param direction The direction of movement from the {@link Tile} containing this entity
+     * @return The amount of escalation this entity provides to movement in the provided direction
+     */
+    int escalation(Direction direction);
 
     /**
      * This method is intended for things like stairs or ramps which make going up or down large

@@ -1,8 +1,7 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.common.shared.Direction;
+import soliloquy.specs.common.valueobjects.Coordinate3d;
 
 /**
  * <b>TileVisibility</b>
@@ -13,17 +12,31 @@ import soliloquy.specs.gamestate.entities.Tile;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface TileNavigability extends SoliloquyClass {
+public interface TileNavigability {
     /**
-     * @param character The Character whose navigation cost to calculate
-     * @param origin    The origin Tile
-     * @param target    The target Tile
-     * @return The cost, in action points, to navigate from the origin to the target; if the step
-     *         between those two Tiles is blocked, this method returns null.
+     * @param origin     The origin from which to calculate navigation
+     * @param direction  The direction in which to calculate navigation
+     * @param charHeight The height of the {@link soliloquy.specs.gamestate.entities.Character}
+     *                   whose navigation to calculate
+     * @return The location where a {@link soliloquy.specs.gamestate.entities.Character} will be
+     *         when moving in the provided direction, and the movement cost to get there
      * @throws IllegalArgumentException If either origin or target are null, if they are the same
      *                                  Tile, if they are not adjacent, or if they are in different
      *                                  GameZones
      */
-    Integer navigationCost(Character character, Tile origin, Tile target)
+    Navigability calculate(Coordinate3d origin, Direction direction, int charHeight)
             throws IllegalArgumentException;
+
+    interface Navigability {
+        /**
+         * @return The location a {@link soliloquy.specs.gamestate.entities.Character} will be after
+         *         moving in the provided direction
+         */
+        Coordinate3d destination();
+
+        /**
+         * @return The cost (e.g., in movement points) of moving in the provided direction
+         */
+        int cost();
+    }
 }
