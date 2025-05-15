@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.graphics.renderables.TriangleRenderable;
@@ -20,7 +19,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface TriangleRenderableFactory extends SoliloquyClass {
+public interface TriangleRenderableFactory {
     /**
      * @param vertex1LocationProvider     Provides the location for the first vertex
      * @param vertex1ColorProvider        Provides the color of the first vertex

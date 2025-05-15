@@ -2,7 +2,6 @@ package soliloquy.specs.ruleset.entities;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
-import soliloquy.specs.gamestate.entities.GameZone;
 import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.gamestate.entities.WallSegment;
 import soliloquy.specs.gamestate.entities.WallSegmentOrientation;

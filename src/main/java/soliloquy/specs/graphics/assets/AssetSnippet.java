@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.assets;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>AssetSnippet</b>
  * <p>
@@ -17,7 +15,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface AssetSnippet extends SoliloquyClass {
+public interface AssetSnippet {
     /**
      * @return The Image from which to draw this snippet
      */

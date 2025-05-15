@@ -1,8 +1,6 @@
 package soliloquy.specs.graphics.renderables.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
-import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.RasterizedLineSegmentRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
@@ -11,7 +9,6 @@ import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.*;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 /**
  * <b>SpriteRenderableFactory</b>
@@ -21,7 +18,7 @@ import java.util.function.Consumer;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RasterizedLineSegmentRenderableFactory extends SoliloquyClass {
+public interface RasterizedLineSegmentRenderableFactory {
     /**
      * @param vertex1Provider   A Provider, which provides the first vertex of this line segment
      * @param vertex2Provider   A Provider, which provides the second vertex of this line segment

@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.io;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>MouseCursor</b>
  * <p>
@@ -10,7 +8,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface MouseCursor extends SoliloquyClass {
+public interface MouseCursor {
     /**
      * @param mouseCursorId The id of the mouse cursor to set
      * @throws IllegalArgumentException If and only if mouseCursorId is null, empty, or does not

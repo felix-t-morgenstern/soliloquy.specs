@@ -1,7 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.RoundManager;
 import soliloquy.specs.gamestate.entities.timers.OneTimeRoundBasedTimer;
 import soliloquy.specs.gamestate.entities.timers.RecurringRoundBasedTimer;
@@ -15,7 +14,7 @@ import soliloquy.specs.gamestate.entities.timers.RecurringRoundBasedTimer;
  *
  * @author felix.t.morgenstern
  */
-public interface RoundBasedTimerFactory extends SoliloquyClass {
+public interface RoundBasedTimerFactory {
     /**
      * @param timerId          The Id of the RoundBasedTimer to instantiate
      * @param action           Action to perform when RoundBasedTimer fires

@@ -1,7 +1,5 @@
 package soliloquy.specs.gamestate.entities.timers;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.List;
 
 /**
@@ -11,7 +9,7 @@ import java.util.List;
  *
  * @author felix.t.morgenstern
  */
-public interface RoundBasedTimerManager extends SoliloquyClass {
+public interface RoundBasedTimerManager {
     /**
      * If the timer is already present, it is not added again.
      *

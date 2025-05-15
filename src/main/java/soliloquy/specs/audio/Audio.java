@@ -3,7 +3,8 @@ package soliloquy.specs.audio;
 import soliloquy.specs.audio.entities.SoundType;
 import soliloquy.specs.audio.entities.SoundsPlaying;
 import soliloquy.specs.audio.factories.SoundFactory;
-import soliloquy.specs.common.infrastructure.Registry;
+
+import java.util.Map;
 
 /**
  * <b>Audio</b>
@@ -31,5 +32,8 @@ public interface Audio {
      */
     SoundFactory soundFactory();
 
-    Registry<SoundType> soundTypes();
+    /**
+     * @return A dictionary of available sound types
+     */
+    Map<String, SoundType> soundTypes();
 }

@@ -1,11 +1,10 @@
 package soliloquy.specs.graphics.io;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
 
 import java.util.Map;
 
-public interface MouseListener extends SoliloquyClass {
+public interface MouseListener {
     /**
      * (If a mouse button is pressed down when this method is called, and was not pressed down the
      * previous time this method was called, it is expected to pass a corresponding "press" event to

@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.KeyEventListener;
 
 /**
@@ -11,7 +10,7 @@ import soliloquy.specs.gamestate.entities.KeyEventListener;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface KeyEventListenerFactory extends SoliloquyClass {
+public interface KeyEventListenerFactory {
     /**
      * (NB: This method accepts mostRecentTimestamp to ensure that timestamp information is
      * persisted.)

@@ -1,8 +1,6 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.entities.Element;
 import soliloquy.specs.ruleset.entities.character.StatusEffectType;
 
@@ -17,7 +15,7 @@ import soliloquy.specs.ruleset.entities.character.StatusEffectType;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface StatusEffectResistanceCalculation extends SoliloquyClass {
+public interface StatusEffectResistanceCalculation {
     /**
      * Calculates the effective change to a Status Effect for a specific Character, given the
      * following parameters:

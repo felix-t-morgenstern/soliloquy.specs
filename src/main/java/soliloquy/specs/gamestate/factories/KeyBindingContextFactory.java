@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.KeyBindingContext;
 
 /**
@@ -11,6 +10,6 @@ import soliloquy.specs.gamestate.entities.KeyBindingContext;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface KeyBindingContextFactory extends SoliloquyClass {
+public interface KeyBindingContextFactory {
     KeyBindingContext make();
 }

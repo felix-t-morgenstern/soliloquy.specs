@@ -1,7 +1,5 @@
 package soliloquy.specs.logger;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.io.IOException;
 
 /**
@@ -12,7 +10,7 @@ import java.io.IOException;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Logger extends SoliloquyClass {
+public interface Logger {
     /**
      * @param logLocation The URI to which to write
      * @throws IOException Iff a connection to the persistent log location cannot be accessed

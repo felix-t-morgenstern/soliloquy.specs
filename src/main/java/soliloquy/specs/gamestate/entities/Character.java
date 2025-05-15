@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
@@ -51,7 +50,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
      *         their own pronouns.
      * @throws EntityDeletedException If and only if this Character has been deleted
      */
-    Map<String, String> pronouns() throws EntityDeletedException;
+    java.util.Map<String, String> pronouns() throws EntityDeletedException;
 
     // NB: This method is already defined on HasData, but the description here improves the API docs
 
@@ -67,7 +66,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
      * @return Traits of this Character
      * @throws EntityDeletedException If and only if this Character has been deleted
      */
-    VariableCache data() throws EntityDeletedException;
+    Map<String, Object> data() throws EntityDeletedException;
 
     /**
      * @return The stance of the Character; e.g. "combat-ready", "attacking", "near-death"; which
@@ -192,7 +191,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
      * @return A representation of the current values of all of this Character's Variable Statistics
      * @throws EntityDeletedException If and only if this Character has been deleted
      */
-    Map<VariableStatisticType, Integer> variableStatisticCurrentValuesRepresentation()
+    java.util.Map<VariableStatisticType, Integer> variableStatisticCurrentValuesRepresentation()
             throws EntityDeletedException;
 
     /**

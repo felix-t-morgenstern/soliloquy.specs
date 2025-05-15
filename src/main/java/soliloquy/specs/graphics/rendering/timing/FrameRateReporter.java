@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.rendering.timing;
 
 import soliloquy.specs.common.shared.PausableAtTime;
+import soliloquy.specs.gamestate.entities.Setting;
 
 /**
  * <b>FrameRateReporter</b>
@@ -12,8 +13,7 @@ import soliloquy.specs.common.shared.PausableAtTime;
  * <p>
  * "Period" here refers to "seconds", whereas "aggregate" here refers to some aggregate of periods,
  * e.g. 5s. Intended use is for FrameRateReporter to receive aggregate length in terms of periods
- * from its constructor, possibly through the
- * {@link soliloquy.specs.common.infrastructure.SettingsRepo}.
+ * from its constructor, possibly through {@link Setting}s.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

@@ -8,7 +8,7 @@ package soliloquy.specs.common.shared;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasName extends SoliloquyClass {
+public interface HasName {
     /**
      * @return The name of the entity
      */

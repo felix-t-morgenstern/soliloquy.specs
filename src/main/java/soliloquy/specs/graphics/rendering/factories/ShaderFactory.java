@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.rendering.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.rendering.Shader;
 
 /**
@@ -11,7 +10,7 @@ import soliloquy.specs.graphics.rendering.Shader;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ShaderFactory extends SoliloquyClass {
+public interface ShaderFactory {
     /**
      * @param filenamePrefix The prefix to the filenames of the Shaders. For instance, if
      *                       filenamePrefix is "defaultShader", then this class will look for

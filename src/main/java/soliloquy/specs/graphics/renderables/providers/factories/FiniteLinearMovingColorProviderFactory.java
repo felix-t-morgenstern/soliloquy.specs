@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.FiniteLinearMovingColorProvider;
 
 import java.awt.*;
@@ -16,7 +15,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FiniteLinearMovingColorProviderFactory extends SoliloquyClass {
+public interface FiniteLinearMovingColorProviderFactory {
     /**
      * @param uuid                   The uuid of this ProviderAtTime
      * @param valuesAtTimestamps     The valuesAtTimestamps to provide

@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.renderables.FiniteAnimationRenderable;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
@@ -23,7 +22,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FiniteAnimationRenderableFactory extends SoliloquyClass {
+public interface FiniteAnimationRenderableFactory {
     /**
      * <i>NB: This method is for FiniteAnimationRenderables which do not support mouse events.</i>
      *

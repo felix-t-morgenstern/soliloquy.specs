@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.rendering.renderers;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
@@ -15,7 +14,7 @@ import soliloquy.specs.graphics.rendering.RenderableStack;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface StackRenderer extends SoliloquyClass {
+public interface StackRenderer {
     /**
      * <i>NB: Higher z values will be rendered first.</i>
      * Renders the contents of the top-level {@link RenderableStack}.

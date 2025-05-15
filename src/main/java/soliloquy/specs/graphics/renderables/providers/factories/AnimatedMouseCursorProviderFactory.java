@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AnimatedMouseCursorProviderDefinition;
 import soliloquy.specs.graphics.renderables.providers.AnimatedMouseCursorProvider;
 
@@ -12,7 +11,7 @@ import soliloquy.specs.graphics.renderables.providers.AnimatedMouseCursorProvide
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface AnimatedMouseCursorProviderFactory extends SoliloquyClass {
+public interface AnimatedMouseCursorProviderFactory {
     /**
      * @param definition The definition of the AnimatedMouseCursorProvider to be created
      * @return The newly-created AnimatedMouseCursorProvider

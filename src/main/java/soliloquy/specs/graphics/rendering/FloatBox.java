@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>FloatBox</b>
  * <p>
@@ -15,7 +13,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FloatBox extends SoliloquyClass {
+public interface FloatBox {
     /**
      * @return The left edge of this box
      */

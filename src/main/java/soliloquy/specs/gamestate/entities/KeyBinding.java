@@ -1,7 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ import java.util.List;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface KeyBinding extends SoliloquyClass {
+public interface KeyBinding {
     /**
      * NB: The Character here responds to the end result of pressing the keys; i.e., pressing shift
      * and then "a" will result in the Character "A", ala

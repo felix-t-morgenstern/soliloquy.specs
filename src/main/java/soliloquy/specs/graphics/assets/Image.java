@@ -1,5 +1,7 @@
 package soliloquy.specs.graphics.assets;
 
+import soliloquy.specs.gamestate.entities.Setting;
+
 /**
  * <b>Image</b>
  * <p>
@@ -8,7 +10,7 @@ package soliloquy.specs.graphics.assets;
  * application
  * base directory). If it is an Image that supports mouse event capturing, then this class can be
  * used to ask whether this Image is non-transparent at a given pixel. (Alpha threshold, aka
- * opacity threshold, is a {@link soliloquy.specs.common.infrastructure.Setting}, whose name will
+ * opacity threshold, is a {@link Setting}, whose name will
  * depend on the implementation of the Graphics module.)
  *
  * @author felix.t.morgenstern

@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.common.infrastructure.ImmutableMap;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
@@ -42,7 +42,7 @@ public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPl
      * @return Collections of item traits, for various types of traits (strings, ints, booleans,
      *         etc.)
      */
-    VariableCache traits();
+    ImmutableMap<String, Object> traits();
 
     /**
      * A stackable ItemType would be something like "stone", where an Item of this ItemType can

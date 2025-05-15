@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.character;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.common.infrastructure.ImmutableMap;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
@@ -21,6 +21,6 @@ public interface CharacterAIType extends HasId {
      * @throws IllegalArgumentException If and only if character or turnData is null
      * @throws EntityDeletedException   If and only if character has been deleted
      */
-    void act(Character character, VariableCache turnData)
+    void act(Character character, ImmutableMap<String, Object> turnData)
             throws IllegalArgumentException, EntityDeletedException;
 }

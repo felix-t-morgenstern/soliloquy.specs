@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
@@ -21,7 +20,7 @@ import java.util.Set;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Camera extends SoliloquyClass {
+public interface Camera {
     /**
      * @return The location of the Tile on which the Camera is centered, with an offset provided by
      *         {@link #getTileCenterOffsetProvider}

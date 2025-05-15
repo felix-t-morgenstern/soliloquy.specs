@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.entities.gameevents;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.gamestate.entities.TileFixture;
 import soliloquy.specs.gamestate.entities.WallSegment;
@@ -14,7 +13,7 @@ import soliloquy.specs.gamestate.entities.WallSegment;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GameEventTarget extends SoliloquyClass {
+public interface GameEventTarget {
     /**
      * @return The {@link Tile} which is the target for this {@link GameMovementEvent}; may be
      *         null.

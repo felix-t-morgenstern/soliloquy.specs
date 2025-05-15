@@ -1,8 +1,8 @@
 package soliloquy.specs.common.valueobjects;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.Objects;
+
+import static soliloquy.specs.common.valueobjects.Coordinate3d.coordinate3dOf;
 
 /**
  * <b>Coordinate</b>
@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public class Coordinate2d implements SoliloquyClass {
+public class Coordinate2d {
     public final int X;
     public final int Y;
 
@@ -21,17 +21,12 @@ public class Coordinate2d implements SoliloquyClass {
         Y = y;
     }
 
-    public static Coordinate2d of(int x, int y) {
+    public static Coordinate2d coordinate2dOf(int x, int y) {
         return new Coordinate2d(x, y);
     }
 
     public Coordinate3d to3d (int z) {
-        return Coordinate3d.of(X, Y, z);
-    }
-
-    @Override
-    public String getInterfaceName() {
-        return Coordinate2d.class.getCanonicalName();
+        return coordinate3dOf(X, Y, z);
     }
 
     @Override

@@ -1,11 +1,10 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
 import java.util.UUID;
 
-public interface ProgressiveStringProviderFactory extends SoliloquyClass {
+public interface ProgressiveStringProviderFactory {
     /**
      * @param uuid                The id of the Provider
      * @param string              The string to be provided over time

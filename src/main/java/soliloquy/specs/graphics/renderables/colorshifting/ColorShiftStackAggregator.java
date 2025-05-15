@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.renderables.colorshifting;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.List;
 
 /**
@@ -14,7 +12,7 @@ import java.util.List;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ColorShiftStackAggregator extends SoliloquyClass {
+public interface ColorShiftStackAggregator {
     /**
      * @param colorShifts The ColorShiftTypes to aggregate
      * @param timestamp   The timestamp for which to aggregate the ColorShifts

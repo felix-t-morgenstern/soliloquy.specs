@@ -1,9 +1,7 @@
 package soliloquy.specs.ui.windowelements;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 //TODO: Document this interface
-public interface BoxFactory extends SoliloquyClass {
+public interface BoxFactory {
     Box makeBox(BoxFactoryParams params);
 
     // NB: This might be a bit too far-flung to actually use

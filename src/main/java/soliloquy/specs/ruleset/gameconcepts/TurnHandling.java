@@ -1,7 +1,10 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.Character;
+import soliloquy.specs.gamestate.entities.RoundManager;
+import soliloquy.specs.ruleset.entities.character.CharacterAIType;
+
+import java.util.Map;
 
 /**
  * <b>TurnHandling</b>
@@ -15,18 +18,14 @@ public interface TurnHandling {
     /**
      * @param character       The Character whose turn to run
      * @param turnData        The turn-specific data for this Character (see
-     *                        {@link
-     *                        soliloquy.specs.gamestate.entities.RoundManager#characterRoundData}
+     *                        {@link RoundManager#characterRoundData}
      * @param advancingRounds True, if and only if multiple rounds are being advanced at one time
-     *                        (see
-     *                        {@link
-     *                        soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}). If
-     *                        true, the
-     *                        {@link soliloquy.specs.ruleset.entities.character.CharacterAIType} for
-     *                        the Character in question will not fire; and if it is
-     *                        player-controlled, control will not be handed over to the player.
+     *                        (see {@link RoundManager#advanceRounds}). If true, the
+     *                        {@link CharacterAIType} for the Character in question will not fire;
+     *                        and if it is player-controlled, control will not be handed over to the
+     *                        player.
      * @throws IllegalArgumentException If and only if character is null
      */
-    void runTurn(Character character, VariableCache turnData, boolean advancingRounds)
+    void runTurn(Character character, Map<String, Object> turnData, boolean advancingRounds)
             throws IllegalArgumentException;
 }

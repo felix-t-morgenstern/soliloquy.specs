@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.rendering.timing;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>FrameTimer</b>
  * <p>
@@ -13,7 +11,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FrameTimer extends SoliloquyClass {
+public interface FrameTimer {
     /**
      * <i>NB: If targetFps is null, this implies that there is no target FPS, and therefore the
      * FrameTimer will try to maximize FPS.</i>

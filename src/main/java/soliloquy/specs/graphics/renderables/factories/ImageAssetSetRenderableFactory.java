@@ -2,7 +2,6 @@ package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.shared.Direction;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
@@ -24,7 +23,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ImageAssetSetRenderableFactory extends SoliloquyClass {
+public interface ImageAssetSetRenderableFactory {
     /**
      * @param imageAssetSet           The ImageAssetSet to render
      * @param type                    The current type to render from the ImageAssetSet (c.f.

@@ -8,7 +8,7 @@ package soliloquy.specs.common.shared;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasId extends SoliloquyClass {
+public interface HasId {
     /**
      * @return The Id of this entity
      * @throws IllegalStateException if and only if the Id is blank or null

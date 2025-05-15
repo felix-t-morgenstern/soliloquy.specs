@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingProvider;
 
 import java.util.Map;
@@ -14,7 +13,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
+public interface LoopingLinearMovingProviderFactory {
     /**
      * @param id                  The id of this ProviderAtTime
      * @param periodDuration      The duration of the period over which this provider loops (c.f.
@@ -27,11 +26,6 @@ public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
      * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
      *                            null, implying no value provided
      * @param pausedTimestamp     The time at which this Provider has been paused
-     * @param archetype           An archetype, used by the factory to determine which type of
-     *                            Provider to
-     *                            make. (NB: It is needed due to limitations in how Java handles
-     *                            generic
-     *                            types.)
      * @param <T>                 The type of value provided
      * @return The newly-created LoopingLinearMovingProvider
      * @throws IllegalArgumentException If and only if id is null, periodDuration is less than or
@@ -41,12 +35,12 @@ public interface LoopingLinearMovingProviderFactory extends SoliloquyClass {
      *                                  valuesWithinPeriod does not have a value
      *                                  corresponding to 0ms, or pausedTimestamp is non-null and
      *                                  mostRecentTimestamp is null or
-     *                                  prior to pausedTimestamp, or archetype is null
+     *                                  prior to pausedTimestamp
      */
     <T> LoopingLinearMovingProvider<T> make(UUID id, int periodDuration,
                                             int periodModuloOffset,
                                             Map<Integer, T> valuesWithinPeriod,
                                             Long mostRecentTimestamp,
-                                            Long pausedTimestamp, T archetype)
+                                            Long pausedTimestamp)
             throws IllegalArgumentException;
 }

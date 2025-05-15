@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Image;
 import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.ImageDefinition;
 
@@ -12,7 +11,7 @@ import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.ImageDefini
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ImageFactory extends SoliloquyClass {
+public interface ImageFactory {
     /**
      * @param imageDefinition The definition of the Image to be created
      * @return The newly-created Image

@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.FiniteSinusoidMovingProvider;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FiniteSinusoidMovingProviderFactory extends SoliloquyClass {
+public interface FiniteSinusoidMovingProviderFactory {
     /**
      * @param uuid                  The uuid of this ProviderAtTime
      * @param valuesAtTimestamps    The valuesAtTimestamps to provide (c.f. {@link

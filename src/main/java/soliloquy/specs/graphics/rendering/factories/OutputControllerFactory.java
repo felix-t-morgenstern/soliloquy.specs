@@ -1,8 +1,9 @@
 package soliloquy.specs.graphics.rendering.factories;
 
-import soliloquy.specs.common.infrastructure.SettingsRepo;
-import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.gamestate.entities.Setting;
 import soliloquy.specs.graphics.rendering.OutputController;
+
+import java.util.function.Function;
 
 /**
  * <b>OutputControllerFactory</b>
@@ -12,14 +13,13 @@ import soliloquy.specs.graphics.rendering.OutputController;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface OutputControllerFactory extends SoliloquyClass {
+public interface OutputControllerFactory {
     /**
      * @param settingsRepo The SettingsRepo, from which parameters used in OutputController
      *                     creation can be drawn
      * @return The newly-created OutputController
      * @throws IllegalArgumentException If settingsRepo is null, or if it does not contain all
-     *                                  required
-     *                                  {@link soliloquy.specs.common.infrastructure.Setting}s
+     *                                  required {@link Setting}s
      */
-    OutputController make(SettingsRepo settingsRepo) throws IllegalArgumentException;
+    OutputController make(Function<String, Setting> settingsRepo) throws IllegalArgumentException;
 }

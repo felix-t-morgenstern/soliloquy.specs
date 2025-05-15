@@ -1,6 +1,6 @@
 package soliloquy.specs.common.shared;
 
-public interface HasPeriodModuloOffset extends SoliloquyClass {
+public interface HasPeriodModuloOffset {
     /**
      * <i>NB: This method exists to support period starting timestamps which are not exact
      * multiples of the periodDuration. E.g., if periodDuration is 1000ms, then the periods would

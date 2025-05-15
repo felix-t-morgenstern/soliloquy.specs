@@ -24,9 +24,4 @@ public abstract class AssetDefinition<AssetType extends Asset> implements HasId 
     public String id() throws IllegalStateException {
         return ID;
     }
-
-    @Override
-    public String getInterfaceName() {
-        return null;
-    }
 }

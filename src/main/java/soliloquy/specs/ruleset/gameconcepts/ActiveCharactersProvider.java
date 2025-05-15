@@ -1,18 +1,18 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.valueobjects.Pair;
-import soliloquy.specs.common.infrastructure.VariableCache;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.GameZone;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <b>ActiveCharactersProvider</b>
  * <p>
  * This class provides a List of active Characters, paired with the round-specific data for
  * those Characters at the top of a round. Intended use is with
- * {@link soliloquy.specs.gamestate.entities.RoundManager#endActiveCharacterTurn}. Characters are
+ * {@link soliloquy.specs.gamestate.entities.RoundManager#advanceRounds}. Characters are
  * added to ActiveCharactersProvider when they are generated; and at the top of each round, by
  * adding every Character present in the current
  * {@link soliloquy.specs.gamestate.entities.GameZone}.
@@ -37,6 +37,6 @@ public interface ActiveCharactersProvider {
      *         but that is specific to an individual ruleset.
      * @throws IllegalArgumentException If and only if gameZone is empty
      */
-    List<Pair<Character, VariableCache>> generateInTurnOrder(GameZone gameZone)
+    List<Pair<Character, Map<String, Object>>> generateInTurnOrder(GameZone gameZone)
             throws IllegalArgumentException;
 }

@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.rendering.timing;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>GlobalClock</b>
  * <p>
@@ -15,7 +13,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GlobalClock extends SoliloquyClass {
+public interface GlobalClock {
     /**
      * @return The current global timestamp, e.g. in UTC milliseconds
      * @throws UnsupportedOperationException If and only if the GlobalClock has not yet been

@@ -1,7 +1,5 @@
 package soliloquy.specs.gamestate.infrastructure;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.UUID;
 
 /**
@@ -15,7 +13,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GameSaveBlocker extends SoliloquyClass {
+public interface GameSaveBlocker {
     /**
      * This call is expected to be made when a series of events within {@link
      * soliloquy.specs.gamestate.entities.gameevents.GameEventFiring} first fires

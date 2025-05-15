@@ -1,6 +1,5 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.ItemType;
 
@@ -13,7 +12,7 @@ import soliloquy.specs.ruleset.entities.ItemType;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ExternalEntityValidator extends SoliloquyClass {
+public interface ExternalEntityValidator {
     /**
      * @param character The Character whose validity to check
      * @return True, if and only if character is a valid Character in this Game's Ruleset

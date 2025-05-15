@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.timers.ClockBasedTimer;
 
 import java.util.function.Consumer;
@@ -13,7 +12,7 @@ import java.util.function.Consumer;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FrameExecutor extends SoliloquyClass {
+public interface FrameExecutor {
     /**
      * <i>(NB: All frame-blocking events are fired parallelly via an internal semaphore, so no
      * frame-blocking events should be capable of generating race conditions.)</i>

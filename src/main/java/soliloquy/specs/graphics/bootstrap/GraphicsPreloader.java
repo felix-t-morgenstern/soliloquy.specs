@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.bootstrap;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>GraphicsPreloader</b>
  * <p>
@@ -15,7 +13,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GraphicsPreloader extends SoliloquyClass {
+public interface GraphicsPreloader {
     /**
      * This method spins up worker threads to load each
      * {@link soliloquy.specs.graphics.assets.Image} and

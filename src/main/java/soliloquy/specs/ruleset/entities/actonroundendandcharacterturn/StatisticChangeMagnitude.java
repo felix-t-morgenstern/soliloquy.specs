@@ -1,6 +1,5 @@
 package soliloquy.specs.ruleset.entities.actonroundendandcharacterturn;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.ruleset.entities.Element;
 import soliloquy.specs.ruleset.entities.character.VariableStatisticType;
@@ -21,7 +20,7 @@ import soliloquy.specs.ruleset.gameconcepts.DamageResistanceCalculation;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface StatisticChangeMagnitude<TValue extends Number> extends SoliloquyClass {
+public interface StatisticChangeMagnitude<TValue extends Number> {
     /**
      * @return The VariableStatisticType effected by a change of this magnitude
      */

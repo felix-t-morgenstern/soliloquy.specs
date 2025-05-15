@@ -1,11 +1,8 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
-import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.graphics.assets.GlobalLoopingAnimation;
 import soliloquy.specs.graphics.renderables.GlobalLoopingAnimationRenderable;
-import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
@@ -25,7 +22,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GlobalLoopingAnimationRenderableFactory extends SoliloquyClass {
+public interface GlobalLoopingAnimationRenderableFactory {
     /**
      * @param globalLoopingAnimation  The GlobalLoopingAnimation to render
      * @param colorShiftProviders     The ColorShifts to apply when rendering (NB: This List is

@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.RectangleRenderable;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
@@ -20,7 +19,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RectangleRenderableFactory extends SoliloquyClass {
+public interface RectangleRenderableFactory {
     /**
      * @param topLeftColorProvider        A Provider for the color mask at the top-left corner (c.f.
      *                                    {@link RectangleRenderable#getTopLeftColorProvider()}

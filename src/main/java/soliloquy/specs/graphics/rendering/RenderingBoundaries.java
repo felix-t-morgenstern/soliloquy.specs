@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>RenderingBoundaries</b>
  * <p>
@@ -14,7 +12,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RenderingBoundaries extends SoliloquyClass {
+public interface RenderingBoundaries {
     /**
      * <i>NB: If there is no place in the window within which rendering can take place, this method
      * returns null.</i>

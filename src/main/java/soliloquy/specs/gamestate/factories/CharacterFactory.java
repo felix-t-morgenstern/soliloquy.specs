@@ -1,10 +1,9 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.character.CharacterType;
 
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -22,7 +21,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterFactory extends SoliloquyClass {
+public interface CharacterFactory {
     /**
      * This method creates a {@link Character} with a randomly-generated UUID.
      *
@@ -39,6 +38,6 @@ public interface CharacterFactory extends SoliloquyClass {
      * @return The newly-created {@link Character}
      * @throws IllegalArgumentException If and only if characterType or uuid is null
      */
-    Character make(CharacterType characterType, UUID uuid, VariableCache data)
+    Character make(CharacterType characterType, UUID uuid, Map<String, Object> data)
             throws IllegalArgumentException;
 }

@@ -1,21 +1,18 @@
-package soliloquy.specs.common.infrastructure;
+package soliloquy.specs.gamestate.entities;
 
+import soliloquy.specs.common.infrastructure.ImmutableMap;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
-import soliloquy.specs.common.shared.HasOneGenericParam;
 
 /**
  * <b>Setting</b>
  * <p>
  * This is a Setting (e.g. for the Game, for graphics, for audio, etc.)
- * <p>
- * <i>Note: Setting should NOT display its parameter in getParameterizedClassName;
- * PersistentSettingHandler is intended to gather the type of its value from its getArchetype!</i>
  *
  * @param <T> The type of this Setting
  * @author felix.t.morgenstern
  */
-public interface Setting<T> extends HasId, HasName, HasOneGenericParam<T> {
+public interface Setting<T> extends HasId, HasName {
     /**
      * @return The current value of this Setting
      */
@@ -28,8 +25,8 @@ public interface Setting<T> extends HasId, HasName, HasOneGenericParam<T> {
     void setValue(T value) throws IllegalArgumentException;
 
     /**
-     * @return Parameters determining how the control for this setting appears in the UI (e.g.
+     * @return Parameters determining how the control for this setting appears in the UI (e.g.;
      *         whether it is a slider, a text field, etc.; whether it is hidden; etc.)
      */
-    VariableCache controlParams();
+    ImmutableMap<String, Object> controlParams();
 }

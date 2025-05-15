@@ -1,10 +1,9 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Item;
 import soliloquy.specs.ruleset.entities.ItemType;
 
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -15,14 +14,14 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ItemFactory extends SoliloquyClass {
+public interface ItemFactory {
     /**
      * @param itemType The type of Item to create
      * @param data     The data for the newly-created Item; may be null
      * @return The newly-created Item
      * @throws IllegalArgumentException If type is null
      */
-    Item make(ItemType itemType, VariableCache data) throws IllegalArgumentException;
+    Item make(ItemType itemType, Map<String, Object> data) throws IllegalArgumentException;
 
     /**
      * @param itemType The type of Item to create
@@ -31,5 +30,6 @@ public interface ItemFactory extends SoliloquyClass {
      * @return The newly-created Item
      * @throws IllegalArgumentException If type or uuid is null
      */
-    Item make(ItemType itemType, VariableCache data, UUID uuid) throws IllegalArgumentException;
+    Item make(ItemType itemType, Map<String, Object> data, UUID uuid)
+            throws IllegalArgumentException;
 }

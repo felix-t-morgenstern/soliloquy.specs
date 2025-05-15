@@ -1,7 +1,6 @@
 package soliloquy.specs.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Sprite;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.graphics.renderables.SpriteRenderable;
@@ -23,7 +22,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface SpriteRenderableFactory extends SoliloquyClass {
+public interface SpriteRenderableFactory {
     /**
      * @param sprite                      The Sprite to assign to this Renderable
      * @param colorShiftProviders         The ColorShifts to apply when rendering (NB: This List is

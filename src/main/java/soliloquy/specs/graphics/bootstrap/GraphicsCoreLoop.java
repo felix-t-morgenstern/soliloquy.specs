@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.bootstrap;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>GraphicsCoreLoop</b>
  * <p>
@@ -10,7 +8,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GraphicsCoreLoop extends SoliloquyClass {
+public interface GraphicsCoreLoop {
     /**
      * This method starts up the most basic graphics engine infrastructure.
      *

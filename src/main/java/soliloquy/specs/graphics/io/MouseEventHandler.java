@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.io;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
 
 import java.util.Map;
@@ -16,7 +15,7 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface MouseEventHandler extends SoliloquyClass {
+public interface MouseEventHandler {
     /**
      * This method handles all mouse events for a given frame, given the mouse's current location,
      * and the mouse buttons being held at the start of that frame.

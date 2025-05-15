@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Pair;
 
 /**
@@ -12,7 +11,7 @@ import soliloquy.specs.common.valueobjects.Pair;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface WindowResolutionManager extends SoliloquyClass {
+public interface WindowResolutionManager {
     /**
      * @return The current WindowDisplayMode
      */

@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.shared;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>HasMostRecentTimestamp</b>
  * <p>
@@ -13,7 +11,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasMostRecentTimestamp extends SoliloquyClass {
+public interface HasMostRecentTimestamp {
     /**
      * @return The most recent timestamp at which rendering has occurred; if rendering has not
      *         occurred, this method returns null.

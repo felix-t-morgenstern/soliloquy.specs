@@ -1,7 +1,5 @@
 package soliloquy.specs.audio.entities;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -16,7 +14,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface SoundsPlaying extends SoliloquyClass {
+public interface SoundsPlaying {
     /**
      * @return A read-only List of all sounds currently being played
      */

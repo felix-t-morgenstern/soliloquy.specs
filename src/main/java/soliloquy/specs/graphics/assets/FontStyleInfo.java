@@ -1,6 +1,7 @@
 package soliloquy.specs.graphics.assets;
 
 import soliloquy.specs.common.valueobjects.Coordinate2d;
+import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.FontStyleDefinition;
 import soliloquy.specs.graphics.rendering.FloatBox;
 
 import java.util.Map;
@@ -9,9 +10,9 @@ import java.util.Map;
  * <b>FontStyleInfo</b>
  * <p>
  * This class describes a texture (c.f.
- * {@linktourl https://learnopengl.com/Getting-started/Textures}) which can be rendered by the
- * {@link soliloquy.specs.graphics.renderables.TextLineRenderable}, given the information provided
- * in this class.
+ * {@linktourl <a href="https://learnopengl.com/Getting-started/Textures">here for more info</a>})
+ * which can be rendered by the {@link soliloquy.specs.graphics.renderables.TextLineRenderable},
+ * given the information provided in this class.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
@@ -40,26 +41,17 @@ public interface FontStyleInfo extends HasTextureId {
 
     /**
      * @return The amount of additional horizontal texture spacing (c.f.
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     * {@link soliloquy.specs.graphics.bootstrap.assetfactories.definitions.FontStyleDefinition#additionalGlyphHorizontalTextureSpacing}
-     *         for all glyphs of this style of the font
+     *         {@link FontStyleDefinition#additionalGlyphHorizontalTextureSpacing} for all glyphs of
+     *         this style of the font
      */
     float additionalHorizontalTextureSpacing();
 
     /**
      * @return This method is used by
      *         {@link soliloquy.specs.graphics.rendering.renderers.TextLineRenderer#render} to
-     *         ensure that
-     *         glyphs with additional texture spacing, like a 'Q' with a long tail, don't push
-     *         subsequent
-     *         glyphs off to the right by that same amount. This method can return null.
+     *         ensure that glyphs with additional texture spacing, like a 'Q' with a long tail,
+     *         don't push subsequent glyphs off to the right by that same amount. This method can
+     *         return null.
      */
     Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing();
 }

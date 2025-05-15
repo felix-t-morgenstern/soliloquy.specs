@@ -1,7 +1,5 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>Deletable</b>
  * <p>
@@ -12,7 +10,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Deletable extends SoliloquyClass {
+public interface Deletable {
     /**
      * Deletes this entity. After an entity is deleted, any call to its members should return an
      * IllegalStateException.

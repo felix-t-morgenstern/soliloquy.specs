@@ -11,7 +11,7 @@ package soliloquy.specs.common.shared;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface PausableAtTime extends SoliloquyClass {
+public interface PausableAtTime {
     /**
      * @param timestamp The time at which the pause has begun
      * @throws IllegalArgumentException      If and only if timestamp is before the most recent

@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 
@@ -14,7 +13,7 @@ import java.util.List;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasColorShifts extends SoliloquyClass {
+public interface HasColorShifts {
     /**
      * Color shifts at the front of the List are processed by the
      * {@link soliloquy.specs.graphics.renderables.colorshifting.ColorShiftStackAggregator}

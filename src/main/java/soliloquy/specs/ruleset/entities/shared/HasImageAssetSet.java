@@ -1,6 +1,5 @@
 package soliloquy.specs.ruleset.entities.shared;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.ImageAssetSet;
 
 /**
@@ -11,7 +10,7 @@ import soliloquy.specs.graphics.assets.ImageAssetSet;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasImageAssetSet extends SoliloquyClass {
+public interface HasImageAssetSet {
     /**
      * Intended use for this ImageAssetSet is for any icons or pictures associated with this
      * entity.

@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.abilities;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.common.infrastructure.ImmutableMap;
 import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.ruleset.gameconcepts.CharacterEventFiring;
 
@@ -20,7 +20,7 @@ public interface ReactiveAbility extends Ability, CharacterEventFiring.RespondsT
      * @return True, if and only if this ReactiveAbility will fire for the specified event
      * @throws IllegalArgumentException If and only if event is null or empty, or if data is null
      */
-    boolean firesAgainstEvent(String event, VariableCache data) throws IllegalArgumentException;
+    boolean firesAgainstEvent(String event, ImmutableMap<String, Object> data) throws IllegalArgumentException;
 
     /**
      * @param source The source of the Ability to check for whether this ReactiveAbility will fire

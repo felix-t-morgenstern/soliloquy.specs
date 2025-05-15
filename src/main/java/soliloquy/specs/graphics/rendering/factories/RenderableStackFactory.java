@@ -1,6 +1,4 @@
 package soliloquy.specs.graphics.rendering.factories;
-
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.graphics.rendering.FloatBox;
 import soliloquy.specs.graphics.rendering.RenderableStack;
@@ -15,7 +13,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RenderableStackFactory extends SoliloquyClass {
+public interface RenderableStackFactory {
     /**
      * @return A top-level RenderingStack, intended to contain all Renderables except for itself
      */

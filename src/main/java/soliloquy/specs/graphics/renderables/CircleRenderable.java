@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 

@@ -1,7 +1,5 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +12,7 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface KeyEventListener extends SoliloquyClass {
+public interface KeyEventListener {
     /**
      * NB: If this method is called with a context already present, its priority is updated to the
      * priority provided. And, if multiple contexts are assigned the same priority, there may be

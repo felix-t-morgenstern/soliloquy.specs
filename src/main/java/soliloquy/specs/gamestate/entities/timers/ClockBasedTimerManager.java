@@ -1,7 +1,5 @@
 package soliloquy.specs.gamestate.entities.timers;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.List;
 
 /**
@@ -20,7 +18,7 @@ import java.util.List;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ClockBasedTimerManager extends SoliloquyClass {
+public interface ClockBasedTimerManager {
     /**
      * @param oneTimeClockBasedTimer The OneTimeClockBasedTimer to register and manage
      * @throws IllegalArgumentException If and only if oneTimeClockBasedTimer is null. <i>(NB: If

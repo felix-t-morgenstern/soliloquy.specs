@@ -1,22 +1,20 @@
 package soliloquy.specs.gamestate.entities.shared;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
-import soliloquy.specs.common.shared.SoliloquyClass;
+import java.util.Map;
 
 /**
  * <b>HasData</b>
  * <p>
- * This class has a {@link VariableCache}, intended for game entities, to allow them to store
- * state dynamically.
+ * This class has a store of dynamic state data.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasData extends SoliloquyClass {
+public interface HasData {
     /**
      * @return Any parameters regarding this entity which do not fit neatly into any of their other
      *         properties.
      * @throws IllegalStateException If this Item has been deleted
      */
-    VariableCache data() throws IllegalStateException;
+    Map<String, Object> data() throws IllegalStateException;
 }

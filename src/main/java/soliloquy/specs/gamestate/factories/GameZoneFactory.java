@@ -1,10 +1,10 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.gamestate.entities.GameZone;
-import soliloquy.specs.gamestate.entities.Tile;
+import soliloquy.specs.gamestate.entities.GameZoneRepo;
+
+import java.util.Map;
 
 /**
  * <b>GameZoneFactory</b>
@@ -14,10 +14,10 @@ import soliloquy.specs.gamestate.entities.Tile;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GameZoneFactory extends SoliloquyClass {
+public interface GameZoneFactory {
     /**
      * <i>NB: This method is intended to be called by
-     * {@link soliloquy.specs.gamestate.entities.GameZonesRepo#getGameZone}.</i>
+     * {@link GameZoneRepo#currentGameZone()}.</i>
      *
      * @param id             The Id of the newly-created GameZone
      * @param maxCoordinates The maximum x and y value for this GameZone in which a Tile can be
@@ -28,6 +28,6 @@ public interface GameZoneFactory extends SoliloquyClass {
      *                                  maxCoordinates is null or has an X or Y value less than or
      *                                  equal to zero
      */
-    GameZone make(String id, Coordinate2d maxCoordinates, VariableCache data)
+    GameZone make(String id, Coordinate2d maxCoordinates, Map<String, Object> data)
             throws IllegalArgumentException;
 }

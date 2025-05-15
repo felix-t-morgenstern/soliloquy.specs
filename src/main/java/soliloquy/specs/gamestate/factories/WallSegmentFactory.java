@@ -1,9 +1,8 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.WallSegment;
 
-public interface WallSegmentFactory extends SoliloquyClass {
+public interface WallSegmentFactory {
     /**
      * @param definition The definition of the WallSegment to produce
      * @return A WallSegment created according to the definition

@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.io;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents;
 import soliloquy.specs.graphics.rendering.FloatBox;
@@ -16,7 +15,7 @@ import soliloquy.specs.graphics.rendering.FloatBox;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface MouseEventCapturingSpatialIndex extends SoliloquyClass {
+public interface MouseEventCapturingSpatialIndex {
     /**
      * @param location  The location in the window, with x and y values ranging from 0.0 to 1.0, to
      *                  check for a Renderable which captures mouse events

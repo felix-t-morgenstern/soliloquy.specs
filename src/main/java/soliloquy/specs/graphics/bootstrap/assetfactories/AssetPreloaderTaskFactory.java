@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.Collection;
 
 /**
@@ -16,7 +14,7 @@ import java.util.Collection;
 // NB: This class does not extend HasTwoGenericParams, since there is no need for persistence, and
 //     both of its generic parameters are not defined by any public-facing interfaces
 public interface AssetPreloaderTaskFactory<TDefinitionDto, TTask extends Runnable>
-        extends SoliloquyClass {
+        {
     /**
      * @param definitionDTOs A collection of definitions of the asset to be created
      * @return A task, which, when run, will generate some asset(s), and register them with the

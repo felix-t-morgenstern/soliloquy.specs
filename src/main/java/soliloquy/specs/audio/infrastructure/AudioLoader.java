@@ -1,7 +1,5 @@
 package soliloquy.specs.audio.infrastructure;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.Map;
 import java.util.Set;
 
@@ -14,7 +12,7 @@ import java.util.Set;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface AudioLoader extends SoliloquyClass {
+public interface AudioLoader {
     /**
      * @return A (mutable) Set of filetypes which can be recognized as audio files (e.g. "mp3",
      *         "wav")

@@ -1,7 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.valueobjects.Pair;
-import soliloquy.specs.common.shared.HasOneGenericParam;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
 
 import java.util.Map;
@@ -19,7 +18,7 @@ import java.util.function.Consumer;
  * @version 0.0.1
  */
 public interface TileEntities<TEntity extends TileEntity>
-        extends Iterable<Pair<TEntity, Integer>>, HasOneGenericParam<TEntity>, Deletable {
+        extends Iterable<Pair<TEntity, Integer>>, Deletable {
     /**
      * (NB: This method simply calls {@link #add(TEntity, int)} with a zIndex of 0)
      *

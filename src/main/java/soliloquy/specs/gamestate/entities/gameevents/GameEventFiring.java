@@ -1,7 +1,5 @@
 package soliloquy.specs.gamestate.entities.gameevents;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>GameEventFiring</b>
  * <p>
@@ -16,7 +14,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GameEventFiring extends SoliloquyClass {
+public interface GameEventFiring {
     /**
      * When an event is registered with this method, the expectation is that it will be fired as
      * soon as no other events are being fired, and there are no events with a higher priority in

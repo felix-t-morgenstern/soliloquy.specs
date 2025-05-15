@@ -1,7 +1,6 @@
 package soliloquy.specs.ruleset.entities.actonroundendandcharacterturn;
 
 import soliloquy.specs.common.shared.HasPriority;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.character.StatisticType;
@@ -21,7 +20,7 @@ import java.util.List;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface EffectsCharacterOnRoundOrTurnChange extends SoliloquyClass {
+public interface EffectsCharacterOnRoundOrTurnChange {
     /**
      * @return The effect(s) this entity has on a Character at the end of a round. Can be null.
      */

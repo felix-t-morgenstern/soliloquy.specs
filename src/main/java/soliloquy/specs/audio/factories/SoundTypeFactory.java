@@ -1,7 +1,6 @@
 package soliloquy.specs.audio.factories;
 
 import soliloquy.specs.audio.entities.SoundType;
-import soliloquy.specs.common.shared.SoliloquyClass;
 
 /**
  * <b>SoundType</b>
@@ -11,7 +10,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface SoundTypeFactory extends SoliloquyClass {
+public interface SoundTypeFactory {
     /**
      * @param id                      The Id of the SoundType to be created
      * @param absolutePath            The absolute path of the filename corresponding to this

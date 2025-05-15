@@ -1,6 +1,5 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameEventTarget;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;

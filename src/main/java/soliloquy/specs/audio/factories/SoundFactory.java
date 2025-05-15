@@ -1,7 +1,6 @@
 package soliloquy.specs.audio.factories;
 
 import soliloquy.specs.audio.entities.Sound;
-import soliloquy.specs.common.shared.SoliloquyClass;
 
 import java.util.UUID;
 
@@ -15,7 +14,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface SoundFactory extends SoliloquyClass {
+public interface SoundFactory {
     /**
      * @param soundTypeId The Id of the type of Sound to make
      * @return The Sound made, with a randomly-generated UUID

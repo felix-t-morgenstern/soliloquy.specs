@@ -1,6 +1,5 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Coordinate3d;
 import soliloquy.specs.gamestate.entities.Tile;
@@ -15,7 +14,7 @@ import soliloquy.specs.gamestate.entities.Tile;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface TileVisibilityRayCalculation extends SoliloquyClass {
+public interface TileVisibilityRayCalculation {
     /**
      * This method goes out from the origin tile, and checks for the visibility of all
      * {@link Tile}s and {@link soliloquy.specs.gamestate.entities.WallSegment}s between the origin

@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>Mesh</b>
  * <p>
@@ -11,7 +9,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Mesh extends SoliloquyClass {
+public interface Mesh {
     /**
      * Renders the object whose vertices have just been defined (intended to be used by
      * {@link soliloquy.specs.graphics.rendering.renderers.Renderer#render}).

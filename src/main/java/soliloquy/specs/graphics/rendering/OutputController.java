@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>OutputController</b>
  * <p>
@@ -11,7 +9,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface OutputController extends SoliloquyClass {
+public interface OutputController {
     /**
      * Resets any internal parameters set within the controller, which the controller uses to help
      * determine the next output

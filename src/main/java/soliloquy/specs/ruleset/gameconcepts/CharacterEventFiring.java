@@ -1,8 +1,7 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.common.infrastructure.ImmutableMap;
 import soliloquy.specs.common.shared.HasPriority;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.abilities.AbilitySource;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
@@ -17,7 +16,7 @@ import soliloquy.specs.ruleset.entities.abilities.Ability;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface CharacterEventFiring extends SoliloquyClass {
+public interface CharacterEventFiring {
     /**
      * @param target The Character being targeted by the event
      * @param event  The type of event being fired
@@ -26,7 +25,7 @@ public interface CharacterEventFiring extends SoliloquyClass {
      *                                  data is null
      * @throws EntityDeletedException   If and only if target is deleted
      */
-    void fireEvent(Character target, String event, VariableCache data)
+    void fireEvent(Character target, String event, ImmutableMap<String, Object> data)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
@@ -82,7 +81,8 @@ public interface CharacterEventFiring extends SoliloquyClass {
          *                                  or data is null
          * @throws EntityDeletedException   If and only if target is deleted
          */
-        FiringResponse reactToEvent(Character target, String event, VariableCache data)
+        FiringResponse reactToEvent(Character target, String event,
+                                    ImmutableMap<String, Object> data)
                 throws IllegalArgumentException, EntityDeletedException;
     }
 }

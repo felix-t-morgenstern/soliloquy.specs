@@ -1,11 +1,10 @@
 package soliloquy.specs.gamestate.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.timers.OneTimeClockBasedTimer;
 import soliloquy.specs.gamestate.entities.timers.RecurringClockBasedTimer;
 
-public interface ClockBasedTimerFactory extends SoliloquyClass {
+public interface ClockBasedTimerFactory {
     /**
      * @param id                  The Id of this timer
      * @param firingTimestamp     The time at which this Timer will fire

@@ -1,9 +1,7 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.util.List;
+import java.util.Map;
 
 /**
  * <b>Party</b>
@@ -14,7 +12,7 @@ import java.util.List;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Party extends SoliloquyClass {
+public interface Party {
     /**
      * @return A List of all player-controlled Characters
      */
@@ -24,5 +22,5 @@ public interface Party extends SoliloquyClass {
      * @return A set of characterStatisticTypes of the Party, e.g. gold, military rank, group combat
      *         blessings
      */
-    VariableCache attributes();
+    Map<String, Object> attributes();
 }

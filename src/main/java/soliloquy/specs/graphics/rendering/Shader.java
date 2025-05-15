@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.rendering;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 import java.awt.*;
 
 /**
@@ -11,7 +9,7 @@ import java.awt.*;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Shader extends SoliloquyClass {
+public interface Shader {
     /**
      * Binds the graphics engine to this Shader. (Unbinds the previously bound Shader
      * automatically.)

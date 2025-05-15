@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.character;
 
-import soliloquy.specs.common.infrastructure.VariableCache;
+import soliloquy.specs.common.infrastructure.ImmutableMap;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
@@ -25,11 +25,11 @@ public interface CharacterType extends HasPluralName, HasId {
      *               etc.); can be null
      * @return The newly-created Character
      */
-    Character generate(Tile tile, VariableCache params);
+    Character generate(Tile tile, ImmutableMap<String, Object> params);
 
     /**
      * @return The default data for this CharacterType, including their default statistics,
      *         classifications, etc.
      */
-    VariableCache defaultData();
+    ImmutableMap<String, Object> defaultData();
 }

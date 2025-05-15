@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.FiniteLinearMovingProvider;
 
 import java.util.Map;
@@ -14,7 +13,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface FiniteLinearMovingProviderFactory extends SoliloquyClass {
+public interface FiniteLinearMovingProviderFactory {
     /**
      * @param uuid                The uuid of this ProviderAtTime
      * @param valuesAtTimestamps  The valuesAtTimestamps to provide (c.f.

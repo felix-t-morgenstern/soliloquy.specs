@@ -1,9 +1,7 @@
 package soliloquy.specs.graphics.renderables.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.assets.Font;
-import soliloquy.specs.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.TextJustification;
 import soliloquy.specs.graphics.renderables.TextLineRenderable;
@@ -14,7 +12,6 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.function.Consumer;
 
 /**
  * <b>SpriteRenderableFactory</b>
@@ -24,7 +21,7 @@ import java.util.function.Consumer;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface TextLineRenderableFactory extends SoliloquyClass {
+public interface TextLineRenderableFactory {
     /**
      * @param font                      The Font to set for this Renderable
      * @param lineTextProvider          The text of this line

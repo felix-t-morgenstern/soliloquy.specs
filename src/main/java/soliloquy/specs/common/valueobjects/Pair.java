@@ -1,30 +1,45 @@
 package soliloquy.specs.common.valueobjects;
 
-import soliloquy.specs.common.shared.Cloneable;
-import soliloquy.specs.common.shared.HasTwoGenericParams;
+import java.util.Objects;
 
 /**
  * <b>Pair</b>
  * <p>
- * A pair of two non-null entities, of two specified types.
- * <p>
- * <i>NB: This class is implemented concretely rather than described as an interface, since it has
- * negligible logic, and keeping it as an interface with a corresponding factory is highly
- * unwieldy.</i>
+ * A pair of two non-null entities, of two specified types
  *
  * @param <T1> The type of the first entity
  * @param <T2> The type of the second entity
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Pair<T1, T2> extends Cloneable<Pair<T1, T2>>, HasTwoGenericParams<T1, T2> {
-    /**
-     * @return The first item
-     */
-    T1 item1();
+public class Pair<T1, T2> {
+    public final T1 FIRST;
+    public final T2 SECOND;
 
-    /**
-     * @return The second item
-     */
-    T2 item2();
+    private Pair(T1 first, T2 second) {
+        FIRST = first;
+        SECOND = second;
+    }
+
+    public static <T1, T2> Pair<T1, T2> pairOf(T1 first, T2 second) {
+        return new Pair<>(first, second);
+    }
+
+    public Pair<T1, T2> makeClone() {
+        return new Pair<>(FIRST, SECOND);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(FIRST, SECOND);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Pair p) {
+            return Objects.equals(FIRST, p.FIRST) && Objects.equals(SECOND, p.SECOND);
+        } else {
+            return false;
+        }
+    }
 }

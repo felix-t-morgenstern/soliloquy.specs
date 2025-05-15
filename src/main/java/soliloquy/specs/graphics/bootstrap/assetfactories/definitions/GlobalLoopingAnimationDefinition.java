@@ -52,9 +52,4 @@ public class GlobalLoopingAnimationDefinition implements HasId, HasPeriodModuloO
     public Long pauseTimestamp() {
         return PAUSE_TIMESTAMP;
     }
-
-    @Override
-    public String getInterfaceName() {
-        return null;
-    }
 }

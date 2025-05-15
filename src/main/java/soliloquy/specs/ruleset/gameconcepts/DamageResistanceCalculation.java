@@ -1,6 +1,5 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.Element;
 
@@ -13,7 +12,7 @@ import soliloquy.specs.ruleset.entities.Element;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface DamageResistanceCalculation extends SoliloquyClass {
+public interface DamageResistanceCalculation {
 
     /**
      * Calculates the effective change to a

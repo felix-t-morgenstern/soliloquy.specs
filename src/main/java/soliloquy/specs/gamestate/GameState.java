@@ -1,17 +1,17 @@
 package soliloquy.specs.gamestate;
 
-import soliloquy.specs.common.infrastructure.Registry;
-import soliloquy.specs.common.infrastructure.VariableCache;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.*;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
+import soliloquy.specs.gamestate.entities.shared.HasData;
 import soliloquy.specs.gamestate.entities.timers.ClockBasedTimerManager;
 import soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager;
 import soliloquy.specs.gamestate.factories.*;
 import soliloquy.specs.ruleset.entities.character.CharacterAIType;
 
 import java.util.Map;
+
+import static soliloquy.specs.gamestate.entities.CharacterEvents.CharacterEvent;
 
 /**
  * <b>GameState</b>
@@ -24,25 +24,11 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GameState extends SoliloquyClass {
+public interface GameState extends HasData {
     /**
-     * If the Party object has not yet been initialized,
-     *
      * @return The Party (i.e., the player's Characters)
      */
     Party party() throws IllegalStateException;
-
-    /**
-     * @return The caches of persistent variables for the Game (i.e., variables keeping track of
-     *         in-Game movementEvents, e.g. quests, party choices, etc.)
-     */
-    VariableCache getVariableCache();
-
-    /**
-     * @param variableCache The new VariableCache to assign to the GameState
-     * @throws IllegalArgumentException If and only if variableCache is null
-     */
-    void setVariableCache(VariableCache variableCache) throws IllegalArgumentException;
 
     /**
      * @return A Map of AIs which can be assigned to various characters
@@ -52,17 +38,7 @@ public interface GameState extends SoliloquyClass {
     /**
      * @return A repository which can retrieve GameZones
      */
-    GameZonesRepo gameZonesRepo();
-
-    /**
-     * @return The current GameZone. (It is allowed to be null.)
-     */
-    GameZone getCurrentGameZone();
-
-    /**
-     * @param gameZone The new current GameZone. (It is allowed to be null.)
-     */
-    void setCurrentGameZone(GameZone gameZone);
+    GameZoneRepo gameZoneRepo();
 
     /**
      * @return The Camera
@@ -70,15 +46,20 @@ public interface GameState extends SoliloquyClass {
     Camera camera();
 
     /**
-     * @return A Registry of game events triggered by a Character moving onto a Tile
+     * @return A dictionary of game events triggered by a Character moving onto a Tile
      */
-    Registry<GameMovementEvent> movementEvents();
+    Map<String, GameMovementEvent> movementEvents();
 
     /**
-     * @return A Registry of game events triggered by a Character's or Item's Ability being used on
-     *         a Tile
+     * @return A dictionary of game events triggered by a Character's or Item's Ability being used
+     *         on a Tile
      */
-    Registry<GameAbilityEvent> abilityEvents();
+    Map<String, GameAbilityEvent> abilityEvents();
+
+    /**
+     * @return A dictionary of events which can happen to a Character in response to incoming events
+     */
+    Map<String, CharacterEvent> characterEvents();
 
     /**
      * @return The RoundManager, i.e., the class which handles Characters' turns, Timers, and the
@@ -108,32 +89,32 @@ public interface GameState extends SoliloquyClass {
     Map<Integer, KeyBindingContext> keyBindingContexts() throws IllegalStateException;
 
     /**
-     *
+     * This class is used to create new Items
      */
     ItemFactory itemFactory();
 
     /**
-     *
+     * This class is used to create new Characters
      */
     CharacterFactory characterFactory();
 
     /**
-     *
+     * This class is used to create new RoundBasedTimers
      */
     RoundBasedTimerFactory roundBasedTimerFactory();
 
     /**
-     *
+     * This class is used to create new KeyBindings
      */
     KeyBindingFactory keyBindingFactory();
 
     /**
-     *
+     * This class is used to create new KeyBindingContexts
      */
     KeyBindingContextFactory keyBindingContextFactory();
 
     /**
-     *
+     * This class is used
      */
     KeyEventListener keyEventListener();
 }

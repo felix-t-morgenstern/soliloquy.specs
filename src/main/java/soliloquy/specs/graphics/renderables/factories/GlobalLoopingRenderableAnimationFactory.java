@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Animation;
 import soliloquy.specs.graphics.assets.AnimationFrameSnippet;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
@@ -14,7 +13,7 @@ import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GlobalLoopingRenderableAnimationFactory extends SoliloquyClass {
+public interface GlobalLoopingRenderableAnimationFactory {
     /**
      * @param animation      The Animation for which to make a globally-accessible and consistent
      *                       ProviderAtTime, providing the same {@link AnimationFrameSnippet} for

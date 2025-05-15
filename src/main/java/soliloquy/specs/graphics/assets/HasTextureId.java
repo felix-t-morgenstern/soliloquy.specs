@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.assets;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.rendering.renderers.Renderer;
 
 /**
@@ -11,7 +10,7 @@ import soliloquy.specs.graphics.rendering.renderers.Renderer;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasTextureId extends SoliloquyClass {
+public interface HasTextureId {
     /**
      * @return The id of the corresponding texture, which can be used by {@link Renderer}s
      */

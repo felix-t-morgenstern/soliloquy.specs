@@ -2,10 +2,8 @@ package soliloquy.specs.ruleset;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.entities.Function;
-import soliloquy.specs.common.infrastructure.Registry;
-import soliloquy.specs.common.infrastructure.SettingsRepo;
-import soliloquy.specs.common.shared.EntityGroup;
-import soliloquy.specs.common.shared.SoliloquyClass;
+import soliloquy.specs.common.infrastructure.EntityGroup;
+import soliloquy.specs.gamestate.entities.Setting;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
 import soliloquy.specs.gamestate.entities.gameevents.GameMovementEvent;
 import soliloquy.specs.ruleset.entities.*;
@@ -15,8 +13,10 @@ import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
 import soliloquy.specs.ruleset.entities.character.*;
 import soliloquy.specs.ruleset.valueobjects.CharacterClassification;
 
+import java.util.Map;
+
 // TODO: Document this interface
-public interface Ruleset extends SoliloquyClass {
+public interface Ruleset {
     EntityGroup<ActiveAbility> activeAbilities();
 
     EntityGroup<ReactiveAbility> reactiveAbilities();
@@ -27,35 +27,35 @@ public interface Ruleset extends SoliloquyClass {
 
     EntityGroup<StaticStatisticType> characterStaticStatisticTypes();
 
-    Registry<CharacterClassification> characterClassifications();
+    Map<String, CharacterClassification> characterClassifications();
 
-    Registry<CharacterType> characterTypes();
+    Map<String, CharacterType> characterTypes();
 
-    Registry<CharacterAIType> characterAITypes();
+    Map<String, CharacterAIType> characterAITypes();
 
-    Registry<Element> elements();
+    Map<String, Element> elements();
 
-    Registry<EquipmentType> equipmentTypes();
+    Map<String, EquipmentType> equipmentTypes();
 
-    Registry<FixtureType> fixtureTypes();
+    Map<String, FixtureType> fixtureTypes();
 
-    Registry<GameMovementEvent> gameMovementEvents();
+    Map<String, GameMovementEvent> gameMovementEvents();
 
-    Registry<GameAbilityEvent> gameAbilityEvents();
+    Map<String, GameAbilityEvent> gameAbilityEvents();
 
-    Registry<GroundType> groundTypes();
+    Map<String, GroundType> groundTypes();
 
-    Registry<ItemType> itemTypes();
+    Map<String, ItemType> itemTypes();
 
-    Registry<StatusEffectType> statusEffectTypes();
+    Map<String, StatusEffectType> statusEffectTypes();
 
-    Registry<VariableStatisticType> variableStatisticTypes();
+    Map<String, VariableStatisticType> variableStatisticTypes();
 
-    Registry<WallSegmentType> wallSegmentTypes();
+    Map<String, WallSegmentType> wallSegmentTypes();
 
-    Registry<Action> actions();
+    Map<String, Action> actions();
 
-    Registry<Function> functions();
+    Map<String, Function> functions();
 
-    SettingsRepo rulesetSettings();
+    EntityGroup<Setting> rulesetSettings();
 }

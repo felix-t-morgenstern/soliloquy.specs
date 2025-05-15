@@ -20,14 +20,14 @@ import java.util.Map;
  */
 public interface CharacterEvents extends Deletable {
     /**
-     * @param triggers The names of the event triggers to trigger the added event
      * @param event    The event to trigger on the firing of an event of the specified trigger
+     * @param triggers The names of the event triggers to trigger the added event
      * @throws IllegalArgumentException If and only if triggers is null or contains any null or
      *                                  empty items, or if event is null
      * @throws EntityDeletedException   If and only if the {@link Character} corresponding to this
      *                                  class is deleted
      */
-    void addEvent(String[] triggers, CharacterEvent event)
+    void addEvent(CharacterEvent event, String... triggers)
             throws IllegalArgumentException, EntityDeletedException;
 
     /**

@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.bootstrap.assetfactories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.Asset;
 import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AssetDefinition;
 
@@ -17,7 +16,7 @@ import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.AssetDefini
  * @version 0.0.1
  */
 public interface AssetFactory<TAssetDefinition extends AssetDefinition<TAssetType>,
-        TAssetType extends Asset> extends SoliloquyClass {
+        TAssetType extends Asset> {
     /**
      * NB: This method is intended to populate the Graphics engine with various AssetTypes, e.g.
      * {@link soliloquy.specs.graphics.Graphics#getSprite}.

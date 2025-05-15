@@ -13,7 +13,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface HasUuid extends SoliloquyClass {
+public interface HasUuid {
     /**
      * (NB: This method does not throw an exception when called on
      * {@link soliloquy.specs.gamestate.entities.Deletable} entities which have been deleted.)

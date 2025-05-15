@@ -1,7 +1,6 @@
 package soliloquy.specs.ruleset.gameconcepts;
 
 import soliloquy.specs.common.valueobjects.Pair;
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.ruleset.entities.character.StatisticType;
 
@@ -16,7 +15,7 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface StatisticCalculation extends SoliloquyClass {
+public interface StatisticCalculation {
     /**
      * This method calculates the value of a {@link StatisticType} for a {@link Character}
      *

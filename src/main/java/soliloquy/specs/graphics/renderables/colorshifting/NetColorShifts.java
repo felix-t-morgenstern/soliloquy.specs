@@ -1,7 +1,5 @@
 package soliloquy.specs.graphics.renderables.colorshifting;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
-
 /**
  * <b>NetColorShifts</b>
  * <p>
@@ -14,7 +12,7 @@ import soliloquy.specs.common.shared.SoliloquyClass;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface NetColorShifts extends SoliloquyClass {
+public interface NetColorShifts {
     /**
      * @return The net brightness shift, c.f. {@link BrightnessShift#shiftAmountProvider}, ranging
      *         from -1.0 to 1.0.

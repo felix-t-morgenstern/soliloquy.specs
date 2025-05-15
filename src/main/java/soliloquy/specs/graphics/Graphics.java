@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.assets.*;
 import soliloquy.specs.graphics.bootstrap.GraphicsCoreLoop;
 import soliloquy.specs.graphics.bootstrap.GraphicsTeardown;
@@ -15,7 +14,7 @@ import soliloquy.specs.graphics.rendering.WindowResolutionManager;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Graphics extends SoliloquyClass {
+public interface Graphics {
     // TODO: Just wait until the module is worked out to figure out what even goes in here
 
     /**

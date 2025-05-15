@@ -1,6 +1,5 @@
 package soliloquy.specs.graphics.renderables.providers.factories;
 
-import soliloquy.specs.common.shared.SoliloquyClass;
 import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingColorProvider;
 import soliloquy.specs.graphics.renderables.providers.LoopingLinearMovingProvider;
 
@@ -9,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public interface LoopingLinearMovingColorProviderFactory extends SoliloquyClass {
+public interface LoopingLinearMovingColorProviderFactory {
     /**
      * @param uuid                   The uuid of this ProviderAtTime
      * @param valuesWithinPeriod     The values corresponding to different ms positions within the
