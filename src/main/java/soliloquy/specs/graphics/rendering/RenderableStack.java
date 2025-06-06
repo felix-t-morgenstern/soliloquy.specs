@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.rendering;
 
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.graphics.renderables.Renderable;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
 

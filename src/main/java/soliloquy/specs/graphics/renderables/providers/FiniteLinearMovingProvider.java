@@ -1,5 +1,7 @@
 package soliloquy.specs.graphics.renderables.providers;
 
+import soliloquy.specs.common.valueobjects.FloatBox;
+
 import java.util.Map;
 
 /**
@@ -18,7 +20,7 @@ import java.util.Map;
 public interface FiniteLinearMovingProvider<T> extends ProviderAtTime<T> {
     /**
      * <i>NB: The values represented by method are used to calculate motion, e.g. a moving
-     * {@link soliloquy.specs.graphics.rendering.FloatBox} representing the position of a
+     * {@link FloatBox} representing the position of a
      * {@link soliloquy.specs.graphics.renderables.Renderable} in the window. The notion is that a
      * rendering area can start at one place in the window at one timestamp, and it will move
      * towards another place in the window, arriving there by the timestamp corresponding to that

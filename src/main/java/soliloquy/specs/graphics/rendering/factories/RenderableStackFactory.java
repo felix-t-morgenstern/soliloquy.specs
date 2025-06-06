@@ -1,6 +1,6 @@
 package soliloquy.specs.graphics.rendering.factories;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.graphics.rendering.FloatBox;
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.util.UUID;

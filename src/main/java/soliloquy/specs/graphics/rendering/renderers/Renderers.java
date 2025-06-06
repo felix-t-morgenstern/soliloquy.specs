@@ -16,14 +16,14 @@ import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
  */
 public interface Renderers extends HasMostRecentTimestamp {
     /**
-     * @param renderableInterfaceName The name of the interface of the Renderable
-     * @param renderer                The Renderer for that class
-     * @param <T>                     The type of the Renderable
+     * @param renderedClass The class rendered
+     * @param renderer      The Renderer for that class
+     * @param <T>           The type of the Renderable
      * @throws IllegalArgumentException If and only if renderableInterfaceName is null or empty, or
      *                                  renderer is null
      */
-    <T extends Renderable> void registerRenderer(String renderableInterfaceName,
-                                                 Renderer<T> renderer)
+    <T extends Renderable, T2 extends T> void registerRenderer(Class<T2> renderedClass,
+                                                               Renderer<T> renderer)
             throws IllegalArgumentException;
 
     /**

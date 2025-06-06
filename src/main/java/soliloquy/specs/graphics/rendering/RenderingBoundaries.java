@@ -1,5 +1,7 @@
 package soliloquy.specs.graphics.rendering;
 
+import soliloquy.specs.common.valueobjects.FloatBox;
+
 /**
  * <b>RenderingBoundaries</b>
  * <p>

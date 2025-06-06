@@ -1,5 +1,6 @@
 package soliloquy.specs.graphics.renderables.providers;
 
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.shared.PausableAtTime;
 import soliloquy.specs.graphics.renderables.FiniteAnimationRenderable;
@@ -41,7 +42,7 @@ public interface ProviderAtTime<T> extends PausableAtTime, HasUuid, HasMostRecen
      * ProviderAtTime<./i>
      *
      * @return A representation of how values are to be provided, e.g., a {@link java.util.Map}
-     *         describing which {@link soliloquy.specs.graphics.rendering.FloatBox} to provide at a
+     *         describing which {@link FloatBox} to provide at a
      *         given timestamp
      */
     Object representation();

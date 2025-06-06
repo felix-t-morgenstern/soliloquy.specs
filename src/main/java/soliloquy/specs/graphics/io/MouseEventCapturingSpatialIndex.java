@@ -2,7 +2,7 @@ package soliloquy.specs.graphics.io;
 
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents;
-import soliloquy.specs.graphics.rendering.FloatBox;
+import soliloquy.specs.common.valueobjects.FloatBox;
 
 /**
  * <b>MouseEventCapturingSpatialIndex</b>

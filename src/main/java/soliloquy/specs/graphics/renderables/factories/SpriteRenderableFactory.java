@@ -6,7 +6,7 @@ import soliloquy.specs.graphics.renderables.RenderableWithMouseEvents.MouseEvent
 import soliloquy.specs.graphics.renderables.SpriteRenderable;
 import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.graphics.rendering.FloatBox;
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.graphics.rendering.RenderableStack;
 
 import java.awt.*;

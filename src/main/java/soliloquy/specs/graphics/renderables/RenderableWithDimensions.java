@@ -1,7 +1,7 @@
 package soliloquy.specs.graphics.renderables;
 
 import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.graphics.rendering.FloatBox;
+import soliloquy.specs.common.valueobjects.FloatBox;
 
 /**
  * <b>RenderableWithDimensions</b>

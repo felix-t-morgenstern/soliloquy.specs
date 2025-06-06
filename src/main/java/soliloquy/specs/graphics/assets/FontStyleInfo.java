@@ -2,7 +2,7 @@ package soliloquy.specs.graphics.assets;
 
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.graphics.bootstrap.assetfactories.definitions.FontStyleDefinition;
-import soliloquy.specs.graphics.rendering.FloatBox;
+import soliloquy.specs.common.valueobjects.FloatBox;
 
 import java.util.Map;
 
