@@ -2,7 +2,7 @@ package soliloquy.specs.gamestate.entities;
 
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.common.valueobjects.Vertex;
-import soliloquy.specs.graphics.renderables.providers.ProviderAtTime;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ruleset.gameconcepts.TileVisibilityCalculation;
 
 import java.util.Map;

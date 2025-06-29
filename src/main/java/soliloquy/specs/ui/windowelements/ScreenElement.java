@@ -1,7 +1,7 @@
 package soliloquy.specs.ui.windowelements;
 
 import soliloquy.specs.common.valueobjects.Coordinate2d;
-import soliloquy.specs.graphics.renderables.Renderable;
+import soliloquy.specs.io.graphics.renderables.Renderable;
 
 /**
  * <b>ScreenElement</b>

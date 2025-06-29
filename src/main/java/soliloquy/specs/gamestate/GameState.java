@@ -82,13 +82,6 @@ public interface GameState extends HasData {
     ClockBasedTimerManager clockBasedTimerManager();
 
     /**
-     * @return The current KeyBindingContexts (i.e., the Actions which take place when various keys
-     *         are pressed)
-     * @throws IllegalStateException If KeyBindingContexts is undefined.
-     */
-    Map<Integer, KeyBindingContext> keyBindingContexts() throws IllegalStateException;
-
-    /**
      * This class is used to create new Items
      */
     ItemFactory itemFactory();
@@ -102,19 +95,4 @@ public interface GameState extends HasData {
      * This class is used to create new RoundBasedTimers
      */
     RoundBasedTimerFactory roundBasedTimerFactory();
-
-    /**
-     * This class is used to create new KeyBindings
-     */
-    KeyBindingFactory keyBindingFactory();
-
-    /**
-     * This class is used to create new KeyBindingContexts
-     */
-    KeyBindingContextFactory keyBindingContextFactory();
-
-    /**
-     * This class is used
-     */
-    KeyEventListener keyEventListener();
 }

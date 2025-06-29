@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.shared;
 
-import soliloquy.specs.graphics.renderables.colorshifting.ColorShift;
+import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 
 import java.util.List;
 

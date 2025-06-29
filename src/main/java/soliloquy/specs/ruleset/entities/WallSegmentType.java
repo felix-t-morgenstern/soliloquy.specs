@@ -6,7 +6,7 @@ import soliloquy.specs.gamestate.entities.Tile;
 import soliloquy.specs.gamestate.entities.WallSegment;
 import soliloquy.specs.gamestate.entities.WallSegmentOrientation;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.graphics.assets.ImageAsset;
+import soliloquy.specs.io.graphics.assets.ImageAsset;
 
 /**
  * <b>WallSegmentType</b>

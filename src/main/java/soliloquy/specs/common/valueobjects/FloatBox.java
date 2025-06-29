@@ -5,7 +5,7 @@ package soliloquy.specs.common.valueobjects;
  * <p>
  * An object which represents some area in the window, where the horizontal and vertical limits of
  * the window are [-1.0,1.0]. (Bounding boxes which extend beyond the window's limits are not
- * illegal, but if none of a {@link soliloquy.specs.graphics.renderables.Renderable}'s bounding box
+ * illegal, but if none of a {@link soliloquy.specs.io.graphics.renderables.Renderable}'s bounding box
  * is within the window, it may not be rendered.)
  * <p>
  * (NB: FloatBoxes are immutable, making it safe to pass them around freely.)

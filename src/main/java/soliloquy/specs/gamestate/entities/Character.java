@@ -4,7 +4,7 @@ import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
-import soliloquy.specs.graphics.assets.ImageAssetSet;
+import soliloquy.specs.io.graphics.assets.ImageAssetSet;
 import soliloquy.specs.ruleset.entities.character.CharacterAIType;
 import soliloquy.specs.ruleset.entities.character.CharacterType;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;

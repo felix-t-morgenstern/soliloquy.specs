@@ -1,7 +1,7 @@
 package soliloquy.specs.gamestate.entities.exceptions;
 
 /**
- * <b>SoliloquyIOException</b>
+ * <b>EntityDeletedException</b>
  * <p>
  * This exception serves as a RuntimeException specific to entities being deleted.
  *

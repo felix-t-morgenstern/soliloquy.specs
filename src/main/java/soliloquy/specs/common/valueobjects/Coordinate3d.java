@@ -5,9 +5,7 @@ import java.util.Objects;
 import static soliloquy.specs.common.valueobjects.Coordinate2d.coordinate2dOf;
 
 /**
- * <b>Coordinate</b>
- * <p>
- * This object has both an x and a y value.
+ * <b>Coordinate3d</b>
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

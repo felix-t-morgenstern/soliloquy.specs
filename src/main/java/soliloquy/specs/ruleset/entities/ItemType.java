@@ -4,7 +4,7 @@ import soliloquy.specs.common.infrastructure.ImmutableMap;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPluralName;
 import soliloquy.specs.gamestate.entities.Character;
-import soliloquy.specs.graphics.assets.ImageAssetSet;
+import soliloquy.specs.io.graphics.assets.ImageAssetSet;
 import soliloquy.specs.ruleset.entities.abilities.ActiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.PassiveAbility;
 import soliloquy.specs.ruleset.entities.abilities.ReactiveAbility;
@@ -89,7 +89,7 @@ public interface ItemType extends HasDefaultTileOffsets, HasImageAssetSet, HasPl
 
     // NB: Underlying HasImageAssetSet method is overriden to provide clearer description
     /**
-     * The {@link soliloquy.specs.graphics.assets.ImageAsset} for an
+     * The {@link soliloquy.specs.io.graphics.assets.ImageAsset} for an
      * {@link soliloquy.specs.gamestate.entities.Item} of this type can depend on the status of the
      * Item, e.g., whether it is on the ground, whether it is in inventory, how many charges it has,
      * etc.

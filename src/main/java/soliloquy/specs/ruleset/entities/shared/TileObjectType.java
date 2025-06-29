@@ -3,7 +3,7 @@ package soliloquy.specs.ruleset.entities.shared;
 import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.graphics.assets.ImageAsset;
+import soliloquy.specs.io.graphics.assets.ImageAsset;
 import soliloquy.specs.ruleset.entities.FixtureType;
 import soliloquy.specs.ruleset.entities.GroundType;
 

@@ -3,7 +3,7 @@ package soliloquy.specs.ui.windowelements;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
 import soliloquy.specs.gamestate.entities.Camera;
 import soliloquy.specs.gamestate.entities.Tile;
-import soliloquy.specs.graphics.assets.Sprite;
+import soliloquy.specs.io.graphics.assets.Sprite;
 
 import java.util.Map;
 

@@ -1,6 +1,6 @@
 package soliloquy.specs.ruleset.entities.shared;
 
-import soliloquy.specs.graphics.assets.ImageAssetSet;
+import soliloquy.specs.io.graphics.assets.ImageAssetSet;
 
 /**
  * <b>HasImageAssetSet</b>

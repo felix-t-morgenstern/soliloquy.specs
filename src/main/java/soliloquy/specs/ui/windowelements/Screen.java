@@ -1,6 +1,6 @@
 package soliloquy.specs.ui.windowelements;
 
-import soliloquy.specs.graphics.renderables.Renderable;
+import soliloquy.specs.io.graphics.renderables.Renderable;
 
 import java.util.Map;
 

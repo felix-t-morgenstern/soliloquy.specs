@@ -2,7 +2,7 @@ package soliloquy.specs.gamestate.entities.timers;
 
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.PausableAtTime;
-import soliloquy.specs.graphics.shared.HasMostRecentTimestamp;
+import soliloquy.specs.io.graphics.shared.HasMostRecentTimestamp;
 
 /**
  * <b>ClockBasedTimer</b>
