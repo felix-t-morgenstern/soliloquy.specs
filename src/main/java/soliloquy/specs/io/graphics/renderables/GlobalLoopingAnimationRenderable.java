@@ -7,8 +7,8 @@ import soliloquy.specs.io.graphics.assets.GlobalLoopingAnimation;
  * <p>
  * An Animation which can be rendered in the window. <i>This Renderable will continue looping
  * through the same Animation, and its intended use case is to be shared among many Renderables
- * using the same underlying {@link soliloquy.specs.io.graphics.assets.Animation}, e.g. all torches or
- * lampposts in a {@link soliloquy.specs.gamestate.entities.GameZone}.</i>
+ * using the same underlying {@link soliloquy.specs.io.graphics.assets.Animation}, e.g., all torches
+ * or lampposts in a {@link soliloquy.specs.gamestate.entities.GameZone}.</i>
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

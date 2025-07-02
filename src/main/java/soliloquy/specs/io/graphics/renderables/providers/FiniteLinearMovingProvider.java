@@ -26,9 +26,9 @@ public interface FiniteLinearMovingProvider<T> extends ProviderAtTime<T> {
      * towards another place in the window, arriving there by the timestamp corresponding to that
      * second place. If this class is asked to provide the value prior to the first timestamp, it
      * will return the value at the first timestamp; similarly, if this class is asked to provide
-     * the value after the last timestamp, it will return the value at the last timestamp.
+     * the value after the last timestamp, it will return the value at the last timestamp.</i>
      * <p>
-     * ALSO note that this method returns a representation, not the actual values!</i>
+     * <i>ALSO note that this method returns a representation, not the actual values!</i>
      *
      * @return A Map, linking timestamps to the values provided at that timestamp. Linear movement
      *         is calculated for any given timestamp by finding the distance between the two nearest

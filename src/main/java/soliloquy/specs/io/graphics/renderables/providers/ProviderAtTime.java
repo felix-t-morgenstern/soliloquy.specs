@@ -39,7 +39,7 @@ public interface ProviderAtTime<T> extends PausableAtTime, HasUuid, HasMostRecen
      * are expected to cast the output to the required type. Recipients of a ProviderAtTime should
      * not be expected to know what type is used to represent the values provided. This is a
      * representation, so changing the output of this method will not change the behavior of the
-     * ProviderAtTime<./i>
+     * ProviderAtTime.</i>
      *
      * @return A representation of how values are to be provided, e.g., a {@link java.util.Map}
      *         describing which {@link FloatBox} to provide at a

@@ -45,14 +45,8 @@ public interface ImmutableMap<K, V> {
      *         key
      * @throws ClassCastException   if the key is of an inappropriate type for
      *                              this map
-     *                              (<a
-     *                              href="{@docRoot}/java.base/java/util/Collection
-     *                              .html#optional-restrictions">optional</a>)
      * @throws NullPointerException if the specified key is null and this map
      *                              does not permit null keys
-     *                              (<a
-     *                              href="{@docRoot}/java.base/java/util/Collection
-     *                              .html#optional-restrictions">optional</a>)
      */
     boolean containsKey(Object key);
 
@@ -69,14 +63,8 @@ public interface ImmutableMap<K, V> {
      *         specified value
      * @throws ClassCastException   if the value is of an inappropriate type for
      *                              this map
-     *                              (<a
-     *                              href="{@docRoot}/java.base/java/util/Collection
-     *                              .html#optional-restrictions">optional</a>)
      * @throws NullPointerException if the specified value is null and this
      *                              map does not permit null values
-     *                              (<a
-     *                              href="{@docRoot}/java.base/java/util/Collection
-     *                              .html#optional-restrictions">optional</a>)
      */
     boolean containsValue(Object value);
 
@@ -101,14 +89,8 @@ public interface ImmutableMap<K, V> {
      *         {@code null} if this map contains no mapping for the key
      * @throws ClassCastException   if the key is of an inappropriate type for
      *                              this map
-     *                              (<a
-     *                              href="{@docRoot}/java.base/java/util/Collection
-     *                              .html#optional-restrictions">optional</a>)
      * @throws NullPointerException if the specified key is null and this map
      *                              does not permit null keys
-     *                              (<a
-     *                              href="{@docRoot}/java.base/java/util/Collection
-     *                              .html#optional-restrictions">optional</a>)
      */
     V get(Object key);
 

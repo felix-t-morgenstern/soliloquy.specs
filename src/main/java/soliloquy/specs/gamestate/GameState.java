@@ -8,6 +8,7 @@ import soliloquy.specs.gamestate.entities.timers.ClockBasedTimerManager;
 import soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager;
 import soliloquy.specs.gamestate.factories.*;
 import soliloquy.specs.ruleset.entities.character.CharacterAIType;
+import soliloquy.specs.ui.gamezone.Camera;
 
 import java.util.Map;
 

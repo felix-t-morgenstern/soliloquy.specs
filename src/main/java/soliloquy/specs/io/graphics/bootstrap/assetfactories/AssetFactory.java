@@ -8,10 +8,11 @@ import soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions.AssetDef
  * <p>
  * This class takes an {@link AssetDefinition}, and produces an asset of the corresponding
  * {@link Asset}. This class is intended to be used by the
- * {@link soliloquy.specs.io.graphics.bootstrap.GraphicsPreloader}, to populate
- * {@link soliloquy.specs.common.infrastructure.Registry}s of various AssetTypes, e.g.
+ * {@link soliloquy.specs.io.graphics.bootstrap.GraphicsPreloader}, to hydrate methods, e.g.
  * {@link soliloquy.specs.io.graphics.Graphics#getSprite}.
  *
+ * @param <TAssetDefinition> The AssetDefinition, e.g., {@link soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions.SpriteDefinition}
+ * @param <TAssetType> The type of Asset being defined, e.g., {@link soliloquy.specs.io.graphics.assets.Sprite}
  * @author felix.t.morgenstern
  * @version 0.0.1
  */

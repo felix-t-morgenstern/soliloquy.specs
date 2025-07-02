@@ -225,7 +225,7 @@ public interface Character extends TileEntity, HasName, HasUuid {
      * <i>This method should return FALSE when a PC is charmed, confused, or otherwise only
      * temporarily uncontrolled by the player. Logic to determine whether the player controls any
      * particular PC should be handled by the logic fed into the
-     * {@link soliloquy.specs.gamestate.entities.RoundManager}'s constructor by the Ruleset.
+     * {@link soliloquy.specs.gamestate.entities.RoundManager}'s constructor by the Ruleset.</i>
      *
      * @return True, if and only if this Character is controlled by the player
      * @throws EntityDeletedException If and only if this Character has been deleted

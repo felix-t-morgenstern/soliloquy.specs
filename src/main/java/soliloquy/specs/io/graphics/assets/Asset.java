@@ -5,7 +5,7 @@ import soliloquy.specs.common.shared.HasId;
 /**
  * <b>Asset</b>
  * <p>
- * This class is an Asset, e.g. {@link Sprite} or {@link ImageAssetSet}. This interface exists to
+ * This class is an Asset, e.g., {@link Sprite} or {@link ImageAssetSet}. This interface exists to
  * facilitate stricter typing for
  * {@link soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions.AssetDefinition}s.
  *

@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * <b>ImageAsset</b>
  * <p>
- * This class is a type of Asset which is made of one or more snippets of an {@link Image}, i.e.
+ * This class is a type of Asset which is made of one or more snippets of an {@link Image}, i.e.,
  * {@link Sprite}, {@link Animation}, and {@link GlobalLoopingAnimation}. This interface exists to
  * allow {@link ImageAssetSet}s to return assets of any of these types. This interface also
  * contains an enum value of the ImageAssetTypes, to be used (and not defined) by the graphics

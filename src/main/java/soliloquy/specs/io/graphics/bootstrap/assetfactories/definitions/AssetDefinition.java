@@ -10,6 +10,7 @@ import soliloquy.specs.io.graphics.assets.Asset;
  * {@link soliloquy.specs.io.graphics.bootstrap.assetfactories.AssetFactory}s can only be created for
  * explicitly-defined and correctly typed classes.)
  *
+ * @param <AssetType> The type of {@link Asset} defined
  * @author felix.t.morgenstern
  * @version 0.0.1
  */

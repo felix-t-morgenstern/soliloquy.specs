@@ -10,7 +10,7 @@ import java.util.Map;
  * <b>FontStyleInfo</b>
  * <p>
  * This class describes a texture (c.f.
- * {@linktourl <a href="https://learnopengl.com/Getting-started/Textures">here for more info</a>})
+ * <a href="https://learnopengl.com/Getting-started/Textures">here for more info</a>)
  * which can be rendered by the {@link soliloquy.specs.io.graphics.renderables.TextLineRenderable},
  * given the information provided in this class.
  *

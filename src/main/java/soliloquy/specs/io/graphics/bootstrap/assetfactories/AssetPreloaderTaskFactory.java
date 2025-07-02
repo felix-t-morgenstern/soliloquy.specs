@@ -8,11 +8,11 @@ import java.util.Collection;
  * This class takes a collection of asset definition DTOs, generates those assets, and registers
  * them with the Graphics engine (c.f. {@link soliloquy.specs.io.graphics.Graphics#getImageAssetSet})
  *
+ * @param <TDefinitionDto> A DTO containing the Asset definition
+ * @param <TTask> The preloading Task to perform
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-// NB: This class does not extend HasTwoGenericParams, since there is no need for persistence, and
-//     both of its generic parameters are not defined by any public-facing interfaces
 public interface AssetPreloaderTaskFactory<TDefinitionDto, TTask extends Runnable>
         {
     /**

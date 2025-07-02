@@ -26,8 +26,7 @@ public interface TileVisibilityCalculation {
      * @throws IllegalArgumentException If and only if point is null, or visibilityRadius is
      *                                  negative.
      */
-    Result atPoint(Tile point, int visibilityRadius)
-            throws IllegalArgumentException;
+    Result atPoint(Tile point, int visibilityRadius) throws IllegalArgumentException;
 
     interface Result {
         /**

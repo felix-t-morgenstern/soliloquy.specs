@@ -14,6 +14,8 @@ import java.util.function.Consumer;
  * be more specific, every TileEntity on a Tile should know that it belongs to that Tile, and
  * vice-versa.
  *
+ * @param <TEntity> The type of entity being stored on the Tile, i.e., {@link Character},
+ *                  {@link Item}, or {@link TileFixture}
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
