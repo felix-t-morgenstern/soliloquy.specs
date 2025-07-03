@@ -8,7 +8,7 @@ import soliloquy.specs.gamestate.entities.timers.ClockBasedTimerManager;
 import soliloquy.specs.gamestate.entities.timers.RoundBasedTimerManager;
 import soliloquy.specs.gamestate.factories.*;
 import soliloquy.specs.ruleset.entities.character.CharacterAIType;
-import soliloquy.specs.ui.gamezone.Camera;
+import soliloquy.specs.ui.GameZoneView;
 
 import java.util.Map;
 
@@ -44,7 +44,7 @@ public interface GameState extends HasData {
     /**
      * @return The Camera
      */
-    Camera camera();
+    GameZoneView camera();
 
     /**
      * @return A dictionary of game events triggered by a Character moving onto a Tile
