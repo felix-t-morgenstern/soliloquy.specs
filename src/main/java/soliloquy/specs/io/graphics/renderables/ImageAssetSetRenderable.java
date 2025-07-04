@@ -3,6 +3,8 @@ package soliloquy.specs.io.graphics.renderables;
 import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.io.graphics.assets.ImageAssetSet;
 
+import java.util.Map;
+
 /**
  * <b>ImageAssetSetRenderable</b>
  * <p>
@@ -28,28 +30,7 @@ public interface ImageAssetSetRenderable extends ImageAssetRenderable {
     void setImageAssetSet(ImageAssetSet imageAssetSet) throws IllegalArgumentException;
 
     /**
-     * @return The type to render for the ImageAssetSet (c.f.
-     *         {@link ImageAssetSet#getImageAssetForTypeAndDirection})
+     * @return A mutable Map which defines the parameters for displaying the ImageAssetSet (cf {@link ImageAssetSet#getImageAssetWithDisplayParams}
      */
-    String getType();
-
-    /**
-     * C.f. {@link #getType()} for more information
-     *
-     * @param type The type to set for this Renderable
-     */
-    void setType(String type);
-
-    /**
-     * @return The direction to render for the ImageAssetSet (c.f.
-     *         {@link ImageAssetSet#getImageAssetForTypeAndDirection})
-     */
-    Direction getDirection();
-
-    /**
-     * C.f. {@link #getDirection()} for more information
-     *
-     * @param direction The direction to set for this Renderable
-     */
-    void setDirection(Direction direction);
+    Map<String, String> displayParams();
 }

@@ -1,6 +1,6 @@
 package soliloquy.specs.io.graphics.assets;
 
-import soliloquy.specs.common.shared.Direction;
+import java.util.Map;
 
 /**
  * <b>ImageAssetSet</b>
@@ -9,7 +9,7 @@ import soliloquy.specs.common.shared.Direction;
  * {@link soliloquy.specs.io.graphics.renderables.ImageAssetSetRenderable} at some location in the
  * window. It is defined one or more Images, and various snippets of those Images, corresponding to
  * the type and direction requested of this ImageAssetSet. (See description of
- * {@link #getImageAssetForTypeAndDirection} for more information about type and
+ * {@link #getImageAssetWithDisplayParams} for more information about type and
  * direction.)
  * <p>
  * This class can be thought of as a sprite set, except it supports both static {@link Sprite}s and
@@ -20,20 +20,17 @@ import soliloquy.specs.common.shared.Direction;
  */
 public interface ImageAssetSet extends Asset {
     /**
-     * NB: Null and empty values are treated as identical. Both may be null and/or empty.
+     * Intended uses of this method include retrieving ImageAssets for a
+     * {@link soliloquy.specs.gamestate.entities.Character} which vary by direction, whether the
+     * Character is attacking, etc.
      *
-     * @param type      The type to retrieve for this ImageAssetSet (e.g. "CombatReady",
-     *                  "Attacking", etc.). May be null, e.g. for a statue, which can face a given
-     *                  direction, but which has no real variants otherwise.
-     * @param direction The direction to retrieve for this ImageAssetSet (e.g. "NW", "E", etc.). May
-     *                  be null, e.g. for an {@link soliloquy.specs.gamestate.entities.Item}, where
-     *                  it can either be on the ground or in inventory, but it never faces a
-     *                  specific direction
+     * @param displayParams The display parameters, which determine which ImageAsset from the set to
+     *                      display
      * @return The Sprite or Animation for the provided type and direction
-     * @throws IllegalArgumentException If and only if type and direction correspond to a
-     *                                  combination that does not exist in this ImageAssetSet
+     * @throws IllegalArgumentException If and only if displayParams is null, or does not correspond
+     *                                  to an ImageAsset within this set
      */
-    ImageAsset getImageAssetForTypeAndDirection(String type, Direction direction)
+    ImageAsset getImageAssetWithDisplayParams(Map<String, String> displayParams)
             throws IllegalArgumentException;
 
     /**

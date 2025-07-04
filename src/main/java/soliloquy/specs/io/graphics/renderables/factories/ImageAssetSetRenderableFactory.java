@@ -1,13 +1,12 @@
 package soliloquy.specs.io.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.shared.Direction;
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.assets.ImageAssetSet;
 import soliloquy.specs.io.graphics.renderables.ImageAssetSetRenderable;
 import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.rendering.RenderableStack;
 
 import java.awt.*;
@@ -26,10 +25,8 @@ import java.util.UUID;
 public interface ImageAssetSetRenderableFactory {
     /**
      * @param imageAssetSet           The ImageAssetSet to render
-     * @param type                    The current type to render from the ImageAssetSet (c.f.
-     *                                {@link ImageAssetSet#getImageAssetForTypeAndDirection})
-     * @param direction               The current direction to render from the ImageAssetSet (c.f.
-     *                                {@link ImageAssetSet#getImageAssetForTypeAndDirection})
+     * @param displayParams           The current display parameters for the ImageAssetSet (cf
+     *                                {@link ImageAssetSet#getImageAssetWithDisplayParams})
      * @param colorShiftProviders     The ColorShifts to apply when rendering (NB: This List is
      *                                intended to contain Providers which will provide ColorShifts
      *                                of the same type for each entry in the list; however, you can
@@ -41,12 +38,11 @@ public interface ImageAssetSetRenderableFactory {
      * @param uuid                    The universally unique identifier
      * @param containingStack         The RenderableStack to contain the Renderable
      * @return The newly-created ImageAssetSetRenderable
-     * @throws IllegalArgumentException If and only if imageAssetSet is null; both type and
-     *                                  direction are null or empty; colorShifts is null;
-     *                                  renderingAreaProvider is null; uuid is null; or
-     *                                  containingStack is null
+     * @throws IllegalArgumentException If and only if imageAssetSet is null; displayParams is null;
+     *                                  colorShifts is null; renderingAreaProvider is null; uuid is
+     *                                  null; or containingStack is null
      */
-    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, Direction direction,
+    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, Map<String, String> displayParams,
                                  List<ProviderAtTime<ColorShift>> colorShiftProviders,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
@@ -57,11 +53,8 @@ public interface ImageAssetSetRenderableFactory {
 
     /**
      * @param imageAssetSet               The ImageAssetSet to render
-     * @param type                        The current type to render from the ImageAssetSet (c.f.
-     *                                    {@link ImageAssetSet#getImageAssetForTypeAndDirection})
-     * @param direction                   The current direction to render from the ImageAssetSet
-     *                                    (c.f.
-     *                                    {@link ImageAssetSet#getImageAssetForTypeAndDirection})
+     * @param displayParams               The current display parameters for the ImageAssetSet (cf
+     *                                    {@link ImageAssetSet#getImageAssetWithDisplayParams})
      * @param onPress                     The Actions which is fired when a click is registered on
      *                                    this renderable, with the integer keys corresponding to
      *                                    mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
@@ -85,12 +78,11 @@ public interface ImageAssetSetRenderableFactory {
      * @param uuid                        The universally unique identifier
      * @param containingStack             The RenderableStack to contain the Renderable
      * @return The newly-created ImageAssetSetRenderable
-     * @throws IllegalArgumentException If and only if imageAssetSet is null; both type and
-     *                                  direction are null or empty; colorShifts is null;
-     *                                  renderingDimensionsProvider is null; uuid is null; or
-     *                                  containingStack is null
+     * @throws IllegalArgumentException If and only if imageAssetSet is null; displayParams is null;
+     *                                  colorShifts is null; renderingDimensionsProvider is null;
+     *                                  uuid is null; or containingStack is null
      */
-    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, String type, Direction direction,
+    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, Map<String, String> displayParams,
                                  Map<Integer, Action<MouseEventInputs>> onPress,
                                  Map<Integer, Action<MouseEventInputs>> onRelease,
                                  Action<MouseEventInputs> onMouseOver,
