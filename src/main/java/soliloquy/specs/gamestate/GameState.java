@@ -42,11 +42,6 @@ public interface GameState extends HasData {
     GameZoneRepo gameZoneRepo();
 
     /**
-     * @return The Camera
-     */
-    GameZoneView camera();
-
-    /**
      * @return A dictionary of game events triggered by a Character moving onto a Tile
      */
     Map<String, GameMovementEvent> movementEvents();
