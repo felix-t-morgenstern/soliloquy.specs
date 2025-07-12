@@ -31,7 +31,7 @@ public interface FiniteAnimationRenderableFactory {
      * @param borderColorProvider     A class which provides the color of the border to render
      * @param colorShiftProviders     A list of Providers which provide ColorShifts for this
      *                                Animation
-     * @param renderingAreaProvider   A class which provides the dimensions in which to render
+     * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
      * @param containingStack         The RenderableStack to contain the Renderable
@@ -41,16 +41,16 @@ public interface FiniteAnimationRenderableFactory {
      *                                rendered, paused, or captured any mouse events
      * @return The newly-created FiniteAnimationRenderable
      * @throws IllegalArgumentException If and only if animation, borderThicknessProvider,
-     *                                  borderColorProvider, colorShiftProviders,
-     *                                  renderingAreaProvider, uuid, or containingStack are null;
-     *                                  or if pausedTimestamp is non-null, and mostRecentTimestamp
-     *                                  is either null, or before pausedTimestamp
+     *                                  borderColorProvider, colorShiftProviders, areaProvider,
+     *                                  uuid, or containingStack are null; or if pausedTimestamp is
+     *                                  non-null, and mostRecentTimestamp is either null, or before
+     *                                  pausedTimestamp
      */
     FiniteAnimationRenderable make(Animation animation,
                                    ProviderAtTime<Float> borderThicknessProvider,
                                    ProviderAtTime<Color> borderColorProvider,
                                    List<ProviderAtTime<ColorShift>> colorShiftProviders,
-                                   ProviderAtTime<FloatBox> renderingAreaProvider, int z,
+                                   ProviderAtTime<FloatBox> areaProvider, int z,
                                    UUID uuid, RenderableStack containingStack,
                                    long startTimestamp, Long pausedTimestamp,
                                    Long mostRecentTimestamp)
@@ -74,7 +74,7 @@ public interface FiniteAnimationRenderableFactory {
      *                                renderable
      * @param colorShiftProviders     A list of Providers which provide ColorShifts for this
      *                                Animation
-     * @param renderingAreaProvider   A class which provides the dimensions in which to render
+     * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
      * @param containingStack         The RenderableStack to contain the Renderable
@@ -84,10 +84,10 @@ public interface FiniteAnimationRenderableFactory {
      *                                rendered, paused, or captured any mouse events
      * @return The newly-created FiniteAnimationRenderable
      * @throws IllegalArgumentException If and only if animation, borderThicknessProvider,
-     *                                  borderColorProvider, colorShiftProviders,
-     *                                  renderingAreaProvider, uuid, or containingStack are null;
-     *                                  or if pausedTimestamp is non-null, and mostRecentTimestamp
-     *                                  is either null, or before pausedTimestamp
+     *                                  borderColorProvider, colorShiftProviders, areaProvider,
+     *                                  uuid, or containingStack are null; or if pausedTimestamp is
+     *                                  non-null, and mostRecentTimestamp is either null, or before
+     *                                  pausedTimestamp
      */
     FiniteAnimationRenderable make(Animation animation,
                                    ProviderAtTime<Float> borderThicknessProvider,
@@ -97,7 +97,7 @@ public interface FiniteAnimationRenderableFactory {
                                    Action<MouseEventInputs> onMouseOver,
                                    Action<MouseEventInputs> onMouseLeave,
                                    List<ProviderAtTime<ColorShift>> colorShiftProviders,
-                                   ProviderAtTime<FloatBox> renderingAreaProvider,
+                                   ProviderAtTime<FloatBox> areaProvider,
                                    int z,
                                    UUID uuid,
                                    RenderableStack containingStack,

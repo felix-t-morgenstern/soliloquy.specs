@@ -32,9 +32,9 @@ public interface RectangleRenderableFactory {
      * @param bottomLeftColorProvider     A Provider for the color mask at the bottom-left corner
      *                                    (c.f.
      *                                    {@link RectangleRenderable#getBottomLeftColorProvider()}
-     * @param backgroundTextureIdProvider A Provider for the background texture (c.f.
+     * @param textureIdProvider           A Provider for the background texture (c.f.
      *                                    {@link
-     *                                    RectangleRenderable#getBackgroundTextureIdProvider()}
+     *                                    RectangleRenderable#getTextureIdProvider()}
      * @param backgroundTextureTileWidth  The width of each "tile" of the background texture
      *                                    provided, where 1.0 is the width of the window
      * @param backgroundTextureTileHeight The width of each "tile" of the background texture
@@ -49,15 +49,15 @@ public interface RectangleRenderableFactory {
      *                                    Renderable
      * @param onMouseLeave                The Action which is fired when the mouse leaves this
      *                                    Renderable
-     * @param renderingAreaProvider       A class which provides the dimensions in which to render
+     * @param areaProvider       A class which provides the dimensions in which to render
      * @param z                           The z index within the container
      * @param uuid                        The universally unique identifier
      * @param containingStack             The RenderableStack to contain the Renderable
      * @return The newly-created RectangleRenderable
      * @throws IllegalArgumentException If and only if topLeftColorProvider, topRightColorProvider,
      *                                  bottomRightColorProvider, bottomLeftColorProvider,
-     *                                  backgroundTextureIdProvider, colorShiftProviders,
-     *                                  renderingAreaProvider, uuid, or containingStack are null; or
+     *                                  textureIdProvider, colorShiftProviders,
+     *                                  areaProvider, uuid, or containingStack are null; or
      *                                  if backgroundTextureTileWidth or backgroundTileHeight are
      *                                  less than or equal to 0
      */
@@ -65,14 +65,14 @@ public interface RectangleRenderableFactory {
                              ProviderAtTime<Color> topRightColorProvider,
                              ProviderAtTime<Color> bottomRightColorProvider,
                              ProviderAtTime<Color> bottomLeftColorProvider,
-                             ProviderAtTime<Integer> backgroundTextureIdProvider,
+                             ProviderAtTime<Integer> textureIdProvider,
                              float backgroundTextureTileWidth,
                              float backgroundTextureTileHeight,
                              Map<Integer, Action<MouseEventInputs>> onPress,
                              Map<Integer, Action<MouseEventInputs>> onRelease,
                              Action<MouseEventInputs> onMouseOver,
                              Action<MouseEventInputs> onMouseLeave,
-                             ProviderAtTime<FloatBox> renderingAreaProvider,
+                             ProviderAtTime<FloatBox> areaProvider,
                              int z,
                              UUID uuid,
                              RenderableStack containingStack)

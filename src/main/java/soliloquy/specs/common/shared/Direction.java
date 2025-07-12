@@ -10,14 +10,14 @@ public enum Direction {
     WEST(4),
     NORTHWEST(7);
 
-    private final int value;
+    private final int VALUE;
 
     Direction(int value) {
-        this.value = value;
+        VALUE = value;
     }
 
     public int getValue() {
-        return value;
+        return VALUE;
     }
 
     public static Direction fromValue(Integer value) {

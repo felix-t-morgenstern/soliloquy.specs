@@ -1,18 +1,16 @@
-package soliloquy.specs.ui.definitions.components;
+package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
-import soliloquy.specs.ui.ContentDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
-public class SpriteRenderableDefinition implements ContentDefinition {
+public class SpriteRenderableDefinition extends AbstractContentDefinition {
     public final String SPRITE_TYPE_ID;
     public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER;
-    public final int Z;
 
     public AbstractProviderDefinition<Float> borderThicknessProvider;
     public AbstractProviderDefinition<Color> borderColorProvider;
@@ -25,9 +23,9 @@ public class SpriteRenderableDefinition implements ContentDefinition {
     private SpriteRenderableDefinition(String spriteTypeId,
                                        AbstractProviderDefinition<FloatBox> dimensionsProvider,
                                        int z) {
+        super(z);
         this.SPRITE_TYPE_ID = spriteTypeId;
         this.DIMENSIONS_PROVIDER = dimensionsProvider;
-        this.Z = z;
     }
 
     public static SpriteRenderableDefinition sprite(String spriteTypeId,

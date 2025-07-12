@@ -18,22 +18,21 @@ public interface PolygonRenderable extends RenderableWithMouseEvents {
      * @return The Texture which will be provided as a background for this polygon for a given
      *         timestamp
      */
-    ProviderAtTime<Integer> getBackgroundTextureIdProvider();
+    ProviderAtTime<Integer> getTextureIdProvider();
 
     /**
-     * C.f. {@link #getBackgroundTextureIdProvider()} for more information
+     * C.f. {@link #getTextureIdProvider()} for more information
      *
-     * @param backgroundTextureIdProvider The background texture Id provider for this Renderable
-     * @throws IllegalArgumentException If and only if backgroundTextureIdProvider is null
+     * @param textureIdProvider The background texture Id provider for this Renderable
+     * @throws IllegalArgumentException If and only if textureIdProvider is null
      */
-    void setBackgroundTextureIdProvider(ProviderAtTime<Integer> backgroundTextureIdProvider)
+    void setTextureIdProvider(ProviderAtTime<Integer> textureIdProvider)
             throws IllegalArgumentException;
 
     /**
-     * @return The width of the texture (c.f. {@link #getBackgroundTextureIdProvider}) acting as a
-     *         background for this polygon. Width is expressed in percentage of window width, where
-     *         1f is
-     *         100% of the window width.
+     * @return The width of the texture (c.f. {@link #getTextureIdProvider}) acting as a background
+     *         for this polygon. Width is expressed in percentage of window width, where 1f is 100%
+     *         of the window width.
      */
     float getBackgroundTextureTileWidth();
 
@@ -49,10 +48,9 @@ public interface PolygonRenderable extends RenderableWithMouseEvents {
             throws IllegalArgumentException;
 
     /**
-     * @return The height of the texture (c.f. {@link #getBackgroundTextureIdProvider}) acting as a
-     *         background for this polygon. Height is expressed in percentage of window height,
-     *         where 1f
-     *         is 100% of the window height.
+     * @return The height of the texture (c.f. {@link #getTextureIdProvider}) acting as a background
+     *         for this polygon. Height is expressed in percentage of window height, where 1f is
+     *         100% of the window height.
      */
     float getBackgroundTextureTileHeight();
 

@@ -32,20 +32,20 @@ public interface GlobalLoopingAnimationRenderableFactory {
      *                                obviously use it differently if you please.)
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider     A class which provides the color of the border to render
-     * @param renderingAreaProvider   A class which provides the area in which to render
+     * @param areaProvider            A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
      * @param containingStack         The RenderableStack to contain the Renderable
      * @return The newly-created GlobalLoopingAnimationRenderable
      * @throws IllegalArgumentException If and only if globalLoopingAnimation is null; colorShifts
-     *                                  is null; renderingAreaProvider is null; uuid is null;
-     *                                  or containingStack is null
+     *                                  is null; areaProvider is null; uuid is null; or
+     *                                  containingStack is null
      */
     GlobalLoopingAnimationRenderable make(GlobalLoopingAnimation globalLoopingAnimation,
                                           ProviderAtTime<Float> borderThicknessProvider,
                                           ProviderAtTime<Color> borderColorProvider,
                                           List<ProviderAtTime<ColorShift>> colorShiftProviders,
-                                          ProviderAtTime<FloatBox> renderingAreaProvider,
+                                          ProviderAtTime<FloatBox> areaProvider,
                                           int z, UUID uuid,
                                           RenderableStack containingStack)
             throws IllegalArgumentException;
@@ -71,7 +71,7 @@ public interface GlobalLoopingAnimationRenderableFactory {
      *                                of
      *                                the same type for each entry in the list; however, you can
      *                                obviously use it differently if you please.)
-     * @param renderingAreaProvider   A class which provides the area in which to render
+     * @param areaProvider            A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
      * @param containingStack         The RenderableStack to contain the Renderable
@@ -88,7 +88,7 @@ public interface GlobalLoopingAnimationRenderableFactory {
                                           Action<MouseEventInputs> onMouseOver,
                                           Action<MouseEventInputs> onMouseLeave,
                                           List<ProviderAtTime<ColorShift>> colorShiftProviders,
-                                          ProviderAtTime<FloatBox> renderingAreaProvider,
+                                          ProviderAtTime<FloatBox> areaProvider,
                                           int z, UUID uuid,
                                           RenderableStack containingStack)
             throws IllegalArgumentException;
