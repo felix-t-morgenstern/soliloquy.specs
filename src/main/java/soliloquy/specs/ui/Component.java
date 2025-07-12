@@ -1,14 +1,14 @@
 package soliloquy.specs.ui;
 
 import soliloquy.specs.io.graphics.renderables.Renderable;
-import soliloquy.specs.io.graphics.renderables.RenderableWithDimensions;
 import soliloquy.specs.io.keyboard.KeyBindingContext;
 
 import java.util.Set;
 
-public interface Component extends RenderableWithDimensions {
+public interface Component extends Renderable {
     /**
-     * Components alone are expected to be in control of blocking KeyBindings of "lower" components, so it is expected that KeyBindingContexts will not appear in any other context
+     * Components alone are expected to be in control of blocking KeyBindings of "lower" components,
+     * so it is expected that KeyBindingContexts will not appear in any other context
      *
      * @return The KeyBindingContext for this Component
      */
