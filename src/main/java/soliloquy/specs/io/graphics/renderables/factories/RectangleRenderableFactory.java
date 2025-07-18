@@ -21,38 +21,38 @@ import java.util.UUID;
  */
 public interface RectangleRenderableFactory {
     /**
-     * @param topLeftColorProvider        A Provider for the color mask at the top-left corner (c.f.
-     *                                    {@link RectangleRenderable#getTopLeftColorProvider()}
-     * @param topRightColorProvider       A Provider for the color mask at the top-right corner
-     *                                    (c.f.
-     *                                    {@link RectangleRenderable#getTopRightColorProvider()}
-     * @param bottomRightColorProvider    A Provider for the color mask at the bottom-right corner
-     *                                    (c.f.
-     *                                    {@link RectangleRenderable#getBottomRightColorProvider()}
-     * @param bottomLeftColorProvider     A Provider for the color mask at the bottom-left corner
-     *                                    (c.f.
-     *                                    {@link RectangleRenderable#getBottomLeftColorProvider()}
-     * @param textureIdProvider           A Provider for the background texture (c.f.
-     *                                    {@link
-     *                                    RectangleRenderable#getTextureIdProvider()}
-     * @param backgroundTextureTileWidth  The width of each "tile" of the background texture
-     *                                    provided, where 1.0 is the width of the window
-     * @param backgroundTextureTileHeight The width of each "tile" of the background texture
-     *                                    provided, where 1.0 is the width of the window
-     * @param onPress                     The Actions which is fired when a click is registered on
-     *                                    this Renderable, with the integer keys corresponding to
-     *                                    mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onRelease                   The Actions which is fired when a click is registered on
-     *                                    this Renderable, with the integer keys corresponding to
-     *                                    mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onMouseOver                 The Action which is fired when the mouse moves over this
-     *                                    Renderable
-     * @param onMouseLeave                The Action which is fired when the mouse leaves this
-     *                                    Renderable
-     * @param areaProvider       A class which provides the dimensions in which to render
-     * @param z                           The z index within the container
-     * @param uuid                        The universally unique identifier
-     * @param containingStack             The RenderableStack to contain the Renderable
+     * @param topLeftColorProvider      A Provider for the color mask at the top-left corner (c.f.
+     *                                  {@link RectangleRenderable#getTopLeftColorProvider()}
+     * @param topRightColorProvider     A Provider for the color mask at the top-right corner
+     *                                  (c.f.
+     *                                  {@link RectangleRenderable#getTopRightColorProvider()}
+     * @param bottomRightColorProvider  A Provider for the color mask at the bottom-right corner
+     *                                  (c.f.
+     *                                  {@link RectangleRenderable#getBottomRightColorProvider()}
+     * @param bottomLeftColorProvider   A Provider for the color mask at the bottom-left corner
+     *                                  (c.f.
+     *                                  {@link RectangleRenderable#getBottomLeftColorProvider()}
+     * @param textureIdProvider         A Provider for the background texture (c.f.
+     *                                  {@link
+     *                                  RectangleRenderable#getTextureIdProvider()}
+     * @param textureTileWidthProvider  Provides the width of each "tile" of the background texture
+     *                                  provided, where 1.0 is the width of the window
+     * @param textureTileHeightProvider Provides the height of each "tile" of the background texture
+     *                                  provided, where 1.0 is the height of the window
+     * @param onPress                   The Actions which is fired when a click is registered on
+     *                                  this Renderable, with the integer keys corresponding to
+     *                                  mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onRelease                 The Actions which is fired when a click is registered on
+     *                                  this Renderable, with the integer keys corresponding to
+     *                                  mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onMouseOver               The Action which is fired when the mouse moves over this
+     *                                  Renderable
+     * @param onMouseLeave              The Action which is fired when the mouse leaves this
+     *                                  Renderable
+     * @param areaProvider              A class which provides the dimensions in which to render
+     * @param z                         The z index within the container
+     * @param uuid                      The universally unique identifier
+     * @param containingStack           The RenderableStack to contain the Renderable
      * @return The newly-created RectangleRenderable
      * @throws IllegalArgumentException If and only if topLeftColorProvider, topRightColorProvider,
      *                                  bottomRightColorProvider, bottomLeftColorProvider,
@@ -66,8 +66,8 @@ public interface RectangleRenderableFactory {
                              ProviderAtTime<Color> bottomRightColorProvider,
                              ProviderAtTime<Color> bottomLeftColorProvider,
                              ProviderAtTime<Integer> textureIdProvider,
-                             float backgroundTextureTileWidth,
-                             float backgroundTextureTileHeight,
+                             ProviderAtTime<Float> textureTileWidthProvider,
+                             ProviderAtTime<Float> textureTileHeightProvider,
                              Map<Integer, Action<MouseEventInputs>> onPress,
                              Map<Integer, Action<MouseEventInputs>> onRelease,
                              Action<MouseEventInputs> onMouseOver,

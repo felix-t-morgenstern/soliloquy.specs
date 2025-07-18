@@ -29,10 +29,10 @@ public interface TriangleRenderableFactory {
      * @param vertex3ColorProvider        Provides the color of the third vertex
      * @param backgroundTextureIdProvider Provides the id of the texture of the background tiles;
      *                                    may return null, if no background tile is to be used
-     * @param backgroundTextureTileWidth  The width of each "tile" of the background texture
-     *                                    provided, where 1.0 is the width of the window
-     * @param backgroundTextureTileHeight The width of each "tile" of the background texture
-     *                                    provided, where 1.0 is the width of the window
+     * @param textureTileWidthProvider    Provides the width of each "tile" of the background
+     *                                    texture provided, where 1.0 is the width of the window
+     * @param textureTileHeightProvider   Provides the height of each "tile" of the background
+     *                                    texture provided, where 1.0 is the height of the window
      * @param onPress                     The Actions which is fired when a click is registered on
      *                                    this Renderable, with the integer keys corresponding to
      *                                    mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
@@ -51,8 +51,8 @@ public interface TriangleRenderableFactory {
      *                                  vertex1ColorProvider, vertex2LocationProvider,
      *                                  vertex2ColorProvider, vertex3LocationProvider,
      *                                  vertex3ColorProvider, uuid, or containingStack are null; or
-     *                                  if backgroundTextureTileWidth or backgroundTextureTileHeight
-     *                                  are less than 0
+     *                                  if textureTileWidthProvider or textureTileHeightProvider
+     *                                  are null
      */
     TriangleRenderable make(ProviderAtTime<Vertex> vertex1LocationProvider,
                             ProviderAtTime<Color> vertex1ColorProvider,
@@ -61,8 +61,8 @@ public interface TriangleRenderableFactory {
                             ProviderAtTime<Vertex> vertex3LocationProvider,
                             ProviderAtTime<Color> vertex3ColorProvider,
                             ProviderAtTime<Integer> backgroundTextureIdProvider,
-                            float backgroundTextureTileWidth,
-                            float backgroundTextureTileHeight,
+                            ProviderAtTime<Float> textureTileWidthProvider,
+                            ProviderAtTime<Float> textureTileHeightProvider,
                             Map<Integer, Action<MouseEventInputs>> onPress,
                             Map<Integer, Action<MouseEventInputs>> onRelease,
                             Action<MouseEventInputs> onMouseOver,

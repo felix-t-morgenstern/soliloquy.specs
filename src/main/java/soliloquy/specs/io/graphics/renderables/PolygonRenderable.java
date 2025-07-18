@@ -34,32 +34,28 @@ public interface PolygonRenderable extends RenderableWithMouseEvents {
      *         for this polygon. Width is expressed in percentage of window width, where 1f is 100%
      *         of the window width.
      */
-    float getTextureTileWidth();
+    ProviderAtTime<Float> getTextureTileWidthProvider();
 
     /**
-     * C.f. {@link #getTextureTileWidth()} for more information
+     * C.f. {@link #getTextureTileWidthProvider()} for more information
      *
-     * @param backgroundTextureTileWidth The percentage of the window width for one tile of the
-     *                                   provided texture Id
-     * @throws IllegalArgumentException If and only if backgroundTextureTileWidth is less than or
-     *                                  equal to 0
+     * @param provider The percentage of the window width for one tile of the provided texture Id
+     * @throws IllegalArgumentException If and only if provider is less than or equal to 0
      */
-    void setTextureTileWidth(float backgroundTextureTileWidth) throws IllegalArgumentException;
+    void setTextureTileWidthProvider(ProviderAtTime<Float> provider) throws IllegalArgumentException;
 
     /**
      * @return The height of the texture (c.f. {@link #getTextureIdProvider}) acting as a background
      *         for this polygon. Height is expressed in percentage of window height, where 1f is
      *         100% of the window height.
      */
-    float getTextureTileHeight();
+    ProviderAtTime<Float> getTextureTileHeightProvider();
 
     /**
-     * C.f. {@link #getTextureTileHeight()} for more information
+     * C.f. {@link #getTextureTileHeightProvider()} for more information
      *
-     * @param backgroundTextureTileHeight The percentage of the window height for one tile of the
-     *                                    provided texture Id
-     * @throws IllegalArgumentException If and only if backgroundTextureTileHeight is less than or
-     *                                  equal to 0
+     * @param provider The percentage of the window height for one tile of the provided texture Id
+     * @throws IllegalArgumentException If and only if provider is less than or equal to 0
      */
-    void setTextureTileHeight(float backgroundTextureTileHeight) throws IllegalArgumentException;
+    void setTextureTileHeightProvider(ProviderAtTime<Float> provider) throws IllegalArgumentException;
 }
