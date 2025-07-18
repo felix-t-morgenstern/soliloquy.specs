@@ -34,34 +34,32 @@ public interface PolygonRenderable extends RenderableWithMouseEvents {
      *         for this polygon. Width is expressed in percentage of window width, where 1f is 100%
      *         of the window width.
      */
-    float getBackgroundTextureTileWidth();
+    float getTextureTileWidth();
 
     /**
-     * C.f. {@link #getBackgroundTextureTileWidth()} for more information
+     * C.f. {@link #getTextureTileWidth()} for more information
      *
      * @param backgroundTextureTileWidth The percentage of the window width for one tile of the
      *                                   provided texture Id
      * @throws IllegalArgumentException If and only if backgroundTextureTileWidth is less than or
      *                                  equal to 0
      */
-    void setBackgroundTextureTileWidth(float backgroundTextureTileWidth)
-            throws IllegalArgumentException;
+    void setTextureTileWidth(float backgroundTextureTileWidth) throws IllegalArgumentException;
 
     /**
      * @return The height of the texture (c.f. {@link #getTextureIdProvider}) acting as a background
      *         for this polygon. Height is expressed in percentage of window height, where 1f is
      *         100% of the window height.
      */
-    float getBackgroundTextureTileHeight();
+    float getTextureTileHeight();
 
     /**
-     * C.f. {@link #getBackgroundTextureTileHeight()} for more information
+     * C.f. {@link #getTextureTileHeight()} for more information
      *
      * @param backgroundTextureTileHeight The percentage of the window height for one tile of the
      *                                    provided texture Id
      * @throws IllegalArgumentException If and only if backgroundTextureTileHeight is less than or
      *                                  equal to 0
      */
-    void setBackgroundTextureTileHeight(float backgroundTextureTileHeight)
-            throws IllegalArgumentException;
+    void setTextureTileHeight(float backgroundTextureTileHeight) throws IllegalArgumentException;
 }
