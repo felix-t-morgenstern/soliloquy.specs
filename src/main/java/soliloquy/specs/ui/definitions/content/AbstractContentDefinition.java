@@ -17,7 +17,7 @@ package soliloquy.specs.ui.definitions.content;
  * @version 0.0.1
  */
 public abstract class AbstractContentDefinition {
-    private final int Z;
+    public final int Z;
 
     protected AbstractContentDefinition(int z) {
         Z = z;
