@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class RasterizedLineSegmentRenderableDefinition
         extends AbstractLineSegmentRenderableDefinition {
-    public short stipplePattern;
-    public short stippleFactor;
+    public Short stipplePattern;
+    public Short stippleFactor;
 
     private RasterizedLineSegmentRenderableDefinition(
             AbstractProviderDefinition<Vertex> vertex1Provider,
