@@ -1,6 +1,6 @@
 package soliloquy.specs.ui.definitions.colorshifting;
 
-import soliloquy.specs.io.graphics.renderables.colorshifting.ColorComponent;
+import soliloquy.specs.io.graphics.renderables.colorshifting.*;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 public class ShiftDefinition {
@@ -18,12 +18,23 @@ public class ShiftDefinition {
         SHIFT_TYPE = shiftType;
     }
 
+    /**
+     * @param shiftAmountProvider C.f. {@link ColorShift#shiftAmountProvider()}
+     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#overridesPriorShiftsOfSameType()}
+     * @return A definition of a {@link BrightnessShift}
+     */
     public static ShiftDefinition brightness(AbstractProviderDefinition<Float> shiftAmountProvider,
                                              boolean overridesPriorShiftsOfSameType) {
         return new ShiftDefinition(shiftAmountProvider, overridesPriorShiftsOfSameType, null,
                 ShiftType.BRIGHTNESS);
     }
 
+    /**
+     * @param shiftAmountProvider C.f. {@link ColorShift#shiftAmountProvider()}
+     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#overridesPriorShiftsOfSameType()}
+     * @param component C.f. {@link ColorComponentIntensityShift#colorComponent()}
+     * @return A definition of a {@link ColorComponentIntensityShift}
+     */
     public static ShiftDefinition componentIntensity(
             AbstractProviderDefinition<Float> shiftAmountProvider,
             boolean overridesPriorShiftsOfSameType, ColorComponent component) {
@@ -31,6 +42,11 @@ public class ShiftDefinition {
                 ShiftType.COMPONENT_INTENSITY);
     }
 
+    /**
+     * @param shiftAmountProvider C.f. {@link ColorShift#shiftAmountProvider()}
+     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#overridesPriorShiftsOfSameType()}
+     * @return A definition of a {@link ColorRotationShift}
+     */
     public static ShiftDefinition rotation(AbstractProviderDefinition<Float> shiftAmountProvider,
                                            boolean overridesPriorShiftsOfSameType) {
         return new ShiftDefinition(shiftAmountProvider, overridesPriorShiftsOfSameType, null,
