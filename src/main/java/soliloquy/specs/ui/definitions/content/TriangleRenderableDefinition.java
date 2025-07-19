@@ -18,8 +18,8 @@ public class TriangleRenderableDefinition extends AbstractContentDefinition {
     public AbstractProviderDefinition<Color> vertex3ColorProvider;
 
     public AbstractProviderDefinition<Integer> textureIdProvider;
-    public AbstractProviderDefinition<Float> backgroundTextureTileWidthProvider;
-    public AbstractProviderDefinition<Float> backgroundTextureTileHeightProvider;
+    public AbstractProviderDefinition<Float> textureTileWidthProvider;
+    public AbstractProviderDefinition<Float> textureTileHeightProvider;
 
     public Map<Integer, String> onPressIds;
     public Map<Integer, String> onReleaseIds;
@@ -64,7 +64,7 @@ public class TriangleRenderableDefinition extends AbstractContentDefinition {
 
     public TriangleRenderableDefinition withTexture(int textureId) {
         textureIdProvider = staticVal(textureId);
-        backgroundTextureTileWidthProvider = backgroundTextureTileHeightProvider = staticVal(1f);
+        textureTileWidthProvider = textureTileHeightProvider = staticVal(1f);
 
         return this;
     }
@@ -74,8 +74,8 @@ public class TriangleRenderableDefinition extends AbstractContentDefinition {
             AbstractProviderDefinition<Float> tileWidthProvider,
             AbstractProviderDefinition<Float> tileHeightProvider) {
         this.textureIdProvider = textureIdProvider;
-        backgroundTextureTileWidthProvider = tileWidthProvider;
-        backgroundTextureTileHeightProvider = tileHeightProvider;
+        textureTileWidthProvider = tileWidthProvider;
+        textureTileHeightProvider = tileHeightProvider;
 
         return this;
     }
