@@ -27,10 +27,7 @@ public interface ImageAssetSetRenderableFactory {
      * @param imageAssetSet           The ImageAssetSet to render
      * @param displayParams           The current display parameters for the ImageAssetSet (cf
      *                                {@link ImageAssetSet#getImageAssetWithDisplayParams})
-     * @param colorShiftProviders     The ColorShifts to apply when rendering (NB: This List is
-     *                                intended to contain Providers which will provide ColorShifts
-     *                                of the same type for each entry in the list; however, you can
-     *                                obviously use it differently if you please.)
+     * @param colorShifts             The ColorShifts to apply when rendering
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider     A class which provides the color of the border to render
      * @param renderingAreaProvider   A class which provides the area in which to render
@@ -43,7 +40,7 @@ public interface ImageAssetSetRenderableFactory {
      *                                  null; or containingStack is null
      */
     ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, Map<String, String> displayParams,
-                                 List<ProviderAtTime<ColorShift>> colorShiftProviders,
+                                 List<ColorShift> colorShifts,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
@@ -65,11 +62,7 @@ public interface ImageAssetSetRenderableFactory {
      *                                    renderable
      * @param onMouseLeave                The Action which is fired when the mouse leaves this
      *                                    renderable
-     * @param colorShiftProviders         The ColorShifts to apply when rendering (NB: This List is
-     *                                    intended to contain Providers which will provide
-     *                                    ColorShifts of the same type for each entry in the list;
-     *                                    however, you can obviously use it differently if you
-     *                                    please.)
+     * @param colorShifts                 The ColorShifts to apply when rendering
      * @param borderThicknessProvider     A class which provides the thickness of the border to
      *                                    render
      * @param borderColorProvider         A class which provides the color of the border to render
@@ -87,7 +80,7 @@ public interface ImageAssetSetRenderableFactory {
                                  Map<Integer, Action<MouseEventInputs>> onRelease,
                                  Action<MouseEventInputs> onMouseOver,
                                  Action<MouseEventInputs> onMouseLeave,
-                                 List<ProviderAtTime<ColorShift>> colorShiftProviders,
+                                 List<ColorShift> colorShifts,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,

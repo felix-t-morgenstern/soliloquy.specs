@@ -1,7 +1,6 @@
 package soliloquy.specs.io.graphics.renderables;
 
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
-import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 
 import java.util.List;
 
@@ -22,8 +21,8 @@ public interface HasColorShifts {
      * <i>NB: There should not be any color shifts for a {@link RectangleRenderable} which does not
      * have a background Sprite or Animation.</i>
      *
-     * @return A List of Providers of ColorShifts, to be applied to this Renderable, when rendering
-     *         it in the {@link soliloquy.specs.io.graphics.rendering.Shader}
+     * @return A List of ColorShifts, to be applied to this Renderable, when rendering it in the
+     *         {@link soliloquy.specs.io.graphics.rendering.Shader}
      */
-    List<ProviderAtTime<ColorShift>> colorShiftProviders();
+    List<ColorShift> colorShifts();
 }

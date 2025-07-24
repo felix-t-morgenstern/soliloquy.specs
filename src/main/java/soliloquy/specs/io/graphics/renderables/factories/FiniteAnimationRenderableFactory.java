@@ -29,8 +29,7 @@ public interface FiniteAnimationRenderableFactory {
      * @param animation               The Animation to be rendered
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider     A class which provides the color of the border to render
-     * @param colorShiftProviders     A list of Providers which provide ColorShifts for this
-     *                                Animation
+     * @param colorShifts             A list ColorShifts for this Animation
      * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
@@ -49,7 +48,7 @@ public interface FiniteAnimationRenderableFactory {
     FiniteAnimationRenderable make(Animation animation,
                                    ProviderAtTime<Float> borderThicknessProvider,
                                    ProviderAtTime<Color> borderColorProvider,
-                                   List<ProviderAtTime<ColorShift>> colorShiftProviders,
+                                   List<ColorShift> colorShifts,
                                    ProviderAtTime<FloatBox> areaProvider, int z,
                                    UUID uuid, RenderableStack containingStack,
                                    long startTimestamp, Long pausedTimestamp,
@@ -72,8 +71,7 @@ public interface FiniteAnimationRenderableFactory {
      *                                renderable
      * @param onMouseLeave            The Action which is fired when the mouse leaves this
      *                                renderable
-     * @param colorShiftProviders     A list of Providers which provide ColorShifts for this
-     *                                Animation
+     * @param colorShifts             A list ColorShifts for this Animation
      * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
@@ -96,7 +94,7 @@ public interface FiniteAnimationRenderableFactory {
                                    Map<Integer, Action<MouseEventInputs>> onRelease,
                                    Action<MouseEventInputs> onMouseOver,
                                    Action<MouseEventInputs> onMouseLeave,
-                                   List<ProviderAtTime<ColorShift>> colorShiftProviders,
+                                   List<ColorShift> colorShifts,
                                    ProviderAtTime<FloatBox> areaProvider,
                                    int z,
                                    UUID uuid,

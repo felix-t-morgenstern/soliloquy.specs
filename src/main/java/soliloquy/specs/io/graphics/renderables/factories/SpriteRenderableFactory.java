@@ -25,11 +25,7 @@ import java.util.UUID;
 public interface SpriteRenderableFactory {
     /**
      * @param sprite                      The Sprite to assign to this Renderable
-     * @param colorShiftProviders         The ColorShifts to apply when rendering (NB: This List is
-     *                                    intended to contain Providers which will provide
-     *                                    ColorShifts of the same type for each entry in the list;
-     *                                    however, you can obviously use it differently if you
-     *                                    please.)
+     * @param colorShifts                 The ColorShifts to apply when rendering
      * @param borderThicknessProvider     A class which provides the thickness of the border to
      *                                    render
      * @param borderColorProvider         A class which provides the color of the border to render
@@ -42,11 +38,14 @@ public interface SpriteRenderableFactory {
      *                                  renderingDimensionsProvider is null; uuid is null; or
      *                                  containingStack is null
      */
-    SpriteRenderable make(Sprite sprite, ProviderAtTime<Float> borderThicknessProvider,
+    SpriteRenderable make(Sprite sprite,
+                          ProviderAtTime<Float> borderThicknessProvider,
                           ProviderAtTime<Color> borderColorProvider,
-                          List<ProviderAtTime<ColorShift>> colorShiftProviders,
-                          ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
-                          UUID uuid, RenderableStack containingStack)
+                          List<ColorShift> colorShifts,
+                          ProviderAtTime<FloatBox> renderingDimensionsProvider,
+                          int z,
+                          UUID uuid,
+                          RenderableStack containingStack)
             throws IllegalArgumentException;
 
     /**
@@ -61,11 +60,7 @@ public interface SpriteRenderableFactory {
      *                                    Renderable
      * @param onMouseLeave                The Action which is fired when the mouse leaves this
      *                                    Renderable
-     * @param colorShiftProviders         The ColorShifts to apply when rendering (NB: This List is
-     *                                    intended to contain Providers which will provide
-     *                                    ColorShifts of the same type for each entry in the list;
-     *                                    however, you can obviously use it differently if you
-     *                                    please.)
+     * @param colorShifts                 The ColorShifts to apply when rendering
      * @param borderThicknessProvider     A class which provides the thickness of the border to
      *                                    render
      * @param borderColorProvider         A class which provides the color of the border to render
@@ -79,14 +74,17 @@ public interface SpriteRenderableFactory {
      *                                  containingStack is null; or borderThicknessProvider is null,
      *                                  and borderColorProvider is non-null
      */
-    SpriteRenderable make(Sprite sprite, ProviderAtTime<Float> borderThicknessProvider,
+    SpriteRenderable make(Sprite sprite,
+                          ProviderAtTime<Float> borderThicknessProvider,
                           ProviderAtTime<Color> borderColorProvider,
                           Map<Integer, Action<MouseEventInputs>> onPress,
                           Map<Integer, Action<MouseEventInputs>> onRelease,
                           Action<MouseEventInputs> onMouseOver,
                           Action<MouseEventInputs> onMouseLeave,
-                          List<ProviderAtTime<ColorShift>> colorShiftProviders,
-                          ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
-                          UUID uuid, RenderableStack containingStack)
+                          List<ColorShift> colorShifts,
+                          ProviderAtTime<FloatBox> renderingDimensionsProvider,
+                          int z,
+                          UUID uuid,
+                          RenderableStack containingStack)
             throws IllegalArgumentException;
 }

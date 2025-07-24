@@ -25,11 +25,7 @@ import java.util.UUID;
 public interface GlobalLoopingAnimationRenderableFactory {
     /**
      * @param globalLoopingAnimation  The GlobalLoopingAnimation to render
-     * @param colorShiftProviders     The ColorShifts to apply when rendering (NB: This List is
-     *                                intended to contain Providers which will provide ColorShifts
-     *                                of
-     *                                the same type for each entry in the list; however, you can
-     *                                obviously use it differently if you please.)
+     * @param colorShifts             The ColorShifts to apply when rendering
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider     A class which provides the color of the border to render
      * @param areaProvider            A class which provides the area in which to render
@@ -44,7 +40,7 @@ public interface GlobalLoopingAnimationRenderableFactory {
     GlobalLoopingAnimationRenderable make(GlobalLoopingAnimation globalLoopingAnimation,
                                           ProviderAtTime<Float> borderThicknessProvider,
                                           ProviderAtTime<Color> borderColorProvider,
-                                          List<ProviderAtTime<ColorShift>> colorShiftProviders,
+                                          List<ColorShift> colorShifts,
                                           ProviderAtTime<FloatBox> areaProvider,
                                           int z, UUID uuid,
                                           RenderableStack containingStack)
@@ -66,11 +62,7 @@ public interface GlobalLoopingAnimationRenderableFactory {
      *                                renderable
      * @param onMouseLeave            The Action which is fired when the mouse leaves this
      *                                renderable
-     * @param colorShiftProviders     The ColorShifts to apply when rendering (NB: This List is
-     *                                intended to contain Providers which will provide ColorShifts
-     *                                of
-     *                                the same type for each entry in the list; however, you can
-     *                                obviously use it differently if you please.)
+     * @param colorShifts             The ColorShifts to apply when rendering
      * @param areaProvider            A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
@@ -87,7 +79,7 @@ public interface GlobalLoopingAnimationRenderableFactory {
                                           Map<Integer, Action<MouseEventInputs>> onRelease,
                                           Action<MouseEventInputs> onMouseOver,
                                           Action<MouseEventInputs> onMouseLeave,
-                                          List<ProviderAtTime<ColorShift>> colorShiftProviders,
+                                          List<ColorShift> colorShifts,
                                           ProviderAtTime<FloatBox> areaProvider,
                                           int z, UUID uuid,
                                           RenderableStack containingStack)
