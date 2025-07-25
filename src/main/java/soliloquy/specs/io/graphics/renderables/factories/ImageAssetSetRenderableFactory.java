@@ -75,15 +75,17 @@ public interface ImageAssetSetRenderableFactory {
      *                                  colorShifts is null; renderingDimensionsProvider is null;
      *                                  uuid is null; or containingStack is null
      */
-    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, Map<String, String> displayParams,
+    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet,
+                                 Map<String, String> displayParams,
+                                 ProviderAtTime<Float> borderThicknessProvider,
+                                 ProviderAtTime<Color> borderColorProvider,
                                  Map<Integer, Action<MouseEventInputs>> onPress,
                                  Map<Integer, Action<MouseEventInputs>> onRelease,
                                  Action<MouseEventInputs> onMouseOver,
                                  Action<MouseEventInputs> onMouseLeave,
                                  List<ColorShift> colorShifts,
-                                 ProviderAtTime<Float> borderThicknessProvider,
-                                 ProviderAtTime<Color> borderColorProvider,
-                                 ProviderAtTime<FloatBox> renderingDimensionsProvider, int z,
+                                 ProviderAtTime<FloatBox> renderingDimensionsProvider,
+                                 int z,
                                  UUID uuid,
                                  RenderableStack containingStack)
             throws IllegalArgumentException;

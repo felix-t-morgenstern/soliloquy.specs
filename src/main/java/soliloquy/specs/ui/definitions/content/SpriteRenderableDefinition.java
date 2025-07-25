@@ -9,24 +9,14 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
-public class SpriteRenderableDefinition extends AbstractContentDefinition {
+public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefinition {
     public final String SPRITE_ID;
-    public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER;
-
-    public AbstractProviderDefinition<Float> borderThicknessProvider;
-    public AbstractProviderDefinition<Color> borderColorProvider;
-    public Map<Integer, String> onPressIds;
-    public Map<Integer, String> onReleaseIds;
-    public String onMouseOverId;
-    public String onMouseLeaveId;
-    public ShiftDefinition[] colorShiftProviders;
 
     private SpriteRenderableDefinition(String spriteId,
                                        AbstractProviderDefinition<FloatBox> dimensionsProvider,
                                        int z) {
-        super(z);
+        super(dimensionsProvider, z);
         this.SPRITE_ID = spriteId;
-        this.DIMENSIONS_PROVIDER = dimensionsProvider;
     }
 
     public static SpriteRenderableDefinition sprite(String spriteId,
