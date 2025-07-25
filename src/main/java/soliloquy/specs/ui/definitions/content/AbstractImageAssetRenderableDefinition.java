@@ -16,7 +16,7 @@ public class AbstractImageAssetRenderableDefinition extends AbstractContentDefin
     public Map<Integer, String> onReleaseIds;
     public String onMouseOverId;
     public String onMouseLeaveId;
-    public ShiftDefinition[] colorShiftProviders;
+    public ShiftDefinition[] colorShifts;
 
     protected AbstractImageAssetRenderableDefinition(AbstractProviderDefinition<FloatBox> dimensionsProvider,
                                                      int z) {

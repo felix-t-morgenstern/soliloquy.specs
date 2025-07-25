@@ -1,34 +1,33 @@
 package soliloquy.specs.ui.definitions.content;
 
-import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
+import soliloquy.specs.common.valueobjects.FloatBox;
+import soliloquy.specs.ui.definitions.colorshifting.ShiftDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
-import java.util.List;
 import java.util.Map;
 
-public class FiniteAnimationRenderableDefinition extends AbstractContentDefinition {
+public class FiniteAnimationRenderableDefinition extends AbstractImageAssetRenderableDefinition {
     public final String ANIMATION_ID;
 
-    public AbstractProviderDefinition<Float> borderThicknessProvider;
-    public AbstractProviderDefinition<Color> borderColorProvider;
-    public Map<Integer, String> onPressIds;
-    public Map<Integer, String> onReleaseIds;
-    public String onMouseOverId;
-    public String onMouseLeaveId;
-    public List<AbstractProviderDefinition<ColorShift>> colorShiftProviders;
     public int startTimestampOffset;
 
-    private FiniteAnimationRenderableDefinition(String animationId, int z) {
-        super(z);
+    private FiniteAnimationRenderableDefinition(String animationId,
+                                                AbstractProviderDefinition<FloatBox> dimensionsProvider,
+                                                int z) {
+        super(dimensionsProvider, z);
         ANIMATION_ID = animationId;
     }
 
-    public static FiniteAnimationRenderableDefinition finiteAnimation(String animationId, int z) {
-        return new FiniteAnimationRenderableDefinition(animationId, z);
+    public static FiniteAnimationRenderableDefinition finiteAnimation(String animationId,
+                                                                      AbstractProviderDefinition<FloatBox> dimensionsProvider,
+                                                                      int z) {
+        return new FiniteAnimationRenderableDefinition(animationId, dimensionsProvider, z);
     }
 
-    public FiniteAnimationRenderableDefinition withBorder(AbstractProviderDefinition<Float> thicknessProvider, AbstractProviderDefinition<Color> colorProvider) {
+    public FiniteAnimationRenderableDefinition withBorder(
+            AbstractProviderDefinition<Float> thicknessProvider,
+            AbstractProviderDefinition<Color> colorProvider) {
         borderThicknessProvider = thicknessProvider;
         borderColorProvider = colorProvider;
 
@@ -59,8 +58,9 @@ public class FiniteAnimationRenderableDefinition extends AbstractContentDefiniti
         return this;
     }
 
-    public FiniteAnimationRenderableDefinition colorShifts(List<AbstractProviderDefinition<ColorShift>> colorShiftProviders) {
-        this.colorShiftProviders = colorShiftProviders;
+    public FiniteAnimationRenderableDefinition withColorShifts(
+            ShiftDefinition... shiftDefinitions) {
+        this.colorShifts = shiftDefinitions;
 
         return this;
     }

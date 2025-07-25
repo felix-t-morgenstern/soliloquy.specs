@@ -1,12 +1,10 @@
 package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
-import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.ui.definitions.colorshifting.ShiftDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
-import java.util.List;
 import java.util.Map;
 
 public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefinition {
@@ -33,7 +31,7 @@ public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefi
     }
 
     public SpriteRenderableDefinition withColorShifts(ShiftDefinition... shiftDefinitions) {
-        this.colorShiftProviders = shiftDefinitions;
+        this.colorShifts = shiftDefinitions;
 
         return this;
     }

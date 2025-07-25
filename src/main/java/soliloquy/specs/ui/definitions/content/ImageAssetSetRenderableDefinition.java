@@ -38,7 +38,7 @@ public class ImageAssetSetRenderableDefinition extends AbstractImageAssetRendera
     }
 
     public ImageAssetSetRenderableDefinition withColorShifts(ShiftDefinition... shiftDefinitions) {
-        this.colorShiftProviders = shiftDefinitions;
+        this.colorShifts = shiftDefinitions;
 
         return this;
     }
