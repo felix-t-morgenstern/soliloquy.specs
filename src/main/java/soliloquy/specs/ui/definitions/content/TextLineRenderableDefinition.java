@@ -15,7 +15,7 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
     public final TextJustification JUSTIFICATION;
     public final float GLYPH_PADDING;
 
-    public Pair<Integer, AbstractProviderDefinition<Color>> colorProviderIndices;
+    public Pair<Integer, AbstractProviderDefinition<Color>>[] colorProviderIndices;
 
     public int[] italicIndices;
     public int[] boldIndices;
@@ -54,8 +54,9 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                 heightProvider, justification, glyphPadding, z);
     }
 
+    @SuppressWarnings("unchecked")
     public TextLineRenderableDefinition withColors(
-            Pair<Integer, AbstractProviderDefinition<Color>> colorProviderIndices) {
+            Pair<Integer, AbstractProviderDefinition<Color>>... colorProviderIndices) {
         this.colorProviderIndices = colorProviderIndices;
 
         return this;

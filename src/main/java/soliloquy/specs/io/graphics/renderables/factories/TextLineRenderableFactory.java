@@ -68,6 +68,7 @@ public interface TextLineRenderableFactory {
      */
     TextLineRenderable make(Font font,
                             ProviderAtTime<String> lineTextProvider,
+                            ProviderAtTime<Vertex> locationProvider,
                             ProviderAtTime<Float> lineHeightProvider,
                             TextJustification justification,
                             float paddingBetweenGlyphs,
@@ -76,7 +77,6 @@ public interface TextLineRenderableFactory {
                             List<Integer> boldIndices,
                             ProviderAtTime<Float> borderThicknessProvider,
                             ProviderAtTime<Color> borderColorProvider,
-                            ProviderAtTime<Vertex> locationProvider,
                             ProviderAtTime<Float> dropShadowSizeProvider,
                             ProviderAtTime<Vertex> dropShadowOffsetProvider,
                             ProviderAtTime<Color> dropShadowColorProvider,
