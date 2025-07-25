@@ -6,7 +6,7 @@ import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.TextJustification;
 import soliloquy.specs.io.graphics.renderables.TextLineRenderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.Component;
 
 import java.awt.*;
 import java.util.List;
@@ -55,7 +55,7 @@ public interface TextLineRenderableFactory {
      * @param dropShadowColorProvider  The ProviderAtTime for the color of the drop shadow
      * @param z                        The z-index of this Renderable, c.f. {@link Renderable#getZ}
      * @param uuid                     The uuid of this Renderable
-     * @param containingStack          The RenderableStack to contain the Renderable
+     * @param component          The Component to contain the Renderable
      * @return The newly-created TextLineRenderable
      * @throws IllegalArgumentException If and only if font is null; lineTextProvider is null;
      *                                  lineHeight is 0 or less; justification is null or UNKNOWN;
@@ -64,7 +64,7 @@ public interface TextLineRenderableFactory {
      *                                  borderColorProvider is non-null; locationProvider is null;
      *                                  dropShadowSizeProvider is null; dropShadowOffsetProvider is
      *                                  null; dropShadowColorProvider is null; uuid is null; or
-     *                                  containingStack is null
+     *                                  component is null
      */
     TextLineRenderable make(Font font,
                             ProviderAtTime<String> lineTextProvider,
@@ -82,6 +82,6 @@ public interface TextLineRenderableFactory {
                             ProviderAtTime<Color> dropShadowColorProvider,
                             int z,
                             UUID uuid,
-                            RenderableStack containingStack)
+                            Component component)
             throws IllegalArgumentException;
 }

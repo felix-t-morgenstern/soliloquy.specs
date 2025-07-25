@@ -18,6 +18,7 @@ public class LoopingLinearMovingColorProviderDefinition extends
         HUE_MOVEMENT_IS_CLOCKWISE = hueMovementIsClockwise;
     }
 
+    @SafeVarargs
     public static LoopingLinearMovingColorProviderDefinition loopingColor(int periodDuration,
                                                                           int renderTimestampOffset,
                                                                           List<Boolean> hueMovementIsClockwise,

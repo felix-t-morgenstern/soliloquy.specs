@@ -1,5 +1,7 @@
 package soliloquy.specs.io.keyboard;
 
+import soliloquy.specs.ui.keyboard.KeyBindingContext;
+
 import java.util.List;
 import java.util.Map;
 

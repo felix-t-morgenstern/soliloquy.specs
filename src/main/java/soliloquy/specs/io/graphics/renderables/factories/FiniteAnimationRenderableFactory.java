@@ -1,13 +1,13 @@
 package soliloquy.specs.io.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.assets.Animation;
 import soliloquy.specs.io.graphics.renderables.FiniteAnimationRenderable;
-import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.common.valueobjects.FloatBox;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.Component;
+import soliloquy.specs.ui.EventInputs;
 
 import java.awt.*;
 import java.util.List;
@@ -33,7 +33,7 @@ public interface FiniteAnimationRenderableFactory {
      * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param containingStack         The RenderableStack to contain the Renderable
+     * @param component         The Component to contain the Renderable
      * @param startTimestamp          The time at which this Animation began or will begin
      * @param pausedTimestamp         The time at which this Animation has been paused
      * @param mostRecentTimestamp     The most recent time at which this Animation has been
@@ -41,7 +41,7 @@ public interface FiniteAnimationRenderableFactory {
      * @return The newly-created FiniteAnimationRenderable
      * @throws IllegalArgumentException If and only if animation, borderThicknessProvider,
      *                                  borderColorProvider, colorShiftProviders, areaProvider,
-     *                                  uuid, or containingStack are null; or if pausedTimestamp is
+     *                                  uuid, or component are null; or if pausedTimestamp is
      *                                  non-null, and mostRecentTimestamp is either null, or before
      *                                  pausedTimestamp
      */
@@ -50,7 +50,7 @@ public interface FiniteAnimationRenderableFactory {
                                    ProviderAtTime<Color> borderColorProvider,
                                    List<ColorShift> colorShifts,
                                    ProviderAtTime<FloatBox> areaProvider, int z,
-                                   UUID uuid, RenderableStack containingStack,
+                                   UUID uuid, Component component,
                                    long startTimestamp, Long pausedTimestamp,
                                    Long mostRecentTimestamp)
             throws IllegalArgumentException;
@@ -75,7 +75,7 @@ public interface FiniteAnimationRenderableFactory {
      * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param containingStack         The RenderableStack to contain the Renderable
+     * @param component         The Component to contain the Renderable
      * @param startTimestamp          The time at which this Animation began or will begin
      * @param pausedTimestamp         The time at which this Animation has been paused
      * @param mostRecentTimestamp     The most recent time at which this Animation has been
@@ -83,22 +83,22 @@ public interface FiniteAnimationRenderableFactory {
      * @return The newly-created FiniteAnimationRenderable
      * @throws IllegalArgumentException If and only if animation, borderThicknessProvider,
      *                                  borderColorProvider, colorShiftProviders, areaProvider,
-     *                                  uuid, or containingStack are null; or if pausedTimestamp is
+     *                                  uuid, or component are null; or if pausedTimestamp is
      *                                  non-null, and mostRecentTimestamp is either null, or before
      *                                  pausedTimestamp
      */
     FiniteAnimationRenderable make(Animation animation,
                                    ProviderAtTime<Float> borderThicknessProvider,
                                    ProviderAtTime<Color> borderColorProvider,
-                                   Map<Integer, Action<MouseEventInputs>> onPress,
-                                   Map<Integer, Action<MouseEventInputs>> onRelease,
-                                   Action<MouseEventInputs> onMouseOver,
-                                   Action<MouseEventInputs> onMouseLeave,
+                                   Map<Integer, Action<EventInputs>> onPress,
+                                   Map<Integer, Action<EventInputs>> onRelease,
+                                   Action<EventInputs> onMouseOver,
+                                   Action<EventInputs> onMouseLeave,
                                    List<ColorShift> colorShifts,
                                    ProviderAtTime<FloatBox> areaProvider,
                                    int z,
                                    UUID uuid,
-                                   RenderableStack containingStack,
+                                   Component component,
                                    long startTimestamp,
                                    Long pausedTimestamp,
                                    Long mostRecentTimestamp)

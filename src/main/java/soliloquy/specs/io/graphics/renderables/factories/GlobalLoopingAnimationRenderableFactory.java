@@ -1,13 +1,13 @@
 package soliloquy.specs.io.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.assets.GlobalLoopingAnimation;
 import soliloquy.specs.io.graphics.renderables.GlobalLoopingAnimationRenderable;
-import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.common.valueobjects.FloatBox;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.Component;
+import soliloquy.specs.ui.EventInputs;
 
 import java.awt.*;
 import java.util.List;
@@ -31,11 +31,11 @@ public interface GlobalLoopingAnimationRenderableFactory {
      * @param areaProvider            A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param containingStack         The RenderableStack to contain the Renderable
+     * @param component               The Component to contain the Renderable
      * @return The newly-created GlobalLoopingAnimationRenderable
      * @throws IllegalArgumentException If and only if globalLoopingAnimation is null; colorShifts
      *                                  is null; areaProvider is null; uuid is null; or
-     *                                  containingStack is null
+     *                                  component is null
      */
     GlobalLoopingAnimationRenderable make(GlobalLoopingAnimation globalLoopingAnimation,
                                           ProviderAtTime<Float> borderThicknessProvider,
@@ -43,7 +43,7 @@ public interface GlobalLoopingAnimationRenderableFactory {
                                           List<ColorShift> colorShifts,
                                           ProviderAtTime<FloatBox> areaProvider,
                                           int z, UUID uuid,
-                                          RenderableStack containingStack)
+                                          Component component)
             throws IllegalArgumentException;
 
     /**
@@ -66,22 +66,22 @@ public interface GlobalLoopingAnimationRenderableFactory {
      * @param areaProvider            A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param containingStack         The RenderableStack to contain the Renderable
+     * @param component               The Component to contain the Renderable
      * @return The newly-created GlobalLoopingAnimationRenderable
      * @throws IllegalArgumentException If and only if globalLoopingAnimation is null; colorShifts
      *                                  is null; renderingDimensionsProvider is null; uuid is null;
-     *                                  or containingStack is null
+     *                                  or component is null
      */
     GlobalLoopingAnimationRenderable make(GlobalLoopingAnimation globalLoopingAnimation,
                                           ProviderAtTime<Float> borderThicknessProvider,
                                           ProviderAtTime<Color> borderColorProvider,
-                                          Map<Integer, Action<MouseEventInputs>> onPress,
-                                          Map<Integer, Action<MouseEventInputs>> onRelease,
-                                          Action<MouseEventInputs> onMouseOver,
-                                          Action<MouseEventInputs> onMouseLeave,
+                                          Map<Integer, Action<EventInputs>> onPress,
+                                          Map<Integer, Action<EventInputs>> onRelease,
+                                          Action<EventInputs> onMouseOver,
+                                          Action<EventInputs> onMouseLeave,
                                           List<ColorShift> colorShifts,
                                           ProviderAtTime<FloatBox> areaProvider,
                                           int z, UUID uuid,
-                                          RenderableStack containingStack)
+                                          Component component)
             throws IllegalArgumentException;
 }

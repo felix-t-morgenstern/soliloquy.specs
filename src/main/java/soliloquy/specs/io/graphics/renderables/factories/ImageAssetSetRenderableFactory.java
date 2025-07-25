@@ -4,10 +4,10 @@ import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.assets.ImageAssetSet;
 import soliloquy.specs.io.graphics.renderables.ImageAssetSetRenderable;
-import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.Component;
+import soliloquy.specs.ui.EventInputs;
 
 import java.awt.*;
 import java.util.List;
@@ -33,7 +33,7 @@ public interface ImageAssetSetRenderableFactory {
      * @param renderingAreaProvider   A class which provides the area in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param containingStack         The RenderableStack to contain the Renderable
+     * @param containingStack         The Component to contain the Renderable
      * @return The newly-created ImageAssetSetRenderable
      * @throws IllegalArgumentException If and only if imageAssetSet is null; displayParams is null;
      *                                  colorShifts is null; renderingAreaProvider is null; uuid is
@@ -45,7 +45,7 @@ public interface ImageAssetSetRenderableFactory {
                                  ProviderAtTime<Color> borderColorProvider,
                                  ProviderAtTime<FloatBox> renderingAreaProvider, int z,
                                  UUID uuid,
-                                 RenderableStack containingStack)
+                                 Component containingStack)
             throws IllegalArgumentException;
 
     /**
@@ -69,7 +69,7 @@ public interface ImageAssetSetRenderableFactory {
      * @param renderingDimensionsProvider A class which provides the area in which to render
      * @param z                           The z index within the container
      * @param uuid                        The universally unique identifier
-     * @param containingStack             The RenderableStack to contain the Renderable
+     * @param containingStack             The Component to contain the Renderable
      * @return The newly-created ImageAssetSetRenderable
      * @throws IllegalArgumentException If and only if imageAssetSet is null; displayParams is null;
      *                                  colorShifts is null; renderingDimensionsProvider is null;
@@ -79,14 +79,14 @@ public interface ImageAssetSetRenderableFactory {
                                  Map<String, String> displayParams,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
-                                 Map<Integer, Action<MouseEventInputs>> onPress,
-                                 Map<Integer, Action<MouseEventInputs>> onRelease,
-                                 Action<MouseEventInputs> onMouseOver,
-                                 Action<MouseEventInputs> onMouseLeave,
+                                 Map<Integer, Action<EventInputs>> onPress,
+                                 Map<Integer, Action<EventInputs>> onRelease,
+                                 Action<EventInputs> onMouseOver,
+                                 Action<EventInputs> onMouseLeave,
                                  List<ColorShift> colorShifts,
                                  ProviderAtTime<FloatBox> renderingDimensionsProvider,
                                  int z,
                                  UUID uuid,
-                                 RenderableStack containingStack)
+                                 Component containingStack)
             throws IllegalArgumentException;
 }

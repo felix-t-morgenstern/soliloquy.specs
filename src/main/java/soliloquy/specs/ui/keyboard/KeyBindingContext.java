@@ -1,4 +1,4 @@
-package soliloquy.specs.io.keyboard;
+package soliloquy.specs.ui.keyboard;
 
 import java.util.List;
 
@@ -21,10 +21,5 @@ public interface KeyBindingContext {
     /**
      * @return True, if and only if all lower contexts' bindings are blocked
      */
-    boolean getBlocksAllLowerBindings();
-
-    /**
-     * @param blocksLowerBindings Sets whether all lower contexts' bindings are blocked
-     */
-    void setBlocksAllLowerBindings(boolean blocksLowerBindings);
+    boolean blocksLowerBindings();
 }

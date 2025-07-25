@@ -2,7 +2,7 @@ package soliloquy.specs.io.graphics.renderables;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.valueobjects.Vertex;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.EventInputs;
 
 import java.util.Map;
 
@@ -33,7 +33,7 @@ public interface RenderableWithMouseEvents extends Renderable {
     /**
      * (NB: This method should return false if the mouse event occurs outside the
      * {@link soliloquy.specs.io.graphics.rendering.RenderingBoundaries} set by
-     * {@link #containingStack()}'s {@link RenderableStack#getRenderingBoundariesProvider()}
+     * {@link #component()}'s {@link RenderableStack#getRenderingBoundariesProvider()}
      *
      * @param point     The point in the window on which this Renderable may or may not capture
      *                  mouse events
@@ -71,7 +71,7 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
      *                                  mouse button
      */
-    void setOnPress(int mouseButton, Action<MouseEventInputs> onPress)
+    void setOnPress(int mouseButton, Action<EventInputs> onPress)
             throws IllegalArgumentException;
 
     /**
@@ -103,7 +103,7 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
      *                                  mouse button
      */
-    void setOnRelease(int mouseButton, Action<MouseEventInputs> onRelease)
+    void setOnRelease(int mouseButton, Action<EventInputs> onRelease)
             throws IllegalArgumentException;
 
     /**
@@ -129,7 +129,7 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @param onMouseOver The Action to fire when the mouse goes over the area of this Renderable;
      *                    can be null
      */
-    void setOnMouseOver(Action<MouseEventInputs> onMouseOver);
+    void setOnMouseOver(Action<EventInputs> onMouseOver);
 
     /**
      * @return The id of the Action ran when the mouse moves over the area of this Renderable
@@ -153,34 +153,10 @@ public interface RenderableWithMouseEvents extends Renderable {
      * @param onMouseLeave The Action to fire when the mouse leaves the area of this Renderable;
      *                     can be null
      */
-    void setOnMouseLeave(Action<MouseEventInputs> onMouseLeave);
+    void setOnMouseLeave(Action<EventInputs> onMouseLeave);
 
     /**
      * @return The id of the Action ran when the mouse leaves the area of this Renderable
      */
     String mouseLeaveActionId();
-
-    class MouseEventInputs {
-        public final long TIMESTAMP;
-        public final RenderableWithMouseEvents RENDERABLE;
-
-        private MouseEventInputs(long timestamp, RenderableWithMouseEvents renderable) {
-            TIMESTAMP = timestamp;
-            RENDERABLE = renderable;
-        }
-
-        public static MouseEventInputs of(long timestamp, RenderableWithMouseEvents renderable) {
-            return new MouseEventInputs(timestamp, renderable);
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (o instanceof MouseEventInputs) {
-                MouseEventInputs i = (MouseEventInputs) o;
-                return i.TIMESTAMP == TIMESTAMP && i.RENDERABLE == RENDERABLE;
-            } else {
-                return false;
-            }
-        }
-    }
 }

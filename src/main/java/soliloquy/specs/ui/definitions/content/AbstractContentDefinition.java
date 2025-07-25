@@ -4,7 +4,7 @@ package soliloquy.specs.ui.definitions.content;
  * <b>ContentDefinition</b>
  * <p>
  * This interface exists solely to enforce strict typing on members of
- * {@link AbstractComponentDefinition#content}.
+ * {@link ComponentDefinition#content}.
  * <p>
  * (I could have, of course, made individual fluent interface implementations inherit shared methods
  * and properties, with generic parameters, allowing child methods to return child types, but that

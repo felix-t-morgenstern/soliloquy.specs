@@ -2,10 +2,10 @@ package soliloquy.specs.io.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
 import soliloquy.specs.common.valueobjects.Vertex;
-import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
 import soliloquy.specs.io.graphics.renderables.TriangleRenderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.Component;
+import soliloquy.specs.ui.EventInputs;
 
 import java.awt.*;
 import java.util.Map;
@@ -45,12 +45,12 @@ public interface TriangleRenderableFactory {
      *                                  Renderable
      * @param z                         The z index within the container
      * @param uuid                      The universally unique identifier
-     * @param containingStack           The RenderableStack to contain the Renderable
+     * @param component           The Component to contain the Renderable
      * @return The newly-created TriangleRenderable
      * @throws IllegalArgumentException If and only if vertexLocation1Provider,
      *                                  vertex1ColorProvider, vertex2LocationProvider,
      *                                  vertex2ColorProvider, vertex3LocationProvider,
-     *                                  vertex3ColorProvider, uuid, or containingStack are null; or
+     *                                  vertex3ColorProvider, uuid, or component are null; or
      *                                  if textureTileWidthProvider or textureTileHeightProvider
      *                                  are null
      */
@@ -63,12 +63,12 @@ public interface TriangleRenderableFactory {
                             ProviderAtTime<Integer> textureIdProvider,
                             ProviderAtTime<Float> textureTileWidthProvider,
                             ProviderAtTime<Float> textureTileHeightProvider,
-                            Map<Integer, Action<MouseEventInputs>> onPress,
-                            Map<Integer, Action<MouseEventInputs>> onRelease,
-                            Action<MouseEventInputs> onMouseOver,
-                            Action<MouseEventInputs> onMouseLeave,
+                            Map<Integer, Action<EventInputs>> onPress,
+                            Map<Integer, Action<EventInputs>> onRelease,
+                            Action<EventInputs> onMouseOver,
+                            Action<EventInputs> onMouseLeave,
                             int z,
                             UUID uuid,
-                            RenderableStack containingStack)
+                            Component component)
             throws IllegalArgumentException;
 }

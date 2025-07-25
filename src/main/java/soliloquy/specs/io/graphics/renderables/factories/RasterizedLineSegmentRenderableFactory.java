@@ -5,7 +5,7 @@ import soliloquy.specs.io.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.io.graphics.renderables.RasterizedLineSegmentRenderable;
 import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.Component;
 
 import java.awt.*;
 import java.util.UUID;
@@ -33,12 +33,12 @@ public interface RasterizedLineSegmentRenderableFactory {
      *                          {@link RasterizedLineSegmentRenderable#getColorProvider}
      * @param z                 The z-index of this Renderable, c.f. {@link Renderable#getZ}
      * @param uuid              The uuid of this Renderable
-     * @param containingStack   The RenderableStack to contain the Renderable
+     * @param component         The Component to contain the Renderable
      * @return The newly-created RasterizedLineSegmentRenderable
      * @throws IllegalArgumentException If and only if thicknessProvider is null; stipplePattern is
      *                                  not 0; stippleFactor is less than 1, or greater than 256;
      *                                  colorProvider is null; renderingDimensionsProvider is null;
-     *                                  uuid is null; or containingStack is null
+     *                                  uuid is null; or component is null
      */
     RasterizedLineSegmentRenderable make(ProviderAtTime<Vertex> vertex1Provider,
                                          ProviderAtTime<Vertex> vertex2Provider,
@@ -46,6 +46,6 @@ public interface RasterizedLineSegmentRenderableFactory {
                                          short stipplePattern, short stippleFactor,
                                          ProviderAtTime<Color> colorProvider,
                                          int z, UUID uuid,
-                                         RenderableStack containingStack)
+                                         Component component)
             throws IllegalArgumentException;
 }

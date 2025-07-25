@@ -5,7 +5,7 @@ import soliloquy.specs.io.graphics.renderables.AntialiasedLineSegmentRenderable;
 import soliloquy.specs.io.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.ui.Component;
 
 import java.awt.*;
 
@@ -37,13 +37,12 @@ public interface AntialiasedLineSegmentRenderableFactory {
      * @param z                                The z-index of this Renderable, c.f. {@link
      *                                         Renderable#getZ}
      * @param uuid                             The uuid of this Renderable
-     * @param containingStack                  The RenderableStack to contain the Renderable
+     * @param component                        The Component to contain the Renderable
      * @return The newly-created AntialiasedLineSegmentRenderable
      * @throws IllegalArgumentException If and only if vertex1Provider, vertex2Provider,
      *                                  thicknessProvider, colorProvider,
      *                                  thicknessGradientPercentProvider,
-     *                                  lengthGradientPercentProvider, uuid, or containingStack are
-     *                                  null
+     *                                  lengthGradientPercentProvider, uuid, or component are null
      */
     AntialiasedLineSegmentRenderable make(ProviderAtTime<Vertex> vertex1Provider,
                                           ProviderAtTime<Vertex> vertex2Provider,
@@ -53,6 +52,6 @@ public interface AntialiasedLineSegmentRenderableFactory {
                                           ProviderAtTime<Float> lengthGradientPercentProvider,
                                           int z,
                                           java.util.UUID uuid,
-                                          RenderableStack containingStack)
+                                          Component component)
             throws IllegalArgumentException;
 }

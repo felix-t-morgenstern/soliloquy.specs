@@ -1,11 +1,11 @@
 package soliloquy.specs.io.graphics.renderables.factories;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.io.graphics.renderables.RectangleRenderable;
-import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents.MouseEventInputs;
-import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.common.valueobjects.FloatBox;
-import soliloquy.specs.io.graphics.rendering.RenderableStack;
+import soliloquy.specs.io.graphics.renderables.RectangleRenderable;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
+import soliloquy.specs.ui.Component;
+import soliloquy.specs.ui.EventInputs;
 
 import java.awt.*;
 import java.util.Map;
@@ -52,12 +52,12 @@ public interface RectangleRenderableFactory {
      * @param areaProvider              A class which provides the dimensions in which to render
      * @param z                         The z index within the container
      * @param uuid                      The universally unique identifier
-     * @param containingStack           The RenderableStack to contain the Renderable
+     * @param component                 The Component to contain the Renderable
      * @return The newly-created RectangleRenderable
      * @throws IllegalArgumentException If and only if topLeftColorProvider, topRightColorProvider,
      *                                  bottomRightColorProvider, bottomLeftColorProvider,
      *                                  textureIdProvider, colorShiftProviders,
-     *                                  areaProvider, uuid, or containingStack are null; or
+     *                                  areaProvider, uuid, or component are null; or
      *                                  if backgroundTextureTileWidth or backgroundTileHeight are
      *                                  less than or equal to 0
      */
@@ -68,13 +68,13 @@ public interface RectangleRenderableFactory {
                              ProviderAtTime<Integer> textureIdProvider,
                              ProviderAtTime<Float> textureTileWidthProvider,
                              ProviderAtTime<Float> textureTileHeightProvider,
-                             Map<Integer, Action<MouseEventInputs>> onPress,
-                             Map<Integer, Action<MouseEventInputs>> onRelease,
-                             Action<MouseEventInputs> onMouseOver,
-                             Action<MouseEventInputs> onMouseLeave,
+                             Map<Integer, Action<EventInputs>> onPress,
+                             Map<Integer, Action<EventInputs>> onRelease,
+                             Action<EventInputs> onMouseOver,
+                             Action<EventInputs> onMouseLeave,
                              ProviderAtTime<FloatBox> areaProvider,
                              int z,
                              UUID uuid,
-                             RenderableStack containingStack)
+                             Component component)
             throws IllegalArgumentException;
 }
