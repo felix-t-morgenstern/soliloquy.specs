@@ -6,40 +6,51 @@ package soliloquy.specs.io.graphics.renderables.colorshifting;
  * This class specifies the net color shifts of all {@link ColorShift}s, to be used by the default
  * shader. This class is to be generated when rendering a
  * {@link soliloquy.specs.io.graphics.renderables.Renderable} with a stack of {@link ColorShift}s.
- * <p>
- * Intended use for this class is to be generated at runtime as an anonymous class.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface NetColorShifts {
+public class NetColorShifts {
     /**
-     * @return The net brightness shift, c.f. {@link BrightnessShift#shiftAmountProvider}, ranging
-     *         from -1.0 to 1.0.
+     * The net brightness shift, c.f. {@link BrightnessShift#shiftAmountProvider}, ranging from -1.0
+     * to 1.0.
      */
-    float brightnessShift();
+    public final float BRIGHTNESS_SHIFT;
+    /**
+     * The net increase for red, c.f. {@link ColorComponentIntensityShift#shiftAmountProvider},
+     * ranging from -1.0 to 1.0.
+     */
+    public final float RED_INTENSITY_SHIFT;
+    /**
+     * The net increase for green, c.f. {@link ColorComponentIntensityShift#shiftAmountProvider},
+     * ranging from -1.0 to 1.0.
+     */
+    public final float GREEN_INTENSITY_SHIFT;
+    /**
+     * The net increase for blue, c.f. {@link ColorComponentIntensityShift#shiftAmountProvider},
+     * ranging from -1.0 to 1.0.
+     */
+    public final float BLUE_INTENSITY_SHIFT;
+    /**
+     * The net color rotation shift, c.f. {@link ColorRotationShift#shiftAmountProvider}, ranging
+     * from -1.0 to 1.0.
+     */
+    public final float COLOR_ROTATION_SHIFT;
 
-    /**
-     * @return The net increase for red, c.f.
-     *         {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
-     */
-    float redIntensityShift();
+    private NetColorShifts(float brightnessShift, float redIntensityShift,
+                           float greenIntensityShift,
+                           float blueIntensityShift, float colorRotationShift) {
+        BRIGHTNESS_SHIFT = brightnessShift;
+        RED_INTENSITY_SHIFT = redIntensityShift;
+        GREEN_INTENSITY_SHIFT = greenIntensityShift;
+        BLUE_INTENSITY_SHIFT = blueIntensityShift;
+        COLOR_ROTATION_SHIFT = colorRotationShift;
+    }
 
-    /**
-     * @return The net increase for green, c.f.
-     *         {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
-     */
-    float greenIntensityShift();
-
-    /**
-     * @return The net increase for blue, c.f.
-     *         {@link ColorComponentIntensityShift#shiftAmountProvider}, ranging from -1.0 to 1.0.
-     */
-    float blueIntensityShift();
-
-    /**
-     * @return The net color rotation shift, c.f. {@link ColorRotationShift#shiftAmountProvider},
-     *         ranging from -1.0 to 1.0.
-     */
-    float colorRotationShift();
+    public static NetColorShifts netShifts(float brightnessShift, float redIntensityShift,
+                                           float greenIntensityShift, float blueIntensityShift,
+                                           float colorRotationShift) {
+        return new NetColorShifts(brightnessShift, redIntensityShift, greenIntensityShift,
+                blueIntensityShift, colorRotationShift);
+    }
 }
