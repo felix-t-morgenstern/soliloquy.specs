@@ -36,11 +36,11 @@ public interface Component extends Renderable {
     void add(Renderable content) throws IllegalArgumentException;
 
     /**
-     * (NB: To remove content from this Component, call {@link Renderable#delete()}
+     * (NB: To remove contents from this Component, call {@link Renderable#delete()}
      *
      * @return A representation of the Renderables which comprise this Component
      */
-    Set<Renderable> content();
+    Set<Renderable> contents();
 
     /**
      * <i>NB: To be used by {@link RenderingBoundaries#currentBoundaries()}</i>
