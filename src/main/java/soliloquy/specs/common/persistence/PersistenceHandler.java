@@ -1,6 +1,7 @@
 package soliloquy.specs.common.persistence;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * <b>PersistenceHandler</b>
@@ -20,26 +21,31 @@ import java.util.List;
 public interface PersistenceHandler {
     /**
      * @param typeHandler The TypeHandler to be added
-     * @throws IllegalArgumentException If typeHandler is null
+     * @param clazz       The class whose TypeHandler to add
+     * @throws IllegalArgumentException If and only if clazz or typeHandler are null
      */
-    void addTypeHandler(TypeHandler typeHandler) throws IllegalArgumentException;
+    <T> void addTypeHandler(Class<T> clazz, TypeHandler<T> typeHandler)
+            throws IllegalArgumentException;
 
     /**
-     * @param type The String representation of the type of the TypeHandler to remove
+     * @param clazz The class whose TypeHandler to remove
      * @return True, if and only if a TypeHandler of that type existed
      */
-    boolean removeTypeHandler(String type);
+    <T> boolean removeTypeHandler(Class<T> clazz);
 
     /**
-     * @param type The String representation of the type of the TypeHandler to be retrieved
-     * @return The TypeHandler of the specified type
-     * @throws IllegalArgumentException If a TypeHandler of this type does not exist
+     * It is presumed that class names will come from {@link Class#getCanonicalName()}. This method
+     * accepts String inputs to facilitate its use by {@link TypeHandler#read(String)} to retrieve
+     * the proper TypeHandler for a given type, stored in text.
+     *
+     * @param className The name of the class whose TypeHandler to retrieve
+     * @return The TypeHandler of the specified class
+     * @throws IllegalArgumentException If and only if a TypeHandler of this class does not exist
      */
-    <T> TypeHandler<T> getTypeHandler(String type) throws IllegalArgumentException;
+    <T> TypeHandler<T> getTypeHandler(String className) throws IllegalArgumentException;
 
     /**
-     * @return A new List of the parameter types with registered TypeHandlers in this
-     *         PersistenceHandler
+     * @return A new Set of all the Types handled
      */
-    List<String> typesHandled();
+    Set<Class> typesHandled();
 }

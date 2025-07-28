@@ -14,11 +14,6 @@ package soliloquy.specs.common.persistence;
  */
 public interface TypeHandler<T> {
     /**
-     * @return The type handled, typically that type's {@link Class#getCanonicalName()}
-     */
-    String typeHandled();
-
-    /**
      * @param serializedValue A String representation of the value to be read
      * @return The translation of the String into the value type specified
      * @throws IllegalArgumentException If serializedValue is null
