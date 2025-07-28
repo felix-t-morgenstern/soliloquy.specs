@@ -2,6 +2,7 @@ package soliloquy.specs.io.graphics.rendering;
 
 import soliloquy.specs.gamestate.entities.timers.ClockBasedTimer;
 import soliloquy.specs.io.graphics.rendering.renderers.ComponentRenderer;
+import soliloquy.specs.ui.Component;
 
 import java.util.function.Consumer;
 
@@ -25,6 +26,13 @@ public interface FrameExecutor {
     void registerFrameBlockingEvent(Consumer<Long> fireFunction) throws IllegalArgumentException;
 
     /**
+     * Deletes prior top-level Component
+     * @param component The new top-level Component
+     * @throws IllegalArgumentException If and only if component is null
+     */
+    void setTopLevelComponent(Component component) throws IllegalArgumentException;
+
+    /**
      * The workflow of this method is as follows:
      * <p>
      * First, all frame-blocking events (including all {@link ClockBasedTimer}s provided to
@@ -45,6 +53,7 @@ public interface FrameExecutor {
      *
      * @param timestamp The timestamp at which the next frame is being executed
      * @throws IllegalArgumentException If and only if timestamp is out-of-date
+     * @throws IllegalStateException If and only if there is no top-level component
      */
-    void execute(long timestamp) throws IllegalArgumentException;
+    void execute(long timestamp) throws IllegalArgumentException, IllegalStateException;
 }

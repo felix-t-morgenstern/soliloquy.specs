@@ -1,4 +1,4 @@
-package soliloquy.specs.io.mouse;
+package soliloquy.specs.io.input.mouse;
 
 import soliloquy.specs.common.valueobjects.Vertex;
 

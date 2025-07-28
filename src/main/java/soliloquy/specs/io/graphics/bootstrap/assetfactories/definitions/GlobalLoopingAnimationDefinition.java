@@ -12,11 +12,11 @@ import soliloquy.specs.io.graphics.assets.Animation;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public class GlobalLoopingAnimationDefinition implements HasId, HasPeriodModuloOffset {
-    private final String ID;
-    private final Animation ANIMATION;
-    private final int PERIOD_MODULO_OFFSET;
-    private final Long PAUSE_TIMESTAMP;
+public class GlobalLoopingAnimationDefinition {
+    public final String ID;
+    public final Animation ANIMATION;
+    public final int PERIOD_MODULO_OFFSET;
+    public final Long PAUSE_TIMESTAMP;
 
     public GlobalLoopingAnimationDefinition(String id,
                                             Animation animation,
@@ -26,30 +26,5 @@ public class GlobalLoopingAnimationDefinition implements HasId, HasPeriodModuloO
         ANIMATION = animation;
         PERIOD_MODULO_OFFSET = periodModuloOffset;
         PAUSE_TIMESTAMP = pauseTimestamp;
-    }
-
-    @Override
-    public String id() throws IllegalStateException {
-        return ID;
-    }
-
-    /**
-     * @return The Animation to loop over globally
-     */
-    public Animation animation() {
-        return ANIMATION;
-    }
-
-    @Override
-    public int periodModuloOffset() {
-        return PERIOD_MODULO_OFFSET;
-    }
-
-    /**
-     * @return The timestamp at which this GlobalLoopingAnimation is paused; if null, that implies
-     *         it is unpaused.
-     */
-    public Long pauseTimestamp() {
-        return PAUSE_TIMESTAMP;
     }
 }

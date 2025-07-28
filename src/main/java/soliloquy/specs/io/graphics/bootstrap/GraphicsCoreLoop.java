@@ -1,5 +1,7 @@
 package soliloquy.specs.io.graphics.bootstrap;
 
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
+
 /**
  * <b>GraphicsCoreLoop</b>
  * <p>
@@ -32,4 +34,10 @@ public interface GraphicsCoreLoop {
      * @return The window's titlebar
      */
     String getTitlebar();
+
+    /**
+     * @param titlebar The title to assign to the Game window's titlebar
+     * @throws IllegalArgumentException If and only if titlebar is null or empty
+     */
+    void setTitlebar(String titlebar) throws IllegalArgumentException;
 }

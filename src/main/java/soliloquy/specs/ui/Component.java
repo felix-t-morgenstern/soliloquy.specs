@@ -31,9 +31,17 @@ public interface Component extends Renderable {
     /**
      * @param content The content to add to this Component
      * @throws IllegalArgumentException If and only if content is null, or already present in
-     *                                  another Component
+     *                                  another Component, or if it is a Component whose tier (c.f.
+     *                                  {@link #tier()}) is not one higher than this Component
      */
     void add(Renderable content) throws IllegalArgumentException;
+
+    /**
+     * Deletes the content upon removal
+     * @param content The content to remove
+     * @throws IllegalArgumentException If and only if content is null or is in another Component
+     */
+    void remove(Renderable content) throws IllegalArgumentException;
 
     /**
      * (NB: To remove contents from this Component, call {@link Renderable#delete()}
@@ -59,4 +67,10 @@ public interface Component extends Renderable {
      */
     void setRenderingBoundariesProvider(ProviderAtTime<FloatBox> renderingBoundariesProvider)
             throws IllegalArgumentException, UnsupportedOperationException;
+
+    /**
+     * @return The 'tier' of Component, where lower values imply a higher tier, e.g., 0 for
+     *         top-level, 1 for a Component beneath top-level, etc.
+     */
+    int tier();
 }

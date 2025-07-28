@@ -9,8 +9,7 @@ import java.util.Map;
 /**
  * <b>SpriteDefinition</b>
  * <p>
- * This class defines an {@link Animation}, to be created by the corresponding
- * {@link soliloquy.specs.io.graphics.bootstrap.assetfactories.AssetFactory}.
+ * This class defines an {@link Animation}.
  * <p>
  * It is intended for this interface to be implemented anonymously at runtime.
  *

@@ -7,8 +7,7 @@ import soliloquy.specs.io.graphics.assets.Sprite;
 /**
  * <b>SpriteDefinition</b>
  * <p>
- * This class defines a {@link Sprite}, to be created by the corresponding
- * {@link soliloquy.specs.io.graphics.bootstrap.assetfactories.AssetFactory}.
+ * This class defines a {@link Sprite}.
  * <p>
  * It is intended for this interface to be implemented anonymously at runtime.
  *

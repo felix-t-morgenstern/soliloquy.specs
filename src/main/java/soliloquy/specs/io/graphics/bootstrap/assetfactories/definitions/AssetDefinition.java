@@ -6,9 +6,7 @@ import soliloquy.specs.io.graphics.assets.Asset;
 /**
  * <b>AssetDefinition</b>
  * <p>
- * This class defines an asset of a specified {@link AssetType}. (This interface exists so that
- * {@link soliloquy.specs.io.graphics.bootstrap.assetfactories.AssetFactory}s can only be created for
- * explicitly-defined and correctly typed classes.)
+ * This class defines an asset of a specified {@link AssetType}.
  *
  * @param <AssetType> The type of {@link Asset} defined
  * @author felix.t.morgenstern

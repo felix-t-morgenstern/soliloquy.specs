@@ -1,4 +1,4 @@
-package soliloquy.specs.io.keyboard;
+package soliloquy.specs.io.input.keyboard;
 
 import soliloquy.specs.ui.keyboard.KeyBindingContext;
 
