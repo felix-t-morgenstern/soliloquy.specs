@@ -9,8 +9,7 @@ import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
  * An Animation which can be rendered in the window. <i>This Renderable will determine when its
  * Animation has finished by determining when its next requested frame is beyond its underlying
  * Animation's {@link soliloquy.specs.io.graphics.assets.Animation#msDuration}, and when it is, it
- * will inform its containing {@link soliloquy.specs.io.graphics.rendering.RenderableStack} to
- * remove it.</i>
+ * will inform its containing {@link soliloquy.specs.ui.Component} to remove it.</i>
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

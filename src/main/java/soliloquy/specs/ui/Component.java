@@ -53,7 +53,7 @@ public interface Component extends Renderable {
     /**
      * <i>NB: To be used by {@link RenderingBoundaries#currentBoundaries()}</i>
      *
-     * @return Provider for the rendering boundaries of this RenderableStack; all Renderables
+     * @return Provider for the rendering boundaries of this Component; all Renderables
      *         contained within will not be drawn beyond the dimensions provided here
      */
     ProviderAtTime<FloatBox> getRenderingBoundariesProvider();
