@@ -36,23 +36,20 @@ public interface FiniteAnimationRenderableFactory {
      * @param component         The Component to contain the Renderable
      * @param startTimestamp          The time at which this Animation began or will begin
      * @param pausedTimestamp         The time at which this Animation has been paused
-     * @param mostRecentTimestamp     The most recent time at which this Animation has been
-     *                                rendered, paused, or captured any mouse events
      * @return The newly-created FiniteAnimationRenderable
      * @throws IllegalArgumentException If and only if animation, borderThicknessProvider,
      *                                  borderColorProvider, colorShiftProviders, areaProvider,
-     *                                  uuid, or component are null; or if pausedTimestamp is
-     *                                  non-null, and mostRecentTimestamp is either null, or before
-     *                                  pausedTimestamp
+     *                                  uuid, or component are null
      */
     FiniteAnimationRenderable make(Animation animation,
                                    ProviderAtTime<Float> borderThicknessProvider,
                                    ProviderAtTime<Color> borderColorProvider,
                                    List<ColorShift> colorShifts,
                                    ProviderAtTime<FloatBox> areaProvider, int z,
-                                   UUID uuid, Component component,
-                                   long startTimestamp, Long pausedTimestamp,
-                                   Long mostRecentTimestamp)
+                                   UUID uuid,
+                                   Component component,
+                                   long startTimestamp,
+                                   Long pausedTimestamp)
             throws IllegalArgumentException;
 
     /**
@@ -78,14 +75,10 @@ public interface FiniteAnimationRenderableFactory {
      * @param component         The Component to contain the Renderable
      * @param startTimestamp          The time at which this Animation began or will begin
      * @param pausedTimestamp         The time at which this Animation has been paused
-     * @param mostRecentTimestamp     The most recent time at which this Animation has been
-     *                                rendered, paused, or captured any mouse events
      * @return The newly-created FiniteAnimationRenderable
      * @throws IllegalArgumentException If and only if animation, borderThicknessProvider,
      *                                  borderColorProvider, colorShiftProviders, areaProvider,
-     *                                  uuid, or component are null; or if pausedTimestamp is
-     *                                  non-null, and mostRecentTimestamp is either null, or before
-     *                                  pausedTimestamp
+     *                                  uuid, or component are null
      */
     FiniteAnimationRenderable make(Animation animation,
                                    ProviderAtTime<Float> borderThicknessProvider,
@@ -100,7 +93,6 @@ public interface FiniteAnimationRenderableFactory {
                                    UUID uuid,
                                    Component component,
                                    long startTimestamp,
-                                   Long pausedTimestamp,
-                                   Long mostRecentTimestamp)
+                                   Long pausedTimestamp)
             throws IllegalArgumentException;
 }
