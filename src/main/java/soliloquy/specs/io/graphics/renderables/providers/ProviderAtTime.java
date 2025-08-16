@@ -5,7 +5,6 @@ import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.common.shared.PausableAtTime;
 import soliloquy.specs.io.graphics.renderables.FiniteAnimationRenderable;
 import soliloquy.specs.io.graphics.renderables.SpriteRenderable;
-import soliloquy.specs.io.graphics.shared.HasMostRecentTimestamp;
 
 /**
  * <b>ProviderAtTime</b>
@@ -24,7 +23,7 @@ import soliloquy.specs.io.graphics.shared.HasMostRecentTimestamp;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface ProviderAtTime<T> extends PausableAtTime, HasUuid, HasMostRecentTimestamp {
+public interface ProviderAtTime<T> extends PausableAtTime, HasUuid {
     /**
      * @param timestamp The timestamp for which to provide the specified type of object
      * @return The specified type of object, at the provided timestamp

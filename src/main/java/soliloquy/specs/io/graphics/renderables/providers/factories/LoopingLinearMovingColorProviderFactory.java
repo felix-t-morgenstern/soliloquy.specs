@@ -21,9 +21,6 @@ public interface LoopingLinearMovingColorProviderFactory {
      *                               {@link LoopingLinearMovingProvider#periodModuloOffset()})
      * @param pausedTimestamp        The timestamp at which the Provider has been paused; if it is
      *                               unpaused, this should be null
-     * @param mostRecentTimestamp    The most recent timestamp for which a value was provided; can
-     *                               be
-     *                               null, implying no value provided
      * @return The newly-created LoopingLinearMovingProvider
      * @throws IllegalArgumentException If and only if uuid is null, periodDuration is less than or
      *                                  equal to 0, periodModuloOffset is less than 0,
@@ -40,6 +37,6 @@ public interface LoopingLinearMovingColorProviderFactory {
     LoopingLinearMovingColorProvider make(UUID uuid, Map<Integer, Color> valuesWithinPeriod,
                                           List<Boolean> hueMovementIsClockwise,
                                           int periodDuration, int periodModuloOffset,
-                                          Long pausedTimestamp, Long mostRecentTimestamp)
+                                          Long pausedTimestamp)
             throws IllegalArgumentException;
 }

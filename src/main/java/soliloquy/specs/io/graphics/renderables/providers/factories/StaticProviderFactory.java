@@ -17,13 +17,11 @@ public interface StaticProviderFactory {
     /**
      * @param id                  The id of this ProviderAtTime
      * @param value               The value to provide, can be null
-     * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
-     *                            null, implying no value provided
      * @param <T>                 The type of value provided
      * @return A static provider, which provides the value fed into the factory, regardless of
      *         timestamp.
      * @throws IllegalArgumentException If and only if id is null
      */
-    <T> StaticProvider<T> make(UUID id, T value, Long mostRecentTimestamp)
+    <T> StaticProvider<T> make(UUID id, T value)
             throws IllegalArgumentException;
 }

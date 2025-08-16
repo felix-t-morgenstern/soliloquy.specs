@@ -20,25 +20,17 @@ public interface FiniteLinearMovingColorProviderFactory {
      * @param uuid                   The uuid of this ProviderAtTime
      * @param valuesAtTimestamps     The valuesAtTimestamps to provide
      * @param hueMovementIsClockwise The rotational directions of hue movements
-     * @param pausedTimestamp        The timestamp at which this Provider is paused; if unpaused,
-     *                               this
-     *                               parameter should be null
-     * @param mostRecentTimestamp    The most recent timestamp for which a value was provided; can
-     *                               be
-     *                               null, implying no value provided
+     * @param pausedTimestamp        The timestamp at which this Provider is paused; if unpaused, this parameter should be null
      * @return The newly-created FiniteLinearMovingProvider
      * @throws IllegalArgumentException If and only if id is null; or valuesAtTimestamps is null,
      *                                  or contains fewer than two key-value pairs; or if
      *                                  hueMovementIsClockwise is null, or if
      *                                  hueMovementIsClockwise has any null items, or if
      *                                  hueMovementIsClockwise has a size different
-     *                                  from the size of valuesAtTimestamps minus one; or if
-     *                                  pausedTimestamp is non-null, and
-     *                                  mostRecentTimestamp is either null or prior to
-     *                                  pausedTimestamp
+     *                                  from the size of valuesAtTimestamps minus one
      */
     FiniteLinearMovingColorProvider make(UUID uuid, Map<Long, Color> valuesAtTimestamps,
                                          List<Boolean> hueMovementIsClockwise,
-                                         Long pausedTimestamp, Long mostRecentTimestamp)
+                                         Long pausedTimestamp)
             throws IllegalArgumentException;
 }

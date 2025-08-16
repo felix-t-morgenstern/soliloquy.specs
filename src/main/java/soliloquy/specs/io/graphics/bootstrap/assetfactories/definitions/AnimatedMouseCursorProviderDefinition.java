@@ -19,20 +19,17 @@ public class AnimatedMouseCursorProviderDefinition implements HasId {
     private final int MS_DURATION;
     private final int PERIOD_MODULO_OFFSET;
     private final Long PAUSED_TIMESTAMP;
-    private final Long MOST_RECENT_TIMESTAMP;
 
     public AnimatedMouseCursorProviderDefinition(String id,
                                                  Map<Integer, Long> cursorsAtMs,
                                                  int msDuration,
                                                  int periodModuloOffset,
-                                                 Long pausedTimestamp,
-                                                 Long mostRecentTimestamp) {
+                                                 Long pausedTimestamp) {
         ID = id;
         CURSORS_AT_MS = cursorsAtMs;
         MS_DURATION = msDuration;
         PERIOD_MODULO_OFFSET = periodModuloOffset;
         PAUSED_TIMESTAMP = pausedTimestamp;
-        MOST_RECENT_TIMESTAMP = mostRecentTimestamp;
     }
 
     /**
@@ -64,13 +61,6 @@ public class AnimatedMouseCursorProviderDefinition implements HasId {
      */
     public Long pausedTimestamp() {
         return PAUSED_TIMESTAMP;
-    }
-
-    /**
-     * @return The most recent time at which the newly-created Provider is to have been paused
-     */
-    public Long mostRecentTimestamp() {
-        return MOST_RECENT_TIMESTAMP;
     }
 
     @Override

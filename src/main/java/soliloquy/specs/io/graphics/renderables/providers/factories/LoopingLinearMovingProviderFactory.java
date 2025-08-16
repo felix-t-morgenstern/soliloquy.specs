@@ -23,8 +23,6 @@ public interface LoopingLinearMovingProviderFactory {
      * @param valuesWithinPeriod  The values corresponding to different ms positions within the
      *                            period (c.f.
      *                            {@link LoopingLinearMovingProvider#valuesWithinPeriod()}
-     * @param mostRecentTimestamp The most recent timestamp for which a value was provided; can be
-     *                            null, implying no value provided
      * @param pausedTimestamp     The time at which this Provider has been paused
      * @param <T>                 The type of value provided
      * @return The newly-created LoopingLinearMovingProvider
@@ -40,7 +38,6 @@ public interface LoopingLinearMovingProviderFactory {
     <T> LoopingLinearMovingProvider<T> make(UUID id, int periodDuration,
                                             int periodModuloOffset,
                                             Map<Integer, T> valuesWithinPeriod,
-                                            Long mostRecentTimestamp,
                                             Long pausedTimestamp)
             throws IllegalArgumentException;
 }

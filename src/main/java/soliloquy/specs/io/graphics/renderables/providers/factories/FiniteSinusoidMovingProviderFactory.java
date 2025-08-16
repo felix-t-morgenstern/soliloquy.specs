@@ -23,8 +23,6 @@ public interface FiniteSinusoidMovingProviderFactory {
      *                              FiniteSinusoidMovingProvider#transitionSharpnesses}
      * @param pausedTimestamp       The time at which this Provider was paused; can be null,
      *                              implying the Provider is not paused
-     * @param mostRecentTimestamp   The most recent timestamp for which a value was provided; can be
-     *                              null, implying no value provided
      * @param <T>                   The type this Provider will provide
      * @return The newly-created FiniteSinusoidMovingProviderFactory
      * @throws IllegalArgumentException If and only if uuid is null; or valuesAtTimestamps is null,
@@ -34,6 +32,6 @@ public interface FiniteSinusoidMovingProviderFactory {
      */
     <T> FiniteSinusoidMovingProvider<T> make(UUID uuid, Map<Long, T> valuesAtTimestamps,
                                              List<Float> transitionSharpnesses,
-                                             Long pausedTimestamp, Long mostRecentTimestamp)
+                                             Long pausedTimestamp)
             throws IllegalArgumentException;
 }

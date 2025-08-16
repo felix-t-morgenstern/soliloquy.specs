@@ -4,7 +4,6 @@ import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.rendering.Mesh;
 import soliloquy.specs.io.graphics.rendering.Shader;
-import soliloquy.specs.io.graphics.shared.HasMostRecentTimestamp;
 
 /**
  * <b>Renderer</b>
@@ -16,7 +15,7 @@ import soliloquy.specs.io.graphics.shared.HasMostRecentTimestamp;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Renderer<TRenderable extends Renderable> extends HasMostRecentTimestamp {
+public interface Renderer<TRenderable extends Renderable> {
     /**
      * @param mesh The Mesh to assign to this Renderer
      * @throws IllegalArgumentException If and only if mesh is null
