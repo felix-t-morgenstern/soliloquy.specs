@@ -12,27 +12,27 @@ package soliloquy.specs.io.graphics.renderables.colorshifting;
  */
 public class NetColorShifts {
     /**
-     * The net brightness shift, c.f. {@link BrightnessShift#shiftAmountProvider}, ranging from -1.0
+     * The net brightness shift, c.f. {@link BrightnessShift#AMOUNT_PROVIDER}, ranging from -1.0
      * to 1.0.
      */
     public final float BRIGHTNESS_SHIFT;
     /**
-     * The net increase for red, c.f. {@link ColorComponentIntensityShift#shiftAmountProvider},
+     * The net increase for red, c.f. {@link ColorComponentIntensityShift#SHIFT_AMOUNT_PROVIDER},
      * ranging from -1.0 to 1.0.
      */
     public final float RED_INTENSITY_SHIFT;
     /**
-     * The net increase for green, c.f. {@link ColorComponentIntensityShift#shiftAmountProvider},
+     * The net increase for green, c.f. {@link ColorComponentIntensityShift#SHIFT_AMOUNT_PROVIDER},
      * ranging from -1.0 to 1.0.
      */
     public final float GREEN_INTENSITY_SHIFT;
     /**
-     * The net increase for blue, c.f. {@link ColorComponentIntensityShift#shiftAmountProvider},
+     * The net increase for blue, c.f. {@link ColorComponentIntensityShift#SHIFT_AMOUNT_PROVIDER},
      * ranging from -1.0 to 1.0.
      */
     public final float BLUE_INTENSITY_SHIFT;
     /**
-     * The net color rotation shift, c.f. {@link ColorRotationShift#shiftAmountProvider}, ranging
+     * The net color rotation shift, c.f. {@link ColorRotationShift#SHIFT_AMOUNT_PROVIDER}, ranging
      * from -1.0 to 1.0.
      */
     public final float COLOR_ROTATION_SHIFT;

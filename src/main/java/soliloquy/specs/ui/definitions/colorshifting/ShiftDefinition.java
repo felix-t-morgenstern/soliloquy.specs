@@ -20,7 +20,7 @@ public class ShiftDefinition {
 
     /**
      * @param shiftAmountProvider C.f. {@link ColorShift#shiftAmountProvider()}
-     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#overridesPriorShiftsOfSameType()}
+     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#OVERRIDES_PRIOR_SHIFTS_OF_SAME_TYPE()}
      * @return A definition of a {@link BrightnessShift}
      */
     public static ShiftDefinition brightness(AbstractProviderDefinition<Float> shiftAmountProvider,
@@ -31,7 +31,7 @@ public class ShiftDefinition {
 
     /**
      * @param shiftAmountProvider C.f. {@link ColorShift#shiftAmountProvider()}
-     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#overridesPriorShiftsOfSameType()}
+     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#OVERRIDES_PRIOR_SHIFTS_OF_SAME_TYPE()}
      * @param component C.f. {@link ColorComponentIntensityShift#colorComponent()}
      * @return A definition of a {@link ColorComponentIntensityShift}
      */
@@ -44,7 +44,7 @@ public class ShiftDefinition {
 
     /**
      * @param shiftAmountProvider C.f. {@link ColorShift#shiftAmountProvider()}
-     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#overridesPriorShiftsOfSameType()}
+     * @param overridesPriorShiftsOfSameType C.f. {@link ColorShift#OVERRIDES_PRIOR_SHIFTS_OF_SAME_TYPE()}
      * @return A definition of a {@link ColorRotationShift}
      */
     public static ShiftDefinition rotation(AbstractProviderDefinition<Float> shiftAmountProvider,
