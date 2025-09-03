@@ -1,6 +1,5 @@
 package soliloquy.specs.io.graphics.renderables;
 
-import soliloquy.specs.common.shared.Direction;
 import soliloquy.specs.io.graphics.assets.ImageAssetSet;
 
 import java.util.Map;
@@ -30,7 +29,25 @@ public interface ImageAssetSetRenderable extends ImageAssetRenderable {
     void setImageAssetSet(ImageAssetSet imageAssetSet) throws IllegalArgumentException;
 
     /**
-     * @return A mutable Map which defines the parameters for displaying the ImageAssetSet (cf {@link ImageAssetSet#getImageAssetWithDisplayParams}
+     * The start timestamp, used when {@link ImageAssetSet#getImageAssetWithDisplayParams} returns
+     * an {@link soliloquy.specs.io.graphics.assets.Animation}. When rendered, the Animation will be
+     * rendered with an effective starting timestamp provided. Unlike arguments passed to e.g.
+     * {@link soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime#provide}, the
+     * timestamp can be in the past.
+     */
+    Long getAnimationStart();
+
+    /**
+     * C.f. {@link #getAnimationStart()}
+     *
+     * @param timestamp The timestamp at which a rendered Animation will be anchored for its
+     *                  starting position
+     */
+    void setAnimationStart(Long timestamp);
+
+    /**
+     * @return A mutable Map which defines the parameters for displaying the ImageAssetSet (cf
+     *         {@link ImageAssetSet#getImageAssetWithDisplayParams}
      */
     Map<String, String> displayParams();
 }

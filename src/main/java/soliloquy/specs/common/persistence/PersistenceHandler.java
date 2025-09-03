@@ -24,7 +24,7 @@ public interface PersistenceHandler {
      * @param clazz       The class whose TypeHandler to add
      * @throws IllegalArgumentException If and only if clazz or typeHandler are null
      */
-    <T> void addTypeHandler(Class<T> clazz, TypeHandler<T> typeHandler)
+    <T, TImpl extends T> void addTypeHandler(Class<TImpl> clazz, TypeHandler<T> typeHandler)
             throws IllegalArgumentException;
 
     /**
