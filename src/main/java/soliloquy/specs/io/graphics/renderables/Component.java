@@ -1,10 +1,9 @@
-package soliloquy.specs.ui;
+package soliloquy.specs.io.graphics.renderables;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
-import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
-import soliloquy.specs.ui.keyboard.KeyBindingContext;
+import soliloquy.specs.io.input.keyboard.entities.KeyBindingContext;
 
 import java.util.Set;
 

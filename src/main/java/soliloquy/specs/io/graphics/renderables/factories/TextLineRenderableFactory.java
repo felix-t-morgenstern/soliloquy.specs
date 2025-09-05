@@ -6,7 +6,7 @@ import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.TextJustification;
 import soliloquy.specs.io.graphics.renderables.TextLineRenderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.ui.Component;
+import soliloquy.specs.io.graphics.renderables.Component;
 
 import java.awt.*;
 import java.util.List;

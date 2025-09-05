@@ -33,7 +33,7 @@ public interface RenderableWithMouseEvents extends Renderable {
     /**
      * (NB: This method should return false if the mouse event occurs outside the
      * {@link soliloquy.specs.io.graphics.rendering.RenderingBoundaries} set by
-     * {@link #component()}'s {@link soliloquy.specs.ui.Component#getRenderingBoundariesProvider()}
+     * {@link #component()}'s {@link Component#getRenderingBoundariesProvider()}
      *
      * @param point     The point in the window on which this Renderable may or may not capture
      *                  mouse events

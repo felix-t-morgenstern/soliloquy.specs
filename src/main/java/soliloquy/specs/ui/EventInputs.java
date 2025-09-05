@@ -1,5 +1,6 @@
 package soliloquy.specs.ui;
 
+import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents;
 
 import java.util.Objects;

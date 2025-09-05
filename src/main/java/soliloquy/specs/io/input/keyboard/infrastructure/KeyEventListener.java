@@ -1,6 +1,6 @@
-package soliloquy.specs.io.input.keyboard;
+package soliloquy.specs.io.input.keyboard.infrastructure;
 
-import soliloquy.specs.ui.keyboard.KeyBindingContext;
+import soliloquy.specs.io.input.keyboard.entities.KeyBindingContext;
 
 import java.util.List;
 import java.util.Map;

@@ -6,7 +6,7 @@ import soliloquy.specs.io.graphics.assets.Animation;
 import soliloquy.specs.io.graphics.renderables.FiniteAnimationRenderable;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.ui.Component;
+import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.ui.EventInputs;
 
 import java.awt.*;

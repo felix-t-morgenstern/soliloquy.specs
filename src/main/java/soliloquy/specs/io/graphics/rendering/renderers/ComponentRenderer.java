@@ -1,7 +1,7 @@
 package soliloquy.specs.io.graphics.rendering.renderers;
 
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.ui.Component;
+import soliloquy.specs.io.graphics.renderables.Component;
 
 /**
  * <b>ComponentRenderer</b>

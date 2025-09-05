@@ -2,7 +2,7 @@ package soliloquy.specs.io.graphics.rendering;
 
 import soliloquy.specs.gamestate.entities.timers.ClockBasedTimer;
 import soliloquy.specs.io.graphics.rendering.renderers.ComponentRenderer;
-import soliloquy.specs.ui.Component;
+import soliloquy.specs.io.graphics.renderables.Component;
 
 import java.util.function.Consumer;
 
@@ -47,7 +47,7 @@ public interface FrameExecutor {
      * Then, FrameExecutor calls {@link ComponentRenderer#render} <i>at the current time after the
      * firing of all frame-blocking events.</i> The reasoning here is that frame-blocking events do
      * genuinely block frame rendering; therefore, even if events take 12ms to fire, the
-     * FrameExecutor will be sure to render the top-level {@link soliloquy.specs.ui.Component} only
+     * FrameExecutor will be sure to render the top-level {@link Component} only
      * after those 12ms, to ensure that animations, etc. are not staggered or stilted by those
      * frame-blocking events.
      *

@@ -2,7 +2,6 @@ package soliloquy.specs.io.graphics.renderables;
 
 import soliloquy.specs.common.shared.HasUuid;
 import soliloquy.specs.gamestate.entities.Deletable;
-import soliloquy.specs.ui.Component;
 
 /**
  * <b>Renderable</b>

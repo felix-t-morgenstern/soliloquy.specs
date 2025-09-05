@@ -6,6 +6,7 @@ import soliloquy.specs.gamestate.entities.Character;
 import soliloquy.specs.gamestate.entities.GameZone;
 import soliloquy.specs.gamestate.entities.Party;
 import soliloquy.specs.gamestate.entities.exceptions.EntityDeletedException;
+import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.ImageAssetRenderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ruleset.gameconcepts.TileVisibilityCalculation;

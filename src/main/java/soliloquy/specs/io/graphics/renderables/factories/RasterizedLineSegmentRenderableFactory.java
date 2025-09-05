@@ -5,7 +5,7 @@ import soliloquy.specs.io.graphics.renderables.LineSegmentRenderable;
 import soliloquy.specs.io.graphics.renderables.RasterizedLineSegmentRenderable;
 import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
-import soliloquy.specs.ui.Component;
+import soliloquy.specs.io.graphics.renderables.Component;
 
 import java.awt.*;
 import java.util.UUID;
