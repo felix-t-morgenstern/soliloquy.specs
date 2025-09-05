@@ -1,6 +1,9 @@
 package soliloquy.specs.io.graphics.renderables.factories;
 
+import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.renderables.Component;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
+import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
 
 import java.util.UUID;
 
@@ -15,16 +18,22 @@ import java.util.UUID;
  */
 public interface ComponentFactory {
     /**
-     * @param uuid                The uuid of the Component
-     * @param z                   The z-index of the Component
-     * @param containingComponent The Component which contains the newly-created Component, may be
-     *                            null
+     * @param uuid                        The uuid of the Component
+     * @param z                           The z-index of the Component
+     * @param renderingBoundariesProvider Provides the rendering boundaries for this Component, to
+     *                                    be fed into
+     *                                    {@link RenderingBoundaries#currentBoundaries()}
+     * @param containingComponent         The Component which contains the newly-created Component,
+     *                                    may be
+     *                                    null
      * @return The newly-created Component
-     * @throws IllegalArgumentException If and only if uuid is null
+     * @throws IllegalArgumentException If and only if uuid, renderingBoundariesProvider, or
+     *                                  containingComponent are null
      */
     Component make(
             UUID uuid,
             int z,
+            ProviderAtTime<FloatBox> renderingBoundariesProvider,
             Component containingComponent
     ) throws IllegalArgumentException;
 }

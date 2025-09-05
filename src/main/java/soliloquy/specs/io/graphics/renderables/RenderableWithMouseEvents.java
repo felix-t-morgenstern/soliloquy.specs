@@ -14,7 +14,7 @@ import java.util.Map;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RenderableWithMouseEvents extends Renderable {
+public interface RenderableWithMouseEvents extends RenderableWithDimensions {
     /**
      * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
      *         events

@@ -31,23 +31,13 @@ public interface MouseEventCapturingSpatialIndex {
             throws IllegalArgumentException;
 
     /**
-     * If renderable is already present in this index, its location is updated.
-     * <p>
-     * NB: This method accepts both the renderable and its renderingDimensions separately to avoid
-     * having to calculate the rendering dimensions of that renderable at a given timestamp twice.
-     *
-     * @param renderable          The Renderable to place in this index
-     * @param renderingDimensions The rendering dimensions of the Renderable being placed
-     * @throws IllegalArgumentException If and only if renderable is null, or does not capture
-     *                                  mouse events
+     * @param renderable The Renderable to place in this index
+     * @throws IllegalArgumentException If and only if renderable is null
      */
-    void putRenderable(RenderableWithMouseEvents renderable, FloatBox renderingDimensions)
+    void putRenderable(RenderableWithMouseEvents renderable)
             throws IllegalArgumentException;
 
     /**
-     * (NB: This method does not require renderable to capture mouse events, since it can be used
-     * to remove Renderables which are altered to no longer capture mouse events.)
-     *
      * @param renderable The Renderable to remove from this index
      * @throws IllegalArgumentException If and only if renderable is null
      */

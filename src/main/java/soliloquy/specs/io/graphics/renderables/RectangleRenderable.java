@@ -20,7 +20,7 @@ import java.awt.*;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface RectangleRenderable extends PolygonRenderable, RenderableWithDimensions {
+public interface RectangleRenderable extends PolygonRenderable, RenderableWithMutableDimensions {
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
      * corner.</i>

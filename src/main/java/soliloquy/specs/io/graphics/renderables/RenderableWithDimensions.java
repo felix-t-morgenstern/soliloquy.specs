@@ -1,7 +1,7 @@
 package soliloquy.specs.io.graphics.renderables;
 
-import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.common.valueobjects.FloatBox;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 
 /**
  * <b>RenderableWithDimensions</b>
@@ -14,18 +14,11 @@ import soliloquy.specs.common.valueobjects.FloatBox;
  */
 public interface RenderableWithDimensions extends Renderable {
     /**
-     * @return A ProviderAtTime which provides the area in the window into which to render. <i>It
-     *         is expected that the returned value will never be null.</i>
+     * <i>NB: For {@link RenderableWithMouseEvents}, this method is used to describe the total area
+     * in which mouse events for that Renderable will need to occur.</i>
+     *
+     * @return A ProviderAtTime which provides the area in the window into which to render. <i>It is
+     *         expected that the returned value will never be null.</i>
      */
     ProviderAtTime<FloatBox> getRenderingDimensionsProvider();
-
-    /**
-     * C.f. {@link #getRenderingDimensionsProvider()} for more information
-     *
-     * @param renderingDimensionsProvider The renderingDimensionsProvider to set for this
-     *                                    Renderable
-     * @throws IllegalArgumentException If and only if renderingDimensionsProvider is null
-     */
-    void setRenderingDimensionsProvider(ProviderAtTime<FloatBox> renderingDimensionsProvider)
-            throws IllegalArgumentException;
 }

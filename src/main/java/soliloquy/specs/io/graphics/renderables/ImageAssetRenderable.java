@@ -10,6 +10,6 @@ package soliloquy.specs.io.graphics.renderables;
  * @version 0.0.1
  */
 public interface ImageAssetRenderable
-        extends RenderableWithDimensions, RenderableWithBorders, HasColorShifts,
+        extends RenderableWithMutableDimensions, RenderableWithBorders, HasColorShifts,
         RenderableWithMouseEvents {
 }
