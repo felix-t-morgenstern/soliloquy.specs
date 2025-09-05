@@ -14,12 +14,12 @@ public interface GraphicsCoreLoop {
     /**
      * This method starts up the most basic graphics engine infrastructure.
      *
-     * @param gameThread The thread which runs the rest of the game. (NB: the thread running the
-     *                   core graphics loop must be the main thread of the application; therefore,
-     *                   the rest of the application must run on a separate thread.)
+     * @param game The function executed by the thread which runs the rest of the game. (NB: the
+     *             thread running the core graphics loop must be the main thread of the application;
+     *             therefore, the rest of the application must run on a separate thread.)
      * @throws IllegalArgumentException If and only if callback is null
      */
-    void startup(Runnable gameThread) throws IllegalArgumentException;
+    void startup(Runnable game) throws IllegalArgumentException;
 
     /**
      * @return The current window Id
