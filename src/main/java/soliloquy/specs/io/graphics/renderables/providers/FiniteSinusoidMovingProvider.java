@@ -1,7 +1,5 @@
 package soliloquy.specs.io.graphics.renderables.providers;
 
-import java.util.List;
-
 public interface FiniteSinusoidMovingProvider<T> extends FiniteLinearMovingProvider<T> {
     /**
      * <i>NB: This movement is sinusoid, meaning that its position is changed by the degree to
@@ -16,13 +14,13 @@ public interface FiniteSinusoidMovingProvider<T> extends FiniteLinearMovingProvi
      * odd the closer this value approaches zero, or the higher this value becomes, particularly
      * above 4.</i>
      * <p>
-     * <i>Because this List describes the sharpness of each transition, it is expected that it will
+     * <i>Because this array describes the sharpness of each transition, it is expected that it will
      * contain N entries, where N is 1 less than the size of
      * {@link #valuesAtTimestampsRepresentation}.</i>
      * <p>
      * <i>ALSO note that this method returns a representation, not the actual values!</i>
      *
-     * @return A List of the sharpnesses of each transition
+     * @return An array of the sharpnesses of each transition
      */
-    List<Float> transitionSharpnesses();
+    float[] transitionSharpnesses();
 }

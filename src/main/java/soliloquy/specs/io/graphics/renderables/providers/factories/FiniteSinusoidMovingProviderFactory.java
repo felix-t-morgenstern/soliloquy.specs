@@ -31,7 +31,7 @@ public interface FiniteSinusoidMovingProviderFactory {
      *                                  entry than valuesAtTimestamps
      */
     <T> FiniteSinusoidMovingProvider<T> make(UUID uuid, Map<Long, T> valuesAtTimestamps,
-                                             List<Float> transitionSharpnesses,
+                                             float[] transitionSharpnesses,
                                              Long pausedTimestamp)
             throws IllegalArgumentException;
 }
