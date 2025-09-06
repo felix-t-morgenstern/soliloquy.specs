@@ -5,10 +5,10 @@ import soliloquy.specs.common.valueobjects.Pair;
 import java.util.List;
 
 public class FiniteSinusoidMovingProviderDefinition<T> extends FiniteLinearMovingProviderDefinition<T> {
-    public final List<Float> TRANSITION_SHARPNESSES;
+    public final float[] TRANSITION_SHARPNESSES;
 
     @SafeVarargs
-    private FiniteSinusoidMovingProviderDefinition(List<Float> transitionSharpnesses,
+    private FiniteSinusoidMovingProviderDefinition(float[] transitionSharpnesses,
                                                    Pair<Integer, T>... valuesAtTimestampOffsets) {
         super(valuesAtTimestampOffsets);
         TRANSITION_SHARPNESSES = transitionSharpnesses;
@@ -16,7 +16,7 @@ public class FiniteSinusoidMovingProviderDefinition<T> extends FiniteLinearMovin
 
     @SafeVarargs
     public static <T> FiniteSinusoidMovingProviderDefinition<T> finiteSinusoidMoving(
-            List<Float> transitionSharpnesses, Pair<Integer, T>... valuesAtTimestampOffsets) {
+            float[] transitionSharpnesses, Pair<Integer, T>... valuesAtTimestampOffsets) {
         return new FiniteSinusoidMovingProviderDefinition<>(transitionSharpnesses,
                 valuesAtTimestampOffsets);
     }

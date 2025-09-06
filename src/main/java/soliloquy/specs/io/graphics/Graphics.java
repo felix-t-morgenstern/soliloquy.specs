@@ -1,12 +1,10 @@
 package soliloquy.specs.io.graphics;
 
 import soliloquy.specs.io.graphics.assets.*;
-import soliloquy.specs.io.graphics.rendering.FrameExecutor;
-import soliloquy.specs.io.graphics.rendering.timing.FrameRateReporter;
-import soliloquy.specs.io.graphics.rendering.timing.GlobalClock;
-import soliloquy.specs.io.input.mouse.MouseCursor;
 
 public interface Graphics {
+    Image getImage(String relLoc) throws IllegalArgumentException;
+
     Sprite getSprite(String id) throws IllegalArgumentException;
 
     Animation getAnimation(String id) throws IllegalArgumentException;

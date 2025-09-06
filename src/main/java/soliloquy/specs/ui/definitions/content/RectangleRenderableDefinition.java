@@ -32,7 +32,9 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
     }
 
     public static RectangleRenderableDefinition rectangle(
-            AbstractProviderDefinition<FloatBox> areaProvider, int z) {
+            AbstractProviderDefinition<FloatBox> areaProvider,
+            int z
+    ) {
         return new RectangleRenderableDefinition(areaProvider, z);
     }
 
