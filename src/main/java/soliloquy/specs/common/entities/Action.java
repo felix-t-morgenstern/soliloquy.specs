@@ -2,6 +2,8 @@ package soliloquy.specs.common.entities;
 
 import soliloquy.specs.common.shared.HasId;
 
+import java.util.function.Consumer;
+
 /**
  * <b>Action</b>
  * <p>
@@ -14,13 +16,32 @@ import soliloquy.specs.common.shared.HasId;
  * @version 0.0.1
  */
 
-public interface Action<Input> extends HasId {
-    /**
-     * Runs this Action
-     *
-     * @param inputs The inputs to this Action
-     * @throws IllegalArgumentException If and only if the inputs to this Action is illegal
-     */
+public class Action<Input> implements HasId {
+    private final String ID;
+    private final Consumer<Input[]> LOGIC;
+
+    private Action(String id, Consumer<Input[]> logic) {
+        if (id == null || id.isEmpty()) {
+            throw new IllegalArgumentException("Action: id cannot be null or empty");
+        }
+        ID = id;
+        if (logic == null) {
+            throw new IllegalArgumentException("Action: logic cannot be null");
+        }
+        LOGIC = logic;
+    }
+
+    public static <T> Action<T> action(String id, Consumer<T[]> logic) {
+        return new Action<>(id, logic);
+    }
+
+    @Override
+    public String id() throws IllegalStateException {
+        return ID;
+    }
+
     @SuppressWarnings("unchecked")
-    void run(Input... inputs) throws IllegalArgumentException;
+    public void run(Input... inputs) {
+        LOGIC.accept(inputs);
+    }
 }
