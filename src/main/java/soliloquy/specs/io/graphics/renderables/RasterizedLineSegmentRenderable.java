@@ -11,8 +11,11 @@ package soliloquy.specs.io.graphics.renderables;
 public interface RasterizedLineSegmentRenderable extends LineSegmentRenderable {
 
     /**
-     * @return The stippling pattern for this line segment (see documentation for more information
-     *         about line segment stippling)
+     * @return The stippling pattern for this line segment (cf
+     *         {@link <a
+     *         href="https://www.dca.ufrn.br/~lmarcos/courses/compgraf/redbook/chapter02
+     *         .html">https://www.dca.ufrn.br/~lmarcos/courses/compgraf/redbook/chapter02.html</a>}
+     *         for more info)
      */
     short getStipplePattern();
 
