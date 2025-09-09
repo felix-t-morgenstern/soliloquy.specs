@@ -5,6 +5,7 @@ import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
 
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -24,8 +25,8 @@ public interface ComponentFactory {
      *                                    be fed into
      *                                    {@link RenderingBoundaries#currentBoundaries()}
      * @param containingComponent         The Component which contains the newly-created Component,
-     *                                    may be
-     *                                    null
+     *                                    may be null
+     * @param data                        Data relating to this component (intended to aid UI)
      * @return The newly-created Component
      * @throws IllegalArgumentException If and only if uuid, renderingBoundariesProvider, or
      *                                  containingComponent are null
@@ -34,6 +35,7 @@ public interface ComponentFactory {
             UUID uuid,
             int z,
             ProviderAtTime<FloatBox> renderingBoundariesProvider,
-            Component containingComponent
+            Component containingComponent,
+            Map<String, Object> data
     ) throws IllegalArgumentException;
 }

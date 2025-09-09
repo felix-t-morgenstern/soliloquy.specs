@@ -1,6 +1,7 @@
 package soliloquy.specs.io.graphics.renderables;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
+import soliloquy.specs.gamestate.entities.shared.HasData;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
 import soliloquy.specs.io.input.keyboard.entities.KeyBindingContext;
@@ -18,7 +19,7 @@ import java.util.Set;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Component extends Renderable {
+public interface Component extends Renderable, HasData {
     /**
      * Components alone are expected to be in control of blocking KeyBindings of "lower" components,
      * so it is expected that KeyBindingContexts will not appear in any other context
