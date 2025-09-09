@@ -30,7 +30,7 @@ public interface Component extends Renderable, HasData {
 
     /**
      * @param content The content to add to this Component
-     * @throws IllegalArgumentException If and only if content is null, or not already reporting this as its Component (cf {@link Renderable#component()}, or if it is a Component whose tier (c.f. {@link #tier()}) is not one higher than this Component
+     * @throws IllegalArgumentException If and only if content is null, or not already reporting this as its Component (cf {@link Renderable#containingComponent()}, or if it is a Component whose tier (c.f. {@link #tier()}) is not one higher than this Component
      */
     void add(Renderable content) throws IllegalArgumentException;
 
