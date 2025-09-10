@@ -4,12 +4,15 @@ import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.ui.definitions.keyboard.KeyBindingDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
+import java.util.Map;
+
 public class ComponentDefinition extends AbstractContentDefinition {
     public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER;
     public final AbstractContentDefinition[] CONTENT;
 
     public KeyBindingDefinition[] bindings;
     public Boolean blocksLowerBindings;
+    public Map<String, Object> data;
 
     private ComponentDefinition(
             int z,
@@ -33,6 +36,12 @@ public class ComponentDefinition extends AbstractContentDefinition {
                                             KeyBindingDefinition... bindings) {
         this.bindings = bindings;
         this.blocksLowerBindings = blocksLowerBindings;
+
+        return this;
+    }
+
+    public ComponentDefinition withData(Map<String, Object> data) {
+        this.data = data;
 
         return this;
     }

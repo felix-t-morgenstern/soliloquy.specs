@@ -11,21 +11,24 @@ package soliloquy.specs.io.graphics.renderables;
 public interface RasterizedLineSegmentRenderable extends LineSegmentRenderable {
 
     /**
+     * <i>If this method returns null, it implies no stippling</i>
+     *
      * @return The stippling pattern for this line segment (cf
      *         {@link <a
      *         href="https://www.dca.ufrn.br/~lmarcos/courses/compgraf/redbook/chapter02
      *         .html">https://www.dca.ufrn.br/~lmarcos/courses/compgraf/redbook/chapter02.html</a>}
      *         for more info)
      */
-    short getStipplePattern();
+    Short getStipplePattern();
 
     /**
      * C.f. {@link #getStipplePattern()} for more information
      *
-     * @param stipplePattern The stipple pattern to set for this Renderable
+     * @param stipplePattern The stipple pattern to set for this Renderable; if null, then there
+     *                       will be no stippling
      * @throws IllegalArgumentException If and only if stipplePattern is 0
      */
-    void setStipplePattern(short stipplePattern) throws IllegalArgumentException;
+    void setStipplePattern(Short stipplePattern) throws IllegalArgumentException;
 
     /**
      * @return The stippling factor for this line segment (see documentation for more information

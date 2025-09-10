@@ -43,7 +43,7 @@ public interface RasterizedLineSegmentRenderableFactory {
     RasterizedLineSegmentRenderable make(ProviderAtTime<Vertex> vertex1Provider,
                                          ProviderAtTime<Vertex> vertex2Provider,
                                          ProviderAtTime<Float> thicknessProvider,
-                                         short stipplePattern, short stippleFactor,
+                                         Short stipplePattern, short stippleFactor,
                                          ProviderAtTime<Color> colorProvider,
                                          int z, UUID uuid,
                                          Component component)
