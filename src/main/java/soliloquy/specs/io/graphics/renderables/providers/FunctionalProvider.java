@@ -17,4 +17,8 @@ import java.util.Map;
 public interface FunctionalProvider<T> extends ProviderAtTime<T>, HasData {
     record EventInfo(long timestamp, Long pauseTimestamp, Map<String, Object> data) {
     }
+
+    record Representation(String provideId, String pauseId, String unpauseId, Long pauseTimestamp,
+                          Map<String, Object> data) {
+    }
 }
