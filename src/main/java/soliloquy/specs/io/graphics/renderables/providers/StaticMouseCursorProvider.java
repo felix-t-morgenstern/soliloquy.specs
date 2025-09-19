@@ -12,7 +12,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface StaticMouseCursorProvider extends StaticProvider<Long>, HasId {
+public interface StaticMouseCursorProvider extends ProviderAtTime<Long>, HasId {
     /**
      * StaticMouseCursorProviders are not identified by Uuid, but rather by their String Ids.
      */
