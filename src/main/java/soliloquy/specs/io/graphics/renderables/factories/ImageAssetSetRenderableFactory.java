@@ -39,11 +39,13 @@ public interface ImageAssetSetRenderableFactory {
      *                                  colorShifts is null; renderingAreaProvider is null; uuid is
      *                                  null; or containingStack is null
      */
-    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet, Map<String, String> displayParams,
+    ImageAssetSetRenderable make(ImageAssetSet imageAssetSet,
+                                 Map<String, String> displayParams,
                                  List<ColorShift> colorShifts,
                                  ProviderAtTime<Float> borderThicknessProvider,
                                  ProviderAtTime<Color> borderColorProvider,
-                                 ProviderAtTime<FloatBox> renderingAreaProvider, int z,
+                                 ProviderAtTime<FloatBox> renderingAreaProvider,
+                                 int z,
                                  UUID uuid,
                                  Component containingStack)
             throws IllegalArgumentException;
