@@ -16,5 +16,34 @@ import soliloquy.specs.common.shared.HasId;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface Function<Input, Output> extends java.util.function.Function<Input, Output>, HasId {
+public class Function<Input, Output> implements java.util.function.Function<Input, Output>, HasId {
+    private final String ID;
+    private final java.util.function.Function<Input, Output> LOGIC;
+
+    private Function(String id, java.util.function.Function<Input, Output> logic) {
+        if (id == null || id.isEmpty()) {
+            throw new IllegalArgumentException("Action: id cannot be null or empty");
+        }
+        ID = id;
+        if (logic == null) {
+            throw new IllegalArgumentException("Action: logic cannot be null");
+        }
+        LOGIC = logic;
+    }
+
+    public static <TInput, TOutput> Function<TInput, TOutput> function(
+            String id,
+            java.util.function.Function<TInput, TOutput> logic
+    ) {
+        return new Function<>(id, logic);
+    }
+
+    @Override
+    public String id() throws IllegalStateException {
+        return ID;
+    }
+
+    public Output apply(Input input) {
+        return LOGIC.apply(input);
+    }
 }

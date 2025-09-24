@@ -16,11 +16,11 @@ import java.util.function.Consumer;
  * @version 0.0.1
  */
 
-public class Action<Input> implements HasId {
+public class Action<Input> implements Consumer<Input>, HasId {
     private final String ID;
-    private final Consumer<Input[]> LOGIC;
+    private final Consumer<Input> LOGIC;
 
-    private Action(String id, Consumer<Input[]> logic) {
+    private Action(String id, Consumer<Input> logic) {
         if (id == null || id.isEmpty()) {
             throw new IllegalArgumentException("Action: id cannot be null or empty");
         }
@@ -31,7 +31,7 @@ public class Action<Input> implements HasId {
         LOGIC = logic;
     }
 
-    public static <T> Action<T> action(String id, Consumer<T[]> logic) {
+    public static <T> Action<T> action(String id, Consumer<T> logic) {
         return new Action<>(id, logic);
     }
 
@@ -40,8 +40,7 @@ public class Action<Input> implements HasId {
         return ID;
     }
 
-    @SuppressWarnings("unchecked")
-    public void run(Input... inputs) {
-        LOGIC.accept(inputs);
+    public void accept(Input input) {
+        LOGIC.accept(input);
     }
 }

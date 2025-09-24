@@ -6,6 +6,8 @@ import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.util.Map;
 
+import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
+
 public class ComponentDefinition extends AbstractContentDefinition {
     public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER;
     public final AbstractContentDefinition[] CONTENT;
@@ -30,6 +32,14 @@ public class ComponentDefinition extends AbstractContentDefinition {
             AbstractContentDefinition... content
     ) {
         return new ComponentDefinition(z, dimensProvider, content);
+    }
+
+    public static ComponentDefinition component(
+            int z,
+            FloatBox dimens,
+            AbstractContentDefinition... content
+    ) {
+        return new ComponentDefinition(z, staticVal(dimens), content);
     }
 
     public ComponentDefinition withBindings(boolean blocksLowerBindings,

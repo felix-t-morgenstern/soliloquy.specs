@@ -7,6 +7,8 @@ import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 import java.awt.*;
 import java.util.Map;
 
+import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
+
 public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefinition {
     public final String SPRITE_ID;
 
@@ -21,6 +23,12 @@ public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefi
                                                     AbstractProviderDefinition<FloatBox> dimensionsProvider,
                                                     int z) {
         return new SpriteRenderableDefinition(spriteId, dimensionsProvider, z);
+    }
+
+    public static SpriteRenderableDefinition sprite(String spriteId,
+                                                    FloatBox dimensions,
+                                                    int z) {
+        return new SpriteRenderableDefinition(spriteId, staticVal(dimensions), z);
     }
 
     public SpriteRenderableDefinition withBorder(AbstractProviderDefinition<Float> thicknessProvider, AbstractProviderDefinition<Color> colorProvider) {

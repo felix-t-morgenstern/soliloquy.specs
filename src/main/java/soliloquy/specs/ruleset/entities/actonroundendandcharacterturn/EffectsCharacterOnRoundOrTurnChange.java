@@ -102,4 +102,7 @@ public interface EffectsCharacterOnRoundOrTurnChange {
         void accompanyAllEffects(List<Pair<int[], Character>> allEffects, boolean advancingRounds)
                 throws IllegalArgumentException;
     }
+
+    record EffectActionInputs(int[] effects, Character character, boolean advancingRounds) {
+    }
 }
