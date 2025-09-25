@@ -54,4 +54,11 @@ public interface FontStyleInfo extends HasTextureId {
      *         return null.
      */
     Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing();
+
+    /**
+     * @return This method is used by
+     *         {@link soliloquy.specs.io.graphics.rendering.renderers.TextLineRenderer#render} to
+     *         ensure that glyphs with cruft on their right tail end are truncated when displayed. (This seems to especially be an issue with italic glyphs. Values greater than 1 are legal.)
+     */
+    Map<Character, Float> glyphwiseWidthFactors();
 }

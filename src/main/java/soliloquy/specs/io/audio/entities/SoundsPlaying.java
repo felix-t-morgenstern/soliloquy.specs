@@ -36,7 +36,7 @@ public interface SoundsPlaying {
     Sound getSound(UUID soundId) throws IllegalArgumentException;
 
     /**
-     * @param sound The Sound to register as currently playing
+     * @param sound A Sound to register as currently playing
      * @throws IllegalArgumentException If and only if sound is null, or has a null id
      */
     void registerSound(Sound sound) throws IllegalArgumentException;

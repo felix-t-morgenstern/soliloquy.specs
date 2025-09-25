@@ -16,16 +16,19 @@ public class FontStyleDefinition {
     private final float ADDITIONAL_GLYPH_HORIZONTAL_TEXTURE_SPACING;
     private final Map<Character, Float> GLYPHWISE_ADDITIONAL_HORIZONTAL_TEXTURE_SPACING;
     private final Map<Character, Float> GLYPHWISE_ADDITIONAL_LEFT_BOUNDARY_SHIFT;
+    private final Map<Character, Float> GLYPHWISE_WIDTH_FACTORS;
     private final float ADDITIONAL_GLYPH_VERTICAL_TEXTURE_SPACING;
 
     public FontStyleDefinition(float additionalGlyphHorizontalTextureSpacing,
                                Map<Character, Float> glyphwiseAdditionalHorizontalTextureSpacing,
                                Map<Character, Float> glyphwiseAdditionalLeftBoundaryShift,
+                               Map<Character, Float> glyphwiseWidthFactors,
                                float additionalGlyphVerticalTextureSpacing) {
         ADDITIONAL_GLYPH_HORIZONTAL_TEXTURE_SPACING = additionalGlyphHorizontalTextureSpacing;
         GLYPHWISE_ADDITIONAL_HORIZONTAL_TEXTURE_SPACING =
                 glyphwiseAdditionalHorizontalTextureSpacing;
         GLYPHWISE_ADDITIONAL_LEFT_BOUNDARY_SHIFT = glyphwiseAdditionalLeftBoundaryShift;
+        GLYPHWISE_WIDTH_FACTORS = glyphwiseWidthFactors;
         ADDITIONAL_GLYPH_VERTICAL_TEXTURE_SPACING = additionalGlyphVerticalTextureSpacing;
     }
 
@@ -72,6 +75,18 @@ public class FontStyleDefinition {
      */
     public Map<Character, Float> glyphwiseAdditionalLeftBoundaryShift() {
         return GLYPHWISE_ADDITIONAL_LEFT_BOUNDARY_SHIFT;
+    }
+
+    /**
+     * <i>NB: This method is intended for fonts where certain glyphs have a recorded width which
+     * goes too far to the right, occasionally including the left fringes of 'neighboring' glyphs.
+     * The width of a provided glyph (reported by {@link java.awt.FontMetrics#charWidth(char)}) is
+     * multiplied by the respective float factor for its respective character key value.</i>
+     *
+     * @return A Map, linking characters to the width multiplication factor for their glyph
+     */
+    public Map<Character, Float> glyphwiseWidthFactors() {
+        return GLYPHWISE_WIDTH_FACTORS;
     }
 
     /**
