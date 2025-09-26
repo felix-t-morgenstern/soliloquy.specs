@@ -1,5 +1,7 @@
 package soliloquy.specs.io.graphics.rendering;
 
+import soliloquy.specs.io.bootstrap.CoreLoop;
+
 /**
  * <b>Mesh</b>
  * <p>
@@ -18,7 +20,7 @@ public interface Mesh {
 
     /**
      * Binds the Mesh for rendering (intended to be used by
-     * {@link soliloquy.specs.io.graphics.bootstrap.GraphicsCoreLoop#startup}).
+     * {@link CoreLoop#startup}).
      */
     void bind();
 

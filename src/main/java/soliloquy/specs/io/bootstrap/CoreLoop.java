@@ -1,18 +1,16 @@
-package soliloquy.specs.io.graphics.bootstrap;
-
-import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
+package soliloquy.specs.io.bootstrap;
 
 /**
- * <b>GraphicsCoreLoop</b>
+ * <b>CoreLoop</b>
  * <p>
- * This class starts up the most basic graphics engine infrastructure, and runs the core loop.
+ * This class starts up the most basic IO engine infrastructure, and runs the core graphics loop.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GraphicsCoreLoop {
+public interface CoreLoop {
     /**
-     * This method starts up the most basic graphics engine infrastructure.
+     * This method starts up the engine and runs the game.
      *
      * @param game The function executed by the thread which runs the rest of the game. (NB: the
      *             thread running the core graphics loop must be the main thread of the application;

@@ -1,10 +1,10 @@
-package soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions;
+package soliloquy.specs.io.bootstrap.assetfactories.definitions;
 
 /**
  * <b>MouseCursorImageDefinition</b>
  * <p>
  * This class defines an image to be provided to a
- * {@link soliloquy.specs.io.graphics.bootstrap.assetfactories.MouseCursorImageFactory}
+ * {@link soliloquy.specs.io.bootstrap.assetfactories.MouseCursorImageFactory}
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

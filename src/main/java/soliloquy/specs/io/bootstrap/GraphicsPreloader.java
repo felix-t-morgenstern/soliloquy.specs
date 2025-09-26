@@ -1,4 +1,4 @@
-package soliloquy.specs.io.graphics.bootstrap;
+package soliloquy.specs.io.bootstrap;
 
 /**
  * <b>GraphicsPreloader</b>

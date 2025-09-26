@@ -1,6 +1,6 @@
-package soliloquy.specs.io.graphics.bootstrap.assetfactories;
+package soliloquy.specs.io.bootstrap.assetfactories;
 
-import soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions.MouseCursorImageDefinition;
+import soliloquy.specs.io.bootstrap.assetfactories.definitions.MouseCursorImageDefinition;
 
 /**
  * <b>ImageFactory</b>

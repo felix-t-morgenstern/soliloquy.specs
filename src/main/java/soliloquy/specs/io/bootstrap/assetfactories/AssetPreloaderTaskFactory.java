@@ -1,4 +1,4 @@
-package soliloquy.specs.io.graphics.bootstrap.assetfactories;
+package soliloquy.specs.io.bootstrap.assetfactories;
 
 import java.util.Collection;
 

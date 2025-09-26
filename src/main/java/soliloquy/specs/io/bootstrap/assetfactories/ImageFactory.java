@@ -1,7 +1,7 @@
-package soliloquy.specs.io.graphics.bootstrap.assetfactories;
+package soliloquy.specs.io.bootstrap.assetfactories;
 
 import soliloquy.specs.io.graphics.assets.Image;
-import soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions.ImageDefinition;
+import soliloquy.specs.io.bootstrap.assetfactories.definitions.ImageDefinition;
 
 /**
  * <b>ImageFactory</b>

@@ -1,7 +1,5 @@
-package soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions;
+package soliloquy.specs.io.bootstrap.assetfactories.definitions;
 
-import soliloquy.specs.common.shared.HasId;
-import soliloquy.specs.common.shared.HasPeriodModuloOffset;
 import soliloquy.specs.io.graphics.assets.Animation;
 
 /**

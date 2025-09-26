@@ -1,4 +1,4 @@
-package soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions;
+package soliloquy.specs.io.bootstrap.assetfactories.definitions;
 
 public class StaticMouseCursorProviderDefinition {
     private final String ID;

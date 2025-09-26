@@ -1,4 +1,4 @@
-package soliloquy.specs.io.graphics.bootstrap.assetfactories.definitions;
+package soliloquy.specs.io.bootstrap.assetfactories.definitions;
 
 import soliloquy.specs.io.graphics.assets.Animation;
 import soliloquy.specs.io.graphics.assets.AnimationFrameSnippet;
