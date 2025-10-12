@@ -1,7 +1,7 @@
-package soliloquy.specs.io.input.keyboard.entities;
+package soliloquy.specs.io.input.keyboard;
 
 import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.ui.definitions.keyboard.KeyEventInfo;
+import soliloquy.specs.ui.EventInputs;
 
 /**
  * <b>KeyBinding</b>
@@ -13,13 +13,13 @@ import soliloquy.specs.ui.definitions.keyboard.KeyEventInfo;
  */
 public class KeyBinding {
     public final char[] BOUND_KEYS;
-    public final Action<KeyEventInfo> ON_PRESS;
-    public final Action<KeyEventInfo> ON_RELEASE;
+    public final Action<EventInputs> ON_PRESS;
+    public final Action<EventInputs> ON_RELEASE;
 
     private KeyBinding(
             char[] boundKeys,
-            Action<KeyEventInfo> onPress,
-            Action<KeyEventInfo> onRelease
+            Action<EventInputs> onPress,
+            Action<EventInputs> onRelease
     ) {
         BOUND_KEYS = boundKeys;
         ON_PRESS = onPress;
@@ -28,8 +28,8 @@ public class KeyBinding {
 
     public static KeyBinding keyBinding(
             char[] boundKeys,
-            Action<KeyEventInfo> onPress,
-            Action<KeyEventInfo> onRelease
+            Action<EventInputs> onPress,
+            Action<EventInputs> onRelease
     ) {
         return new KeyBinding(boundKeys, onPress, onRelease);
     }

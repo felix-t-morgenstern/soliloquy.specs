@@ -37,6 +37,8 @@ public interface MouseEventHandler {
 
     enum EventType {
         PRESS,
-        RELEASE
+        RELEASE,
+        MOUSE_OVER,
+        MOUSE_LEAVE
     }
 }

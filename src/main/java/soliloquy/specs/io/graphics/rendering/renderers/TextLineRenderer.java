@@ -1,6 +1,9 @@
 package soliloquy.specs.io.graphics.rendering.renderers;
 
+import soliloquy.specs.io.graphics.assets.Font;
 import soliloquy.specs.io.graphics.renderables.TextLineRenderable;
+
+import java.util.List;
 
 /**
  * <b>TextLineRenderer</b>
@@ -18,12 +21,30 @@ public interface TextLineRenderer extends Renderer<TextLineRenderable> {
      * @return The length of the TextLineRenderable, where the width of the window is 1.0f
      * @throws IllegalArgumentException If and only if textLineRenderable is null or has invalid
      *                                  values, or if timestamp is before most recent timestamp
-     *                                  provided to class (c.f.
-     *
-     *
-     *
-     *                               {@link soliloquy.specs.io.graphics.shared.HasMostRecentTimestamp})
+     *                                  provided to class
      */
     float textLineLength(TextLineRenderable textLineRenderable, long timestamp)
             throws IllegalArgumentException;
+
+    /**
+     * @param text                 The text whose line length to calculate
+     * @param font                 The font
+     * @param paddingBetweenGlyphs The padding between glyphs (c.f.
+     *                             {@link TextLineRenderable#getPaddingBetweenGlyphs()})
+     * @param italicIndices        The indices at which italicization begins and ends (c.f.
+     *                             {@link TextLineRenderable#italicIndices()}
+     * @param boldIndices          The indices at which boldface begins and ends (c.f.
+     *                             {@link TextLineRenderable#boldIndices()} ()}
+     * @param lineHeight           The height of the line, expressed in percentage of screen height
+     * @return The length of the line, expressed in percentage of screen width
+     * @throws IllegalArgumentException If and only if text is null, italicIndices is null,
+     *                                  boldIndices is null, font is null, or lineHeight is less
+     *                                  than or equal to 0
+     */
+    float textLineLength(String text,
+                         Font font,
+                         float paddingBetweenGlyphs,
+                         List<Integer> italicIndices,
+                         List<Integer> boldIndices,
+                         float lineHeight) throws IllegalArgumentException;
 }

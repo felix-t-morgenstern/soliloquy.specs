@@ -31,15 +31,15 @@ public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefi
         return new SpriteRenderableDefinition(spriteId, staticVal(dimensions), z);
     }
 
-    public SpriteRenderableDefinition withBorder(AbstractProviderDefinition<Float> thicknessProvider, AbstractProviderDefinition<Color> colorProvider) {
-        borderThicknessProvider = thicknessProvider;
-        borderColorProvider = colorProvider;
+    public SpriteRenderableDefinition withBorder(AbstractProviderDefinition<Float> thicknessProviderDef, AbstractProviderDefinition<Color> colorProviderDef) {
+        borderThicknessProviderDef = thicknessProviderDef;
+        borderColorProviderDef = colorProviderDef;
 
         return this;
     }
 
     public SpriteRenderableDefinition withColorShifts(ShiftDefinition... shiftDefinitions) {
-        this.colorShifts = shiftDefinitions;
+        this.colorShiftDefs = shiftDefinitions;
 
         return this;
     }

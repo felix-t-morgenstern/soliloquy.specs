@@ -4,38 +4,48 @@ import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.gamestate.entities.shared.HasData;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
-import soliloquy.specs.io.input.keyboard.entities.KeyBindingContext;
+import soliloquy.specs.io.input.keyboard.KeyEventListener;
+import soliloquy.specs.io.input.keyboard.KeyBinding;
 
 import java.util.Set;
 
 /**
  * <b>Component</b>
  * <p>
- * This class is a stack of {@link Renderable}s, to be rendered, in descending order of z-indices.
- * (Multiple Renderables can have the same z-index, but in this case, no promises can be made as to
- * which of those Renderables will be rendered first.) This class can impose a boundary, outside of
- * which its contents will not render.
+ * A Component is the base unit of the UI. A Component is Renderable, which is composed of one or
+ * more Renderables, and which can contain limited, local state and logic. It provides
+ * {@link KeyBinding}s to {@link KeyEventListener},
+ * and can provide rendering boundaries to
+ * {@link soliloquy.specs.io.graphics.rendering.renderers.ComponentRenderer#render}.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
 public interface Component extends Renderable, HasData {
     /**
-     * Components alone are expected to be in control of blocking KeyBindings of "lower" components,
-     * so it is expected that KeyBindingContexts will not appear in any other context
-     *
-     * @return The KeyBindingContext for this Component
+     * A Set of the KeyBindings in this context
      */
-    KeyBindingContext keyBindingContext();
+    Set<KeyBinding> keyBindings();
+
+    /**
+     * True, if and only if all lower contexts' bindings are blocked (c.f.
+     * {@link KeyEventListener#addComponent})
+     */
+    boolean blocksLowerKeyBindings();
 
     /**
      * @param content The content to add to this Component
-     * @throws IllegalArgumentException If and only if content is null, or not already reporting this as its Component (cf {@link Renderable#containingComponent()}, or if it is a Component whose tier (c.f. {@link #tier()}) is not one higher than this Component
+     * @throws IllegalArgumentException If and only if content is null, or not already reporting
+     *                                  this as its Component (cf
+     *                                  {@link Renderable#containingComponent()}, or if it is a
+     *                                  Component whose tier (c.f. {@link #tier()}) is not one
+     *                                  higher than this Component
      */
     void add(Renderable content) throws IllegalArgumentException;
 
     /**
      * Deletes the content upon removal
+     *
      * @param content The content to remove
      * @throws IllegalArgumentException If and only if content is null or is in another Component
      */

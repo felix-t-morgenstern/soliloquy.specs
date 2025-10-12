@@ -46,9 +46,13 @@ public interface TextLineRenderable extends RenderableWithBorders {
 
     /**
      * <i>NB: This provider will return the x and y locations (respectively) for where this text
-     * line will start its rendering. For left or right aligned text lines, this location will be
-     * the left-most or right-most location of text on this line, respectively. For horizontally
-     * centered text, this location will specify the center of the text line.</i>
+     * line will start its rendering.<p>
+     * <b>The y coordinate indicates the position of the top of the line.</b><p>
+     * <b>The x coordinate indicates the horizontal position, depending on
+     * {@link #getJustification()}:</b><p>
+     * For left or right aligned text lines, this location will be  the left-most or right-most
+     * location of text on this line, respectively.<p>
+     * For horizontally centered text, this location will specify the center of the text line.</i>
      *
      * @return A provider which specifies the location at which this text line is rendered
      */
@@ -80,8 +84,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
     /**
      * @return The amount of padding between glyphs, where 0f implies the standard padding between
      *         glyphs of the font (rather than no space between glyphs whatsoever), and 1f implies
-     *         an
-     *         additional space between letters equal to {@link #lineHeightProvider}.
+     *         an additional space between letters equal to {@link #lineHeightProvider}.
      */
     float getPaddingBetweenGlyphs();
 

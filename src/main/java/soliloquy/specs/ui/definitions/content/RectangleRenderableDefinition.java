@@ -1,6 +1,7 @@
 package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
@@ -9,14 +10,21 @@ import java.util.Map;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class RectangleRenderableDefinition extends AbstractContentDefinition {
-    public final AbstractProviderDefinition<FloatBox> AREA_PROVIDER;
+    public final ProviderAtTime<FloatBox> DIMENS_PROVIDER;
+    public final AbstractProviderDefinition<FloatBox> DIMENS_PROVIDER_DEF;
 
-    public AbstractProviderDefinition<Color> topLeftColorProvider;
-    public AbstractProviderDefinition<Color> topRightColorProvider;
-    public AbstractProviderDefinition<Color> bottomLeftColorProvider;
-    public AbstractProviderDefinition<Color> bottomRightColorProvider;
+    public ProviderAtTime<Color> topLeftColorProvider;
+    public ProviderAtTime<Color> topRightColorProvider;
+    public ProviderAtTime<Color> bottomLeftColorProvider;
+    public ProviderAtTime<Color> bottomRightColorProvider;
+    public AbstractProviderDefinition<Color> topLeftColorProviderDef;
+    public AbstractProviderDefinition<Color> topRightColorProviderDef;
+    public AbstractProviderDefinition<Color> bottomLeftColorProviderDef;
+    public AbstractProviderDefinition<Color> bottomRightColorProviderDef;
 
-    public AbstractProviderDefinition<Integer> textureIdProvider;
+    public AbstractProviderDefinition<Integer> textureIdProviderDef;
+    public ProviderAtTime<Integer> textureIdProvider;
+
     public AbstractProviderDefinition<Float> textureTileWidthProvider;
     public AbstractProviderDefinition<Float> textureTileHeightProvider;
 
@@ -25,22 +33,31 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
     public String onMouseOverId;
     public String onMouseLeaveId;
 
-    private RectangleRenderableDefinition(AbstractProviderDefinition<FloatBox> areaProvider,
+    private RectangleRenderableDefinition(ProviderAtTime<FloatBox> dimensionsProvider,
+                                          AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
                                           int z) {
         super(z);
-        AREA_PROVIDER = areaProvider;
+        DIMENS_PROVIDER = dimensionsProvider;
+        DIMENS_PROVIDER_DEF = dimensionsProviderDef;
     }
 
     public static RectangleRenderableDefinition rectangle(
-            AbstractProviderDefinition<FloatBox> areaProvider,
+            ProviderAtTime<FloatBox> dimensionsProvider,
             int z
     ) {
-        return new RectangleRenderableDefinition(areaProvider, z);
+        return new RectangleRenderableDefinition(dimensionsProvider, null, z);
+    }
+
+    public static RectangleRenderableDefinition rectangle(
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z
+    ) {
+        return new RectangleRenderableDefinition(null, dimensionsProviderDef, z);
     }
 
     public RectangleRenderableDefinition withColor(Color color) {
-        topLeftColorProvider = topRightColorProvider =
-                bottomLeftColorProvider = bottomRightColorProvider = staticVal(color);
+        topLeftColorProviderDef = topRightColorProviderDef =
+                bottomLeftColorProviderDef = bottomRightColorProviderDef = staticVal(color);
 
         return this;
     }
@@ -49,6 +66,25 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
                                                     AbstractProviderDefinition<Color> topRight,
                                                     AbstractProviderDefinition<Color> bottomLeft,
                                                     AbstractProviderDefinition<Color> bottomRight) {
+        topLeftColorProviderDef = topLeft;
+        topRightColorProviderDef = topRight;
+        bottomLeftColorProviderDef = bottomLeft;
+        bottomRightColorProviderDef = bottomRight;
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition withColor(ProviderAtTime<Color> color) {
+        topLeftColorProvider = topRightColorProvider =
+                bottomLeftColorProvider = bottomRightColorProvider = color;
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition withColors(ProviderAtTime<Color> topLeft,
+                                                    ProviderAtTime<Color> topRight,
+                                                    ProviderAtTime<Color> bottomLeft,
+                                                    ProviderAtTime<Color> bottomRight) {
         topLeftColorProvider = topLeft;
         topRightColorProvider = topRight;
         bottomLeftColorProvider = bottomLeft;
@@ -58,7 +94,7 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
     }
 
     public RectangleRenderableDefinition withTexture(int textureId) {
-        textureIdProvider = staticVal(textureId);
+        textureIdProviderDef = staticVal(textureId);
         textureTileWidthProvider = textureTileHeightProvider = staticVal(1f);
 
         return this;
@@ -68,9 +104,31 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
             AbstractProviderDefinition<Integer> textureIdProvider,
             AbstractProviderDefinition<Float> tileWidthProvider,
             AbstractProviderDefinition<Float> tileHeightProvider) {
-        this.textureIdProvider = textureIdProvider;
+        this.textureIdProviderDef = textureIdProvider;
         textureTileWidthProvider = tileWidthProvider;
         textureTileHeightProvider = tileHeightProvider;
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProvider,
+            float tileWidthProvider,
+            float tileHeightProvider) {
+        return this.withTexture(
+                textureIdProvider,
+                staticVal(tileWidthProvider),
+                staticVal(tileHeightProvider)
+        );
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            ProviderAtTime<Integer> textureIdProvider,
+            float tileWidthProvider,
+            float tileHeightProvider) {
+        this.textureIdProvider = textureIdProvider;
+        textureTileWidthProvider = staticVal(tileWidthProvider);
+        textureTileHeightProvider = staticVal(tileHeightProvider);
 
         return this;
     }

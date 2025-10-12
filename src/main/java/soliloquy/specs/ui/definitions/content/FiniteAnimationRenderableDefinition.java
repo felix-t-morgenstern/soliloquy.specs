@@ -26,10 +26,10 @@ public class FiniteAnimationRenderableDefinition extends AbstractImageAssetRende
     }
 
     public FiniteAnimationRenderableDefinition withBorder(
-            AbstractProviderDefinition<Float> thicknessProvider,
-            AbstractProviderDefinition<Color> colorProvider) {
-        borderThicknessProvider = thicknessProvider;
-        borderColorProvider = colorProvider;
+            AbstractProviderDefinition<Float> thicknessProviderDef,
+            AbstractProviderDefinition<Color> colorProviderDef) {
+        borderThicknessProviderDef = thicknessProviderDef;
+        borderColorProviderDef = colorProviderDef;
 
         return this;
     }
@@ -60,7 +60,7 @@ public class FiniteAnimationRenderableDefinition extends AbstractImageAssetRende
 
     public FiniteAnimationRenderableDefinition withColorShifts(
             ShiftDefinition... shiftDefinitions) {
-        this.colorShifts = shiftDefinitions;
+        this.colorShiftDefs = shiftDefinitions;
 
         return this;
     }

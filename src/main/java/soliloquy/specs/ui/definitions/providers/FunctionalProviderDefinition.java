@@ -16,7 +16,8 @@ public class FunctionalProviderDefinition<T> extends AbstractProviderDefinition<
         PROVIDE_FUNCTION_ID = provideFunctionId;
     }
 
-    public static <T> FunctionalProviderDefinition<T> functionalProvider(String provideFunctionId) {
+    public static <T> FunctionalProviderDefinition<T> functionalProvider(String provideFunctionId,
+                                                                         Class<T> providedType) {
         return new FunctionalProviderDefinition<>(provideFunctionId);
     }
 

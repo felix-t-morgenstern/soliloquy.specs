@@ -8,19 +8,21 @@ import java.awt.*;
 import java.util.Map;
 
 public class AbstractImageAssetRenderableDefinition extends AbstractContentDefinition {
-    public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER;
+    public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER_DEF;
 
-    public AbstractProviderDefinition<Float> borderThicknessProvider;
-    public AbstractProviderDefinition<Color> borderColorProvider;
+    public AbstractProviderDefinition<Float> borderThicknessProviderDef;
+    public AbstractProviderDefinition<Color> borderColorProviderDef;
     public Map<Integer, String> onPressIds;
     public Map<Integer, String> onReleaseIds;
     public String onMouseOverId;
     public String onMouseLeaveId;
-    public ShiftDefinition[] colorShifts;
+    public ShiftDefinition[] colorShiftDefs;
 
-    protected AbstractImageAssetRenderableDefinition(AbstractProviderDefinition<FloatBox> dimensionsProvider,
-                                                     int z) {
+    protected AbstractImageAssetRenderableDefinition(
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z
+    ) {
         super(z);
-        DIMENSIONS_PROVIDER = dimensionsProvider;
+        DIMENSIONS_PROVIDER_DEF = dimensionsProviderDef;
     }
 }

@@ -2,6 +2,7 @@ package soliloquy.specs.ui;
 
 import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents;
+import soliloquy.specs.io.input.mouse.MouseEventHandler;
 
 import java.util.Objects;
 
@@ -11,31 +12,47 @@ import java.util.Objects;
  * nonsensical ordering of input parameters just to avoid bricking older Actions.)
  */
 public class EventInputs {
-    public Long timestamp;
-    public Component component;
+    public Long TIMESTAMP;
+
+    public Integer mouseButton;
+    public MouseEventHandler.EventType mouseEvent;
     public RenderableWithMouseEvents renderable;
 
-    private EventInputs(long timestamp, RenderableWithMouseEvents renderable) {
+    public char key;
+
+    public Component component;
+
+    private EventInputs(long timestamp) {
+        this.TIMESTAMP = timestamp;
     }
 
-    public static EventInputs inputs(long timestamp, RenderableWithMouseEvents renderable) {
-        return new EventInputs(timestamp, renderable);
+    public static EventInputs eventInputs(long timestamp) {
+        return new EventInputs(timestamp);
     }
 
-    public EventInputs timestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public EventInputs withTimestamp(long timestamp) {
+        this.TIMESTAMP = timestamp;
 
         return this;
     }
 
-    public EventInputs component(Component component) {
+    public EventInputs withMouseEvent(
+            Integer mouseButton,
+            MouseEventHandler.EventType mouseEvent,
+            RenderableWithMouseEvents renderable,
+            Component component
+    ) {
+        this.mouseButton = mouseButton;
+        this.mouseEvent = mouseEvent;
+        this.renderable = renderable;
         this.component = component;
 
         return this;
     }
 
-    public EventInputs renderable(RenderableWithMouseEvents renderable) {
-        this.renderable = renderable;
+    public EventInputs withKeyEvent(char key, Component component) {
+        this.key = key;
+        this.component = component;
 
         return this;
     }
@@ -43,9 +60,10 @@ public class EventInputs {
     @Override
     public boolean equals(Object o) {
         if (o instanceof EventInputs e) {
-            return Objects.equals(e.timestamp, timestamp) &&
-                    Objects.equals(e.component, component) &&
-                    Objects.equals(e.renderable, renderable);
+            return Objects.equals(e.TIMESTAMP, TIMESTAMP) &&
+                    Objects.equals(e.renderable, renderable) &&
+                    Objects.equals(e.mouseEvent, mouseEvent) &&
+                    Objects.equals(e.key, key);
         }
         else {
             return false;

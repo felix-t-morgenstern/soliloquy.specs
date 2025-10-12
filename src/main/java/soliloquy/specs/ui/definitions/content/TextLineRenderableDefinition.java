@@ -1,21 +1,24 @@
 package soliloquy.specs.ui.definitions.content;
 
-import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.io.graphics.renderables.TextJustification;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
+import java.util.Map;
 
 public class TextLineRenderableDefinition extends AbstractContentDefinition {
     public final String FONT_ID;
     public final AbstractProviderDefinition<String> TEXT_PROVIDER;
-    public final AbstractProviderDefinition<Vertex> LOCATION_PROVIDER;
+    public final ProviderAtTime<Vertex> LOCATION_PROVIDER;
+    public final AbstractProviderDefinition<Vertex> LOCATION_PROVIDER_DEF;
     public final AbstractProviderDefinition<Float> HEIGHT_PROVIDER;
     public final TextJustification JUSTIFICATION;
     public final float GLYPH_PADDING;
 
-    public Pair<Integer, AbstractProviderDefinition<Color>>[] colorProviderIndices;
+    public Map<Integer, AbstractProviderDefinition<Color>> colorProviderIndicesDefs;
+    public Map<Integer, ProviderAtTime<Color>> colorProviderIndices;
 
     public int[] italicIndices;
     public int[] boldIndices;
@@ -29,7 +32,7 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
 
     private TextLineRenderableDefinition(String fontId,
                                          AbstractProviderDefinition<String> textProvider,
-                                         AbstractProviderDefinition<Vertex> locationProvider,
+                                         ProviderAtTime<Vertex> locationProvider,
                                          AbstractProviderDefinition<Float> heightProvider,
                                          TextJustification justification,
                                          float glyphPadding,
@@ -38,6 +41,24 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
         FONT_ID = fontId;
         TEXT_PROVIDER = textProvider;
         LOCATION_PROVIDER = locationProvider;
+        LOCATION_PROVIDER_DEF = null;
+        HEIGHT_PROVIDER = heightProvider;
+        JUSTIFICATION = justification;
+        GLYPH_PADDING = glyphPadding;
+    }
+
+    private TextLineRenderableDefinition(String fontId,
+                                         AbstractProviderDefinition<String> textProvider,
+                                         AbstractProviderDefinition<Vertex> locationProviderDef,
+                                         AbstractProviderDefinition<Float> heightProvider,
+                                         TextJustification justification,
+                                         float glyphPadding,
+                                         int z) {
+        super(z);
+        FONT_ID = fontId;
+        TEXT_PROVIDER = textProvider;
+        LOCATION_PROVIDER = null;
+        LOCATION_PROVIDER_DEF = locationProviderDef;
         HEIGHT_PROVIDER = heightProvider;
         JUSTIFICATION = justification;
         GLYPH_PADDING = glyphPadding;
@@ -45,7 +66,18 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
 
     public static TextLineRenderableDefinition textLine(String fontId,
                                                         AbstractProviderDefinition<String> textProvider,
-                                                        AbstractProviderDefinition<Vertex> locationProvider,
+                                                        AbstractProviderDefinition<Vertex> locationProviderDef,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        TextJustification justification,
+                                                        float glyphPadding,
+                                                        int z) {
+        return new TextLineRenderableDefinition(fontId, textProvider, locationProviderDef,
+                heightProvider, justification, glyphPadding, z);
+    }
+
+    public static TextLineRenderableDefinition textLine(String fontId,
+                                                        AbstractProviderDefinition<String> textProvider,
+                                                        ProviderAtTime<Vertex> locationProvider,
                                                         AbstractProviderDefinition<Float> heightProvider,
                                                         TextJustification justification,
                                                         float glyphPadding,
@@ -54,9 +86,15 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                 heightProvider, justification, glyphPadding, z);
     }
 
-    @SuppressWarnings("unchecked")
-    public TextLineRenderableDefinition withColors(
-            Pair<Integer, AbstractProviderDefinition<Color>>... colorProviderIndices) {
+    public TextLineRenderableDefinition withColorDefs(
+            Map<Integer, AbstractProviderDefinition<Color>> colorProviderIndicesDefs) {
+        this.colorProviderIndicesDefs = colorProviderIndicesDefs;
+
+        return this;
+    }
+
+    public TextLineRenderableDefinition withColorProviders(
+            Map<Integer, ProviderAtTime<Color>> colorProviderIndices) {
         this.colorProviderIndices = colorProviderIndices;
 
         return this;
