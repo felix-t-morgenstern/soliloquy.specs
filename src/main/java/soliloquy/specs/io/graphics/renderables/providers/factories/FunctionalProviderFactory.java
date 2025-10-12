@@ -20,7 +20,7 @@ public interface FunctionalProviderFactory {
      * @param provideFunctionId The Id of the {@link soliloquy.specs.common.entities.Function} which
      *                          provides the value in question
      * @param pauseActionId     The Id of an {@link soliloquy.specs.common.entities.Action} which
-     *                          accepts a {@link FunctionalProvider.EventInfo} when
+     *                          accepts a {@link FunctionalProvider.Inputs} when
      *                          {@link soliloquy.specs.common.shared.PausableAtTime#reportPause} is
      *                          called
      * @param unpauseActionId   Same as above, but for when
@@ -29,7 +29,7 @@ public interface FunctionalProviderFactory {
      * @param pauseTimestamp    The timestamp at which this Provider has been paused, may be null
      * @param data              The data for this provider, fed into the provide, pause, and action
      *                          Function and Actions as part of a
-     *                          {@link FunctionalProvider.EventInfo}
+     *                          {@link FunctionalProvider.Inputs}
      * @param <T>               The type provided
      * @return The newly-created FunctionalProvider
      * @throws IllegalArgumentException If and only if provideFunctionId or data are null; or if
