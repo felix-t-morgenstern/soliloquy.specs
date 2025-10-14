@@ -55,6 +55,13 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
         return new RectangleRenderableDefinition(null, dimensionsProviderDef, z);
     }
 
+    public static RectangleRenderableDefinition rectangle(
+            FloatBox dimensions,
+            int z
+    ) {
+        return rectangle(staticVal(dimensions), z);
+    }
+
     public RectangleRenderableDefinition withColor(Color color) {
         topLeftColorProviderDef = topRightColorProviderDef =
                 bottomLeftColorProviderDef = bottomRightColorProviderDef = staticVal(color);
