@@ -4,7 +4,7 @@ import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.gamestate.entities.shared.HasData;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
-import soliloquy.specs.io.input.keyboard.KeyEventListener;
+import soliloquy.specs.io.input.keyboard.KeyEventHandler;
 import soliloquy.specs.io.input.keyboard.KeyBinding;
 
 import java.util.Set;
@@ -14,7 +14,7 @@ import java.util.Set;
  * <p>
  * A Component is the base unit of the UI. A Component is Renderable, which is composed of one or
  * more Renderables, and which can contain limited, local state and logic. It provides
- * {@link KeyBinding}s to {@link KeyEventListener},
+ * {@link KeyBinding}s to {@link KeyEventHandler},
  * and can provide rendering boundaries to
  * {@link soliloquy.specs.io.graphics.rendering.renderers.ComponentRenderer#render}.
  *
@@ -29,7 +29,7 @@ public interface Component extends Renderable, HasData {
 
     /**
      * True, if and only if all lower contexts' bindings are blocked (c.f.
-     * {@link KeyEventListener#addComponent})
+     * {@link KeyEventHandler#addComponent})
      */
     boolean blocksLowerKeyBindings();
 

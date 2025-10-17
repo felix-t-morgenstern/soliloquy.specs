@@ -18,7 +18,7 @@ public class EventInputs {
     public MouseEventHandler.EventType mouseEvent;
     public RenderableWithMouseEvents renderable;
 
-    public char key;
+    public Integer keyCodepoint;
 
     public Component component;
 
@@ -50,8 +50,8 @@ public class EventInputs {
         return this;
     }
 
-    public EventInputs withKeyEvent(char key, Component component) {
-        this.key = key;
+    public EventInputs withKeyEvent(int keyCodepoint, Component component) {
+        this.keyCodepoint = keyCodepoint;
         this.component = component;
 
         return this;
@@ -63,7 +63,7 @@ public class EventInputs {
             return Objects.equals(e.TIMESTAMP, TIMESTAMP) &&
                     Objects.equals(e.renderable, renderable) &&
                     Objects.equals(e.mouseEvent, mouseEvent) &&
-                    Objects.equals(e.key, key);
+                    Objects.equals(e.keyCodepoint, keyCodepoint);
         }
         else {
             return false;

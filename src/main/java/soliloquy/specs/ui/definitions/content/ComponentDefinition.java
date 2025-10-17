@@ -19,6 +19,7 @@ public class ComponentDefinition extends AbstractContentDefinition {
 
     public KeyBindingDefinition[] bindings;
     public Boolean blocksLowerBindings;
+    public Integer keyBindingPriority;
     public Map<String, Object> data;
 
     private ComponentDefinition(
@@ -89,9 +90,11 @@ public class ComponentDefinition extends AbstractContentDefinition {
     }
 
     public ComponentDefinition withBindings(boolean blocksLowerBindings,
+                                            int keyBindingPriority,
                                             KeyBindingDefinition... bindings) {
         this.bindings = bindings;
         this.blocksLowerBindings = blocksLowerBindings;
+        this.keyBindingPriority = keyBindingPriority;
 
         return this;
     }

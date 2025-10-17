@@ -5,7 +5,7 @@ import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
 import soliloquy.specs.io.input.keyboard.KeyBinding;
-import soliloquy.specs.io.input.keyboard.KeyEventListener;
+import soliloquy.specs.io.input.keyboard.KeyEventHandler;
 
 import java.util.Map;
 import java.util.Set;
@@ -28,7 +28,7 @@ public interface ComponentFactory {
      *                                    actions
      * @param blocksLowerKeyBindings      True, if and only if this Component's keyBindings block
      *                                    the keyBindings of Components with lower priority (c.f.
-     *                                    {@link KeyEventListener#addComponent}
+     *                                    {@link KeyEventHandler#addComponent}
      * @param renderingBoundariesProvider Provides the rendering boundaries for this Component, to
      *                                    be fed into
      *                                    {@link RenderingBoundaries#currentBoundaries()}
@@ -45,6 +45,7 @@ public interface ComponentFactory {
             int z,
             Set<KeyBinding> keyBindings,
             boolean blocksLowerKeyBindings,
+            int keyBindingPriority,
             ProviderAtTime<FloatBox> renderingBoundariesProvider,
             Component containingComponent,
             Map<String, Object> data

@@ -12,25 +12,31 @@ import soliloquy.specs.ui.EventInputs;
  * @version 0.0.1
  */
 public class KeyBinding {
-    public final char[] BOUND_KEYS;
+    public final int[] BOUND_CODEPOINTS;
     public final Action<EventInputs> ON_PRESS;
     public final Action<EventInputs> ON_RELEASE;
 
     private KeyBinding(
-            char[] boundKeys,
+            int[] boundCodepoints,
             Action<EventInputs> onPress,
             Action<EventInputs> onRelease
     ) {
-        BOUND_KEYS = boundKeys;
+        BOUND_CODEPOINTS = boundCodepoints;
         ON_PRESS = onPress;
         ON_RELEASE = onRelease;
     }
 
+    /**
+     * @param boundCodepoints The key codepoints bound
+     * @param onPress         The action fired when the key is pressed down
+     * @param onRelease       The action fired when the key is raised back up, after being pressed
+     *                        down
+     */
     public static KeyBinding keyBinding(
-            char[] boundKeys,
+            int[] boundCodepoints,
             Action<EventInputs> onPress,
             Action<EventInputs> onRelease
     ) {
-        return new KeyBinding(boundKeys, onPress, onRelease);
+        return new KeyBinding(boundCodepoints, onPress, onRelease);
     }
 }
