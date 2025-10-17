@@ -1,6 +1,7 @@
 package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
+import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.ui.definitions.colorshifting.ShiftDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
@@ -61,6 +62,12 @@ public class FiniteAnimationRenderableDefinition extends AbstractImageAssetRende
     public FiniteAnimationRenderableDefinition withColorShifts(
             ShiftDefinition... shiftDefinitions) {
         this.colorShiftDefs = shiftDefinitions;
+
+        return this;
+    }
+
+    public FiniteAnimationRenderableDefinition withColorShifts(ColorShift... shifts) {
+        this.colorShifts = shifts;
 
         return this;
     }

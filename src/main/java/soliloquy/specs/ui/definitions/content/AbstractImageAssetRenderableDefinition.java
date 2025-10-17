@@ -1,6 +1,7 @@
 package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
+import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.ui.definitions.colorshifting.ShiftDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
@@ -17,6 +18,7 @@ public class AbstractImageAssetRenderableDefinition extends AbstractContentDefin
     public String onMouseOverId;
     public String onMouseLeaveId;
     public ShiftDefinition[] colorShiftDefs;
+    public ColorShift[] colorShifts;
 
     protected AbstractImageAssetRenderableDefinition(
             AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
