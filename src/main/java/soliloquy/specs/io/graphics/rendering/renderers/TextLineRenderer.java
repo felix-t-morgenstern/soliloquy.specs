@@ -1,6 +1,8 @@
 package soliloquy.specs.io.graphics.rendering.renderers;
 
+import soliloquy.specs.common.valueobjects.Pair;
 import soliloquy.specs.io.graphics.assets.Font;
+import soliloquy.specs.io.graphics.assets.FontStyleInfo;
 import soliloquy.specs.io.graphics.renderables.TextLineRenderable;
 
 import java.util.List;
@@ -47,4 +49,16 @@ public interface TextLineRenderer extends Renderer<TextLineRenderable> {
                          List<Integer> italicIndices,
                          List<Integer> boldIndices,
                          float lineHeight) throws IllegalArgumentException;
+
+    /**
+     * @param aChar                The character whose glyph width to calculate
+     * @param fontStyleInfo        The style info for a given Font (e.g., the bold-italic version of
+     *                             a font, obtained from {@link Font#boldItalic()})
+     * @return The length of the glyph, expressed in percentage of screen width
+     * @throws IllegalArgumentException If and only if text is null, fontStyleInfo is null, or
+     *                                  lineHeight is less than or equal to 0
+     */
+    float getGlyphWidth(char aChar,
+                        FontStyleInfo fontStyleInfo,
+                        float lineHeight) throws IllegalArgumentException;
 }
