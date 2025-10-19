@@ -6,7 +6,10 @@ import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
+import java.util.List;
 import java.util.Map;
+
+import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class TextLineRenderableDefinition extends AbstractContentDefinition {
     public final String FONT_ID;
@@ -20,8 +23,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
     public Map<Integer, AbstractProviderDefinition<Color>> colorProviderIndicesDefs;
     public Map<Integer, ProviderAtTime<Color>> colorProviderIndices;
 
-    public int[] italicIndices;
-    public int[] boldIndices;
+    public List<Integer> italicIndices;
+    public List<Integer> boldIndices;
 
     public AbstractProviderDefinition<Float> borderThicknessProvider;
     public AbstractProviderDefinition<Color> borderColorProvider;
@@ -86,6 +89,24 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                 heightProvider, justification, glyphPadding, z);
     }
 
+    public static TextLineRenderableDefinition textLine(String fontId,
+                                                        String text,
+                                                        Vertex location,
+                                                        float height,
+                                                        TextJustification justification,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(
+                fontId,
+                staticVal(text),
+                staticVal(location),
+                staticVal(height),
+                justification,
+                glyphPadding,
+                z
+        );
+    }
+
     public TextLineRenderableDefinition withColorDefs(
             Map<Integer, AbstractProviderDefinition<Color>> colorProviderIndicesDefs) {
         this.colorProviderIndicesDefs = colorProviderIndicesDefs;
@@ -100,13 +121,13 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
         return this;
     }
 
-    public TextLineRenderableDefinition withItalics(int... italicIndices) {
+    public TextLineRenderableDefinition withItalics(List<Integer> italicIndices) {
         this.italicIndices = italicIndices;
 
         return this;
     }
 
-    public TextLineRenderableDefinition withBold(int... boldIndices) {
+    public TextLineRenderableDefinition withBold(List<Integer> boldIndices) {
         this.boldIndices = boldIndices;
 
         return this;
@@ -119,6 +140,10 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
         borderColorProvider = colorProvider;
 
         return this;
+    }
+
+    public TextLineRenderableDefinition withBorder(float thickness, Color color) {
+        return withBorder(staticVal(thickness), staticVal(color));
     }
 
     public TextLineRenderableDefinition withDropShadow(
