@@ -6,7 +6,9 @@ import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
 import java.util.Map;
+import java.util.UUID;
 
+import static java.util.UUID.randomUUID;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class RectangleRenderableDefinition extends AbstractContentDefinition {
@@ -37,24 +39,41 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
 
     private RectangleRenderableDefinition(ProviderAtTime<FloatBox> dimensionsProvider,
                                           AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
-                                          int z) {
-        super(z);
+                                          int z,
+                                          UUID uuid) {
+        super(z, uuid);
         DIMENS_PROVIDER = dimensionsProvider;
         DIMENS_PROVIDER_DEF = dimensionsProviderDef;
     }
 
     public static RectangleRenderableDefinition rectangle(
             ProviderAtTime<FloatBox> dimensionsProvider,
+            int z,
+            UUID uuid
+    ) {
+        return new RectangleRenderableDefinition(dimensionsProvider, null, z, uuid);
+    }
+
+    public static RectangleRenderableDefinition rectangle(
+            ProviderAtTime<FloatBox> dimensionsProvider,
             int z
     ) {
-        return new RectangleRenderableDefinition(dimensionsProvider, null, z);
+        return rectangle(dimensionsProvider, z, randomUUID());
+    }
+
+    public static RectangleRenderableDefinition rectangle(
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z,
+            UUID uuid
+    ) {
+        return new RectangleRenderableDefinition(null, dimensionsProviderDef, z, uuid);
     }
 
     public static RectangleRenderableDefinition rectangle(
             AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
             int z
     ) {
-        return new RectangleRenderableDefinition(null, dimensionsProviderDef, z);
+        return rectangle(dimensionsProviderDef, z, randomUUID());
     }
 
     public static RectangleRenderableDefinition rectangle(

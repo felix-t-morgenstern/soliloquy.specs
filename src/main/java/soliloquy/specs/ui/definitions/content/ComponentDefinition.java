@@ -5,11 +5,9 @@ import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.keyboard.KeyBindingDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
+import static java.util.UUID.randomUUID;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class ComponentDefinition extends AbstractContentDefinition {
@@ -26,9 +24,10 @@ public class ComponentDefinition extends AbstractContentDefinition {
             int z,
             AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
             ProviderAtTime<FloatBox> dimensionsProvider,
-            Set<AbstractContentDefinition> content
+            Set<AbstractContentDefinition> content,
+            UUID uuid
     ) {
-        super(z);
+        super(z, uuid);
         DIMENSIONS_PROVIDER_DEF = dimensionsProviderDef;
         DIMENSIONS_PROVIDER = dimensionsProvider;
         CONTENT = content;
@@ -40,23 +39,56 @@ public class ComponentDefinition extends AbstractContentDefinition {
 
     public static ComponentDefinition component(
             int z,
+            Set<AbstractContentDefinition> content,
+            UUID uuid
+    ) {
+        return new ComponentDefinition(z, null, null, content, uuid);
+    }
+
+    public static ComponentDefinition component(
+            int z,
             Set<AbstractContentDefinition> content
     ) {
-        return new ComponentDefinition(z, null, null, content);
+        return component(z, content, randomUUID());
+    }
+
+    public static ComponentDefinition component(
+            int z,
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            UUID uuid
+    ) {
+        return new ComponentDefinition(z, dimensionsProviderDef, null, new HashSet<>(), uuid);
     }
 
     public static ComponentDefinition component(
             int z,
             AbstractProviderDefinition<FloatBox> dimensionsProviderDef
     ) {
-        return new ComponentDefinition(z, dimensionsProviderDef, null, new HashSet<>());
+        return component(z, dimensionsProviderDef, randomUUID());
+    }
+
+    public static ComponentDefinition component(
+            int z,
+            ProviderAtTime<FloatBox> dimensionsProvider,
+            UUID uuid
+    ) {
+        return new ComponentDefinition(z, null, dimensionsProvider, new HashSet<>(), uuid);
     }
 
     public static ComponentDefinition component(
             int z,
             ProviderAtTime<FloatBox> dimensionsProvider
     ) {
-        return new ComponentDefinition(z, null, dimensionsProvider, new HashSet<>());
+        return component(z, dimensionsProvider, randomUUID());
+    }
+
+    public static ComponentDefinition component(
+            int z,
+            AbstractProviderDefinition<FloatBox> dimensProviderDef,
+            Set<AbstractContentDefinition> content,
+            UUID uuid
+    ) {
+        return new ComponentDefinition(z, dimensProviderDef, null, content, uuid);
     }
 
     public static ComponentDefinition component(
@@ -64,7 +96,16 @@ public class ComponentDefinition extends AbstractContentDefinition {
             AbstractProviderDefinition<FloatBox> dimensProviderDef,
             Set<AbstractContentDefinition> content
     ) {
-        return new ComponentDefinition(z, dimensProviderDef, null, content);
+        return component(z, dimensProviderDef, content, randomUUID());
+    }
+
+    public static ComponentDefinition component(
+            int z,
+            FloatBox dimens,
+            Set<AbstractContentDefinition> content,
+            UUID uuid
+    ) {
+        return new ComponentDefinition(z, staticVal(dimens), null, content, uuid);
     }
 
     public static ComponentDefinition component(
@@ -72,7 +113,16 @@ public class ComponentDefinition extends AbstractContentDefinition {
             FloatBox dimens,
             Set<AbstractContentDefinition> content
     ) {
-        return new ComponentDefinition(z, staticVal(dimens), null, content);
+        return component(z, dimens, content, randomUUID());
+    }
+
+    public static ComponentDefinition component(
+            int z,
+            ProviderAtTime<FloatBox> dimensProvider,
+            Set<AbstractContentDefinition> content,
+            UUID uuid
+    ) {
+        return new ComponentDefinition(z, null, dimensProvider, content, uuid);
     }
 
     public static ComponentDefinition component(
@@ -80,11 +130,17 @@ public class ComponentDefinition extends AbstractContentDefinition {
             ProviderAtTime<FloatBox> dimensProvider,
             Set<AbstractContentDefinition> content
     ) {
-        return new ComponentDefinition(z, null, dimensProvider, content);
+        return component(z, dimensProvider, content, randomUUID());
     }
 
     public ComponentDefinition withContent(AbstractContentDefinition... content) {
         CONTENT.addAll(Arrays.stream(content).toList());
+
+        return this;
+    }
+
+    public ComponentDefinition withContent(Collection<AbstractContentDefinition> content) {
+        CONTENT.addAll(content);
 
         return this;
     }

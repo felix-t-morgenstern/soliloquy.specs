@@ -1,5 +1,7 @@
 package soliloquy.specs.common.valueobjects;
 
+import static soliloquy.specs.common.valueobjects.Vertex.vertexOf;
+
 /**
  * <b>FloatBox</b>
  * <p>
@@ -40,6 +42,22 @@ public class FloatBox {
 
     public float height() {
         return BOTTOM_Y - TOP_Y;
+    }
+
+    public Vertex upperLeft() {
+        return vertexOf(LEFT_X, TOP_Y);
+    }
+
+    public Vertex upperRight() {
+        return vertexOf(RIGHT_X, TOP_Y);
+    }
+
+    public Vertex lowerLeft() {
+        return vertexOf(LEFT_X, BOTTOM_Y);
+    }
+
+    public Vertex lowerRight() {
+        return vertexOf(RIGHT_X, BOTTOM_Y);
     }
 
     @Override

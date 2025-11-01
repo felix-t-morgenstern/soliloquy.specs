@@ -4,6 +4,9 @@ import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
+import java.util.UUID;
+
+import static java.util.UUID.randomUUID;
 
 public class AbstractLineSegmentRenderableDefinition extends AbstractContentDefinition {
     public final AbstractProviderDefinition<Vertex> VERTEX_1_PROVIDER;
@@ -16,8 +19,22 @@ public class AbstractLineSegmentRenderableDefinition extends AbstractContentDefi
             AbstractProviderDefinition<Vertex> vertex2Provider,
             AbstractProviderDefinition<Float> thicknessProvider,
             AbstractProviderDefinition<Color> colorProvider,
+            int z,
+            UUID uuid) {
+        super(z, uuid);
+        VERTEX_1_PROVIDER = vertex1Provider;
+        VERTEX_2_PROVIDER = vertex2Provider;
+        THICKNESS_PROVIDER = thicknessProvider;
+        COLOR_PROVIDER = colorProvider;
+    }
+
+    protected AbstractLineSegmentRenderableDefinition(
+            AbstractProviderDefinition<Vertex> vertex1Provider,
+            AbstractProviderDefinition<Vertex> vertex2Provider,
+            AbstractProviderDefinition<Float> thicknessProvider,
+            AbstractProviderDefinition<Color> colorProvider,
             int z) {
-        super(z);
+        super(z, randomUUID());
         VERTEX_1_PROVIDER = vertex1Provider;
         VERTEX_2_PROVIDER = vertex2Provider;
         THICKNESS_PROVIDER = thicknessProvider;

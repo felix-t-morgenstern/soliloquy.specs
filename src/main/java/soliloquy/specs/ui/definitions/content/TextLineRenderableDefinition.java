@@ -8,7 +8,9 @@ import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 import java.awt.*;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
+import static java.util.UUID.randomUUID;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class TextLineRenderableDefinition extends AbstractContentDefinition {
@@ -39,8 +41,9 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                          AbstractProviderDefinition<Float> heightProvider,
                                          TextJustification justification,
                                          float glyphPadding,
-                                         int z) {
-        super(z);
+                                         int z,
+                                         UUID uuid) {
+        super(z, uuid);
         FONT_ID = fontId;
         TEXT_PROVIDER = textProvider;
         LOCATION_PROVIDER = locationProvider;
@@ -56,8 +59,9 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                          AbstractProviderDefinition<Float> heightProvider,
                                          TextJustification justification,
                                          float glyphPadding,
-                                         int z) {
-        super(z);
+                                         int z,
+                                         UUID uuid) {
+        super(z, uuid);
         FONT_ID = fontId;
         TEXT_PROVIDER = textProvider;
         LOCATION_PROVIDER = null;
@@ -73,9 +77,33 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         AbstractProviderDefinition<Float> heightProvider,
                                                         TextJustification justification,
                                                         float glyphPadding,
-                                                        int z) {
+                                                        int z,
+                                                        UUID uuid) {
         return new TextLineRenderableDefinition(fontId, textProvider, locationProviderDef,
-                heightProvider, justification, glyphPadding, z);
+                heightProvider, justification, glyphPadding, z, uuid);
+    }
+
+    public static TextLineRenderableDefinition textLine(String fontId,
+                                                        AbstractProviderDefinition<String> textProvider,
+                                                        AbstractProviderDefinition<Vertex> locationProviderDef,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        TextJustification justification,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(fontId, textProvider, locationProviderDef, heightProvider, justification,
+                glyphPadding, z, randomUUID());
+    }
+
+    public static TextLineRenderableDefinition textLine(String fontId,
+                                                        AbstractProviderDefinition<String> textProvider,
+                                                        ProviderAtTime<Vertex> locationProvider,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        TextJustification justification,
+                                                        float glyphPadding,
+                                                        int z,
+                                                        UUID uuid) {
+        return new TextLineRenderableDefinition(fontId, textProvider, locationProvider,
+                heightProvider, justification, glyphPadding, z, uuid);
     }
 
     public static TextLineRenderableDefinition textLine(String fontId,
@@ -85,8 +113,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         TextJustification justification,
                                                         float glyphPadding,
                                                         int z) {
-        return new TextLineRenderableDefinition(fontId, textProvider, locationProvider,
-                heightProvider, justification, glyphPadding, z);
+        return textLine(fontId, textProvider, locationProvider, heightProvider, justification,
+                glyphPadding, z, randomUUID());
     }
 
     public static TextLineRenderableDefinition textLine(String fontId,

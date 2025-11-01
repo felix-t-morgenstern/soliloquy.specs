@@ -7,6 +7,9 @@ import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
 import java.awt.*;
 import java.util.Map;
+import java.util.UUID;
+
+import static java.util.UUID.randomUUID;
 
 public class AbstractImageAssetRenderableDefinition extends AbstractContentDefinition {
     public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER_DEF;
@@ -22,9 +25,18 @@ public class AbstractImageAssetRenderableDefinition extends AbstractContentDefin
 
     protected AbstractImageAssetRenderableDefinition(
             AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z,
+            UUID uuid
+    ) {
+        super(z, uuid);
+        DIMENSIONS_PROVIDER_DEF = dimensionsProviderDef;
+    }
+
+    protected AbstractImageAssetRenderableDefinition(
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
             int z
     ) {
-        super(z);
+        super(z, randomUUID());
         DIMENSIONS_PROVIDER_DEF = dimensionsProviderDef;
     }
 }

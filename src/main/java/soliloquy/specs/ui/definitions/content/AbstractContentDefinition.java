@@ -1,25 +1,21 @@
 package soliloquy.specs.ui.definitions.content;
 
+import java.util.UUID;
+
 /**
  * <b>ContentDefinition</b>
  * <p>
- * This interface exists solely to enforce strict typing on members of
- * {@link ComponentDefinition#CONTENT}.
- * <p>
- * (I could have, of course, made individual fluent interface implementations inherit shared methods
- * and properties, with generic parameters, allowing child methods to return child types, but that
- * felt like an excess of files to avoid duplicating a small handful of easily-legible lines of
- * code. If any observers are concluding that this is proof positive of the shortcomings of
- * object-oriented brainrot, they are of course correct, and are welcome to rewrite this engine in
- * LISP.)
+ * This interface defines members of {@link ComponentDefinition#CONTENT}
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
 public abstract class AbstractContentDefinition {
     public final int Z;
+    public final UUID UUID;
 
-    protected AbstractContentDefinition(int z) {
+    protected AbstractContentDefinition(int z, UUID uuid) {
         Z = z;
+        UUID = uuid;
     }
 }
