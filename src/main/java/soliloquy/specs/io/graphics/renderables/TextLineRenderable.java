@@ -49,7 +49,7 @@ public interface TextLineRenderable extends RenderableWithBorders {
      * line will start its rendering.<p>
      * <b>The y coordinate indicates the position of the top of the line.</b><p>
      * <b>The x coordinate indicates the horizontal position, depending on
-     * {@link #getJustification()}:</b><p>
+     * {@link #getAlignment()}:</b><p>
      * For left or right aligned text lines, this location will be  the left-most or right-most
      * location of text on this line, respectively.<p>
      * For horizontally centered text, this location will specify the center of the text line.</i>
@@ -96,16 +96,15 @@ public interface TextLineRenderable extends RenderableWithBorders {
     void setPaddingBetweenGlyphs(float paddingBetweenGlyphs);
 
     /**
-     * @return The justification of the text line to be rendered (e.g. left, center, or right
-     *         horizontal alignment)
+     * @return The horizontal alignment of the text line to be rendered
      */
-    TextJustification getJustification();
+    HorizontalAlignment getAlignment();
 
     /**
-     * @param justification The horizontal justification (i.e. alignment) of this line of text
-     * @throws IllegalArgumentException If and only if justification is null or UNKNOWN
+     * @param alignment The horizontal alignment (i.e. alignment) of this line of text
+     * @throws IllegalArgumentException If and only if alignment is null or UNKNOWN
      */
-    void setJustification(TextJustification justification) throws IllegalArgumentException;
+    void setAlignment(HorizontalAlignment alignment) throws IllegalArgumentException;
 
     /**
      * When the Color value provided is null, this corresponds to the default font color

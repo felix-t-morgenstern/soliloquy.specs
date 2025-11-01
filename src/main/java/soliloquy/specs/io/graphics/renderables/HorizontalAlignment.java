@@ -1,6 +1,6 @@
 package soliloquy.specs.io.graphics.renderables;
 
-public enum TextJustification {
+public enum HorizontalAlignment {
     UNKNOWN(0),
     LEFT(1),
     CENTER(2),
@@ -8,7 +8,7 @@ public enum TextJustification {
 
     private final int VALUE;
 
-    TextJustification(int value) {
+    HorizontalAlignment(int value) {
         VALUE = value;
     }
 
@@ -16,7 +16,7 @@ public enum TextJustification {
         return VALUE;
     }
 
-    public static TextJustification fromValue(Integer value) {
+    public static HorizontalAlignment fromValue(Integer value) {
         if (value == null) {
             return null;
         }
@@ -25,7 +25,7 @@ public enum TextJustification {
             case 1 -> LEFT;
             case 2 -> CENTER;
             case 3 -> RIGHT;
-            default -> throw new IllegalArgumentException("TextJustification: value (" + value +
+            default -> throw new IllegalArgumentException("HorizontalAlignment: value (" + value +
                     ") does not correspond to valid enum type");
         };
     }

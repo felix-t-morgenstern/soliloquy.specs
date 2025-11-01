@@ -3,7 +3,7 @@ package soliloquy.specs.io.graphics.renderables.factories;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.io.graphics.assets.Font;
 import soliloquy.specs.io.graphics.renderables.Renderable;
-import soliloquy.specs.io.graphics.renderables.TextJustification;
+import soliloquy.specs.io.graphics.renderables.HorizontalAlignment;
 import soliloquy.specs.io.graphics.renderables.TextLineRenderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.renderables.Component;
@@ -27,7 +27,7 @@ public interface TextLineRenderableFactory {
      * @param lineTextProvider         The text of this line
      * @param lineHeightProvider       The {@link ProviderAtTime} for the height of the line, where
      *                                 the entirety of the window has a height of 1.0.
-     * @param justification            The justification of the text line to be rendered (e.g.
+     * @param alignment            The alignment of the text line to be rendered (e.g.
      *                                 left, center, or right horizontal alignment)
      * @param paddingBetweenGlyphs     The amount of padding between glyphs, c.f.
      *                                 {@link TextLineRenderable#getPaddingBetweenGlyphs}
@@ -58,7 +58,7 @@ public interface TextLineRenderableFactory {
      * @param component          The Component to contain the Renderable
      * @return The newly-created TextLineRenderable
      * @throws IllegalArgumentException If and only if font is null; lineTextProvider is null;
-     *                                  lineHeight is 0 or less; justification is null or UNKNOWN;
+     *                                  lineHeight is 0 or less; alignment is null or UNKNOWN;
      *                                  colorProviderIndices is null; italicIndices is null;
      *                                  boldIndices is null; borderThicknessProvider is null, and
      *                                  borderColorProvider is non-null; locationProvider is null;
@@ -70,7 +70,7 @@ public interface TextLineRenderableFactory {
                             ProviderAtTime<String> lineTextProvider,
                             ProviderAtTime<Vertex> locationProvider,
                             ProviderAtTime<Float> lineHeightProvider,
-                            TextJustification justification,
+                            HorizontalAlignment alignment,
                             float paddingBetweenGlyphs,
                             Map<Integer, ProviderAtTime<Color>> colorProviderIndices,
                             List<Integer> italicIndices,
