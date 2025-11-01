@@ -1,6 +1,7 @@
 package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.Vertex;
+import soliloquy.specs.io.graphics.assets.Font;
 import soliloquy.specs.io.graphics.renderables.HorizontalAlignment;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
@@ -14,6 +15,7 @@ import static java.util.UUID.randomUUID;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class TextLineRenderableDefinition extends AbstractContentDefinition {
+    public final Font FONT;
     public final String FONT_ID;
     public final AbstractProviderDefinition<String> TEXT_PROVIDER;
     public final ProviderAtTime<Vertex> LOCATION_PROVIDER;
@@ -35,7 +37,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
     public AbstractProviderDefinition<Vertex> dropShadowOffsetProvider;
     public AbstractProviderDefinition<Color> dropShadowColorProvider;
 
-    private TextLineRenderableDefinition(String fontId,
+    private TextLineRenderableDefinition(Font font,
+                                         String fontId,
                                          AbstractProviderDefinition<String> textProvider,
                                          ProviderAtTime<Vertex> locationProvider,
                                          AbstractProviderDefinition<Float> heightProvider,
@@ -44,6 +47,7 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                          int z,
                                          UUID uuid) {
         super(z, uuid);
+        FONT = font;
         FONT_ID = fontId;
         TEXT_PROVIDER = textProvider;
         LOCATION_PROVIDER = locationProvider;
@@ -53,7 +57,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
         GLYPH_PADDING = glyphPadding;
     }
 
-    private TextLineRenderableDefinition(String fontId,
+    private TextLineRenderableDefinition(Font font,
+                                         String fontId,
                                          AbstractProviderDefinition<String> textProvider,
                                          AbstractProviderDefinition<Vertex> locationProviderDef,
                                          AbstractProviderDefinition<Float> heightProvider,
@@ -62,6 +67,7 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                          int z,
                                          UUID uuid) {
         super(z, uuid);
+        FONT = font;
         FONT_ID = fontId;
         TEXT_PROVIDER = textProvider;
         LOCATION_PROVIDER = null;
@@ -79,7 +85,19 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         float glyphPadding,
                                                         int z,
                                                         UUID uuid) {
-        return new TextLineRenderableDefinition(fontId, textProvider, locationProviderDef,
+        return new TextLineRenderableDefinition(null, fontId, textProvider, locationProviderDef,
+                heightProvider, alignment, glyphPadding, z, uuid);
+    }
+
+    public static TextLineRenderableDefinition textLine(Font font,
+                                                        AbstractProviderDefinition<String> textProvider,
+                                                        AbstractProviderDefinition<Vertex> locationProviderDef,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z,
+                                                        UUID uuid) {
+        return new TextLineRenderableDefinition(font, null, textProvider, locationProviderDef,
                 heightProvider, alignment, glyphPadding, z, uuid);
     }
 
@@ -94,6 +112,17 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                 glyphPadding, z, randomUUID());
     }
 
+    public static TextLineRenderableDefinition textLine(Font font,
+                                                        AbstractProviderDefinition<String> textProvider,
+                                                        AbstractProviderDefinition<Vertex> locationProviderDef,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(font, textProvider, locationProviderDef, heightProvider, alignment,
+                glyphPadding, z, randomUUID());
+    }
+
     public static TextLineRenderableDefinition textLine(String fontId,
                                                         AbstractProviderDefinition<String> textProvider,
                                                         ProviderAtTime<Vertex> locationProvider,
@@ -102,7 +131,19 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         float glyphPadding,
                                                         int z,
                                                         UUID uuid) {
-        return new TextLineRenderableDefinition(fontId, textProvider, locationProvider,
+        return new TextLineRenderableDefinition(null, fontId, textProvider, locationProvider,
+                heightProvider, alignment, glyphPadding, z, uuid);
+    }
+
+    public static TextLineRenderableDefinition textLine(Font font,
+                                                        AbstractProviderDefinition<String> textProvider,
+                                                        ProviderAtTime<Vertex> locationProvider,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z,
+                                                        UUID uuid) {
+        return new TextLineRenderableDefinition(font, null, textProvider, locationProvider,
                 heightProvider, alignment, glyphPadding, z, uuid);
     }
 
@@ -117,6 +158,61 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                 glyphPadding, z, randomUUID());
     }
 
+    public static TextLineRenderableDefinition textLine(Font font,
+                                                        AbstractProviderDefinition<String> textProvider,
+                                                        ProviderAtTime<Vertex> locationProvider,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(font, textProvider, locationProvider, heightProvider, alignment,
+                glyphPadding, z, randomUUID());
+    }
+
+    public static TextLineRenderableDefinition textLine(String fontId,
+                                                        String text,
+                                                        ProviderAtTime<Vertex> locationProvider,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(fontId, staticVal(text), locationProvider, heightProvider, alignment, glyphPadding, z,
+                randomUUID());
+    }
+
+    public static TextLineRenderableDefinition textLine(Font font,
+                                                        String text,
+                                                        ProviderAtTime<Vertex> locationProvider,
+                                                        AbstractProviderDefinition<Float> heightProvider,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(font, staticVal(text), locationProvider, heightProvider, alignment, glyphPadding, z,
+                randomUUID());
+    }
+
+    public static TextLineRenderableDefinition textLine(String fontId,
+                                                        String text,
+                                                        ProviderAtTime<Vertex> locationProvider,
+                                                        float height,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(fontId, staticVal(text), locationProvider, staticVal(height), alignment, glyphPadding, z,
+                randomUUID());
+    }
+
+    public static TextLineRenderableDefinition textLine(Font font,
+                                                        String text,
+                                                        ProviderAtTime<Vertex> locationProvider,
+                                                        float height,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(font, staticVal(text), locationProvider, staticVal(height), alignment, glyphPadding, z,
+                randomUUID());
+    }
+
     public static TextLineRenderableDefinition textLine(String fontId,
                                                         String text,
                                                         Vertex location,
@@ -126,6 +222,24 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         int z) {
         return textLine(
                 fontId,
+                staticVal(text),
+                staticVal(location),
+                staticVal(height),
+                alignment,
+                glyphPadding,
+                z
+        );
+    }
+
+    public static TextLineRenderableDefinition textLine(Font font,
+                                                        String text,
+                                                        Vertex location,
+                                                        float height,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(
+                font,
                 staticVal(text),
                 staticVal(location),
                 staticVal(height),
