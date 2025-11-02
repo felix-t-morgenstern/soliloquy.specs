@@ -3,6 +3,8 @@ package soliloquy.specs.io.graphics.rendering.timing;
 import soliloquy.specs.common.shared.PausableAtTime;
 import soliloquy.specs.gamestate.entities.Setting;
 
+import java.util.Date;
+
 /**
  * <b>FrameRateReporter</b>
  * <p>
@@ -22,9 +24,8 @@ public interface FrameRateReporter extends PausableAtTime {
     /**
      * NB: Periods when frame execution was paused for the entire duration should still report 0
      * fps to the FrameReporter; the FrameReporter will handle that logic. Similarly, if targetFps
-     * is null for some but not all periods, the {@link FrameRateReporterAggregateOutput} will
-     * receive an average of the non-null targetFps values; and if they are all null, it will
-     * instead receive null.
+     * is null for some but not all periods, the output will receive an average of the non-null
+     * targetFps values; and if they are all null, it will instead receive null.
      *
      * @param datetime  The datetime for the given polling interval
      * @param targetFps The target frames per second (may be null if no target is set, c.f.
@@ -44,7 +45,7 @@ public interface FrameRateReporter extends PausableAtTime {
     /**
      * <i>NB: Aggregate outputs default to being active</i>
      *
-     * @param id The id of the {@link FrameRateReporterAggregateOutput} to activate
+     * @param id The id of the output to activate
      * @throws IllegalArgumentException If id is null or empty, or does not correspond to a
      *                                  FrameRateReporterAggregateOutput
      */
@@ -53,7 +54,7 @@ public interface FrameRateReporter extends PausableAtTime {
     /**
      * <i>NB: Aggregate outputs default to being active</i>
      *
-     * @param id The id of the {@link FrameRateReporterAggregateOutput} to deactivate
+     * @param id The id of the output to deactivate
      * @throws IllegalArgumentException If id is null or empty, or does not correspond to a
      *                                  FrameRateReporterAggregateOutput
      */
@@ -74,4 +75,7 @@ public interface FrameRateReporter extends PausableAtTime {
      *                                  aggregation period
      */
     void reportUnpause(long timestamp) throws IllegalArgumentException;
+
+    record Aggregate(Date periodStart, Float targetFps, Float actualFps) {
+    }
 }

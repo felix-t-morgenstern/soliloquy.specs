@@ -3,6 +3,7 @@ package soliloquy.specs.io.graphics.rendering;
 import soliloquy.specs.gamestate.entities.timers.ClockBasedTimer;
 import soliloquy.specs.io.graphics.rendering.renderers.ComponentRenderer;
 import soliloquy.specs.io.graphics.renderables.Component;
+import soliloquy.specs.io.graphics.rendering.timing.FrameTimer;
 
 import java.util.function.Consumer;
 
@@ -33,6 +34,8 @@ public interface FrameExecutor {
     void setTopLevelComponent(Component component) throws IllegalArgumentException;
 
     /**
+     * This method executes a frame.
+     * <p>
      * The workflow of this method is as follows:
      * <p>
      * First, all frame-blocking events (including all {@link ClockBasedTimer}s provided to
@@ -50,6 +53,8 @@ public interface FrameExecutor {
      * FrameExecutor will be sure to render the top-level {@link Component} only
      * after those 12ms, to ensure that animations, etc. are not staggered or stilted by those
      * frame-blocking events.
+     * <p>
+     * Lastly, frame completion is reported to {@link FrameTimer#registerFrameExecution}.
      *
      * @param timestamp The timestamp at which the next frame is being executed
      * @throws IllegalArgumentException If and only if timestamp is out-of-date
