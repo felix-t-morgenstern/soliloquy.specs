@@ -25,6 +25,11 @@ public class Vertex {
     }
 
     @Override
+    public String toString() {
+        return String.format("(%s,%s)", X, Y);
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(X, Y);
     }
