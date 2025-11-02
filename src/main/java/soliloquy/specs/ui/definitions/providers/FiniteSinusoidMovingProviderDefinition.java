@@ -20,4 +20,13 @@ public class FiniteSinusoidMovingProviderDefinition<T> extends FiniteLinearMovin
         return new FiniteSinusoidMovingProviderDefinition<>(transitionSharpnesses,
                 valuesAtTimestampOffsets);
     }
+
+    @SafeVarargs
+    public static <T> FiniteSinusoidMovingProviderDefinition<T> finiteSinusoidMoving(
+            Pair<Integer, T>... valuesAtTimestampOffsets) {
+        return new FiniteSinusoidMovingProviderDefinition<>(
+                new float[valuesAtTimestampOffsets.length - 1],
+                valuesAtTimestampOffsets
+        );
+    }
 }
