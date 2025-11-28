@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.gamestate.entities.RoundManager;
 import soliloquy.specs.gamestate.entities.timers.OneTimeRoundBasedTimer;
 import soliloquy.specs.gamestate.entities.timers.RecurringRoundBasedTimer;
@@ -28,7 +28,7 @@ public interface RoundBasedTimerFactory {
      *                                  or if roundWhenGoesOff is less than 1, or if
      *                                  roundWhenGoesOff has already elapsed.
      */
-    OneTimeRoundBasedTimer makeOneTimeTimer(String timerId, Action action, int roundWhenGoesOff,
+    OneTimeRoundBasedTimer makeOneTimeTimer(String timerId, Consumer action, int roundWhenGoesOff,
                                             int priority)
             throws IllegalArgumentException;
 
@@ -48,7 +48,7 @@ public interface RoundBasedTimerFactory {
      *                                  roundsBeforeFiring is less than 1
      *                                  or greater than roundsBetweenFiring
      */
-    RecurringRoundBasedTimer makeRecurringTimer(String timerId, Action action, int roundModulo,
+    RecurringRoundBasedTimer makeRecurringTimer(String timerId, Consumer action, int roundModulo,
                                                 int roundOffset, int priority)
             throws IllegalArgumentException;
 }

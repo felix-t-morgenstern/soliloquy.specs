@@ -1,6 +1,6 @@
 package soliloquy.specs.io.graphics.renderables.factories;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.assets.Sprite;
 import soliloquy.specs.io.graphics.renderables.SpriteRenderable;
@@ -77,10 +77,10 @@ public interface SpriteRenderableFactory {
     SpriteRenderable make(Sprite sprite,
                           ProviderAtTime<Float> borderThicknessProvider,
                           ProviderAtTime<Color> borderColorProvider,
-                          Map<Integer, Action<EventInputs>> onPress,
-                          Map<Integer, Action<EventInputs>> onRelease,
-                          Action<EventInputs> onMouseOver,
-                          Action<EventInputs> onMouseLeave,
+                          Map<Integer, Consumer<EventInputs>> onPress,
+                          Map<Integer, Consumer<EventInputs>> onRelease,
+                          Consumer<EventInputs> onMouseOver,
+                          Consumer<EventInputs> onMouseLeave,
                           List<ColorShift> colorShifts,
                           ProviderAtTime<FloatBox> renderingDimensionsProvider,
                           int z,

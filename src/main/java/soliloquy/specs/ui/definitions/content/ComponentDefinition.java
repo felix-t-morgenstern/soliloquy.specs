@@ -10,26 +10,36 @@ import java.util.*;
 import static java.util.UUID.randomUUID;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
+/**
+ * <b>ComponentDefinition</b>
+ * <p>
+ * Every method described here relates to properties on
+ * {@link soliloquy.specs.io.graphics.renderables.Component}
+ */
 public class ComponentDefinition extends AbstractContentDefinition {
-    public final AbstractProviderDefinition<FloatBox> DIMENSIONS_PROVIDER_DEF;
-    public final ProviderAtTime<FloatBox> DIMENSIONS_PROVIDER;
+    public final AbstractProviderDefinition<FloatBox> RENDERING_BOUNDARIES_PROVIDER_DEF;
+    public final ProviderAtTime<FloatBox> RENDERING_BOUNDARIES_PROVIDER;
     public final Set<AbstractContentDefinition> CONTENT;
 
     public KeyBindingDefinition[] bindings;
     public Boolean blocksLowerBindings;
     public Integer keyBindingPriority;
+    public AbstractProviderDefinition<FloatBox> dimensionsProviderDef;
+    public ProviderAtTime<FloatBox> dimensionsProvider;
+    public String prerenderHookId;
+    public String addHookId;
     public Map<String, Object> data;
 
     private ComponentDefinition(
             int z,
-            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
-            ProviderAtTime<FloatBox> dimensionsProvider,
+            AbstractProviderDefinition<FloatBox> renderingBoundariesProviderDef,
+            ProviderAtTime<FloatBox> renderingBoundariesProvider,
             Set<AbstractContentDefinition> content,
             UUID uuid
     ) {
         super(z, uuid);
-        DIMENSIONS_PROVIDER_DEF = dimensionsProviderDef;
-        DIMENSIONS_PROVIDER = dimensionsProvider;
+        RENDERING_BOUNDARIES_PROVIDER_DEF = renderingBoundariesProviderDef;
+        RENDERING_BOUNDARIES_PROVIDER = renderingBoundariesProvider;
         CONTENT = content;
     }
 
@@ -54,32 +64,33 @@ public class ComponentDefinition extends AbstractContentDefinition {
 
     public static ComponentDefinition component(
             int z,
-            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            AbstractProviderDefinition<FloatBox> renderingBoundariesProviderDef,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, dimensionsProviderDef, null, new HashSet<>(), uuid);
+        return new ComponentDefinition(z, renderingBoundariesProviderDef, null, new HashSet<>(),
+                uuid);
     }
 
     public static ComponentDefinition component(
             int z,
-            AbstractProviderDefinition<FloatBox> dimensionsProviderDef
+            AbstractProviderDefinition<FloatBox> renderingBoundariesProviderDef
     ) {
-        return component(z, dimensionsProviderDef, randomUUID());
+        return component(z, renderingBoundariesProviderDef, randomUUID());
     }
 
     public static ComponentDefinition component(
             int z,
-            ProviderAtTime<FloatBox> dimensionsProvider,
+            ProviderAtTime<FloatBox> renderingBoundariesProvider,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, null, dimensionsProvider, new HashSet<>(), uuid);
+        return new ComponentDefinition(z, null, renderingBoundariesProvider, new HashSet<>(), uuid);
     }
 
     public static ComponentDefinition component(
             int z,
-            ProviderAtTime<FloatBox> dimensionsProvider
+            ProviderAtTime<FloatBox> renderingBoundariesProvider
     ) {
-        return component(z, dimensionsProvider, randomUUID());
+        return component(z, renderingBoundariesProvider, randomUUID());
     }
 
     public static ComponentDefinition component(
@@ -151,6 +162,37 @@ public class ComponentDefinition extends AbstractContentDefinition {
         this.bindings = bindings;
         this.blocksLowerBindings = blocksLowerBindings;
         this.keyBindingPriority = keyBindingPriority;
+
+        return this;
+    }
+
+    public ComponentDefinition withDimensions(ProviderAtTime<FloatBox> dimensionsProvider) {
+        this.dimensionsProvider = dimensionsProvider;
+
+        return this;
+    }
+
+    public ComponentDefinition withDimensions(
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef) {
+        this.dimensionsProviderDef = dimensionsProviderDef;
+
+        return this;
+    }
+
+    public ComponentDefinition withDimensions(FloatBox dimensions) {
+        this.dimensionsProviderDef = staticVal(dimensions);
+
+        return this;
+    }
+
+    public ComponentDefinition withAddHook(String addHookId) {
+        this.addHookId = addHookId;
+
+        return this;
+    }
+
+    public ComponentDefinition withPrerenderHook(String prerenderHookId) {
+        this.prerenderHookId = prerenderHookId;
 
         return this;
     }

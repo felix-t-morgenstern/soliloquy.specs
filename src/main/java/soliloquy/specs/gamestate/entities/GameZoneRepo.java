@@ -16,7 +16,7 @@ public interface GameZoneRepo {
 
     /**
      * Intended use is reading a GameZone from disk or main memory. If a GameZone has already been
-     * unloaded, it must be unloaded before loading a new one.
+     * loaded, it must be unloaded before loading a new one.
      *
      * @param gameZoneId The Id of the GameZone to load
      * @throws IllegalArgumentException      If gameZoneId does not match any GameZone's Id

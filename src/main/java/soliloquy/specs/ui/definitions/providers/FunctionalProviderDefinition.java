@@ -7,8 +7,8 @@ public class FunctionalProviderDefinition<T> extends AbstractProviderDefinition<
     public final String PROVIDE_FUNCTION_ID;
 
     public UUID uuid;
-    public String pauseActionId;
-    public String unpauseActionId;
+    public String pauseConsumerId;
+    public String unpauseConsumerId;
     public Long pauseTimestamp;
     public Map<String, Object> data;
 
@@ -27,10 +27,10 @@ public class FunctionalProviderDefinition<T> extends AbstractProviderDefinition<
         return this;
     }
 
-    public FunctionalProviderDefinition<T> withPauseActions(String pauseActionId,
-                                                            String unpauseActionId) {
-        this.pauseActionId = pauseActionId;
-        this.unpauseActionId = unpauseActionId;
+    public FunctionalProviderDefinition<T> withPauseActions(String pauseConsumerId,
+                                                            String unpauseConsumerId) {
+        this.pauseConsumerId = pauseConsumerId;
+        this.unpauseConsumerId = unpauseConsumerId;
 
         return this;
     }

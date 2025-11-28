@@ -1,5 +1,6 @@
 package soliloquy.specs.gamestate.entities.timers;
 
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.PausableAtTime;
 
@@ -8,7 +9,7 @@ import soliloquy.specs.common.shared.PausableAtTime;
  * <p>
  * This class is a timer, which fires not based on how many turns have elapsed, but based on how
  * many milliseconds have elapsed. It exposes the id of the
- * {@link soliloquy.specs.common.entities.Action} which runs when the timer is fired, so that it
+ * {@link Consumer} which runs when the timer is fired, so that it
  * can be persisted.
  *
  * @author felix.t.morgenstern
@@ -16,10 +17,10 @@ import soliloquy.specs.common.shared.PausableAtTime;
  */
 public interface ClockBasedTimer extends HasId, PausableAtTime {
     /**
-     * @return The Id of the {@link soliloquy.specs.common.entities.Action} which runs when this
+     * @return The Id of the {@link Consumer} which runs when this
      *         ClockBasedTimer is fired
      */
-    String actionId();
+    String consumerId();
 
     /**
      * @param timestamp The timestamp at which to fire this Timer

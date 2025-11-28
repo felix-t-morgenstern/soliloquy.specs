@@ -3,7 +3,7 @@ package soliloquy.specs.io.graphics.renderables;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 
 /**
- * <b>TriangleRenderable</b>
+ * <b>PolygonRenderable</b>
  * <p>
  * A polygon which can be rendered in the window, c.f. {@link TriangleRenderable} or
  * {@link RectangleRenderable}

@@ -1,7 +1,5 @@
 package soliloquy.specs.ruleset;
 
-import soliloquy.specs.common.entities.Action;
-import soliloquy.specs.common.entities.Function;
 import soliloquy.specs.common.infrastructure.EntityGroup;
 import soliloquy.specs.gamestate.entities.Setting;
 import soliloquy.specs.gamestate.entities.gameevents.GameAbilityEvent;
@@ -52,10 +50,6 @@ public interface Ruleset {
     Map<String, VariableStatisticType> variableStatisticTypes();
 
     Map<String, WallSegmentType> wallSegmentTypes();
-
-    Map<String, Action> actions();
-
-    Map<String, Function> functions();
 
     EntityGroup<Setting> rulesetSettings();
 }

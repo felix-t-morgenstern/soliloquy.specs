@@ -1,5 +1,7 @@
 package soliloquy.specs.io.graphics.renderables;
 
+import soliloquy.specs.common.entities.BiConsumer;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.gamestate.entities.shared.HasData;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
@@ -64,6 +66,27 @@ public interface Component extends Renderable, HasData {
     Set<Renderable> contentsRepresentation();
 
     /**
+     * This method is used by other Components to know the dimensions this Component takes up, for
+     * layout purposes.
+     * <p>
+     * <i>This method is different from {@link #getRenderingBoundariesProvider()}!</i> The rendering
+     * boundaries are fed into {@link RenderingBoundaries#pushNewBoundaries} to limit the rendering
+     * space, which is useful for instance in a scrollable box of content. This method is used so
+     * that a scrollable box of content will be able to know the dimensions of its content.
+     *
+     * @return The dimensions this Component takes up
+     */
+    ProviderAtTime<FloatBox> getDimensionsProvider();
+
+    /**
+     * @param dimensionsProvider Provides the dimensions of this Component, c.f.
+     *                           {@link #getDimensionsProvider()}
+     * @throws IllegalArgumentException If and only if dimensionsProvider is null
+     */
+    void setDimensionsProvider(ProviderAtTime<FloatBox> dimensionsProvider)
+            throws IllegalArgumentException;
+
+    /**
      * <i>NB: To be used by {@link RenderingBoundaries#currentBoundaries()}</i>
      *
      * @return Provider for the rendering boundaries of this Component; all Renderables
@@ -80,6 +103,25 @@ public interface Component extends Renderable, HasData {
      */
     void setRenderingBoundariesProvider(ProviderAtTime<FloatBox> renderingBoundariesProvider)
             throws IllegalArgumentException, UnsupportedOperationException;
+
+    /**
+     * @return The {@link soliloquy.specs.common.entities.BiFunction} called prior to this Component
+     *         rendering within
+     *         {@link soliloquy.specs.io.graphics.rendering.renderers.ComponentRenderer#render},
+     *         whose respective inputs are the Component itself, and the timestamp. <i>NB: This
+     *         functionality is hidden on the interface, since it is only intended to be used by UI
+     *         components for layout purposes. The hook id is exposed for persistence only.</i>
+     */
+    String prerenderHookId();
+
+    /**
+     * <i>NB: This method is primarily intended for the UI to be able to assemble layouts of
+     * variable content with dynamic dimensions</i>
+     *
+     * @return The Id of the {@link Consumer} called, with this
+     *         Component adds new content
+     */
+    String addHookId();
 
     /**
      * @return The 'tier' of Component, where lower values imply a higher tier, e.g., 0 for

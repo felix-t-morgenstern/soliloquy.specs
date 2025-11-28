@@ -1,6 +1,6 @@
 package soliloquy.specs.io.graphics.renderables.factories;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.renderables.RectangleRenderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
@@ -68,10 +68,10 @@ public interface RectangleRenderableFactory {
                              ProviderAtTime<Integer> textureIdProvider,
                              ProviderAtTime<Float> textureTileWidthProvider,
                              ProviderAtTime<Float> textureTileHeightProvider,
-                             Map<Integer, Action<EventInputs>> onPress,
-                             Map<Integer, Action<EventInputs>> onRelease,
-                             Action<EventInputs> onMouseOver,
-                             Action<EventInputs> onMouseLeave,
+                             Map<Integer, Consumer<EventInputs>> onPress,
+                             Map<Integer, Consumer<EventInputs>> onRelease,
+                             Consumer<EventInputs> onMouseOver,
+                             Consumer<EventInputs> onMouseLeave,
                              ProviderAtTime<FloatBox> areaProvider,
                              int z,
                              UUID uuid,

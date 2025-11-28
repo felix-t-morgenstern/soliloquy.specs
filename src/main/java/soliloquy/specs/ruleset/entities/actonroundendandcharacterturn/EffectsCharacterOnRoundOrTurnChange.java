@@ -103,6 +103,6 @@ public interface EffectsCharacterOnRoundOrTurnChange {
                 throws IllegalArgumentException;
     }
 
-    record EffectActionInputs(int[] effects, Character character, boolean advancingRounds) {
+    record CharacterEffectInputs(int[] effects, Character character, boolean advancingRounds) {
     }
 }

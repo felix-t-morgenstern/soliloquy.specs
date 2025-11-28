@@ -1,6 +1,6 @@
 package soliloquy.specs.io.input.keyboard;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.ui.EventInputs;
 
 /**
@@ -13,13 +13,13 @@ import soliloquy.specs.ui.EventInputs;
  */
 public class KeyBinding {
     public final int[] BOUND_CODEPOINTS;
-    public final Action<EventInputs> ON_PRESS;
-    public final Action<EventInputs> ON_RELEASE;
+    public final Consumer<EventInputs> ON_PRESS;
+    public final Consumer<EventInputs> ON_RELEASE;
 
     private KeyBinding(
             int[] boundCodepoints,
-            Action<EventInputs> onPress,
-            Action<EventInputs> onRelease
+            Consumer<EventInputs> onPress,
+            Consumer<EventInputs> onRelease
     ) {
         BOUND_CODEPOINTS = boundCodepoints;
         ON_PRESS = onPress;
@@ -34,8 +34,8 @@ public class KeyBinding {
      */
     public static KeyBinding keyBinding(
             int[] boundCodepoints,
-            Action<EventInputs> onPress,
-            Action<EventInputs> onRelease
+            Consumer<EventInputs> onPress,
+            Consumer<EventInputs> onRelease
     ) {
         return new KeyBinding(boundCodepoints, onPress, onRelease);
     }

@@ -1,5 +1,6 @@
 package soliloquy.specs.io.graphics.renderables.providers;
 
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.gamestate.entities.shared.HasData;
 
 import java.util.Map;
@@ -8,7 +9,7 @@ import java.util.Map;
  * <b>FunctionalProvider</b>
  * <p>
  * This class provides values based on a {@link soliloquy.specs.common.entities.Function} fed into
- * it. Optionally, {@link soliloquy.specs.common.entities.Action}s can also dictate pause and
+ * it. Optionally, {@link Consumer}s can also dictate pause and
  * unpause behavior.
  *
  * @author felix.t.morgenstern

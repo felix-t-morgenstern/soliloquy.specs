@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.factories;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.shared.HasPeriodModuloOffset;
 import soliloquy.specs.gamestate.entities.timers.OneTimeClockBasedTimer;
 import soliloquy.specs.gamestate.entities.timers.RecurringClockBasedTimer;
@@ -16,7 +16,7 @@ public interface ClockBasedTimerFactory {
      *                                  greater than or equal to firingTimestamp, or firingAction is
      *                                  null
      */
-    OneTimeClockBasedTimer make(String id, long firingTimestamp, Action<Long> firingAction,
+    OneTimeClockBasedTimer make(String id, long firingTimestamp, Consumer<Long> firingAction,
                                 Long pausedTimestamp)
             throws IllegalArgumentException;
 
@@ -45,7 +45,7 @@ public interface ClockBasedTimerFactory {
      *                                  is null
      */
     RecurringClockBasedTimer make(String id, int periodDuration, int periodModuloOffset,
-                                  Action<Long> firingAction,
+                                  Consumer<Long> firingAction,
                                   boolean fireMultipleTimesForMultiplePeriodsElapsed,
                                   Long pausedTimestamp, long lastFiringTimestamp)
             throws IllegalArgumentException;

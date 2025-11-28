@@ -1,6 +1,6 @@
 package soliloquy.specs.io.graphics.renderables;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.ui.EventInputs;
 
@@ -67,18 +67,18 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
      * C.f. {@link #press} for more information
      *
      * @param mouseButton The mouse button being pressed (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onPress     The Action to run when the area of this Renderable is pressed; can be null
+     * @param onPress     The Consumer to run when the area of this Renderable is pressed; can be null
      * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
      *                                  mouse button
      */
-    void setOnPress(int mouseButton, Action<EventInputs> onPress)
+    void setOnPress(int mouseButton, Consumer<EventInputs> onPress)
             throws IllegalArgumentException;
 
     /**
      * @return A Map representing the links between mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) and
-     *         the Ids of the Actions ran when those respective mouse buttons are pressed
+     *         the Ids of the Consumers ran when those respective mouse buttons are pressed
      */
-    Map<Integer, String> pressActionIds();
+    Map<Integer, String> pressConsumerIds();
 
     /**
      * Triggers the onRelease mouse event
@@ -98,19 +98,19 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
      * C.f. {@link #release} for more information
      *
      * @param mouseButton The mouse button being released (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onRelease   The Action to run when the area of this Renderable is released; can be
+     * @param onRelease   The Consumer to run when the area of this Renderable is released; can be
      *                    null
      * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
      *                                  mouse button
      */
-    void setOnRelease(int mouseButton, Action<EventInputs> onRelease)
+    void setOnRelease(int mouseButton, Consumer<EventInputs> onRelease)
             throws IllegalArgumentException;
 
     /**
      * @return A Map representing the links between mouse buttons (c.f. GLFW_MOUSE_BUTTON_*) and
-     *         the Ids of the Actions ran when those respective mouse buttons are released
+     *         the Ids of the Consumers ran when those respective mouse buttons are released
      */
-    Map<Integer, String> releaseActionIds();
+    Map<Integer, String> releaseConsumerIds();
 
     /**
      * Triggers the onMouseOver mouse event
@@ -126,15 +126,15 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
     /**
      * C.f. {@link #mouseOver} for more information
      *
-     * @param onMouseOver The Action to fire when the mouse goes over the area of this Renderable;
+     * @param onMouseOver The Consumer to fire when the mouse goes over the area of this Renderable;
      *                    can be null
      */
-    void setOnMouseOver(Action<EventInputs> onMouseOver);
+    void setOnMouseOver(Consumer<EventInputs> onMouseOver);
 
     /**
-     * @return The id of the Action ran when the mouse moves over the area of this Renderable
+     * @return The id of the Consumer ran when the mouse moves over the area of this Renderable
      */
-    String mouseOverActionId();
+    String mouseOverConsumerId();
 
     /**
      * Triggers the onMouseLeave mouse event
@@ -150,13 +150,13 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
     /**
      * C.f. {@link #mouseLeave} for more information
      *
-     * @param onMouseLeave The Action to fire when the mouse leaves the area of this Renderable;
+     * @param onMouseLeave The Consumer to fire when the mouse leaves the area of this Renderable;
      *                     can be null
      */
-    void setOnMouseLeave(Action<EventInputs> onMouseLeave);
+    void setOnMouseLeave(Consumer<EventInputs> onMouseLeave);
 
     /**
-     * @return The id of the Action ran when the mouse leaves the area of this Renderable
+     * @return The id of the Consumer ran when the mouse leaves the area of this Renderable
      */
-    String mouseLeaveActionId();
+    String mouseLeaveConsumerId();
 }

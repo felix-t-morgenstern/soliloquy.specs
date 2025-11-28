@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasName;
 import soliloquy.specs.common.valueobjects.Coordinate2d;
@@ -164,25 +164,24 @@ public interface GameZone extends HasName, HasId, HasData, Deletable {
             throws IllegalArgumentException, EntityDeletedException;
 
     /**
+     * It is expected that this will be called when {@link GameZoneRepo#loadGameZone} is
+     * called. Also, this is where Timers which are intended only for this GameZone can be
+     * eliminated.
+     *
      * @return A List of Actions which are fired when the Party enters this GameZone.
-     *         <p>
-     *         (It is expected that this will be called when GameState.setCurrentGameZone is
-     *         called.)
      */
     @SuppressWarnings("rawtypes")
-    List<Action> onEntry();
+    List<Consumer> onEntry();
 
     /**
+     * It is expected that this will be called when {@link GameZoneRepo#loadGameZone} is
+     * called. Also, this is where Timers which are intended only for this GameZone can be
+     * eliminated.
+     *
      * @return A List of Actions which are fired when the Party leaves this GameZone.
-     *         <p>
-     *         (It is expected that this will be called when GameState.setCurrentGameZone is
-     *         called.)
-     *         <p>
-     *         (Also, this is where Timers which are intended only for this GameZone can be
-     *         eliminated.)
      */
     @SuppressWarnings("rawtypes")
-    List<Action> onExit();
+    List<Consumer> onExit();
 
     /**
      * <i>NB: This method returns a representation of Characters in this GameZone, so altering its

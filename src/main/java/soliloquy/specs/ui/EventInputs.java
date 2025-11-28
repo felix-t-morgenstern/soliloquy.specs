@@ -1,5 +1,6 @@
 package soliloquy.specs.ui;
 
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents;
 import soliloquy.specs.io.input.mouse.MouseEventHandler;
@@ -8,7 +9,7 @@ import java.util.Objects;
 
 /**
  * (This class exists primarily since arguments to UI events may expand over time, and
- * {@link soliloquy.specs.common.entities.Action}s should not need to remember an archaic and
+ * {@link Consumer}s should not need to remember an archaic and
  * nonsensical ordering of input parameters just to avoid bricking older Actions.)
  */
 public class EventInputs {

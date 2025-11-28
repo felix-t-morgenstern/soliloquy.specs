@@ -1,6 +1,6 @@
 package soliloquy.specs.gamestate.entities.timers;
 
-import soliloquy.specs.common.entities.Action;
+import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.shared.HasId;
 import soliloquy.specs.common.shared.HasPriority;
 import soliloquy.specs.gamestate.entities.Deletable;
@@ -19,7 +19,7 @@ import soliloquy.specs.gamestate.entities.Deletable;
  */
 public interface RoundBasedTimer extends HasId, HasPriority, Deletable, Runnable {
     /**
-     * @return The Id of the {@link Action} which runs when this RoundBasedTimer is fired
+     * @return The Id of the {@link Consumer} which runs when this RoundBasedTimer is fired
      */
-    String actionId();
+    String consumerId();
 }
