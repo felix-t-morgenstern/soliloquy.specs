@@ -41,8 +41,8 @@ public class FloatBox {
         return new FloatBox(0f, 0f, width, height);
     }
 
-    public static FloatBox floatBoxOf(Vertex upperLeft, Vertex lowerRight) {
-        return new FloatBox(upperLeft.X, upperLeft.Y, lowerRight.X, lowerRight.Y);
+    public static FloatBox floatBoxOf(Vertex topLeft, Vertex bottomRight) {
+        return new FloatBox(topLeft.X, topLeft.Y, bottomRight.X, bottomRight.Y);
     }
 
     public float width() {
@@ -53,19 +53,19 @@ public class FloatBox {
         return BOTTOM_Y - TOP_Y;
     }
 
-    public Vertex upperLeft() {
+    public Vertex topLeft() {
         return vertexOf(LEFT_X, TOP_Y);
     }
 
-    public Vertex upperRight() {
+    public Vertex topRight() {
         return vertexOf(RIGHT_X, TOP_Y);
     }
 
-    public Vertex lowerLeft() {
+    public Vertex bottomLeft() {
         return vertexOf(LEFT_X, BOTTOM_Y);
     }
 
-    public Vertex lowerRight() {
+    public Vertex bottomRight() {
         return vertexOf(RIGHT_X, BOTTOM_Y);
     }
 

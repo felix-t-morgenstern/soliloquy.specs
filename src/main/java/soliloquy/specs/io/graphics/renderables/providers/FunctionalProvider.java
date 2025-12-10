@@ -18,6 +18,11 @@ import java.util.Map;
 public interface FunctionalProvider<T> extends ProviderAtTime<T>, HasData {
     record Inputs(long timestamp, Long pauseTimestamp, Map<String, Object> data) {
         public static Inputs providerInputs(long timestamp,
+                                            Map<String, Object> data) {
+            return new Inputs(timestamp, null, data);
+        }
+
+        public static Inputs providerInputs(long timestamp,
                                             Long pauseTimestamp,
                                             Map<String, Object> data) {
             return new Inputs(timestamp, pauseTimestamp, data);
