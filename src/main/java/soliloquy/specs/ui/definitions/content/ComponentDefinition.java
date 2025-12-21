@@ -47,6 +47,10 @@ public class ComponentDefinition extends AbstractContentDefinition {
         return component(z, new HashSet<>());
     }
 
+    public static ComponentDefinition component(int z, UUID uuid) {
+        return component(z, new HashSet<>(), uuid);
+    }
+
     public static ComponentDefinition component(
             int z,
             Set<AbstractContentDefinition> content,

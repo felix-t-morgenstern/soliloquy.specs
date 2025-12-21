@@ -1,6 +1,5 @@
 package soliloquy.specs.io.graphics.renderables;
 
-import soliloquy.specs.common.entities.BiConsumer;
 import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.gamestate.entities.shared.HasData;
@@ -9,6 +8,7 @@ import soliloquy.specs.io.graphics.rendering.RenderingBoundaries;
 import soliloquy.specs.io.input.keyboard.KeyEventHandler;
 import soliloquy.specs.io.input.keyboard.KeyBinding;
 
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -38,12 +38,39 @@ public interface Component extends Renderable, HasData {
     /**
      * @param content The content to add to this Component
      * @throws IllegalArgumentException If and only if content is null, or not already reporting
-     *                                  this as its Component (cf
+     *                                  this as its Component (c.f.
      *                                  {@link Renderable#containingComponent()}, or if it is a
      *                                  Component whose tier (c.f. {@link #tier()}) is not one
      *                                  higher than this Component
      */
     void add(Renderable content) throws IllegalArgumentException;
+
+    /**
+     * <i>NB: This method is intended for Components which support additional data on content entry.
+     * The use of the data will vary by Component type; e.g., a component storing a column of
+     * content may accept data describing the alignment and spacing of the content to be added.</i>
+     *
+     * @param content The content to add to this Component
+     * @param data    Data to be fed into the add hook, c.f. {@link #addHookId()}.
+     * @throws IllegalArgumentException If and only if content is null, or not already reporting
+     *                                  this as its Component (c.f.
+     *                                  {@link Renderable#containingComponent()}, or if it is a
+     *                                  Component whose tier (c.f. {@link #tier()}) is not one
+     *                                  higher than this Component, or if data is null
+     */
+    void add(Renderable content, Map<String, Object> data) throws IllegalArgumentException;
+
+    /**
+     * <i>NB: This method is primarily intended for the UI to be able to assemble layouts of
+     * variable content with dynamic dimensions. Its ultimate effect is the mutation of this
+     * Component's {@link #data()}, so the {@link soliloquy.specs.common.persistence.TypeHandler}
+     * for Components will not be expected to record the data passed in alongside specific
+     * Renderable contents, and it will inject null data into the add hook when reading a Component
+     * from memory.</i>
+     *
+     * @return The Id of the {@link Consumer} called, with this Component adds new content
+     */
+    String addHookId();
 
     /**
      * Deletes the content upon removal
@@ -115,17 +142,14 @@ public interface Component extends Renderable, HasData {
     String prerenderHookId();
 
     /**
-     * <i>NB: This method is primarily intended for the UI to be able to assemble layouts of
-     * variable content with dynamic dimensions</i>
-     *
-     * @return The Id of the {@link Consumer} called, with this
-     *         Component adds new content
-     */
-    String addHookId();
-
-    /**
      * @return The 'tier' of Component, where lower values imply a higher tier, e.g., 0 for
      *         top-level, 1 for a Component beneath top-level, etc.
      */
     int tier();
+
+    record Addend(Renderable content, Map<String, Object> data) {
+        public static Addend addend(Renderable content, Map<String, Object> data) {
+            return new Addend(content, data);
+        }
+    }
 }

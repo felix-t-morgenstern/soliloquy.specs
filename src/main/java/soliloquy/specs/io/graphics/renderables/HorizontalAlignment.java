@@ -1,7 +1,6 @@
 package soliloquy.specs.io.graphics.renderables;
 
 public enum HorizontalAlignment {
-    UNKNOWN(0),
     LEFT(1),
     CENTER(2),
     RIGHT(3);
@@ -21,7 +20,6 @@ public enum HorizontalAlignment {
             return null;
         }
         return switch (value) {
-            case 0 -> UNKNOWN;
             case 1 -> LEFT;
             case 2 -> CENTER;
             case 3 -> RIGHT;
