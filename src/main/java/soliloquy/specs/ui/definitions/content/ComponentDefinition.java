@@ -202,7 +202,12 @@ public class ComponentDefinition extends AbstractContentDefinition {
     }
 
     public ComponentDefinition withData(Map<String, Object> data) {
-        this.data = data;
+        if (this.data == null) {
+            this.data = data;
+        }
+        else {
+            this.data.putAll(data);
+        }
 
         return this;
     }

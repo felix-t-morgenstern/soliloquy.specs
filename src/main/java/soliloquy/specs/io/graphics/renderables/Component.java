@@ -147,7 +147,7 @@ public interface Component extends Renderable, HasData {
      */
     int tier();
 
-    record Addend(Renderable content, Map<String, Object> data) {
+    record Addend(Renderable content, Map<String, Object> data) implements HasData {
         public static Addend addend(Renderable content, Map<String, Object> data) {
             return new Addend(content, data);
         }
