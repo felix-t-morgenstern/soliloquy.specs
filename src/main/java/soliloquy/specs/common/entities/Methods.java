@@ -2,7 +2,6 @@ package soliloquy.specs.common.entities;
 
 import soliloquy.specs.common.shared.HasId;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;

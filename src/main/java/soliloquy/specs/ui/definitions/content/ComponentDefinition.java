@@ -47,6 +47,10 @@ public class ComponentDefinition extends AbstractContentDefinition {
         return component(z, new HashSet<>());
     }
 
+    public static ComponentDefinition component(int z, UUID uuid) {
+        return component(z, new HashSet<>(), uuid);
+    }
+
     public static ComponentDefinition component(
             int z,
             Set<AbstractContentDefinition> content,
@@ -198,7 +202,12 @@ public class ComponentDefinition extends AbstractContentDefinition {
     }
 
     public ComponentDefinition withData(Map<String, Object> data) {
-        this.data = data;
+        if (this.data == null) {
+            this.data = data;
+        }
+        else {
+            this.data.putAll(data);
+        }
 
         return this;
     }
