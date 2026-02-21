@@ -42,4 +42,9 @@ public class Pair<T1, T2> {
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return String.format("{%s,%s}", FIRST, SECOND);
+    }
 }
