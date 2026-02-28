@@ -4,6 +4,10 @@ package soliloquy.specs.io.graphics.renderables;
  * <b>RasterizedLineSegmentRenderable</b>
  * <p>
  * A rasterized (i.e. pixelated) line segment which can be rendered in the window
+ * <p>
+ * (Technically, antialiasing is also a form of rasterization; this implementation uses GL_LINES,
+ * which renders in a more pixelated fashion. If you're still unsure of the difference, you can both
+ * try them out and see the difference, and also check the implementing code.)
  *
  * @author felix.t.morgenstern
  * @version 0.0.1
