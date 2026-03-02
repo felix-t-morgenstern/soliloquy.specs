@@ -6,6 +6,8 @@ import soliloquy.specs.common.shared.HasId;
  * <b>Runnable</b>
  * <p>
  * A Runnable is a {@link Function}, which receives no input or output
+ * <p>
+ * It has an Id, so that it can be instantiated at load time from a global cache, and so references to it can be persisted properly.
  *
  * @author felix.t.morgenstern
  * @version 0.0.1

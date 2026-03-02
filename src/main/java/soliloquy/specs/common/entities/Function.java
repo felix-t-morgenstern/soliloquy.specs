@@ -7,7 +7,7 @@ import soliloquy.specs.common.shared.HasId;
  * <p>
  * An Function receives an Input (or perhaps no input), and produces some Output.
  * <p>
- * A Function has an Id, so that it can be instantiated at load time from a global cache.
+ * It has an Id, so that it can be instantiated at load time from a global cache, and so references to it can be persisted properly.
  *
  * @param <Input>  The type of Input received by this Function. (If this is Void, then there is no
  *                 input.)

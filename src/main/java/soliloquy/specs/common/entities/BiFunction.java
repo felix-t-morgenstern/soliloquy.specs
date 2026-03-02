@@ -7,7 +7,7 @@ import soliloquy.specs.common.shared.HasId;
  * <p>
  * A BiFunction receives two inputs, and produces some Output.
  * <p>
- * A BiFunction has an Id, so that it can be instantiated at load time from a global cache.
+ * It has an Id, so that it can be instantiated at load time from a global cache, and so references to it can be persisted properly.
  *
  * @param <Input1>  The first type of Input received by this BiFunction
  * @param <Input2>  The second type of Input received by this BiFunction

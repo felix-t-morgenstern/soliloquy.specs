@@ -6,6 +6,8 @@ import soliloquy.specs.common.shared.HasId;
  * <b>Supplier</b>
  * <p>
  * A Supplier is a {@link Function}, which receives no input and supplies an output
+ * <p>
+ * It has an Id, so that it can be instantiated at load time from a global cache, and so references to it can be persisted properly.
  *
  * @param <Output> The type supplied
  * @author felix.t.morgenstern

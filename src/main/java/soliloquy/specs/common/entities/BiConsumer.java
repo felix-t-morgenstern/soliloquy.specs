@@ -8,6 +8,8 @@ import java.util.function.Consumer;
  * <b>BiConsumer</b>
  * <p>
  * A BiConsumer is a {@link soliloquy.specs.common.entities.Consumer} which takes two inputs
+ * <p>
+ * It has an Id, so that it can be instantiated at load time from a global cache, and so references to it can be persisted properly.
  *
  * @param <Input1> The first type of input received
  * @param <Input2> The second type of input received

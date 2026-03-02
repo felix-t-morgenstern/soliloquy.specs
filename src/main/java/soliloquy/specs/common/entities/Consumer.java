@@ -7,6 +7,8 @@ import soliloquy.specs.common.shared.HasId;
  * <p>
  * A Consumer is a {@link Function}, which receives an Input (or perhaps no input), and performs
  * some action with it.
+ * <p>
+ * It has an Id, so that it can be instantiated at load time from a global cache, and so references to it can be persisted properly.
  *
  * @param <Input> The type of inputs received by this Consumer. (If this is Void, then there is no
  *                input.)
