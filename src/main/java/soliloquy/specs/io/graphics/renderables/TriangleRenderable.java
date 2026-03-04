@@ -35,8 +35,7 @@ public interface TriangleRenderable extends PolygonRenderable {
             throws IllegalArgumentException;
 
     /**
-     * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
-     * vertex.</i>
+     * C.f. {@link RectangleRenderable#getTopLeftColorProvider()}
      *
      * @return A ProviderAtTime which provides the color at the first vertex
      */
@@ -63,8 +62,7 @@ public interface TriangleRenderable extends PolygonRenderable {
             throws IllegalArgumentException;
 
     /**
-     * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
-     * vertex.</i>
+     * C.f. {@link RectangleRenderable#getTopLeftColorProvider()}
      *
      * @return A ProviderAtTime which provides the color at the second vertex
      */
@@ -91,8 +89,7 @@ public interface TriangleRenderable extends PolygonRenderable {
             throws IllegalArgumentException;
 
     /**
-     * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
-     * vertex.</i>
+     * C.f. {@link RectangleRenderable#getTopLeftColorProvider()}
      *
      * @return A ProviderAtTime which provides the color at the third vertex
      */

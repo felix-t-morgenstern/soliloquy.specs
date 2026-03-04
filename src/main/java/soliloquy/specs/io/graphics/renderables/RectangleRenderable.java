@@ -23,7 +23,12 @@ import java.awt.*;
 public interface RectangleRenderable extends PolygonRenderable, RenderableWithMutableDimensions {
     /**
      * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
-     * corner.</i>
+     * corner. Also, if you are using textures, colors are <u>masks</u> for colors. So, if you have
+     * a rectangle that's both colored red and has a picture for a texture, that means that <u>only
+     * the red components of the picture will be displayed;</u> the rest of the picture will be
+     * black. In this case, transparency--no color at all--will allow the whole picture to be shown.
+     * If you want to make a rectangle with a translucent coloring, just make another rectangle of
+     * the same dimensions with a higher {@link #getZ()} value.</i>
      *
      * @return A ProviderAtTime which provides the color at the top-left of this rectangle for a
      *         given timestamp.
@@ -40,8 +45,7 @@ public interface RectangleRenderable extends PolygonRenderable, RenderableWithMu
             throws IllegalArgumentException;
 
     /**
-     * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
-     * corner.</i>
+     * C.f. {@link #getTopLeftColorProvider()}
      *
      * @return A ProviderAtTime which provides the color at the top-right of this rectangle for a
      *         given timestamp.
@@ -58,8 +62,7 @@ public interface RectangleRenderable extends PolygonRenderable, RenderableWithMu
             throws IllegalArgumentException;
 
     /**
-     * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
-     * corner.</i>
+     * C.f. {@link #getTopLeftColorProvider()}
      *
      * @return A ProviderAtTime which provides the color at the bottom-right of this rectangle for
      *         a given timestamp.
@@ -76,8 +79,7 @@ public interface RectangleRenderable extends PolygonRenderable, RenderableWithMu
             throws IllegalArgumentException;
 
     /**
-     * <i>NB: If this ProviderAtTime returns null, that implies total transparency for this
-     * corner.</i>
+     * C.f. {@link #getTopLeftColorProvider()}
      *
      * @return A ProviderAtTime which provides the color at the bottom-left of this rectangle for a
      *         given timestamp.
