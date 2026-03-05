@@ -7,6 +7,7 @@ import soliloquy.specs.io.graphics.renderables.GlobalLoopingAnimationRenderable;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.io.graphics.renderables.Component;
+import soliloquy.specs.ruleset.entities.GroundType;
 import soliloquy.specs.ui.EventInputs;
 
 import java.awt.*;

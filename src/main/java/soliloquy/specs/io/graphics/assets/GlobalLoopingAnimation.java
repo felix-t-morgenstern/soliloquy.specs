@@ -14,8 +14,7 @@ import java.util.UUID;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface GlobalLoopingAnimation
-        extends LoopingProvider<AnimationFrameSnippet>, ImageAsset {
+public interface GlobalLoopingAnimation extends LoopingProvider<AnimationFrameSnippet>, ImageAsset {
     /**
      * @return True, if and only if the underlying
      *         {@link soliloquy.specs.io.graphics.assets.Animation} supports mouse events
