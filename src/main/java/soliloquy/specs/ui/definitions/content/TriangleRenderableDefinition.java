@@ -28,9 +28,20 @@ public class TriangleRenderableDefinition extends AbstractContentDefinition {
     public ProviderAtTime<Color> vertex2ColorProvider;
     public ProviderAtTime<Color> vertex3ColorProvider;
 
-    public AbstractProviderDefinition<Integer> textureIdProvider;
-    public AbstractProviderDefinition<Float> textureTileWidthProvider;
-    public AbstractProviderDefinition<Float> textureTileHeightProvider;
+    public AbstractProviderDefinition<Integer> textureIdProviderDef;
+    public ProviderAtTime<Integer> textureIdProvider;
+
+    public AbstractProviderDefinition<Float> textureTilesPerWidthProviderDef;
+    public ProviderAtTime<Float> textureTilesPerWidthProvider;
+
+    public AbstractProviderDefinition<Float> textureXOffsetProviderDef;
+    public ProviderAtTime<Float> textureXOffsetProvider;
+
+    public AbstractProviderDefinition<Float> textureTilesPerHeightProviderDef;
+    public ProviderAtTime<Float> textureTilesPerHeightProvider;
+
+    public AbstractProviderDefinition<Float> textureYOffsetProviderDef;
+    public ProviderAtTime<Float> textureYOffsetProvider;
 
     public Map<Integer, String> onPressIds;
     public Map<Integer, String> onReleaseIds;
@@ -151,19 +162,114 @@ public class TriangleRenderableDefinition extends AbstractContentDefinition {
     }
 
     public TriangleRenderableDefinition withTexture(int textureId) {
-        textureIdProvider = staticVal(textureId);
-        textureTileWidthProvider = textureTileHeightProvider = staticVal(1f);
+        textureIdProviderDef = staticVal(textureId);
+        textureTilesPerWidthProviderDef = textureTilesPerHeightProviderDef = staticVal(1f);
+
+        return this;
+    }
+
+    public TriangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProviderDef,
+            AbstractProviderDefinition<Float> textureWidthProviderDef,
+            AbstractProviderDefinition<Float> textureXOffsetProviderDef,
+            AbstractProviderDefinition<Float> textureHeightProviderDef,
+            AbstractProviderDefinition<Float> textureYOffsetProviderDef) {
+        this.textureIdProviderDef = textureIdProviderDef;
+        textureTilesPerWidthProviderDef = textureWidthProviderDef;
+        textureTilesPerHeightProviderDef = textureHeightProviderDef;
+        this.textureXOffsetProviderDef = textureXOffsetProviderDef;
+        this.textureYOffsetProviderDef = textureYOffsetProviderDef;
+
+        return this;
+    }
+
+    public TriangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProviderDef,
+            AbstractProviderDefinition<Float> textureWidthProviderDef,
+            AbstractProviderDefinition<Float> textureHeightProviderDef) {
+        this.textureIdProviderDef = textureIdProviderDef;
+        textureTilesPerWidthProviderDef = textureWidthProviderDef;
+        textureTilesPerHeightProviderDef = textureHeightProviderDef;
 
         return this;
     }
 
     public TriangleRenderableDefinition withTexture(
             AbstractProviderDefinition<Integer> textureIdProvider,
-            AbstractProviderDefinition<Float> tileWidthProvider,
-            AbstractProviderDefinition<Float> tileHeightProvider) {
+            float tilesPerWidth,
+            float tilesPerHeight) {
+        return this.withTexture(
+                textureIdProvider,
+                staticVal(tilesPerWidth),
+                staticVal(tilesPerHeight)
+        );
+    }
+
+    public TriangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProvider,
+            float tilesPerWidth,
+            float xOffset,
+            float tilesPerHeight,
+            float yOffset) {
+        return this.withTexture(
+                textureIdProvider,
+                staticVal(tilesPerWidth),
+                staticVal(xOffset),
+                staticVal(tilesPerHeight),
+                staticVal(yOffset)
+        );
+    }
+
+    public TriangleRenderableDefinition withTexture(
+            ProviderAtTime<Integer> textureIdProvider,
+            float tileWidth,
+            float tileHeight) {
         this.textureIdProvider = textureIdProvider;
-        textureTileWidthProvider = tileWidthProvider;
-        textureTileHeightProvider = tileHeightProvider;
+        textureTilesPerWidthProviderDef = staticVal(tileWidth);
+        textureTilesPerHeightProviderDef = staticVal(tileHeight);
+
+        return this;
+    }
+
+    public TriangleRenderableDefinition withTexture(
+            ProviderAtTime<Integer> textureIdProvider,
+            float tilesPerWidth,
+            float xOffset,
+            float tilesPerHeight,
+            float yOffset) {
+        this.textureIdProvider = textureIdProvider;
+        textureTilesPerWidthProviderDef = staticVal(tilesPerWidth);
+        textureXOffsetProviderDef = staticVal(xOffset);
+        textureTilesPerHeightProviderDef = staticVal(tilesPerHeight);
+        textureYOffsetProviderDef = staticVal(yOffset);
+
+        return this;
+    }
+
+    public TriangleRenderableDefinition withTexture(
+            ProviderAtTime<Integer> textureIdProvider,
+            ProviderAtTime<Float> tilesPerWidthProvider,
+            ProviderAtTime<Float> textureXOffsetProvider,
+            ProviderAtTime<Float> tilesPerHeightProvider,
+            ProviderAtTime<Float> textureYOffsetProvider
+    ) {
+        this.textureIdProvider = textureIdProvider;
+        this.textureTilesPerWidthProvider = tilesPerWidthProvider;
+        this.textureXOffsetProvider = textureXOffsetProvider;
+        this.textureTilesPerHeightProvider = tilesPerHeightProvider;
+        this.textureYOffsetProvider = textureYOffsetProvider;
+
+        return this;
+    }
+
+    public TriangleRenderableDefinition withTexture(
+            ProviderAtTime<Integer> textureIdProvider,
+            ProviderAtTime<Float> tileWidthProvider,
+            ProviderAtTime<Float> tileHeightProvider
+    ) {
+        this.textureIdProvider = textureIdProvider;
+        this.textureTilesPerWidthProvider = tileWidthProvider;
+        this.textureTilesPerHeightProvider = tileHeightProvider;
 
         return this;
     }

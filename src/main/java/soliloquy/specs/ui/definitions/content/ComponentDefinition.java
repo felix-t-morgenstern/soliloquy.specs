@@ -84,6 +84,13 @@ public class ComponentDefinition extends AbstractContentDefinition {
 
     public static ComponentDefinition component(
             int z,
+            FloatBox renderingBoundaries
+    ) {
+        return component(z, staticVal(renderingBoundaries));
+    }
+
+    public static ComponentDefinition component(
+            int z,
             ProviderAtTime<FloatBox> renderingBoundariesProvider,
             UUID uuid
     ) {

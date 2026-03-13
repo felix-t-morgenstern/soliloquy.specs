@@ -27,10 +27,17 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
     public AbstractProviderDefinition<Integer> textureIdProviderDef;
     public ProviderAtTime<Integer> textureIdProvider;
 
-    public AbstractProviderDefinition<Float> textureTileWidthProviderDef;
-    public AbstractProviderDefinition<Float> textureTileHeightProviderDef;
-    public ProviderAtTime<Float> textureTileWidthProvider;
-    public ProviderAtTime<Float> textureTileHeightProvider;
+    public AbstractProviderDefinition<Float> textureTilesPerWidthProviderDef;
+    public ProviderAtTime<Float> textureTilesPerWidthProvider;
+
+    public AbstractProviderDefinition<Float> textureXOffsetProviderDef;
+    public ProviderAtTime<Float> textureXOffsetProvider;
+
+    public AbstractProviderDefinition<Float> textureTilesPerHeightProviderDef;
+    public ProviderAtTime<Float> textureTilesPerHeightProvider;
+
+    public AbstractProviderDefinition<Float> textureYOffsetProviderDef;
+    public ProviderAtTime<Float> textureYOffsetProvider;
 
     public Map<Integer, String> onPressIds;
     public Map<Integer, String> onReleaseIds;
@@ -121,32 +128,77 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
         return this;
     }
 
+    public RectangleRenderableDefinition withTexture(ProviderAtTime<Integer> textureIdProvider) {
+        this.textureIdProvider = textureIdProvider;
+        textureTilesPerWidthProviderDef = textureTilesPerHeightProviderDef = staticVal(1f);
+        textureXOffsetProviderDef = textureYOffsetProviderDef = staticVal(0f);
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProviderDef
+    ) {
+        this.textureIdProviderDef = textureIdProviderDef;
+        textureTilesPerWidthProviderDef = textureTilesPerHeightProviderDef = staticVal(1f);
+        textureXOffsetProviderDef = textureYOffsetProviderDef = staticVal(0f);
+
+        return this;
+    }
+
     public RectangleRenderableDefinition withTexture(int textureId) {
-        textureIdProviderDef = staticVal(textureId);
-        textureTileWidthProviderDef = textureTileHeightProviderDef = staticVal(1f);
+        return withTexture(staticVal(textureId));
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProviderDef,
+            AbstractProviderDefinition<Float> textureTilesPerWidthProviderDef,
+            AbstractProviderDefinition<Float> textureXOffsetProviderDef,
+            AbstractProviderDefinition<Float> textureTilesPerHeightProviderDef,
+            AbstractProviderDefinition<Float> textureYOffsetProviderDef) {
+        this.textureIdProviderDef = textureIdProviderDef;
+        this.textureTilesPerWidthProviderDef = textureTilesPerWidthProviderDef;
+        this.textureTilesPerHeightProviderDef = textureTilesPerHeightProviderDef;
+        this.textureXOffsetProviderDef = textureXOffsetProviderDef;
+        this.textureYOffsetProviderDef = textureYOffsetProviderDef;
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProviderDef,
+            AbstractProviderDefinition<Float> textureTilesPerWidthProviderDef,
+            AbstractProviderDefinition<Float> textureTilesPerHeightProviderDef) {
+        this.textureIdProviderDef = textureIdProviderDef;
+        this.textureTilesPerWidthProviderDef = textureTilesPerWidthProviderDef;
+        this.textureTilesPerHeightProviderDef = textureTilesPerHeightProviderDef;
 
         return this;
     }
 
     public RectangleRenderableDefinition withTexture(
             AbstractProviderDefinition<Integer> textureIdProvider,
-            AbstractProviderDefinition<Float> tileWidthProvider,
-            AbstractProviderDefinition<Float> tileHeightProvider) {
-        this.textureIdProviderDef = textureIdProvider;
-        textureTileWidthProviderDef = tileWidthProvider;
-        textureTileHeightProviderDef = tileHeightProvider;
-
-        return this;
-    }
-
-    public RectangleRenderableDefinition withTexture(
-            AbstractProviderDefinition<Integer> textureIdProvider,
-            float tileWidthProvider,
-            float tileHeightProvider) {
+            float tilesPerWidth,
+            float tilesPerHeight) {
         return this.withTexture(
                 textureIdProvider,
-                staticVal(tileWidthProvider),
-                staticVal(tileHeightProvider)
+                staticVal(tilesPerWidth),
+                staticVal(tilesPerHeight)
+        );
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            AbstractProviderDefinition<Integer> textureIdProvider,
+            float tilesPerWidth,
+            float xOffset,
+            float tilesPerHeight,
+            float yOffset) {
+        return this.withTexture(
+                textureIdProvider,
+                staticVal(tilesPerWidth),
+                staticVal(xOffset),
+                staticVal(tilesPerHeight),
+                staticVal(yOffset)
         );
     }
 
@@ -155,8 +207,39 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
             float tileWidth,
             float tileHeight) {
         this.textureIdProvider = textureIdProvider;
-        textureTileWidthProviderDef = staticVal(tileWidth);
-        textureTileHeightProviderDef = staticVal(tileHeight);
+        textureTilesPerWidthProviderDef = staticVal(tileWidth);
+        textureTilesPerHeightProviderDef = staticVal(tileHeight);
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            ProviderAtTime<Integer> textureIdProvider,
+            float tilesPerWidth,
+            float xOffset,
+            float tilesPerHeight,
+            float yOffset) {
+        this.textureIdProvider = textureIdProvider;
+        textureTilesPerWidthProviderDef = staticVal(tilesPerWidth);
+        textureXOffsetProviderDef = staticVal(xOffset);
+        textureTilesPerHeightProviderDef = staticVal(tilesPerHeight);
+        textureYOffsetProviderDef = staticVal(yOffset);
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition withTexture(
+            ProviderAtTime<Integer> textureIdProvider,
+            ProviderAtTime<Float> tilesPerWidthProvider,
+            ProviderAtTime<Float> textureXOffsetProvider,
+            ProviderAtTime<Float> tilesPerHeightProvider,
+            ProviderAtTime<Float> textureYOffsetProvider
+    ) {
+        this.textureIdProvider = textureIdProvider;
+        this.textureTilesPerWidthProvider = tilesPerWidthProvider;
+        this.textureXOffsetProvider = textureXOffsetProvider;
+        this.textureTilesPerHeightProvider = tilesPerHeightProvider;
+        this.textureYOffsetProvider = textureYOffsetProvider;
 
         return this;
     }
@@ -167,8 +250,8 @@ public class RectangleRenderableDefinition extends AbstractContentDefinition {
             ProviderAtTime<Float> tileHeightProvider
     ) {
         this.textureIdProvider = textureIdProvider;
-        this.textureTileWidthProvider = tileWidthProvider;
-        this.textureTileHeightProvider = tileHeightProvider;
+        this.textureTilesPerWidthProvider = tileWidthProvider;
+        this.textureTilesPerHeightProvider = tileHeightProvider;
 
         return this;
     }
