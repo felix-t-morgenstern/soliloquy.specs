@@ -29,6 +29,11 @@ public interface TextLineRenderer extends Renderer<TextLineRenderable> {
             throws IllegalArgumentException;
 
     /**
+     * (Technically, this method doesn't assist with the rendering of TextLines per se; however, it
+     * utilizes the same underlying code as the Renderer, and is used by
+     * {@link soliloquy.specs.io.graphics.renderables.Component}s to determine how <i>they</i>
+     * should render text, esp. via {@link soliloquy.specs.ui.TextMarkupParser}.)
+     *
      * @param text                 The text whose line length to calculate
      * @param font                 The font
      * @param paddingBetweenGlyphs The padding between glyphs (c.f.
@@ -51,9 +56,9 @@ public interface TextLineRenderer extends Renderer<TextLineRenderable> {
                          float lineHeight) throws IllegalArgumentException;
 
     /**
-     * @param aChar                The character whose glyph width to calculate
-     * @param fontStyleInfo        The style info for a given Font (e.g., the bold-italic version of
-     *                             a font, obtained from {@link Font#boldItalic()})
+     * @param aChar         The character whose glyph width to calculate
+     * @param fontStyleInfo The style info for a given Font (e.g., the bold-italic version of
+     *                      a font, obtained from {@link Font#boldItalic()})
      * @return The length of the glyph, expressed in percentage of screen width
      * @throws IllegalArgumentException If and only if text is null, fontStyleInfo is null, or
      *                                  lineHeight is less than or equal to 0

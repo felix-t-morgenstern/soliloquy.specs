@@ -1,5 +1,7 @@
 package soliloquy.specs.io.input.mouse;
 
+import soliloquy.specs.common.valueobjects.Vertex;
+
 /**
  * <b>MouseCursor</b>
  * <p>
@@ -8,7 +10,7 @@ package soliloquy.specs.io.input.mouse;
  * @author felix.t.morgenstern
  * @version 0.0.1
  */
-public interface MouseCursor {
+public interface Mouse {
     /**
      * @param mouseCursorId The id of the mouse cursor to set
      * @throws IllegalArgumentException If and only if mouseCursorId is null, empty, or does not
@@ -17,7 +19,18 @@ public interface MouseCursor {
     void setMouseCursor(String mouseCursorId) throws IllegalArgumentException;
 
     /**
-     * @param windowId The id of the current window in the graphics library
+     * This method is intended to be used during frame execution, e.g. to determine how far up or
+     * down a scrollbar is being dragged
+     *
+     * @return The location where the mouse was last observed upon the execution of the most recent
+     *         frame
      */
-    void updateCursor(long windowId);
+    Vertex mostRecentMouseLocation();
+
+    enum EventType {
+        PRESS,
+        RELEASE,
+        MOUSE_OVER,
+        MOUSE_LEAVE
+    }
 }

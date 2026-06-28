@@ -2,6 +2,7 @@ package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.colorshifting.ShiftDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
@@ -12,26 +13,50 @@ public class ImageAssetSetRenderableDefinition extends AbstractImageAssetRendera
     public final String IMAGE_ASSET_SET_ID;
     public final Map<String, String> DISPLAY_PARAMS;
 
-    private ImageAssetSetRenderableDefinition(String imageAssetSetId,
-                                              Map<String, String> displayParams,
-                                              AbstractProviderDefinition<FloatBox> dimensionsProvider,
-                                              int z) {
-        super(dimensionsProvider, z);
+    private ImageAssetSetRenderableDefinition(
+            String imageAssetSetId,
+            Map<String, String> displayParams,
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z
+    ) {
+        super(imageAssetSetId, dimensionsProviderDef, z);
         IMAGE_ASSET_SET_ID = imageAssetSetId;
         DISPLAY_PARAMS = displayParams;
     }
 
-    public static ImageAssetSetRenderableDefinition imageAssetSet(String imageAssetSetId,
-                                                                  Map<String, String> displayParams,
-                                                                  AbstractProviderDefinition<FloatBox> dimensionsProvider,
-                                                                  int z) {
+    private ImageAssetSetRenderableDefinition(String imageAssetSetId,
+                                              Map<String, String> displayParams,
+                                              ProviderAtTime<FloatBox> dimensionsProvider,
+                                              int z) {
+        super(imageAssetSetId, dimensionsProvider, z);
+        IMAGE_ASSET_SET_ID = imageAssetSetId;
+        DISPLAY_PARAMS = displayParams;
+    }
+
+    public static ImageAssetSetRenderableDefinition imageAssetSet(
+            String imageAssetSetId,
+            Map<String, String> displayParams,
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z
+    ) {
+        return new ImageAssetSetRenderableDefinition(imageAssetSetId, displayParams,
+                dimensionsProviderDef, z);
+    }
+
+    public static ImageAssetSetRenderableDefinition imageAssetSet(
+            String imageAssetSetId,
+            Map<String, String> displayParams,
+            ProviderAtTime<FloatBox> dimensionsProvider,
+            int z
+    ) {
         return new ImageAssetSetRenderableDefinition(imageAssetSetId, displayParams,
                 dimensionsProvider, z);
     }
 
     public ImageAssetSetRenderableDefinition withBorder(
             AbstractProviderDefinition<Float> thicknessProviderDef,
-            AbstractProviderDefinition<Color> colorProviderDef) {
+            AbstractProviderDefinition<Color> colorProviderDef
+    ) {
         borderThicknessProviderDef = thicknessProviderDef;
         borderColorProviderDef = colorProviderDef;
 

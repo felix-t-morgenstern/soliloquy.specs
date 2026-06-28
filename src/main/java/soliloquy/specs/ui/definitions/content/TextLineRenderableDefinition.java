@@ -10,8 +10,10 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static java.util.UUID.randomUUID;
+import static soliloquy.specs.common.valueobjects.Vertex.vertexOf;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class TextLineRenderableDefinition extends AbstractContentDefinition {
@@ -176,7 +178,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         HorizontalAlignment alignment,
                                                         float glyphPadding,
                                                         int z) {
-        return textLine(fontId, staticVal(text), locationProvider, heightProvider, alignment, glyphPadding, z,
+        return textLine(fontId, staticVal(text), locationProvider, heightProvider, alignment,
+                glyphPadding, z,
                 randomUUID());
     }
 
@@ -187,7 +190,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         HorizontalAlignment alignment,
                                                         float glyphPadding,
                                                         int z) {
-        return textLine(font, staticVal(text), locationProvider, heightProvider, alignment, glyphPadding, z,
+        return textLine(font, staticVal(text), locationProvider, heightProvider, alignment,
+                glyphPadding, z,
                 randomUUID());
     }
 
@@ -198,7 +202,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         HorizontalAlignment alignment,
                                                         float glyphPadding,
                                                         int z) {
-        return textLine(fontId, staticVal(text), locationProvider, staticVal(height), alignment, glyphPadding, z,
+        return textLine(fontId, staticVal(text), locationProvider, staticVal(height), alignment,
+                glyphPadding, z,
                 randomUUID());
     }
 
@@ -209,7 +214,8 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                                                         HorizontalAlignment alignment,
                                                         float glyphPadding,
                                                         int z) {
-        return textLine(font, staticVal(text), locationProvider, staticVal(height), alignment, glyphPadding, z,
+        return textLine(font, staticVal(text), locationProvider, staticVal(height), alignment,
+                glyphPadding, z,
                 randomUUID());
     }
 
@@ -224,6 +230,31 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
                 fontId,
                 staticVal(text),
                 staticVal(location),
+                staticVal(height),
+                alignment,
+                glyphPadding,
+                z
+        );
+    }
+
+
+    /**
+     * (The location-less method exists for convenience, to be used for Component definitions which
+     * will ultimately replace the rendering location regardless. It does ultimately pass in a
+     * rendering location of (0f,0f), since
+     * {@link soliloquy.specs.io.graphics.renderables.factories.TextLineRenderableFactory} requires
+     * a location Provider.)
+     */
+    public static TextLineRenderableDefinition textLine(String fontId,
+                                                        String text,
+                                                        float height,
+                                                        HorizontalAlignment alignment,
+                                                        float glyphPadding,
+                                                        int z) {
+        return textLine(
+                fontId,
+                staticVal(text),
+                staticVal(vertexOf(0f, 0f)),
                 staticVal(height),
                 alignment,
                 glyphPadding,
@@ -259,6 +290,13 @@ public class TextLineRenderableDefinition extends AbstractContentDefinition {
     public TextLineRenderableDefinition withColorProviders(
             Map<Integer, ProviderAtTime<Color>> colorProviderIndices) {
         this.colorProviderIndices = colorProviderIndices;
+
+        return this;
+    }
+
+    public TextLineRenderableDefinition withColors(Map<Integer, Color> colors) {
+        this.colorProviderIndicesDefs = colors.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> staticVal(e.getValue())));
 
         return this;
     }

@@ -39,7 +39,7 @@ public interface Component extends Renderable, HasData {
      * @param content The content to add to this Component
      * @throws IllegalArgumentException If and only if content is null, or not already reporting
      *                                  this as its Component (c.f.
-     *                                  {@link Renderable#containingComponent()}, or if it is a
+     *                                  {@link Renderable#getContainingComponent()}, or if it is a
      *                                  Component whose tier (c.f. {@link #tier()}) is not one
      *                                  higher than this Component
      */
@@ -54,7 +54,7 @@ public interface Component extends Renderable, HasData {
      * @param data    Data to be fed into the add hook, c.f. {@link #addHookId()}.
      * @throws IllegalArgumentException If and only if content is null, or not already reporting
      *                                  this as its Component (c.f.
-     *                                  {@link Renderable#containingComponent()}, or if it is a
+     *                                  {@link Renderable#getContainingComponent()}, or if it is a
      *                                  Component whose tier (c.f. {@link #tier()}) is not one
      *                                  higher than this Component, or if data is null
      */

@@ -11,7 +11,7 @@ import java.util.UUID;
 import static java.util.UUID.randomUUID;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
-public class TriangleRenderableDefinition extends AbstractContentDefinition {
+public class TriangleRenderableDefinition extends AbstractRenderableWithMouseEventsDefinition {
     public final AbstractProviderDefinition<Vertex> VERTEX_1_PROVIDER_DEF;
     public final AbstractProviderDefinition<Vertex> VERTEX_2_PROVIDER_DEF;
     public final AbstractProviderDefinition<Vertex> VERTEX_3_PROVIDER_DEF;
@@ -42,11 +42,6 @@ public class TriangleRenderableDefinition extends AbstractContentDefinition {
 
     public AbstractProviderDefinition<Float> textureYOffsetProviderDef;
     public ProviderAtTime<Float> textureYOffsetProvider;
-
-    public Map<Integer, String> onPressIds;
-    public Map<Integer, String> onReleaseIds;
-    public String onMouseOverId;
-    public String onMouseLeaveId;
 
     private TriangleRenderableDefinition(AbstractProviderDefinition<Vertex> vertex1ProviderDef,
                                          AbstractProviderDefinition<Vertex> vertex2ProviderDef,

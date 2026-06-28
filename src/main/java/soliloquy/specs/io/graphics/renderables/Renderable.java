@@ -18,12 +18,20 @@ public interface Renderable extends HasUuid, Deletable {
     /**
      * @return The Component containing this Renderable
      */
-    Component containingComponent();
+    Component getContainingComponent();
+
+    /**
+     * <i><b>Call this method prior to {@link Component#add}; that method assumes the Renderable to
+     * be added already has it assigned as its containing Component!</b></i>
+     *
+     * @param containingComponent Can be null
+     */
+    void setContainingComponent(Component containingComponent);
 
     /**
      * <i>NB: Higher z values will be rendered first.</i>
      *
-     * @return The z-index of this Renderable within its {@link #containingComponent()}
+     * @return The z-index of this Renderable within its {@link #getContainingComponent()}
      */
     int getZ();
 

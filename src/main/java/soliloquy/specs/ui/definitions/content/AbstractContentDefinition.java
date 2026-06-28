@@ -11,11 +11,12 @@ import java.util.UUID;
  * @version 0.0.1
  */
 public abstract class AbstractContentDefinition {
-    public final int Z;
     public final UUID UUID;
 
+    public int z;
+
     protected AbstractContentDefinition(int z, UUID uuid) {
-        Z = z;
+        this.z = z;
         UUID = uuid;
     }
 }

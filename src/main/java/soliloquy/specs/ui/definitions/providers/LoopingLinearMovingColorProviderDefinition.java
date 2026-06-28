@@ -19,10 +19,12 @@ public class LoopingLinearMovingColorProviderDefinition extends
     }
 
     @SafeVarargs
-    public static LoopingLinearMovingColorProviderDefinition loopingColor(int periodDuration,
-                                                                          int renderTimestampOffset,
-                                                                          List<Boolean> hueMovementIsClockwise,
-                                                                          Pair<Integer, Color>... valuesWithinPeriod) {
+    public static LoopingLinearMovingColorProviderDefinition loopingColor(
+            int periodDuration,
+            int renderTimestampOffset,
+            List<Boolean> hueMovementIsClockwise,
+            Pair<Integer, Color>... valuesWithinPeriod
+    ) {
         return new LoopingLinearMovingColorProviderDefinition(periodDuration, renderTimestampOffset,
                 hueMovementIsClockwise, valuesWithinPeriod);
     }

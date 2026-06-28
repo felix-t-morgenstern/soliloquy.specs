@@ -1,6 +1,7 @@
 package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
+import soliloquy.specs.io.graphics.renderables.Renderable;
 import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.keyboard.KeyBindingDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
@@ -20,6 +21,7 @@ public class ComponentDefinition extends AbstractContentDefinition {
     public final AbstractProviderDefinition<FloatBox> RENDERING_BOUNDARIES_PROVIDER_DEF;
     public final ProviderAtTime<FloatBox> RENDERING_BOUNDARIES_PROVIDER;
     public final Set<AbstractContentDefinition> CONTENT;
+    public final Set<Renderable> PREREAD_CONTENT;
 
     public KeyBindingDefinition[] bindings;
     public Boolean blocksLowerBindings;
@@ -35,20 +37,28 @@ public class ComponentDefinition extends AbstractContentDefinition {
             AbstractProviderDefinition<FloatBox> renderingBoundariesProviderDef,
             ProviderAtTime<FloatBox> renderingBoundariesProvider,
             Set<AbstractContentDefinition> content,
+            Set<Renderable> prereadContent,
             UUID uuid
     ) {
         super(z, uuid);
         RENDERING_BOUNDARIES_PROVIDER_DEF = renderingBoundariesProviderDef;
         RENDERING_BOUNDARIES_PROVIDER = renderingBoundariesProvider;
-        CONTENT = content;
+        CONTENT = new HashSet<>();
+        if (content != null) {
+            CONTENT.addAll(content);
+        }
+        PREREAD_CONTENT = new HashSet<>();
+        if (prereadContent != null) {
+            PREREAD_CONTENT.addAll(prereadContent);
+        }
     }
 
     public static ComponentDefinition component(int z) {
-        return component(z, new HashSet<>());
+        return component(z, (UUID) null);
     }
 
     public static ComponentDefinition component(int z, UUID uuid) {
-        return component(z, new HashSet<>(), uuid);
+        return component(z, (Set<AbstractContentDefinition>) null, uuid);
     }
 
     public static ComponentDefinition component(
@@ -56,7 +66,15 @@ public class ComponentDefinition extends AbstractContentDefinition {
             Set<AbstractContentDefinition> content,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, null, null, content, uuid);
+        return new ComponentDefinition(z, null, null, content, null, uuid);
+    }
+
+    public static ComponentDefinition component(
+            int z,
+            UUID uuid,
+            Set<Renderable> prereadContent
+    ) {
+        return new ComponentDefinition(z, null, null, null, prereadContent, uuid);
     }
 
     public static ComponentDefinition component(
@@ -67,12 +85,19 @@ public class ComponentDefinition extends AbstractContentDefinition {
     }
 
     public static ComponentDefinition component(
+            Set<Renderable> prereadContent,
+            int z
+    ) {
+        return component(z, randomUUID(), prereadContent);
+    }
+
+    public static ComponentDefinition component(
             int z,
             AbstractProviderDefinition<FloatBox> renderingBoundariesProviderDef,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, renderingBoundariesProviderDef, null, new HashSet<>(),
-                uuid);
+        return new ComponentDefinition(z, renderingBoundariesProviderDef, null, null,
+                null, uuid);
     }
 
     public static ComponentDefinition component(
@@ -94,7 +119,8 @@ public class ComponentDefinition extends AbstractContentDefinition {
             ProviderAtTime<FloatBox> renderingBoundariesProvider,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, null, renderingBoundariesProvider, new HashSet<>(), uuid);
+        return new ComponentDefinition(z, null, renderingBoundariesProvider, null,
+                null, uuid);
     }
 
     public static ComponentDefinition component(
@@ -110,7 +136,7 @@ public class ComponentDefinition extends AbstractContentDefinition {
             Set<AbstractContentDefinition> content,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, dimensProviderDef, null, content, uuid);
+        return new ComponentDefinition(z, dimensProviderDef, null, content, null, uuid);
     }
 
     public static ComponentDefinition component(
@@ -127,7 +153,7 @@ public class ComponentDefinition extends AbstractContentDefinition {
             Set<AbstractContentDefinition> content,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, staticVal(dimens), null, content, uuid);
+        return new ComponentDefinition(z, staticVal(dimens), null, content, null, uuid);
     }
 
     public static ComponentDefinition component(
@@ -144,7 +170,7 @@ public class ComponentDefinition extends AbstractContentDefinition {
             Set<AbstractContentDefinition> content,
             UUID uuid
     ) {
-        return new ComponentDefinition(z, null, dimensProvider, content, uuid);
+        return new ComponentDefinition(z, null, dimensProvider, content, null, uuid);
     }
 
     public static ComponentDefinition component(
@@ -163,6 +189,18 @@ public class ComponentDefinition extends AbstractContentDefinition {
 
     public ComponentDefinition withContent(Collection<AbstractContentDefinition> content) {
         CONTENT.addAll(content);
+
+        return this;
+    }
+
+    public ComponentDefinition withPrereadContent(Renderable... prereadContent) {
+        PREREAD_CONTENT.addAll(Arrays.stream(prereadContent).toList());
+
+        return this;
+    }
+
+    public ComponentDefinition withPrereadContent(Collection<Renderable> prereadContent) {
+        PREREAD_CONTENT.addAll(prereadContent);
 
         return this;
     }

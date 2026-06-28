@@ -2,6 +2,7 @@ package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.colorshifting.ShiftDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
@@ -9,26 +10,42 @@ import java.awt.*;
 import java.util.Map;
 
 public class FiniteAnimationRenderableDefinition extends AbstractImageAssetRenderableDefinition {
-    public final String ANIMATION_ID;
-
     public int startTimestampOffset;
 
-    private FiniteAnimationRenderableDefinition(String animationId,
-                                                AbstractProviderDefinition<FloatBox> dimensionsProvider,
-                                                int z) {
-        super(dimensionsProvider, z);
-        ANIMATION_ID = animationId;
+    private FiniteAnimationRenderableDefinition(
+            String animationId,
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z
+    ) {
+        super(animationId, dimensionsProviderDef, z);
     }
 
-    public static FiniteAnimationRenderableDefinition finiteAnimation(String animationId,
-                                                                      AbstractProviderDefinition<FloatBox> dimensionsProvider,
-                                                                      int z) {
+    private FiniteAnimationRenderableDefinition(String animationId,
+                                                ProviderAtTime<FloatBox> dimensionsProvider,
+                                                int z) {
+        super(animationId, dimensionsProvider, z);
+    }
+
+    public static FiniteAnimationRenderableDefinition finiteAnimation(
+            String animationId,
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z
+    ) {
+        return new FiniteAnimationRenderableDefinition(animationId, dimensionsProviderDef, z);
+    }
+
+    public static FiniteAnimationRenderableDefinition finiteAnimation(
+            String animationId,
+            ProviderAtTime<FloatBox> dimensionsProvider,
+            int z
+    ) {
         return new FiniteAnimationRenderableDefinition(animationId, dimensionsProvider, z);
     }
 
     public FiniteAnimationRenderableDefinition withBorder(
             AbstractProviderDefinition<Float> thicknessProviderDef,
-            AbstractProviderDefinition<Color> colorProviderDef) {
+            AbstractProviderDefinition<Color> colorProviderDef
+    ) {
         borderThicknessProviderDef = thicknessProviderDef;
         borderColorProviderDef = colorProviderDef;
 

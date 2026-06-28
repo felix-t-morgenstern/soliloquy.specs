@@ -3,7 +3,7 @@ package soliloquy.specs.ui;
 import soliloquy.specs.common.entities.Consumer;
 import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents;
-import soliloquy.specs.io.input.mouse.MouseEventHandler;
+import soliloquy.specs.io.input.mouse.Mouse;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public class EventInputs {
     public Long TIMESTAMP;
 
     public Integer mouseButton;
-    public MouseEventHandler.EventType mouseEvent;
+    public Mouse.EventType mouseEvent;
     public RenderableWithMouseEvents renderable;
 
     public Integer keyCodepoint;
@@ -39,7 +39,7 @@ public class EventInputs {
 
     public EventInputs withMouseEvent(
             Integer mouseButton,
-            MouseEventHandler.EventType mouseEvent,
+            Mouse.EventType mouseEvent,
             RenderableWithMouseEvents renderable,
             Component component
     ) {

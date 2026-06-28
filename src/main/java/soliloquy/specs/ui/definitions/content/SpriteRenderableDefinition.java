@@ -2,6 +2,7 @@ package soliloquy.specs.ui.definitions.content;
 
 import soliloquy.specs.common.valueobjects.FloatBox;
 import soliloquy.specs.io.graphics.renderables.colorshifting.ColorShift;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 import soliloquy.specs.ui.definitions.colorshifting.ShiftDefinition;
 import soliloquy.specs.ui.definitions.providers.AbstractProviderDefinition;
 
@@ -11,17 +12,28 @@ import java.util.Map;
 import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.staticVal;
 
 public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefinition {
-    public final String SPRITE_ID;
+    private SpriteRenderableDefinition(String spriteId,
+                                       AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+                                       int z) {
+        super(spriteId, dimensionsProviderDef, z);
+    }
 
     private SpriteRenderableDefinition(String spriteId,
-                                       AbstractProviderDefinition<FloatBox> dimensionsProvider,
+                                       ProviderAtTime<FloatBox> dimensionsProvider,
                                        int z) {
-        super(dimensionsProvider, z);
-        this.SPRITE_ID = spriteId;
+        super(spriteId, dimensionsProvider, z);
+    }
+
+    public static SpriteRenderableDefinition sprite(
+            String spriteId,
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
+            int z
+    ) {
+        return new SpriteRenderableDefinition(spriteId, dimensionsProviderDef, z);
     }
 
     public static SpriteRenderableDefinition sprite(String spriteId,
-                                                    AbstractProviderDefinition<FloatBox> dimensionsProvider,
+                                                    ProviderAtTime<FloatBox> dimensionsProvider,
                                                     int z) {
         return new SpriteRenderableDefinition(spriteId, dimensionsProvider, z);
     }
@@ -32,7 +44,30 @@ public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefi
         return new SpriteRenderableDefinition(spriteId, staticVal(dimensions), z);
     }
 
-    public SpriteRenderableDefinition withBorder(AbstractProviderDefinition<Float> thicknessProviderDef, AbstractProviderDefinition<Color> colorProviderDef) {
+    /**
+     * This no-z method is a convenience for spinning up
+     */
+    public static SpriteRenderableDefinition sprite(
+            String spriteId,
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef
+    ) {
+        return new SpriteRenderableDefinition(spriteId, dimensionsProviderDef, 0);
+    }
+
+    public static SpriteRenderableDefinition sprite(String spriteId,
+                                                    ProviderAtTime<FloatBox> dimensionsProvider) {
+        return new SpriteRenderableDefinition(spriteId, dimensionsProvider, 0);
+    }
+
+    public static SpriteRenderableDefinition sprite(String spriteId,
+                                                    FloatBox dimensions) {
+        return new SpriteRenderableDefinition(spriteId, staticVal(dimensions), 0);
+    }
+
+    public SpriteRenderableDefinition withBorder(
+            AbstractProviderDefinition<Float> thicknessProviderDef,
+            AbstractProviderDefinition<Color> colorProviderDef
+    ) {
         borderThicknessProviderDef = thicknessProviderDef;
         borderColorProviderDef = colorProviderDef;
 
