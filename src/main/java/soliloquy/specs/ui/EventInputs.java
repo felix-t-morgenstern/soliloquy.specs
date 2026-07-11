@@ -1,6 +1,7 @@
 package soliloquy.specs.ui;
 
 import soliloquy.specs.common.entities.Consumer;
+import soliloquy.specs.common.valueobjects.Vertex;
 import soliloquy.specs.io.graphics.renderables.Component;
 import soliloquy.specs.io.graphics.renderables.RenderableWithMouseEvents;
 import soliloquy.specs.io.input.mouse.Mouse;
@@ -17,6 +18,7 @@ public class EventInputs {
 
     public Integer mouseButton;
     public Mouse.EventType mouseEvent;
+    public Vertex mouseLoc;
     public RenderableWithMouseEvents renderable;
 
     public Integer keyCodepoint;
@@ -40,11 +42,13 @@ public class EventInputs {
     public EventInputs withMouseEvent(
             Integer mouseButton,
             Mouse.EventType mouseEvent,
+            Vertex mouseLoc,
             RenderableWithMouseEvents renderable,
             Component component
     ) {
         this.mouseButton = mouseButton;
         this.mouseEvent = mouseEvent;
+        this.mouseLoc = mouseLoc;
         this.renderable = renderable;
         this.component = component;
 
