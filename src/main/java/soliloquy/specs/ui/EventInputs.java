@@ -66,9 +66,12 @@ public class EventInputs {
     public boolean equals(Object o) {
         if (o instanceof EventInputs e) {
             return Objects.equals(e.TIMESTAMP, TIMESTAMP) &&
-                    Objects.equals(e.renderable, renderable) &&
+                    Objects.equals(e.mouseButton, mouseButton) &&
                     Objects.equals(e.mouseEvent, mouseEvent) &&
-                    Objects.equals(e.keyCodepoint, keyCodepoint);
+                    Objects.equals(e.mouseLoc, mouseLoc) &&
+                    Objects.equals(e.renderable, renderable) &&
+                    Objects.equals(e.keyCodepoint, keyCodepoint) &&
+                    Objects.equals(e.component, component);
         }
         else {
             return false;
