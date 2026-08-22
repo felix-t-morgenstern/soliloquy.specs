@@ -65,13 +65,14 @@ public class EventInputs {
     @Override
     public boolean equals(Object o) {
         if (o instanceof EventInputs e) {
+            // renderable and component are refs
             return Objects.equals(e.TIMESTAMP, TIMESTAMP) &&
                     Objects.equals(e.mouseButton, mouseButton) &&
                     Objects.equals(e.mouseEvent, mouseEvent) &&
                     Objects.equals(e.mouseLoc, mouseLoc) &&
-                    Objects.equals(e.renderable, renderable) &&
+                    e.renderable == renderable &&
                     Objects.equals(e.keyCodepoint, keyCodepoint) &&
-                    Objects.equals(e.component, component);
+                    e.component == component;
         }
         else {
             return false;
