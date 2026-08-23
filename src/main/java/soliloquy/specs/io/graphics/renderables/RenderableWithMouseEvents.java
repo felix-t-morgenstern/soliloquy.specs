@@ -53,21 +53,22 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
      * Triggers the onClick mouse event
      *
      * @param mouseButton The mouse button being pressed (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param mouseLoc    The location at which the mouse event took place
      * @param timestamp   The timestamp at which the mouse button has been pressed
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      *                                       events
      * @throws IllegalArgumentException      If and only if mouseButton does not correspond to a
-     *                                       valid
-     *                                       mouse button
+     *                                       valid mouse button, or mouseLoc is null
      */
-    void press(int mouseButton, long timestamp)
+    void press(int mouseButton, Vertex mouseLoc, long timestamp)
             throws UnsupportedOperationException, IllegalArgumentException;
 
     /**
      * C.f. {@link #press} for more information
      *
      * @param mouseButton The mouse button being pressed (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onPress     The Consumer to run when the area of this Renderable is pressed; can be null
+     * @param onPress     The Consumer to run when the area of this Renderable is pressed; can be
+     *                    null
      * @throws IllegalArgumentException If and only if mouseButton does not correspond to a valid
      *                                  mouse button
      */
@@ -84,14 +85,14 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
      * Triggers the onRelease mouse event
      *
      * @param mouseButton The mouse button being released (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param mouseLoc    The location at which the mouse event took place
      * @param timestamp   The timestamp at which the mouse button has been released
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      *                                       events
      * @throws IllegalArgumentException      If and only if mouseButton does not correspond to a
-     *                                       valid
-     *                                       mouse button
+     *                                       valid mouse button, or if mouseLoc is null
      */
-    void release(int mouseButton, long timestamp)
+    void release(int mouseButton, Vertex mouseLoc, long timestamp)
             throws UnsupportedOperationException, IllegalArgumentException;
 
     /**
@@ -115,13 +116,15 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
     /**
      * Triggers the onMouseOver mouse event
      *
+     * @param mouseLoc  The location at which the mouse event took place
      * @param timestamp The timestamp at which the mouse moved over the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      *                                       events
-     * @throws IllegalArgumentException      If and only if the timestamp is before the most recent
-     *                                       timestamp provided to class
+     * @throws IllegalArgumentException      If and only if mouseLoc is null, or the timestamp is
+     *                                       before the most recent timestamp provided to class
      */
-    void mouseOver(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
+    void mouseOver(Vertex mouseLoc, long timestamp)
+            throws UnsupportedOperationException, IllegalArgumentException;
 
     /**
      * C.f. {@link #mouseOver} for more information
@@ -139,13 +142,15 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
     /**
      * Triggers the onMouseLeave mouse event
      *
+     * @param mouseLoc  The location at which the mouse event took place
      * @param timestamp The timestamp at which the mouse left the area of this Renderable
      * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
      *                                       events
-     * @throws IllegalArgumentException      If and only if the timestamp is before the most recent
-     *                                       timestamp provided to class
+     * @throws IllegalArgumentException      If and only if mouseLoc is null, or the timestamp is
+     *                                       before the most recent timestamp provided to class
      */
-    void mouseLeave(long timestamp) throws UnsupportedOperationException, IllegalArgumentException;
+    void mouseLeave(Vertex mouseLoc, long timestamp)
+            throws UnsupportedOperationException, IllegalArgumentException;
 
     /**
      * C.f. {@link #mouseLeave} for more information

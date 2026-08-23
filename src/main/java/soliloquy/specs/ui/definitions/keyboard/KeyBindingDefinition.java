@@ -2,20 +2,27 @@ package soliloquy.specs.ui.definitions.keyboard;
 
 public class KeyBindingDefinition {
     public final int[] KEY_CODEPOINTS;
-    public final String PRESS_CONSUMER_ID;
-    public final String RELEASE_CONSUMER_ID;
 
-    private KeyBindingDefinition(int[] keyCodepoints,
-                                 String pressConsumerId,
-                                 String releaseConsumerId) {
+    public String pressConsumerId;
+    public String releaseConsumerId;
+
+    private KeyBindingDefinition(int[] keyCodepoints) {
         KEY_CODEPOINTS = keyCodepoints;
-        PRESS_CONSUMER_ID = pressConsumerId;
-        RELEASE_CONSUMER_ID = releaseConsumerId;
     }
 
-    public static KeyBindingDefinition binding(String pressConsumerId,
-                                               String releaseConsumerId,
-                                               int... keyCodepoints) {
-        return new KeyBindingDefinition(keyCodepoints, pressConsumerId, releaseConsumerId);
+    public static KeyBindingDefinition binding(int... keyCodepoints) {
+        return new KeyBindingDefinition(keyCodepoints);
+    }
+
+    public KeyBindingDefinition onPress(String pressConsumerId) {
+        this.pressConsumerId = pressConsumerId;
+
+        return this;
+    }
+
+    public KeyBindingDefinition onRelease(String releaseConsumerId) {
+        this.releaseConsumerId = releaseConsumerId;
+
+        return this;
     }
 }
