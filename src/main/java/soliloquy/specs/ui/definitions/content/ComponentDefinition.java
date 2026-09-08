@@ -18,14 +18,14 @@ import static soliloquy.specs.ui.definitions.providers.StaticProviderDefinition.
  * {@link soliloquy.specs.io.graphics.renderables.Component}
  */
 public class ComponentDefinition extends AbstractContentDefinition {
-    public final AbstractProviderDefinition<FloatBox> RENDERING_BOUNDARIES_PROVIDER_DEF;
-    public final ProviderAtTime<FloatBox> RENDERING_BOUNDARIES_PROVIDER;
     public final Set<AbstractContentDefinition> CONTENT;
     public final Set<Renderable> PREREAD_CONTENT;
 
     public KeyBindingDefinition[] bindings;
     public Boolean blocksLowerBindings;
     public Integer keyBindingPriority;
+    public AbstractProviderDefinition<FloatBox> renderingBoundariesProviderDef;
+    public ProviderAtTime<FloatBox> renderingBoundariesProvider;
     public AbstractProviderDefinition<FloatBox> dimensionsProviderDef;
     public ProviderAtTime<FloatBox> dimensionsProvider;
     public String prerenderHookId;
@@ -41,8 +41,8 @@ public class ComponentDefinition extends AbstractContentDefinition {
             UUID uuid
     ) {
         super(z, uuid);
-        RENDERING_BOUNDARIES_PROVIDER_DEF = renderingBoundariesProviderDef;
-        RENDERING_BOUNDARIES_PROVIDER = renderingBoundariesProvider;
+        this.renderingBoundariesProviderDef = renderingBoundariesProviderDef;
+        this.renderingBoundariesProvider = renderingBoundariesProvider;
         CONTENT = new HashSet<>();
         if (content != null) {
             CONTENT.addAll(content);
@@ -205,9 +205,9 @@ public class ComponentDefinition extends AbstractContentDefinition {
         return this;
     }
 
-    public ComponentDefinition withBindings(boolean blocksLowerBindings,
-                                            int keyBindingPriority,
-                                            KeyBindingDefinition... bindings) {
+    public ComponentDefinition withKeyBindings(boolean blocksLowerBindings,
+                                               int keyBindingPriority,
+                                               KeyBindingDefinition... bindings) {
         this.bindings = bindings;
         this.blocksLowerBindings = blocksLowerBindings;
         this.keyBindingPriority = keyBindingPriority;
