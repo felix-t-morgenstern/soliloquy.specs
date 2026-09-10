@@ -1,6 +1,7 @@
 package soliloquy.specs.io.audio.entities;
 
 import soliloquy.specs.common.shared.HasUuid;
+import soliloquy.specs.io.graphics.renderables.providers.ProviderAtTime;
 
 /**
  * <b>Sound</b>
@@ -95,22 +96,23 @@ public interface Sound extends HasUuid {
     boolean isStopped();
 
     /**
-     * @return The volume, expressed as a percentage (0-100)
+     * @return Provides the volume, expressed as a percentage (0f-1f)
      * @throws UnsupportedOperationException If this Sound has already been stopped
      */
-    double getVolume() throws UnsupportedOperationException;
+    ProviderAtTime<Float> getVolumeProvider() throws UnsupportedOperationException;
 
     /**
-     * @param volume The volume to which to set the Sound, expressed as a percentage (0.0 1.0)
-     *               <p>
-     *               If this Sound is muted, then setting volume with this call will set this Sound
-     *               to no longer
-     *               be muted, even if the volume is being set to zero.
-     * @throws IllegalArgumentException      If the value provided is not a double between 0.0 and
-     *                                       1.0.
+     * @param volumeProvider The volumeProvider to which to set the Sound, expressed as a percentage
+     *                       (0f-1f)
+     *                       <p>
+     *                       If this Sound is muted, then setting volumeProvider with this call will
+     *                       set this Sound to no longer be muted, even if the volumeProvider is
+     *                       being set to zero.
+     * @throws IllegalArgumentException      If and only if volumeProvider is null
      * @throws UnsupportedOperationException If this Sound has already been stopped
      */
-    void setVolume(double volume) throws IllegalArgumentException, UnsupportedOperationException;
+    void setVolumeProvider(ProviderAtTime<Float> volumeProvider)
+            throws IllegalArgumentException, UnsupportedOperationException;
 
     /**
      * (NB: If the media has not yet been readied, this method repeatedly takes a miniscule break
@@ -153,6 +155,7 @@ public interface Sound extends HasUuid {
 
     /**
      * <i>NB: This method exists to handle Sound persistence</i>
+     *
      * @return The ms position at which the looping Sound stops and then restarts
      * @throws UnsupportedOperationException If and only if the Sound is not looping
      */
@@ -175,6 +178,7 @@ public interface Sound extends HasUuid {
 
     /**
      * <i>NB: This method exists to handle Sound persistence</i>
+     *
      * @return The ms position at which the Sound restarts when it reaches the end of a loop
      * @throws UnsupportedOperationException If and only if the Sound is not looping
      */
