@@ -28,7 +28,10 @@ public interface ComponentFactory {
      *                                    the keyBindings of Components with lower priority (c.f.
      *                                    {@link KeyEventHandler#addComponent})
      * @param dimensionsProvider          Provides the dimensions of this Component for UI purposes
-     *                                    (c.f. {@link Component#getDimensionsProvider()})
+     *                                    (c.f. {@link Component#dimensionsProvider()})
+     * @param unadjDimensionsProvider     Provides the unadjusted dimensions of this Component for
+     *                                    UI purposes (c.f.
+     *                                    {@link Component#unadjustedDimensionsProvider()} ()})
      * @param renderingBoundariesProvider Provides the rendering boundaries for this Component, to
      *                                    be fed into
      *                                    {@link RenderingBoundaries#currentBoundaries()}
@@ -55,6 +58,7 @@ public interface ComponentFactory {
             boolean blocksLowerKeyBindings,
             int keyBindingPriority,
             ProviderAtTime<FloatBox> dimensionsProvider,
+            ProviderAtTime<FloatBox> unadjDimensionsProvider,
             ProviderAtTime<FloatBox> renderingBoundariesProvider,
             String prerenderHookId,
             String addHookId,

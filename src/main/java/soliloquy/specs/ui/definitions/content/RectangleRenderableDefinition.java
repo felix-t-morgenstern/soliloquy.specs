@@ -104,6 +104,24 @@ public class RectangleRenderableDefinition extends AbstractRenderableWithDimensi
         return rectangle(staticVal(dimensions), z);
     }
 
+    public static RectangleRenderableDefinition rectangle(
+            ProviderAtTime<FloatBox> dimensionsProvider
+    ) {
+        return rectangle(dimensionsProvider, 0);
+    }
+
+    public static RectangleRenderableDefinition rectangle(
+            AbstractProviderDefinition<FloatBox> dimensionsProviderDef
+    ) {
+        return rectangle(dimensionsProviderDef, 0);
+    }
+
+    public static RectangleRenderableDefinition rectangle(
+            FloatBox dimensions
+    ) {
+        return rectangle(staticVal(dimensions), 0);
+    }
+
     public RectangleRenderableDefinition withColor(Color color) {
         topLeftColorProviderDef = topRightColorProviderDef =
                 bottomLeftColorProviderDef = bottomRightColorProviderDef = staticVal(color);

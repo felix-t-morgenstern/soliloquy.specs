@@ -28,6 +28,8 @@ public class ComponentDefinition extends AbstractContentDefinition {
     public ProviderAtTime<FloatBox> renderingBoundariesProvider;
     public AbstractProviderDefinition<FloatBox> dimensionsProviderDef;
     public ProviderAtTime<FloatBox> dimensionsProvider;
+    public AbstractProviderDefinition<FloatBox> unadjDimensionsProviderDef;
+    public ProviderAtTime<FloatBox> unadjDimensionsProvider;
     public String prerenderHookId;
     public String addHookId;
     public Map<String, Object> data;
@@ -230,6 +232,25 @@ public class ComponentDefinition extends AbstractContentDefinition {
 
     public ComponentDefinition withDimensions(FloatBox dimensions) {
         this.dimensionsProviderDef = staticVal(dimensions);
+
+        return this;
+    }
+
+    public ComponentDefinition withUnadjDimensions(ProviderAtTime<FloatBox> unadjDimensionsProvider) {
+        this.unadjDimensionsProvider = unadjDimensionsProvider;
+
+        return this;
+    }
+
+    public ComponentDefinition withUnadjDimensions(
+            AbstractProviderDefinition<FloatBox> unadjDimensionsProviderDef) {
+        this.unadjDimensionsProviderDef = unadjDimensionsProviderDef;
+
+        return this;
+    }
+
+    public ComponentDefinition withUnadjDimensions(FloatBox unadjDimensions) {
+        this.unadjDimensionsProviderDef = staticVal(unadjDimensions);
 
         return this;
     }

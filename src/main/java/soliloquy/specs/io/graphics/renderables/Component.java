@@ -93,25 +93,26 @@ public interface Component extends Renderable, HasData {
     Set<Renderable> contentsRepresentation();
 
     /**
-     * This method is used by other Components to know the dimensions this Component takes up, for
-     * layout purposes.
+     * This method returns a provider which returns dimensions, describing both the shape and
+     * location of the Component.
      * <p>
-     * <i>This method is different from {@link #getRenderingBoundariesProvider()}!</i> The rendering
+     * <i>This method is different from {@link #getRenderingBoundariesProvider()}!</i> The
+     * rendering
      * boundaries are fed into {@link RenderingBoundaries#pushNewBoundaries} to limit the rendering
      * space, which is useful for instance in a scrollable box of content. This method is used so
      * that a scrollable box of content will be able to know the dimensions of its content.
      *
-     * @return The dimensions this Component takes up
+     * @return A provider which provides the dimensions this Component takes up
      */
-    ProviderAtTime<FloatBox> getDimensionsProvider();
+    ProviderAtTime<FloatBox> dimensionsProvider();
 
     /**
-     * @param dimensionsProvider Provides the dimensions of this Component, c.f.
-     *                           {@link #getDimensionsProvider()}
-     * @throws IllegalArgumentException If and only if dimensionsProvider is null
+     * The dimensions provided are <i>only</i> reflective of the <i>size</i> of the Component
+     * on-screen, <i>not</i> its location; for its dimensions, <i>including</i> location, use
+     * {@link #dimensionsProvider()}. This method is used by other Components to know the dimensions
+     * this Component takes up, for layout purposes.
      */
-    void setDimensionsProvider(ProviderAtTime<FloatBox> dimensionsProvider)
-            throws IllegalArgumentException;
+    ProviderAtTime<FloatBox> unadjustedDimensionsProvider();
 
     /**
      * <i>NB: To be used by {@link RenderingBoundaries#currentBoundaries()}</i>
