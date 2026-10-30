@@ -19,6 +19,7 @@ public class EventInputs {
     public Integer mouseButton;
     public Mouse.EventType mouseEvent;
     public Vertex mouseLoc;
+    public float scrollWheelOffset;
     public RenderableWithMouseEvents renderable;
 
     public Integer keyCodepoint;
@@ -49,6 +50,20 @@ public class EventInputs {
         this.mouseButton = mouseButton;
         this.mouseEvent = mouseEvent;
         this.mouseLoc = mouseLoc;
+        this.renderable = renderable;
+        this.component = component;
+
+        return this;
+    }
+
+    public EventInputs withMouseScrollWheelEvent(
+            Vertex mouseLoc,
+            float scrollWheelOffset,
+            RenderableWithMouseEvents renderable,
+            Component component
+    ) {
+        this.mouseLoc = mouseLoc;
+        this.scrollWheelOffset = scrollWheelOffset;
         this.renderable = renderable;
         this.component = component;
 

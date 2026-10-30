@@ -37,11 +37,6 @@ public class RectangleRenderableDefinition extends AbstractRenderableWithDimensi
     public AbstractProviderDefinition<Float> textureYOffsetProviderDef;
     public ProviderAtTime<Float> textureYOffsetProvider;
 
-    public Map<Integer, String> onPressIds;
-    public Map<Integer, String> onReleaseIds;
-    public String onMouseOverId;
-    public String onMouseLeaveId;
-
     private RectangleRenderableDefinition(
             AbstractProviderDefinition<FloatBox> dimensionsProviderDef,
             int z,
@@ -268,6 +263,12 @@ public class RectangleRenderableDefinition extends AbstractRenderableWithDimensi
 
     public RectangleRenderableDefinition onRelease(Map<Integer, String> onReleaseIds) {
         this.onReleaseIds = onReleaseIds;
+
+        return this;
+    }
+
+    public RectangleRenderableDefinition onWheelScroll(String onWheelScrollId) {
+        this.onWheelScrollId = onWheelScrollId;
 
         return this;
     }

@@ -33,7 +33,7 @@ public interface FiniteAnimationRenderableFactory {
      * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param component         The Component to contain the Renderable
+     * @param component               The Component to contain the Renderable
      * @param startTimestamp          The time at which this Animation began or will begin
      * @param pausedTimestamp         The time at which this Animation has been paused
      * @return The newly-created FiniteAnimationRenderable
@@ -58,21 +58,23 @@ public interface FiniteAnimationRenderableFactory {
      * @param animation               The Animation to be rendered
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider     A class which provides the color of the border to render
-     * @param onPress                 The Actions which is fired when a click is registered on this
-     *                                renderable, with the integer keys corresponding to mouse
+     * @param onPress                 The actions which are fired when a click is registered on this
+     *                                Renderable, with the integer keys corresponding to mouse
      *                                buttons (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onRelease               The Actions which is fired when a click is registered on this
-     *                                renderable, with the integer keys corresponding to mouse
+     * @param onRelease               The actions which is fired when a click is registered on this
+     *                                Renderable, with the integer keys corresponding to mouse
      *                                buttons (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onMouseOver             The Action which is fired when the mouse moves over this
-     *                                renderable
-     * @param onMouseLeave            The Action which is fired when the mouse leaves this
-     *                                renderable
+     * @param onWheelScroll           The action which is fired when the mouse wheel is moved over
+     *                                this Renderable
+     * @param onMouseOver             The action which is fired when the mouse moves over this
+     *                                Renderable
+     * @param onMouseLeave            The action which is fired when the mouse leaves this
+     *                                Renderable
      * @param colorShifts             A list ColorShifts for this Animation
      * @param areaProvider            A class which provides the dimensions in which to render
      * @param z                       The z index within the container
      * @param uuid                    The universally unique identifier
-     * @param component         The Component to contain the Renderable
+     * @param component               The Component to contain the Renderable
      * @param startTimestamp          The time at which this Animation began or will begin
      * @param pausedTimestamp         The time at which this Animation has been paused
      * @return The newly-created FiniteAnimationRenderable
@@ -85,6 +87,7 @@ public interface FiniteAnimationRenderableFactory {
                                    ProviderAtTime<Color> borderColorProvider,
                                    Map<Integer, Consumer<EventInputs>> onPress,
                                    Map<Integer, Consumer<EventInputs>> onRelease,
+                                   Consumer<EventInputs> onWheelScroll,
                                    Consumer<EventInputs> onMouseOver,
                                    Consumer<EventInputs> onMouseLeave,
                                    List<ColorShift> colorShifts,

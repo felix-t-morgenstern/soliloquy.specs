@@ -30,10 +30,9 @@ public interface RectangleRenderableFactory {
      *                                      {@link
      *                                      RectangleRenderable#getBottomRightColorProvider()}
      * @param bottomLeftColorProvider       See
-     *                                      {@link RectangleRenderable#getBottomLeftColorProvider()}
-     * @param textureIdProvider             See
      *                                      {@link
-     *                                      PolygonRenderable#getTextureIdProvider()}
+     *                                      RectangleRenderable#getBottomLeftColorProvider()}
+     * @param textureIdProvider             See {@link PolygonRenderable#getTextureIdProvider()}
      * @param textureTilesPerWidthProvider  See
      *                                      {@link
      *                                      PolygonRenderable#getTextureTilesPerWidthProvider()}
@@ -44,15 +43,17 @@ public interface RectangleRenderableFactory {
      *                                      PolygonRenderable#getTextureTilesPerHeightProvider()}
      * @param textureYOffsetProvider        See
      *                                      {@link PolygonRenderable#getTextureYOffsetProvider()}
-     * @param onPress                       The Actions which is fired when a click is registered on
-     *                                      this Renderable, with the integer keys corresponding to
-     *                                      mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onRelease                     The Actions which is fired when a click is registered on
-     *                                      this Renderable, with the integer keys corresponding to
-     *                                      mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
-     * @param onMouseOver                   The Action which is fired when the mouse moves over this
+     * @param onPress                       The actions which are fired when a click is registered
+     *                                      on this Renderable, with the integer keys corresponding
+     *                                      to mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onRelease                     The actions which are fired when a click is registered
+     *                                      on this Renderable, with the integer keys corresponding
+     *                                      to mouse buttons (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onWheelScroll                 The action which is fired when the mouse wheel is moved
+     *                                      over this Renderable
+     * @param onMouseOver                   The action which is fired when the mouse moves over this
      *                                      Renderable
-     * @param onMouseLeave                  The Action which is fired when the mouse leaves this
+     * @param onMouseLeave                  The action which is fired when the mouse leaves this
      *                                      Renderable
      * @param dimensProvider                A class which provides the dimensions in which to render
      * @param z                             The z index within the container
@@ -78,6 +79,7 @@ public interface RectangleRenderableFactory {
                              ProviderAtTime<Float> textureYOffsetProvider,
                              Map<Integer, Consumer<EventInputs>> onPress,
                              Map<Integer, Consumer<EventInputs>> onRelease,
+                             Consumer<EventInputs> onWheelScroll,
                              Consumer<EventInputs> onMouseOver,
                              Consumer<EventInputs> onMouseLeave,
                              ProviderAtTime<FloatBox> dimensProvider,

@@ -87,6 +87,12 @@ public class ImageAssetSetRenderableDefinition extends AbstractImageAssetRendera
         return this;
     }
 
+    public ImageAssetSetRenderableDefinition onWheelScroll(String onWheelScrollId) {
+        this.onWheelScrollId = onWheelScrollId;
+
+        return this;
+    }
+
     public ImageAssetSetRenderableDefinition onMouseOver(String onMouseOverId) {
         this.onMouseOverId = onMouseOverId;
 

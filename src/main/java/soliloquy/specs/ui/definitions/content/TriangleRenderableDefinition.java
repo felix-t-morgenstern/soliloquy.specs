@@ -281,6 +281,12 @@ public class TriangleRenderableDefinition extends AbstractRenderableWithMouseEve
         return this;
     }
 
+    public TriangleRenderableDefinition onWheelScroll(String onWheelScrollId) {
+        this.onWheelScrollId = onWheelScrollId;
+
+        return this;
+    }
+
     public TriangleRenderableDefinition onMouseOver(String onMouseOverId) {
         this.onMouseOverId = onMouseOverId;
 

@@ -17,18 +17,36 @@ import java.util.Map;
 public interface RenderableWithMouseEvents extends RenderableWithDimensions {
     /**
      * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
-     *         events
+     *         events for mouse buttons (e.g., GLFW_MOUSE_BUTTON_LEFT, GLFW_MOUSE_BUTTON_RIGHT,
+     *         etc.)
      */
-    boolean getCapturesMouseEvents();
+    boolean getCapturesMouseButtonEvents();
 
     /**
-     * C.f. {@link #getCapturesMouseEvents()} for more information
+     * C.f. {@link #getCapturesMouseButtonEvents()} for more information
      *
-     * @param capturesMouseEvents Whether this Renderable supports mouse-capturing events
-     * @throws IllegalArgumentException If and only if capturesMouseEvents is true, and the
+     * @param capturesMouseButtonEvents Whether this Renderable supports mouse-capturing events
+     * @throws IllegalArgumentException If and only if capturesMouseButtonEvents is true, and the
      *                                  underlying Asset does not support capturing mouse events
      */
-    void setCapturesMouseEvents(boolean capturesMouseEvents) throws IllegalArgumentException;
+    void setCapturesMouseButtonEvents(boolean capturesMouseButtonEvents)
+            throws IllegalArgumentException;
+
+    /**
+     * @return True, if and only if this Renderable captures (and thus potentially triggers) mouse
+     *         scroll wheel events
+     */
+    boolean getCapturesMouseWheelEvents();
+
+    /**
+     * C.f. {@link #getCapturesMouseWheelEvents()} for more information
+     *
+     * @param capturesMouseWheelEvents Whether this Renderable supports mouse-capturing events
+     * @throws IllegalArgumentException If and only if capturesMouseWheelEvents is true, and the
+     *                                  underlying Asset does not support capturing mouse events
+     */
+    void setCapturesMouseWheelEvents(boolean capturesMouseWheelEvents)
+            throws IllegalArgumentException;
 
     /**
      * (NB: This method should return false if the mouse event occurs outside the
@@ -112,6 +130,30 @@ public interface RenderableWithMouseEvents extends RenderableWithDimensions {
      *         the Ids of the Consumers ran when those respective mouse buttons are released
      */
     Map<Integer, String> releaseConsumerIds();
+
+    /**
+     * @param offset    The degree by which the wheel has been moved, where negative values imply
+     *                  scrolling down (i.e., pulling the wheel closer to the user), and positive
+     *                  values imply scrolling up
+     * @param mouseLoc  The location at which the mouse event took place
+     * @param timestamp The timestamp at which the mouse button has been pressed
+     * @throws UnsupportedOperationException If and only if this Renderable does not capture mouse
+     *                                       events
+     * @throws IllegalArgumentException      If and only if mouseLoc is null
+     */
+    void wheelScroll(float offset, Vertex mouseLoc, long timestamp)
+            throws UnsupportedOperationException, IllegalArgumentException;
+
+    /**
+     * @param onWheelScroll The Consumer to run when the mouse is within this Renderable, and a
+     *                      scroll wheel movement is detected; can be null
+     */
+    void setOnWheelScroll(Consumer<EventInputs> onWheelScroll);
+
+    /**
+     * @return The Id of the Consumer handling mouse scroll events; if none, then null
+     */
+    String wheelScrollConsumerId();
 
     /**
      * Triggers the onMouseOver mouse event

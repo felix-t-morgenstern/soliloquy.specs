@@ -51,18 +51,18 @@ public interface GlobalLoopingAnimationRenderableFactory {
      * @param globalLoopingAnimation  The GlobalLoopingAnimation to render
      * @param borderThicknessProvider A class which provides the thickness of the border to render
      * @param borderColorProvider     A class which provides the color of the border to render
-     * @param onPress                 The Actions which is fired when a click is registered on this
-     *                                renderable,
-     *                                with the integer keys corresponding to mouse buttons (c.f.
-     *                                GLFW_MOUSE_BUTTON_*)
-     * @param onRelease               The Actions which is fired when a click is registered on this
-     *                                renderable,
-     *                                with the integer keys corresponding to mouse buttons (c.f.
-     *                                GLFW_MOUSE_BUTTON_*)
-     * @param onMouseOver             The Action which is fired when the mouse moves over this
-     *                                renderable
-     * @param onMouseLeave            The Action which is fired when the mouse leaves this
-     *                                renderable
+     * @param onPress                 The actions which are fired when a click is registered on this
+     *                                Renderable, with the integer keys corresponding to mouse
+     *                                buttons (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onRelease               The actions which are fired when a click is registered on this
+     *                                Renderable, with the integer keys corresponding to mouse
+     *                                buttons (c.f. GLFW_MOUSE_BUTTON_*)
+     * @param onWheelScroll           The action which is fired when the mouse wheel is moved over
+     *                                this Renderable
+     * @param onMouseOver             The action which is fired when the mouse moves over this
+     *                                Renderable
+     * @param onMouseLeave            The action which is fired when the mouse leaves this
+     *                                Renderable
      * @param colorShifts             The ColorShifts to apply when rendering
      * @param areaProvider            A class which provides the area in which to render
      * @param z                       The z index within the container
@@ -78,6 +78,7 @@ public interface GlobalLoopingAnimationRenderableFactory {
                                           ProviderAtTime<Color> borderColorProvider,
                                           Map<Integer, Consumer<EventInputs>> onPress,
                                           Map<Integer, Consumer<EventInputs>> onRelease,
+                                          Consumer<EventInputs> onWheelScroll,
                                           Consumer<EventInputs> onMouseOver,
                                           Consumer<EventInputs> onMouseLeave,
                                           List<ColorShift> colorShifts,

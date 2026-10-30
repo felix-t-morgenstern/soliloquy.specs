@@ -7,6 +7,7 @@ public abstract class AbstractRenderableWithMouseEventsDefinition
         extends AbstractContentDefinition {
     public Map<Integer, String> onPressIds;
     public Map<Integer, String> onReleaseIds;
+    public String onWheelScrollId;
     public String onMouseOverId;
     public String onMouseLeaveId;
 
@@ -20,6 +21,10 @@ public abstract class AbstractRenderableWithMouseEventsDefinition
 
     public abstract AbstractRenderableWithMouseEventsDefinition onRelease(
             Map<Integer, String> onReleaseIds
+    );
+
+    public abstract AbstractRenderableWithMouseEventsDefinition onWheelScroll(
+            String onWheelScrollId
     );
 
     public abstract AbstractRenderableWithMouseEventsDefinition onMouseOver(

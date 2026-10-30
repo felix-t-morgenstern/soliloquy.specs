@@ -98,6 +98,12 @@ public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefi
         return this;
     }
 
+    public SpriteRenderableDefinition onWheelScroll(String onWheelScrollId) {
+        this.onWheelScrollId = onWheelScrollId;
+
+        return this;
+    }
+
     public SpriteRenderableDefinition onMouseOver(String onMouseOverId) {
         this.onMouseOverId = onMouseOverId;
 

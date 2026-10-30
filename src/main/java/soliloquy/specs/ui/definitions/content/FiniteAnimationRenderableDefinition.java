@@ -64,6 +64,12 @@ public class FiniteAnimationRenderableDefinition extends AbstractImageAssetRende
         return this;
     }
 
+    public FiniteAnimationRenderableDefinition onWheelScroll(String onWheelScrollId) {
+        this.onWheelScrollId = onWheelScrollId;
+
+        return this;
+    }
+
     public FiniteAnimationRenderableDefinition onMouseOver(String onMouseOverId) {
         this.onMouseOverId = onMouseOverId;
 

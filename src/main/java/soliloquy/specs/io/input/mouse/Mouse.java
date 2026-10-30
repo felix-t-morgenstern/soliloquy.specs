@@ -30,6 +30,7 @@ public interface Mouse {
     enum EventType {
         PRESS,
         RELEASE,
+        WHEEL_SCROLL,
         MOUSE_OVER,
         MOUSE_LEAVE
     }
