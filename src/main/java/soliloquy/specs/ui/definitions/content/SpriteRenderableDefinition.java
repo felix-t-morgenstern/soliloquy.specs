@@ -44,9 +44,6 @@ public class SpriteRenderableDefinition extends AbstractImageAssetRenderableDefi
         return new SpriteRenderableDefinition(spriteId, staticVal(dimensions), z);
     }
 
-    /**
-     * This no-z method is a convenience for spinning up
-     */
     public static SpriteRenderableDefinition sprite(
             String spriteId,
             AbstractProviderDefinition<FloatBox> dimensionsProviderDef

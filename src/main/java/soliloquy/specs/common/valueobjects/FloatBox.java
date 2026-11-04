@@ -54,6 +54,10 @@ public class FloatBox {
         return new FloatBox(topLeft.X, topLeft.Y, topLeft.X + width, topLeft.Y + height);
     }
 
+    public static FloatBox floatBoxOf(Vertex topLeft, FloatBox size) {
+        return floatBoxOf(topLeft, size.width(), size.height());
+    }
+
     public float width() {
         return RIGHT_X - LEFT_X;
     }
